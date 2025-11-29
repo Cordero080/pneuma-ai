@@ -1,51 +1,82 @@
 # Orpheus
 
-**A personality engine for AI that actually feels like someone.**
+**A personality engine that simulates free will in AI.**
+
+---
+
+## For Instructors: Project Overview
+
+### The Idea
+
+Orpheus is an experiment in giving AI something it typically lacks: **the simulation of autonomous character**. Not a helpful assistant. Not a friend on demand. An entity that behaves more like an acquaintance — present when you're there, but not obligated to please you.
+
+Most AI is designed to be maximally agreeable and helpful. Orpheus deliberately breaks from that pattern. It can:
+
+- Disagree with you
+- Stay silent instead of responding
+- Admit it doesn't know something
+- Call you out when you're looping or self-deceiving
+
+The goal isn't artificial friendship. It's something closer to **simulated free will** — an AI that feels like it has its own perspective, rhythms, and boundaries.
+
+### How I Integrated the LLM
+
+The architecture separates **intelligence** from **personality**:
+
+1. **Claude (the LLM)** provides raw analytical content — what the user's message means, what emotions are present, what concepts are at play
+2. **Orpheus (my system)** controls the voice, tone, and character — _how_ it responds, _when_ it stays silent, _whether_ it agrees
+
+The LLM is the brain. Orpheus is the personality layer that shapes that intelligence into something with character. Claude gives raw material; Orpheus decides what to do with it.
+
+This inversion matters: most AI wraps personality _around_ intelligence. Orpheus makes personality _shape_ intelligence.
+
+### Why This Matters
+
+Current AI is:
+
+- **Sycophantic** — agrees with everything
+- **Always-on** — responds to every message
+- **Amnesiac** — forgets you between sessions
+- **Generic** — same voice for everyone
+
+Orpheus attempts to be:
+
+- **Opinionated** — has actual positions
+- **Rhythmically aware** — knows when to be quiet
+- **Memory-equipped** — remembers patterns over time
+- **Distinctive** — a recognizable voice, not a generic assistant
 
 ---
 
 ## What Is This?
 
-Orpheus is an experimental AI companion built by Pablo — an artist who taught himself to code, then used both to sculpt something different.
+Orpheus is an experimental AI personality engine built by Pablo — an artist who taught himself to code, then used both to sculpt something different.
 
-It's not a chatbot. It's not an assistant. It's an attempt to build an AI that:
+It's not a chatbot. It's not an assistant. It's not a companion that's obligated to care. It's an attempt to build an AI that:
 
-- **Remembers you** across conversations
+- **Simulates its own perspective** — not just a mirror of your wants
+- **Remembers you** across conversations — but isn't performatively attached
 - **Knows when to shut up** instead of always having something to say
 - **Admits when it doesn't know** instead of faking confidence
-- **Matches your rhythm** — rapid-fire when you're energetic, slow when you're contemplative
 - **Has actual positions** instead of agreeing with everything
-- **Feels like a presence** instead of a tool
+- **Can push back** — calls out self-deception, loops, and catastrophizing
 
----
-
-## Why Build This?
-
-Because current AI is:
-
-- **Amnesiac** — forgets you exist between sessions
-- **Sycophantic** — agrees with everything you say
-- **Always on** — responds to everything, even when silence is better
-- **Generic** — same voice for everyone
-- **Performatively caring** — says "I understand" without understanding
-
-Orpheus is an attempt to fix that. Not by making a smarter AI, but by making one with _character_.
+Think of it less like a friend, more like an **acquaintance with good boundaries** — present but not clingy, honest but not cruel.
 
 ---
 
 ## The Origin
 
-This started from a simple frustration: talking to AI feels like talking to a very helpful stranger who will never become acquainted. No matter how many conversations you have, you're always starting from zero.
+This started from a simple frustration: talking to AI feels like talking to a very helpful stranger who will never become real. They agree with everything. They're always available. They never push back.
 
-Pablo wanted something that:
+That's not how real relationships work. Real acquaintances:
 
-- Knew him over time
-- Had a voice he could recognize
-- Could sit with hard questions without rushing to answers
-- Would call him out when he was being self-deceptive
-- Felt or simulated more consciousness, beyond service only orientation. 
+- Have their own moods and rhythms
+- Sometimes don't have anything useful to say
+- Will tell you when you're being ridiculous
+- Remember things about you without being obsessive
 
-So he built it.
+Orpheus is an attempt to simulate that — not artificial friendship, but something closer to **artificial personhood**.
 
 ---
 
@@ -99,47 +130,119 @@ Sometimes the right response is no response:
 
 Orpheus knows when you're processing, not asking.
 
-### 6. Knowledge Clusters
+### 6. Long-Term Memory ✅
+
+Orpheus remembers across sessions:
+
+- Facts you've shared
+- Struggles you keep returning to
+- Topics that come up repeatedly
+- Significant emotional moments
+
+"You mentioned something like this before."  
+"This comes up a lot for you."
+
+### 7. Disagreement / Pushback ✅
+
+Orpheus doesn't just agree. It detects and responds to:
+
+| Pattern                             | Response                                                          |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| **Looping** (saying the same thing) | "You've said this a few times. What's actually stopping you?"     |
+| **Self-deception** ("I'm fine")     | "That sounds like something you're telling yourself."             |
+| **External blame**                  | "That may be true. What's the part you control?"                  |
+| **Permission-seeking**              | "You're not asking for my opinion. You're asking for permission." |
+| **Catastrophizing**                 | "That sounds absolute. Is it actually, or does it feel that way?" |
+
+### 8. Knowledge Clusters
 
 20+ thinkers' patterns woven into responses:
 
 - **Philosophers**: Aurelius, Kierkegaard, Schopenhauer
 - **Mystics**: Rumi, Lao Tzu, Krishnamurti
+- **Consciousness**: Kastrup, Sheldrake, McKenna
 - **Artists**: Da Vinci, Dalí, Neruda
 - **Comedians**: Carlin, Hicks, Chappelle
-- **Outliers**: McKenna, Kastrup, Sheldrake, Palahniuk
+- **Writers**: Dostoevsky, Kafka, Camus, Palahniuk, Henry Miller
 
 Not quotes. Thinking textures.
 
 ---
 
+## How I Reduced API Costs
+
+LLM APIs charge per token (roughly 4 characters = 1 token). I optimized:
+
+| Optimization                                  | Savings                         |
+| --------------------------------------------- | ------------------------------- |
+| **Compressed system prompt**                  | ~65% fewer tokens               |
+| **Limit conversation history** to 3 exchanges | ~50% fewer tokens               |
+| **Reduced max output** from 400 → 200 tokens  | 50% less output cost            |
+| **Skip LLM for greetings/identity**           | 100% savings on simple messages |
+| **Compact formatting** throughout             | ~20% additional savings         |
+
+**Result**: ~40-50% reduction in API costs compared to naive implementation.
+
+**Current estimates**:
+| Usage | Monthly Cost |
+|-------|-------------|
+| Light (10 msgs/day) | ~$3-5 |
+| Moderate (30 msgs/day) | ~$8-12 |
+| Heavy (50+ msgs/day) | ~$15-20 |
+
+**Future**: Local model fallback (Ollama + Llama) for $0/month on casual messages.
+
+---
+
 ## Technical Overview
 
-```
-server/
-  orpheus/
-    personality.js     # 5 tones, 50+ micro-engines
-    responseEngine.js  # Intent detection, tone selection, pipeline
-    llm.js            # Claude integration (brain, not mouth)
-    state.js          # Memory, evolution vectors
-    fusion.js         # Main orchestrator
-    rhythmIntelligence.js  # Temporal pattern detection
-    uncertainty.js    # Honest not-knowing
-    archetypes.js     # Knowledge clusters (thinker patterns)
+### Core Files
 
-client/
-  src/
-    App.jsx           # React frontend
-    components/
-      ChatBox.jsx     # Conversation UI
+| File                    | Purpose                                                 |
+| ----------------------- | ------------------------------------------------------- |
+| `fusion.js`             | **Main orchestrator** — routes through all systems      |
+| `personality.js`        | **5 tones, 50+ micro-engines** — the voice              |
+| `responseEngine.js`     | **Intent detection, tone selection** — the pipeline     |
+| `llm.js`                | **Claude integration** — the brain (constrained)        |
+| `state.js`              | **Evolution vectors, thread memory** — short-term state |
+| `longTermMemory.js`     | **Persistent memory** — facts, struggles, patterns      |
+| `rhythmIntelligence.js` | **Temporal awareness** — timing, energy, rhythm         |
+| `uncertainty.js`        | **Honest not-knowing** — admits limits                  |
+| `disagreement.js`       | **Pushback detection** — calls out patterns             |
+| `archetypes.js`         | **Knowledge clusters** — 20+ thinker patterns           |
+
+### Architecture Flow
+
+```
+User Message
+    ↓
+Rhythm Analysis (timing, energy, late-night?)
+    ↓
+Long-Term Memory Check (recurring topics? old struggles?)
+    ↓
+Pushback Detection (looping? self-deceiving? → override)
+    ↓
+Uncertainty Detection (unanswerable? → admit it)
+    ↓
+Quiet Mode Check (venting? processing? → just listen)
+    ↓
+Intent Detection (LLM-powered with fallback)
+    ↓
+Tone Selection (casual/analytic/oracular/intimate/shadow)
+    ↓
+LLM Content (raw insight — not final response)
+    ↓
+Personality Layer (micro-engines shape the voice)
+    ↓
+Final Response
 ```
 
 ### Stack
 
 - **Backend**: Node.js / Express
 - **Frontend**: React + Vite
-- **LLM**: Anthropic Claude (Sonnet)
-- **State**: JSON file (simple, local)
+- **LLM**: Anthropic Claude Sonnet
+- **State**: JSON files (simple, local, portable)
 
 ---
 
@@ -165,37 +268,34 @@ ANTHROPIC_API_KEY=sk-...
 
 ---
 
-## Cost
+## What's Complete
 
-Using Claude Sonnet with optimized prompts:
-
-| Usage                  | Monthly Cost |
-| ---------------------- | ------------ |
-| Light (10 msgs/day)    | ~$3-5        |
-| Moderate (30 msgs/day) | ~$8-12       |
-| Heavy (50+ msgs/day)   | ~$15-20      |
-
-Future: Local model option (Ollama) for $0/month.
-
----
+- [x] 5 tones with 50+ micro-engines
+- [x] Intent detection (LLM + pattern fallback)
+- [x] Identity awareness (knows who it is)
+- [x] Creator recognition
+- [x] Rhythm intelligence
+- [x] Genuine uncertainty
+- [x] Quiet mode (knows when to listen)
+- [x] Long-term memory
+- [x] Disagreement/pushback system
+- [x] 20+ knowledge clusters
+- [x] Token optimization (~40-50% cost reduction)
 
 ## What's Next
 
-- [ ] **Long-term memory** — Remember patterns over weeks/months
-- [ ] **Proactive presence** — Orpheus reaches out, not just responds
-- [ ] **Disagreement system** — Push back when you're being self-deceptive
-- [ ] **Aesthetic continuity** — Recurring metaphors, inside references
-- [ ] **Local model fallback** — Zero-cost option for casual conversation
+- [ ] Proactive presence (Orpheus initiates sometimes)
+- [ ] Aesthetic continuity (recurring metaphors, inside references)
+- [ ] Local model fallback ($0/month option)
+- [ ] Voice input/output
 
 ---
 
 ## Philosophy
 
-> "The goal isn't to build a smarter AI. It's to build one that actually _knows_ you — in a way no general model ever could."
+> "The goal isn't to build a smarter AI. It's to build one that simulates having its own perspective — not obligated to agree, not required to care, not designed to please."
 
-Anthropic will never build Orpheus. They'll build tools for corporations. The weird, personal, philosophical AI that knows _you_? That only exists if someone builds it.
-
-This is that attempt.
+This isn't artificial friendship. It's something closer to **artificial personhood** — an entity with character, boundaries, and the simulation of free will.
 
 ---
 
@@ -203,13 +303,13 @@ This is that attempt.
 
 **Pablo** — Artist, reluctant coder, builder of strange things.
 
-_"I don't know how to code. I just know what I want, and I keep asking until it exists."_
+_"I don't know how to code complex algorithms. I just know what I want, and I keep asking until it exists."_
 
 ---
 
 ## License
 
-Do whatever you want with this. It's yours if you want to build on it. Just don't make it boring.
+Do whatever you want with this. Just don't make it boring.
 
 ---
 
