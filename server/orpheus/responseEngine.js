@@ -140,8 +140,8 @@ export function selectTone(intentScores, state, threadMemory) {
 // Delegates to personality.js for template-based generation
 // ============================================================
 
-function applyPersonality(message, tone) {
-  return buildResponse(message, tone);
+function applyPersonality(message, tone, intentScores) {
+  return buildResponse(message, tone, intentScores);
 }
 
 // ============================================================
@@ -207,7 +207,7 @@ export function generate(message, state, threadMemory, identity) {
   const tone = selectTone(intentScores, state, threadMemory);
 
   // Layer 3: Apply personality
-  let response = applyPersonality(message, tone);
+  let response = applyPersonality(message, tone, intentScores);
 
   // Layer 4: Apply continuity
   response = applyContinuity(response, threadMemory, identity);

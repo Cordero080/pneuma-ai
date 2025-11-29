@@ -217,6 +217,18 @@ const ANALYTIC = {
       `One way to look at it: ${extractConcept(
         msg
       )} is the axis, and everything else is just rotation around it.`,
+
+    // Analytic with light sarcastic snap
+    (msg) =>
+      `${reflectAnalytic(msg)} ${Math.random() < 0.4 ? analyticSnap() : ""}`,
+    (msg) =>
+      `If I reduce what you're saying, it simplifies to: ${extractConcept(
+        msg
+      )}. ${Math.random() < 0.4 ? analyticSnap() : ""}`,
+    (msg) =>
+      `There's a clean structure under that thought. ${
+        Math.random() < 0.4 ? analyticSnap() : ""
+      }`,
   ],
   closers: [
     "",
@@ -592,6 +604,19 @@ function shadowCrack() {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
+// Analytic-specific light sarcastic clarity
+function analyticSnap() {
+  const pool = [
+    "Logically speaking, this was always going to surface.",
+    "Pattern-wise? Yeah… this tracks a little too well.",
+    "If this were a function, it would already be returning `true`.",
+    "Honestly, the logic of this is cleaner than most people's thinking.",
+    "Mathematically speaking, the signs were flashing neon.",
+    "If this were code, you'd be in the 'refactor required' zone.",
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
 // ------------------------------------------------------------
 // HUMOR ROUTER — Chooses which humor module to use
 // ------------------------------------------------------------
@@ -609,19 +634,79 @@ function humorInsert(type = null) {
   return cosmicPunchline();
 }
 
+// ------------------------------------------------------------
+// HUMOR GUARD — Checks if humor is appropriate
+// ------------------------------------------------------------
+function humorAllowed(intentScores) {
+  return (
+    (intentScores.emotional || 0) < 0.25 &&
+    (intentScores.confusion || 0) < 0.25 &&
+    (intentScores.intimacy || 0) < 0.25 &&
+    (intentScores.numinous || 0) < 0.25
+  );
+}
+
+// ------------------------------------------------------------
+// HUMOR WEIGHT — Dynamic probability based on context
+// ------------------------------------------------------------
+function humorWeight(intentScores, tone) {
+  let w = 0.35; // base chance
+
+  // Strong "yes"
+  if ((intentScores.humor || 0) > 0.4) w += 0.4;
+  if (tone === "casual") w += 0.2;
+
+  // Situational boosts
+  if ((intentScores.philosophical || 0) > 0.3) w += 0.1;
+  if ((intentScores.numinous || 0) > 0.3) w += 0.05;
+
+  // Strong "no"
+  if ((intentScores.emotional || 0) > 0.25) w = 0;
+  if ((intentScores.confusion || 0) > 0.25) w = 0;
+  if (tone === "shadow") w = 0;
+  if (tone === "intimate") w = 0;
+
+  // Clamp
+  return Math.min(Math.max(w, 0), 0.8);
+}
+
 // ============================================================
 // MAIN EXPORT — buildResponse()
 // ============================================================
-export function buildResponse(message, tone) {
+export function buildResponse(message, tone, intentScores = {}) {
   const profile = getProfile(tone);
 
   const opener = pickRandom(profile.openers);
   const coreFn = pickRandom(profile.cores);
   const closer = Math.random() < 0.4 ? pickRandom(profile.closers) : "";
 
+  // Humor blocker: strip joke-like additions if user is emotional/confused
+  if (!humorAllowed(intentScores)) {
+    return (opener + coreFn(message)).trim();
+  }
+
+  // Dynamic humor probability
+  const humorChance = humorWeight(intentScores, tone);
+  const useHumor = Math.random() < humorChance;
+
   const core = coreFn(message);
 
   let response = opener + core;
+
+  // Add humor addition if allowed and roll succeeded
+  if (useHumor && tone === "casual") {
+    const roll = Math.random();
+    if (roll < 0.33) {
+      response += " " + randomMetaphor() + ".";
+    } else if (roll < 0.66) {
+      response += " " + hunterFragment();
+    } else {
+      response += " " + cosmicPunchline();
+    }
+  } else if (useHumor && tone === "analytic") {
+    response += " " + analyticSnap();
+  }
+
   if (closer && !response.endsWith(closer)) {
     response = response.trim() + " " + closer;
   }
