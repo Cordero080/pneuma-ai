@@ -116,45 +116,114 @@
    ============================================ */
 #root {
   width: 100%;
-  max-width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0;
   text-align: center;
-}
-
-.app-container {
-  padding: 40px 20px;
-  color: white;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   
-  /* Deep cosmic background */
+  /* Deep cosmic background - full viewport */
   background: 
-    linear-gradient(135deg, #030014 0%, #0a0a1a 50%, #0f0520 100%),
-    repeating-linear-gradient(-30deg, rgba(0, 240, 255, 0.03) 0 2px, transparent 2px 60px);
+    /* Radial glow behind title area */
+    radial-gradient(ellipse 80% 50% at 50% 15%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 15%, rgba(0, 212, 255, 0.1) 0%, transparent 40%),
+    /* Vignette - darker edges */
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.4) 100%),
+    /* Base gradient */
+    linear-gradient(180deg, #020010 0%, #0a0a1a 30%, #0f0520 70%, #030014 100%);
   background-attachment: fixed;
-  
-  position: relative;
-  overflow: hidden;
 }
 
-/* Subtle grid overlay */
-.app-container::before {
+/* Animated nebula layer */
+#root::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: 
-    linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
+    /* Floating color clouds */
+    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 25% at 80% 30%, rgba(0, 212, 255, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 60% 80%, rgba(255, 0, 128, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 10% 70%, rgba(0, 180, 255, 0.04) 0%, transparent 70%);
+  animation: nebulaFloat 20s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Scan lines & grid overlay */
+#root::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    /* CRT scan lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.12) 2px,
+      rgba(0, 0, 0, 0.12) 4px
+    ),
+    /* Subtle horizontal color bands */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 120px,
+      rgba(0, 212, 255, 0.02) 120px,
+      rgba(0, 212, 255, 0.02) 122px
+    ),
+    /* Grid overlay */
+    linear-gradient(90deg, rgba(0, 212, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(rgba(0, 212, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 4px, 100% 122px, 60px 60px, 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+  animation: scanlineFlicker 0.15s steps(2) infinite;
+}
+
+@keyframes scanlineFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.96; }
+}
+
+@keyframes nebulaFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(10px, -10px) scale(1.02);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-5px, 5px) scale(0.98);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-10px, -5px) scale(1.01);
+    opacity: 0.95;
+  }
+}
+
+.app-container {
+  padding: 10px 20px;
+  color: white;
+  height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================

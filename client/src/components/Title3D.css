@@ -1,0 +1,15 @@
+/* ============================================
+   TITLE3D — 3D Holographic Title Styles
+   ============================================ */
+
+.title-container {
+  width: 100%;
+  height: 140px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.title-canvas {
+  background: transparent;
+}

@@ -3,11 +3,12 @@
 // Next: turn this into a chat UI step by step
 import "./App.css"; // import the CSS file
 import ChatBox from "./components/ChatBox";
+import Title3D from "./components/Title3D";
 
 function App() {
   return (
     <div className="app-container">
-      <h1 className="title">0RPH3US</h1>
+      <Title3D />
       <ChatBox />
     </div>
   );
