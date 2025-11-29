@@ -525,14 +525,32 @@ function extractTension(msg) {
 }
 
 // ============================================================
-// REFLECT FUNCTIONS — Bridge between LLM intelligence and personality
-// These accept optional llmContent. If present, use it. If not, fallback.
+// LLM CONTENT BRIDGE — Module-level variable for passing LLM content to reflect functions
 // ============================================================
 
-function reflectSimple(msg, llmContent = null) {
+// Module-level variable to pass LLM content to reflect functions
+let currentLLMContent = null;
+
+// Setter for executeCoreWithLLM to inject content
+function setCurrentLLMContent(content) {
+  currentLLMContent = content;
+}
+
+// Getter for reflect functions to access current LLM content
+function getCurrentLLMContent() {
+  return currentLLMContent;
+}
+
+// ============================================================
+// REFLECT FUNCTIONS — Bridge between LLM intelligence and personality
+// These check getCurrentLLMContent() first, then fall back to pattern matching.
+// ============================================================
+
+function reflectSimple(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM provided insight, use it simply
-  if (llmContent?.observation) {
-    return llmContent.observation;
+  if (llm?.observation) {
+    return llm.observation;
   }
   // Fallback to pattern matching
   if (msg.length < 15) return "Short and clear.";
@@ -540,10 +558,11 @@ function reflectSimple(msg, llmContent = null) {
   return "I get what you mean.";
 }
 
-function reflectAnalytic(msg, llmContent = null) {
+function reflectAnalytic(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM provided structured insight, use it
-  if (llmContent?.insight) {
-    return llmContent.insight;
+  if (llm?.insight) {
+    return llm.insight;
   }
   // Fallback
   if (msg.includes("why"))
@@ -553,10 +572,11 @@ function reflectAnalytic(msg, llmContent = null) {
   return "There's a system here you're trying to map.";
 }
 
-function reflectMythic(msg, llmContent = null) {
+function reflectMythic(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM provided symbolic/mythic observation, use it
-  if (llmContent?.concept) {
-    return `The ${llmContent.concept} you're naming has been named before, by others standing where you stand now.`;
+  if (llm?.concept) {
+    return `The ${llm.concept} you're naming has been named before, by others standing where you stand now.`;
   }
   // Fallback
   const essence = extractEssence(msg);
@@ -566,29 +586,32 @@ function reflectMythic(msg, llmContent = null) {
   return `The ${essence} you're naming has been named before, by others standing where you stand now.`;
 }
 
-function reflectEmotional(msg, llmContent = null) {
+function reflectEmotional(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM provided emotional read, use it
-  if (llmContent?.emotionalRead) {
-    return `${llmContent.emotionalRead}. That's not nothing.`;
+  if (llm?.emotionalRead) {
+    return `${llm.emotionalRead}. That's not nothing.`;
   }
   // Fallback
   const feeling = extractFeeling(msg);
   return `Holding ${feeling} takes something.`;
 }
 
-function reflectShadow(msg, llmContent = null) {
+function reflectShadow(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM identified uncomfortable truth, use it
-  if (llmContent?.insight) {
-    return `The part of you that knows: ${llmContent.insight}`;
+  if (llm?.insight) {
+    return `The part of you that knows: ${llm.insight}`;
   }
   // Fallback
   return "The part of you that knows is the part you're trying to quiet.";
 }
 
-function reflectSymbolic(msg, llmContent = null) {
+function reflectSymbolic(msg) {
+  const llm = getCurrentLLMContent();
   // If LLM identified symbolic meaning, use it
-  if (llmContent?.concept) {
-    return `What you're circling around "${llmContent.concept}" isn't just an idea — it's an image trying to take shape.`;
+  if (llm?.concept) {
+    return `What you're circling around "${llm.concept}" isn't just an idea — it's an image trying to take shape.`;
   }
   // Fallback
   const phrase = extractKeyPhrase(msg);
@@ -1412,8 +1435,14 @@ function humorWeight(intentScores, tone) {
 
 // ============================================================
 // MAIN EXPORT — buildResponse()
+// Now accepts llmContent for intelligent responses
 // ============================================================
-export function buildResponse(message, tone, intentScores = {}) {
+export function buildResponse(
+  message,
+  tone,
+  intentScores = {},
+  llmContent = null
+) {
   const profile = getProfile(tone);
 
   const opener = pickRandom(profile.openers);
@@ -1422,14 +1451,17 @@ export function buildResponse(message, tone, intentScores = {}) {
 
   // Humor blocker: strip joke-like additions if user is emotional/confused
   if (!humorAllowed(intentScores)) {
-    return (opener + coreFn(message)).trim();
+    // Pass llmContent to core function (it will be available as second arg if core uses it)
+    const core = executeCoreWithLLM(coreFn, message, llmContent);
+    return (opener + core).trim();
   }
 
   // Dynamic humor probability
   const humorChance = humorWeight(intentScores, tone);
   const useHumor = Math.random() < humorChance;
 
-  const core = coreFn(message);
+  // Execute core with LLM content
+  const core = executeCoreWithLLM(coreFn, message, llmContent);
 
   let response = opener + core;
 
@@ -1467,6 +1499,15 @@ export function buildResponse(message, tone, intentScores = {}) {
   }
 
   return response.trim();
+}
+
+// Helper: Execute core function, injecting LLM content into reflect functions
+function executeCoreWithLLM(coreFn, message, llmContent) {
+  // Store llmContent so reflect functions can access it via getCurrentLLMContent()
+  setCurrentLLMContent(llmContent);
+  const result = coreFn(message);
+  setCurrentLLMContent(null);
+  return result;
 }
 
 function getProfile(tone) {

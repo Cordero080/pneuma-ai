@@ -22,28 +22,38 @@ app.get("/", (req, res) => {
 
 // -------------------------- CHAT ROUTE ------------------------------
 // Accepts user message → generates Orpheus reply → returns it
-app.post("/chat", (req, res) => {
-  const { message } = req.body;
+// Now async to support LLM integration
+app.post("/chat", async (req, res) => {
+  try {
+    const { message } = req.body;
 
-  const { reply, monologue, mode } = orpheusRespond(message);
+    const { reply, monologue, mode } = await orpheusRespond(message);
 
-  // Map mode to engine for frontend visualization
-  const modeToEngine = {
-    casual: null,
-    oracular: "archetype",
-    analytic: "reflection",
-    intimate: "memory",
-    shadow: "synthesis",
-    diagnostic: "reflection",
-    upgrade: "synthesis",
-  };
+    // Map mode to engine for frontend visualization
+    const modeToEngine = {
+      casual: null,
+      oracular: "archetype",
+      analytic: "reflection",
+      intimate: "memory",
+      shadow: "synthesis",
+      diagnostic: "reflection",
+      upgrade: "synthesis",
+    };
 
-  // Return reply + engine state for UI
-  res.json({
-    reply,
-    engine: modeToEngine[mode] || null,
-    mode,
-  });
+    // Return reply + engine state for UI
+    res.json({
+      reply,
+      engine: modeToEngine[mode] || null,
+      mode,
+    });
+  } catch (error) {
+    console.error("[Orpheus] Error processing message:", error.message);
+    res.status(500).json({
+      reply: "Something went sideways. Give me a moment.",
+      engine: null,
+      mode: "error",
+    });
+  }
 });
 
 // -------------------------- START SERVER ----------------------------

@@ -107,9 +107,10 @@ function applyUpgrades(upgrades, state) {
 
 // ============================================================
 // MAIN ORCHESTRATION — orpheusRespond()
+// Now async to support LLM integration
 // ============================================================
 
-export function orpheusRespond(userMessage) {
+export async function orpheusRespond(userMessage) {
   // Track input
   trackInput(userMessage);
 
@@ -179,8 +180,8 @@ export function orpheusRespond(userMessage) {
   // Detect intent
   const intentScores = detectIntent(userMessage);
 
-  // Generate response through 4-layer pipeline
-  const { reply, tone } = generate(userMessage, state, threadMemory, identity);
+  // Generate response through 4-layer pipeline (now async with LLM)
+  const { reply, tone } = await generate(userMessage, state, threadMemory, identity);
 
   // Evolve state based on interaction
   state = evolve(state, userMessage, intentScores);

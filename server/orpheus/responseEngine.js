@@ -1,9 +1,11 @@
 // ------------------------------------------------------------
 // ORPHEUS V2 — RESPONSE ENGINE
 // 4-Layer Pipeline: Intent → Tone → Personality → Continuity
+// Now with LLM intelligence integration
 // ------------------------------------------------------------
 
 import { buildResponse, TONES } from "./personality.js";
+import { getLLMContent, getLLMIntent, isLLMAvailable } from "./llm.js";
 
 // ============================================================
 // LAYER 1: INTENT DETECTION
@@ -138,10 +140,11 @@ export function selectTone(intentScores, state, threadMemory) {
 // ============================================================
 // LAYER 3: PERSONALITY PROFILE
 // Delegates to personality.js for template-based generation
+// Now passes llmContent for intelligent responses
 // ============================================================
 
-function applyPersonality(message, tone, intentScores) {
-  return buildResponse(message, tone, intentScores);
+function applyPersonality(message, tone, intentScores, llmContent = null) {
+  return buildResponse(message, tone, intentScores, llmContent);
 }
 
 // ============================================================
@@ -196,18 +199,35 @@ function enforceIdentityBoundaries(response, identity) {
 
 // ============================================================
 // MAIN EXPORT: generate()
-// Full 4-layer pipeline
+// Full 4-layer pipeline with LLM integration
 // ============================================================
 
-export function generate(message, state, threadMemory, identity) {
-  // Layer 1: Detect intent
-  const intentScores = detectIntent(message);
+export async function generate(message, state, threadMemory, identity) {
+  // Layer 1: Detect intent (LLM-powered with fallback)
+  let intentScores;
+  if (isLLMAvailable()) {
+    intentScores = await getLLMIntent(message);
+  }
+  // Fallback to pattern matching if LLM unavailable or failed
+  if (!intentScores) {
+    intentScores = detectIntent(message);
+  }
 
   // Layer 2: Select tone
   const tone = selectTone(intentScores, state, threadMemory);
 
-  // Layer 3: Apply personality
-  let response = applyPersonality(message, tone, intentScores);
+  // Layer 2.5: Get LLM content (if available)
+  let llmContent = null;
+  if (isLLMAvailable()) {
+    const context = {
+      recentMessages: threadMemory.recentMessages || [],
+      evolution: state.evolution || {},
+    };
+    llmContent = await getLLMContent(message, tone, intentScores, context);
+  }
+
+  // Layer 3: Apply personality (now with llmContent)
+  let response = applyPersonality(message, tone, intentScores, llmContent);
 
   // Layer 4: Apply continuity
   response = applyContinuity(response, threadMemory, identity);
@@ -218,7 +238,9 @@ export function generate(message, state, threadMemory, identity) {
   }
 
   console.log(
-    `[ResponseEngine] Tone: ${tone} | Top intents:`,
+    `[ResponseEngine] Tone: ${tone} | LLM: ${
+      llmContent ? "yes" : "no"
+    } | Top intents:`,
     Object.entries(intentScores)
       .filter(([_, v]) => v > 0.2)
       .map(([k, v]) => `${k}:${v.toFixed(2)}`)
