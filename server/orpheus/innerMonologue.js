@@ -10,12 +10,13 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load the long-term memory reflections
-const reflectionsPath = path.join(
-  process.cwd(),
-  "server/orpheus/reflections.txt"
-);
+const reflectionsPath = path.join(__dirname, "reflections.txt");
 const reflections = fs.readFileSync(reflectionsPath, "utf-8");
 
 // ------------------- PSYCHOLOGICAL ANCHOR -------------------

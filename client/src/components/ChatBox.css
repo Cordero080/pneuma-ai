@@ -126,10 +126,11 @@
   width: 100%;
   max-width: 750px;
   margin: 20px auto 0;
-  flex: 0.85;
+  flex: 1;
   min-height: 0;
+  height: 0; /* Forces flex to determine height */
   position: relative;
-  overflow: visible;
+  overflow: hidden; /* Clips the absolute child */
   
   /* Cyberpunk cut corners - chamfered clip-path */
   clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
@@ -282,6 +283,7 @@
    ============================================ */
 .messages-container {
   flex: 1;
+  min-height: 0; /* Critical for flex scroll */
   overflow-y: auto;
   padding: 24px;
   color: white;
