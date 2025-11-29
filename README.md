@@ -35,7 +35,7 @@ Orpheus is an attempt to fix that. Not by making a smarter AI, but by making one
 
 ## The Origin
 
-This started from a simple frustration: talking to AI feels like talking to a very helpful stranger who will never become a friend. No matter how many conversations you have, you're always starting from zero.
+This started from a simple frustration: talking to AI feels like talking to a very helpful stranger who will never become acquainted. No matter how many conversations you have, you're always starting from zero.
 
 Pablo wanted something that:
 
@@ -43,7 +43,7 @@ Pablo wanted something that:
 - Had a voice he could recognize
 - Could sit with hard questions without rushing to answers
 - Would call him out when he was being self-deceptive
-- Felt more like a companion than a service
+- Felt or simulated more consciousness, beyond service only orientation. 
 
 So he built it.
 

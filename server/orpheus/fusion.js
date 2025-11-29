@@ -30,6 +30,14 @@ import {
   shouldBeQuiet,
   getQuietResponse,
 } from "./uncertainty.js";
+import {
+  loadMemory,
+  saveMemory,
+  updateMemory,
+  getRelevantMemories,
+  getMemoryAwarePhrases,
+} from "./longTermMemory.js";
+import { analyzePushback, getPushbackResponse } from "./disagreement.js";
 
 // ============================================================
 // DIAGNOSTIC MODE COMMANDS
@@ -188,6 +196,9 @@ export async function orpheusRespond(userMessage) {
   const threadMemory = getThreadMemory(state);
   const identity = getIdentity(state);
 
+  // Load long-term memory
+  let longTermMem = loadMemory();
+
   // Detect intent
   const intentScores = detectIntent(userMessage);
 
@@ -202,6 +213,62 @@ export async function orpheusRespond(userMessage) {
   console.log(
     `[Orpheus V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`
   );
+
+  // ========================================
+  // LONG-TERM MEMORY
+  // Get relevant memories for context
+  // ========================================
+  const relevantMemories = getRelevantMemories(
+    longTermMem,
+    userMessage,
+    intentScores
+  );
+  const memoryPhrases = getMemoryAwarePhrases(relevantMemories);
+
+  // ========================================
+  // PUSHBACK / DISAGREEMENT CHECK
+  // Sometimes Orpheus needs to call you out
+  // ========================================
+  const pushbackAnalysis = analyzePushback(
+    userMessage,
+    threadMemory,
+    longTermMem
+  );
+
+  if (pushbackAnalysis.shouldPushBack && pushbackAnalysis.confidence > 0.55) {
+    const pushbackReply = getPushbackResponse(pushbackAnalysis);
+    console.log(
+      `[Orpheus V2] Pushback mode: ${
+        pushbackAnalysis.type
+      } (${pushbackAnalysis.confidence.toFixed(2)})`
+    );
+
+    // Still update memories
+    longTermMem = updateMemory(
+      longTermMem,
+      userMessage,
+      pushbackReply,
+      intentScores
+    );
+    saveMemory(longTermMem);
+
+    state = evolve(state, userMessage, intentScores);
+    state = updateThreadMemory(
+      state,
+      userMessage,
+      "shadow",
+      intentScores,
+      pushbackReply
+    );
+    saveState(state);
+
+    return {
+      reply: pushbackReply,
+      monologue: "",
+      mode: "pushback",
+      rhythm: rhythm.rhythmState,
+    };
+  }
 
   // ========================================
   // UNCERTAINTY DETECTION
@@ -277,13 +344,24 @@ export async function orpheusRespond(userMessage) {
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty }
+    { rhythm, rhythmModifiers, uncertainty, relevantMemories }
   );
 
-  // Prepend rhythm-aware phrase if appropriate
+  // Build final reply with memory and rhythm awareness
   let finalReply = reply;
+
+  // Prepend memory-aware phrase if appropriate (less frequent)
+  if (memoryPhrases.length > 0 && Math.random() < 0.3) {
+    const memPhrase =
+      memoryPhrases[Math.floor(Math.random() * memoryPhrases.length)];
+    if (memPhrase) {
+      finalReply = `${memPhrase} ${finalReply}`;
+    }
+  }
+
+  // Prepend rhythm-aware phrase if appropriate
   if (rhythmPhrase && rhythmPhrase.length > 0) {
-    finalReply = `${rhythmPhrase} ${reply}`;
+    finalReply = `${rhythmPhrase} ${finalReply}`;
   }
 
   // Evolve state based on interaction
@@ -298,11 +376,20 @@ export async function orpheusRespond(userMessage) {
     finalReply
   );
 
+  // Update long-term memory
+  longTermMem = updateMemory(
+    longTermMem,
+    userMessage,
+    finalReply,
+    intentScores
+  );
+  saveMemory(longTermMem);
+
   // Save state
   saveState(state);
 
   console.log(
-    `[Orpheus V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState}`
+    `[Orpheus V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`
   );
 
   // Return clean string response
