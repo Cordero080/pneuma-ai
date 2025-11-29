@@ -206,9 +206,12 @@ function enforceIdentityBoundaries(response, identity) {
 // ============================================================
 // MAIN EXPORT: generate()
 // Full 4-layer pipeline with LLM integration
+// Now with rhythm and uncertainty awareness
 // ============================================================
 
-export async function generate(message, state, threadMemory, identity) {
+export async function generate(message, state, threadMemory, identity, extraContext = {}) {
+  const { rhythm, rhythmModifiers, uncertainty } = extraContext;
+
   // Layer 1: Detect intent (LLM-powered with fallback)
   let intentScores;
   if (isLLMAvailable()) {
@@ -219,8 +222,20 @@ export async function generate(message, state, threadMemory, identity) {
     intentScores = detectIntent(message);
   }
 
-  // Layer 2: Select tone
-  const tone = selectTone(intentScores, state, threadMemory);
+  // Layer 2: Select tone (rhythm can influence this)
+  let tone = selectTone(intentScores, state, threadMemory);
+  
+  // Rhythm-based tone adjustments
+  if (rhythmModifiers) {
+    // Late night = prefer intimate or oracular
+    if (rhythmModifiers.lateNightMode && tone === 'casual') {
+      tone = Math.random() < 0.5 ? 'intimate' : tone;
+    }
+    // Contemplative = prefer oracular or analytic
+    if (rhythm?.rhythmState === 'contemplative' && tone === 'casual') {
+      tone = Math.random() < 0.4 ? 'oracular' : 'analytic';
+    }
+  }
 
   // Layer 2.5: Get LLM content (if available AND message warrants it)
   // Skip LLM content for very casual messages - they don't need deep analysis
@@ -239,6 +254,13 @@ export async function generate(message, state, threadMemory, identity) {
   // Layer 3: Apply personality (now with llmContent)
   let response = applyPersonality(message, tone, intentScores, llmContent);
 
+  // Rhythm-based response length adjustment
+  if (rhythmModifiers?.preferShort && response.length > 150) {
+    // Trim to first sentence or two for rapid-fire mode
+    const sentences = response.match(/[^.!?]+[.!?]+/g) || [response];
+    response = sentences.slice(0, 2).join(' ').trim();
+  }
+
   // Layer 4: Apply continuity
   response = applyContinuity(response, threadMemory, identity);
 
@@ -250,7 +272,7 @@ export async function generate(message, state, threadMemory, identity) {
   console.log(
     `[ResponseEngine] Tone: ${tone} | LLM: ${
       llmContent ? "yes" : "no"
-    } | Top intents:`,
+    } | Rhythm: ${rhythm?.rhythmState || 'unknown'} | Top intents:`,
     Object.entries(intentScores)
       .filter(([_, v]) => v > 0.2)
       .map(([k, v]) => `${k}:${v.toFixed(2)}`)

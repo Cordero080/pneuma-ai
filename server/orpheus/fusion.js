@@ -19,6 +19,8 @@ import {
 } from "./state.js";
 
 import { generate, detectIntent } from "./responseEngine.js";
+import { analyzeRhythm, getRhythmModifiers, getRhythmAwarePhrases } from "./rhythmIntelligence.js";
+import { analyzeUncertainty, getUncertaintyResponse, shouldBeQuiet, getQuietResponse } from "./uncertainty.js";
 
 // ============================================================
 // DIAGNOSTIC MODE COMMANDS
@@ -180,29 +182,101 @@ export async function orpheusRespond(userMessage) {
   // Detect intent
   const intentScores = detectIntent(userMessage);
 
+  // ========================================
+  // RHYTHM INTELLIGENCE
+  // Analyze temporal patterns and energy
+  // ========================================
+  const rhythm = analyzeRhythm(threadMemory, userMessage);
+  const rhythmModifiers = getRhythmModifiers(rhythm);
+  const rhythmPhrase = getRhythmAwarePhrases(rhythm);
+
+  console.log(`[Orpheus V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`);
+
+  // ========================================
+  // UNCERTAINTY DETECTION
+  // Know when to admit not-knowing
+  // ========================================
+  const uncertainty = analyzeUncertainty(userMessage, intentScores);
+  
+  // ========================================
+  // QUIET MODE CHECK
+  // Sometimes presence beats words
+  // ========================================
+  const quietCheck = shouldBeQuiet(userMessage, intentScores, rhythm);
+  
+  if (quietCheck.quiet) {
+    const quietReply = getQuietResponse(quietCheck.type);
+    console.log(`[Orpheus V2] Quiet mode: ${quietCheck.type}`);
+    
+    // Still update state but with minimal response
+    state = evolve(state, userMessage, intentScores);
+    state = updateThreadMemory(state, userMessage, 'intimate', intentScores, quietReply);
+    saveState(state);
+    
+    return {
+      reply: quietReply,
+      monologue: "",
+      mode: "quiet",
+      rhythm: rhythm.rhythmState,
+    };
+  }
+
+  // ========================================
+  // UNCERTAINTY OVERRIDE
+  // For genuinely unanswerable questions
+  // ========================================
+  if (uncertainty.shouldAdmitUncertainty && uncertainty.score > 0.6) {
+    const uncertainReply = getUncertaintyResponse(uncertainty, userMessage);
+    console.log(`[Orpheus V2] Uncertainty mode: score ${uncertainty.score.toFixed(2)}`);
+    
+    state = evolve(state, userMessage, intentScores);
+    state = updateThreadMemory(state, userMessage, 'oracular', intentScores, uncertainReply);
+    saveState(state);
+    
+    return {
+      reply: uncertainReply,
+      monologue: "",
+      mode: "uncertain",
+      rhythm: rhythm.rhythmState,
+    };
+  }
+
+  // ========================================
+  // NORMAL RESPONSE GENERATION
+  // ========================================
+
   // Generate response through 4-layer pipeline (now async with LLM)
+  // Pass rhythm and uncertainty context for tone adjustment
   const { reply, tone } = await generate(
     userMessage,
     state,
     threadMemory,
-    identity
+    identity,
+    { rhythm, rhythmModifiers, uncertainty }
   );
+
+  // Prepend rhythm-aware phrase if appropriate
+  let finalReply = reply;
+  if (rhythmPhrase && rhythmPhrase.length > 0) {
+    finalReply = `${rhythmPhrase} ${reply}`;
+  }
 
   // Evolve state based on interaction
   state = evolve(state, userMessage, intentScores);
 
   // Update thread memory with both user message AND orpheus reply
-  state = updateThreadMemory(state, userMessage, tone, intentScores, reply);
+  state = updateThreadMemory(state, userMessage, tone, intentScores, finalReply);
 
   // Save state
   saveState(state);
 
-  console.log(`[Orpheus V2] Response generated | Tone: ${tone}`);
+  console.log(`[Orpheus V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState}`);
 
   // Return clean string response
   return {
-    reply: String(reply),
+    reply: String(finalReply),
     monologue: "",
     mode: tone,
+    rhythm: rhythm.rhythmState,
   };
 }
