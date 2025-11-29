@@ -86,22 +86,28 @@ export function detectIntent(message) {
 // ============================================================
 
 export function selectTone(intentScores, state, threadMemory) {
-  // Base weights from state
+  // Base weights from state (intimate lower to avoid over-triggering)
   const weights = {
     casual: state.casualWeight || 0.7,
     analytic: state.analyticWeight || 0.5,
     oracular: state.oracularWeight || 0.2,
-    intimate: state.intimateWeight || 0.25,
+    intimate: (state.intimateWeight || 0.25) * 0.6, // Reduce intimate bias
     shadow: state.shadowWeight || 0.15,
   };
 
-  // Intent influence
-  if (intentScores.casual > 0.4) weights.casual += 0.4;
-  if (intentScores.emotional > 0.3) weights.intimate += 0.35;
+  // Strong casual override: if casual intent is very high, force it
+  if (intentScores.casual >= 0.8) {
+    console.log("[Tone] Casual override - high casual intent");
+    return "casual";
+  }
+
+  // Intent influence (require higher thresholds for intimate)
+  if (intentScores.casual > 0.4) weights.casual += 0.5;
+  if (intentScores.emotional > 0.5) weights.intimate += 0.35; // Raised from 0.3
   if (intentScores.philosophical > 0.3) weights.analytic += 0.3;
   if (intentScores.numinous > 0.3) weights.oracular += 0.35;
   if (intentScores.conflict > 0.3) weights.shadow += 0.3;
-  if (intentScores.intimacy > 0.3) weights.intimate += 0.4;
+  if (intentScores.intimacy > 0.5) weights.intimate += 0.4; // Raised from 0.3
   if (intentScores.humor > 0.3) weights.casual += 0.3;
   if (intentScores.confusion > 0.3) weights.analytic += 0.25;
 
@@ -216,9 +222,12 @@ export async function generate(message, state, threadMemory, identity) {
   // Layer 2: Select tone
   const tone = selectTone(intentScores, state, threadMemory);
 
-  // Layer 2.5: Get LLM content (if available)
+  // Layer 2.5: Get LLM content (if available AND message warrants it)
+  // Skip LLM content for very casual messages - they don't need deep analysis
   let llmContent = null;
-  if (isLLMAvailable()) {
+  const isCasualGreeting = intentScores.casual >= 0.8;
+
+  if (isLLMAvailable() && !isCasualGreeting) {
     const context = {
       recentMessages: threadMemory.recentMessages || [],
       evolution: state.evolution || {},

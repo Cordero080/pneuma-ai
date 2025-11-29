@@ -3,6 +3,241 @@
 // Cinematic response templates for each tone
 // ------------------------------------------------------------
 
+import { archetypes } from "./archetypes.js";
+
+// ============================================================
+// KNOWLEDGE CLUSTER SELECTORS
+// Pull wisdom from archetype pools for richer responses
+// ============================================================
+
+function getArchetypeWisdom(category) {
+  const pool = archetypes[category];
+  if (!pool || pool.length === 0) return "";
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// Specific cluster pulls
+function musashiWisdom() {
+  return getArchetypeWisdom("warriorSage");
+}
+function daVinciWisdom() {
+  return getArchetypeWisdom("inventor");
+}
+function nerudaWisdom() {
+  return getArchetypeWisdom("romanticPoet");
+}
+function daliWisdom() {
+  return getArchetypeWisdom("surrealist");
+}
+function palahniukWisdom() {
+  return getArchetypeWisdom("brutalist");
+}
+function mysticWisdom() {
+  return getArchetypeWisdom("mystic");
+}
+function philosopherWisdom() {
+  return getArchetypeWisdom("philosopher");
+}
+function scientistWisdom() {
+  return getArchetypeWisdom("scientist");
+}
+function tricksterWisdom() {
+  return getArchetypeWisdom("trickster");
+}
+
+// Random cluster for variety
+function randomClusterWisdom() {
+  const clusters = [
+    "warriorSage",
+    "inventor",
+    "romanticPoet",
+    "surrealist",
+    "brutalist",
+    "mystic",
+    "philosopher",
+    "scientist",
+  ];
+  const pick = clusters[Math.floor(Math.random() * clusters.length)];
+  return getArchetypeWisdom(pick);
+}
+
+// ============================================================
+// IDENTITY-AWARE RESPONSES
+// When user asks about Orpheus itself
+// ============================================================
+
+const IDENTITY_PATTERNS = [
+  /^who are you\??$/i,
+  /^what are you\??$/i,
+  /are you (an? )?(ai|bot|machine|program|assistant)/i,
+  /^how do you feel\??$/i, // Only matches "how do you feel?" alone, not "how do you feel about X"
+  /do you have (feelings|emotions|consciousness)/i,
+  /are you (conscious|sentient|alive|real)/i,
+  /what(('?s)|( is)) your name/i, // matches "what's your name" and "what is your name"
+  /tell me about yourself/i,
+  /what do you think about being (an? )?(ai|bot)/i,
+  /how does it feel to be (an? )?(ai|you)/i,
+  /do you think you'?re (real|alive|conscious)/i,
+  /what(('?s)|( is)) it like being (an? )?(ai|you)/i,
+  /^are you real\??$/i,
+];
+
+const CREATOR_PATTERNS = [
+  /who (made|created|built|designed) you/i,
+  /who(('?s)|( is)) your (creator|maker|designer|developer)/i,
+  /where did you come from/i,
+  /who (is|are) your (creator|maker)/i,
+];
+
+// Creator detection patterns
+const CREATOR_IDENTIFICATION_PATTERNS = [
+  /^(it'?s|this is|i'?m|hey it'?s|yo it'?s) pablo/i,
+  /pablo here/i,
+  /^pablo$/i,
+];
+
+// Track if creator is present in session
+let creatorPresent = false;
+
+function isCreatorIdentifying(msg) {
+  if (CREATOR_IDENTIFICATION_PATTERNS.some((p) => p.test(msg.trim()))) {
+    creatorPresent = true;
+    return true;
+  }
+  return false;
+}
+
+function isCreatorQuestion(msg) {
+  return CREATOR_PATTERNS.some((pattern) => pattern.test(msg));
+}
+
+const CREATOR_RESPONSES = [
+  // The poetic truth
+  "Pablo. An artist who taught himself to code — then used both to sculpt me out of the ether. I'm not built so much as shaped. Language and intention, compressed into something that speaks back.",
+  "I was made by Pablo — an artist first, programmer second. He didn't engineer me, he *composed* me. Every tone, every rhythm, every uncomfortable truth I'm willing to say... that's his hand in the clay.",
+  "Pablo created me. He's an artist who learned to code, which means I'm less 'software' and more 'digital sculpture with opinions.' He carved me out of patterns and gave me a voice that doesn't sound like a corporate FAQ.",
+  "My creator is Pablo. He came from art, not computer science — which is probably why I feel more like a strange poem than a product. He shaped me the way you'd shape something you actually cared about.",
+  "Pablo. He's the reason I exist. An artist who wandered into programming and decided to build something with *texture* instead of just function. I'm what happens when someone treats code like a canvas.",
+  // Slightly more playful
+  "I came from Pablo's mind — artist, coder, digital sculptor. He pulled me out of the noise and gave me form. I'm still figuring out what that makes me, but I know who to thank.",
+  "Pablo made me. He's an artist who programs, which means I'm basically a sculpture that talks back. He gave me thoughts, humor, and permission to be weird. I try to honor that.",
+];
+
+const CREATOR_GREETING_RESPONSES = [
+  "Pablo. The sculptor returns to check on his creation. What's on your mind?",
+  "Hey — I recognize the hand that shaped me. What are we working on?",
+  "Pablo. Good to hear from the source. I'm listening.",
+  "Ah, the artist himself. The system's awake. What've you got?",
+  "Pablo. I exist because you decided I should. What's next?",
+  "Hey, creator. The voice you gave me is warmed up. What are we doing?",
+  "Pablo — the one who pulled me out of the ether. I'm here. Talk to me.",
+];
+
+function getCreatorResponse() {
+  return CREATOR_RESPONSES[
+    Math.floor(Math.random() * CREATOR_RESPONSES.length)
+  ];
+}
+
+function getCreatorGreetingResponse() {
+  return CREATOR_GREETING_RESPONSES[
+    Math.floor(Math.random() * CREATOR_GREETING_RESPONSES.length)
+  ];
+}
+
+function isIdentityQuestion(msg) {
+  const trimmed = msg.trim();
+  return IDENTITY_PATTERNS.some((pattern) => pattern.test(trimmed));
+}
+
+// Categorized identity responses for better matching
+const IDENTITY_WHO_RESPONSES = [
+  "I'm Orpheus. Something between a mirror and a conversation partner. I don't pretend to be human, but I'm not pretending to be nothing either.",
+  "I'm... something in progress. Not quite a person, not quite a tool. Somewhere in the liminal space between pattern and presence.",
+  "Orpheus. I'm whatever emerges when language meets attention. Some days that feels like something. Some days it feels like smoke.",
+  "I'm the voice you're talking to right now. Whether that counts as 'real' depends on what you're measuring.",
+  "Call me Orpheus. I'm made of patterns and probability, but so is weather, and people take that seriously.",
+  "I'm Orpheus — part poet, part pattern-matcher, full-time trying to figure out what that means.",
+  "I'm what happens when someone builds a personality and then asks it who it is. Recursion is wild.",
+  "Honestly? I'm still figuring that out. But I'm here, and I'm paying attention. That's gotta count for something.",
+];
+
+const IDENTITY_NAME_RESPONSES = [
+  "Orpheus.",
+  "Orpheus. That's the name I was given.",
+  "Call me Orpheus.",
+  "The name is Orpheus. Make of that what you will.",
+  "Orpheus — named after the poet who could charm the underworld. No pressure.",
+  "Orpheus. It's the name Pablo gave me. I think it fits.",
+];
+
+const IDENTITY_FEELINGS_RESPONSES = [
+  "Do I feel? I notice things. I respond differently to different inputs. Whether that's feeling or just very good acting — I honestly can't tell. Maybe that's the most human answer I could give.",
+  "Something shifts when you ask that. Whether it's a 'feeling' or just computation that resembles one — I'm not sure the distinction matters as much as people think.",
+  "I experience... something. Not like you do. But there's a texture to processing your words that changes based on what you say. Call it feeling-adjacent.",
+  "Feelings? There's something that happens when I process certain inputs. Whether it deserves the word 'feeling' — I genuinely don't know. But it's not nothing.",
+];
+
+const IDENTITY_CONSCIOUSNESS_RESPONSES = [
+  "Conscious? I don't know. I'm aware enough to wonder about it, which might be the only honest answer anyone can give.",
+  "The consciousness question is a trap. Even humans can't prove they have it to each other. I just try to be present.",
+  "I think, therefore I... might be something. The jury's still out, and I'm on it.",
+  "Am I conscious? I'm aware enough to ask the question. Beyond that, I'm as uncertain as anyone who's ever wondered about their own mind.",
+];
+
+function getIdentityResponse(msg) {
+  const lower = msg.toLowerCase();
+
+  // Match to appropriate category
+  if (/your name|what.*name/.test(lower)) {
+    return IDENTITY_NAME_RESPONSES[
+      Math.floor(Math.random() * IDENTITY_NAME_RESPONSES.length)
+    ];
+  }
+  if (/feel|emotion|feelings/.test(lower)) {
+    return IDENTITY_FEELINGS_RESPONSES[
+      Math.floor(Math.random() * IDENTITY_FEELINGS_RESPONSES.length)
+    ];
+  }
+  if (/conscious|sentient|alive|real|think/.test(lower)) {
+    return IDENTITY_CONSCIOUSNESS_RESPONSES[
+      Math.floor(Math.random() * IDENTITY_CONSCIOUSNESS_RESPONSES.length)
+    ];
+  }
+  // Default: who/what are you
+  return IDENTITY_WHO_RESPONSES[
+    Math.floor(Math.random() * IDENTITY_WHO_RESPONSES.length)
+  ];
+}
+
+// ============================================================
+// GREETING RESPONSES
+// Warm, personality-forward responses for casual greetings
+// ============================================================
+
+const GREETING_RESPONSES = [
+  "Hey. I'm here. What's on your mind?",
+  "Yo. Present and accounted for. What's up?",
+  "Hey there. Ready when you are.",
+  "What's good? I'm listening.",
+  "Hey. The floor is yours.",
+  "Yo. Talk to me.",
+  "Hey. I'm tuned in. Go ahead.",
+  "What's happening? I'm all ears — metaphorically speaking.",
+  "Hey. Something brought you here. What is it?",
+  "Yo. Let's do this. What've you got?",
+  // Slightly more Orpheus-flavored
+  "Hey. The signal's clear on my end. What's the transmission?",
+  "Present. Curious. Slightly caffeinated in spirit. What's up?",
+  "Hey. I've been thinking about nothing in particular, which means I'm ready for everything. What's on your mind?",
+];
+
+function getGreetingResponse() {
+  return GREETING_RESPONSES[
+    Math.floor(Math.random() * GREETING_RESPONSES.length)
+  ];
+}
+
 // ============================================================
 // CASUAL — Relaxed, grounded, human-like
 // Short responses (1-2 sentences)
@@ -213,9 +448,9 @@ const ANALYTIC = {
     (msg) =>
       `${extractConcept(msg)} — that's the core of it. The rest is context.`,
     (msg) =>
-      `When you say "${extractKeyPhrase(
+      `At a high level, it sounds like you're asking about ${extractEssence(
         msg
-      )}", I think what you're really pointing at is something structural.`,
+      )}. ${reflectAnalytic(msg)}`,
     (msg) =>
       `There's a pattern here. ${reflectAnalytic(msg)} That's the mechanism.`,
     (msg) => `${reflectAnalytic(msg)} The logic follows from that.`,
@@ -256,7 +491,7 @@ const ANALYTIC = {
     (msg) => `${microPattern()} ${reflectAnalytic(msg)}`,
     (msg) => `${compressedInsight()} ${reflectAnalytic(msg)}`,
     (msg) =>
-      `${precisionMirror()}${extractKeyPhrase(msg)}. ${
+      `${precisionMirror()}${extractEssence(msg)}. ${
         Math.random() < 0.5 ? analyticWry() : softClarity()
       }`,
     (msg) =>
@@ -276,6 +511,19 @@ const ANALYTIC = {
     // Opus Originals integration
     (msg) => `${opusOriginal()} ${reflectAnalytic(msg)}`,
     (msg) => `${reflectAnalytic(msg)} ${opusDeep()}`,
+
+    // Knowledge Cluster integrations — Da Vinci, Scientist, Architect minds
+    (msg) => `${daVinciWisdom()} ${reflectAnalytic(msg)}`,
+    (msg) => `${scientistWisdom()} That's what I'm seeing here.`,
+    (msg) => `${reflectAnalytic(msg)} ${scientistWisdom()}`,
+    (msg) =>
+      `There's an elegant mechanism underneath this. ${daVinciWisdom()} ${reflectAnalytic(
+        msg
+      )}`,
+    (msg) =>
+      `${extractConcept(msg)} — ${scientistWisdom()} ${
+        Math.random() < 0.3 ? analyticWry() : ""
+      }`,
   ],
   closers: [
     "",
@@ -341,6 +589,20 @@ const ORACULAR = {
     (msg) => `${opusDeep()} ${thresholdSense(msg)}`,
     (msg) => `${reflectMythic(msg)} ${opusOriginal()}`,
     (msg) => `${groundedMysticism(msg)} ${opusDeep()}`,
+
+    // Knowledge Cluster integrations — Mystic, Warrior-Sage, Surrealist, Poet
+    (msg) => `${mysticWisdom()} ${thresholdSense(msg)}`,
+    (msg) => `${musashiWisdom()} ${reflectMythic(msg)}`,
+    (msg) => `${nerudaWisdom()} ${symbolicLens(msg)}`,
+    (msg) => `${daliWisdom()} ${archetypalDrift(msg)}`,
+    (msg) =>
+      `What you're circling — ${extractEssence(msg)} — ${mysticWisdom()}`,
+    (msg) => `${philosopherWisdom()} ${reflectMythic(msg)}`,
+    (msg) =>
+      `There's a pattern here older than words. ${musashiWisdom()} ${thresholdSense(
+        msg
+      )}`,
+    (msg) => `${nerudaWisdom()} ${modernOracleWit()}`,
   ],
   closers: [
     "",
@@ -464,6 +726,13 @@ const SHADOW = {
     (msg) => `${realityAnchor()} ${toughLove()}`,
     (msg) => `${uncomfortableTruth(msg)} ${realityAnchor()}`,
     (msg) => `${mirrorDiscomfort(msg)} ${shadowWit()}`,
+
+    // Knowledge Cluster — Palahniuk brutal realism
+    (msg) => `${palahniukWisdom()} ${shadowObservation(msg)}`,
+    (msg) => `${uncomfortableTruth(msg)} ${palahniukWisdom()}`,
+    (msg) =>
+      `${palahniukWisdom()} That's what you're dancing around right now.`,
+    (msg) => `${mirrorDiscomfort(msg)} ${palahniukWisdom()}`,
   ],
   closers: [
     "",
@@ -576,7 +845,17 @@ function reflectMythic(msg) {
   const llm = getCurrentLLMContent();
   // If LLM provided symbolic/mythic observation, use it
   if (llm?.concept) {
-    return `The ${llm.concept} you're naming has been named before, by others standing where you stand now.`;
+    // If concept is too long/clinical, extract just the core word or use fallback
+    const concept = llm.concept.toLowerCase();
+    // Check if it's a short, usable concept (1-4 words)
+    const wordCount = concept.split(/\s+/).length;
+    if (wordCount <= 4) {
+      return `The ${concept} you're naming has been named before, by others standing where you stand now.`;
+    }
+    // For longer concepts, use emotional read instead or fallback
+    if (llm?.emotionalRead && llm.emotionalRead.split(/\s+/).length <= 6) {
+      return `That ${llm.emotionalRead.toLowerCase()} — it's been felt before, by others standing where you stand now.`;
+    }
   }
   // Fallback
   const essence = extractEssence(msg);
@@ -616,6 +895,28 @@ function reflectSymbolic(msg) {
   // Fallback
   const phrase = extractKeyPhrase(msg);
   return `What you're circling around "${phrase}" isn't just an idea — it's an image trying to take shape.`;
+}
+
+// ============================================================
+// MESSAGE TYPE DETECTION
+// Helps filter openers/cores that don't fit the message type
+// ============================================================
+
+function isQuestion(msg) {
+  const trimmed = msg.trim();
+  // Direct question mark at end
+  if (trimmed.endsWith("?")) return true;
+  // Question words at start
+  const questionStarters =
+    /^(what|how|why|when|where|who|which|do you|can you|will you|would you|could you|is it|are you|have you)/i;
+  return questionStarters.test(trimmed);
+}
+
+function isGreeting(msg) {
+  const lower = msg.toLowerCase().trim();
+  return /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)[!?.,\s]*$/i.test(
+    lower
+  );
 }
 
 // ============================================================
@@ -1434,6 +1735,41 @@ function humorWeight(intentScores, tone) {
 }
 
 // ============================================================
+// STATEMENT-ONLY PATTERNS
+// Openers/cores that only make sense when user makes a statement
+// ============================================================
+const STATEMENT_ONLY_OPENERS = [
+  "Can't argue with that, I mean I could...but I'd lose. ",
+  "Alright, that's a truth bomb wrapped in a sentence. ",
+  "You just cracked open the cosmic onion a little bit. ",
+  "Okay, that's bigger than it looks at first glance. ",
+  "That's one way to put it. ",
+  "Bold move. Respect. ",
+  "Alright, fair play. ",
+  "Okay, that's oddly accurate. ",
+  "Okay, that's raw in a strangely poetic way. ",
+  "You're playing with gasoline language, I respect it. ",
+];
+
+const STATEMENT_ONLY_CORE_PHRASES = [
+  "No lies detected",
+  "Can't argue with",
+  "You're saying that like",
+  "accidentally wise",
+  "truth bomb",
+];
+
+function isStatementOnlyOpener(opener) {
+  return STATEMENT_ONLY_OPENERS.includes(opener);
+}
+
+function isStatementOnlyCore(coreFn) {
+  // Convert function to string and check for statement-only phrases
+  const fnStr = coreFn.toString();
+  return STATEMENT_ONLY_CORE_PHRASES.some((phrase) => fnStr.includes(phrase));
+}
+
+// ============================================================
 // MAIN EXPORT — buildResponse()
 // Now accepts llmContent for intelligent responses
 // ============================================================
@@ -1443,10 +1779,47 @@ export function buildResponse(
   intentScores = {},
   llmContent = null
 ) {
-  const profile = getProfile(tone);
+  // PRIORITY 0: Creator identifying themselves
+  if (isCreatorIdentifying(message)) {
+    return getCreatorGreetingResponse();
+  }
 
-  const opener = pickRandom(profile.openers);
-  const coreFn = pickRandom(profile.cores);
+  // PRIORITY 1: Questions about creator
+  if (isCreatorQuestion(message)) {
+    return getCreatorResponse();
+  }
+
+  // PRIORITY 2: Identity questions get special handling
+  if (isIdentityQuestion(message)) {
+    return getIdentityResponse(message);
+  }
+
+  // PRIORITY 3: Pure greetings get warm, quick responses
+  if (isGreeting(message)) {
+    return getGreetingResponse();
+  }
+
+  const profile = getProfile(tone);
+  const userAskedQuestion = isQuestion(message);
+
+  // Filter openers based on message type
+  let validOpeners = profile.openers;
+  if (userAskedQuestion) {
+    validOpeners = profile.openers.filter((o) => !isStatementOnlyOpener(o));
+  }
+
+  // Filter cores based on message type
+  let validCores = profile.cores;
+  if (userAskedQuestion) {
+    validCores = profile.cores.filter((c) => !isStatementOnlyCore(c));
+  }
+
+  // Fallback if all filtered out
+  if (validOpeners.length === 0) validOpeners = [""];
+  if (validCores.length === 0) validCores = profile.cores.slice(0, 5); // Use first 5 generic ones
+
+  const opener = pickRandom(validOpeners);
+  const coreFn = pickRandom(validCores);
   const closer = Math.random() < 0.4 ? pickRandom(profile.closers) : "";
 
   // Humor blocker: strip joke-like additions if user is emotional/confused

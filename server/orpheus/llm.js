@@ -91,6 +91,26 @@ export async function getLLMIntent(message) {
     return null;
   }
 
+  // Fast-path: Skip LLM for obvious casual greetings (save API calls + avoid over-thinking)
+  const lower = message.toLowerCase().trim();
+  const casualGreeting =
+    /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)[!?.,\s]*$/i.test(
+      lower
+    );
+  if (casualGreeting) {
+    console.log("[LLM] Fast-path: casual greeting detected");
+    return {
+      casual: 0.9,
+      emotional: 0,
+      philosophical: 0,
+      numinous: 0,
+      conflict: 0,
+      intimacy: 0,
+      humor: 0.1,
+      confusion: 0,
+    };
+  }
+
   try {
     const response = await anthropic.messages.create({
       model: "claude-sonnet-4-20250514",
@@ -162,10 +182,10 @@ WHAT TO PROVIDE:
 - Insight (what does this reveal or mean?)
 
 Return your analysis in this EXACT format:
-CONCEPT: [The core idea, pattern, or theme in 1-2 sentences]
+CONCEPT: [1-4 WORDS ONLY. The core theme as a noun phrase. Examples: "loss of direction", "fear of change", "unspoken grief", "identity crisis". NOT a definition or sentence.]
 INSIGHT: [What this reveals or means — the "so what?" in 1-2 sentences]
 OBSERVATION: [Something specific you notice about how they said it]
-EMOTIONAL_READ: [The emotional state, be precise — not just "sad" but "exhaustion masked as resignation"]`;
+EMOTIONAL_READ: [2-6 words. The emotional state as a phrase. Examples: "exhaustion masked as resignation", "hope fighting doubt", "quiet desperation". NOT a sentence.]`;
 
   // Tone-specific focus
   const toneConstraints = {
