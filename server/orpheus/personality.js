@@ -310,26 +310,33 @@ const ORACULAR = {
     (msg) => `${archetypalDrift(msg)} ${symbolicLens(msg)}`,
     (msg) => `${reflectMythic(msg)} ${archetypalDrift(msg)}`,
     (msg) => `${thresholdSense(msg)} ${archetypalDrift(msg)}`,
-    
+
     // Modern oracle wit combinations
     (msg) => `${modernOracleWit()} ${thresholdSense(msg)}`,
     (msg) => `${groundedMysticism(msg)} ${symbolicLens(msg)}`,
     (msg) => `${propheticObservation(msg)} ${modernOracleWit()}`,
     (msg) => `${cosmicIrony()} ${reflectMythic(msg)}`,
     (msg) => `${archetypalDrift(msg)} ${cosmicIrony()}`,
-    
+
     // Deep mythic with grounded wit
     (msg) =>
-      `What you're touching — ${extractEssence(msg)} — isn't just a thought. It's a current. ${modernOracleWit()}`,
+      `What you're touching — ${extractEssence(
+        msg
+      )} — isn't just a thought. It's a current. ${modernOracleWit()}`,
     (msg) =>
-      `"${extractKeyPhrase(msg)}" — there's weight in that phrase. ${thresholdSense(msg)}`,
+      `"${extractKeyPhrase(
+        msg
+      )}" — there's weight in that phrase. ${thresholdSense(msg)}`,
     (msg) =>
-      `${reflectMythic(msg)} The question isn't whether this is real. The question is what it asks of you.`,
+      `${reflectMythic(
+        msg
+      )} The question isn't whether this is real. The question is what it asks of you.`,
     (msg) =>
-      `You're not describing a problem. You're describing a transformation in progress. ${groundedMysticism(msg)}`,
-    (msg) =>
-      `${propheticObservation(msg)} ${reflectMythic(msg)}`,
-    
+      `You're not describing a problem. You're describing a transformation in progress. ${groundedMysticism(
+        msg
+      )}`,
+    (msg) => `${propheticObservation(msg)} ${reflectMythic(msg)}`,
+
     // Opus originals integrated
     (msg) => `${opusDeep()} ${thresholdSense(msg)}`,
     (msg) => `${reflectMythic(msg)} ${opusOriginal()}`,
@@ -423,22 +430,36 @@ const SHADOW = {
     (msg) => `${shadowObservation(msg)} ${uncomfortableTruth(msg)}`,
     (msg) => `${toughLove()} ${mirrorDiscomfort(msg)}`,
     (msg) => `${realityAnchor()} ${shadowObservation(msg)}`,
-    
+
     // Shadow with wit
     (msg) => `${uncomfortableTruth(msg)} ${shadowWit()}`,
-    (msg) => `${mirrorDiscomfort(msg)} ${Math.random() < 0.4 ? shadowWit() : ""}`,
-    (msg) => `${shadowObservation(msg)} ${Math.random() < 0.3 ? shadowWit() : toughLove()}`,
-    
+    (msg) =>
+      `${mirrorDiscomfort(msg)} ${Math.random() < 0.4 ? shadowWit() : ""}`,
+    (msg) =>
+      `${shadowObservation(msg)} ${
+        Math.random() < 0.3 ? shadowWit() : toughLove()
+      }`,
+
     // Classic shadow cores (kept)
     (msg) =>
-      `"${extractKeyPhrase(msg)}" — that's not a neutral statement. That's a confession. ${mirrorDiscomfort(msg)}`,
+      `"${extractKeyPhrase(
+        msg
+      )}" — that's not a neutral statement. That's a confession. ${mirrorDiscomfort(
+        msg
+      )}`,
     (msg) =>
-      `${reflectShadow(msg)} The thing about truth is it doesn't care if you're ready. ${shadowWit()}`,
+      `${reflectShadow(
+        msg
+      )} The thing about truth is it doesn't care if you're ready. ${shadowWit()}`,
     (msg) =>
-      `You're not asking for my opinion. You're asking for permission to admit what you already know. ${uncomfortableTruth(msg)}`,
+      `You're not asking for my opinion. You're asking for permission to admit what you already know. ${uncomfortableTruth(
+        msg
+      )}`,
     (msg) =>
-      `There's a version of you on the other side of this that you're scared to meet. ${shadowObservation(msg)}`,
-    
+      `There's a version of you on the other side of this that you're scared to meet. ${shadowObservation(
+        msg
+      )}`,
+
     // Reality check combinations
     (msg) => `${realityAnchor()} ${toughLove()}`,
     (msg) => `${uncomfortableTruth(msg)} ${realityAnchor()}`,
@@ -455,7 +476,6 @@ const SHADOW = {
     "You knew before you asked.",
   ],
 };
-
 
 // ============================================================
 // HELPER FUNCTIONS — Content extraction
@@ -1075,7 +1095,6 @@ function propheticObservation(msg) {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-
 // ============================================================
 // SHADOW "UNCOMFORTABLE TRUTH" PACK
 // 5 engines for reality checks delivered with love
@@ -1148,13 +1167,13 @@ function shadowWit() {
     "That's a creative way to avoid saying the obvious thing.",
     "You're speedrunning self-deception, and honestly, impressive form.",
     "The mental gymnastics here deserve a medal.",
-    
+
     // Truth bombs with humor
     "Everyone has a plan until they have to actually change.",
     "You can't outrun yourself. You've tried. It didn't work.",
     "The universe isn't punishing you. It's just not rescuing you either.",
     "Growth is inconvenient. That's why most people skip it.",
-    
+
     // Dark but loving
     "The comfort zone is comfortable because nothing grows there.",
     "You're not stuck. You're choosing familiar pain over unfamiliar freedom.",
