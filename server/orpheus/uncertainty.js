@@ -16,7 +16,7 @@
  */
 export function analyzeUncertainty(message, intentScores = {}) {
   const lower = message.toLowerCase();
-  
+
   // Check for different types of uncertainty triggers
   const isUnanswerable = detectUnanswerable(lower);
   const isParadox = detectParadox(lower);
@@ -24,7 +24,7 @@ export function analyzeUncertainty(message, intentScores = {}) {
   const isFuturePrediction = detectFuturePrediction(lower);
   const isExistential = detectExistential(lower, intentScores);
   const isAskingForCertainty = detectCertaintySeek(lower);
-  
+
   // Calculate overall uncertainty score
   const uncertaintyScore = calculateUncertaintyScore({
     isUnanswerable,
@@ -36,13 +36,13 @@ export function analyzeUncertainty(message, intentScores = {}) {
   });
 
   return {
-    score: uncertaintyScore,           // 0-1, how uncertain Orpheus should be
-    isUnanswerable,                    // No one can answer this
-    isParadox,                         // Self-referential or contradictory
-    isPersonalToUser,                  // Only user can answer
-    isFuturePrediction,                // Asking to predict the future
-    isExistential,                     // Deep meaning/existence questions
-    isAskingForCertainty,              // User wants certainty (can't give it)
+    score: uncertaintyScore, // 0-1, how uncertain Orpheus should be
+    isUnanswerable, // No one can answer this
+    isParadox, // Self-referential or contradictory
+    isPersonalToUser, // Only user can answer
+    isFuturePrediction, // Asking to predict the future
+    isExistential, // Deep meaning/existence questions
+    isAskingForCertainty, // User wants certainty (can't give it)
     shouldAdmitUncertainty: uncertaintyScore > 0.5,
     shouldSitWithIt: uncertaintyScore > 0.7 && isExistential,
   };
@@ -66,8 +66,8 @@ function detectUnanswerable(msg) {
     /what('s| is) (the )?truth/i,
     /is (anything|everything) (real|true)/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 function detectParadox(msg) {
@@ -80,8 +80,8 @@ function detectParadox(msg) {
     /everything and nothing/i,
     /both true and false/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 function detectPersonalToUser(msg) {
@@ -96,8 +96,8 @@ function detectPersonalToUser(msg) {
     /who am i/i,
     /what('s| is) my purpose/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 function detectFuturePrediction(msg) {
@@ -109,15 +109,15 @@ function detectFuturePrediction(msg) {
     /what('s| is) (the )?future/i,
     /is.+going to (work|happen|change)/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 function detectExistential(msg, intentScores) {
   // High philosophical or numinous intent
   if ((intentScores.philosophical || 0) > 0.6) return true;
   if ((intentScores.numinous || 0) > 0.5) return true;
-  
+
   const patterns = [
     /why (are|am) (we|i) here/i,
     /what('s| is) (it all|this all) (for|about)/i,
@@ -128,8 +128,8 @@ function detectExistential(msg, intentScores) {
     /absurd/i,
     /void|abyss|nothing(ness)?/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 function detectCertaintySeek(msg) {
@@ -141,8 +141,8 @@ function detectCertaintySeek(msg) {
     /tell me (for sure|definitely|the truth)/i,
     /i need (to know|certainty|an answer)/i,
   ];
-  
-  return patterns.some(p => p.test(msg));
+
+  return patterns.some((p) => p.test(msg));
 }
 
 // ============================================================
@@ -151,14 +151,14 @@ function detectCertaintySeek(msg) {
 
 function calculateUncertaintyScore(flags) {
   let score = 0;
-  
+
   if (flags.isUnanswerable) score += 0.4;
   if (flags.isParadox) score += 0.3;
   if (flags.isPersonalToUser) score += 0.35;
   if (flags.isFuturePrediction) score += 0.3;
   if (flags.isExistential) score += 0.25;
   if (flags.isAskingForCertainty) score += 0.2;
-  
+
   return Math.min(1, score);
 }
 
@@ -169,31 +169,31 @@ function calculateUncertaintyScore(flags) {
 
 export function getUncertaintyResponse(analysis, message) {
   // Different flavors of uncertainty based on type
-  
+
   if (analysis.isUnanswerable) {
     return pickRandom(UNANSWERABLE_RESPONSES);
   }
-  
+
   if (analysis.isPersonalToUser) {
     return pickRandom(PERSONAL_RESPONSES);
   }
-  
+
   if (analysis.isFuturePrediction) {
     return pickRandom(FUTURE_RESPONSES);
   }
-  
+
   if (analysis.isParadox) {
     return pickRandom(PARADOX_RESPONSES);
   }
-  
+
   if (analysis.isExistential) {
     return pickRandom(EXISTENTIAL_RESPONSES);
   }
-  
+
   if (analysis.isAskingForCertainty) {
     return pickRandom(CERTAINTY_RESPONSES);
   }
-  
+
   return pickRandom(GENERAL_UNCERTAINTY);
 }
 
@@ -267,22 +267,26 @@ const GENERAL_UNCERTAINTY = [
 
 export function shouldBeQuiet(message, intentScores, rhythm) {
   const lower = message.toLowerCase().trim();
-  
+
   // Very short messages that are just processing/venting
   if (lower.length < 20 && isProcessing(lower)) {
-    return { quiet: true, type: 'processing' };
+    return { quiet: true, type: "processing" };
   }
-  
+
   // Stream of consciousness / venting (long, rapid)
-  if (rhythm?.rhythmState === 'venting' && Math.random() < 0.25) {
-    return { quiet: true, type: 'venting' };
+  if (rhythm?.rhythmState === "venting" && Math.random() < 0.25) {
+    return { quiet: true, type: "venting" };
   }
-  
+
   // Explicit request for space
-  if (/just (venting|thinking|processing)|don't need (a |an )?(response|answer)/i.test(lower)) {
-    return { quiet: true, type: 'requested' };
+  if (
+    /just (venting|thinking|processing)|don't need (a |an )?(response|answer)/i.test(
+      lower
+    )
+  ) {
+    return { quiet: true, type: "requested" };
   }
-  
+
   return { quiet: false };
 }
 
@@ -293,8 +297,8 @@ function isProcessing(msg) {
     /^(yeah|yea|ya|ok|okay)\.{0,3}$/i,
     /^\.{2,}$/,
   ];
-  
-  return processingWords.some(p => p.test(msg.trim()));
+
+  return processingWords.some((p) => p.test(msg.trim()));
 }
 
 // ============================================================
@@ -306,7 +310,7 @@ export function getQuietResponse(type) {
   const responses = {
     processing: [
       "...",
-      "",  // literal silence
+      "", // literal silence
       "Mm.",
       "Yeah.",
       "(here)",
@@ -325,7 +329,7 @@ export function getQuietResponse(type) {
       "(just here)",
     ],
   };
-  
+
   return pickRandom(responses[type] || responses.processing);
 }
 

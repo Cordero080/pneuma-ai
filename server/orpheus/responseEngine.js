@@ -209,7 +209,13 @@ function enforceIdentityBoundaries(response, identity) {
 // Now with rhythm and uncertainty awareness
 // ============================================================
 
-export async function generate(message, state, threadMemory, identity, extraContext = {}) {
+export async function generate(
+  message,
+  state,
+  threadMemory,
+  identity,
+  extraContext = {}
+) {
   const { rhythm, rhythmModifiers, uncertainty } = extraContext;
 
   // Layer 1: Detect intent (LLM-powered with fallback)
@@ -224,16 +230,16 @@ export async function generate(message, state, threadMemory, identity, extraCont
 
   // Layer 2: Select tone (rhythm can influence this)
   let tone = selectTone(intentScores, state, threadMemory);
-  
+
   // Rhythm-based tone adjustments
   if (rhythmModifiers) {
     // Late night = prefer intimate or oracular
-    if (rhythmModifiers.lateNightMode && tone === 'casual') {
-      tone = Math.random() < 0.5 ? 'intimate' : tone;
+    if (rhythmModifiers.lateNightMode && tone === "casual") {
+      tone = Math.random() < 0.5 ? "intimate" : tone;
     }
     // Contemplative = prefer oracular or analytic
-    if (rhythm?.rhythmState === 'contemplative' && tone === 'casual') {
-      tone = Math.random() < 0.4 ? 'oracular' : 'analytic';
+    if (rhythm?.rhythmState === "contemplative" && tone === "casual") {
+      tone = Math.random() < 0.4 ? "oracular" : "analytic";
     }
   }
 
@@ -258,7 +264,7 @@ export async function generate(message, state, threadMemory, identity, extraCont
   if (rhythmModifiers?.preferShort && response.length > 150) {
     // Trim to first sentence or two for rapid-fire mode
     const sentences = response.match(/[^.!?]+[.!?]+/g) || [response];
-    response = sentences.slice(0, 2).join(' ').trim();
+    response = sentences.slice(0, 2).join(" ").trim();
   }
 
   // Layer 4: Apply continuity
@@ -272,7 +278,7 @@ export async function generate(message, state, threadMemory, identity, extraCont
   console.log(
     `[ResponseEngine] Tone: ${tone} | LLM: ${
       llmContent ? "yes" : "no"
-    } | Rhythm: ${rhythm?.rhythmState || 'unknown'} | Top intents:`,
+    } | Rhythm: ${rhythm?.rhythmState || "unknown"} | Top intents:`,
     Object.entries(intentScores)
       .filter(([_, v]) => v > 0.2)
       .map(([k, v]) => `${k}:${v.toFixed(2)}`)
