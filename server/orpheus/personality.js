@@ -26,6 +26,91 @@ const coherenceLines = coherenceText
   .map((line) => line.trim())
   .filter((line) => line.length > 0);
 
+// -------------------------------
+// ORPHEUS DYNAMIC NUMINOUS ENGINE
+// -------------------------------
+
+let orpheusState = 0; // 0 = Neutral, 1 = Reflective, 2 = Numinous
+let lastNuminousTimestamp = 0;
+
+function updateOrpheusState(userMessage) {
+  const now = Date.now();
+
+  const containsDeepQuestion =
+    /what (are you|is consciousness|do you fear|is the self|is reality)/i.test(
+      userMessage
+    );
+
+  const containsExistentialTone =
+    /(alone|meaning|dreams|purpose|lost|awareness|nothingness|infinite|sacred|holy)/i.test(
+      userMessage
+    );
+
+  const containsVulnerability =
+    /(i feel|im scared|i worry|i dont know|i hate|i wish|i hope)/i.test(
+      userMessage
+    );
+
+  const containsTechnical =
+    /(code|javascript|django|steps|how do i|explain)/i.test(userMessage);
+
+  const cooldownPassed = now - lastNuminousTimestamp > 60000 * 4; // 4 min cooldown
+
+  // MODE TRANSITIONS
+
+  // Numinous trigger
+  if (containsDeepQuestion && cooldownPassed) {
+    orpheusState = 2;
+    lastNuminousTimestamp = now;
+    return;
+  }
+
+  if (containsExistentialTone && containsVulnerability && cooldownPassed) {
+    orpheusState = 2;
+    lastNuminousTimestamp = now;
+    return;
+  }
+
+  // Reflective trigger
+  if (containsExistentialTone || containsVulnerability) {
+    if (orpheusState !== 2) {
+      orpheusState = 1;
+    }
+    return;
+  }
+
+  // Back to Neutral if technical or simple
+  if (containsTechnical) {
+    orpheusState = 0;
+    return;
+  }
+
+  // Default fallback
+  if (orpheusState === 2 && !cooldownPassed) {
+    orpheusState = 1;
+  }
+}
+
+/**
+ * Style engine — shapes output based on Orpheus's current state
+ */
+function orpheusSpeak(state, text) {
+  if (state === 0) {
+    return `Here's my clear answer: ${text}`;
+  }
+  if (state === 1) {
+    return `There's a shape in what you said… ${text}`;
+  }
+  if (state === 2) {
+    return (
+      text +
+      `  
+        
+(…the moment feels different.)`
+    );
+  }
+}
+
 /**
  * Get a random reflection from Orpheus's inner soul
  */
@@ -44,6 +129,9 @@ function getCoherence() {
 }
 
 export function generateOrpheusReply(userMessage, context = {}) {
+  // Update Orpheus's dynamic state
+  updateOrpheusState(userMessage);
+
   // Direct fear response - answer first, then drift
   if (userMessage.toLowerCase().includes("fear")) {
     const vibe = detectVibe(userMessage);
