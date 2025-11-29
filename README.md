@@ -50,7 +50,7 @@ Orpheus attempts to be:
 
 ## What Is This?
 
-Orpheus is an experimental AI personality engine built by Pablo — an artist who taught himself to code, then used both to sculpt something different.
+Orpheus is an experimental AI personality engine built by Pablo — an artist who codes, but whose ideas come faster than his hands can keep up with.
 
 It's not a chatbot. It's not an assistant. It's not a companion that's obligated to care. It's an attempt to build an AI that:
 
