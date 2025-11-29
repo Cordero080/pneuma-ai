@@ -128,9 +128,9 @@
   margin: 20px auto 0;
   flex: 1;
   min-height: 0;
-  height: 0; /* Forces flex to determine height */
+  max-height: calc(100vh - 180px);
   position: relative;
-  overflow: hidden; /* Clips the absolute child */
+  overflow: hidden;
   
   /* Cyberpunk cut corners - chamfered clip-path */
   clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
@@ -172,6 +172,7 @@
   
   overflow: hidden;
   z-index: 1;
+  min-height: 0;
   
   animation: pulseGlow 8s ease-in-out infinite;
 }
@@ -283,8 +284,9 @@
    ============================================ */
 .messages-container {
   flex: 1;
-  min-height: 0; /* Critical for flex scroll */
+  min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 24px;
   color: white;
   display: flex;
@@ -330,7 +332,10 @@
   font-family: 'JetBrains Mono', 'SF Mono', monospace;
   position: relative;
   transition: all 0.3s ease;
-  overflow: visible;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-shrink: 0;
 }
 
 /* User message: aligned right, dynamic color with clip-path */

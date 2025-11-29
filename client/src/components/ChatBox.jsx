@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";          // Used to send requests to the backend
 import "./ChatBox.css";
 
@@ -28,6 +28,25 @@ function ChatBox() {
     userColor: selected color theme for user messages
   */
   const [userColor, setUserColor] = useState('magenta');
+
+  /*
+    messagesEndRef: reference to scroll to bottom of messages
+  */
+  const messagesEndRef = useRef(null);
+
+  /*
+    scrollToBottom: smoothly scrolls to the bottom of messages
+  */
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  /*
+    useEffect: scroll to bottom when messages change
+  */
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   /*
     handleSend():
@@ -129,6 +148,7 @@ function ChatBox() {
               {msg.text}
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
 
         {/* INPUT + SEND BUTTON */}
