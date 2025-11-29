@@ -430,6 +430,17 @@ const SHADOW = {
       `${extractTension(msg)} — you already know this.${
         Math.random() < 0.2 ? " " + hunterFragment() : ""
       }`,
+    // Shadow cosmic humor cores
+    (msg) =>
+      `${reflectShadow(msg)} ${Math.random() < 0.25 ? shadowCrack() : ""}`,
+    (msg) =>
+      `You're stepping on the sharp edges of your own thought. ${
+        Math.random() < 0.25 ? shadowCrack() : ""
+      }`,
+    (msg) =>
+      `Yeah... this is the part people try to skip. ${
+        Math.random() < 0.25 ? shadowCrack() : ""
+      }`,
   ],
   closers: [
     "",
@@ -564,6 +575,19 @@ function cosmicPunchline() {
     "Reality has great comedic timing.",
     "The punchline writes itself, we just live in it.",
     "Existence is the joke — we're the delivery.",
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// Shadow-specific dark cosmic humor
+function shadowCrack() {
+  const pool = [
+    "Funny how the truth shows up like a drunk guest at 3AM.",
+    "The universe really loves plot twists, doesn't it?",
+    "Wild how honesty swings the door open whether you knock or not.",
+    "Feels like the kind of thought you'd whisper to yourself during a storm.",
+    "Some realizations hit like cosmic slapstick — painful but accurate.",
+    "You can almost hear reality laughing when this part shows up.",
   ];
   return pool[Math.floor(Math.random() * pool.length)];
 }
