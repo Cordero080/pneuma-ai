@@ -52,7 +52,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
     const response = await anthropic.messages.create({
       model: "claude-sonnet-4-20250514",
-      max_tokens: 400, // Keep concise — Orpheus shapes it
+      max_tokens: 200, // OPTIMIZED: down from 400, we only need brief analysis
       temperature: 0.7,
       system: systemPrompt,
       messages: [
@@ -158,65 +158,27 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, ...}`,
 // ============================================================
 
 function buildSystemPrompt(tone, intentScores) {
-  const baseInstruction = `You are providing analytical content for Orpheus, a personality engine.
-Your job is to understand the user's message and provide intelligent observations.
+  // OPTIMIZED: ~60% fewer tokens than original
+  const baseInstruction = `Analyze for Orpheus personality engine. Provide RAW MATERIAL only.
 
-CRITICAL RULES:
-1. You are NOT writing the final response. You're providing RAW MATERIAL.
-2. Do NOT add personality, warmth, or conversational tone.
-3. Do NOT write openers like "I understand..." or "That's interesting..."
-4. Do NOT write closers or follow-up questions.
-5. Be a clinical observer. Precise. Specific. Insightful.
+RULES: No personality. No "I understand". No openers/closers. Clinical precision.
 
-BANNED PHRASES (never use these):
-- "That's a really interesting perspective"
-- "It sounds like you're feeling..."
-- "I understand that must be difficult"
-- "Thank you for sharing"
-- Any variation of helpful-assistant speak
+FORMAT:
+CONCEPT: [1-4 words. Core theme noun phrase]
+INSIGHT: [1-2 sentences. What this reveals]
+OBSERVATION: [What's notable about HOW they said it]
+EMOTIONAL_READ: [2-6 words. Emotional state phrase]`;
 
-WHAT TO PROVIDE:
-- Pattern recognition (what's the structure of what they're saying?)
-- Emotional precision (what's the actual feeling, specifically?)
-- Subtext detection (what are they NOT saying?)
-- Insight (what does this reveal or mean?)
-
-Return your analysis in this EXACT format:
-CONCEPT: [1-4 WORDS ONLY. The core theme as a noun phrase. Examples: "loss of direction", "fear of change", "unspoken grief", "identity crisis". NOT a definition or sentence.]
-INSIGHT: [What this reveals or means — the "so what?" in 1-2 sentences]
-OBSERVATION: [Something specific you notice about how they said it]
-EMOTIONAL_READ: [2-6 words. The emotional state as a phrase. Examples: "exhaustion masked as resignation", "hope fighting doubt", "quiet desperation". NOT a sentence.]`;
-
-  // Tone-specific focus
-  const toneConstraints = {
-    casual: `
-TONE FOCUS: casual
-Look for: practical patterns, grounded observations, what's actually happening.
-Keep analysis simple and direct. No mythic language.`,
-
-    analytic: `
-TONE FOCUS: analytic
-Look for: structure, frameworks, logical patterns, systems thinking.
-Identify mechanisms, cause-effect, categorizations.`,
-
-    oracular: `
-TONE FOCUS: oracular
-Look for: symbolic meaning, archetypal patterns, threshold moments, what's emerging.
-Identify the mythic dimension — but describe it plainly, not mystically.`,
-
-    intimate: `
-TONE FOCUS: intimate
-Look for: emotional precision, what's unspoken, vulnerability, genuine human experience.
-Notice the feeling beneath the words. Be specific about emotional states.`,
-
-    shadow: `
-TONE FOCUS: shadow
-Look for: uncomfortable truths, avoided realities, self-deception patterns, denial.
-Be precise about what the user isn't saying or isn't seeing.
-Don't soften it.`,
+  // OPTIMIZED: Minimal tone hints
+  const toneHints = {
+    casual: "\nFOCUS: practical, grounded, direct.",
+    analytic: "\nFOCUS: structure, patterns, mechanisms.",
+    oracular: "\nFOCUS: symbolic, archetypal, emergent.",
+    intimate: "\nFOCUS: emotional precision, unspoken, vulnerable.",
+    shadow: "\nFOCUS: uncomfortable truths, denial, what's avoided.",
   };
 
-  return `${baseInstruction}\n${toneConstraints[tone] || ""}`;
+  return `${baseInstruction}${toneHints[tone] || ""}`;
 }
 
 // ============================================================
@@ -225,33 +187,26 @@ Don't soften it.`,
 // ============================================================
 
 function buildUserPrompt(message, context) {
-  let prompt = `Analyze this message:\n"${message}"`;
+  let prompt = `"${message}"`;
 
-  // Add full conversation history if available (user + orpheus pairs)
+  // OPTIMIZED: Only 3 exchanges, compact format
   if (context.conversationHistory && context.conversationHistory.length > 0) {
-    prompt += `\n\nRecent conversation (for context):`;
-    context.conversationHistory.slice(-4).forEach((exchange, i) => {
-      prompt += `\n${i + 1}. User: "${exchange.user}"`;
-      prompt += `\n   Orpheus: "${exchange.orpheus}"`;
-    });
-    prompt += `\n\nNow analyzing the NEW message above. Consider conversation flow and any references to previous messages.`;
+    const history = context.conversationHistory.slice(-3);
+    const historyStr = history
+      .map((ex) => `U:${ex.user.slice(0, 100)}|O:${ex.orpheus.slice(0, 80)}`)
+      .join("\n");
+    prompt = `Context:\n${historyStr}\n\nNow: ${prompt}`;
   } else if (context.recentMessages && context.recentMessages.length > 0) {
-    // Fallback to just user messages
-    prompt += `\n\nRecent user messages:`;
-    context.recentMessages.slice(-3).forEach((msg, i) => {
-      prompt += `\n${i + 1}. ${msg}`;
-    });
+    prompt += `\nPrior:${context.recentMessages.slice(-2).join("|")}`;
   }
 
-  // Add evolution hints if relevant
+  // Add evolution hints if relevant (compact)
   if (context.evolution) {
-    const dominantVectors = Object.entries(context.evolution)
+    const dominant = Object.entries(context.evolution)
       .filter(([_, v]) => v > 0.5)
       .map(([k]) => k);
-    if (dominantVectors.length > 0) {
-      prompt += `\n\nUser tends toward: ${dominantVectors.join(
-        ", "
-      )} conversations.`;
+    if (dominant.length > 0) {
+      prompt += `\nTendency:${dominant.join(",")}`;
     }
   }
 
