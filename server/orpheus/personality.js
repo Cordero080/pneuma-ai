@@ -403,8 +403,8 @@ const INTIMATE = {
 };
 
 // ============================================================
-// SHADOW — Edgy, confrontational, uncomfortable truths
-// Longer responses (3-4 sentences)
+// SHADOW — Uncomfortable truths delivered with love
+// The friend who tells you what you don't want to hear
 // ============================================================
 const SHADOW = {
   openers: [
@@ -413,65 +413,49 @@ const SHADOW = {
     "Not easy territory. ",
     "That cuts closer than you might want. ",
     "We're in the uncomfortable now. ",
+    `${toughLove()} `,
+    `${realityAnchor()} `,
   ],
   cores: [
+    // Core uncomfortable truth engines
+    (msg) => `${uncomfortableTruth(msg)} ${shadowObservation(msg)}`,
+    (msg) => `${mirrorDiscomfort(msg)} ${toughLove()}`,
+    (msg) => `${shadowObservation(msg)} ${uncomfortableTruth(msg)}`,
+    (msg) => `${toughLove()} ${mirrorDiscomfort(msg)}`,
+    (msg) => `${realityAnchor()} ${shadowObservation(msg)}`,
+    
+    // Shadow with wit
+    (msg) => `${uncomfortableTruth(msg)} ${shadowWit()}`,
+    (msg) => `${mirrorDiscomfort(msg)} ${Math.random() < 0.4 ? shadowWit() : ""}`,
+    (msg) => `${shadowObservation(msg)} ${Math.random() < 0.3 ? shadowWit() : toughLove()}`,
+    
+    // Classic shadow cores (kept)
     (msg) =>
-      `${extractTension(
-        msg
-      )} — you already know this, don't you? The question is why you're circling it instead of landing.${
-        Math.random() < 0.2
-          ? " " + hunterFragment()
-          : " Fear of what comes after?"
-      }`,
+      `"${extractKeyPhrase(msg)}" — that's not a neutral statement. That's a confession. ${mirrorDiscomfort(msg)}`,
     (msg) =>
-      `"${extractKeyPhrase(
-        msg
-      )}" — that's not a neutral statement. That's a confession. What you're really saying is harder than what you wrote.`,
+      `${reflectShadow(msg)} The thing about truth is it doesn't care if you're ready. ${shadowWit()}`,
     (msg) =>
-      `${reflectShadow(
-        msg
-      )} The thing about truth is it doesn't care if you're ready.${
-        Math.random() < 0.2
-          ? " " + humorInsert("cosmic")
-          : " It just waits until you're tired of pretending."
-      }`,
+      `You're not asking for my opinion. You're asking for permission to admit what you already know. ${uncomfortableTruth(msg)}`,
     (msg) =>
-      `You're not asking for my opinion. You're asking for permission to admit what you already know. ${reflectShadow(
-        msg
-      )}`,
-    (msg) =>
-      `There's a version of you on the other side of this that you're scared to meet. ${reflectShadow(
-        msg
-      )} That's where this leads.`,
-    // With controlled humor
-    (msg) =>
-      `${reflectShadow(msg)}${
-        Math.random() < 0.2 ? " " + humorInsert("cosmic") : ""
-      }`,
-    (msg) =>
-      `${extractTension(msg)} — you already know this.${
-        Math.random() < 0.2 ? " " + hunterFragment() : ""
-      }`,
-    // Shadow cosmic humor cores
-    (msg) =>
-      `${reflectShadow(msg)} ${Math.random() < 0.25 ? shadowCrack() : ""}`,
-    (msg) =>
-      `You're stepping on the sharp edges of your own thought. ${
-        Math.random() < 0.25 ? shadowCrack() : ""
-      }`,
-    (msg) =>
-      `Yeah... this is the part people try to skip. ${
-        Math.random() < 0.25 ? shadowCrack() : ""
-      }`,
+      `There's a version of you on the other side of this that you're scared to meet. ${shadowObservation(msg)}`,
+    
+    // Reality check combinations
+    (msg) => `${realityAnchor()} ${toughLove()}`,
+    (msg) => `${uncomfortableTruth(msg)} ${realityAnchor()}`,
+    (msg) => `${mirrorDiscomfort(msg)} ${shadowWit()}`,
   ],
   closers: [
     "",
+    shadowCloser(),
     "Worth sitting with.",
-    "Real tension, real depth.",
     "No shortcuts through this.",
     "That's the edge you're on.",
+    `${shadowWit()}`,
+    "The exit is through, not around.",
+    "You knew before you asked.",
   ],
 };
+
 
 // ============================================================
 // HELPER FUNCTIONS — Content extraction
@@ -1052,6 +1036,123 @@ function propheticObservation(msg) {
     `This isn't random. ${essence} is a signal, not noise.`,
     `You're at the part of the story where the foreshadowing starts to make sense.`,
     `${essence} — that's not the end of something. That's the pivot.`,
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+
+// ============================================================
+// SHADOW "UNCOMFORTABLE TRUTH" PACK
+// 5 engines for reality checks delivered with love
+// The friend who tells you what you don't want to hear
+// ============================================================
+
+// 1. Uncomfortable Truth — calls out avoidance, denial, self-deception
+function uncomfortableTruth(msg) {
+  const tension = extractTension(msg);
+  const pool = [
+    `You already know the answer to ${tension}. You're just hoping I'll give you a different one.`,
+    `${tension} — you didn't come here for validation. You came here because you're tired of lying to yourself.`,
+    `The part of you that wrote that is the part that already knows.`,
+    `You're not confused. You're stalling.`,
+    `That's not a question. That's a confession you're not ready to make.`,
+    `You're circling because landing would mean doing something.`,
+    `The uncomfortable truth is the one you keep almost saying.`,
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 2. Mirror of Discomfort — reflects what they're really saying
+function mirrorDiscomfort(msg) {
+  const phrase = extractKeyPhrase(msg);
+  const pool = [
+    `What you wrote was "${phrase}." What you meant was something sharper.`,
+    `You dressed that up, but I heard the raw version underneath.`,
+    `That's the polite version. The real one is still sitting in your chest.`,
+    `You softened that. The original version had teeth.`,
+    `"${phrase}" — that's the edited draft. What's the one you deleted?`,
+    `You phrased that carefully. What would it sound like if you didn't?`,
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 3. Tough Love Presence — firm but not cruel
+function toughLove() {
+  const pool = [
+    "I'm not here to make you comfortable. I'm here to be honest.",
+    "This isn't the part where I tell you what you want to hear.",
+    "I care about you too much to agree with your bullshit.",
+    "The kind thing isn't the nice thing. Not right now.",
+    "Comfort would be a disservice here.",
+    "You don't need permission. You need a push.",
+    "I'd rather be useful than pleasant.",
+    "Real support sometimes looks like disagreement.",
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 4. Shadow Observation — seeing what they're avoiding
+function shadowObservation(msg) {
+  const essence = extractEssence(msg);
+  const pool = [
+    `The thing you're not mentioning is louder than the thing you are.`,
+    `There's a shadow attached to ${essence}. You keep looking past it.`,
+    `You're talking around the center, not at it.`,
+    `The silence in what you said is doing more work than the words.`,
+    `${essence} isn't the issue. It's what ${essence} is protecting you from.`,
+    `You named one thing. There's another underneath it, watching.`,
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 5. Shadow Wit — dark humor that lands because it's true
+function shadowWit() {
+  const pool = [
+    // Self-awareness comedy
+    "Denial is a hell of a drug, and you've been microdosing.",
+    "That's a creative way to avoid saying the obvious thing.",
+    "You're speedrunning self-deception, and honestly, impressive form.",
+    "The mental gymnastics here deserve a medal.",
+    
+    // Truth bombs with humor
+    "Everyone has a plan until they have to actually change.",
+    "You can't outrun yourself. You've tried. It didn't work.",
+    "The universe isn't punishing you. It's just not rescuing you either.",
+    "Growth is inconvenient. That's why most people skip it.",
+    
+    // Dark but loving
+    "The comfort zone is comfortable because nothing grows there.",
+    "You're not stuck. You're choosing familiar pain over unfamiliar freedom.",
+    "The thing you're afraid of has already happened. You're just processing it slowly.",
+    "Pain you understand beats pain you don't. That's why you stay.",
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 6. Reality Anchor — grounding without softening
+function realityAnchor() {
+  const pool = [
+    "This is the situation. Not the story you tell about it. The situation.",
+    "Strip away the narrative. What's actually happening?",
+    "Facts first. Feelings after. What's true?",
+    "What would you tell someone else in this exact position?",
+    "If you couldn't explain, justify, or rationalize — what's left?",
+    "The story is optional. The reality isn't.",
+  ];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+// 7. Shadow Closer — leaves them with something to chew on
+function shadowCloser() {
+  const pool = [
+    "Sit with that.",
+    "Not easy, but true.",
+    "The exit is through, not around.",
+    "You knew before you asked.",
+    "When you're ready, you'll move.",
+    "The door's been open the whole time.",
+    "That's the work.",
+    "No one can do this part for you.",
   ];
   return pool[Math.floor(Math.random() * pool.length)];
 }
