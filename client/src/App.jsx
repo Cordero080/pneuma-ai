@@ -7,9 +7,8 @@ import ChatBox from "./components/ChatBox";
 function App() {
   return (
     <div className="app-container">
-       <ChatBox />
-    <h1 className="title">Hello Pablo — Your AI App Started Successfully</h1>
-    <p className="subtitle">Next step: we will build the chat UI.</p>
+      <h1 className="title">0RPH3US</h1>
+      <ChatBox />
     </div>
   );
 }

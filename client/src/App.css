@@ -1,68 +1,246 @@
+/* ============================================
+   ORPHEUS — QUANTUM CONSCIOUSNESS UI
+   Holographic • Numinous • Forward-Thinking
+   ============================================ */
+
+/* Adobe Typekit - same fonts as huddl-app */
+@import url("https://use.typekit.net/nxn1rxl.css");
+
+/* ============================================
+   CORE ANIMATIONS
+   ============================================ */
+@keyframes dark-holographic-shimmer {
+  0% {
+    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 100%, 100% 100%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+  }
+}
+
+@keyframes quantumGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+  }
+  33% {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 40px rgba(138, 43, 226, 0.2);
+    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.3));
+  }
+  66% {
+    box-shadow: 0 0 20px rgba(255, 0, 204, 0.4), 0 0 40px rgba(255, 0, 204, 0.2);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 204, 0.3));
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+  }
+}
+
+@keyframes titleShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes beamScan {
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glitchFlicker {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  92% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  93% {
+    opacity: 0.8;
+    transform: translate(-2px, 1px);
+  }
+  94% {
+    opacity: 1;
+    transform: translate(2px, -1px);
+  }
+  95% {
+    opacity: 0.9;
+    transform: translate(-1px, 2px);
+  }
+  96% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* ============================================
+   ROOT & APP CONTAINER
+   ============================================ */
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
-/* This is the main container for now */
 .app-container {
-  padding: 20px;
+  padding: 40px 20px;
   color: white;
-  background-color: #050816;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  
+  /* Deep cosmic background */
+  background: 
+    linear-gradient(135deg, #030014 0%, #0a0a1a 50%, #0f0520 100%),
+    repeating-linear-gradient(-30deg, rgba(0, 240, 255, 0.03) 0 2px, transparent 2px 60px);
+  background-attachment: fixed;
+  
+  position: relative;
+  overflow: hidden;
 }
 
-/* Styling for title */
+/* Subtle grid overlay */
+.app-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   QUANTUM TITLE STYLING
+   ============================================ */
 .title {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-family: "acme-gothic-extrawide", "degular", 'Orbitron', sans-serif;
+  font-size: 3.1rem;
+  font-weight: 400;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  
+  /* Vibrant holographic gradient */
+  background: linear-gradient(135deg, #a0a6a65d 0%, #ff00cc9f 40%, #567395ac 70%, #ff7fb484 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: titleShimmer 5s ease-in-out infinite;
+  
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));
+  
+  position: relative;
+  z-index: 1;
 }
 
-.app-container {
-  background-color: #050816;
-  min-height: 100vh;
-  padding: 20px;
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), rgba(255, 0, 204, 0.8), transparent);
+  border-radius: 2px;
+  animation: subtlePulse 3s ease-in-out infinite;
 }
 
-/* Styling for the paragraph */
 .subtitle {
-  font-size: 1.2rem;
-  opacity: 0.8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.70rem;
+  color: rgba(127, 253, 255, 0.7);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  position: relative;
+  z-index: 1;
 }
+
+/* ============================================
+   LOGO STYLING
+   ============================================ */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 5em;
+  padding: 1em;
+  will-change: filter, transform;
+  transition: filter 0.4s ease, transform 0.4s ease;
+  animation: floatSubtle 6s ease-in-out infinite;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.8)) 
+          drop-shadow(0 0 50px rgba(255, 0, 204, 0.5));
+  transform: scale(1.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
 .card {
   padding: 2em;
+  background: rgba(10, 10, 30, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .read-the-docs {
-  color: #888;
+  color: rgba(127, 253, 255, 0.5);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
 }
+

@@ -8,7 +8,7 @@ function ChatBox() {
     setMessages: function to update the messages array
   */
   const [messages, setMessages] = useState([
-    { sender: "ai", text: "Hey Pablo, I’m Orpheus. Talk to me." }
+    { sender: "ai", text: "Hey Pablo, I’m Orpheus. Talk to me. " }
   ]);
 
   /*
@@ -73,33 +73,35 @@ function ChatBox() {
   }
 
   return (
-    <div className="chat-container">
-      
-      {/* MESSAGE LIST */}
-      <div className="messages-container">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`message-bubble ${msg.sender === "user" ? "user" : "ai"}`}
-          >
-            {msg.text}
-          </div>
-        ))}
-      </div>
+    <div className="chat-wrapper">
+      <div className="chat-container">
+        
+        {/* MESSAGE LIST */}
+        <div className="messages-container">
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`message-bubble ${msg.sender === "user" ? "user" : "ai"}`}
+            >
+              {msg.text}
+            </div>
+          ))}
+        </div>
 
-      {/* INPUT + SEND BUTTON */}
-      <div className="input-container">
-        <input
-          className="chat-input"
-          type="text"
-          placeholder="Talk to Orpheus..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}  // update input state
-          onKeyDown={handleKeyDown}                   // send on Enter
-        />
-        <button className="send-button" onClick={handleSend}>
-          Send
-        </button>
+        {/* INPUT + SEND BUTTON */}
+        <div className="input-container">
+          <input
+            className="chat-input"
+            type="text"
+            placeholder="Talk to Orpheus..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}  // update input state
+            onKeyDown={handleKeyDown}                   // send on Enter
+          />
+          <button className="send-button" onClick={handleSend}>
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );

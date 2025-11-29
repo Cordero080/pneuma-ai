@@ -2,8 +2,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { synthesizeResponse } from "./orpheus/synthesisEngine.js";
-// ^ Your Orpheus synthesis engine
+import { orpheusRespond } from "./orpheus/fusion.js";
+// ^ Your Orpheus fusion engine
 
 dotenv.config(); // Activate .env BEFORE anything else
 
@@ -25,8 +25,10 @@ app.get("/", (req, res) => {
 app.post("/chat", (req, res) => {
   const { message } = req.body;
 
-  const reply = synthesizeResponse(message);
+  const { reply, monologue } = orpheusRespond(message);
 
+  // We only send the "reply" to the user for now
+  // but later we may log monologue for debugging/personality tuning.
   res.json({ reply });
 });
 

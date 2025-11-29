@@ -1,72 +1,459 @@
-.chat-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  height: 75vh;
-  background: #0f0f1a;
-  border: 1px solid #222;
-  border-radius: 10px;
-  overflow: hidden;
+/* ============================================
+   ORPHEUS CHATBOX — HOLOGRAPHIC QUANTUM UI
+   ============================================ */
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes dark-holographic-shimmer {
+  0% {
+    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 100%, 100% 100%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+  }
 }
 
-/* Where messages will appear */
+@keyframes messageGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes beamScanInput {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.3),
+      0 0 40px rgba(138, 43, 226, 0.2),
+      inset 0 1px 3px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(255, 0, 204, 0.4),
+      0 0 60px rgba(0, 212, 255, 0.3),
+      inset 0 1px 3px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes typingPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes quantumButtonGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+  33% {
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.6), 0 0 30px rgba(255, 0, 204, 0.3);
+  }
+  66% {
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.6), 0 0 30px rgba(138, 43, 226, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+}
+
+/* ============================================
+   CHAT WRAPPER - Handles glowing border
+   ============================================ */
+.chat-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  height: 78vh;
+  position: relative;
+  overflow: visible;
+  
+  /* Cyberpunk cut corners - chamfered clip-path */
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+}
+
+/* Glowing border layer - sits behind everything */
+.chat-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 213, 255, 0.448) 0%,
+    rgba(138, 43, 226, 0.4) 50%,
+    rgba(0, 212, 255, 0.6) 100%
+  );
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.chat-container {
+  position: absolute;
+  inset: 2px;
+  display: flex;
+  flex-direction: column;
+  
+  /* Inner clip-path - slightly smaller to show border */
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  
+  /* Dark cosmic background */
+  background: 
+    linear-gradient(145deg, rgba(8, 8, 16, 0.99), rgba(4, 4, 10, 1)),
+    radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.08), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.05), transparent 50%);
+  
+  overflow: hidden;
+  z-index: 1;
+  
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+/* Subtle scan line effect on messages */
+.messages-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ============================================
+   MESSAGES CONTAINER
+   ============================================ */
 .messages-container {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 24px;
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
+  position: relative;
+  
+  /* Layered cosmic background */
+  background:
+    linear-gradient(145deg, rgba(8, 8, 16, 0.98), rgba(4, 4, 10, 0.99)),
+    radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.08), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.05), transparent 50%);
+  
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
 }
 
-/* Base style for a message bubble */
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.5), rgba(138, 43, 226, 0.5));
+  border-radius: 3px;
+}
+
+/* ============================================
+   MESSAGE BUBBLES
+   ============================================ */
 .message-bubble {
-  max-width: 80%;
-  padding: 10px 14px;
-  border-radius: 12px;
+  max-width: 82%;
+  padding: 14px 18px;
   font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: visible;
 }
 
-/* User message: aligned right, blue bubble */
+/* User message: aligned right, cyan glow with clip-path */
 .message-bubble.user {
   margin-left: auto;
-  background: #3b82f6;
+  color: #e0f7ff;
+  
+  /* Clip-path: cut top-right and bottom-left corners (mirrored) */
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
-/* AI message: aligned left, darker bubble */
+/* User message - glowing border layer */
+.message-bubble.user::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.6) 0%,
+    rgba(0, 180, 220, 0.3) 50%,
+    rgba(0, 212, 255, 0.6) 100%
+  );
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* User message - inner background layer */
+.message-bubble.user::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background:
+    linear-gradient(145deg, rgba(0, 40, 50, 0.95), rgba(0, 25, 35, 0.98)),
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15), transparent 50%);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* AI/Orpheus message: aligned left, purple/magenta glow with clip-path */
 .message-bubble.ai {
   margin-right: auto;
-  background: #1f2937;
+  color: #e8e0ff;
+  
+  /* Clip-path: cut top-left and bottom-right corners */
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.25);
+  
+  animation: messageGlow 6s ease-in-out infinite;
 }
 
+/* AI message - glowing border layer */
+.message-bubble.ai::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(138, 43, 226, 0.6) 0%,
+    rgba(255, 0, 204, 0.3) 50%,
+    rgba(138, 43, 226, 0.6) 100%
+  );
+  clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* AI message - inner background layer */
+.message-bubble.ai::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: 
+    linear-gradient(145deg, rgba(20, 10, 30, 0.95), rgba(10, 5, 20, 0.98)),
+    radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.15), transparent 50%);
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================================
+   INPUT CONTAINER
+   ============================================ */
 .input-container {
   display: flex;
-  border-top: 1px solid #333;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  background: linear-gradient(180deg, rgba(10, 10, 20, 0.95), rgba(5, 5, 15, 0.98));
+  position: relative;
+  overflow: visible;
+  
+  /* Clip-path: cut bottom corners to match container */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
+/* Beam scan effect on input container */
+.input-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 15%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 0, 204, 0.1) 70%,
+    transparent
+  );
+  animation: beamScanInput 8s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ============================================
+   HOLOGRAPHIC INPUT
+   ============================================ */
 .chat-input {
   flex: 1;
-  padding: 15px;
+  padding: 18px 22px;
   font-size: 1rem;
+  font-family: 'JetBrains Mono', monospace;
   border: none;
   outline: none;
-  background: #1a1a2a;
-  color: white;
+  
+  /* Layered cosmic black background */
+  background:
+    linear-gradient(145deg, #0a0a0a, #000000),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), transparent 50%),
+    linear-gradient(45deg, rgba(138, 43, 226, 0.03), rgba(0, 212, 255, 0.03));
+  background-size: 100% 100%, 150% 150%, 200% 200%;
+  
+  color: #ffffff;
+  
+  /* Glowing text effect */
+  text-shadow:
+    0 0 5px rgba(138, 43, 226, 0.3),
+    0 0 10px rgba(0, 212, 255, 0.2);
+  
+  transition: all 0.3s ease;
+  animation: dark-holographic-shimmer 4s ease infinite;
 }
 
+.chat-input::placeholder {
+  color: rgba(127, 253, 255, 0.35);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.chat-input:focus {
+  background:
+    linear-gradient(145deg, #0c0c0c, #050505),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 50%),
+    linear-gradient(45deg, rgba(138, 43, 226, 0.05), rgba(0, 212, 255, 0.05));
+  
+  text-shadow:
+    0 0 8px rgba(138, 43, 226, 0.4),
+    0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* ============================================
+   QUANTUM SEND BUTTON
+   ============================================ */
 .send-button {
-  padding: 0 20px;
-  background: #4b6bfb;
+  padding: 0 28px;
+  font-family: 'Orbitron', 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
+  background: linear-gradient(135deg, rgba(0, 200, 220, 0.3), rgba(138, 43, 226, 0.4));
   border: none;
-  color: white;
+  border-left: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00fff7;
+  
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  
+  animation: quantumButtonGlow 4s ease-in-out infinite;
+}
+
+.send-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .send-button:hover {
-  background: #3450e6;
+  background: linear-gradient(135deg, rgba(0, 220, 240, 0.5), rgba(255, 0, 204, 0.4));
+  color: #ffffff;
+  text-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.8),
+    0 0 30px rgba(255, 0, 204, 0.5);
 }
+
+.send-button:hover::before {
+  left: 100%;
+}
+
+.send-button:active {
+  transform: scale(0.98);
+  filter: brightness(1.2);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .chat-container {
+    margin: 10px;
+    height: 85vh;
+    border-radius: 12px;
+  }
+  
+  .message-bubble {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+  
+  .chat-input {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .send-button {
+    padding: 0 18px;
+    font-size: 0.75rem;
+  }
+}
+
