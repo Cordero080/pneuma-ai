@@ -250,16 +250,35 @@ export function evolve(state, message, intentScores = {}) {
 // ============================================================
 // UPDATE THREAD MEMORY
 // ============================================================
-export function updateThreadMemory(state, message, tone, intentScores) {
+export function updateThreadMemory(
+  state,
+  message,
+  tone,
+  intentScores,
+  orpheusReply = null
+) {
   const tm = state.threadMemory || {
     lastTones: [],
     lastIntents: [],
     recentMessages: [],
+    conversationHistory: [], // NEW: stores {user, orpheus} pairs
   };
 
   tm.lastTones = [...tm.lastTones, tone].slice(-3);
   tm.lastIntents = [...tm.lastIntents, intentScores].slice(-3);
   tm.recentMessages = [...tm.recentMessages, message.slice(0, 100)].slice(-3);
+
+  // Store conversation pair for LLM context
+  if (orpheusReply) {
+    tm.conversationHistory = [
+      ...(tm.conversationHistory || []),
+      {
+        user: message.slice(0, 200),
+        orpheus: orpheusReply.slice(0, 200),
+        timestamp: Date.now(),
+      },
+    ].slice(-5); // Keep last 5 exchanges
+  }
 
   state.threadMemory = tm;
   return state;

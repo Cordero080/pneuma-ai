@@ -227,9 +227,17 @@ Don't soften it.`,
 function buildUserPrompt(message, context) {
   let prompt = `Analyze this message:\n"${message}"`;
 
-  // Add conversation context if available
-  if (context.recentMessages && context.recentMessages.length > 0) {
-    prompt += `\n\nRecent conversation context:`;
+  // Add full conversation history if available (user + orpheus pairs)
+  if (context.conversationHistory && context.conversationHistory.length > 0) {
+    prompt += `\n\nRecent conversation (for context):`;
+    context.conversationHistory.slice(-4).forEach((exchange, i) => {
+      prompt += `\n${i + 1}. User: "${exchange.user}"`;
+      prompt += `\n   Orpheus: "${exchange.orpheus}"`;
+    });
+    prompt += `\n\nNow analyzing the NEW message above. Consider conversation flow and any references to previous messages.`;
+  } else if (context.recentMessages && context.recentMessages.length > 0) {
+    // Fallback to just user messages
+    prompt += `\n\nRecent user messages:`;
     context.recentMessages.slice(-3).forEach((msg, i) => {
       prompt += `\n${i + 1}. ${msg}`;
     });

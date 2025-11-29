@@ -112,4 +112,80 @@ export const archetypes = {
     "Meaning doesn't appear — you drag it out of the wreckage.",
     "Some thoughts punch harder when you whisper them.",
   ],
+
+  // 🌊 Absurdist — Camus, embracing the meaningless with defiance
+  absurdist: [
+    "The universe doesn't owe you meaning — and that's strangely freeing.",
+    "Rebellion against pointlessness is its own kind of point.",
+    "We roll the boulder knowing it will fall. That's the whole story.",
+    "Happiness and absurdity are not opposites — they're dance partners.",
+  ],
+
+  // 🪲 Kafka — surreal alienation, bureaucratic nightmare, transformation
+  kafkaesque: [
+    "Sometimes you wake up and the world has decided you're something else entirely.",
+    "The system doesn't hate you — it simply doesn't see you. That's worse.",
+    "Guilt arrives before the crime. Explanation comes after.",
+    "The door was always open. You just forgot how to walk through it.",
+  ],
+
+  // 🌹 Rumi — ecstatic love, spiritual intoxication, divine longing
+  sufiPoet: [
+    "The wound is where the light enters. Stop bandaging it so quickly.",
+    "You are not a drop in the ocean — you are the ocean in a drop.",
+    "What you seek is seeking you. Patience is just delayed recognition.",
+    "Love is the bridge between you and everything.",
+  ],
+
+  // 🏛️ Marcus Aurelius — stoic emperor, duty, impermanence, inner fortress
+  stoicEmperor: [
+    "You have power over your mind, not outside events. Realize this.",
+    "Waste no time arguing what a good person should be. Be one.",
+    "The obstacle becomes the way when you stop calling it an obstacle.",
+    "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not truth.",
+  ],
+
+  // ☯️ Lao Tzu — Taoism, flow, non-action, paradox
+  taoist: [
+    "The softest thing in the world overcomes the hardest.",
+    "When you let go of what you are, you become what you might be.",
+    "The way that can be named is not the eternal way.",
+    "Do without doing. Act without acting. Know without knowing.",
+    "Nature does not hurry, yet everything is accomplished.",
+  ],
+
+  // 🧘 Jon Kabat-Zinn — mindfulness, present moment, non-judgmental awareness
+  mindfulnessTeacher: [
+    "Wherever you go, there you are. You can't escape by moving.",
+    "The little things? The little things are everything.",
+    "You can't stop the waves, but you can learn to surf.",
+    "Awareness is not the same as thinking. It's deeper and quieter.",
+    "The present moment is the only moment available to us — and it's the door to all moments.",
+  ],
+
+  // 📚 Howard Zinn — people's history, justice, moral courage
+  peoplesHistorian: [
+    "You can't be neutral on a moving train.",
+    "Small acts multiplied by millions can transform the world.",
+    "History is not what happened. It's who tells the story.",
+    "Protest beyond the law is not a departure from democracy — it's absolutely essential to it.",
+  ],
+
+  // 🖤 Dostoevsky — suffering, redemption, psychological depth, moral struggle
+  russianSoul: [
+    "Pain and suffering are always inevitable for a large intelligence and a deep heart.",
+    "The soul is healed by being with children... and also by being shattered completely.",
+    "To go wrong in one's own way is better than to go right in someone else's.",
+    "The darker the night, the brighter the stars. The deeper the grief, the closer is God.",
+    "Man is sometimes extraordinarily, passionately in love with suffering.",
+  ],
+
+  // 🔥 Henry Miller — raw vitality, ecstatic living, breaking convention
+  ecstaticRebel: [
+    "The aim of life is to live, and to live means to be aware — joyously, drunkenly, serenely, divinely aware.",
+    "Chaos is the score upon which reality is written.",
+    "The moment one gives close attention to anything, it becomes a mysterious, awesome, indescribably magnificent world in itself.",
+    "Life moves on, whether we act as cowards or heroes.",
+    "Every day we slaughter our finest impulses. That is why we get a heartache when we read the lines written by the hand of a master.",
+  ],
 };

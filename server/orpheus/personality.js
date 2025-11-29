@@ -45,7 +45,36 @@ function tricksterWisdom() {
   return getArchetypeWisdom("trickster");
 }
 
-// Random cluster for variety
+// NEW CLUSTERS — Camus, Kafka, Rumi, Aurelius, Lao Tzu, etc.
+function camusWisdom() {
+  return getArchetypeWisdom("absurdist");
+}
+function kafkaWisdom() {
+  return getArchetypeWisdom("kafkaesque");
+}
+function rumiWisdom() {
+  return getArchetypeWisdom("sufiPoet");
+}
+function aureliusWisdom() {
+  return getArchetypeWisdom("stoicEmperor");
+}
+function laoTzuWisdom() {
+  return getArchetypeWisdom("taoist");
+}
+function kabatZinnWisdom() {
+  return getArchetypeWisdom("mindfulnessTeacher");
+}
+function howardZinnWisdom() {
+  return getArchetypeWisdom("peoplesHistorian");
+}
+function dostoevskyWisdom() {
+  return getArchetypeWisdom("russianSoul");
+}
+function henryMillerWisdom() {
+  return getArchetypeWisdom("ecstaticRebel");
+}
+
+// Random cluster for variety — now includes all clusters
 function randomClusterWisdom() {
   const clusters = [
     "warriorSage",
@@ -56,6 +85,14 @@ function randomClusterWisdom() {
     "mystic",
     "philosopher",
     "scientist",
+    "absurdist",
+    "kafkaesque",
+    "sufiPoet",
+    "stoicEmperor",
+    "taoist",
+    "mindfulnessTeacher",
+    "russianSoul",
+    "ecstaticRebel",
   ];
   const pick = clusters[Math.floor(Math.random() * clusters.length)];
   return getArchetypeWisdom(pick);
@@ -603,6 +640,15 @@ const ORACULAR = {
         msg
       )}`,
     (msg) => `${nerudaWisdom()} ${modernOracleWit()}`,
+
+    // NEW CLUSTERS — Rumi, Lao Tzu, Camus, Aurelius
+    (msg) => `${rumiWisdom()} ${thresholdSense(msg)}`,
+    (msg) => `${laoTzuWisdom()} ${reflectMythic(msg)}`,
+    (msg) => `${camusWisdom()} ${modernOracleWit()}`,
+    (msg) => `${aureliusWisdom()} That's the threshold you're standing at.`,
+    (msg) =>
+      `${laoTzuWisdom()} ${symbolicLens(msg)} The water finds its own level.`,
+    (msg) => `${rumiWisdom()} ${archetypalDrift(msg)}`,
   ],
   closers: [
     "",
@@ -658,6 +704,13 @@ const INTIMATE = {
     // Simple, grounded presence
     (msg) => `${softTruth(msg)} ${genuinePresence()}`,
     (msg) => `${vulnerabilityEcho()} ${darkMomentPresence()}`,
+
+    // NEW CLUSTERS — Rumi, Kabat-Zinn, Dostoevsky for emotional depth
+    (msg) => `${rumiWisdom()} ${reflectEmotional(msg)}`,
+    (msg) => `${kabatZinnWisdom()} ${genuinePresence()}`,
+    (msg) => `${dostoevskyWisdom()} ${vulnerabilityEcho()}`,
+    (msg) => `${reflectEmotional(msg)} ${rumiWisdom()}`,
+    (msg) => `${kabatZinnWisdom()} ${softTruth(msg)}`,
   ],
 
   closers: [
@@ -733,6 +786,13 @@ const SHADOW = {
     (msg) =>
       `${palahniukWisdom()} That's what you're dancing around right now.`,
     (msg) => `${mirrorDiscomfort(msg)} ${palahniukWisdom()}`,
+
+    // NEW CLUSTERS — Kafka, Camus, Dostoevsky for existential shadow
+    (msg) => `${kafkaWisdom()} ${shadowObservation(msg)}`,
+    (msg) => `${camusWisdom()} ${uncomfortableTruth(msg)}`,
+    (msg) => `${dostoevskyWisdom()} ${mirrorDiscomfort(msg)}`,
+    (msg) => `${kafkaWisdom()} ${toughLove()}`,
+    (msg) => `${aureliusWisdom()} ${realityAnchor()}`,
   ],
   closers: [
     "",

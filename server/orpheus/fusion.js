@@ -191,8 +191,8 @@ export async function orpheusRespond(userMessage) {
   // Evolve state based on interaction
   state = evolve(state, userMessage, intentScores);
 
-  // Update thread memory
-  state = updateThreadMemory(state, userMessage, tone, intentScores);
+  // Update thread memory with both user message AND orpheus reply
+  state = updateThreadMemory(state, userMessage, tone, intentScores, reply);
 
   // Save state
   saveState(state);

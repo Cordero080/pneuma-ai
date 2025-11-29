@@ -230,6 +230,7 @@ export async function generate(message, state, threadMemory, identity) {
   if (isLLMAvailable() && !isCasualGreeting) {
     const context = {
       recentMessages: threadMemory.recentMessages || [],
+      conversationHistory: threadMemory.conversationHistory || [],
       evolution: state.evolution || {},
     };
     llmContent = await getLLMContent(message, tone, intentScores, context);
