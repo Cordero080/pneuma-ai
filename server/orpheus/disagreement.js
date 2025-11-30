@@ -198,6 +198,22 @@ function detectExternalBlame(msg) {
 
 function detectSeekingPermission(msg) {
   // "Should I...?", "Is it okay if...?", "Would it be wrong to...?"
+  
+  // EXCLUSION: If they're asking HOW to do/explain/present something,
+  // that's practical advice-seeking, not permission-seeking
+  const practicalPatterns = [
+    /how (should|would|do) (i|you) (explain|present|describe|respond|answer|say|tell|approach)/i,
+    /what('s| is) (a good|the best) way to (explain|present|say|approach)/i,
+    /how (can|could) i (explain|present|describe|respond)/i,
+    /help me (explain|present|prepare|think about how)/i,
+  ];
+  
+  for (const pattern of practicalPatterns) {
+    if (pattern.test(msg)) {
+      return { detected: false, confidence: 0 };
+    }
+  }
+  
   const permissionPatterns = [
     { pattern: /should i/i, confidence: 0.5 },
     { pattern: /is it (okay|alright|wrong|bad) (if|to)/i, confidence: 0.55 },
