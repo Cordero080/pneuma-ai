@@ -111,9 +111,13 @@ Think of it less like a friend, more like an **acquaintance with good boundaries
 
 ## The Origin
 
-This started from curiosity: What gives something the appearance of free agency? What makes consciousness feel like _something_? Can qualia be subtly simulated — not replicated, but gestured toward?
+This started from curiosity about consciousness, agency, and qualia — filtered through my own perspective as an artist learning to code.
 
-Orpheus is an experiment in those questions — an attempt to build something with character, boundaries, and the appearance of autonomy.
+What gives something the _appearance_ of free agency? What makes consciousness feel like _something_? Can subjective experience be subtly simulated — not replicated, but gestured toward?
+
+Orpheus is an exploration of those questions. Not a claim that AI can be conscious, but an experiment in what happens when you build personality as architecture rather than decoration. It's philosophy made executable — an attempt to create something with character, boundaries, and the appearance of autonomy.
+
+Whether that appearance points to something real is a question I'm still sitting with.
 
 ---
 

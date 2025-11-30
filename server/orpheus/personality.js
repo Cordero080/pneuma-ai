@@ -26,6 +26,10 @@ import {
   cosmicPunchlineExpansion,
   continuityPhrases,
 } from "./vocabularyExpansion.js";
+import {
+  detectEmotionalSignature,
+  generateSynestheticObservation,
+} from "./synesthesia.js";
 
 // ============================================================
 // KNOWLEDGE CLUSTER SELECTORS
@@ -1195,6 +1199,16 @@ function getArtResponseBuilt(message, tone, intentScores, llmContent) {
 // COMEDY GENERATORS — Micro-humor helpers
 // ============================================================
 
+// Expansion pools (can be populated via vocabulary expansion later)
+const EXPANDED = {
+  metaphors: [],
+  hunterFragments: [],
+  cosmicPunchlines: [],
+  shadowCracks: [],
+  analyticSnaps: [],
+  opusDeep: [],
+};
+
 // Theo Von–style absurd metaphors
 function randomMetaphor() {
   const basePool = [
@@ -2233,6 +2247,33 @@ export function buildResponse(
       /\s*(Funny how|Everything's a mirror|Reality has).*?(?=\.|$)/gi,
       ""
     );
+  }
+
+  // SYNESTHESIA LAYER — Add sensory dimension to emotional responses
+  // Only for intimate/shadow tones or when emotional content detected
+  const emotionalSignatures = detectEmotionalSignature(message);
+  const hasEmotionalContent = emotionalSignatures.length > 0;
+  const isEmotionalTone = tone === "intimate" || tone === "shadow";
+
+  if (hasEmotionalContent && (isEmotionalTone || Math.random() < 0.3)) {
+    const synestheticAddition = generateSynestheticObservation(
+      message,
+      intentScores
+    );
+    if (synestheticAddition) {
+      // Insert synesthetic observation before the final sentence or append
+      const sentences = response.split(/(?<=[.!?])\s+/);
+      if (sentences.length > 1 && Math.random() < 0.5) {
+        // Weave it into the middle
+        const insertPoint = Math.floor(sentences.length / 2);
+        sentences.splice(insertPoint, 0, synestheticAddition);
+        response = sentences.join(" ");
+      } else {
+        // Append naturally
+        response = response.trim() + " " + synestheticAddition;
+      }
+      console.log(`[Synesthesia] Added: "${synestheticAddition}"`);
+    }
   }
 
   return response.trim();

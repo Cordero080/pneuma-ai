@@ -265,8 +265,30 @@ const GENERAL_UNCERTAINTY = [
 // Sometimes the right response is no response, or minimal presence
 // ============================================================
 
+// Helper: detect if message contains a real question
+function containsQuestion(msg) {
+  // Ends with question mark
+  if (/\?/.test(msg)) return true;
+  // Starts with question words
+  if (
+    /^(what|why|how|when|where|who|which|do you|would you|will you|can you|is he|is she|does he|does she)/i.test(
+      msg.trim()
+    )
+  )
+    return true;
+  // Contains embedded questions
+  if (/\b(do you think|would you say|can you tell|what do you)\b/i.test(msg))
+    return true;
+  return false;
+}
+
 export function shouldBeQuiet(message, intentScores, rhythm) {
   const lower = message.toLowerCase().trim();
+
+  // NEVER go quiet if there's a real question — questions deserve answers
+  if (containsQuestion(lower)) {
+    return { quiet: false };
+  }
 
   // Very short messages that are just processing/venting
   if (lower.length < 20 && isProcessing(lower)) {
