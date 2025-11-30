@@ -2,6 +2,8 @@
 
 **A personality engine that gives AI the _appearance_ of free will.**
 
+> 🧪 **Experimental project** — Built in 3 days during the 2025 Thanksgiving holiday as a proof of concept.
+
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
