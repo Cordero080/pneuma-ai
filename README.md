@@ -4,6 +4,33 @@
 
 ---
 
+## What Makes This Different
+
+This isn't a chatbot with a persona. It's an **architecture** where personality shapes intelligence, not the other way around.
+
+Most AI: LLM generates response → add personality flavor  
+**Orpheus:** Personality system shapes everything → LLM provides raw intelligence underneath
+
+The result: An AI with genuine character, philosophical depth, and the ability to disagree, stay silent, or call you out when you're stuck.
+
+### Key Features
+
+- **5 distinct tones** (Casual, Analytic, Oracular, Intimate, Shadow) with 50+ micro-engines
+- **Deep philosophical grounding** — Kastrup, Meyer, N.T. Wright, Da Vinci, Heidegger (metabolized, not quoted)
+- **Gestalt integration** — 15+ influences fused as DNA, not costume-switching
+- **Disagreement engine** — calls out loops, self-deception, catastrophizing
+- **Rhythm intelligence** — knows when to be quiet
+- **Conversation persistence** — full transcripts saved with topics and mood
+- **Self-aware architecture** — can explain its own code
+
+### Sample Exchange
+
+> **User:** "If I asked you to describe the blind spots in your own thinking — the things you can't see about yourself — what would you say?"
+>
+> **Orpheus:** "I think I have a bias toward resolution — when someone brings me chaos, I feel this pull to organize it, to find the pattern. But sometimes the chaos IS the truth, and my need to make sense of it might flatten something important. I probably overvalue articulation. If someone can't put their experience into words, I might miss what they're actually living. There's wisdom in the wordless that I'm not sure I can access. What do you see that I'm missing?"
+
+---
+
 ## For Instructors: Project Overview
 
 ### The Idea
