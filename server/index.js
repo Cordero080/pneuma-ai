@@ -17,7 +17,7 @@ app.use(express.json()); // parse JSON request bodies
 // -------------------------- TEST ROUTE ------------------------------
 // Quick test to confirm the backend is alive
 app.get("/", (req, res) => {
-  res.send("🐲 Pablo's AI backend is running. 🐲");
+  res.send("🐲 Orpheus AI backend is running. 🐲");
 });
 
 // -------------------------- CHAT ROUTE ------------------------------
