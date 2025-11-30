@@ -43,6 +43,10 @@ import {
   detectBlacklistRequest,
 } from "./longTermMemory.js";
 import { analyzePushback, getPushbackResponse } from "./disagreement.js";
+import {
+  recordExchange,
+  saveCurrentConversation,
+} from "./conversationHistory.js";
 
 // ============================================================
 // DIAGNOSTIC MODE COMMANDS
@@ -438,6 +442,12 @@ export async function orpheusRespond(userMessage) {
 
   // Save state
   saveState(state);
+
+  // Record exchange to conversation history
+  recordExchange(userMessage, String(finalReply), {
+    mode: tone,
+    rhythm: rhythm.rhythmState,
+  });
 
   console.log(
     `[Orpheus V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`
