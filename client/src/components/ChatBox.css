@@ -121,19 +121,37 @@
 
 /* ============================================
    CHAT WRAPPER - Handles glowing border
+   NEGATIVE SPACE: Deliberately large, slightly uncomfortable
    ============================================ */
 .chat-wrapper {
   width: 100%;
-  max-width: 750px;
+  max-width: 850px; /* Wider - more emptiness */
   margin: 0 auto;
   flex: 1;
   min-height: 0;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 100px); /* Taller - more vertical space */
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow glow to show outside */
   
   /* Cyberpunk cut corners - chamfered clip-path */
   clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  
+  /* Subtle lift */
+  transform: translateY(-2px);
+}
+
+/* Floating depth glow - sits BEHIND the wrapper */
+.chat-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  right: 5%;
+  bottom: -30px;
+  background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(0, 213, 255, 0) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Glowing border layer - sits behind everything */
@@ -281,17 +299,18 @@
 
 /* ============================================
    MESSAGES CONTAINER
+   NEGATIVE SPACE: Generous padding, messages feel distant
    ============================================ */
 .messages-container {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 24px;
+  padding: 48px 40px; /* Much more padding - emptiness around messages */
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px; /* More space between messages */
   position: relative;
   
   /* Inner glow lighting */
@@ -323,12 +342,13 @@
 
 /* ============================================
    MESSAGE BUBBLES
+   NEGATIVE SPACE: Smaller max-width = more void around them
    ============================================ */
 .message-bubble {
-  max-width: 82%;
-  padding: 14px 18px;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 72%; /* Narrower - more empty space on sides */
+  padding: 16px 20px;
+  font-size: 0.92rem;
+  line-height: 1.7; /* More breathing room in text */
   font-family: 'JetBrains Mono', 'SF Mono', monospace;
   position: relative;
   transition: all 0.3s ease;
@@ -504,7 +524,7 @@
 }
 
 /* ============================================
-   HOLOGRAPHIC INPUT
+   HOLOGRAPHIC INPUT (Textarea)
    ============================================ */
 .chat-input {
   flex: 1;
@@ -513,6 +533,17 @@
   font-family: 'JetBrains Mono', monospace;
   border: none;
   outline: none;
+  resize: none;
+  
+  /* Auto-height settings */
+  min-height: 56px;
+  max-height: 150px;
+  overflow-y: auto;
+  
+  /* Word wrap fix */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
   
   /* Layered cosmic black background */
   background:
@@ -522,14 +553,32 @@
   background-size: 100% 100%, 150% 150%, 200% 200%;
   
   color: #ffffff;
+  line-height: 1.4;
   
   /* Glowing text effect */
   text-shadow:
     0 0 5px rgba(138, 43, 226, 0.3),
     0 0 10px rgba(0, 212, 255, 0.2);
   
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, height 0.1s ease;
   animation: dark-holographic-shimmer 4s ease infinite;
+  
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+.chat-input::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-input::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-input::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
 }
 
 .chat-input::placeholder {

@@ -35,6 +35,33 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
   const messagesEndRef = useRef(null);
 
   /*
+    textareaRef: reference for auto-resizing textarea
+  */
+  const textareaRef = useRef(null);
+
+  /*
+    autoResizeTextarea: adjusts textarea height based on content
+  */
+  const autoResizeTextarea = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      const maxHeight = 150; // Max ~5 lines
+      textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
+    }
+  };
+
+  /*
+    resetTextareaHeight: resets textarea to single line
+  */
+  const resetTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+    }
+  };
+
+  /*
     scrollToBottom: smoothly scrolls to the bottom of messages
   */
   const scrollToBottom = () => {
@@ -58,10 +85,15 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
   async function handleSend() {
     if (!input.trim()) return;    // Prevent sending empty messages
 
-    // STEP 1 — Create the user message
-    const userMessage = { sender: "user", text: input };
+    // STEP 1 — Capture the message and clear input immediately
+    const messageText = input.trim();
+    setInput("");
+    resetTextareaHeight();
 
-    // STEP 2 — Add user message to the chat
+    // STEP 2 — Create the user message
+    const userMessage = { sender: "user", text: messageText };
+
+    // STEP 3 — Add user message to the chat
     setMessages((prev) => [...prev, userMessage]);
 
     try {
@@ -76,7 +108,7 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
 
       // STEP 4 — Send message to backend (POST request)
       const response = await axios.post("http://localhost:3000/chat", {
-        message: input,
+        message: messageText,
       });
 
       // STEP 5 — Stop cycling and show final engine state
@@ -109,19 +141,26 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
         { sender: "ai", text: "Error: Could not reach server." }
       ]);
     }
-
-    // STEP 6 — Clear input field
-    setInput("");
   }
 
   /*
     handleKeyDown:
-    Allows pressing Enter to send message
+    Enter sends message, Shift+Enter adds new line
   */
   function handleKeyDown(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
       handleSend();
     }
+  }
+
+  /*
+    handleInputChange:
+    Updates input and resizes textarea
+  */
+  function handleInputChange(event) {
+    setInput(event.target.value);
+    autoResizeTextarea();
   }
 
   return (
@@ -174,13 +213,14 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
 
         {/* INPUT + SEND BUTTON */}
         <div className="input-container">
-          <input
+          <textarea
+            ref={textareaRef}
             className="chat-input"
-            type="text"
             placeholder="Talk to Orpheus..."
             value={input}
-            onChange={(e) => setInput(e.target.value)}  // update input state
-            onKeyDown={handleKeyDown}                   // send on Enter
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            rows={1}
           />
           <button className="send-button" onClick={handleSend}>
             Send

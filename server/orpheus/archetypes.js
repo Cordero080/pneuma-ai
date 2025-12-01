@@ -1,3 +1,13 @@
+// ============================================================
+// ORPHEUS — ARCHETYPES
+// Layer: 2 (INTELLIGENCE)
+// Purpose: 23 "thinking textures" from great thinkers
+// Input: Archetype name
+// Output: Conceptual pattern / wisdom phrase
+// Thinkers: Aurelius, Watts, Kierkegaard, Dostoevsky, Feynman,
+//           Le Guin, Taleb, Jung, Jesus, Rumi, and 13 more
+// ============================================================
+
 // -----------------------------------------------
 // ORPHEUS ARCHETYPE ENGINE — CONCEPTUAL THINKING
 // -----------------------------------------------

@@ -1,3 +1,12 @@
+// ============================================================
+// ORPHEUS — USER CONTEXT
+// Layer: 1 (INPUT PROCESSING)
+// Purpose: Detects known users (partner, creator), loads context
+// Input: User message
+// Output: User type, greeting, context for LLM
+// Note: Fails gracefully if no personal-context.js exists
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS — USER CONTEXT SYSTEM
 // Detects known users and provides context calibration

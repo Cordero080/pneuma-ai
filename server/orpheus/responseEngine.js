@@ -1,3 +1,12 @@
+// ============================================================
+// ORPHEUS — RESPONSE ENGINE
+// Layer: 4 (ORCHESTRATION)
+// Purpose: Assembles final response from all layers
+// Input: Message, LLM content, tone, rhythm
+// Output: Complete Orpheus response
+// Pipeline: Intent → Tone → Personality → Continuity
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS V2 — RESPONSE ENGINE
 // 4-Layer Pipeline: Intent → Tone → Personality → Continuity

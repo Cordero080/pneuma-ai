@@ -84,6 +84,26 @@
   }
 }
 
+/* Slow, barely perceptible breathing of the entire UI */
+@keyframes cosmicBreath {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.03) saturate(1.05);
+  }
+}
+
+/* Occasional barely-visible flicker - unsettling */
+@keyframes subliminalFlicker {
+  0%, 89%, 91%, 100% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.97;
+  }
+}
+
 @keyframes glitchFlicker {
   0%, 100% {
     opacity: 1;
@@ -113,6 +133,7 @@
 
 /* ============================================
    ROOT & APP CONTAINER
+   LIVING UI: Subtle cosmic breathing
    ============================================ */
 #root {
   width: 100%;
@@ -121,15 +142,26 @@
   padding: 0;
   text-align: center;
   
-  /* Deep cosmic background - full viewport */
+  /* Living UI - barely perceptible breathing */
+  animation: 
+    cosmicBreath 12s ease-in-out infinite,
+    subliminalFlicker 30s ease-in-out infinite;
+  
+  /* Deep cosmic background - full viewport with MORE LIGHT */
   background: 
-    /* Radial glow behind title area */
-    radial-gradient(ellipse 80% 50% at 50% 15%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 15%, rgba(0, 212, 255, 0.1) 0%, transparent 40%),
-    /* Vignette - darker edges */
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.4) 100%),
-    /* Base gradient */
-    linear-gradient(180deg, #020010 0%, #0a0a1a 30%, #0f0520 70%, #030014 100%);
+    /* Strong radial glow behind title area */
+    radial-gradient(ellipse 90% 60% at 50% 12%, rgba(138, 43, 226, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 50% 15%, rgba(0, 212, 255, 0.18) 0%, transparent 45%),
+    /* Ambient light spots - corners and edges */
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(0, 180, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 90% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255, 0, 180, 0.08) 0%, transparent 50%),
+    /* Center glow behind chat */
+    radial-gradient(ellipse 60% 60% at 50% 55%, rgba(0, 212, 255, 0.08) 0%, transparent 60%),
+    /* Softer vignette */
+    radial-gradient(ellipse 120% 120% at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.35) 100%),
+    /* Base gradient - slightly lighter */
+    linear-gradient(180deg, #030015 0%, #0c0c22 30%, #120828 70%, #050018 100%);
   background-attachment: fixed;
 }
 
@@ -218,7 +250,7 @@
 }
 
 .app-container {
-  padding: 5px 20px;
+  padding: 10px 20px;
   color: white;
   height: 100vh;
   width: 100%;
@@ -245,7 +277,7 @@
 /* ============================================
    QUANTUM TITLE STYLING
    ============================================ */
-.title {
+/* .title {
   font-family: "acme-gothic-extrawide", "degular", 'Orbitron', sans-serif;
   font-size: 3.1rem;
   font-weight: 400;
@@ -253,8 +285,8 @@
   text-transform: uppercase;
   letter-spacing: 8px;
   
-  /* Vibrant holographic gradient */
-  background: linear-gradient(135deg, #a0a6a65d 0%, #ff00cc9f 40%, #567395ac 70%, #ff7fb484 100%);
+  
+  background: linear-gradient(135deg, #e0e8ff 0%, #ff44dd 35%, #00d4ff 65%, #ff88cc 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -262,7 +294,11 @@
   
   animation: titleShimmer 5s ease-in-out infinite;
   
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));
+  
+  filter: 
+    drop-shadow(0 0 20px rgba(0, 212, 255, 0.8))
+    drop-shadow(0 0 40px rgba(255, 0, 204, 0.5))
+    drop-shadow(0 0 60px rgba(138, 43, 226, 0.4));
   
   position: relative;
   z-index: 1;
@@ -279,7 +315,7 @@
   background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), rgba(255, 0, 204, 0.8), transparent);
   border-radius: 2px;
   animation: subtlePulse 3s ease-in-out infinite;
-}
+} */
 
 .subtitle {
   font-family: 'JetBrains Mono', monospace;
@@ -296,21 +332,45 @@
 }
 
 /* ============================================
-   LOGO STYLING
+   THE WATCHER — Ambient presence indicator
+   A barely-visible pulse that feels like something is there
    ============================================ */
-.logo {
-  height: 5em;
-  padding: 1em;
-  will-change: filter, transform;
-  transition: filter 0.4s ease, transform 0.4s ease;
-  animation: floatSubtle 6s ease-in-out infinite;
+@keyframes watcherPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.8)) 
-          drop-shadow(0 0 50px rgba(255, 0, 204, 0.5));
-  transform: scale(1.05);
+/* The Watcher - lives behind everything in the main area */
+.app-layout::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: calc(50% + 110px); /* Offset for sidebar */
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(138, 43, 226, 0.12) 0%,
+    rgba(0, 212, 255, 0.06) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: watcherPulse 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* ============================================
+   LOGO STYLING
+   ============================================ */
+
 
 /* ============================================
    UTILITY CLASSES

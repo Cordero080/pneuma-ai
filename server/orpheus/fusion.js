@@ -1,3 +1,13 @@
+// ============================================================
+// ORPHEUS — FUSION ENGINE (MAIN ORCHESTRATOR)
+// Layer: 4 (ORCHESTRATION)
+// Purpose: The conductor — calls all other systems
+// Input: User message from index.js
+// Output: Final Orpheus response
+// Flow: Message → Rhythm → LLM → Mode → Personality → Response
+// This is where everything comes together
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS V2 — FUSION ENGINE
 // Main orchestrator: diagnostics, upgrades, conversation

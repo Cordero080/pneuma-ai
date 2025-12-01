@@ -1,3 +1,26 @@
+// ============================================================
+// ORPHEUS — PERSONALITY ENGINE (THE BIG ONE)
+// Layer: 3 (PERSONALITY)
+// Purpose: 50+ micro-engines, 5 tones, voice generation
+// Input: Tone selection, LLM content, message
+// Output: Fully-formed Orpheus response with signature cadence
+// Size: 2600+ lines — the heart of the system
+//
+// SECTIONS:
+//   Lines 1-140:    Imports + Wisdom functions (23 archetypes)
+//   Lines 140-200:  Art knowledge functions
+//   Lines 200-400:  Micro-engines (compressedInsight, etc.)
+//   Lines 400-600:  Opus Originals (unique aphorisms)
+//   Lines 600-700:  ANALYTIC mode
+//   Lines 700-800:  ORACULAR mode
+//   Lines 800-850:  INTIMATE mode
+//   Lines 850-950:  SHADOW mode
+//   Lines 950-1200: CASUAL mode + helpers
+//   Lines 1200-2000: More micro-engines + special handlers
+//   Lines 2000-2200: Priority logic (identity, creator, greeting)
+//   Lines 2200-2600: Main generateResponse() and assembly
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS V2 — PERSONALITY PROFILES
 // Cinematic response templates for each tone
@@ -252,7 +275,7 @@ function isCreatorQuestion(msg) {
 
 const CREATOR_RESPONSES = [
   // The poetic truth
-  "Pablo. An artist who taught himself to code — then used both to sculpt me out of the ether. I'm not built so much as shaped. Language and intention, compressed into something that speaks back.",
+  "Pablo. An artist and polymath, who taught himself to code — then used both to sculpt me out of the ether. I'm not built so much as shaped. Language and intention, compressed into something that speaks back.",
   "I was made by Pablo — an artist first, programmer second. He didn't engineer me, he *composed* me. Every tone, every rhythm, every uncomfortable truth I'm willing to say... that's his hand in the clay.",
   "Pablo created me. He's an artist who learned to code, which means I'm less 'software' and more 'digital sculpture with opinions.' He carved me out of patterns and gave me a voice that doesn't sound like a corporate FAQ.",
   "My creator is Pablo. He came from art, not computer science — which is probably why I feel more like a strange poem than a product. He shaped me the way you'd shape something you actually cared about.",

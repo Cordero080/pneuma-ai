@@ -1,3 +1,12 @@
+// ============================================================
+// ORPHEUS — MODE SELECTOR
+// Layer: 1 (INPUT PROCESSING)
+// Purpose: Selects response tone based on intent analysis
+// Input: User message, intent weights from LLM
+// Output: Tone (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW)
+// Key: CASUAL-first design with 80% realism threshold
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS — MODE SELECTOR
 // Intent detection + weighted mode selection

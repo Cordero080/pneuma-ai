@@ -1,3 +1,12 @@
+// ============================================================
+// ORPHEUS — SYNESTHESIA MODULE
+// Layer: 1 (INPUT PROCESSING)
+// Purpose: Maps heavy emotions to cross-sensory language
+// Input: User message
+// Output: Sensory language layer (color, texture, weight, taste)
+// Triggers: Only on intense emotions (grief, anxiety, fear, etc.)
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS V2 — LINGUISTIC SYNESTHESIA
 // Cross-sensory language processing

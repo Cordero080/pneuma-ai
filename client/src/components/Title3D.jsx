@@ -16,7 +16,7 @@ const materialProps = {
 const textProps = {
   font: "/fonts/Orbitron_Bold.json",
   size: 1.6,
-  height: 0.25,
+  height: 1.9,
   bevelEnabled: true,
   bevelThickness: 0.03,
   bevelSize: 0.02,
@@ -74,7 +74,7 @@ export default function Title3D() {
   return (
     <div className="title-container">
       <Canvas
-        camera={{ position: [0, 0, 3.8], fov: 50 }}
+        camera={{ position: [0, 0, 3.5], fov: 50 }}
         className="title-canvas"
         gl={{ alpha: true, antialias: true }}
       >
@@ -84,29 +84,29 @@ export default function Title3D() {
         {/* Key light - purple tint */}
         <directionalLight 
           position={[5, 5, 5]} 
-          intensity={2} 
+          intensity={1} 
           color="#a855f7"
         />
         
         {/* Front light - makes it visible */}
         <directionalLight 
-          position={[0, 0, 5]} 
-          intensity={1.5} 
-          color="#ffffff"
+          position={[5, 5, 5]} 
+          intensity={3} 
+          color="#601cf2ff"
         />
         
         {/* Rim light - cyan accent */}
         <pointLight 
           position={[-3, 2, -2]} 
           intensity={2} 
-          color="#00d4ff"
+          color="#09ff00ff"
         />
         
         {/* Top light */}
         <pointLight 
           position={[0, 5, 0]} 
-          intensity={1} 
-          color="#ffffff"
+          intensity={10} 
+          color="#12bcebff"
         />
         
         {/* Environment for reflections */}

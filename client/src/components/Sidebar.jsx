@@ -6,7 +6,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
 
   return (
     <>
-      {/* Toggle button - always visible */}
+      {/* Toggle button - vertical control strip */}
       <button 
         className={`sidebar-toggle ${isCollapsed ? 'collapsed' : ''}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
@@ -16,19 +16,28 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
       <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
         {!isCollapsed && (
           <>
-            {/* New chat button - just a glowing plus */}
-            <button className="new-chat-btn" onClick={onNewChat} title="New Chat">
-              <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
+            {/* Panel Header - Status Section */}
+            <div className="panel-header">
+              <div className="status-row">
+                <span className="status-light"></span>
+                <span className="status-text">System Online</span>
+              </div>
+              
+              {/* New chat button - command style */}
+              <button className="new-chat-btn" onClick={onNewChat} title="New Session">
+                <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                <span>New Session</span>
+              </button>
+            </div>
 
-            {/* Conversation list */}
+            {/* Conversation list - Data Stream Section */}
             <div className="conversation-list">
-              <div className="list-header">History</div>
+              <div className="list-header">Session Log</div>
               {conversations.length === 0 ? (
-                <div className="empty-state">No conversations yet</div>
+                <div className="empty-state">// awaiting input</div>
               ) : (
                 conversations.map((conv) => (
                   <button
@@ -36,12 +45,19 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
                     className={`conversation-item ${activeId === conv.id ? 'active' : ''}`}
                     onClick={() => onSelect(conv.id)}
                   >
-                    <span className="conv-icon">💬</span>
-                    <span className="conv-title">{conv.title || 'Untitled'}</span>
+                    <span className="conv-title">{conv.title || 'Untitled Session'}</span>
                     <span className="conv-date">{conv.date}</span>
                   </button>
                 ))
               )}
+            </div>
+
+            {/* Panel Footer - System Info */}
+            <div className="panel-footer">
+              <span className="system-version">ORPHEUS v2.0</span>
+              <span className="system-status">
+                <span className="status-dot"></span>
+              </span>
             </div>
           </>
         )}

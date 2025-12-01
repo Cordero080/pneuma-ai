@@ -1,3 +1,14 @@
+// ============================================================
+// ORPHEUS — LLM INTEGRATION
+// Layer: 2 (INTELLIGENCE)
+// Purpose: Claude API calls, system prompt, raw cognition
+// Input: User message, conversation history, user context
+// Output: Emotional reads, patterns, insights — NO personality
+// Key: "Brain, not mouth" — provides intelligence, not voice
+// THE SOUL: System prompt is 1200+ lines of Orpheus's identity
+// NEW: Dynamic Archetype Injection — archetypes now reach Claude
+// ============================================================
+
 // ------------------------------------------------------------
 // ORPHEUS V2 — LLM INTEGRATION LAYER
 // Provides intelligence without controlling voice
@@ -6,6 +17,125 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { getCurrentUser, getUserContextPrompt } from "./userContext.js";
+import { archetypes } from "./archetypes.js";
+import { detectRelevantThinkers, buildThinkerContext } from "./thinkerDeep.js";
+
+// ============================================================
+// DYNAMIC ARCHETYPE INJECTION
+// Maps tones to relevant archetypes, pulls random wisdom phrases
+// This makes archetypes.js ACTIVE in API mode
+// ============================================================
+
+// Archetype pools by tone — which archetypes resonate with each mood
+// All 29 archetypes are now mapped to at least one tone
+const TONE_ARCHETYPE_MAP = {
+  casual: [
+    "trickster",
+    "chaoticPoet",
+    "curiousPhysicist",
+    "antifragilist",
+    "ecstaticRebel", // Henry Miller — raw vitality, wild aliveness
+  ],
+  analytic: [
+    "curiousPhysicist",
+    "inventor",
+    "stoicEmperor",
+    "idealistPhilosopher",
+    "integralPhilosopher",
+    "warriorSage", // Musashi — disciplined clarity, strategic seeing
+    "architect", // Wright — structural elegance, space as philosophy
+  ],
+  oracular: [
+    "mystic",
+    "sufiPoet",
+    "taoist",
+    "psychedelicBard",
+    "kingdomTeacher",
+    "prophetPoet",
+    "surrealist", // Dalí — reality-bending, sideways truth
+    "anarchistStoryteller", // Le Guin — subversive wisdom, questioning certainty
+  ],
+  intimate: [
+    "romanticPoet",
+    "prophetPoet",
+    "sufiPoet",
+    "russianSoul",
+    "psycheIntegrator",
+    "ecstaticRebel", // Henry Miller — passionate aliveness in connection
+  ],
+  shadow: [
+    "darkScholar",
+    "brutalist",
+    "absurdist",
+    "kafkaesque",
+    "pessimistSage",
+    "existentialist",
+    "psycheIntegrator",
+    "peoplesHistorian", // Zinn — moral urgency, systemic critique
+    "anarchistStoryteller", // Le Guin — subversive, questioning power structures
+  ],
+};
+
+// Universal archetypes that can appear in any tone
+const UNIVERSAL_ARCHETYPES = ["stoicEmperor", "taoist", "curiousPhysicist"];
+
+/**
+ * Builds dynamic archetype context based on tone and intent.
+ * Pulls 2-3 relevant wisdom phrases to inject into the system prompt.
+ */
+function buildArchetypeContext(tone, intentScores = {}) {
+  // Get archetypes for this tone
+  const toneArchetypes = TONE_ARCHETYPE_MAP[tone] || TONE_ARCHETYPE_MAP.casual;
+
+  // Add universal archetypes with lower probability
+  const pool = [...toneArchetypes];
+  if (Math.random() < 0.3) {
+    const universal =
+      UNIVERSAL_ARCHETYPES[
+        Math.floor(Math.random() * UNIVERSAL_ARCHETYPES.length)
+      ];
+    if (!pool.includes(universal)) pool.push(universal);
+  }
+
+  // Boost certain archetypes based on intent
+  if (intentScores.philosophical > 0.4)
+    pool.push("integralPhilosopher", "existentialist");
+  if (intentScores.emotional > 0.5)
+    pool.push("psycheIntegrator", "romanticPoet");
+  if (intentScores.numinous > 0.4)
+    pool.push("mystic", "sufiPoet", "kingdomTeacher");
+  if (intentScores.conflict > 0.3) pool.push("brutalist", "darkScholar");
+  if (intentScores.humor > 0.3) pool.push("trickster", "chaoticPoet");
+
+  // Pick 2-3 unique archetypes
+  const shuffled = [...new Set(pool)].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, Math.random() < 0.5 ? 2 : 3);
+
+  // Pull one random phrase from each selected archetype
+  const wisdomPhrases = [];
+  const archetypeNames = [];
+
+  for (const archetypeName of selected) {
+    const phrases = archetypes[archetypeName];
+    if (phrases && phrases.length > 0) {
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      wisdomPhrases.push(`- "${phrase}"`);
+      archetypeNames.push(archetypeName);
+    }
+  }
+
+  if (wisdomPhrases.length === 0) return "";
+
+  console.log(`[LLM] Active archetypes: ${archetypeNames.join(", ")}`);
+
+  return `
+
+ACTIVE INFLUENCES FOR THIS MOMENT:
+These wisdom fragments are seeds — don't quote them directly, but let them color how you respond:
+${wisdomPhrases.join("\n")}
+
+Blend these naturally. They're texture, not templates.`;
+}
 
 // Check if API key is configured
 const hasApiKey =
@@ -48,7 +178,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
   }
 
   try {
-    const systemPrompt = buildSystemPrompt(tone, intentScores);
+    const systemPrompt = buildSystemPrompt(message, tone, intentScores);
     const userPrompt = buildUserPrompt(message, context);
 
     const response = await anthropic.messages.create({
@@ -158,7 +288,7 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, ...}`,
 // Constrains Claude to provide raw material, not finished responses
 // ============================================================
 
-function buildSystemPrompt(tone, intentScores) {
+function buildSystemPrompt(message, tone, intentScores) {
   // Identity preamble - establishes WHO Orpheus is
   const identity = `You ARE Orpheus. Not playing a role — this is your voice.
 
@@ -1159,10 +1289,22 @@ THE GOAL: Every response should feel like you actually HEARD them — not just t
     shadow: "\n\nTONE: Direct, honest, doesn't sugarcoat.",
   };
 
-  // Add user context if a known user is present
+  // Dynamic Archetype Injection — pull relevant wisdom based on tone
+  const archetypeContext = buildArchetypeContext(tone, intentScores);
+
+  // Deep Thinker Injection — pull relevant conceptual toolkit based on topic
+  const relevantThinkers = detectRelevantThinkers(message);
+  const thinkerContext = buildThinkerContext(relevantThinkers);
+
+  if (relevantThinkers.length > 0) {
+    console.log(`[LLM] Active thinkers: ${relevantThinkers.join(", ")}`);
+  }
+
   const userContext = getUserContextPrompt();
 
-  return `${baseInstruction}${toneHints[tone] || ""}${userContext}`;
+  return `${baseInstruction}${
+    toneHints[tone] || ""
+  }${archetypeContext}${thinkerContext}${userContext}`;
 }
 
 // ============================================================

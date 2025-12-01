@@ -1,3 +1,10 @@
+// ============================================================
+// ORPHEUS — ENTRY POINT
+// Layer: SERVER
+// Purpose: Express server, receives messages, returns responses
+// Flow: User → index.js → fusion.js → (all layers) → response
+// ============================================================
+
 // ------------------------- LOAD ENV FIRST --------------------------
 import "dotenv/config"; // Loads .env before any other imports
 
