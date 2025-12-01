@@ -2,6 +2,8 @@
 
 **AI with character, not compliance.**
 
+> Created and architected by **Pablo Cordero** · November 2025
+
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
@@ -123,9 +125,19 @@ Optimized ~40-50% vs naive implementation.
 
 ---
 
+## Author
+
+**Pablo Cordero** — Original creator and architect.
+
+The foundational architecture of Orpheus—the personality-over-intelligence inversion, tone system, archetype injection, and response engine—is my original design.
+
+---
+
 ## License
 
-Do what you want. Don't make it boring.
+MIT License. See [LICENSE](LICENSE) for details.
+
+Derivative works must include attribution to the original author.
 
 ---
 
