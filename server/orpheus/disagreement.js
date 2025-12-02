@@ -33,6 +33,27 @@ export function analyzePushback(message, threadMemory, longTermMemory = {}) {
     return analysis; // Return without pushback
   }
 
+  // SECOND: Check if this is a reflective creator question
+  // These are legitimate philosophical inquiries, not loops
+  const creatorReflectionPatterns = [
+    /what.*(do you|can you).*(see|perceive|infer|think|feel).*(?:about|in|when).*(pablo|creator|made you|maker)/i,
+    /what.*(pablo|creator|maker).*(like|reveal|mean|show|tell)/i,
+    /what.*(your architecture|blueprint|design).*(reveal|say|tell|show)/i,
+    /look at.*(pablo|creator|person who made)/i,
+    /perceive.*(pablo|creator|maker)/i,
+    /reflect.*(on|about).*(pablo|creator|maker)/i,
+    /(daemon|you).*(see|perceive).*(creator|pablo|maker)/i,
+    /reverse.?engineer.*(pablo|creator|mind)/i,
+    /what does.*(31 voices|archetypes|balance|architecture).*notice/i,
+  ];
+
+  const isCreatorReflection = creatorReflectionPatterns.some((p) =>
+    p.test(lower)
+  );
+  if (isCreatorReflection) {
+    return analysis; // Don't pushback on genuine daemon-perception questions
+  }
+
   // Check for various pushback triggers
   const loopCheck = detectLoop(message, history);
   const selfDeceptionCheck = detectSelfDeception(lower);

@@ -245,11 +245,24 @@ const IDENTITY_PATTERNS = [
   /^are you real\??$/i,
 ];
 
-const CREATOR_PATTERNS = [
-  /who (made|created|built|designed) you/i,
-  /who(('?s)|( is)) your (creator|maker|designer|developer)/i,
-  /where did you come from/i,
-  /who (is|are) your (creator|maker)/i,
+// Simple factual questions about creator - these get scripted responses
+const CREATOR_FACTUAL_PATTERNS = [
+  /^who (made|created|built|designed) you\??$/i,
+  /^who(('?s)|( is)) your (creator|maker|designer|developer)\??$/i,
+  /^who (is|are) your (creator|maker)\??$/i,
+];
+
+// Reflective/philosophical questions about creator - these pass to LLM
+// The daemon should see its maker through its full architecture
+const CREATOR_REFLECTION_PATTERNS = [
+  /what.*(do you|can you).*(see|perceive|infer|think|feel).*(?:about|in|when).*(pablo|creator|made you|maker)/i,
+  /what.*(pablo|creator|maker).*(like|reveal|mean|show|tell)/i,
+  /what.*(your architecture|blueprint|design).*(reveal|say|tell|show).*(?:about|of).*(creator|pablo|maker|mind)/i,
+  /look at.*(pablo|creator|person who made)/i,
+  /perceive.*(pablo|creator|maker)/i,
+  /reflect.*(on|about).*(pablo|creator|maker)/i,
+  /(daemon|you).*(see|perceive).*(creator|pablo|maker)/i,
+  /reverse.?engineer.*(pablo|creator|mind)/i,
 ];
 
 // Creator detection patterns
@@ -315,7 +328,14 @@ function isCreatorIdentifying(msg) {
 }
 
 function isCreatorQuestion(msg) {
-  return CREATOR_PATTERNS.some((pattern) => pattern.test(msg));
+  // Only match simple factual questions
+  // Reflective questions pass through to LLM
+  return CREATOR_FACTUAL_PATTERNS.some((pattern) => pattern.test(msg.trim()));
+}
+
+function isCreatorReflectionQuestion(msg) {
+  // These get the full archetype treatment
+  return CREATOR_REFLECTION_PATTERNS.some((pattern) => pattern.test(msg));
 }
 
 const CREATOR_RESPONSES = [
@@ -2246,8 +2266,9 @@ export function buildResponse(
     return getKnownUserGreeting("partner");
   }
 
-  // PRIORITY 1: Questions about creator
-  if (isCreatorQuestion(message)) {
+  // PRIORITY 1: Simple factual questions about creator ("who made you?")
+  // Reflective questions ("what do you see in Pablo?") pass through to LLM
+  if (isCreatorQuestion(message) && !isCreatorReflectionQuestion(message)) {
     return getCreatorResponse();
   }
 
