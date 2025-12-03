@@ -178,11 +178,6 @@ Optimized ~40-50% vs naive implementation.
 - ✅ Beck's CBT integration
 - ✅ Creator/partner recognition
 
-**Exploring:**
-
-- Local model fallback
-- Proactive presence
-
 ---
 
 ## Author
