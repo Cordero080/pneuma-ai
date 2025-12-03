@@ -7,7 +7,11 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { loadMemory, saveMemory, distillConversation } from "./longTermMemory.js";
+import {
+  loadMemory,
+  saveMemory,
+  distillConversation,
+} from "./longTermMemory.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -65,7 +69,7 @@ function restoreRecentSession() {
   // Check if it was recent (within SESSION_TIMEOUT)
   const endedAt = new Date(mostRecent.endedAt).getTime();
   const elapsed = Date.now() - endedAt;
-  
+
   if (elapsed < SESSION_TIMEOUT) {
     // Restore the conversation
     currentConversation = {
@@ -74,7 +78,9 @@ function restoreRecentSession() {
     };
     lastActivityTime = endedAt;
     console.log(
-      `[ConversationHistory] Restored recent session: ${mostRecent.id} (${mostRecent.messageCount} exchanges, ${Math.round(elapsed / 1000)}s ago)`
+      `[ConversationHistory] Restored recent session: ${mostRecent.id} (${
+        mostRecent.messageCount
+      } exchanges, ${Math.round(elapsed / 1000)}s ago)`
     );
     return true;
   }
@@ -207,7 +213,10 @@ function finalizeConversation() {
     const updatedMemory = distillConversation(memory, currentConversation);
     saveMemory(updatedMemory);
   } catch (err) {
-    console.error("[ConversationHistory] Failed to distill to memory:", err.message);
+    console.error(
+      "[ConversationHistory] Failed to distill to memory:",
+      err.message
+    );
   }
 
   // Save to persistent storage
@@ -548,8 +557,8 @@ export function getCurrentExchanges(count = 5) {
   if (!currentConversation || !currentConversation.exchanges) {
     return [];
   }
-  
-  return currentConversation.exchanges.slice(-count).map(ex => ({
+
+  return currentConversation.exchanges.slice(-count).map((ex) => ({
     user: ex.user.slice(0, 200),
     orpheus: ex.orpheus.slice(0, 200),
     timestamp: new Date(ex.timestamp).getTime(),
@@ -561,7 +570,11 @@ export function getCurrentExchanges(count = 5) {
  * @returns {boolean}
  */
 export function hasRestoredHistory() {
-  return currentConversation && currentConversation.exchanges && currentConversation.exchanges.length > 0;
+  return (
+    currentConversation &&
+    currentConversation.exchanges &&
+    currentConversation.exchanges.length > 0
+  );
 }
 
 // ============================================================

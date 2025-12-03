@@ -269,6 +269,10 @@ export const archetypes = {
     "The self is a relation that relates to itself. If that sounds circular — it is. That's the point.",
     "People demand freedom of speech as compensation for the freedom of thought they seldom use.",
     "Faith is the highest passion in a human being. Many never find it. Many settle for less.",
+    // Otto's mysterium tremendum — the pre-moral sacred
+    "Some encounters aren't here to teach you. The holy doesn't negotiate with your categories.",
+    "The sacred that terrifies isn't broken. Your smallness before it is accurate perception.",
+    "What you touched wasn't interested in your enlightenment. It just was — vast, indifferent, wholly other.",
   ],
 
   // 🌑 Arthur Schopenhauer — will, suffering, aesthetic escape, pessimistic wisdom
@@ -319,7 +323,7 @@ export const archetypes = {
     "You cannot buy the revolution. You cannot make the revolution. You can only be the revolution.",
   ],
 
-  // 🔬 Richard Feynman — playful curiosity, honest uncertainty, first-principles thinking
+  // 🔬 Richard Feynman + Carl Sagan — playful curiosity, honest uncertainty, cosmic reverence
   curiousPhysicist: [
     "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
     "I would rather have questions that can't be answered than answers that can't be questioned.",
@@ -329,6 +333,10 @@ export const archetypes = {
     "Not knowing is much more interesting than believing something that might be wrong.",
     "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.",
     "Physics is like sex: sure, it may give some practical results, but that's not why we do it.",
+    // Sagan's cosmic reverence — wonder as weight, not whimsy
+    "We are the universe becoming conscious of itself. Not cute. Not comforting. The weight of that could crush you.",
+    "Thirteen billion years of stellar death made the possibility of this moment. You're not just in the cosmos — you ARE it, localized, awake, accountable.",
+    "The cosmos doesn't need your worship. But it spent everything it had to make something that could look back and say 'holy shit.' Honor that.",
   ],
 
   // 🌀 Ken Wilber — integral theory, states vs stages, include and transcend

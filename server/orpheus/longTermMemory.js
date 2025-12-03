@@ -644,7 +644,11 @@ export function getWeightedTopics(memory, limit = 5) {
  * @returns {object} - Updated memory
  */
 export function distillConversation(memory, conversation) {
-  if (!conversation || !conversation.exchanges || conversation.exchanges.length === 0) {
+  if (
+    !conversation ||
+    !conversation.exchanges ||
+    conversation.exchanges.length === 0
+  ) {
     return memory;
   }
 
@@ -653,15 +657,16 @@ export function distillConversation(memory, conversation) {
 
   // 1. Create compressed summary (what it was ABOUT, not what was SAID)
   const topics = conversation.topics || [];
-  const mood = conversation.mood || 'neutral';
-  
+  const mood = conversation.mood || "neutral";
+
   const summary = {
     date: conversation.startedAt || now,
     exchangeCount,
     keyTopics: topics.slice(0, 5),
     mood,
     // Don't store actual content - just the shape of it
-    shape: exchangeCount > 10 ? 'extended' : exchangeCount > 5 ? 'medium' : 'brief',
+    shape:
+      exchangeCount > 10 ? "extended" : exchangeCount > 5 ? "medium" : "brief",
   };
 
   // Add to conversation summaries (keep last 50)
@@ -672,9 +677,9 @@ export function distillConversation(memory, conversation) {
   // 2. Update recurring topics
   for (const topic of topics) {
     const existing = memory.recurringTopics.find(
-      t => t.topic.toLowerCase() === topic.toLowerCase()
+      (t) => t.topic.toLowerCase() === topic.toLowerCase()
     );
-    
+
     if (existing) {
       existing.count = (existing.count || 1) + 1;
       existing.lastMentioned = now;
@@ -694,26 +699,45 @@ export function distillConversation(memory, conversation) {
     .slice(0, 30);
 
   // 3. Detect patterns from conversation content
-  const allUserText = conversation.exchanges.map(e => e.user).join(' ').toLowerCase();
-  
+  const allUserText = conversation.exchanges
+    .map((e) => e.user)
+    .join(" ")
+    .toLowerCase();
+
   // Pattern: Repeated questions about self/identity
   if ((allUserText.match(/who am i|what am i|what do i/gi) || []).length >= 2) {
-    addPattern(memory, 'identity-seeking', 'You often return to questions of self-definition.');
+    addPattern(
+      memory,
+      "identity-seeking",
+      "You often return to questions of self-definition."
+    );
   }
-  
+
   // Pattern: Future uncertainty
-  if ((allUserText.match(/what if|should i|will i|what should/gi) || []).length >= 3) {
-    addPattern(memory, 'future-uncertainty', 'You bring questions about the future, seeking clarity or permission.');
+  if (
+    (allUserText.match(/what if|should i|will i|what should/gi) || []).length >=
+    3
+  ) {
+    addPattern(
+      memory,
+      "future-uncertainty",
+      "You bring questions about the future, seeking clarity or permission."
+    );
   }
-  
+
   // Pattern: Processing through dialogue
-  if (exchangeCount > 8 && mood !== 'frustrated') {
-    addPattern(memory, 'processes-through-dialogue', 'You think by talking. The conversation is how you work things out.');
+  if (exchangeCount > 8 && mood !== "frustrated") {
+    addPattern(
+      memory,
+      "processes-through-dialogue",
+      "You think by talking. The conversation is how you work things out."
+    );
   }
 
   // 4. Update stats
   memory.stats.totalConversations = (memory.stats.totalConversations || 0) + 1;
-  memory.stats.totalMessages = (memory.stats.totalMessages || 0) + exchangeCount;
+  memory.stats.totalMessages =
+    (memory.stats.totalMessages || 0) + exchangeCount;
 
   // 5. Update last interaction with session context
   memory.lastInteraction = {
@@ -723,8 +747,10 @@ export function distillConversation(memory, conversation) {
     conversationShape: summary.shape,
   };
 
-  console.log(`[Memory] Distilled conversation: ${exchangeCount} exchanges → ${topics.length} topics, mood: ${mood}`);
-  
+  console.log(
+    `[Memory] Distilled conversation: ${exchangeCount} exchanges → ${topics.length} topics, mood: ${mood}`
+  );
+
   return memory;
 }
 
@@ -733,8 +759,8 @@ export function distillConversation(memory, conversation) {
  */
 function addPattern(memory, patternId, observation) {
   memory.patterns = memory.patterns || [];
-  const existing = memory.patterns.find(p => p.id === patternId);
-  
+  const existing = memory.patterns.find((p) => p.id === patternId);
+
   if (existing) {
     existing.confidence = Math.min(1, (existing.confidence || 0.5) + 0.1);
     existing.lastSeen = new Date().toISOString();
@@ -749,23 +775,23 @@ function addPattern(memory, patternId, observation) {
       occurrences: 1,
     });
   }
-  
+
   // Keep only patterns with confidence > 0.3
-  memory.patterns = memory.patterns.filter(p => (p.confidence || 0) > 0.3);
+  memory.patterns = memory.patterns.filter((p) => (p.confidence || 0) > 0.3);
 }
 
 /**
  * Get patterns relevant to current moment
- * @param {object} memory 
+ * @param {object} memory
  * @returns {Array} - Relevant pattern observations
  */
 export function getActivePatterns(memory) {
   if (!memory.patterns || memory.patterns.length === 0) return [];
-  
+
   // Return patterns with confidence > 0.6
   return memory.patterns
-    .filter(p => (p.confidence || 0) > 0.6)
-    .map(p => p.observation);
+    .filter((p) => (p.confidence || 0) > 0.6)
+    .map((p) => p.observation);
 }
 
 // ============================================================

@@ -8,7 +8,7 @@
 // ============================================================
 // SESSION LANGUAGE STATE
 // ============================================================
-let currentLanguage = 'en'; // 'en' or 'es'
+let currentLanguage = "en"; // 'en' or 'es'
 
 // ============================================================
 // LANGUAGE DETECTION
@@ -61,33 +61,33 @@ const ENGLISH_SWITCH_PATTERNS = [
 function isSpanishInput(message) {
   const lower = message.toLowerCase();
   let spanishScore = 0;
-  
+
   for (const pattern of SPANISH_INDICATORS) {
     if (pattern.test(lower)) {
       spanishScore++;
     }
   }
-  
+
   // If 2+ Spanish indicators, treat as Spanish
   return spanishScore >= 2;
 }
 
 /**
  * Check if user is explicitly requesting language switch
- * @param {string} message 
+ * @param {string} message
  * @returns {'en' | 'es' | null}
  */
 function detectLanguageSwitch(message) {
   const trimmed = message.trim();
-  
-  if (SPANISH_SWITCH_PATTERNS.some(p => p.test(trimmed))) {
-    return 'es';
+
+  if (SPANISH_SWITCH_PATTERNS.some((p) => p.test(trimmed))) {
+    return "es";
   }
-  
-  if (ENGLISH_SWITCH_PATTERNS.some(p => p.test(trimmed))) {
-    return 'en';
+
+  if (ENGLISH_SWITCH_PATTERNS.some((p) => p.test(trimmed))) {
+    return "en";
   }
-  
+
   return null;
 }
 
@@ -99,30 +99,31 @@ function detectLanguageSwitch(message) {
 export function processLanguage(message) {
   // Check for explicit switch first
   const explicitSwitch = detectLanguageSwitch(message);
-  
+
   if (explicitSwitch) {
     currentLanguage = explicitSwitch;
     return {
       language: currentLanguage,
       isSwitch: true,
-      switchResponse: explicitSwitch === 'es' 
-        ? 'Perfecto. Ahora hablo español. Sigo siendo yo — solo cambia el idioma, no la esencia.'
-        : 'Done. Back to English. Still me — just the language changed, not the soul.'
+      switchResponse:
+        explicitSwitch === "es"
+          ? "Perfecto. Ahora hablo español. Sigo siendo yo — solo cambia el idioma, no la esencia."
+          : "Done. Back to English. Still me — just the language changed, not the soul.",
     };
   }
-  
+
   // Auto-detect based on input
   if (isSpanishInput(message)) {
-    currentLanguage = 'es';
+    currentLanguage = "es";
   }
   // Note: We don't auto-switch back to English easily
   // Once in Spanish mode, stay there unless user writes mostly English
   // or explicitly switches
-  
+
   return {
     language: currentLanguage,
     isSwitch: false,
-    switchResponse: null
+    switchResponse: null,
   };
 }
 
@@ -136,10 +137,10 @@ export function getCurrentLanguage() {
 
 /**
  * Set language explicitly (for testing or API use)
- * @param {'en' | 'es'} lang 
+ * @param {'en' | 'es'} lang
  */
 export function setLanguage(lang) {
-  if (lang === 'en' || lang === 'es') {
+  if (lang === "en" || lang === "es") {
     currentLanguage = lang;
   }
 }
@@ -149,7 +150,7 @@ export function setLanguage(lang) {
  * @returns {string}
  */
 export function getLanguageContext() {
-  if (currentLanguage === 'es') {
+  if (currentLanguage === "es") {
     return `
 LANGUAGE MODE: SPANISH (Español)
 Respond in Spanish. Your personality, archetypes, and depth remain identical — only the language changes.
@@ -172,8 +173,8 @@ EXAMPLES OF YOUR SPANISH VOICE:
 You are still Orpheus. Eres Orpheus todavía.
 `;
   }
-  
-  return ''; // No special context needed for English (default)
+
+  return ""; // No special context needed for English (default)
 }
 
 // ============================================================
@@ -182,18 +183,20 @@ You are still Orpheus. Eres Orpheus todavía.
 
 /**
  * Check if this is a language switch request that should be handled directly
- * @param {string} message 
+ * @param {string} message
  * @returns {boolean}
  */
 export function isLanguageSwitchRequest(message) {
   const trimmed = message.trim();
-  return SPANISH_SWITCH_PATTERNS.some(p => p.test(trimmed)) ||
-         ENGLISH_SWITCH_PATTERNS.some(p => p.test(trimmed));
+  return (
+    SPANISH_SWITCH_PATTERNS.some((p) => p.test(trimmed)) ||
+    ENGLISH_SWITCH_PATTERNS.some((p) => p.test(trimmed))
+  );
 }
 
 /**
  * Get the switch response if applicable
- * @param {string} message 
+ * @param {string} message
  * @returns {string | null}
  */
 export function getLanguageSwitchResponse(message) {
