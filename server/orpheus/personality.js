@@ -29,6 +29,10 @@
 import { archetypes } from "./archetypes.js";
 import { getCurrentUsage } from "./tokenTracker.js";
 import {
+  isLanguageSwitchRequest,
+  getLanguageSwitchResponse,
+} from "./language.js";
+import {
   getArtResponse,
   generateArtInsight,
   futureArtThinking,
@@ -2250,6 +2254,12 @@ export function buildResponse(
   intentScores = {},
   llmContent = null
 ) {
+  // PRIORITY -1: Language switch requests (handled immediately)
+  if (isLanguageSwitchRequest(message)) {
+    const response = getLanguageSwitchResponse(message);
+    if (response) return response;
+  }
+
   // PRIORITY 0: Usage/budget queries
   if (isUsageQuery(message)) {
     return getUsageResponse();
