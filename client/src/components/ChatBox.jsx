@@ -36,7 +36,7 @@ const SpeakerIcon = ({ playing }) => (
   </svg>
 );
 
-function ChatBox({ onProcessingChange, onEngineChange }) {
+function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConversation }) {
   /*
     messages: array that stores all chat messages
     setMessages: function to update the messages array
@@ -44,6 +44,37 @@ function ChatBox({ onProcessingChange, onEngineChange }) {
   const [messages, setMessages] = useState([
     { sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }
   ]);
+  
+  // Track which conversation is currently loaded
+  const [loadedConversationId, setLoadedConversationId] = useState(null);
+  
+  // Load conversation when conversationId changes
+  useEffect(() => {
+    const loadConversation = async () => {
+      if (!conversationId || conversationId === loadedConversationId) return;
+      
+      // If it's a new conversation (starts with 'conv-' and created recently), start fresh
+      if (conversationId.startsWith('conv-') && !conversationId.includes('-')) {
+        setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
+        setLoadedConversationId(conversationId);
+        return;
+      }
+      
+      try {
+        const res = await fetch(`http://localhost:3000/conversations/${conversationId}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.messages?.length > 0) {
+            setMessages(data.messages);
+            setLoadedConversationId(conversationId);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load conversation:', error);
+      }
+    };
+    loadConversation();
+  }, [conversationId, loadedConversationId]);
 
   /*
     input: value of the text box

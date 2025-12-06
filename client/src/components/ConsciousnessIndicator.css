@@ -1,136 +1,89 @@
 /* ============================================
-   CONSCIOUSNESS INDICATOR
-   Shows which engine is active
+   CONSCIOUSNESS INDICATOR — Color Nodes
+   Minimal, alive, unobtrusive
    ============================================ */
 
 .consciousness-indicator {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 1px 40px;
-  
-  /* Glassmorphism */
-  
-  
-  
-  border: 1px solid rgba(138, 43, 226, 0.15);
-  border-radius: 8px;
-  
-  margin-bottom: 0;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 20px;
+  margin-bottom: 8px;
 }
 
 .engines-row {
   display: flex;
-  gap: 100px;
+  gap: 16px;
+  align-items: center;
 }
 
+/* Individual node - just a glowing dot */
 .engine-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 2px 15px;
-  
-  background: rgba(20, 20, 40, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 6px;
-  
-  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--engine-color);
+  opacity: 0.4;
   cursor: default;
-  
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 4px var(--engine-color);
 }
 
-.engine-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--engine-color);
-  opacity: 0.75;
-  transition: all 0.3s ease;
+/* Hover - subtle brighten */
+.engine-node:hover {
+  opacity: 0.6;
 }
 
-.engine-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.engine-name {
-  font-size: 0.5rem;
-  letter-spacing: 1px;
-  color: var(--engine-color);
-  opacity: 0.75;
-  font-family: 'JetBrains Mono', monospace;
-  transition: all 0.3s ease;
-}
-
-/* Active engine state */
+/* Active engine state - brighter, glowing */
 .engine-node.active {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--engine-color);
-  box-shadow: 0 0 12px var(--engine-color), inset 0 0 8px rgba(255, 255, 255, 0.05);
-  transform: scale(1.1);
-}
-
-.engine-node.active .engine-icon {
   opacity: 1;
-  filter: drop-shadow(0 0 10px var(--engine-color));
-  animation: iconGlow 0.5s ease-in-out infinite alternate;
+  box-shadow: 
+    0 0 8px var(--engine-color),
+    0 0 16px var(--engine-color);
+  transform: scale(1.2);
 }
 
-.engine-node.active .engine-name {
-  opacity: 1;
-  text-shadow: 0 0 8px var(--engine-color);
-}
-
-@keyframes iconGlow {
-  0% {
-    filter: drop-shadow(0 0 6px var(--engine-color));
-  }
-  100% {
-    filter: drop-shadow(0 0 14px var(--engine-color));
-  }
-}
-
-/* Processing state - pulsing animation */
+/* Processing state - pulsing */
 .consciousness-indicator.processing .engine-node.active {
-  animation: enginePulse 0.6s ease-in-out infinite;
+  animation: nodePulse 1s ease-in-out infinite;
 }
 
 .consciousness-indicator.processing .engine-node:not(.active) {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
-@keyframes enginePulse {
+@keyframes nodePulse {
   0%, 100% {
-    box-shadow: 0 0 12px var(--engine-color), inset 0 0 8px rgba(255, 255, 255, 0.05);
-    transform: scale(1.1);
+    box-shadow: 
+      0 0 8px var(--engine-color),
+      0 0 16px var(--engine-color);
+    transform: scale(1.2);
   }
   50% {
-    box-shadow: 0 0 24px var(--engine-color), inset 0 0 12px rgba(255, 255, 255, 0.1);
-    transform: scale(1.15);
+    box-shadow: 
+      0 0 12px var(--engine-color),
+      0 0 24px var(--engine-color);
+    transform: scale(1.4);
   }
 }
 
-/* Processing bar */
+/* Processing bar - minimal */
 .processing-bar {
-  width: 100%;
-  height: 1px;
+  width: 60px;
+  height: 2px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 1px;
   overflow: hidden;
-  margin-top: 2px;
+  margin-left: 8px;
 }
 
 .processing-fill {
   height: 100%;
   width: 30%;
-  background: linear-gradient(90deg, #00d4ff, #a855f7, #ff00cc);
+  background: linear-gradient(90deg, #00f0ff, #c084fc, #ff44dd, #22ffaa);
   border-radius: 1px;
-  animation: processingSlide 1.5s ease-in-out infinite;
+  animation: processingSlide 1.2s ease-in-out infinite;
 }
 
 @keyframes processingSlide {

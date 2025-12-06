@@ -132,42 +132,14 @@
   overflow: hidden;
 }
 
-/* Scan line overlay */
+/* Removed scan lines - cleaner look */
 .sidebar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 212, 255, 0.015) 2px,
-    rgba(0, 212, 255, 0.015) 4px
-  );
-  pointer-events: none;
-  z-index: 10;
+  display: none;
 }
 
-/* Moving scan beam */
+/* Removed scan beam - cleaner look */
 .sidebar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 212, 255, 0.03) 50%,
-    transparent 100%
-  );
-  animation: panelScan 8s linear infinite;
-  pointer-events: none;
-  z-index: 11;
+  display: none;
 }
 
 .sidebar.collapsed {
@@ -218,66 +190,32 @@
   position: relative;
 }
 
-/* Status indicator row - centered with decorative lights */
+/* Status indicator row - single node with Orpheus text */
 .status-row {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content */
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 12px;
-  position: relative;
 }
 
-/* Primary status light - emerald green with living hue */
+/* Single status light - cyan with gentle pulse */
 .status-light {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #00ffaa;
-  animation: 
-    statusPulse 2s ease-in-out infinite,
-    hueDriftEmerald 45s ease-in-out infinite;
-}
-
-/* Decorative lights positioned at the right edge */
-.status-row::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ffaa00;
-  animation: 
-    statusPulseAmber 3s ease-in-out infinite,
-    hueDriftAmber 60s ease-in-out infinite;
-}
-
-/* Violet light next to amber */
-.status-row::before {
-  content: '';
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #a855f7;
-  animation: 
-    statusPulseViolet 2.5s ease-in-out infinite,
-    hueDriftViolet 50s ease-in-out infinite;
+  background: #00d4ff;
+  animation: statusPulse 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
 }
 
 .status-text {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  /* Emerald family - cooler/bluer green for text */
-  color: rgba(0, 220, 180, 0.7);
+  letter-spacing: 3px;
+  color: rgba(0, 212, 255, 0.8);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 /* New chat button - Magenta family: warm border, cool text */

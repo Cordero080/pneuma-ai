@@ -11,9 +11,16 @@ import "dotenv/config"; // Loads .env before any other imports
 // ------------------------- IMPORTS ---------------------------------
 import express from "express";
 import cors from "cors";
+import fs from "fs/promises";
+import path from "path";
+import { fileURLToPath } from "url";
 import { orpheusRespond } from "./orpheus/fusion.js";
 import { textToSpeech } from "./orpheus/tts.js";
 // ^ Your Orpheus fusion engine + TTS
+
+// ES Module __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ------------------------- APP CONFIG -------------------------------
 const app = express();
@@ -26,6 +33,64 @@ app.use(express.json({ limit: "10mb" })); // parse JSON request bodies with larg
 // Quick test to confirm the backend is alive
 app.get("/", (req, res) => {
   res.send("🐲 Orpheus AI backend is running. 🐲");
+});
+
+// -------------------------- CONVERSATIONS ROUTE ---------------------
+// Returns list of conversations for sidebar display
+app.get("/conversations", async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, "..", "data", "conversations.json");
+    const data = await fs.readFile(dataPath, "utf-8");
+    const { conversations } = JSON.parse(data);
+
+    // Transform for sidebar: extract title from first exchange, format date
+    const summaries = conversations.map((conv) => {
+      const firstExchange = conv.exchanges?.[0];
+      const title = firstExchange?.user?.slice(0, 50) || "Untitled";
+      const date = new Date(conv.startedAt).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      });
+
+      return {
+        id: conv.id,
+        title: title.replace(/^["']|["']$/g, "").trim(),
+        date,
+        messageCount: conv.messageCount || conv.exchanges?.length || 0,
+      };
+    });
+
+    res.json({ conversations: summaries });
+  } catch (error) {
+    console.error("[Conversations] Error:", error.message);
+    res.json({ conversations: [] });
+  }
+});
+
+// -------------------------- GET SINGLE CONVERSATION ----------------
+// Returns full exchanges for a specific conversation
+app.get("/conversations/:id", async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, "..", "data", "conversations.json");
+    const data = await fs.readFile(dataPath, "utf-8");
+    const { conversations } = JSON.parse(data);
+
+    const conv = conversations.find((c) => c.id === req.params.id);
+    if (!conv) {
+      return res.status(404).json({ error: "Conversation not found" });
+    }
+
+    // Transform exchanges to messages format for ChatBox
+    const messages = conv.exchanges.flatMap((ex) => [
+      { sender: "user", text: ex.user.replace(/^"|"$/g, "") },
+      { sender: "ai", text: ex.orpheus },
+    ]);
+
+    res.json({ messages, id: conv.id });
+  } catch (error) {
+    console.error("[Conversation] Error:", error.message);
+    res.status(500).json({ error: "Failed to load conversation" });
+  }
 });
 
 // -------------------------- CHAT ROUTE ------------------------------

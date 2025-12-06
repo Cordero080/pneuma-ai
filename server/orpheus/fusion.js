@@ -61,6 +61,7 @@ import { analyzePushback, getPushbackResponse } from "./disagreement.js";
 import {
   recordExchange,
   saveCurrentConversation,
+  startOrContinueSession,
 } from "./conversationHistory.js";
 
 // ============================================================
@@ -202,6 +203,10 @@ function applyUpgrades(upgrades, state) {
 // ============================================================
 
 export async function orpheusRespond(userMessage) {
+  // Start or continue session FIRST — this ensures old conversation data
+  // is finalized if this is a new session, preventing stale context
+  startOrContinueSession();
+
   // Track input
   trackInput(userMessage);
 
@@ -551,8 +556,13 @@ export async function orpheusRespond(userMessage) {
   }
 
   // Prepend rhythm-aware phrase if appropriate
+  // But skip if LLM response already starts with a greeting-like opener
   if (rhythmPhrase && rhythmPhrase.length > 0) {
-    finalReply = `${rhythmPhrase} ${finalReply}`;
+    const alreadyHasGreeting =
+      /^(hey|hi|hello|yo|sup|hola|what's up)[!?.,\s]/i.test(finalReply.trim());
+    if (!alreadyHasGreeting) {
+      finalReply = `${rhythmPhrase} ${finalReply}`;
+    }
   }
 
   // Evolve state based on interaction

@@ -1,7 +1,7 @@
 // This is the main component
 // Right now it just shows a placeholder text
 // Next: turn this into a chat UI step by step
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css"; // import the CSS file
 import ChatBox from "./components/ChatBox";
 import Title3D from "./components/Title3D";
@@ -9,24 +9,54 @@ import Sidebar from "./components/Sidebar";
 import ConsciousnessIndicator from "./components/ConsciousnessIndicator";
 
 function App() {
-  // Conversation history state
-  const [conversations, setConversations] = useState([
-    { id: 1, title: "First conversation", date: "Today" },
-    { id: 2, title: "About consciousness", date: "Yesterday" },
-  ]);
-  const [activeConversationId, setActiveConversationId] = useState(1);
+  // Conversation history state - starts empty, fetched from backend
+  const [conversations, setConversations] = useState([]);
+  const [activeConversationId, setActiveConversationId] = useState(null);
   
   // Consciousness engine state (will be updated by backend)
   const [activeEngine, setActiveEngine] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
+  // Fetch conversations on mount
+  useEffect(() => {
+    const fetchConversations = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/conversations");
+        const data = await res.json();
+        if (data.conversations?.length > 0) {
+          setConversations(data.conversations);
+          setActiveConversationId(data.conversations[0].id);
+        }
+      } catch (error) {
+        console.error("Failed to fetch conversations:", error);
+      }
+    };
+    fetchConversations();
+  }, []);
+
   const handleNewChat = () => {
-    const newId = Date.now();
+    const newId = `conv-${Date.now()}`;
     setConversations(prev => [
       { id: newId, title: "New conversation", date: "Now" },
       ...prev
     ]);
     setActiveConversationId(newId);
+  };
+
+  const handleDeleteChat = (convId) => {
+    setConversations(prev => prev.filter(c => c.id !== convId));
+    // If we deleted the active conversation, switch to the first available
+    if (activeConversationId === convId) {
+      setConversations(prev => {
+        const remaining = prev.filter(c => c.id !== convId);
+        if (remaining.length > 0) {
+          setActiveConversationId(remaining[0].id);
+        } else {
+          setActiveConversationId(null);
+        }
+        return remaining;
+      });
+    }
   };
 
   return (
@@ -36,6 +66,7 @@ function App() {
         activeId={activeConversationId}
         onSelect={setActiveConversationId}
         onNewChat={handleNewChat}
+        onDelete={handleDeleteChat}
       />
       <div className="app-container">
         <Title3D />
@@ -46,6 +77,8 @@ function App() {
         <ChatBox 
           onProcessingChange={setIsProcessing}
           onEngineChange={setActiveEngine}
+          conversationId={activeConversationId}
+          onNewConversation={(id) => setActiveConversationId(id)}
         />
       </div>
     </div>

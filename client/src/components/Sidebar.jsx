@@ -1,8 +1,16 @@
 import { useState } from 'react';
 import './Sidebar.css';
 
-function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
+function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const handleDelete = (e, convId) => {
+    e.preventDefault(); // Prevent browser context menu
+    e.stopPropagation();
+    if (onDelete && confirm('Delete this session?')) {
+      onDelete(convId);
+    }
+  };
 
   return (
     <>
@@ -20,7 +28,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
             <div className="panel-header">
               <div className="status-row">
                 <span className="status-light"></span>
-                <span className="status-text">System Online</span>
+                <span className="status-text">Orpheus</span>
               </div>
               
               {/* New chat button - command style */}
@@ -44,6 +52,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat }) {
                     key={conv.id}
                     className={`conversation-item ${activeId === conv.id ? 'active' : ''}`}
                     onClick={() => onSelect(conv.id)}
+                    onContextMenu={(e) => handleDelete(e, conv.id)}
                   >
                     <span className="conv-title">{conv.title || 'Untitled Session'}</span>
                     <span className="conv-date">{conv.date}</span>

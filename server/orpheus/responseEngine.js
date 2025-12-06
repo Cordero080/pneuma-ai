@@ -322,8 +322,15 @@ export async function generate(
     /^(who|what|where|when|why|how|is|are|can|do|does|will|would|should|could)\b/i.test(
       message.trim()
     );
+  // More robust greeting detection - catch "Hey", "Hey O", "Hey Orpheus", etc.
+  const isSimpleGreeting =
+    /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy)(\s+(o|orpheus|there|man|dude|bro))?[!?.,\s]*$/i.test(
+      message.trim()
+    );
   const isPureCasualGreeting =
-    intentScores.casual >= 0.8 && !isQuestion && message.trim().length < 15;
+    (intentScores.casual >= 0.8 || isSimpleGreeting) &&
+    !isQuestion &&
+    message.trim().length < 20;
 
   if (isLLMAvailable() && !isPureCasualGreeting) {
     const context = {

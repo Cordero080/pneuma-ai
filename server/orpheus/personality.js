@@ -1249,8 +1249,9 @@ function isGreeting(msg) {
     return false; // Pass to LLM for contextual response
   }
 
-  // Only catch pure, context-free greetings
-  return /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)[!?.,\s]*$/i.test(
+  // Catch greetings including those with name suffixes like "Hey O" or "Hey Orpheus"
+  // Also handle "hola", "heya", and common typos
+  return /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(o|orpheus|there|man|dude|bro))?[!?.,\s]*$/i.test(
     lower
   );
 }
