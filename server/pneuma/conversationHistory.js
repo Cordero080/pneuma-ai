@@ -287,7 +287,9 @@ function extractTopics(exchanges) {
   const allTopics = new Set();
 
   for (const exchange of exchanges) {
-    const text = `${exchange.user} ${exchange.pneuma}`;
+    const text = `${exchange.user} ${
+      exchange.pneuma || exchange.orpheus || ""
+    }`;
     const topics = detectTopicsInText(text);
     topics.forEach((t) => allTopics.add(t));
   }
@@ -569,7 +571,7 @@ export function getCurrentExchanges(count = 5) {
 
   return currentConversation.exchanges.slice(-count).map((ex) => ({
     user: ex.user.slice(0, 200),
-    pneuma: ex.pneuma.slice(0, 200),
+    pneuma: (ex.pneuma || ex.orpheus || "").slice(0, 200),
     timestamp: new Date(ex.timestamp).getTime(),
   }));
 }
@@ -677,7 +679,7 @@ export function searchConversations(query) {
     return conv.exchanges.some(
       (ex) =>
         ex.user.toLowerCase().includes(lower) ||
-        ex.pneuma.toLowerCase().includes(lower)
+        (ex.pneuma || ex.orpheus || "").toLowerCase().includes(lower)
     );
   });
 }

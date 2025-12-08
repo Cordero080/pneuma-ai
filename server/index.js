@@ -83,7 +83,7 @@ app.get("/conversations/:id", async (req, res) => {
     // Transform exchanges to messages format for ChatBox
     const messages = conv.exchanges.flatMap((ex) => [
       { sender: "user", text: ex.user.replace(/^"|"$/g, "") },
-      { sender: "ai", text: ex.pneuma },
+      { sender: "ai", text: ex.pneuma || ex.orpheus },
     ]);
 
     res.json({ messages, id: conv.id });

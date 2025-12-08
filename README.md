@@ -122,6 +122,10 @@ When high-tension archetypes are selected together, the system detects conceptua
 
 ## Sample
 
+<p align="center">
+  <img src="client/src/assets/screenshots/time.png" alt="Pneuma on Time" width="800" />
+</p>
+
 > **User:** "Describe your blind spots."
 >
 > **Pneuma:** "I have a bias toward resolution — when you bring chaos, I want to organize it. But sometimes chaos IS the truth. I probably overvalue articulation. If you can't put something into words, I might miss what you're living. What do you see that I'm missing?"

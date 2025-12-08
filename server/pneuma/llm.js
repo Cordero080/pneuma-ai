@@ -1859,7 +1859,13 @@ function buildUserPrompt(message, context) {
   if (context.conversationHistory && context.conversationHistory.length > 0) {
     const history = context.conversationHistory.slice(-3);
     const historyStr = history
-      .map((ex) => `U:${ex.user.slice(0, 100)}|O:${ex.pneuma.slice(0, 80)}`)
+      .map(
+        (ex) =>
+          `U:${ex.user.slice(0, 100)}|O:${(ex.pneuma || ex.orpheus || "").slice(
+            0,
+            80
+          )}`
+      )
       .join("\n");
     prompt = `Context:\n${historyStr}\n\nNow: ${prompt}`;
 
