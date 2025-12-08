@@ -15,10 +15,7 @@ build/
 npm-debug.log*
 
 # Private data - conversations and state
-data/conversations.json
-data/orpheus_state.json
-data/long_term_memory.json
-data/token_usage.json
+data/*.json
 
 # OS files
 .DS_Store
