@@ -51,26 +51,33 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
   // Load conversation when conversationId changes
   useEffect(() => {
     const loadConversation = async () => {
-      if (!conversationId || conversationId === loadedConversationId) return;
+      if (!conversationId) return;
       
-      // If it's a new conversation (starts with 'conv-' and created recently), start fresh
-      if (conversationId.startsWith('conv-') && !conversationId.includes('-')) {
-        setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
-        setLoadedConversationId(conversationId);
-        return;
-      }
+      // If same conversation, don't reload
+      if (conversationId === loadedConversationId) return;
       
+      // If it's a new conversation (starts with 'conv-'), try to load it
+      // If it doesn't exist on server yet, start fresh
       try {
         const res = await fetch(`http://localhost:3000/conversations/${conversationId}`);
         if (res.ok) {
           const data = await res.json();
           if (data.messages?.length > 0) {
             setMessages(data.messages);
-            setLoadedConversationId(conversationId);
+          } else {
+            // Conversation exists but has no messages - start fresh
+            setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
           }
+        } else {
+          // Conversation doesn't exist on server - it's a new one, start fresh
+          setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
         }
+        setLoadedConversationId(conversationId);
       } catch (error) {
         console.error('Failed to load conversation:', error);
+        // On error, start fresh
+        setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
+        setLoadedConversationId(conversationId);
       }
     };
     loadConversation();

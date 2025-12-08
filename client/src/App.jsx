@@ -43,20 +43,31 @@ function App() {
     setActiveConversationId(newId);
   };
 
-  const handleDeleteChat = (convId) => {
-    setConversations(prev => prev.filter(c => c.id !== convId));
-    // If we deleted the active conversation, switch to the first available
-    if (activeConversationId === convId) {
-      setConversations(prev => {
-        const remaining = prev.filter(c => c.id !== convId);
+  const handleDeleteChat = async (convId) => {
+    // Try to delete from backend
+    try {
+      await fetch(`http://localhost:3000/conversations/${convId}`, {
+        method: 'DELETE'
+      });
+    } catch (error) {
+      console.error("Failed to delete from backend:", error);
+    }
+    
+    // Update local state
+    setConversations(prev => {
+      const remaining = prev.filter(c => c.id !== convId);
+      
+      // If we deleted the active conversation, switch to first available
+      if (activeConversationId === convId) {
         if (remaining.length > 0) {
           setActiveConversationId(remaining[0].id);
         } else {
           setActiveConversationId(null);
         }
-        return remaining;
-      });
-    }
+      }
+      
+      return remaining;
+    });
   };
 
   return (

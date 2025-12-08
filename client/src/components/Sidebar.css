@@ -412,6 +412,129 @@
 }
 
 /* ============================================
+   MULTI-SELECT STATES
+   ============================================ */
+.conversation-item.selected {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+  border-left-color: rgba(168, 85, 247, 0.6);
+  color: rgba(200, 180, 255, 0.9);
+}
+
+.conversation-item.selected .conv-date {
+  color: rgba(168, 85, 247, 0.7);
+}
+
+.selection-count {
+  font-size: 0.45rem;
+  color: rgba(168, 85, 247, 0.8);
+  margin-left: auto;
+}
+
+/* ============================================
+   DELETE CONFIRMATION MODAL
+   ============================================ */
+.delete-confirm-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 3, 8, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.delete-confirm-modal {
+  background: rgba(20, 15, 30, 0.95);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 
+    0 0 30px rgba(255, 100, 100, 0.1),
+    inset 0 0 20px rgba(255, 100, 100, 0.03);
+  animation: modalSlide 0.15s ease-out;
+}
+
+@keyframes modalSlide {
+  from { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.delete-confirm-icon {
+  font-size: 1.5rem;
+  color: rgba(255, 150, 100, 0.9);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 150, 100, 0.4);
+}
+
+.delete-confirm-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.delete-confirm-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.delete-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-btn.cancel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.delete-btn.cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.delete-btn.confirm {
+  background: rgba(255, 80, 80, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  color: rgba(255, 150, 150, 0.9);
+}
+
+.delete-btn.confirm:hover {
+  background: rgba(255, 80, 80, 0.25);
+  border-color: rgba(255, 80, 80, 0.6);
+  color: #ff9999;
+  box-shadow: 0 0 15px rgba(255, 80, 80, 0.2);
+}
+
+/* ============================================
    PANEL FOOTER - System Info
    ============================================ */
 .panel-footer {

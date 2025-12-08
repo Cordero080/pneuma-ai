@@ -169,16 +169,21 @@ _Last updated: December 2025_
 
 **Function:** `buildArchetypeContext(tone, intentScores)`
 
-**Location:** Lines ~30-100
+**Location:** Lines ~180-300
 
 **How it works:**
 
 1. Maps tones to archetype pools (e.g., `casual` → trickster, chaoticPoet, etc.)
-2. Selects 2-3 random archetypes based on tone
-3. Pulls 1 wisdom phrase from each selected archetype
-4. Returns formatted string for injection into system prompt
+2. Selects 3-4 archetypes based on tone + intent boosters
+3. **NEW: Collision Detection** — checks if selected archetypes have high/medium tension
+4. If collision detected, injects **Dialectical Synthesis Directive** with:
+   - Both archetype essences
+   - Frameworks in tension
+   - Synthesis prompt forcing emergent insight
+5. Returns `{ context, selectedArchetypes }` for injection into system prompt
 
-**Archetype definitions:** `server/orpheus/archetypes.js` (23 archetypes, ~300 lines)
+**Archetype definitions:** `server/orpheus/archetypes.js` (31 archetypes, ~400 lines)
+**Archetype depth:** `server/orpheus/archetypeDepth.js` (31 deep frameworks, ~1200 lines)
 
 ---
 
@@ -200,6 +205,37 @@ _Last updated: December 2025_
 
 ---
 
+### Where Dialectical Synthesis Happens (NEW)
+
+**Files:**
+
+- `server/orpheus/archetypeDepth.js` — Deep frameworks for all 31 archetypes
+- `server/orpheus/synthesisEngine.js` — Collision detection + synthesis generation
+
+**Functions:**
+
+- `detectCollisions(activeArchetypes)` — Finds high/medium tension pairs
+- `generateSynthesis(a, b, topic)` — Creates synthesis data for collision
+- `buildSynthesisContext(synthesis)` — Formats for LLM injection
+- `getTensionLevel(a, b)` — Returns 'high', 'medium', 'low', or 'neutral'
+- `getSynthesisPrompt(type, a, b)` — Gets appropriate synthesis directive
+
+**How it works:**
+
+1. After archetype selection, system checks all pairs for tension level
+2. If high/medium tension detected, pulls depth data for both archetypes:
+   - Core frameworks (3 key concepts each)
+   - Cognitive tools (methodologies)
+   - Conceptual bridges (pre-mapped connections)
+3. Injects **Dialectical Synthesis Directive** into system prompt
+4. Claude generates emergent insight from the collision
+
+**Example collision product (Jung × Taleb):**
+
+> "The shadow isn't just rejected content — it's antifragile potential. The parts of yourself you've protected from stress are the parts that stayed weak. Integration isn't just acceptance — it's exposure therapy for the psyche."
+
+---
+
 ## 3. FILE RELATIONSHIPS
 
 ### Call Hierarchy
@@ -216,6 +252,8 @@ index.js
                     ├── llm.js → getLLMIntent()
                     ├── llm.js → getLLMContent()
                     │     ├── archetypes.js → phrase pools
+                    │     ├── archetypeDepth.js → deep frameworks (NEW)
+                    │     ├── synthesisEngine.js → collision detection (NEW)
                     │     └── thinkerDeep.js → concept injection
                     │
                     └── personality.js → buildResponse()
@@ -226,41 +264,44 @@ index.js
 
 ### What Each Core File Does
 
-| File                | Role                                       | Calls                                                                         | Called By              |
-| ------------------- | ------------------------------------------ | ----------------------------------------------------------------------------- | ---------------------- |
-| `fusion.js`         | **Orchestrator** — coordinates all systems | responseEngine, rhythmIntelligence, longTermMemory, disagreement, uncertainty | index.js               |
-| `responseEngine.js` | **Pipeline** — 4-layer response assembly   | llm.js, personality.js                                                        | fusion.js              |
-| `llm.js`            | **Brain** — Claude API + system prompt     | archetypes.js, thinkerDeep.js                                                 | responseEngine.js      |
-| `personality.js`    | **Voice** — tone-based response generation | archetypes.js, synesthesia.js, vocabularyExpansion.js                         | responseEngine.js      |
-| `archetypes.js`     | **Wisdom** — 23 phrase pools               | (none)                                                                        | llm.js, personality.js |
+| File                 | Role                                                  | Calls                                                                         | Called By                  |
+| -------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------- |
+| `fusion.js`          | **Orchestrator** — coordinates all systems            | responseEngine, rhythmIntelligence, longTermMemory, disagreement, uncertainty | index.js                   |
+| `responseEngine.js`  | **Pipeline** — 4-layer response assembly              | llm.js, personality.js                                                        | fusion.js                  |
+| `llm.js`             | **Brain** — Claude API + dialectical injection        | archetypes.js, archetypeDepth.js, synthesisEngine.js, thinkerDeep.js          | responseEngine.js          |
+| `personality.js`     | **Voice** — tone-based response generation            | archetypes.js, synesthesia.js, vocabularyExpansion.js                         | responseEngine.js          |
+| `archetypes.js`      | **Wisdom** — 31 phrase pools                          | (none)                                                                        | llm.js, personality.js     |
+| `archetypeDepth.js`  | **NEW: Depth** — 31 deep cognitive frameworks         | (none)                                                                        | llm.js, synthesisEngine.js |
+| `synthesisEngine.js` | **NEW: Dialectics** — collision detection + synthesis | archetypeDepth.js                                                             | llm.js                     |
 
 ### Complete Engine File List
 
-| #   | File                     | Lines | Purpose                                     |
-| --- | ------------------------ | ----- | ------------------------------------------- |
-| 1   | `archetypes.js`          | 304   | 23 archetype wisdom phrase pools            |
-| 2   | `artKnowledge.js`        | 413   | Art movements, artists, opinions            |
-| 3   | `conversationHistory.js` | 643   | Full conversation persistence               |
-| 4   | `disagreement.js`        | 370   | Pushback/challenge detection                |
-| 5   | `fusion.js`              | 474   | **Main orchestrator**                       |
-| 6   | `innerMonologue.js`      | ~100  | Internal voice generation                   |
-| 7   | `llm.js`                 | 1400  | **Claude API + 1200-line system prompt**    |
-| 8   | `longTermMemory.js`      | 653   | Cross-session memory                        |
-| 9   | `memory.js`              | ~50   | Short/long-term memory ops                  |
-| 10  | `modeSelector.js`        | 241   | Intent → mode selection                     |
-| 11  | `personality.js`         | 2630  | **The big one** — all tones + micro-engines |
-| 12  | `reflectionEngine.js`    | ~50   | Emotion inference + patterns                |
-| 13  | `responseEngine.js`      | 319   | 4-layer response pipeline                   |
-| 14  | `rhythmIntelligence.js`  | 260   | Conversation tempo/energy                   |
-| 15  | `state.js`               | 318   | Evolution vectors + state management        |
-| 16  | `synesthesia.js`         | 633   | Emotion → sensory language                  |
-| 17  | `synthesisEngine.js`     | ~70   | Combines layers                             |
-| 18  | `thinking.js`            | ~40   | Concept association                         |
-| 19  | `thinkerDeep.js`         | 1233  | Rich conceptual toolkit                     |
-| 20  | `uncertainty.js`         | 377   | Unanswerable question detection             |
-| 21  | `vocabularyExpansion.js` | 392   | Additional phrase pools                     |
+| #   | File                     | Lines | Purpose                                                          |
+| --- | ------------------------ | ----- | ---------------------------------------------------------------- |
+| 1   | `archetypes.js`          | 406   | 31 archetype wisdom phrase pools                                 |
+| 2   | `archetypeDepth.js`      | 1200+ | **NEW** Deep frameworks for dialectical cognition                |
+| 3   | `artKnowledge.js`        | 413   | Art movements, artists, opinions                                 |
+| 4   | `conversationHistory.js` | 643   | Full conversation persistence                                    |
+| 5   | `disagreement.js`        | 370   | Pushback/challenge detection                                     |
+| 6   | `fusion.js`              | 474   | **Main orchestrator**                                            |
+| 7   | `innerMonologue.js`      | ~100  | Internal voice generation                                        |
+| 8   | `llm.js`                 | 1900+ | **Claude API + 1200-line system prompt + dialectical injection** |
+| 9   | `longTermMemory.js`      | 653   | Cross-session memory                                             |
+| 10  | `memory.js`              | ~50   | Short/long-term memory ops                                       |
+| 11  | `modeSelector.js`        | 241   | Intent → mode selection                                          |
+| 12  | `personality.js`         | 2630  | **The big one** — all tones + micro-engines                      |
+| 13  | `reflectionEngine.js`    | ~50   | Emotion inference + patterns                                     |
+| 14  | `responseEngine.js`      | 319   | 4-layer response pipeline                                        |
+| 15  | `rhythmIntelligence.js`  | 260   | Conversation tempo/energy                                        |
+| 16  | `state.js`               | 318   | Evolution vectors + state management                             |
+| 17  | `synesthesia.js`         | 633   | Emotion → sensory language                                       |
+| 18  | `synthesisEngine.js`     | 400+  | **UPGRADED** Dialectical collision detection + synthesis         |
+| 19  | `thinking.js`            | ~40   | Concept association                                              |
+| 20  | `thinkerDeep.js`         | 1233  | Rich conceptual toolkit                                          |
+| 21  | `uncertainty.js`         | 377   | Unanswerable question detection                                  |
+| 22  | `vocabularyExpansion.js` | 392   | Additional phrase pools                                          |
 
-**Total: ~10,000+ lines of JavaScript** in the orpheus engine.
+**Total: ~12,000+ lines of JavaScript** in the orpheus engine (including dialectical cognition).
 
 ---
 

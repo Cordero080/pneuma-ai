@@ -15,12 +15,9 @@ const USAGE_FILE = path.join(DATA_DIR, "token_usage.json");
 // Default monthly budget in tokens (configurable)
 const DEFAULT_MONTHLY_BUDGET = 10_000_000; // ~10M tokens = ~$30-40/month with Sonnet
 
-// Warning thresholds (percentage of budget remaining)
-const WARNING_THRESHOLDS = {
-  critical: 0.05, // 5% remaining — urgent warning
-  low: 0.15, // 15% remaining — warning
-  notice: 0.3, // 30% remaining — heads up
-};
+// Warning thresholds - notify ONCE at each percentage point
+// User requested: 15%, 10%, 5%, 1%
+const WARNING_THRESHOLDS = [15, 10, 5, 1];
 
 /**
  * Load current usage data
@@ -66,7 +63,7 @@ function createFreshUsage(month) {
     totalTokens: 0,
     messageCount: 0,
     lastUpdated: new Date().toISOString(),
-    warnings: [],
+    warningsShown: [], // Track which percentage thresholds have been notified
   };
 }
 
@@ -123,44 +120,38 @@ export function recordUsage(inputTokens, outputTokens) {
 }
 
 /**
- * Check if we should warn the user
+ * Check if we should warn the user - only triggers ONCE per threshold
+ * Thresholds: 15%, 10%, 5%, 1%
  */
 function checkWarning(usage) {
   const remaining = usage.budget - usage.totalTokens;
-  const percentRemaining = remaining / usage.budget;
+  const percentRemaining = Math.round((remaining / usage.budget) * 100);
 
-  if (percentRemaining <= WARNING_THRESHOLDS.critical) {
-    return {
-      level: "critical",
-      message: `Only ${Math.round(
-        percentRemaining * 100
-      )}% of your monthly token budget remains. You have approximately ${estimateMessagesRemaining(
-        remaining
-      )} messages left.`,
-      inject: true,
-    };
+  // Initialize warningsShown if missing (legacy data)
+  if (!usage.warningsShown) {
+    usage.warningsShown = [];
   }
 
-  if (percentRemaining <= WARNING_THRESHOLDS.low) {
-    return {
-      level: "low",
-      message: `${Math.round(
-        percentRemaining * 100
-      )}% of your monthly token budget remains (~${estimateMessagesRemaining(
-        remaining
-      )} messages).`,
-      inject: true,
-    };
-  }
+  // Find the highest threshold we've crossed that we haven't warned about yet
+  for (const threshold of WARNING_THRESHOLDS) {
+    if (
+      percentRemaining <= threshold &&
+      !usage.warningsShown.includes(threshold)
+    ) {
+      // Mark this threshold as warned
+      usage.warningsShown.push(threshold);
+      saveUsage(usage);
 
-  if (percentRemaining <= WARNING_THRESHOLDS.notice) {
-    return {
-      level: "notice",
-      message: `Heads up: ${Math.round(
-        percentRemaining * 100
-      )}% of your monthly budget remains.`,
-      inject: false, // Don't inject into response, just log
-    };
+      const messagesLeft = estimateMessagesRemaining(remaining);
+      const level = threshold <= 5 ? "critical" : "low";
+
+      return {
+        level,
+        threshold,
+        message: `${percentRemaining}% of your monthly budget remains (~${messagesLeft} messages).`,
+        inject: true,
+      };
+    }
   }
 
   return null;
@@ -231,19 +222,16 @@ export function setBudget(tokens) {
 
 /**
  * Format a warning message for Orpheus to speak
+ * Only shows once per threshold (15%, 10%, 5%, 1%)
  */
 export function formatWarningForOrpheus(warning) {
   if (!warning || !warning.inject) return null;
 
   if (warning.level === "critical") {
-    return `\n\n---\n⚠️ *Heads up — ${warning.message} You might want to pace yourself or we'll go quiet until next month.*`;
+    return `\n\n---\n⚠️ *${warning.message} Getting close to the wire.*`;
   }
 
-  if (warning.level === "low") {
-    return `\n\n---\n📊 *Quick note: ${warning.message} Just keeping you in the loop.*`;
-  }
-
-  return null;
+  return `\n\n---\n📊 *${warning.message}*`;
 }
 
 export default {

@@ -93,6 +93,33 @@ app.get("/conversations/:id", async (req, res) => {
   }
 });
 
+// -------------------------- DELETE CONVERSATION --------------------
+// Deletes a conversation by ID
+app.delete("/conversations/:id", async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, "..", "data", "conversations.json");
+    const data = await fs.readFile(dataPath, "utf-8");
+    const parsed = JSON.parse(data);
+
+    const index = parsed.conversations.findIndex((c) => c.id === req.params.id);
+    if (index === -1) {
+      return res.status(404).json({ error: "Conversation not found" });
+    }
+
+    // Remove the conversation
+    parsed.conversations.splice(index, 1);
+
+    // Save back to file
+    await fs.writeFile(dataPath, JSON.stringify(parsed, null, 2));
+
+    console.log(`[Conversations] Deleted: ${req.params.id}`);
+    res.json({ success: true, deleted: req.params.id });
+  } catch (error) {
+    console.error("[Conversations] Delete error:", error.message);
+    res.status(500).json({ error: "Failed to delete conversation" });
+  }
+});
+
 // -------------------------- CHAT ROUTE ------------------------------
 // Accepts user message → generates Orpheus reply → returns it
 // Now async to support LLM integration

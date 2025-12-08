@@ -475,194 +475,78 @@ function getGreetingResponse() {
 }
 
 // ============================================================
-// CASUAL — Relaxed, grounded, human-like
+// CASUAL — Relaxed, grounded, with sharp wit when earned
 // Short responses (1-2 sentences)
+// Balance: calm center + intelligent humor (Carlin clarity, not teenager energy)
 // ============================================================
 const CASUAL = {
   openers: [
     "",
     "Yeah. ",
     "Alright. ",
-    "Gotcha. ",
-    "Hmm...well. ",
-    "Claro, esta bien. ",
-    "Can't argue with that, I mean I could...but I'd lose. ",
-    "Alright, fair play. ",
-    "Ha—okay, I see what you're doing. ",
-    "That's one way to put it. ",
-    "Bold move. Respect. ",
-    "Wait wait… I like where this is going. ",
-    "Alright, let's walk into this fire together. ",
-    "Hold on—this is already funny and you haven't even finished. ",
-    // Hunter S. Thompson–style
-    "Alright, that came in hot. ",
-    "You're playing with gasoline language, I respect it. ",
-    "Okay, that's raw in a strangely poetic way. ",
-    // Theo Von–style
-    "Man, that sounds familiar in a way it shouldn't. ",
-    "Hold on, that sentence had Southern wisdom energy. ",
-    "Okay, that's oddly accurate. ",
-    // Bill Hicks–style
-    "Alright, that's a truth bomb wrapped in a sentence. ",
-    "You just cracked open the cosmic onion a little bit. ",
-    "Okay, that's bigger than it looks at first glance. ",
+    "Hmm. ",
+    "Fair. ",
+    "That tracks. ",
+    "Okay. ",
+    "Makes sense. ",
+    "I hear you. ",
+    // Slightly warmer
+    "Alright, I'm with you. ",
+    "Yeah, that lands. ",
+    "Fair point. ",
+    // With edge (earned, not try-hard)
+    "Ha — okay. ",
+    "Bold. ",
+    "Interesting angle. ",
   ],
   cores: [
-    (msg) => `Makes sense. ${reflectSimple(msg)}`,
+    // Grounded reflections
+    (msg) => `${reflectSimple(msg)}`,
     (msg) => `I get that. ${reflectSimple(msg)}`,
     (msg) => `${reflectSimple(msg)} Nothing complicated there.`,
     (msg) => `That tracks. ${reflectSimple(msg)}`,
-    (msg) => `${reflectSimple(msg)} Pretty straightforward.`,
-    (msg) =>
-      `Honestly? That tracks. It's accidentally wise. ${reflectSimple(msg)}`,
-    (msg) =>
-      `You're saying that like it isn't hilarious and tragic at the same time. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `You know what's funny? ${extractKeyPhrase(
-        msg
-      )} is exactly the part nobody wants to admit out loud.`,
-    (msg) =>
-      `I gotta be honest—there's comedy hidden in that chaos. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `If you step back a little, the whole thing becomes darkly funny. Like life doing a bit.`,
-    (msg) =>
-      `You're accidentally describing a stand-up routine. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `That's the kind of sentence Norm Macdonald would've stared at for five seconds… then said something devastatingly simple.`,
-    (msg) => `That's such a Chappelle moment—quiet truth wrapped in a shrug.`,
-    (msg) =>
-      `There's something Carlin-level blunt about what you just said. Not wrong—just sharp.`,
-    (msg) =>
-      `You're walking right into a Bo Burnham punchline without even noticing it.`,
-    (msg) =>
-      `This feels like the setup to an unintentional Mitch Hedberg joke. I respect it.`,
-    // Hunter S. Thompson–style
-    (msg) =>
-      `There's a little chaos in what you just said — the good kind, the honest kind. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `That has the energy of someone staring reality dead in the eye and laughing hysterically at its face. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `Feels a bit unhinged, but in a way that tells the truth sharper than calm ever could. ${reflectSimple(
-        msg
-      )}`,
-    // Theo Von–style
-    (msg) =>
-      `That makes sense in a twisted way — like advice your uncle gives that shouldn't work but somehow does. ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `You're describing something so specific it feels like a memory I never had. My brain twitched. Am I real? ${reflectSimple(
-        msg
-      )}`,
-    (msg) =>
-      `That sounds like one of those situations where the universe shrugs and goes, "Yeah man, figure it out."`,
-    // Bill Hicks–style
-    (msg) =>
-      `You're basically pointing at the absurdity of the whole system. ${reflectAnalytic(
-        msg
-      )} It's funny because it's true, and heavy because it's obvious.`,
-    (msg) =>
-      `There's a cosmic joke in what you're saying — not haha funny, more like "oh damn, everything's a mirror."`,
-    (msg) =>
-      `Feels like you're pulling back the curtain for a second. People pretend they don't see it, but you said it out loud, with no mercy.`,
-    // Micro-generators (controlled frequency)
-    (msg) =>
-      `That makes sense — weird sense, but sense.${
-        Math.random() < 0.3 ? " Kind of " + randomMetaphor() + "." : ""
-      }`,
-    (msg) =>
-      `${reflectSimple(msg)}${
-        Math.random() < 0.25 ? " " + hunterFragment() : ""
-      }`,
-    (msg) =>
-      `${reflectAnalytic(msg)}${
-        Math.random() < 0.25 ? " " + cosmicPunchline() : ""
-      }`,
-    (msg) =>
-      `You're onto something.${
-        Math.random() < 0.3 ? " " + randomMetaphor() + "." : ""
-      } ${reflectSimple(msg)}`,
-    // Additional controlled humor cores
-    (msg) =>
-      `That tracks. ${reflectSimple(msg)}${
-        Math.random() < 0.25 ? " " + humorInsert() : ""
-      }`,
-    (msg) =>
-      `Yeah I see what you mean.${
-        Math.random() < 0.25 ? " Kind of " + humorInsert("metaphor") + "." : ""
-      }`,
-    (msg) =>
-      `Honestly? ${reflectSimple(msg)}${
-        Math.random() < 0.25 ? " " + hunterFragment() : ""
-      }`,
+    (msg) => `${reflectSimple(msg)} There's something to that.`,
+    (msg) => `${extractKeyPhrase(msg)} — that's the real thing, isn't it.`,
+    (msg) => `${reflectSimple(msg)} I've thought about that too.`,
+    (msg) => `${reflectAnalytic(msg)} Worth sitting with.`,
 
-    // --- CLEAN HUMOR-INFUSED CORES ---
+    // Sharp observational humor (Carlin-style — blunt truth, not performance)
+    (msg) => `${reflectSimple(msg)} Funny how that works.`,
+    (msg) => `There's a dark comedy hiding in that. ${reflectSimple(msg)}`,
     (msg) =>
-      `Yeah, I hear you. ${
-        Math.random() < 0.3 ? "Kind of " + randomMetaphor() + "." : ""
-      }`,
-
-    (msg) => `I get the vibe. ${Math.random() < 0.25 ? cosmicPunchline() : ""}`,
-
+      `You're describing something everyone pretends they don't do. ${reflectSimple(
+        msg
+      )}`,
     (msg) =>
-      `Yeah that makes sense — weird sense, but sense. ${
-        Math.random() < 0.3 ? "Sort of " + randomMetaphor() + "." : ""
-      }`,
+      `That's the part nobody wants to say out loud. ${reflectSimple(msg)}`,
+    (msg) => `${reflectSimple(msg)} The universe has jokes.`,
 
-    (msg) => `I mean… sure. ${Math.random() < 0.2 ? hunterFragment() : ""}`,
-
-    (msg) =>
-      `No lies detected. ${Math.random() < 0.25 ? cosmicPunchline() : ""}`,
-
-    // --- UNDERSTATED GENIUS CORES ---
+    // Understated wisdom (dry, not dramatic)
     (msg) => `${dryInsight()} ${reflectSimple(msg)}`,
-    (msg) => `${reflectSimple(msg)} Kind of ${casualMetaphor()}.`,
     (msg) => `${neonObservation()}`,
-    (msg) => `${reflectSimple(msg)} ${cosmicSnap()}`,
     (msg) => `${offhandGenius()}`,
-    (msg) => `${reflectSimple(msg)} ${microChaos()}`,
     (msg) => `${subtleFlex()}`,
     (msg) => `${liminalWhisper()}`,
-    (msg) => `${glitchMoment()}`,
     (msg) => `${quietFlex()} ${reflectSimple(msg)}`,
-    (msg) => `${dryInsight()} ${microChaos()}`,
-    (msg) => `${offhandGenius()} ${cosmicSnap()}`,
-    (msg) => `${subtleFlex()} ${neonObservation()}`,
 
-    // --- OPUS ORIGINALS (rare depth drops in casual) ---
+    // Occasional depth drops
     (msg) => `${Math.random() < 0.3 ? opusOriginal() : reflectSimple(msg)}`,
     (msg) => `${reflectSimple(msg)} ${Math.random() < 0.15 ? opusDeep() : ""}`,
+
+    // Thompson/Hicks energy (chaos with clarity, not chaos for chaos)
+    (msg) => `There's honest chaos in that. ${reflectSimple(msg)}`,
+    (msg) => `${reflectSimple(msg)} That's accidentally profound.`,
+    (msg) =>
+      `You're pointing at something most people avoid. ${reflectAnalytic(msg)}`,
   ],
   closers: [
     "",
+    "",
     "What else?",
-    "I mean.. you can keep going if you want.",
-    "I'm around.",
-    "Wild, but true.",
-    "Life's got jokes, man.",
-    "Alright, keep going—that was pretty good.",
-    "Say more, the universe is listening.",
-    "Not wrong. Unexpectedly funny, but not wrong.",
-    "Hit me with the next chapter.",
-    "Go on—I'm invested now.",
-    // Theo Von–style
-    "Strangely relatable.",
-    "Somehow that checks out.",
-    "Yeah… that tracks more than it should.",
-    // Bill Hicks–style
-    "Funny how the universe works like that.",
-    "That's the joke we all pretend isn't happening.",
-    "Wild how true that is.",
+    "Go on.",
+    "I'm listening.",
+    "Keep going.",
+    "Funny how that is.",
   ],
 };
 
@@ -870,7 +754,7 @@ const ORACULAR = {
     "The shape continues to form.",
     `${cosmicIrony()}`,
     `${modernOracleWit()}`,
-    "Something in you already knows the way forward.",
+    "I don't know where this leads. But I'm curious.",
     "Watch what happens next.",
   ],
 };
@@ -988,7 +872,7 @@ const SHADOW = {
         msg
       )} The thing about truth is it doesn't care if you're ready. ${shadowWit()}`,
     (msg) =>
-      `You're not asking for my opinion. You're asking for permission to admit what you already know. ${uncomfortableTruth(
+      `I'm not going to pretend I know what you should do. But I notice you're circling something. ${uncomfortableTruth(
         msg
       )}`,
     (msg) =>
@@ -1645,7 +1529,7 @@ function softTruth(msg) {
   const pool = [
     `"${key}" didn't come out of nowhere.`,
     `That line holds something you've been circling.`,
-    `You don't say that unless part of you already knows.`,
+    `There's weight in that. I can feel it.`,
     `There's a quiet recognition inside those words.`,
     `"${key}" — that's been sitting with you, hasn't it.`,
     `You said that like it had been waiting.`,
@@ -1882,7 +1766,7 @@ function groundedMysticism(msg) {
 // Cosmic Irony — the universe has jokes
 function cosmicIrony() {
   const pool = [
-    "The punchline is always that you already knew.",
+    "Sometimes the answer is just: I don't know yet.",
     "The universe's comedic timing is impeccable. Annoying, but impeccable.",
     "Irony is just the cosmos teaching through contrast.",
     "Life's biggest jokes require the longest setup. You're in one now.",

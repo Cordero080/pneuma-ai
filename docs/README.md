@@ -41,13 +41,14 @@ docs/
 
 ## Key Numbers
 
-| Metric             | Value                                            |
-| ------------------ | ------------------------------------------------ |
-| **Archetypes**     | 31 thinker patterns (influence, not quotation)   |
-| **Response Tones** | 5 (casual, analytic, oracular, intimate, shadow) |
-| **Engine Files**   | 21 JavaScript modules                            |
-| **Lines of Code**  | ~10,000+ in /server/orpheus                      |
-| **LLM**            | Claude (claude-sonnet-4-20250514)                |
+| Metric                         | Value                                            |
+| ------------------------------ | ------------------------------------------------ |
+| **Archetypes**                 | 31 thinker patterns (influence, not quotation)   |
+| **Response Tones**             | 5 (casual, analytic, oracular, intimate, shadow) |
+| **Engine Files**               | 22 JavaScript modules                            |
+| **Lines of Code**              | ~12,000+ in /server/orpheus                      |
+| **LLM**                        | Claude (claude-sonnet-4-20250514)                |
+| **NEW: Dialectical Cognition** | Collision-based emergent insights                |
 
 ---
 
@@ -68,6 +69,7 @@ docs/
 - **[milestones/](./development/milestones/)** — Historical snapshots of development progress.
   - [2025-11-30](./development/milestones/2025-11-30.md) — First complete version (23 archetypes, 5 modes)
   - [2025-12-05](./development/milestones/2025-12-05.md) — v4.1: Influence architecture, emergent awareness, eulogy lens
+  - [2025-12-07](./development/milestones/2025-12-07.md) — **v5: Dialectical Cognition Engine** — archetypes become collision tools
 
 ---
 
