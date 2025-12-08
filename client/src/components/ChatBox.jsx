@@ -42,7 +42,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     setMessages: function to update the messages array
   */
   const [messages, setMessages] = useState([
-    { sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }
+    { sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }
   ]);
   
   // Track which conversation is currently loaded
@@ -66,17 +66,17 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
             setMessages(data.messages);
           } else {
             // Conversation exists but has no messages - start fresh
-            setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
+            setMessages([{ sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }]);
           }
         } else {
           // Conversation doesn't exist on server - it's a new one, start fresh
-          setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
+          setMessages([{ sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }]);
         }
         setLoadedConversationId(conversationId);
       } catch (error) {
         console.error('Failed to load conversation:', error);
         // On error, start fresh
-        setMessages([{ sender: "ai", text: "Hey Pablo, I'm Orpheus. Talk to me. " }]);
+        setMessages([{ sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }]);
         setLoadedConversationId(conversationId);
       }
     };
@@ -331,7 +331,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
               key={index}
               className={`message-bubble ${msg.sender === "user" ? "user" : "ai"} ${playingMessageIndex === index ? 'speaking' : ''}`}
             >
-              {/* Aurora shader for Orpheus messages */}
+              {/* Aurora shader for Pneuma messages */}
               {msg.sender === "ai" && <div className="aurora-shader"></div>}
               <span className="message-text">{msg.text}</span>
               {/* Sound wave + Speaker button for AI messages */}
@@ -357,7 +357,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
           <textarea
             ref={textareaRef}
             className="chat-input"
-            placeholder="Talk to Orpheus..."
+            placeholder="Talk to Pneuma..."
             value={input}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}

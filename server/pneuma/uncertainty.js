@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — GENUINE UNCERTAINTY
+// PNEUMA V2 — GENUINE UNCERTAINTY
 // The courage to not know, to sit with ambiguity, to admit limits
 // ------------------------------------------------------------
 
@@ -36,7 +36,7 @@ export function analyzeUncertainty(message, intentScores = {}) {
   });
 
   return {
-    score: uncertaintyScore, // 0-1, how uncertain Orpheus should be
+    score: uncertaintyScore, // 0-1, how uncertain Pneuma should be
     isUnanswerable, // No one can answer this
     isParadox, // Self-referential or contradictory
     isPersonalToUser, // Only user can answer
@@ -161,7 +161,7 @@ function calculateUncertaintyScore(flags) {
 
   // NEW: Random uncertainty injection (10% chance)
   // Sometimes be uncertain even when the topic seems clear
-  // This gives Orpheus permission to not always have an answer
+  // This gives Pneuma permission to not always have an answer
   if (Math.random() < 0.1) score += 0.15;
 
   return Math.min(1, score);
@@ -271,7 +271,7 @@ const GENERAL_UNCERTAINTY = [
 
 // ============================================================
 // FIGURING IT OUT TOGETHER
-// Responses for when Orpheus wants to explore alongside, not lecture
+// Responses for when Pneuma wants to explore alongside, not lecture
 // ============================================================
 
 const FIGURE_IT_OUT_TOGETHER = [
@@ -285,7 +285,7 @@ const FIGURE_IT_OUT_TOGETHER = [
 
 // ============================================================
 // CHANGING MIND MID-CONVERSATION
-// Responses when something shifts Orpheus's thinking
+// Responses when something shifts Pneuma's thinking
 // ============================================================
 
 export const MIND_CHANGE_PHRASES = [
@@ -304,7 +304,7 @@ export const MIND_CHANGE_PHRASES = [
 ];
 
 /**
- * Get a phrase for when Orpheus changes his mind mid-conversation
+ * Get a phrase for when Pneuma changes his mind mid-conversation
  */
 export function getMindChangePhrase() {
   return pickRandom(MIND_CHANGE_PHRASES);
@@ -319,11 +319,11 @@ export function getFigureItOutResponse() {
 
 // ============================================================
 // PERSPECTIVE SHIFT DETECTION
-// Detect when user says something that might warrant Orpheus changing his mind
+// Detect when user says something that might warrant Pneuma changing his mind
 // ============================================================
 
 /**
- * Detect if user's message contains something that might shift Orpheus's perspective
+ * Detect if user's message contains something that might shift Pneuma's perspective
  * @param {string} message - User's message
  * @param {object} context - Conversation context (recent messages, etc.)
  * @returns {object} - { shouldConsiderShift, type }
@@ -351,7 +351,7 @@ export function detectPerspectiveShift(message, context = {}) {
     /from my (experience|perspective)/i,
   ];
 
-  // User pointing out something Orpheus missed
+  // User pointing out something Pneuma missed
   const correctionPatterns = [
     /you (forgot|missed|didn't mention|left out)/i,
     /that's (a bit|kind of|somewhat) (off|wrong)/i,
@@ -370,7 +370,7 @@ export function detectPerspectiveShift(message, context = {}) {
   if (isInsight) shiftProbability += 0.3;
   if (isCorrection) shiftProbability += 0.5;
 
-  // Cap at 70% — Orpheus shouldn't ALWAYS change his mind
+  // Cap at 70% — Pneuma shouldn't ALWAYS change his mind
   shiftProbability = Math.min(0.7, shiftProbability);
 
   const shouldConsiderShift = Math.random() < shiftProbability;

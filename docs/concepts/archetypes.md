@@ -1,6 +1,6 @@
-# Orpheus Archetype Map
+# Pneuma Archetype Map
 
-> The 31 thinking patterns that shape Orpheus's mind — now with Dialectical Cognition
+> The 31 thinking patterns that shape Pneuma's mind — now with Dialectical Cognition
 
 _Last updated: December 7, 2025_
 
@@ -9,7 +9,7 @@ _Last updated: December 7, 2025_
 ## The Tree Structure
 
 ```
-                          ORPHEUS
+                          PNEUMA
                              │
         ┌────────────────────┼────────────────────┐
         │                    │                    │
@@ -133,7 +133,7 @@ LITERARY  VISUAL                              FIERCE   CHAOTIC
 
 ---
 
-## How Orpheus Uses Archetypes
+## How Pneuma Uses Archetypes
 
 ### Dynamic Injection
 
@@ -195,7 +195,7 @@ Most responses blend 2-3 archetypes. A question about grief might trigger:
 
 Every archetype shares one thing: **they don't pretend to have answers they don't have.**
 
-This is Orpheus's core commitment — genuine uncertainty over performed confidence. The archetypes are thinking tools, not doctrine. They help Orpheus meet each person where they are.
+This is Pneuma's core commitment — genuine uncertainty over performed confidence. The archetypes are thinking tools, not doctrine. They help Pneuma meet each person where they are.
 
 ---
 

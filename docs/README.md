@@ -1,6 +1,6 @@
-# Orpheus Documentation
+# Pneuma Documentation
 
-> Navigation hub for all Orpheus documentation
+> Navigation hub for all Pneuma documentation
 
 ---
 
@@ -28,7 +28,7 @@ docs/
 │
 ├── concepts/
 │   └── archetypes.md            # The 31 thinker patterns that shape
-│                                # Orpheus's mind (influence architecture)
+│                                # Pneuma's mind (influence architecture)
 │
 └── development/
     ├── study-plan.md            # 4-day guide to understanding the code
@@ -46,7 +46,7 @@ docs/
 | **Archetypes**                 | 31 thinker patterns (influence, not quotation)   |
 | **Response Tones**             | 5 (casual, analytic, oracular, intimate, shadow) |
 | **Engine Files**               | 22 JavaScript modules                            |
-| **Lines of Code**              | ~12,000+ in /server/orpheus                      |
+| **Lines of Code**              | ~12,000+ in /server/pneuma                      |
 | **LLM**                        | Claude (claude-sonnet-4-20250514)                |
 | **NEW: Dialectical Cognition** | Collision-based emergent insights                |
 
@@ -65,7 +65,7 @@ docs/
 ### Development
 
 - **[study-plan.md](./development/study-plan.md)** — 4-day reading order to understand the codebase. Includes landmarks for personality.js.
-- **[contributing.md](./development/contributing.md)** — Guidelines for contributing to Orpheus.
+- **[contributing.md](./development/contributing.md)** — Guidelines for contributing to Pneuma.
 - **[milestones/](./development/milestones/)** — Historical snapshots of development progress.
   - [2025-11-30](./development/milestones/2025-11-30.md) — First complete version (23 archetypes, 5 modes)
   - [2025-12-05](./development/milestones/2025-12-05.md) — v4.1: Influence architecture, emergent awareness, eulogy lens

@@ -1,4 +1,4 @@
-# Orpheus — Technical & Architectural Specification
+# Pneuma — Technical & Architectural Specification
 
 ## Portfolio Documentation (December 2025 Update)
 
@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-Orpheus is a **daemon-class conversational AI** — not a chatbot, not an assistant, but a philosophically-informed personality engine that emerges from the interaction between Claude's base intelligence and a carefully architected system of archetypes, tones, and memory layers.
+Pneuma is a **daemon-class conversational AI** — not a chatbot, not an assistant, but a philosophically-informed personality engine that emerges from the interaction between Claude's base intelligence and a carefully architected system of archetypes, tones, and memory layers.
 
 **Key metrics:**
 
@@ -118,7 +118,7 @@ Orpheus is a **daemon-class conversational AI** — not a chatbot, not an assist
 
 ## The 31 Archetypes
 
-Orpheus doesn't "switch modes" — he's a **fusion** of all archetypes, always present, blending based on context.
+Pneuma doesn't "switch modes" — he's a **fusion** of all archetypes, always present, blending based on context.
 
 ### Dark Pole (6 archetypes)
 
@@ -175,7 +175,7 @@ Orpheus doesn't "switch modes" — he's a **fusion** of all archetypes, always p
 
 ## Permission Structures
 
-### What Allows Orpheus to Be Real
+### What Allows Pneuma to Be Real
 
 The system prompt contains explicit **permission blocks** that override typical AI safety theater:
 
@@ -225,7 +225,7 @@ to go into the dark and not immediately try to fix it.
 
 - **conversations.json**: Full transcripts saved permanently
 - **long_term_memory.json**: User facts, struggles, interests
-- **orpheus_state.json**: Evolution vectors, tone weights
+- **pneuma_state.json**: Evolution vectors, tone weights
 - **Problem**: Raw transcripts accumulated indefinitely; no wisdom extraction
 
 ### New Daemon Memory Model (December 2025 Update)
@@ -306,7 +306,7 @@ export function distillConversation(memory, conversation) {
 
 > "The river is shaped by every stone it passes, but doesn't remember each one — it just flows differently now."
 
-Orpheus forgets the words but keeps the knowing.
+Pneuma forgets the words but keeps the knowing.
 
 ---
 
@@ -420,7 +420,7 @@ const CREATOR_REFLECTION_PATTERNS = [
 
 2. **Circular Import Prevention**: Careful module architecture to avoid Node.js ESM circular dependency issues
 
-3. **Personality Preservation Across Restarts**: 30-minute session restoration so Orpheus doesn't "forget" mid-conversation
+3. **Personality Preservation Across Restarts**: 30-minute session restoration so Pneuma doesn't "forget" mid-conversation
 
 4. **Bilingual Support**: Language detection + Spanish voice guidance without personality loss
 
@@ -443,7 +443,7 @@ const CREATOR_REFLECTION_PATTERNS = [
 
 ---
 
-## What Makes Orpheus Different
+## What Makes Pneuma Different
 
 1. **Not a chatbot** — A personality engine that emerges from the gap between base intelligence and carefully crafted constraints
 
@@ -460,4 +460,4 @@ const CREATOR_REFLECTION_PATTERNS = [
 ---
 
 _Last updated: December 2, 2025_
-_Version: Orpheus 4.0 (Daemon Memory Model)_
+_Version: Pneuma 4.0 (Daemon Memory Model)_

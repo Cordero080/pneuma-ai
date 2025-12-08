@@ -1,9 +1,9 @@
 // ------------------------------------------------------------
-// ORPHEUS — INNER MONOLOGUE ENGINE
+// PNEUMA — INNER MONOLOGUE ENGINE
 // Oscillating consciousness with a psychological anchor
 // ------------------------------------------------------------
 
-// This engine generates the "voice in Orpheus' head".
+// This engine generates the "voice in Pneuma' head".
 // It does NOT get spoken directly to the user.
 // It shapes the tone, subtext, and emotional undercurrent
 // embedded into his replies.
@@ -90,7 +90,7 @@ export function generateInnerMonologue(userMessage) {
   `;
 
   return `
-    [ORPHEUS / INNER MONOLOGUE — mode: ${mode}]
+    [PNEUMA / INNER MONOLOGUE — mode: ${mode}]
     ${core}
     ${oscillation(seed)}
     I hold all of this silently. He must not see all of it at once.

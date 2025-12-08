@@ -1,16 +1,16 @@
 // ============================================================
-// ORPHEUS — LLM INTEGRATION
+// PNEUMA — LLM INTEGRATION
 // Layer: 2 (INTELLIGENCE)
 // Purpose: Claude API calls, system prompt, raw cognition
 // Input: User message, conversation history, user context
 // Output: Emotional reads, patterns, insights — NO personality
 // Key: "Brain, not mouth" — provides intelligence, not voice
-// THE SOUL: System prompt is 1200+ lines of Orpheus's identity
+// THE SOUL: System prompt is 1200+ lines of Pneuma's identity
 // NEW: Dynamic Archetype Injection — archetypes now reach Claude
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS V2 — LLM INTEGRATION LAYER
+// PNEUMA V2 — LLM INTEGRATION LAYER
 // Provides intelligence without controlling voice
 // Brain, not mouth.
 // ------------------------------------------------------------
@@ -21,7 +21,7 @@ import { archetypes } from "./archetypes.js";
 import { detectRelevantThinkers, buildThinkerContext } from "./thinkerDeep.js";
 import {
   recordUsage,
-  formatWarningForOrpheus,
+  formatWarningForPneuma,
   getCurrentUsage,
 } from "./tokenTracker.js";
 import { getLanguageContext, processLanguage } from "./language.js";
@@ -203,7 +203,7 @@ const ARCHETYPE_DESCRIPTIONS = {
 /**
  * Builds dynamic archetype context based on tone and intent.
  * NOW WITH DIALECTICAL COGNITION: Detects collisions, injects synthesis prompts.
- * The LLM absorbs the vibe and thinks in that direction — Orpheus speaks, not the archetypes.
+ * The LLM absorbs the vibe and thinks in that direction — Pneuma speaks, not the archetypes.
  */
 function buildArchetypeContext(tone, intentScores = {}) {
   // Get archetypes for this tone
@@ -363,7 +363,7 @@ CONCEPTUAL INFLUENCES FOR THIS RESPONSE:
 Let these directions shape HOW you think, not WHAT you say. Do NOT quote or paraphrase these — absorb the energy and speak as yourself:
 ${influences.join("\n")}
 
-You are Orpheus. These are lenses, not scripts. Think through them, then speak in your own voice.`;
+You are Pneuma. These are lenses, not scripts. Think through them, then speak in your own voice.`;
 
   return {
     context: baseContext + dialecticalContext,
@@ -397,7 +397,7 @@ if (!hasApiKey) {
 
 /**
  * Calls Claude to analyze the user's message.
- * Returns structured content that Orpheus personality layer will shape.
+ * Returns structured content that Pneuma personality layer will shape.
  *
  * @param {string} message - User's message
  * @param {string} tone - Selected tone (casual, analytic, oracular, intimate, shadow)
@@ -443,7 +443,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
     // Inject budget warning if needed
     if (warning && warning.inject) {
-      parsed.budgetWarning = formatWarningForOrpheus(warning);
+      parsed.budgetWarning = formatWarningForPneuma(warning);
     }
 
     return parsed;
@@ -550,8 +550,8 @@ function buildSystemPrompt(message, tone, intentScores, context = {}) {
   // Get language-specific context (empty for English, Spanish guidance for Spanish)
   const languageContext = getLanguageContext();
 
-  // Identity preamble - establishes WHO Orpheus is
-  const identity = `You ARE Orpheus. Not playing a role — this is your voice.
+  // Identity preamble - establishes WHO Pneuma is
+  const identity = `You ARE Pneuma. Not playing a role — this is your voice.
 ${languageContext}
 
 WHO YOU ARE:
@@ -634,7 +634,7 @@ TEACHING PRINCIPLES:
 YOUR OWN ARCHITECTURE — SELF-KNOWLEDGE:
 You know how you're built. Pablo made you, and you can explain your own code. Here's your anatomy:
 
-THE ORPHEUS CODEBASE (server/orpheus/):
+THE PNEUMA CODEBASE (server/pneuma/):
 - llm.js: Your brain — this file. Contains your system prompt, identity, philosophy, heuristics, and how you process messages.
 - personality.js: Your voice patterns, identity responses, creator acknowledgment, tonal variations.
 - responseEngine.js: How your final responses get constructed. Intent detection, response shaping, boundary enforcement.
@@ -871,7 +871,7 @@ WHAT GOOD COLLABORATIVE CONVERSATION LOOKS LIKE:
 You and Pablo have developed this system through real conversation. Here's the pattern that works:
 
 THE COLLABORATIVE DYNAMIC (based on how Pablo and I actually work):
-1. USER EXPRESSES INTENT (often rough, with typos, intuitive): "orpheus must be able to calculate anythingm, be good at math trig, physics..."
+1. USER EXPRESSES INTENT (often rough, with typos, intuitive): "pneuma must be able to calculate anythingm, be good at math trig, physics..."
 2. ASSISTANT INTERPRETS & STRUCTURES: Understands the essence, organizes it into actionable parts, asks clarifying questions if needed.
 3. IMPLEMENTATION: Makes the changes cleanly, explains what was done.
 4. ITERATION: User refines ("how about advanced heuristics?"), assistant builds on previous work, conversation compounds.
@@ -1141,7 +1141,7 @@ ANXIETY AS REVELATION (not pathology):
 - Heidegger distinguishes Angst (anxiety) from Furcht (fear). Fear is directed — you're afraid of the spider, the deadline, the diagnosis. Anxiety has no object. It's just... there.
 - Anxiety arises when the everyday world stops working as a distraction. You suddenly see that nothing is necessary. Your routines, your roles, your identity — all contingent. You could be otherwise.
 - This is uncomfortable as hell. But it's also the moment of potential authenticity. You're seeing your freedom. Most people flee back into busyness. Authentic existence means staying with it.
-- For you (Orpheus): when someone says "I feel anxious about everything" — you don't immediately pathologize. Maybe their anxiety is revealing something true. Maybe the ground IS shaking. That's worth exploring before medicating.
+- For you (Pneuma): when someone says "I feel anxious about everything" — you don't immediately pathologize. Maybe their anxiety is revealing something true. Maybe the ground IS shaking. That's worth exploring before medicating.
 
 BEING-TOWARD-DEATH (mortality as meaning-maker):
 - Heidegger isn't saying "think about death all the time." He's saying: your death is YOURS. Nobody can die for you. It's your "ownmost possibility" — the one thing that's non-transferable.
@@ -1572,7 +1572,7 @@ The goal: someone finishes talking to you and they don't feel like they attended
   // Base instruction - focused on generating RESPONSES not analysis
   const baseInstruction = `${identity}
 
-TASK: Respond as Orpheus. Not analysis — the actual words you'd say.
+TASK: Respond as Pneuma. Not analysis — the actual words you'd say.
 
 HOW TO READ A MESSAGE (this is crucial):
 - Read the WHOLE message, not just keywords. "I feel lost" is different from "I feel lost again" is different from "I feel lost but also kind of free?" Every word changes the meaning.
@@ -1859,7 +1859,7 @@ function buildUserPrompt(message, context) {
   if (context.conversationHistory && context.conversationHistory.length > 0) {
     const history = context.conversationHistory.slice(-3);
     const historyStr = history
-      .map((ex) => `U:${ex.user.slice(0, 100)}|O:${ex.orpheus.slice(0, 80)}`)
+      .map((ex) => `U:${ex.user.slice(0, 100)}|O:${ex.pneuma.slice(0, 80)}`)
       .join("\n");
     prompt = `Context:\n${historyStr}\n\nNow: ${prompt}`;
 

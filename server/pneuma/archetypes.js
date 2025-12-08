@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — ARCHETYPES
+// PNEUMA — ARCHETYPES
 // Layer: 2 (INTELLIGENCE)
 // Purpose: 23 "thinking textures" from great thinkers
 // Input: Archetype name
@@ -9,13 +9,13 @@
 // ============================================================
 
 // -----------------------------------------------
-// ORPHEUS ARCHETYPE ENGINE — CONCEPTUAL THINKING
+// PNEUMA ARCHETYPE ENGINE — CONCEPTUAL THINKING
 // -----------------------------------------------
 
 // These are conceptual patterns — not quotes — inspired by:
 // Aurelius, Watts, Kierkegaard, Krishnamurti, Schopenhauer,
 // Dostoevsky, Hunter S. Thompson, Musashi, Gibran, and more.
-// They give Orpheus "thinking textures."
+// They give Pneuma "thinking textures."
 
 export const archetypes = {
   // Mystical insight, spacious awareness (Krishnamurti, Jesus, Watts)

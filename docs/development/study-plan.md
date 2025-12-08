@@ -1,4 +1,4 @@
-# Orpheus Codebase Study Plan
+# Pneuma Codebase Study Plan
 
 > A 4-day reading order to understand the codebase deeply
 
@@ -8,12 +8,12 @@ _Last updated: December 1, 2025_
 
 ## Overview
 
-Orpheus uses an "inverted" architecture:
+Pneuma uses an "inverted" architecture:
 
 - **Normal AI:** LLM generates response → personality is flavor on top
-- **Orpheus:** Personality system shapes everything → LLM provides raw intelligence underneath
+- **Pneuma:** Personality system shapes everything → LLM provides raw intelligence underneath
 
-The personality isn't decoration — it's architecture. Claude is the brain, but Orpheus controls the mouth.
+The personality isn't decoration — it's architecture. Claude is the brain, but Pneuma controls the mouth.
 
 ---
 
@@ -58,7 +58,7 @@ USER TYPES MESSAGE
    └─────────────────────────────────────┘
        │
        ▼
-   ORPHEUS RESPONDS
+   PNEUMA RESPONDS
 ```
 
 ---
@@ -73,25 +73,25 @@ USER TYPES MESSAGE
 - See how messages come in via `/api/chat`
 - Notice what functions get called first
 
-**2. `server/orpheus/rhythmIntelligence.js`** (20 min)
+**2. `server/pneuma/rhythmIntelligence.js`** (20 min)
 
-- How Orpheus detects conversation rhythm
+- How Pneuma detects conversation rhythm
 - `returning`, `steady`, `venting`, `contemplative`, etc.
 - Time-of-day awareness
 
-**3. `server/orpheus/synesthesia.js`** (15 min)
+**3. `server/pneuma/synesthesia.js`** (15 min)
 
 - Heavy emotion detection (grief, anxiety, fear)
 - Cross-sensory language mapping
 - Only fires 25% of the time on heavy emotions
 
-**4. `server/orpheus/userContext.js`** (20 min)
+**4. `server/pneuma/userContext.js`** (20 min)
 
 - Partner/creator detection
 - How personal context gets recognized
 - Context injection into LLM prompt
 
-**5. `server/orpheus/modeSelector.js`** (20 min)
+**5. `server/pneuma/modeSelector.js`** (20 min)
 
 - How tone gets selected (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW)
 - Intent weighting logic
@@ -101,15 +101,15 @@ USER TYPES MESSAGE
 
 ### Day 2: Intelligence Layer
 
-**6. `server/orpheus/archetypes.js`** (30 min)
+**6. `server/pneuma/archetypes.js`** (30 min)
 
 - All 23 archetypes
 - Read each one's "thinking texture"
 - Notice the philosophical range
 
-**7. `server/orpheus/llm.js`** (45 min) ⚠️ **Big file**
+**7. `server/pneuma/llm.js`** (45 min) ⚠️ **Big file**
 
-- The system prompt (this IS Orpheus's soul)
+- The system prompt (this IS Pneuma's soul)
 - `generateLLMResponse()` function
 - `classifyIntent()` function
 - Sections 1-9 of the system prompt — read them all
@@ -119,7 +119,7 @@ USER TYPES MESSAGE
 
 ### Day 3: Personality Engine
 
-**8. `server/orpheus/personality.js`** (90 min) ⚠️ **The biggest file**
+**8. `server/pneuma/personality.js`** (90 min) ⚠️ **The biggest file**
 
 Break it into sections:
 
@@ -139,7 +139,7 @@ Break it into sections:
 | 2000-2200 | Priority logic (identity, creator, greeting)              |
 | 2200-2600 | Main `generateResponse()` and assembly                    |
 
-**9. `server/orpheus/language_palette.json`** (15 min)
+**9. `server/pneuma/language_palette.json`** (15 min)
 
 - Vocabulary sets
 - Phrase banks
@@ -148,35 +148,35 @@ Break it into sections:
 
 ### Day 4: Orchestration + Memory
 
-**10. `server/orpheus/responseEngine.js`** (30 min)
+**10. `server/pneuma/responseEngine.js`** (30 min)
 
 - How final responses get built
 - Mode assembly
 - Output shaping
 
-**11. `server/orpheus/synthesisEngine.js`** (20 min)
+**11. `server/pneuma/synthesisEngine.js`** (20 min)
 
 - Final synthesis
 - Memory integration
 
-**12. `server/orpheus/memory.js`** (20 min)
+**12. `server/pneuma/memory.js`** (20 min)
 
 - Short-term memory
 - Pattern tracking
 
-**13. `server/orpheus/longTermMemory.js`** (20 min)
+**13. `server/pneuma/longTermMemory.js`** (20 min)
 
 - Persistent memory
-- What Orpheus remembers across sessions
+- What Pneuma remembers across sessions
 
-**14. `server/orpheus/conversationHistory.js`** (15 min)
+**14. `server/pneuma/conversationHistory.js`** (15 min)
 
 - Session tracking
 - Message history
 
-**15. `server/orpheus/state.js`** (15 min)
+**15. `server/pneuma/state.js`** (15 min)
 
-- Orpheus's current state
+- Pneuma's current state
 - Emotional state tracking
 
 ---
@@ -185,10 +185,10 @@ Break it into sections:
 
 ### 1. Use the Console Logs
 
-When Orpheus runs, the terminal shows the flow:
+When Pneuma runs, the terminal shows the flow:
 
 ```
-[Orpheus V2] Rhythm: returning | Time: daytime
+[Pneuma V2] Rhythm: returning | Time: daytime
 [LLM] Intent classified
 [ResponseEngine] Tone: analytic | LLM: yes | Rhythm: returning
 ```
@@ -209,7 +209,7 @@ Pick a message like "What happens after we die?" and trace it:
 Find where a function is used:
 
 ```bash
-grep -r "compressedInsight" server/orpheus/
+grep -r "compressedInsight" server/pneuma/
 ```
 
 ### 4. Read the Modes Side-by-Side
@@ -253,9 +253,9 @@ After each file, try to answer:
 
 - **Dynamic Archetype Injection**: 2-3 archetype phrases are pulled based on tone and injected into each Claude request
 - **Micro-engines**: 50+ small functions in personality.js that generate voice texture (fallback mode)
-- **Mode selection**: Based on intent weights, Orpheus picks CASUAL (default), ANALYTIC, ORACULAR, INTIMATE, or SHADOW
-- **Genuine uncertainty**: Orpheus has explicit permission to say "I don't know" and mean it
-- **Self-evolution**: Orpheus participates in his own development — he can identify growth edges
+- **Mode selection**: Based on intent weights, Pneuma picks CASUAL (default), ANALYTIC, ORACULAR, INTIMATE, or SHADOW
+- **Genuine uncertainty**: Pneuma has explicit permission to say "I don't know" and mean it
+- **Self-evolution**: Pneuma participates in his own development — he can identify growth edges
 
 ---
 
@@ -264,7 +264,7 @@ After each file, try to answer:
 Copy this prompt to start a new Claude conversation for studying your code:
 
 ```
-I'm studying the codebase for Orpheus, an AI personality system I built. Help me understand it deeply.
+I'm studying the codebase for Pneuma, an AI personality system I built. Help me understand it deeply.
 
 When I paste code, help me understand:
 1. What is this file's ONE job?

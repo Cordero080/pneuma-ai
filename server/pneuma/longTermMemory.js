@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — LONG-TERM MEMORY
+// PNEUMA V2 — LONG-TERM MEMORY
 // Remembers Pablo across sessions, conversations, time
 // ------------------------------------------------------------
 
@@ -36,7 +36,7 @@ const defaultMemory = {
   // Significant moments in conversation
   moments: [], // { summary, date, emotional_weight, type }
 
-  // Patterns Orpheus has noticed
+  // Patterns Pneuma has noticed
   patterns: [], // { observation, confidence, examples }
 
   // Conversation summaries (compressed history)
@@ -58,7 +58,7 @@ const defaultMemory = {
     timestamp: null,
   },
 
-  // Phrase blacklist (things user doesn't want Orpheus to say)
+  // Phrase blacklist (things user doesn't want Pneuma to say)
   phraseBlacklist: [], // { phrase, addedAt, reason }
 
   // Statistics
@@ -390,7 +390,7 @@ export function getRelevantMemories(memory, message, intentScores) {
 
 // ============================================================
 // MEMORY-AWARE PHRASES
-// Things Orpheus can say that show memory
+// Things Pneuma can say that show memory
 // ============================================================
 
 export function getMemoryAwarePhrases(relevant) {
@@ -503,7 +503,7 @@ export function getSessionHandoffPhrase(memory) {
 
 // ============================================================
 // PHRASE BLACKLIST
-// Things Orpheus should never say
+// Things Pneuma should never say
 // ============================================================
 
 export function addToBlacklist(memory, phrase, reason = null) {

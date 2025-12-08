@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — RHYTHM INTELLIGENCE
+// PNEUMA — RHYTHM INTELLIGENCE
 // Layer: 1 (INPUT PROCESSING)
 // Purpose: Detects conversation tempo, energy, time-of-day
 // Input: Message history, timestamps
@@ -7,7 +7,7 @@
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS V2 — RHYTHM INTELLIGENCE
+// PNEUMA V2 — RHYTHM INTELLIGENCE
 // Understands the temporal and energetic patterns of conversation
 // ------------------------------------------------------------
 

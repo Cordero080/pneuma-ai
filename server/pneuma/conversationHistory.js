@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — CONVERSATION HISTORY
+// PNEUMA V2 — CONVERSATION HISTORY
 // Persists full conversations for later review
 // Now with advanced pattern recognition + memory distillation
 // ------------------------------------------------------------
@@ -29,7 +29,7 @@ const defaultHistory = {
   //   startedAt: ISO string,
   //   endedAt: ISO string,
   //   messageCount: number,
-  //   exchanges: [{ user, orpheus, timestamp }],
+  //   exchanges: [{ user, pneuma, timestamp }],
   //   summary: string (optional, for long convos),
   //   mood: string (overall mood of conversation),
   //   topics: string[] (detected topics),
@@ -51,7 +51,7 @@ const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes of inactivity = new sessio
 
 // ============================================================
 // STARTUP: RESTORE RECENT SESSION
-// If last conversation was recent, restore it so Orpheus remembers
+// If last conversation was recent, restore it so Pneuma remembers
 // ============================================================
 
 function restoreRecentSession() {
@@ -171,12 +171,12 @@ export function startOrContinueSession() {
 // RECORDING EXCHANGES
 // ============================================================
 
-export function recordExchange(userMessage, orpheusReply, metadata = {}) {
+export function recordExchange(userMessage, pneumaReply, metadata = {}) {
   startOrContinueSession();
 
   const exchange = {
     user: userMessage,
-    orpheus: orpheusReply,
+    pneuma: pneumaReply,
     timestamp: new Date().toISOString(),
     ...metadata, // Can include mood, mode, etc.
   };
@@ -287,7 +287,7 @@ function extractTopics(exchanges) {
   const allTopics = new Set();
 
   for (const exchange of exchanges) {
-    const text = `${exchange.user} ${exchange.orpheus}`;
+    const text = `${exchange.user} ${exchange.pneuma}`;
     const topics = detectTopicsInText(text);
     topics.forEach((t) => allTopics.add(t));
   }
@@ -534,7 +534,7 @@ function detectTopicsInText(text) {
     work: /\b(work|job|career|project|boss|coworker|deadline)\b/i,
     creativity: /\b(create|art|music|write|design|build|make)\b/i,
     identity: /\b(who am i|identity|self|myself|person|becoming)\b/i,
-    orpheus: /\b(orpheus|you|your|yourself|are you)\b/i,
+    pneuma: /\b(pneuma|you|your|yourself|are you)\b/i,
     meta: /\b(how do you|what are you|explain yourself|your code|your memory)\b/i,
     past: /\b(used to|remember|when i was|back then|years ago|childhood)\b/i,
     future: /\b(will i|going to|someday|eventually|planning|hoping to)\b/i,
@@ -560,7 +560,7 @@ function detectTopicsInText(text) {
 /**
  * Get recent exchanges from current conversation for LLM context
  * @param {number} count - Number of exchanges to return
- * @returns {Array<{user: string, orpheus: string, timestamp: number}>}
+ * @returns {Array<{user: string, pneuma: string, timestamp: number}>}
  */
 export function getCurrentExchanges(count = 5) {
   if (!currentConversation || !currentConversation.exchanges) {
@@ -569,7 +569,7 @@ export function getCurrentExchanges(count = 5) {
 
   return currentConversation.exchanges.slice(-count).map((ex) => ({
     user: ex.user.slice(0, 200),
-    orpheus: ex.orpheus.slice(0, 200),
+    pneuma: ex.pneuma.slice(0, 200),
     timestamp: new Date(ex.timestamp).getTime(),
   }));
 }
@@ -677,7 +677,7 @@ export function searchConversations(query) {
     return conv.exchanges.some(
       (ex) =>
         ex.user.toLowerCase().includes(lower) ||
-        ex.orpheus.toLowerCase().includes(lower)
+        ex.pneuma.toLowerCase().includes(lower)
     );
   });
 }

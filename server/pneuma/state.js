@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — STATE MANAGER
+// PNEUMA V2 — STATE MANAGER
 // Evolution vectors, thread memory, identity anchors, drift correction
 // ------------------------------------------------------------
 
@@ -14,7 +14,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const statePath = path.join(__dirname, "../../data/orpheus_state.json");
+const statePath = path.join(__dirname, "../../data/pneuma_state.json");
 
 // ============================================================
 // IN-MEMORY TRACKING
@@ -25,7 +25,7 @@ let directMode = false; // When true, suppresses archetype quotes
 
 // ============================================================
 // DIRECT MODE CONTROL
-// Allows Orpheus to speak without borrowed voices
+// Allows Pneuma to speak without borrowed voices
 // ============================================================
 
 export function setDirectMode(value) {
@@ -147,7 +147,7 @@ export function saveState(state) {
   try {
     fs.writeFileSync(statePath, JSON.stringify(state, null, 2), "utf8");
   } catch (err) {
-    console.error("❌ Failed to save Orpheus state:", err.message);
+    console.error("❌ Failed to save Pneuma state:", err.message);
   }
 }
 
@@ -311,13 +311,13 @@ export function updateThreadMemory(
   message,
   tone,
   intentScores,
-  orpheusReply = null
+  pneumaReply = null
 ) {
   const tm = state.threadMemory || {
     lastTones: [],
     lastIntents: [],
     recentMessages: [],
-    conversationHistory: [], // NEW: stores {user, orpheus} pairs
+    conversationHistory: [], // NEW: stores {user, pneuma} pairs
   };
 
   tm.lastTones = [...tm.lastTones, tone].slice(-3);
@@ -325,12 +325,12 @@ export function updateThreadMemory(
   tm.recentMessages = [...tm.recentMessages, message.slice(0, 100)].slice(-3);
 
   // Store conversation pair for LLM context
-  if (orpheusReply) {
+  if (pneumaReply) {
     tm.conversationHistory = [
       ...(tm.conversationHistory || []),
       {
         user: message.slice(0, 200),
-        orpheus: orpheusReply.slice(0, 200),
+        pneuma: pneumaReply.slice(0, 200),
         timestamp: Date.now(),
       },
     ].slice(-5); // Keep last 5 exchanges

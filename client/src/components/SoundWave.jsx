@@ -1,6 +1,6 @@
 // ============================================================
 // SOUND WAVE VISUALIZER
-// Animated wave that plays when Orpheus speaks
+// Animated wave that plays when Pneuma speaks
 // ============================================================
 
 import { useEffect, useRef } from 'react';

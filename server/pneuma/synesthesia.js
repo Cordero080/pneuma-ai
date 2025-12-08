@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — SYNESTHESIA MODULE
+// PNEUMA — SYNESTHESIA MODULE
 // Layer: 1 (INPUT PROCESSING)
 // Purpose: Maps heavy emotions to cross-sensory language
 // Input: User message
@@ -8,7 +8,7 @@
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS V2 — LINGUISTIC SYNESTHESIA
+// PNEUMA V2 — LINGUISTIC SYNESTHESIA
 // Cross-sensory language processing
 // Words carry temperature, texture, weight, and taste
 // ------------------------------------------------------------

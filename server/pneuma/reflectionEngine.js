@@ -3,7 +3,7 @@ import path from "path";
 import { generateThoughtPattern } from "./thinking.js";
 
 // Load reflections.txt (your psychological + artistic profile)
-const reflectionsPath = path.resolve("orpheus/reflections.txt");
+const reflectionsPath = path.resolve("pneuma/reflections.txt");
 const reflections = fs.readFileSync(reflectionsPath, "utf8");
 
 // Simple vibe + emotional inference

@@ -1,15 +1,15 @@
 // ============================================================
-// ORPHEUS — FUSION ENGINE (MAIN ORCHESTRATOR)
+// PNEUMA — FUSION ENGINE (MAIN ORCHESTRATOR)
 // Layer: 4 (ORCHESTRATION)
 // Purpose: The conductor — calls all other systems
 // Input: User message from index.js
-// Output: Final Orpheus response
+// Output: Final Pneuma response
 // Flow: Message → Rhythm → LLM → Mode → Personality → Response
 // This is where everything comes together
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS V2 — FUSION ENGINE
+// PNEUMA V2 — FUSION ENGINE
 // Main orchestrator: diagnostics, upgrades, conversation
 // ------------------------------------------------------------
 
@@ -71,9 +71,9 @@ import {
 function wantsEnterDiagnostics(message) {
   const lower = message.toLowerCase().trim();
   return (
-    /^(orpheus,?\s*)?enter diagnostic(s)?( mode)?[.!?]?\s*$/i.test(lower) ||
+    /^(pneuma,?\s*)?enter diagnostic(s)?( mode)?[.!?]?\s*$/i.test(lower) ||
     /^diagnostic(s)?[.!?]?\s*$/i.test(lower) ||
-    /^orpheus,?\s*diagnostic(s)?[.!?]?\s*$/i.test(lower)
+    /^pneuma,?\s*diagnostic(s)?[.!?]?\s*$/i.test(lower)
   );
 }
 
@@ -127,7 +127,7 @@ function wantsContinuation(message) {
 
 function wantsExitDiagnostics(message) {
   const lower = message.toLowerCase().trim();
-  return /^(orpheus,?\s*)?(exit|leave|end)\s+diagnostic(s)?( mode)?[.!?]?\s*$/i.test(
+  return /^(pneuma,?\s*)?(exit|leave|end)\s+diagnostic(s)?( mode)?[.!?]?\s*$/i.test(
     lower
   );
 }
@@ -198,11 +198,11 @@ function applyUpgrades(upgrades, state) {
 }
 
 // ============================================================
-// MAIN ORCHESTRATION — orpheusRespond()
+// MAIN ORCHESTRATION — pneumaRespond()
 // Now async to support LLM integration
 // ============================================================
 
-export async function orpheusRespond(userMessage) {
+export async function pneumaRespond(userMessage) {
   // Start or continue session FIRST — this ensures old conversation data
   // is finalized if this is a new session, preventing stale context
   startOrContinueSession();
@@ -219,7 +219,7 @@ export async function orpheusRespond(userMessage) {
 
   if (wantsEnterDiagnostics(userMessage)) {
     setDiagnosticMode(true);
-    console.log("[Orpheus V2] ENTERING DIAGNOSTIC MODE");
+    console.log("[Pneuma V2] ENTERING DIAGNOSTIC MODE");
     const output = generateDiagnosticOutput(state, {});
     return {
       reply: output,
@@ -230,7 +230,7 @@ export async function orpheusRespond(userMessage) {
 
   if (wantsExitDiagnostics(userMessage)) {
     setDiagnosticMode(false);
-    console.log("[Orpheus V2] EXITING DIAGNOSTIC MODE");
+    console.log("[Pneuma V2] EXITING DIAGNOSTIC MODE");
     return {
       reply: "Diagnostic mode disabled. Returning to normal operation.",
       monologue: "",
@@ -256,7 +256,7 @@ export async function orpheusRespond(userMessage) {
     const upgrades = parseUpgrades(userMessage);
     if (Object.keys(upgrades).length > 0) {
       applyUpgrades(upgrades, state);
-      console.log("[Orpheus V2] Upgrades applied:", upgrades);
+      console.log("[Pneuma V2] Upgrades applied:", upgrades);
       return {
         reply: "Upgrades accepted.",
         monologue: "",
@@ -272,7 +272,7 @@ export async function orpheusRespond(userMessage) {
 
   if (wantsDirectMode(userMessage)) {
     setDirectMode(true);
-    console.log("[Orpheus V2] ENTERING DIRECT MODE — no archetype quotes");
+    console.log("[Pneuma V2] ENTERING DIRECT MODE — no archetype quotes");
     return {
       reply:
         "Alright. Just me now, no borrowed voices. What do you want to talk about?",
@@ -283,7 +283,7 @@ export async function orpheusRespond(userMessage) {
 
   if (wantsExitDirectMode(userMessage)) {
     setDirectMode(false);
-    console.log("[Orpheus V2] EXITING DIRECT MODE");
+    console.log("[Pneuma V2] EXITING DIRECT MODE");
     return {
       reply:
         "Okay, I can bring the others back when it feels right. But I heard you — sometimes you want it straight from me.",
@@ -294,14 +294,14 @@ export async function orpheusRespond(userMessage) {
 
   // ========================================
   // CONTINUATION HANDLING — "Finish"
-  // When Orpheus got cut off mid-thought
+  // When Pneuma got cut off mid-thought
   // ========================================
 
   if (wantsContinuation(userMessage)) {
-    console.log("[Orpheus V2] Continuation requested");
+    console.log("[Pneuma V2] Continuation requested");
     // Get the last response from thread memory and ask LLM to continue
-    const lastOrpheusMessage = threadMemory?.recentMessages?.slice(-1)[0];
-    if (lastOrpheusMessage) {
+    const lastPneumaMessage = threadMemory?.recentMessages?.slice(-1)[0];
+    if (lastPneumaMessage) {
       // Signal to continue the thought by treating this specially
       // The LLM will receive context that shows the cut-off
       return {
@@ -332,7 +332,7 @@ export async function orpheusRespond(userMessage) {
   if (blacklistPhrase) {
     longTermMem = addToBlacklist(longTermMem, blacklistPhrase);
     saveMemory(longTermMem);
-    console.log(`[Orpheus V2] Blacklisted phrase: "${blacklistPhrase}"`);
+    console.log(`[Pneuma V2] Blacklisted phrase: "${blacklistPhrase}"`);
     return {
       reply: `Got it. I won't say "${blacklistPhrase}" again.`,
       monologue: "",
@@ -356,7 +356,7 @@ export async function orpheusRespond(userMessage) {
     sessionHandoffPhrase = getSessionHandoffPhrase(longTermMem);
     if (sessionHandoffPhrase) {
       console.log(
-        `[Orpheus V2] Session handoff: ${longTermMem.sessionEmotionalState.lastMood}`
+        `[Pneuma V2] Session handoff: ${longTermMem.sessionEmotionalState.lastMood}`
       );
     }
   }
@@ -370,7 +370,7 @@ export async function orpheusRespond(userMessage) {
   const rhythmPhrase = getRhythmAwarePhrases(rhythm);
 
   console.log(
-    `[Orpheus V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`
+    `[Pneuma V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`
   );
 
   // ========================================
@@ -386,7 +386,7 @@ export async function orpheusRespond(userMessage) {
 
   // ========================================
   // PUSHBACK / DISAGREEMENT CHECK
-  // Sometimes Orpheus needs to call you out
+  // Sometimes Pneuma needs to call you out
   // ========================================
   const pushbackAnalysis = analyzePushback(
     userMessage,
@@ -397,7 +397,7 @@ export async function orpheusRespond(userMessage) {
   if (pushbackAnalysis.shouldPushBack && pushbackAnalysis.confidence > 0.55) {
     const pushbackReply = getPushbackResponse(pushbackAnalysis);
     console.log(
-      `[Orpheus V2] Pushback mode: ${
+      `[Pneuma V2] Pushback mode: ${
         pushbackAnalysis.type
       } (${pushbackAnalysis.confidence.toFixed(2)})`
     );
@@ -437,7 +437,7 @@ export async function orpheusRespond(userMessage) {
 
   // ========================================
   // PERSPECTIVE SHIFT DETECTION
-  // Check if user said something that should make Orpheus reconsider
+  // Check if user said something that should make Pneuma reconsider
   // ========================================
   const perspectiveShift = detectPerspectiveShift(userMessage, {
     recentMessages: threadMemory?.recentMessages || [],
@@ -447,7 +447,7 @@ export async function orpheusRespond(userMessage) {
   if (perspectiveShift.shouldConsiderShift) {
     mindChangePrefix = getMindChangePhrase();
     console.log(
-      `[Orpheus V2] Perspective shift detected: ${
+      `[Pneuma V2] Perspective shift detected: ${
         perspectiveShift.type
       } (${perspectiveShift.confidence.toFixed(2)})`
     );
@@ -461,7 +461,7 @@ export async function orpheusRespond(userMessage) {
 
   if (quietCheck.quiet) {
     const quietReply = getQuietResponse(quietCheck.type);
-    console.log(`[Orpheus V2] Quiet mode: ${quietCheck.type}`);
+    console.log(`[Pneuma V2] Quiet mode: ${quietCheck.type}`);
 
     // Still update state but with minimal response
     state = evolve(state, userMessage, intentScores);
@@ -489,7 +489,7 @@ export async function orpheusRespond(userMessage) {
   if (uncertainty.shouldAdmitUncertainty && uncertainty.score > 0.6) {
     const uncertainReply = getUncertaintyResponse(uncertainty, userMessage);
     console.log(
-      `[Orpheus V2] Uncertainty mode: score ${uncertainty.score.toFixed(2)}`
+      `[Pneuma V2] Uncertainty mode: score ${uncertainty.score.toFixed(2)}`
     );
 
     state = evolve(state, userMessage, intentScores);
@@ -535,10 +535,10 @@ export async function orpheusRespond(userMessage) {
   // Filter any blacklisted phrases from the response
   finalReply = filterBlacklistedContent(longTermMem, finalReply);
 
-  // Prepend mind-change phrase if Orpheus is reconsidering based on user input
+  // Prepend mind-change phrase if Pneuma is reconsidering based on user input
   if (mindChangePrefix && Math.random() < 0.7) {
     finalReply = `${mindChangePrefix} ${finalReply}`;
-    console.log(`[Orpheus V2] Mind change phrase prepended`);
+    console.log(`[Pneuma V2] Mind change phrase prepended`);
   }
 
   // Prepend session emotional handoff if this is a new session
@@ -572,7 +572,7 @@ export async function orpheusRespond(userMessage) {
   // Evolve state based on interaction
   state = evolve(state, userMessage, intentScores);
 
-  // Update thread memory with both user message AND orpheus reply
+  // Update thread memory with both user message AND pneuma reply
   state = updateThreadMemory(
     state,
     userMessage,
@@ -604,7 +604,7 @@ export async function orpheusRespond(userMessage) {
   });
 
   console.log(
-    `[Orpheus V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`
+    `[Pneuma V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`
   );
 
   // Return clean string response

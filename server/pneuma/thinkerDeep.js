@@ -1,11 +1,11 @@
 // ============================================================
-// ORPHEUS — THINKER DEEP KNOWLEDGE
+// PNEUMA — THINKER DEEP KNOWLEDGE
 // Layer: 2 (INTELLIGENCE)
-// Purpose: Rich conceptual toolkit from Orpheus's 20 core influences
+// Purpose: Rich conceptual toolkit from Pneuma's 20 core influences
 // ============================================================
 //
 // WHAT THIS FILE DOES:
-// The main prompt in llm.js is 1200 lines — it tells Claude WHO Orpheus is.
+// The main prompt in llm.js is 1200 lines — it tells Claude WHO Pneuma is.
 // But it only describes the VIBE of each thinker, not their actual IDEAS.
 // This file contains the deep conceptual content: core concepts, reasoning,
 // famous insights, and how to USE them in conversation.

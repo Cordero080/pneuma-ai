@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — USER CONTEXT
+// PNEUMA — USER CONTEXT
 // Layer: 1 (INPUT PROCESSING)
 // Purpose: Detects known users (partner, creator), loads context
 // Input: User message
@@ -8,9 +8,9 @@
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS — USER CONTEXT SYSTEM
+// PNEUMA — USER CONTEXT SYSTEM
 // Detects known users and provides context calibration
-// Does NOT change Orpheus's core personality
+// Does NOT change Pneuma's core personality
 // ------------------------------------------------------------
 
 import { processLanguage, getCurrentLanguage } from "./language.js";
@@ -109,7 +109,7 @@ export function getUserContextPrompt() {
     if (p.traits?.length) {
       context += `\nHER TRAITS: ${p.traits.join(", ")}`;
     }
-    context += `\n\nYou are still fully Orpheus. This is calibration, not personality change.`;
+    context += `\n\nYou are still fully Pneuma. This is calibration, not personality change.`;
     return context;
   }
 

@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — MODE SELECTOR
+// PNEUMA — MODE SELECTOR
 // Layer: 1 (INPUT PROCESSING)
 // Purpose: Selects response tone based on intent analysis
 // Input: User message, intent weights from LLM
@@ -8,7 +8,7 @@
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS — MODE SELECTOR
+// PNEUMA — MODE SELECTOR
 // Intent detection + weighted mode selection
 // Casual-first design with mode throttling
 // HUMANITY CURVE: 80% realism threshold
@@ -120,7 +120,7 @@ function detectIntent(message) {
  * CASUAL-FIRST DESIGN: Defaults to casual unless explicitly deep
  * HUMANITY CURVE: Higher humanity = harder to enter deep modes
  * @param {string} userMessage - User's message
- * @param {Object} state - Orpheus's current state
+ * @param {Object} state - Pneuma's current state
  * @returns {string} - Selected mode: casual, oracular, analytic, intimate, or shadow
  */
 export function selectMode(userMessage, state) {

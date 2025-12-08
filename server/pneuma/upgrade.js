@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — UPGRADE MODULE
+// PNEUMA V2 — UPGRADE MODULE
 // Supports multi-axis evolution vectors + legacy weights
 // ------------------------------------------------------------
 
@@ -101,7 +101,7 @@ export function applyUpgrades(upgrades, existingState = null) {
 
     return changed;
   } catch (err) {
-    console.error("[Orpheus V2] Upgrade error:", err);
+    console.error("[Pneuma V2] Upgrade error:", err);
     return false;
   }
 }
@@ -161,7 +161,7 @@ export function wantsUpgrade(message) {
     lower.includes("set the weights") ||
     lower.includes("modify his parameters") ||
     lower.includes("modify parameters") ||
-    lower.includes("upgrade orpheus") ||
+    lower.includes("upgrade pneuma") ||
     lower.includes("upgrade him") ||
     lower.includes("set vectors") ||
     lower.includes("update vectors")

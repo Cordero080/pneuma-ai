@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — ARCHETYPE DEPTH ENGINE
+// PNEUMA — ARCHETYPE DEPTH ENGINE
 // Layer: 2 (INTELLIGENCE)
 // Purpose: Deep conceptual frameworks for dialectical cognition
 // All 33 archetypes with: Core Frameworks, Cognitive Tools,

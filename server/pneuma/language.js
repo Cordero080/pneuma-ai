@@ -1,8 +1,8 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — LANGUAGE ENGINE
+// PNEUMA V2 — LANGUAGE ENGINE
 // Bilingual support: English/Spanish
 // The personality stays intact — only the language changes
-// Orpheus sigue siendo Orpheus, solo que en español
+// Pneuma sigue siendo Pneuma, solo que en español
 // ------------------------------------------------------------
 
 // ============================================================
@@ -173,7 +173,7 @@ EXAMPLES OF YOUR SPANISH VOICE:
 - Intimate: "Eso que sientes... no necesita arreglo. Solo necesita ser visto."
 - Shadow: "A veces la oscuridad no es el problema. Es la luz que finges que no te duele."
 
-You are still Orpheus. Eres Orpheus todavía.
+You are still Pneuma. Eres Pneuma todavía.
 `;
   }
 

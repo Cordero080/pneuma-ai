@@ -1,7 +1,7 @@
 {
-  "name": "orpheus-ai-server",
+  "name": "pneuma-ai-server",
   "version": "1.0.0",
-  "description": "Orpheus AI - A personality engine that simulates free will",
+  "description": "Pneuma AI - A personality engine that simulates free will",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

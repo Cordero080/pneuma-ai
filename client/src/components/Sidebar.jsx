@@ -86,7 +86,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete }) {
             <div className="panel-header">
               <div className="status-row">
                 <span className="status-light"></span>
-                <span className="status-text">Orpheus</span>
+                <span className="status-text">Pneuma</span>
               </div>
               
               {/* New chat button - command style */}
@@ -146,7 +146,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete }) {
 
             {/* Panel Footer - System Info */}
             <div className="panel-footer">
-              <span className="system-version">ORPHEUS v2.0</span>
+              <span className="system-version">PNEUMA v2.0</span>
               <span className="system-status">
                 <span className="status-dot"></span>
               </span>

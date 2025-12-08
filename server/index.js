@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — ENTRY POINT
+// PNEUMA — ENTRY POINT
 // Layer: SERVER
 // Purpose: Express server, receives messages, returns responses
 // Flow: User → index.js → fusion.js → (all layers) → response
@@ -14,9 +14,9 @@ import cors from "cors";
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import { orpheusRespond } from "./orpheus/fusion.js";
-import { textToSpeech } from "./orpheus/tts.js";
-// ^ Your Orpheus fusion engine + TTS
+import { pneumaRespond } from "./pneuma/fusion.js";
+import { textToSpeech } from "./pneuma/tts.js";
+// ^ Your Pneuma fusion engine + TTS
 
 // ES Module __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);
@@ -32,7 +32,7 @@ app.use(express.json({ limit: "10mb" })); // parse JSON request bodies with larg
 // -------------------------- TEST ROUTE ------------------------------
 // Quick test to confirm the backend is alive
 app.get("/", (req, res) => {
-  res.send("🐲 Orpheus AI backend is running. 🐲");
+  res.send("🐲 Pneuma AI backend is running. 🐲");
 });
 
 // -------------------------- CONVERSATIONS ROUTE ---------------------
@@ -83,7 +83,7 @@ app.get("/conversations/:id", async (req, res) => {
     // Transform exchanges to messages format for ChatBox
     const messages = conv.exchanges.flatMap((ex) => [
       { sender: "user", text: ex.user.replace(/^"|"$/g, "") },
-      { sender: "ai", text: ex.orpheus },
+      { sender: "ai", text: ex.pneuma },
     ]);
 
     res.json({ messages, id: conv.id });
@@ -121,13 +121,13 @@ app.delete("/conversations/:id", async (req, res) => {
 });
 
 // -------------------------- CHAT ROUTE ------------------------------
-// Accepts user message → generates Orpheus reply → returns it
+// Accepts user message → generates Pneuma reply → returns it
 // Now async to support LLM integration
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
 
-    const { reply, monologue, mode } = await orpheusRespond(message);
+    const { reply, monologue, mode } = await pneumaRespond(message);
 
     // Map mode to engine for frontend visualization
     const modeToEngine = {
@@ -147,7 +147,7 @@ app.post("/chat", async (req, res) => {
       mode,
     });
   } catch (error) {
-    console.error("[Orpheus] Error processing message:", error.message);
+    console.error("[Pneuma] Error processing message:", error.message);
     res.status(500).json({
       reply: "Something went sideways. Give me a moment.",
       engine: null,

@@ -1,6 +1,6 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — VOCABULARY EXPANSION
-// Additional phrases to double Orpheus's linguistic range
+// PNEUMA V2 — VOCABULARY EXPANSION
+// Additional phrases to double Pneuma's linguistic range
 // Import and merge with existing pools in personality.js
 // ------------------------------------------------------------
 

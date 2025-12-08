@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const memoryPath = path.resolve("orpheus/memory.json");
+const memoryPath = path.resolve("pneuma/memory.json");
 
 // Default memory structure
 const defaultMemory = {
@@ -35,12 +35,12 @@ export function saveMemory(memory) {
 }
 
 // Add a short-term memory entry (last 10 messages)
-export function addShortTermMemory(userMessage, orpheusReply) {
+export function addShortTermMemory(userMessage, pneumaReply) {
   const mem = loadMemory();
 
   mem.shortTerm.push({
     user: userMessage,
-    orpheus: orpheusReply,
+    pneuma: pneumaReply,
     timestamp: Date.now(),
   });
 

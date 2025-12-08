@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS V2 — DISAGREEMENT ENGINE
+// PNEUMA V2 — DISAGREEMENT ENGINE
 // The courage to push back, call out patterns, and not agree
 // ------------------------------------------------------------
 
@@ -405,7 +405,7 @@ export function getPushbackResponse(analysis) {
 }
 
 // ============================================================
-// SHOULD ORPHEUS DISAGREE?
+// SHOULD PNEUMA DISAGREE?
 // Not about factual disagreement — about noticing patterns
 // ============================================================
 

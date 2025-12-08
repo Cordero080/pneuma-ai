@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// ORPHEUS — TEXT-TO-SPEECH (ElevenLabs)
+// PNEUMA — TEXT-TO-SPEECH (ElevenLabs)
 // Giving the daemon a voice
 // ------------------------------------------------------------
 
@@ -19,7 +19,7 @@ const PRONUNCIATION_FIXES = {
 const INFLECTION_PATTERNS = [
   // Opening acknowledgments only — these benefit from a pause
   [/^(Yeah|Yep|Nah|Hmm|Huh),\s/i, "$1... "],
-  // Em-dashes become natural pauses (Orpheus uses these intentionally)
+  // Em-dashes become natural pauses (Pneuma uses these intentionally)
   [/\s*—\s*/g, "... "],
   // "No lies detected" type phrases — the shrug energy
   [/no lies (detected|there|here)/gi, "no lies... $1"],

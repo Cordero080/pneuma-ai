@@ -1,14 +1,14 @@
 // ============================================================
-// ORPHEUS — RESPONSE ENGINE
+// PNEUMA — RESPONSE ENGINE
 // Layer: 4 (ORCHESTRATION)
 // Purpose: Assembles final response from all layers
 // Input: Message, LLM content, tone, rhythm
-// Output: Complete Orpheus response
+// Output: Complete Pneuma response
 // Pipeline: Intent → Tone → Personality → Continuity
 // ============================================================
 
 // ------------------------------------------------------------
-// ORPHEUS V2 — RESPONSE ENGINE
+// PNEUMA V2 — RESPONSE ENGINE
 // 4-Layer Pipeline: Intent → Tone → Personality → Continuity
 // Now with LLM intelligence integration
 // ------------------------------------------------------------
@@ -322,9 +322,9 @@ export async function generate(
     /^(who|what|where|when|why|how|is|are|can|do|does|will|would|should|could)\b/i.test(
       message.trim()
     );
-  // More robust greeting detection - catch "Hey", "Hey O", "Hey Orpheus", etc.
+  // More robust greeting detection - catch "Hey", "Hey O", "Hey Pneuma", etc.
   const isSimpleGreeting =
-    /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy)(\s+(o|orpheus|there|man|dude|bro))?[!?.,\s]*$/i.test(
+    /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy)(\s+(o|pneuma|there|man|dude|bro))?[!?.,\s]*$/i.test(
       message.trim()
     );
   const isPureCasualGreeting =

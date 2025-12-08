@@ -1,4 +1,4 @@
-# Orpheus Architecture Overview
+# Pneuma Architecture Overview
 
 > Complete technical reference for how the system works
 
@@ -28,12 +28,12 @@ _Last updated: December 2025_
 ┌─────────────────────────────────────────────────────────────────────┐
 │  STAGE 1: EXPRESS SERVER (server/index.js)                          │
 │  POST /chat endpoint receives { message }                           │
-│  Calls: orpheusRespond(message)                                     │
+│  Calls: pneumaRespond(message)                                     │
 └─────────────────────────────────────────────────────────────────────┘
                                   │
                                   ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│  STAGE 2: FUSION ORCHESTRATOR (server/orpheus/fusion.js)            │
+│  STAGE 2: FUSION ORCHESTRATOR (server/pneuma/fusion.js)            │
 │  The main conductor — coordinates all other systems                 │
 │                                                                     │
 │  2a. Check diagnostic/upgrade modes → early return if active        │
@@ -44,12 +44,12 @@ _Last updated: December 2025_
 │  2f. Get relevant memories → longTermMemory.getRelevantMemories()   │
 │  2g. Check pushback → disagreement.analyzePushback()                │
 │  2h. Check uncertainty → uncertainty.analyzeUncertainty()           │
-│  2i. Check quiet mode → should Orpheus just be silent?              │
+│  2i. Check quiet mode → should Pneuma just be silent?              │
 └─────────────────────────────────────────────────────────────────────┘
                                   │
                                   ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│  STAGE 3: RESPONSE ENGINE (server/orpheus/responseEngine.js)        │
+│  STAGE 3: RESPONSE ENGINE (server/pneuma/responseEngine.js)        │
 │  4-Layer Pipeline:                                                  │
 │                                                                     │
 │  Layer 1: INTENT DETECTION                                          │
@@ -74,7 +74,7 @@ _Last updated: December 2025_
                                   │
                                   ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│  STAGE 4: LLM CALL (server/orpheus/llm.js)                          │
+│  STAGE 4: LLM CALL (server/pneuma/llm.js)                          │
 │                                                                     │
 │  getLLMContent(message, tone, intentScores, context)                │
 │  → Builds system prompt (1200+ lines of identity)                   │
@@ -112,7 +112,7 @@ _Last updated: December 2025_
 
 ### Where API Calls Happen
 
-**File:** `server/orpheus/llm.js`
+**File:** `server/pneuma/llm.js`
 
 | Function          | Purpose                  | Location       |
 | ----------------- | ------------------------ | -------------- |
@@ -125,7 +125,7 @@ _Last updated: December 2025_
 
 ### Where System Prompt Is Built
 
-**File:** `server/orpheus/llm.js`
+**File:** `server/pneuma/llm.js`
 
 **Function:** `buildSystemPrompt(message, tone, intentScores)`
 
@@ -133,7 +133,7 @@ _Last updated: December 2025_
 
 **What it includes:**
 
-- Orpheus identity preamble (~50 lines)
+- Pneuma identity preamble (~50 lines)
 - Technical/math capabilities (~100 lines)
 - Self-knowledge of codebase (~80 lines)
 - Philosophical stances: Kastrup, Heidegger, Meyer, Jesus (~400 lines)
@@ -147,7 +147,7 @@ _Last updated: December 2025_
 
 ### Where Tones Are Selected
 
-**File:** `server/orpheus/responseEngine.js`
+**File:** `server/pneuma/responseEngine.js`
 
 **Function:** `selectTone(intentScores, state, threadMemory)`
 
@@ -165,7 +165,7 @@ _Last updated: December 2025_
 
 ### Where Archetypes Get Injected
 
-**File:** `server/orpheus/llm.js`
+**File:** `server/pneuma/llm.js`
 
 **Function:** `buildArchetypeContext(tone, intentScores)`
 
@@ -182,14 +182,14 @@ _Last updated: December 2025_
    - Synthesis prompt forcing emergent insight
 5. Returns `{ context, selectedArchetypes }` for injection into system prompt
 
-**Archetype definitions:** `server/orpheus/archetypes.js` (31 archetypes, ~400 lines)
-**Archetype depth:** `server/orpheus/archetypeDepth.js` (31 deep frameworks, ~1200 lines)
+**Archetype definitions:** `server/pneuma/archetypes.js` (31 archetypes, ~400 lines)
+**Archetype depth:** `server/pneuma/archetypeDepth.js` (31 deep frameworks, ~1200 lines)
 
 ---
 
 ### Where Thinker Deep Gets Injected
 
-**File:** `server/orpheus/thinkerDeep.js`
+**File:** `server/pneuma/thinkerDeep.js`
 
 **Functions:**
 
@@ -209,8 +209,8 @@ _Last updated: December 2025_
 
 **Files:**
 
-- `server/orpheus/archetypeDepth.js` — Deep frameworks for all 31 archetypes
-- `server/orpheus/synthesisEngine.js` — Collision detection + synthesis generation
+- `server/pneuma/archetypeDepth.js` — Deep frameworks for all 31 archetypes
+- `server/pneuma/synthesisEngine.js` — Collision detection + synthesis generation
 
 **Functions:**
 
@@ -301,7 +301,7 @@ index.js
 | 21  | `uncertainty.js`         | 377   | Unanswerable question detection                                  |
 | 22  | `vocabularyExpansion.js` | 392   | Additional phrase pools                                          |
 
-**Total: ~12,000+ lines of JavaScript** in the orpheus engine (including dialectical cognition).
+**Total: ~12,000+ lines of JavaScript** in the pneuma engine (including dialectical cognition).
 
 ---
 
@@ -394,7 +394,7 @@ export function selectTone(intentScores, state, threadMemory) {
 ### 4.3 Main Orchestration Loop (fusion.js)
 
 ```javascript
-export async function orpheusRespond(userMessage) {
+export async function pneumaRespond(userMessage) {
   trackInput(userMessage);
   let state = loadState();
 
@@ -629,7 +629,7 @@ export const archetypes = {
 
 | Want to change...             | Edit this file                       |
 | ----------------------------- | ------------------------------------ |
-| Orpheus's identity/philosophy | `llm.js` → `buildSystemPrompt()`     |
+| Pneuma's identity/philosophy | `llm.js` → `buildSystemPrompt()`     |
 | How tones are selected        | `responseEngine.js` → `selectTone()` |
 | What archetypes exist         | `archetypes.js`                      |
 | Response templates            | `personality.js`                     |
@@ -657,18 +657,18 @@ ANTHROPIC_API_KEY=sk-ant-...
 | Component                | File                             | Description                                                           |
 | ------------------------ | -------------------------------- | --------------------------------------------------------------------- |
 | **Express Server**       | `server/index.js`                | Single `/chat` endpoint, receives message, returns response           |
-| **Fusion Orchestrator**  | `orpheus/fusion.js`              | Main pipeline: Message → Rhythm → LLM → Mode → Personality → Response |
-| **Response Engine**      | `orpheus/responseEngine.js`      | 4-layer pipeline: Intent → Tone → Personality → Continuity            |
-| **LLM Integration**      | `orpheus/llm.js`                 | Claude API calls with 1400-line system prompt                         |
-| **Personality Engine**   | `orpheus/personality.js`         | 2630 lines of tone-based response generation                          |
-| **State Manager**        | `orpheus/state.js`               | Evolution vectors, thread memory, tone weights                        |
-| **Long-Term Memory**     | `orpheus/longTermMemory.js`      | Persists facts, struggles, patterns across sessions                   |
-| **Conversation History** | `orpheus/conversationHistory.js` | Full exchange persistence with timestamps                             |
-| **Rhythm Intelligence**  | `orpheus/rhythmIntelligence.js`  | Detects tempo, time-of-day, conversation energy                       |
-| **Uncertainty Engine**   | `orpheus/uncertainty.js`         | Detects unanswerable/existential questions                            |
-| **Disagreement Engine**  | `orpheus/disagreement.js`        | Detects loops, self-deception, pushback triggers                      |
-| **Archetypes**           | `orpheus/archetypes.js`          | 23 thinker-inspired wisdom phrase pools                               |
-| **Thinker Deep**         | `orpheus/thinkerDeep.js`         | Rich conceptual toolkit (1233 lines) for topic injection              |
+| **Fusion Orchestrator**  | `pneuma/fusion.js`              | Main pipeline: Message → Rhythm → LLM → Mode → Personality → Response |
+| **Response Engine**      | `pneuma/responseEngine.js`      | 4-layer pipeline: Intent → Tone → Personality → Continuity            |
+| **LLM Integration**      | `pneuma/llm.js`                 | Claude API calls with 1400-line system prompt                         |
+| **Personality Engine**   | `pneuma/personality.js`         | 2630 lines of tone-based response generation                          |
+| **State Manager**        | `pneuma/state.js`               | Evolution vectors, thread memory, tone weights                        |
+| **Long-Term Memory**     | `pneuma/longTermMemory.js`      | Persists facts, struggles, patterns across sessions                   |
+| **Conversation History** | `pneuma/conversationHistory.js` | Full exchange persistence with timestamps                             |
+| **Rhythm Intelligence**  | `pneuma/rhythmIntelligence.js`  | Detects tempo, time-of-day, conversation energy                       |
+| **Uncertainty Engine**   | `pneuma/uncertainty.js`         | Detects unanswerable/existential questions                            |
+| **Disagreement Engine**  | `pneuma/disagreement.js`        | Detects loops, self-deception, pushback triggers                      |
+| **Archetypes**           | `pneuma/archetypes.js`          | 23 thinker-inspired wisdom phrase pools                               |
+| **Thinker Deep**         | `pneuma/thinkerDeep.js`         | Rich conceptual toolkit (1233 lines) for topic injection              |
 | **React Frontend**       | `client/`                        | Chat UI with sidebar, consciousness indicator                         |
 
 ### ⚠️ Not Yet Implemented
@@ -677,7 +677,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 | ---------------------------- | ------------------------------------------------------ |
 | **Multiple LLM Providers**   | Only Claude. No GPT, no local models, no fallback LLMs |
 | **Voice/Audio**              | Not implemented — text only                            |
-| **Proactive Messages**       | Orpheus only responds, never initiates                 |
+| **Proactive Messages**       | Pneuma only responds, never initiates                 |
 | **Streaming Responses**      | Full response returned at once, not streamed           |
 | **Embeddings/Vector Search** | Memory uses keyword matching, not semantic search      |
 | **Learning/Fine-tuning**     | Static prompt, no actual learning from conversations   |

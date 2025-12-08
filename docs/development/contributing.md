@@ -1,8 +1,8 @@
-# Contributing to Orpheus
+# Contributing to Pneuma
 
 ## Original Work
 
-Orpheus was created and architected by **Pablo Cordero** in November 2025. The foundational architecture—including the personality engine, tone system, archetype injection, and the inversion of personality-over-intelligence—is his original design.
+Pneuma was created and architected by **Pablo Cordero** in November 2025. The foundational architecture—including the personality engine, tone system, archetype injection, and the inversion of personality-over-intelligence—is his original design.
 
 ---
 
@@ -10,7 +10,7 @@ Orpheus was created and architected by **Pablo Cordero** in November 2025. The f
 
 By contributing to this project, you acknowledge:
 
-1. **Pablo Cordero** is the original creator and architect of Orpheus
+1. **Pablo Cordero** is the original creator and architect of Pneuma
 2. Your contributions build upon his foundational work
 3. Attribution to the original author must be preserved in any derivative works
 
@@ -44,7 +44,7 @@ By contributing to this project, you acknowledge:
 
 - Keep functions focused on one responsibility
 - Document non-obvious logic
-- Preserve the existing logging patterns (`[Orpheus V2]`, `[LLM]`, etc.)
+- Preserve the existing logging patterns (`[Pneuma V2]`, `[LLM]`, etc.)
 
 ### Documentation
 
@@ -59,7 +59,7 @@ By contributing to this project, you acknowledge:
 - Don't remove or obscure attribution notices
 - Don't add dependencies without justification
 - Don't change the 5-tone system without discussion
-- Don't add features that violate Orpheus's core character (sycophancy, false certainty)
+- Don't add features that violate Pneuma's core character (sycophancy, false certainty)
 
 ---
 

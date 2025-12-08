@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// Load the associations file to give Orpheus a conceptual web
-const associationsPath = path.resolve("orpheus/associations.json");
+// Load the associations file to give Pneuma a conceptual web
+const associationsPath = path.resolve("pneuma/associations.json");
 const associations = JSON.parse(fs.readFileSync(associationsPath, "utf8"));
 
 // Pick a random item from any array

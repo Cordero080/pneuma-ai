@@ -1,5 +1,5 @@
 /* ============================================
-   ORPHEUS CHATBOX — HOLOGRAPHIC QUANTUM UI
+   PNEUMA CHATBOX — HOLOGRAPHIC QUANTUM UI
    ============================================ */
 
 /* ============================================
@@ -17,7 +17,7 @@
   }
 }
 
-/* Aurora wave animation for Orpheus messages */
+/* Aurora wave animation for Pneuma messages */
 @keyframes auroraWave {
   0% {
     background-position: 0% 50%, 100% 50%, 50% 0%;
@@ -398,7 +398,7 @@
   pointer-events: none;
 }
 
-/* AI/Orpheus message: aligned left, purple/magenta glow with clip-path */
+/* AI/Pneuma message: aligned left, purple/magenta glow with clip-path */
 .message-bubble.ai {
   margin-right: auto;
   color: #7aff9a;

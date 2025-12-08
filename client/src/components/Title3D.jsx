@@ -24,7 +24,7 @@ const textProps = {
   curveSegments: 12,
 };
 
-function OrpheusText() {
+function PneumaText() {
   const groupRef = useRef();
   
   // Subtle rotation on hover/idle
@@ -45,23 +45,23 @@ function OrpheusText() {
     >
       <Center>
         <group ref={groupRef}>
-          {/* "0RPH" */}
-          <Text3D {...textProps} position={[-5.5, 0, 0]}>
-            0RPH
+          {/* "PN" */}
+          <Text3D {...textProps} position={[-5.2, 0, 0]}>
+            PN
             <meshStandardMaterial {...materialProps} />
           </Text3D>
           
           {/* Reversed "E" - flipped on X axis */}
-          <group position={[1.1, 0, 0]} scale={[-1, 1, 1]}>
+          <group position={[-1.4, 0, 0]} scale={[-1, 1, 1]}>
             <Text3D {...textProps}>
               E
               <meshStandardMaterial {...materialProps} />
             </Text3D>
           </group>
           
-          {/* "US" */}
-          <Text3D {...textProps} position={[1.4, 0, 0]}>
-            US
+          {/* "UMA" */}
+          <Text3D {...textProps} position={[-1.0, 0, 0]}>
+            UMA
             <meshStandardMaterial {...materialProps} />
           </Text3D>
         </group>
@@ -112,7 +112,7 @@ export default function Title3D() {
         {/* Environment for reflections */}
         <Environment preset="night" />
         
-        <OrpheusText />
+        <PneumaText />
       </Canvas>
     </div>
   );

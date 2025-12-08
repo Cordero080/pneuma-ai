@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — SYNTHESIS ENGINE (Dialectical Cognition)
+// PNEUMA — SYNTHESIS ENGINE (Dialectical Cognition)
 // Layer: 2 (INTELLIGENCE)
 // Purpose: Collision detection + forced emergence between archetypes
 // Input: Active archetypes, user message, intent

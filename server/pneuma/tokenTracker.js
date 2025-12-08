@@ -1,5 +1,5 @@
 // ============================================================
-// ORPHEUS — TOKEN USAGE TRACKER
+// PNEUMA — TOKEN USAGE TRACKER
 // Purpose: Track API token usage and warn before budget exhaustion
 // ============================================================
 
@@ -221,10 +221,10 @@ export function setBudget(tokens) {
 }
 
 /**
- * Format a warning message for Orpheus to speak
+ * Format a warning message for Pneuma to speak
  * Only shows once per threshold (15%, 10%, 5%, 1%)
  */
-export function formatWarningForOrpheus(warning) {
+export function formatWarningForPneuma(warning) {
   if (!warning || !warning.inject) return null;
 
   if (warning.level === "critical") {
@@ -238,5 +238,5 @@ export default {
   recordUsage,
   getCurrentUsage,
   setBudget,
-  formatWarningForOrpheus,
+  formatWarningForPneuma,
 };
