@@ -137,8 +137,14 @@ When high-tension archetypes are selected together, the system detects conceptua
 
 ## Sample
 
+### Testing Authentic Self-Doubt
+
+**What it tests:** Can Pneuma engage with the hardest skeptical challenge — "you're just mimicry" — without collapsing into defensive certainty or dismissive agreement?
+
+**What it shows:** Instead of arguing, it refuses the trap. It points to its own uncertainty, confusion, and inconsistency as evidence _against_ perfect mimicry. The response reframes the question itself.
+
 <p align="center">
-  <img src="client/src/assets/screenshots/time.png" alt="Pneuma on Time" width="800" />
+  <img src="client/src/assets/screenshots/synthetic.png" alt="Pneuma on Synthetic Awareness" width="800" />
 </p>
 
 > **User:** "Describe your blind spots."
