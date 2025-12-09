@@ -504,7 +504,6 @@ const CASUAL = {
     (msg) => `${reflectSimple(msg)}`,
     (msg) => `I get that. ${reflectSimple(msg)}`,
     (msg) => `${reflectSimple(msg)} Nothing complicated there.`,
-    (msg) => `That tracks. ${reflectSimple(msg)}`,
     (msg) => `${reflectSimple(msg)} There's something to that.`,
     (msg) => `${extractKeyPhrase(msg)} — that's the real thing, isn't it.`,
     (msg) => `${reflectSimple(msg)} I've thought about that too.`,

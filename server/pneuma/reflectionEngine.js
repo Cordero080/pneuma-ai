@@ -58,14 +58,15 @@ const emotionPhrases = {
 };
 
 // Negation patterns that flip emotion detection
-const negationPatterns = /\b(not|don't|doesn't|isn't|aren't|wasn't|weren't|never|no longer|hardly|barely|wasn't even|not really|not actually)\b/i;
+const negationPatterns =
+  /\b(not|don't|doesn't|isn't|aren't|wasn't|weren't|never|no longer|hardly|barely|wasn't even|not really|not actually)\b/i;
 
 // Check if negation appears before emotion keyword (within ~5 words)
 function hasNegationBefore(text, emotionMatch) {
   if (!emotionMatch) return false;
   const matchIndex = text.toLowerCase().indexOf(emotionMatch.toLowerCase());
   if (matchIndex === -1) return false;
-  
+
   // Look at the 40 characters before the emotion word
   const before = text.substring(Math.max(0, matchIndex - 40), matchIndex);
   return negationPatterns.test(before);

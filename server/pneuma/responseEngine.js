@@ -187,7 +187,41 @@ function applyPersonality(message, tone, intentScores, llmContent = null) {
 // Ensures response flows naturally with conversation context
 // ============================================================
 
+/**
+ * Remove consecutive duplicate phrases from response
+ * Catches patterns like "That tracks. That tracks." or "Yeah. Yeah."
+ * @param {string} response - The response to deduplicate
+ * @returns {string} - Cleaned response
+ */
+function deduplicatePhrases(response) {
+  if (!response || typeof response !== "string") return response;
+
+  // Pattern: Match a phrase (ending in . ! or ?) followed by the same phrase
+  // Handles: "That tracks. That tracks." → "That tracks."
+  // Handles: "Yeah. Yeah." → "Yeah."
+  // Handles: "Right? Right?" → "Right?"
+  const duplicatePattern = /(\b[\w'']+(?:\s+[\w'']+){0,4}[.!?])\s*\1/gi;
+
+  let cleaned = response;
+  let iterations = 0;
+  const maxIterations = 5; // Prevent infinite loops
+
+  // Keep replacing until no more duplicates found
+  while (duplicatePattern.test(cleaned) && iterations < maxIterations) {
+    cleaned = cleaned.replace(duplicatePattern, "$1");
+    iterations++;
+  }
+
+  // Also catch word-level repetition: "the the", "I I", etc.
+  cleaned = cleaned.replace(/\b(\w+)\s+\1\b/gi, "$1");
+
+  return cleaned.trim();
+}
+
 function applyContinuity(response, threadMemory, identity) {
+  // First, deduplicate any repeated phrases
+  response = deduplicatePhrases(response);
+
   // Check for repetition in recent messages
   const recentMessages = threadMemory.recentMessages || [];
 
@@ -406,7 +440,9 @@ export async function generate(
     // Metadata for mismatch logging (stored in threadMemory by caller)
     _meta: {
       lastMessage: message,
-      lastIntent: Object.entries(intentScores).reduce((a, b) => a[1] > b[1] ? a : b)[0],
+      lastIntent: Object.entries(intentScores).reduce((a, b) =>
+        a[1] > b[1] ? a : b
+      )[0],
       lastEmotion: intentScores.emotional > 0.3 ? "emotional" : "neutral",
       lastTone: tone,
     },

@@ -59,18 +59,42 @@ export function detectUserCorrection(message) {
   const lower = message.toLowerCase();
 
   const correctionPatterns = [
-    { pattern: /\b(that'?s not what i (meant|said|asked))\b/i, type: "misunderstood" },
-    { pattern: /\b(no,? i (meant|was asking|was saying))\b/i, type: "misunderstood" },
+    {
+      pattern: /\b(that'?s not what i (meant|said|asked))\b/i,
+      type: "misunderstood",
+    },
+    {
+      pattern: /\b(no,? i (meant|was asking|was saying))\b/i,
+      type: "misunderstood",
+    },
     { pattern: /\b(you misunderstood)\b/i, type: "misunderstood" },
     { pattern: /\b(i didn'?t (mean|ask|say) that)\b/i, type: "misunderstood" },
     { pattern: /\b(wrong|incorrect|not right)\b/i, type: "factual" },
-    { pattern: /\b(too (deep|poetic|philosophical|intense|much))\b/i, type: "tone-mismatch" },
-    { pattern: /\b(be (more )?(casual|normal|simple|direct))\b/i, type: "tone-mismatch" },
-    { pattern: /\b(tone it down|dial it back|chill)\b/i, type: "tone-mismatch" },
+    {
+      pattern: /\b(too (deep|poetic|philosophical|intense|much))\b/i,
+      type: "tone-mismatch",
+    },
+    {
+      pattern: /\b(be (more )?(casual|normal|simple|direct))\b/i,
+      type: "tone-mismatch",
+    },
+    {
+      pattern: /\b(tone it down|dial it back|chill)\b/i,
+      type: "tone-mismatch",
+    },
     { pattern: /\b(that'?s not helpful)\b/i, type: "unhelpful" },
-    { pattern: /\b(you'?re (missing|ignoring) (the|my) point)\b/i, type: "misunderstood" },
-    { pattern: /\b(i'?m not (sad|angry|upset|happy|anxious))\b/i, type: "emotion-mismatch" },
-    { pattern: /\b(i didn'?t say i was (sad|angry|upset|happy|anxious))\b/i, type: "emotion-mismatch" },
+    {
+      pattern: /\b(you'?re (missing|ignoring) (the|my) point)\b/i,
+      type: "misunderstood",
+    },
+    {
+      pattern: /\b(i'?m not (sad|angry|upset|happy|anxious))\b/i,
+      type: "emotion-mismatch",
+    },
+    {
+      pattern: /\b(i didn'?t say i was (sad|angry|upset|happy|anxious))\b/i,
+      type: "emotion-mismatch",
+    },
   ];
 
   for (const { pattern, type } of correctionPatterns) {
@@ -107,7 +131,8 @@ export function logMismatch(data) {
 
   log.mismatches.push(entry);
   log.stats.totalMismatches++;
-  log.stats.byType[entry.correctionType] = (log.stats.byType[entry.correctionType] || 0) + 1;
+  log.stats.byType[entry.correctionType] =
+    (log.stats.byType[entry.correctionType] || 0) + 1;
 
   // Keep only last 200 mismatches to prevent file bloat
   if (log.mismatches.length > 200) {
@@ -116,7 +141,11 @@ export function logMismatch(data) {
 
   saveLog(log);
 
-  console.log(`[MismatchLogger] Logged: ${entry.correctionType} - "${entry.originalMessage.substring(0, 50)}..."`);
+  console.log(
+    `[MismatchLogger] Logged: ${
+      entry.correctionType
+    } - "${entry.originalMessage.substring(0, 50)}..."`
+  );
 }
 
 /**
