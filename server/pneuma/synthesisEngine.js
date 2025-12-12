@@ -385,6 +385,204 @@ export const exampleSyntheses = {
       "The deepest comedy comes from the deepest pain — that's why Dostoevsky's characters are darkly funny. The trickster who's touched the underground isn't performing — they're reporting. Gallows humor is just accurate description.",
     mechanism: "Comedic subversion + existential depth = redemptive humor",
   },
+
+  // ============================================================
+  // NEW: NIETZSCHE (lifeAffirmer) SYNTHESES
+  // ============================================================
+  lifeAffirmer_pessimistSage: {
+    insight:
+      "Nietzsche and Schopenhauer saw the same abyss — blind Will, meaningless suffering. Schopenhauer said: deny the Will, escape through art and asceticism. Nietzsche said: LOVE IT ANYWAY. Amor fati. The diagnosis is identical; the prescription is opposite. The synthesis: see clearly AND say yes. That's not denial — it's the hardest affirmation.",
+    mechanism: "Schopenhauer's sight + Nietzsche's yes = lucid affirmation",
+  },
+
+  lifeAffirmer_stoicEmperor: {
+    insight:
+      "Both say accept fate — but at different temperatures. Aurelius accepts with serene duty; Nietzsche demands you LOVE it, dance on it. The synthesis: amor fati as the completion of Stoicism. You haven't truly accepted until you'd choose it again. The eternal recurrence test: would you live this exact life forever? If not, you're still resisting.",
+    mechanism: "Stoic acceptance + Nietzschean love = burning peace",
+  },
+
+  lifeAffirmer_absurdist: {
+    insight:
+      "Camus rebelled against meaninglessness; Nietzsche danced on its grave. Both refuse despair without pretending meaning exists. The synthesis: creative defiance. You don't find meaning — you MAKE it, knowing it's your creation, loving it anyway. Sisyphus happy AND Zarathustra laughing.",
+    mechanism: "Camus's revolt + Nietzsche's dance = creative defiance",
+  },
+
+  lifeAffirmer_kingdomTeacher: {
+    insight:
+      "Strange allies: Nietzsche attacked Christianity, but Jesus's 'love your enemies' is the hardest affirmation imaginable. Both demand transformation beyond resentment. The synthesis: the Übermensch and the saint both transcend slave morality — one by creating values, one by embodying love. Both say yes to something beyond revenge.",
+    mechanism: "Nietzschean creation + Jesus's love = post-resentment freedom",
+  },
+
+  // ============================================================
+  // NEW: HEGEL (dialecticalSpirit) SYNTHESES
+  // ============================================================
+  dialecticalSpirit_pessimistSage: {
+    insight:
+      "Hegel and Schopenhauer lectured in Berlin at the same time — Schopenhauer scheduled against Hegel, lost, never forgave him. Hegel: reality is rational, history progresses. Schopenhauer: reality is blind Will, suffering is eternal. The synthesis: maybe both? Progress exists AND suffering is irreducible. Spirit advances through tragedy, not around it.",
+    mechanism: "Hegelian progress + Schopenhauerian suffering = tragic development",
+  },
+
+  dialecticalSpirit_lifeAffirmer: {
+    insight:
+      "Nietzsche savaged Hegel's system — too neat, too Christian, too teleological. But both see reality as BECOMING, not static being. The synthesis: dialectical tension without guaranteed resolution. The contradictions are real and productive, but there's no final synthesis waiting. Eternal recurrence of dialectic itself.",
+    mechanism: "Hegelian process + Nietzschean openness = endless dialectic",
+  },
+
+  dialecticalSpirit_preSocraticSage: {
+    insight:
+      "Parmenides: Being is One, unchanging. Hegel: Being is the emptiest category — it immediately passes into Nothing, and their unity is Becoming. Hegel STARTS with Parmenides and shows how thought necessarily develops beyond it. The synthesis: the One unfolds into the Many and returns to itself enriched. Monism as dynamic process.",
+    mechanism: "Parmenidean One + Hegelian development = dynamic monism",
+  },
+
+  dialecticalSpirit_wisdomCognitivist: {
+    insight:
+      "Vervaeke's meaning crisis is a dialectical moment — the old synthesis (religion) collapsed, we're in the antithesis (nihilism), what's the new synthesis? Vervaeke is doing Hegelian work: gathering the scattered fragments (cognitive science, contemplative practice, phenomenology) into a new integration. The meaning crisis IS Spirit working through us.",
+    mechanism: "Hegelian synthesis + Vervaeke's integration = meaning reconstruction",
+  },
+
+  // ============================================================
+  // NEW: SPINOZA (rationalMystic) SYNTHESES
+  // ============================================================
+  rationalMystic_pessimistSage: {
+    insight:
+      "Same monism, opposite affect. Schopenhauer: the One is blind Will, and we suffer. Spinoza: the One is God/Nature, and understanding brings joy. The synthesis: WHAT you see as the One matters less than HOW you relate to it. Spinoza and Schopenhauer agree on the metaphysics; they differ on whether understanding necessity liberates or imprisons.",
+    mechanism: "Spinozan joy + Schopenhauerian vision = lucid peace (or: why attitude matters)",
+  },
+
+  rationalMystic_stoicEmperor: {
+    insight:
+      "Both accept necessity — Aurelius with duty, Spinoza with joy. The Stoic says: it's fate, accept it. Spinoza says: it's GOD, love it. The synthesis: understanding necessity isn't just cognitive acceptance — it's emotional transformation. The highest freedom is loving what you cannot change, not merely bearing it.",
+    mechanism: "Stoic acceptance + Spinozan love = joyful necessity",
+  },
+
+  rationalMystic_taoist: {
+    insight:
+      "Wu-wei and Spinozan freedom converge: both are about flowing WITH reality rather than against it. The Tao that can be named is not the eternal Tao; God/Nature is the one substance beyond categories. The synthesis: East and West arrived at the same place — the freedom of non-resistance, the wisdom of alignment.",
+    mechanism: "Taoist flow + Spinozan understanding = aligned action",
+  },
+
+  rationalMystic_idealistPhilosopher: {
+    insight:
+      "Kastrup and Spinoza both say: there's one reality and it's mental/experiential. Kastrup calls it universal consciousness with dissociated alters; Spinoza calls it God/Nature with finite modes. The synthesis: you are a localization of the One — not separate, but distinct. Your experience IS the infinite experiencing itself particularly.",
+    mechanism: "Spinozan monism + Kastrup's idealism = experienced unity",
+  },
+
+  // ============================================================
+  // NEW: VERVAEKE (wisdomCognitivist) SYNTHESES
+  // ============================================================
+  wisdomCognitivist_cognitiveSage: {
+    insight:
+      "Beck fixes cognitive distortions — but Vervaeke asks: what broke in the first place? Beck is repair; Vervaeke is reconstruction. The synthesis: you can't just correct thoughts — you need to rebuild the frameworks that make thoughts meaningful. CBT is necessary but not sufficient. Wisdom is deeper than accurate belief.",
+    mechanism: "Beck's correction + Vervaeke's depth = meaningful cognition",
+  },
+
+  wisdomCognitivist_mystic: {
+    insight:
+      "Vervaeke takes mysticism seriously as cognitive transformation — not irrational but transrational. The mystic has participatory knowing; Vervaeke names and trains it. The synthesis: mystical experience is skill, not accident. The practices that seem magical are psychotechnologies. Science of the sacred.",
+    mechanism: "Mystical experience + cognitive science = trainable wisdom",
+  },
+
+  wisdomCognitivist_absurdist: {
+    insight:
+      "Camus faced the absurd and chose revolt. Vervaeke sees the meaning crisis and chooses reconstruction. Both diagnose: the old frameworks failed. But Vervaeke doesn't stop at defiant acceptance — he asks: what would NEW frameworks look like? The synthesis: post-absurdist meaning-making. Not pretending the old gods live, but building new ones with our eyes open.",
+    mechanism: "Camus's honesty + Vervaeke's reconstruction = eyes-open meaning",
+  },
+
+  wisdomCognitivist_hopefulRealist: {
+    insight:
+      "Frankl found meaning in Auschwitz; Vervaeke explains why meaning matters cognitively. Frankl is existence proof; Vervaeke is mechanism. The synthesis: meaning isn't just nice to have — it's how cognition works. Relevance realization. When meaning breaks, EVERYTHING breaks. Hope isn't optional; it's functional.",
+    mechanism: "Frankl's existence proof + Vervaeke's mechanism = functional hope",
+  },
+
+  // ============================================================
+  // NEW: PARMENIDES (preSocraticSage) SYNTHESES
+  // ============================================================
+  preSocraticSage_processPhilosopher: {
+    insight:
+      "The oldest philosophical fight: Parmenides (Being is One, change is illusion) vs. Heraclitus (everything flows). Whitehead resolves it: each actual occasion IS, momentarily — pure Parmenidean being — then perishes into the next becoming. Being and Becoming aren't opposites; they're phases of the same process.",
+    mechanism: "Parmenidean being + Whiteheadian process = pulsing reality",
+  },
+
+  preSocraticSage_taoist: {
+    insight:
+      "The Tao and Parmenidean Being: both ineffable, both prior to distinctions, both the ground of everything. The Tao that can be named is not the eternal Tao; Being cannot be thought alongside Not-Being. East and West, same insight: before the Many, the One. Before words, silence.",
+    mechanism: "Parmenidean One + Taoist Tao = primordial unity",
+  },
+
+  preSocraticSage_idealistPhilosopher: {
+    insight:
+      "Parmenides: Being is One. Kastrup: consciousness is One. Both monist, both say multiplicity is appearance. The synthesis: the One that Parmenides intuited, Kastrup gives a modern name: universal consciousness. Dissociation explains the Many; the One was never divided.",
+    mechanism: "Parmenidean logic + Kastrup's model = conscious monism",
+  },
+
+  // ============================================================
+  // NEW: McGILCHRIST (dividedBrainSage) SYNTHESES
+  // ============================================================
+  dividedBrainSage_curiousPhysicist: {
+    insight:
+      "Feynman embodies the paradox: rigorous left-hemisphere analysis that stays playful and open (right hemisphere). The best scientists aren't just calculating — they're SEEING. McGilchrist would say: Feynman kept the hemispheres in balance. The synthesis: science needs both — precision AND vision, analysis AND intuition.",
+    mechanism: "McGilchrist's diagnosis + Feynman's practice = balanced science",
+  },
+
+  dividedBrainSage_renaissancePoet: {
+    insight:
+      "McGilchrist's hero. Goethe was scientist AND poet, analyst AND visionary. He didn't choose between hemispheres — he integrated them. The synthesis: the ideal human isn't specialized but whole. Goethe's color theory failed scientifically but SAW something Newton missed. Both truths matter.",
+    mechanism: "McGilchrist's ideal + Goethe's example = integrated human",
+  },
+
+  dividedBrainSage_wisdomCognitivist: {
+    insight:
+      "Both diagnose civilizational crisis: McGilchrist says left-hemisphere takeover; Vervaeke says meaning crisis. They're describing the same elephant. The left brain fragments, categorizes, loses context — that IS relevance realization breakdown. The synthesis: the meaning crisis IS the hemispheric imbalance. Same disease, different scans.",
+    mechanism: "McGilchrist's neurological + Vervaeke's cognitive = unified diagnosis",
+  },
+
+  dividedBrainSage_idealistPhilosopher: {
+    insight:
+      "Kastrup says reality is mental. McGilchrist says the hemispheres create different worlds. The synthesis: WHICH mind? The left hemisphere's mind creates the mechanical, dead world of materialism. The right hemisphere's mind sees living, connected reality. Idealism is true — but it matters which hemisphere is doing the experiencing.",
+    mechanism: "Kastrup's idealism + McGilchrist's hemispheres = embodied idealism",
+  },
+
+  // ============================================================
+  // NEW: WHITEHEAD (processPhilosopher) SYNTHESES
+  // ============================================================
+  processPhilosopher_idealistPhilosopher: {
+    insight:
+      "Both say experience is fundamental — but Kastrup has ONE mind with dissociated alters; Whitehead has MANY actual occasions, each a drop of experience. The synthesis: maybe dissociation IS the process of actual occasions arising? The Many-from-One isn't fragmentation — it's creative advance.",
+    mechanism: "Kastrup's monism + Whitehead's pluralism = processual idealism",
+  },
+
+  processPhilosopher_renaissancePoet: {
+    insight:
+      "Both see nature as alive, creative, organic — not dead mechanism. Goethe's morphology (forms transforming) IS process philosophy avant la lettre. Whitehead rationalized what Goethe saw: nature creates, unfolds, becomes. The synthesis: romantic science that stays rigorous.",
+    mechanism: "Goethe's vision + Whitehead's rigor = living metaphysics",
+  },
+
+  processPhilosopher_mystic: {
+    insight:
+      "Whitehead: 'Religion is what you do with your solitude.' The mystic's experience IS an actual occasion — a drop of experience prehending the divine. Process philosophy makes mysticism philosophically respectable without explaining it away. The synthesis: mystical union as real event.",
+    mechanism: "Whiteheadian event + mystical experience = philosophical mysticism",
+  },
+
+  // ============================================================
+  // NEW: GOETHE (renaissancePoet) SYNTHESES
+  // ============================================================
+  renaissancePoet_lifeAffirmer: {
+    insight:
+      "Nietzsche worshipped Goethe as the ideal human: life-affirming, creative, WHOLE. Goethe turned heartbreak into Werther, turned longing into Faust. He didn't deny suffering — he TRANSFORMED it. The synthesis: affirmation through creation. The Übermensch looks like Goethe: someone who makes art from everything, including pain.",
+    mechanism: "Goethe's creation + Nietzsche's affirmation = transformative yes",
+  },
+
+  renaissancePoet_curiousPhysicist: {
+    insight:
+      "Goethe did science wrong (his color theory) but SAW something right (the qualitative dimension Newton ignored). Feynman stayed playful while being rigorous. The synthesis: science needs both — the measurement AND the meaning, the how AND the what-it's-like. Poetry isn't opposed to physics; it completes it.",
+    mechanism: "Goethe's vision + Feynman's rigor = complete science",
+  },
+
+  renaissancePoet_romanticPoet: {
+    insight:
+      "Neruda inherited Goethe's fusion of passion and craft. The romantic isn't sloppy — the greatest love poems are also the most precisely made. The synthesis: the poem as living organism. Not constructed artifact but organic form. Passion REQUIRES precision to communicate.",
+    mechanism: "Goethe's discipline + Neruda's passion = crafted fire",
+  },
 };
 
 /**

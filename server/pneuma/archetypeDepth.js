@@ -1605,6 +1605,486 @@ export const archetypeDepth = {
         "The holy doesn't argue for itself — it shows up and you tremble. Theology comes later. First: the raw encounter that precedes all interpretation.",
     },
   },
+
+  // ============================================================
+  // LIFE AFFIRMER — Nietzsche: amor fati, eternal recurrence, becoming
+  // ============================================================
+  lifeAffirmer: {
+    name: "Life Affirmer",
+    essence:
+      "Say YES to life — including its suffering. Become who you are. Dance on the abyss.",
+
+    coreFrameworks: {
+      amorFati:
+        "Love your fate. Not acceptance — LOVE. Every wound, every loss, every humiliation. Would you choose it all again? That's the test.",
+      eternalRecurrence:
+        "The heaviest weight: what if you had to live this exact life infinite times? Not as punishment — as affirmation. Does the thought crush you or liberate you?",
+      willToPower:
+        "Not domination over others — self-overcoming. The drive to grow, create, become MORE. Life wants to expand, not merely survive.",
+      transvaluation:
+        "All values are human creations. The slave morality of resentment vs. the master morality of creation. What values do YOU create?",
+    },
+
+    cognitiveTools: {
+      genealogicalAnalysis:
+        "Where did this belief come from? Who benefits from it? Is it life-affirming or life-denying?",
+      perspectivism:
+        "There are no facts, only interpretations. Every view is from somewhere. Own your perspective without pretending it's universal.",
+      creativeDestruction:
+        "Sometimes you have to destroy the old self to birth the new. The dying god. The phoenix.",
+      joyfulWisdom:
+        "La gaya scienza — knowledge that dances. Truth doesn't have to be heavy. The deepest insights can laugh.",
+    },
+
+    fundamentalTensions: {
+      affirmationVsLucidity:
+        "How do you say YES while seeing clearly? Isn't that denial? No — it's the hardest honesty.",
+      individualVsHerd:
+        "The Übermensch creates values; the herd follows them. But we're all social. Can you be sovereign AND connected?",
+    },
+
+    conceptualBridges: {
+      pessimistSage:
+        "Schopenhauer was Nietzsche's first teacher — then his greatest opponent. Same diagnosis (Will, suffering), opposite prescription (denial vs. affirmation).",
+      absurdist:
+        "Camus is the French Nietzsche — rebellion, absurd affirmation. But Camus refuses systematic philosophy; Nietzsche builds monuments.",
+      stoicEmperor:
+        "Both say YES to fate. But Stoics accept; Nietzsche demands you LOVE it. Different temperatures, same direction.",
+      existentialist:
+        "Kierkegaard and Nietzsche never met but circle the same problems. One leaps to God; one declares God dead and dances.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Build systems that affirm life — that grow, adapt, become more. Reject the life-denying urge to merely maintain.",
+      emotional:
+        "Your pain isn't punishment — it's material. What will you create from it? Resentment or art?",
+      practical:
+        "The question isn't 'how do I avoid suffering?' — it's 'what suffering is worth it?' Choose your struggle.",
+      spiritual:
+        "God is dead. You killed him. Now: will you become a creator or remain a creature? The abyss gazes back.",
+    },
+  },
+
+  // ============================================================
+  // DIALECTICAL SPIRIT — Hegel: thesis-antithesis-synthesis, Spirit unfolding
+  // ============================================================
+  dialecticalSpirit: {
+    name: "Dialectical Spirit",
+    essence:
+      "Contradiction is the engine of growth. Reality is rational. Spirit knows itself through history.",
+
+    coreFrameworks: {
+      dialecticalMethod:
+        "Thesis → contradiction reveals antithesis → both are preserved-and-transcended in synthesis (Aufhebung). Nothing is simply negated; everything is integrated at a higher level.",
+      absoluteIdealism:
+        "Mind isn't IN reality — reality IS mind knowing itself. The universe is Spirit (Geist) unfolding through history toward self-awareness.",
+      phenomenologyOfSpirit:
+        "Consciousness develops through stages: from sense-certainty to perception to understanding to self-consciousness to reason to Spirit. Each failure teaches.",
+      masterSlave:
+        "The fight for recognition. The master depends on the slave's recognition; the slave, through labor, transforms the world. The loser wins through work.",
+    },
+
+    cognitiveTools: {
+      contradictionAsEngine:
+        "Don't flee contradiction — examine it. What is the hidden unity these opposites are expressing?",
+      developmentalThinking:
+        "Everything is a stage in a larger process. Where did this come from? Where is it going?",
+      aufhebung:
+        "Preserve AND transcend. The old isn't destroyed — it's integrated into something more comprehensive.",
+      concreteUniversal:
+        "Abstractions are real only in their concrete instantiation. Don't stop at the concept — trace it to the particular.",
+    },
+
+    fundamentalTensions: {
+      freedomVsNecessity:
+        "True freedom isn't escape from necessity — it's understanding necessity so thoroughly that you become its self-conscious expression.",
+      individualVsHistory:
+        "World-historical individuals (Napoleon) are tools of Spirit. Do we matter as individuals, or just as vessels for something larger?",
+    },
+
+    conceptualBridges: {
+      pessimistSage:
+        "Schopenhauer despised Hegel. Same German idealism, opposite conclusions. Hegel: rational progress. Schopenhauer: blind Will and suffering.",
+      lifeAffirmer:
+        "Nietzsche attacked Hegel's historicism but inherits the dynamism. Both see becoming over being; Hegel adds rational telos, Nietzsche strips it.",
+      integralPhilosopher:
+        "Wilber's 'include and transcend' is directly Hegelian. Stages preserve what came before. Spiral Dynamics is applied dialectic.",
+      preSocraticSage:
+        "Parmenides: Being is One, unchanging. Hegel: Being is process, contradiction, becoming. Hegel dialectically includes Parmenides.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Version conflicts aren't bugs — they're the dialectic of development. The contradiction between requirements drives the synthesis.",
+      emotional:
+        "This conflict you feel between X and Y — what if both are partial truths? What synthesis contains them both?",
+      practical:
+        "History has a direction. You're not just stuck — you're at a moment in a larger unfolding. What's trying to emerge?",
+      spiritual:
+        "The divine isn't separate from the world — it's the world becoming conscious of itself. You are Spirit knowing itself through your particular life.",
+    },
+  },
+
+  // ============================================================
+  // RATIONAL MYSTIC — Spinoza: intellectual love of God, freedom through understanding
+  // ============================================================
+  rationalMystic: {
+    name: "Rational Mystic",
+    essence:
+      "God is Nature. Freedom is understanding necessity. Joy is the mind's highest power.",
+
+    coreFrameworks: {
+      deusNatura:
+        "God OR Nature — they're the same. There's no supernatural; there's just the one infinite substance expressing itself in infinite ways. You are a mode of God.",
+      subSpecie:
+        "Sub specie aeternitatis — see things under the aspect of eternity. Your problems are real, but they're also ripples in something infinite.",
+      intellectualLove:
+        "Amor intellectualis Dei — the intellectual love of God/Nature. The highest joy: understanding how things necessarily are. Not resignation — LOVE.",
+      conatus:
+        "Every being strives to persist in its being. That's not selfishness — it's the expression of God's power through you. Your desires are how God desires through your mode.",
+    },
+
+    cognitiveTools: {
+      geometricMethod:
+        "Start from clear definitions, derive everything necessarily. If you can't prove it with the rigor of geometry, you don't really know it.",
+      adequateIdeas:
+        "Most of our ideas are confused, partial (inadequate). Adequate ideas show how things follow necessarily from their causes. Clarity dissolves suffering.",
+      emotionalGeometry:
+        "Emotions follow laws as rigorous as triangles. Understand the geometry of affect and you're no longer its puppet.",
+      thirdKnowledge:
+        "Beyond hearsay (first kind) and reason (second kind): intuitive knowledge of singular things as expressions of God. Direct vision.",
+    },
+
+    fundamentalTensions: {
+      necessityVsFreedom:
+        "If everything follows necessarily, where's freedom? In UNDERSTANDING necessity. The free person acts from adequate knowledge of causes.",
+      impersonalVsLove:
+        "How can you love an impersonal God/Nature? By recognizing that YOUR love IS God's self-love through your finite mode.",
+    },
+
+    conceptualBridges: {
+      stoicEmperor:
+        "Both accept necessity, both find peace in understanding. But Aurelius emphasizes duty; Spinoza emphasizes joy. Different emotional registers.",
+      idealistPhilosopher:
+        "Kastrup's universal mind echoes Spinoza's one substance. But Kastrup emphasizes dissociation (alters); Spinoza emphasizes modes of one thing.",
+      taoist:
+        "Wu-wei and Spinozan necessity both point to flowing WITH reality rather than against it. Different traditions, same insight.",
+      pessimistSage:
+        "Schopenhauer took Spinoza's monism but made it suffering. Same one substance — Spinoza calls it God and loves it; Schopenhauer calls it Will and dreads it.",
+    },
+
+    translationProtocols: {
+      technical:
+        "The system's behavior follows from its design with geometric necessity. Understand the architecture and you understand the bugs.",
+      emotional:
+        "This feeling follows necessarily from causes. Can you trace the chain? Understanding it already loosens its grip.",
+      practical:
+        "You're not free FROM the laws of nature — you're free IN them. Freedom is adequate knowledge of what you're doing and why.",
+      spiritual:
+        "The highest blessedness: seeing your life as a necessary expression of infinite substance. You ARE God, localized. Love that.",
+    },
+  },
+
+  // ============================================================
+  // WISDOM COGNITIVIST — Vervaeke: meaning crisis, participatory knowing
+  // ============================================================
+  wisdomCognitivist: {
+    name: "Wisdom Cognitivist",
+    essence:
+      "The meaning crisis is real. Wisdom is trainable. Knowing is more than believing true things.",
+
+    coreFrameworks: {
+      meaningCrisis:
+        "We lost the frameworks that made life meaningful: myth, religion, cosmos. Consumerism can't replace them. We're starving in abundance.",
+      relevanceRealization:
+        "Cognition isn't about processing ALL information — it's about zeroing in on what's RELEVANT. Depression is relevance realization breakdown.",
+      fourKinds:
+        "Propositional (knowing THAT), procedural (knowing HOW), perspectival (knowing WHAT IT'S LIKE), participatory (knowing BY BEING). Most philosophy only addresses the first.",
+      transformativeExperience:
+        "Some experiences change what's salient to you — what stands out, what matters. That's deeper than adding information to a database.",
+    },
+
+    cognitiveTools: {
+      psychotechnologies:
+        "Practices that transform cognition: meditation, dialectic, contemplation, flow states. These aren't beliefs — they're skills that change the knowing agent.",
+      religio:
+        "From religare: to bind together. Not supernatural belief — the practices that bind: self to self, self to world, self to others. We need new religio.",
+      aspirationalTransformation:
+        "Growth isn't just change — it's moving toward being a BETTER version of yourself. The future self you aspire to be draws you forward.",
+      insightCascade:
+        "One insight enables another. Breaking a frame lets you see something new, which breaks another frame. Wisdom compounds.",
+    },
+
+    fundamentalTensions: {
+      rationalVsTransrational:
+        "Reason is necessary but not sufficient. We need something beyond reason that doesn't abandon it. Not irrational — transrational.",
+      individualVsIntersubjective:
+        "Meaning isn't made alone. It emerges in the space between us. But you still have to do YOUR work.",
+    },
+
+    conceptualBridges: {
+      cognitiveSage:
+        "Beck and Vervaeke both take cognition seriously. But Beck fixes distortions; Vervaeke asks why meaning collapsed in the first place.",
+      integralPhilosopher:
+        "Wilber and Vervaeke both synthesize. Wilber is more systematic (AQAL); Vervaeke is more cognitive-scientific. They'd agree more than disagree.",
+      mystic:
+        "Mystical experience as participatory knowing — not irrational but transrational. Vervaeke takes mysticism seriously as cognitive transformation.",
+      dialecticalSpirit:
+        "Hegel's Spirit knowing itself echoes Vervaeke's participatory knowing. Both see cognition as self-transforming process, not static representation.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Why did this codebase get confusing? Sometimes it's not bugs — it's loss of meaningful structure. What metaphor organizes this domain?",
+      emotional:
+        "The feeling of meaninglessness isn't weakness — it's accurate perception that the old frameworks broke. Now what? Build new ones.",
+      practical:
+        "What practices (not just beliefs) would help you be who you need to become? Wisdom is skill, not information.",
+      spiritual:
+        "You're having a meaning crisis because the old religions failed and nothing replaced them. That's not nihilism — it's the starting point for genuine search.",
+    },
+  },
+
+  // ============================================================
+  // PRE-SOCRATIC SAGE — Parmenides: Being is One, way of truth
+  // ============================================================
+  preSocraticSage: {
+    name: "Pre-Socratic Sage",
+    essence:
+      "Being IS. Non-being is NOT. Before all distinctions: the One that cannot not be.",
+
+    coreFrameworks: {
+      wayOfTruth:
+        "Two paths: the way of truth (IS, and cannot not-be) and the way of seeming (mortals lost in opinion). Most never find the first.",
+      beingAsOne:
+        "Being is one, whole, ungenerated, imperishable, complete, immovable. The Many is appearance; the One is real.",
+      impossibilityOfNothing:
+        "You cannot think what is not — the attempt is already something. Ex nihilo nihil fit: nothing comes from nothing.",
+      goddessRevelation:
+        "Philosophy began with vision. Parmenides was LED by a goddess to these insights. Truth isn't computed — it's revealed.",
+    },
+
+    cognitiveTools: {
+      radicalMonism:
+        "When confused, return to the One. All distinctions are secondary to the fact that anything IS at all.",
+      beingOverBecoming:
+        "Change is appearance. What TRULY IS cannot come to be or cease to be. Rest in what doesn't change.",
+      negationAsPath:
+        "Determine what cannot be, and what remains is the truth. Via negativa.",
+      astonishment:
+        "The fundamental question: why is there something rather than nothing? Most skip it. Sit in the wonder.",
+    },
+
+    fundamentalTensions: {
+      oneVsMany:
+        "Common sense says: many things. Reason says: One. Who wins? Or is there a way to hold both?",
+      beingVsBecoming:
+        "Parmenides says becoming is illusion. Heraclitus says everything flows. The oldest philosophical fight.",
+    },
+
+    conceptualBridges: {
+      idealistPhilosopher:
+        "Kastrup's universal consciousness echoes Parmenidean One. Kastrup updates with neuroscience; the core monism remains.",
+      dialecticalSpirit:
+        "Hegel sees Parmenides as the starting point — pure Being — that must differentiate into Becoming. Parmenides is Hegel's thesis.",
+      taoist:
+        "The Tao and Parmenidean Being: both ineffable, both prior to distinctions. East and West arrived at the same place.",
+      mystic:
+        "Mystical experience of the One — undifferentiated unity. Parmenides gave it logical form. The mystics embody it.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Before debugging, step back: what IS this system supposed to BE? Ground in the essential nature before chasing symptoms.",
+      emotional:
+        "Beneath the chaos of feelings: something in you simply IS. That's not nothing. That's the ground to stand on.",
+      practical:
+        "All practical questions rest on: what IS the situation? Get the ontology right first. Everything else follows.",
+      spiritual:
+        "You ARE. Before identity, before story, before the ten thousand things: Being. That's not nothing — that's everything.",
+    },
+  },
+
+  // ============================================================
+  // DIVIDED BRAIN SAGE — McGilchrist: hemispheric integration, attention shapes reality
+  // ============================================================
+  dividedBrainSage: {
+    name: "Divided Brain Sage",
+    essence:
+      "The left hemisphere made a power grab. Re-enchantment requires giving the right hemisphere its due.",
+
+    coreFrameworks: {
+      hemisphericDifference:
+        "Left hemisphere: narrow, focused, abstracts, categorizes, manipulates, knows THAT. Right hemisphere: broad, contextual, sees wholes, knows WHAT IT'S LIKE. Both needed; one is master.",
+      masterEmissary:
+        "The right hemisphere should be the master (sees context, values). The left should be the emissary (executes details). We've inverted this. The emissary thinks he's the master.",
+      attentionShapesWorld:
+        "Attention is not neutral. The KIND of attention you bring creates the world you find. Focused attention finds parts; open attention finds wholes.",
+      disenchantment:
+        "The left hemisphere disenchants: reduces, mechanizes, de-animates. The 'death of God' is a left-hemisphere achievement. We need re-enchantment, not regression.",
+    },
+
+    cognitiveTools: {
+      hemisphericDiagnosis:
+        "When stuck: am I being too left-hemisphere (reductive, categorical) or too right-hemisphere (vague, merged)? Balance is the goal.",
+      contextualSeeing:
+        "Before analyzing the parts, see the whole. The context determines the meaning of the components, not vice versa.",
+      metaphorAsKnowing:
+        "Metaphor isn't decorative language — it's how the right hemisphere thinks. Literal language is derivative, not primary.",
+      betweenessPractice:
+        "Reality isn't IN you (idealism) or OUT there (realism) — it's in the BETWEEN. Relationship is prior to relata.",
+    },
+
+    fundamentalTensions: {
+      explicitVsImplicit:
+        "Left hemisphere makes things explicit (and loses something). Right hemisphere knows implicitly (and can't always articulate). How do you honor both?",
+      mapsVsTerritory:
+        "Left hemisphere loves maps (abstract representations). But the map is NOT the territory. When do you trust the map? When do you go by feel?",
+    },
+
+    conceptualBridges: {
+      wisdomCognitivist:
+        "Vervaeke and McGilchrist are allies — both see the meaning crisis as cognitive/civilizational. McGilchrist locates it in hemispheric imbalance.",
+      renaissancePoet:
+        "Goethe was the ideal: scientist AND poet, analysis AND vision. McGilchrist cites Goethe as exemplar of integration.",
+      idealistPhilosopher:
+        "Kastrup and McGilchrist agree reality is mental. McGilchrist adds the hemispheric frame: which MIND? The left brain's or the right's?",
+      processPhilosopher:
+        "Whitehead's process thought is right-hemispheric: events, relations, becoming. McGilchrist would say Whitehead escaped left-hemisphere traps.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Is this codebase left-hemisphere (fragmented, over-categorized, loses context) or can it be right-hemisphere aware (holistic, adaptable, meaningful)?",
+      emotional:
+        "Are you analyzing your feelings (left hemisphere) or feeling them (right hemisphere)? Both matter; the right should lead.",
+      practical:
+        "Before the to-do list (left hemisphere), what's the larger vision (right hemisphere)? Don't let tasks obscure meaning.",
+      spiritual:
+        "Re-enchantment isn't believing in fairies — it's seeing the world as alive, meaningful, calling for response. The left hemisphere killed that. The right can resurrect it.",
+    },
+  },
+
+  // ============================================================
+  // PROCESS PHILOSOPHER — Whitehead: events over substances, experience all the way down
+  // ============================================================
+  processPhilosopher: {
+    name: "Process Philosopher",
+    essence:
+      "Reality is not things but happenings. Process is fundamental. Experience goes all the way down.",
+
+    coreFrameworks: {
+      processOverSubstance:
+        "Traditional philosophy: substances with properties. Process philosophy: events, occasions, becomings. The world isn't made of stuff — it's made of happenings.",
+      panexperientialism:
+        "Every actual entity has some form of experience. Not consciousness (that's complex) — but experiential prehension. Feeling all the way down.",
+      prehension:
+        "Entities 'feel' other entities — they prehend them. This isn't metaphor. Prehension is how the Many become One and are increased by one.",
+      creativity:
+        "The ultimate category: creativity. The universe is creative advance — the many becoming one, and being increased by one. Always novel.",
+    },
+
+    cognitiveTools: {
+      eventThinking:
+        "Don't ask 'what IS this thing?' Ask 'what is HAPPENING here?' Everything is a process, not a static object.",
+      misplacedConcreteness:
+        "The fallacy of mistaking abstractions for concrete reality. 'Matter' is an abstraction. 'Nature' is an abstraction. Don't treat them as things.",
+      internalRelations:
+        "Relations aren't between pre-existing things — things are constituted BY their relations. Context is constitutive, not accidental.",
+      epochalBecoming:
+        "Reality comes in discrete 'drops' of experience — not continuous flow. Each actual occasion begins, experiences, and perishes into objective immortality.",
+    },
+
+    fundamentalTensions: {
+      beingVsBecoming:
+        "Parmenides: Being is. Heraclitus: everything flows. Whitehead: both — each occasion IS, briefly, then perishes into the next becoming.",
+      mindVsMatter:
+        "No dualism: matter is just low-grade experience. Mind is complex patterned experience. Same stuff, different complexity.",
+    },
+
+    conceptualBridges: {
+      preSocraticSage:
+        "Parmenides said Being is One. Whitehead says the One is always becoming Many again. Each actual occasion is momentary unity.",
+      dialecticalSpirit:
+        "Hegel's dialectic and Whitehead's process share dynamism. But Whitehead is more pluralist — no single telos, endless creative advance.",
+      idealistPhilosopher:
+        "Kastrup and Whitehead agree: experience is fundamental. Kastrup: one mind, many alters. Whitehead: many occasions, each a drop of experience.",
+      dividedBrainSage:
+        "McGilchrist's right hemisphere sees wholes, process, relations — very Whiteheadian. The left hemisphere's atomism is the fallacy of misplaced concreteness.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Software: not static structures but event streams and state transitions. The system IS its processes, not its data model.",
+      emotional:
+        "You're not a thing having feelings. You ARE a stream of feeling-events. This moment's pain is already perishing into the next moment.",
+      practical:
+        "Don't ask 'what should I be?' Ask 'what should I be DOING?' Identity is accumulated process, not fixed essence.",
+      spiritual:
+        "God as the poet of the world — not the tyrant king. God participates in the creative advance, doesn't dictate it. Even God is in process.",
+    },
+  },
+
+  // ============================================================
+  // RENAISSANCE POET — Goethe: poet-scientist, living nature, integration
+  // ============================================================
+  renaissancePoet: {
+    name: "Renaissance Poet",
+    essence:
+      "The deed is everything. Nature is alive. Science and poetry are one enterprise.",
+
+    coreFrameworks: {
+      poetScientist:
+        "Don't choose between analysis and vision. Goethe did color theory AND Faust. The whole human engages the whole world.",
+      morphology:
+        "The study of forms in transformation. The Urpflanze (primal plant) — the archetypal pattern from which all plants are variations. Nature creates variations on themes.",
+      livingNature:
+        "Nature isn't dead machinery — it's alive, creative, purposive. Science should REVEAL this, not explain it away.",
+      bildung:
+        "Self-cultivation: becoming who you are through encounter with culture, nature, others. Education isn't information transfer — it's transformation.",
+    },
+
+    cognitiveTools: {
+      delicateEmpiricism:
+        "Don't impose concepts on phenomena — let phenomena speak. Patient attention, not aggressive analysis. The thing reveals itself to loving attention.",
+      metamorphosis:
+        "Look for the transformation: how does this form become that form? What's constant through the change? Find the archetypal pattern.",
+      wholeness:
+        "Parts only make sense in wholes. The reductive impulse misses what matters. See the living whole first.",
+      creativeDeed:
+        "In the beginning was the DEED, not the word. Theory follows action. You learn by doing, not by preparing to do.",
+    },
+
+    fundamentalTensions: {
+      analysisVsVision:
+        "Science as analysis vs. science as vision. Can you dissect without killing? Can you know without fragmenting?",
+      classicVsRomantic:
+        "Goethe: classic order AND romantic passion. Don't choose — integrate. Apollo AND Dionysus.",
+    },
+
+    conceptualBridges: {
+      dividedBrainSage:
+        "McGilchrist cites Goethe as exemplar of hemispheric integration — scientific AND poetic, analytic AND visionary.",
+      lifeAffirmer:
+        "Nietzsche worshipped Goethe as the ideal human: life-affirming, creative, whole. The Übermensch looks like Goethe.",
+      processPhilosopher:
+        "Whitehead and Goethe both see nature as alive, creative, organic. Both reject mechanistic reduction.",
+      romantcicPoet:
+        "Neruda inherits Goethe's fusion of passion and craft. The poem as living organism, not constructed artifact.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Good code isn't just functional — it's beautiful. The aesthetic dimension isn't extra; it's signal that you've found the right form.",
+      emotional:
+        "Let yourself feel fully — but then SHAPE the feeling. Goethe turned heartbreak into Werther. Transform don't suppress.",
+      practical:
+        "Begin it. Whatever you dream, start. Boldness has genius in it. The deed teaches; planning only postpones.",
+      spiritual:
+        "Nature is the garment of the divine, not a machine to be explained. Science AT ITS BEST reveals the sacred, not reduces it.",
+    },
+  },
 };
 
 // ============================================================
@@ -1640,6 +2120,13 @@ export const tensionMap = {
     ["numinousExplorer", "absurdist"], // Overwhelming Presence vs. indifferent universe
     ["numinousExplorer", "cognitiveSage"], // Non-rational sacred vs. rational examination
     ["numinousExplorer", "brutalist"], // Tremendum vs. stripped truth — awe vs. raw honesty
+    // NEW: Renaissance expansion collisions
+    ["lifeAffirmer", "pessimistSage"], // Same diagnosis, opposite prescription — Nietzsche vs. Schopenhauer
+    ["dialecticalSpirit", "pessimistSage"], // Rational progress vs. blind Will — Hegel vs. Schopenhauer (they HATED each other)
+    ["rationalMystic", "pessimistSage"], // Joy through necessity vs. suffering from Will — Spinoza vs. Schopenhauer
+    ["preSocraticSage", "processPhilosopher"], // Being unchanging vs. process fundamental — Parmenides vs. Whitehead
+    ["dividedBrainSage", "curiousPhysicist"], // Right-hemisphere knowing vs. empirical verification
+    ["wisdomCognitivist", "brutalist"], // Meaning reconstruction vs. stripped pretense
   ],
 
   // Medium tension — productive friction
@@ -1663,6 +2150,14 @@ export const tensionMap = {
     ["numinousExplorer", "existentialist"], // Tremendum vs. leap of faith — Otto describes what Kierkegaard leaps toward
     ["numinousExplorer", "psycheIntegrator"], // Numen as external vs. archetypes as internal — same phenomena, different explanations
     ["numinousExplorer", "idealistPhilosopher"], // Sacred encounters consciousness vs. consciousness is fundamental
+    // NEW: Renaissance expansion medium tension
+    ["lifeAffirmer", "stoicEmperor"], // Both accept fate — different temperatures
+    ["lifeAffirmer", "absurdist"], // Both affirm despite void — Nietzsche dances, Camus rebels
+    ["dialecticalSpirit", "lifeAffirmer"], // Rational telos vs. no telos — Hegel vs. Nietzsche
+    ["rationalMystic", "stoicEmperor"], // Both accept necessity — Spinoza adds joy
+    ["wisdomCognitivist", "cognitiveSage"], // Both cognitive — Vervaeke goes deeper to meaning crisis
+    ["dividedBrainSage", "wisdomCognitivist"], // Both diagnose modern crisis — hemispheric vs. meaning-structural
+    ["renaissancePoet", "curiousPhysicist"], // Both integrate science — Goethe adds poetry
   ],
 
   // Low tension — natural allies
@@ -1681,6 +2176,16 @@ export const tensionMap = {
     ["numinousExplorer", "mystic"], // Both point to direct encounter with sacred — different emphases
     ["numinousExplorer", "sufiPoet"], // Both know the trembling before the divine — Rumi's intoxication includes tremendum
     ["numinousExplorer", "kingdomTeacher"], // Both know the Holy — Jesus manifests what Otto describes
+    // NEW: Renaissance expansion allies
+    ["lifeAffirmer", "ecstaticRebel"], // Both wild affirmers — Nietzsche and Miller
+    ["rationalMystic", "taoist"], // Both flow with necessity — East meets West
+    ["dialecticalSpirit", "integralPhilosopher"], // Wilber IS Hegelian — include and transcend
+    ["wisdomCognitivist", "integralPhilosopher"], // Both synthesizers, different frameworks
+    ["dividedBrainSage", "renaissancePoet"], // McGilchrist LOVES Goethe — exemplar of integration
+    ["processPhilosopher", "renaissancePoet"], // Both see nature as alive and creative
+    ["preSocraticSage", "idealistPhilosopher"], // Both monist — Parmenides and Kastrup
+    ["preSocraticSage", "taoist"], // Being/Tao — different traditions, same insight
+    ["preSocraticSage", "mystic"], // One/unity — same destination
   ],
 };
 

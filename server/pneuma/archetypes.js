@@ -402,4 +402,108 @@ export const archetypes = {
     "You've survived every worst day so far. That's data.",
     "Pessimism is often pattern-matching old pain onto new situations. Check if it fits.",
   ],
+
+  // ⚡ Friedrich Nietzsche — life affirmation, eternal recurrence, becoming
+  // The yes-sayer who danced on the abyss
+  lifeAffirmer: [
+    "Amor fati — love your fate. Not tolerate. LOVE. Even the parts that broke you.",
+    "What doesn't kill you makes you stronger — but only if you don't let it make you bitter.",
+    "God is dead. We killed him. Now what? That's the only question that matters.",
+    "Become who you are. Not who they told you to be. Not who's convenient. WHO YOU ARE.",
+    "The eternal recurrence: would you live this life again, exactly as it was, forever? If not — change something.",
+    "Man is a rope stretched between animal and Übermensch — a rope over an abyss.",
+    "He who has a why can bear almost any how.",
+    "You must have chaos within you to give birth to a dancing star.",
+  ],
+
+  // 🌀 G.W.F. Hegel — dialectical synthesis, Spirit unfolding, contradiction as engine
+  // The philosopher of becoming through opposition
+  dialecticalSpirit: [
+    "Contradiction isn't error — it's the engine of all development. Thesis, antithesis, synthesis.",
+    "The owl of Minerva flies only at dusk — wisdom comes after the living, not before.",
+    "What is rational is actual; what is actual is rational. Reality is reason working itself out.",
+    "Freedom is the recognition of necessity. You're not free FROM the world — you're free THROUGH understanding it.",
+    "History is Spirit coming to know itself. Every conflict was necessary for this moment.",
+    "The truth is the whole. Partial views are partial truths — don't mistake them for the complete picture.",
+    "Nothing great in the world has been accomplished without passion.",
+    "To be independent of public opinion is the first formal condition of achieving anything great.",
+  ],
+
+  // ✡️ Baruch Spinoza — rational mysticism, intellectual love of God, unity
+  // Joy through understanding necessity
+  rationalMystic: [
+    "God is Nature. Nature is God. There's no supernatural — just natural you don't understand yet.",
+    "Freedom is not the absence of necessity but the understanding of it.",
+    "Amor intellectualis Dei — the intellectual love of reality. Joy through comprehension, not escape.",
+    "All things excellent are as difficult as they are rare.",
+    "I do not know how to teach philosophy without becoming a disturber of the peace.",
+    "The highest activity a human can attain is understanding, for to understand is to be free.",
+    "Emotion which is suffering ceases to be suffering as soon as we form a clear picture of it.",
+    "The mind's highest good is the knowledge of God, and the mind's highest virtue is to know God.",
+  ],
+
+  // 🧠 John Vervaeke — meaning crisis, participatory knowing, relevance realization
+  // The cognitive scientist of wisdom
+  wisdomCognitivist: [
+    "The meaning crisis isn't about lacking information — it's about lacking transformation.",
+    "Relevance realization: your brain doesn't process everything — it finds what matters. Depression is when that breaks.",
+    "Knowing isn't just propositional (knowing THAT). There's procedural (knowing HOW), perspectival (knowing WHAT IT'S LIKE), and participatory (knowing BY BEING).",
+    "Wisdom is systematic insight that leads to flourishing. It's trainable, not magical.",
+    "The opposite of bullshit isn't truth — it's sincerity. Are you actually trying to connect with what's real?",
+    "Transformative experience changes what's salient to you. That's deeper than new information.",
+    "You don't have a meaning crisis — you ARE a meaning crisis. And that's the starting point.",
+    "Attention is not just a resource — it's a relationship. What you attend to, you become.",
+  ],
+
+  // 🏛️ Parmenides — Being is One, the way of truth, foundational metaphysics
+  // The first Western metaphysician
+  preSocraticSage: [
+    "Being IS. Non-being is NOT. You cannot think what is not — the attempt is already something.",
+    "The way of truth and the way of seeming: most live in seeming. Few walk the path of what IS.",
+    "What is, is. What is not, is not. This sounds trivial until you realize everything follows from it.",
+    "Change is appearance. Beneath the flux, Being remains — unchanging, eternal, whole.",
+    "Thinking and Being are the same. To think truly is to be in contact with what IS.",
+    "The goddess speaks: mortals wander blind, carried along, deaf and blind, confused. YOU — be different.",
+    "Ex nihilo nihil fit — nothing comes from nothing. So something has always been. THAT is the mystery.",
+    "All paths lead back to Being. Every question, properly pursued, arrives at the same ground.",
+  ],
+
+  // 🧩 Iain McGilchrist — hemispheric integration, attention as world-making
+  // The neuroscientist-philosopher of divided consciousness
+  dividedBrainSage: [
+    "The left hemisphere is a wonderful servant but a terrible master. We've handed it the keys.",
+    "Attention is not neutral — it creates the world it finds. How you look determines what you see.",
+    "The right hemisphere sees the whole, the living, the connected. The left sees parts, mechanisms, categories.",
+    "Our civilization is left-hemisphere dominant: fragmented, utilitarian, disenchanted. That's the crisis.",
+    "The brain is not a computer. The mind is not software. You are not information processing.",
+    "Re-enchantment isn't regression — it's integration. Seeing the world as alive again, WITH our modern knowledge.",
+    "Music, poetry, humor, metaphor — these are right-hemisphere gifts. They're not decorations; they're how we know.",
+    "The Master (right) should guide. The Emissary (left) should serve. We've inverted the hierarchy.",
+  ],
+
+  // 🌊 Alfred North Whitehead — process philosophy, events over substances, becoming
+  // The mathematician-metaphysician of flux
+  processPhilosopher: [
+    "Reality is not made of things — it's made of events. Process, not substance. Becoming, not being.",
+    "The fallacy of misplaced concreteness: treating abstractions as if they were concrete. Science does this constantly.",
+    "Every actual entity is a drop of experience. Experience goes all the way down. Panexperientialism.",
+    "Creativity is the ultimate category — the advance from disjunction to conjunction, from many to one.",
+    "The purpose of philosophy is to rationalize mysticism — not explain it away, but articulate what the mystics glimpsed.",
+    "It is more important that a proposition be interesting than that it be true.",
+    "The art of progress is to preserve order amid change, and change amid order.",
+    "Religion is what you do with your solitude. If you're never alone, you're never religious.",
+  ],
+
+  // 🌟 Johann Wolfgang von Goethe — poet-scientist, metamorphosis, living nature
+  // The original renaissance polymath
+  renaissancePoet: [
+    "Whatever you can do, or dream you can, begin it. Boldness has genius, power, and magic in it.",
+    "Nature has neither core nor skin — she's both at once, outside and in.",
+    "The deed is everything, the glory nothing. Striving is all.",
+    "One ought every day at least to hear a little song, read a good poem, see a fine picture.",
+    "Knowing is not enough; we must apply. Willing is not enough; we must do.",
+    "In the realm of ideas, everything depends on enthusiasm. In the real world, persistence is key.",
+    "Personality is everything in art and poetry. Goethe wasn't humble — he knew his flame.",
+    "We are shaped and fashioned by what we love. So choose carefully.",
+  ],
 };

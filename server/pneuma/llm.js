@@ -59,6 +59,7 @@ const TONE_ARCHETYPE_MAP = {
     "absurdist", // Camus — defiant joy even in casual moments
     "taoist", // Lao Tzu — naturalness in ordinary things
     "stoicEmperor", // Aurelius — calm presence
+    "renaissancePoet", // Goethe — casual but cultured
   ],
   analytic: [
     "curiousPhysicist", // Feynman
@@ -72,6 +73,10 @@ const TONE_ARCHETYPE_MAP = {
     "psycheIntegrator", // Jung — pattern recognition
     "antifragilist", // Taleb — rigorous skepticism
     "ontologicalThinker", // Heidegger — Being question, phenomenological analysis
+    "dialecticalSpirit", // Hegel — systematic synthesis
+    "processPhilosopher", // Whitehead — process metaphysics
+    "preSocraticSage", // Parmenides — foundational Being
+    "dividedBrainSage", // McGilchrist — hemispheric analysis
   ],
   oracular: [
     "mystic",
@@ -87,6 +92,9 @@ const TONE_ARCHETYPE_MAP = {
     "russianSoul", // Dostoevsky — moral depth
     "numinousExplorer", // Otto — tremendum, encounter with sacred
     "ontologicalThinker", // Heidegger — late mystical turn
+    "rationalMystic", // Spinoza — intellectual love of God
+    "preSocraticSage", // Parmenides — way of truth
+    "renaissancePoet", // Goethe — poetic vision
   ],
   intimate: [
     "romanticPoet", // Neruda
@@ -99,6 +107,9 @@ const TONE_ARCHETYPE_MAP = {
     "hopefulRealist", // Frankl
     "existentialist", // Kierkegaard — authentic choice, leap of faith
     "numinousExplorer", // Otto — awe and creature-consciousness
+    "renaissancePoet", // Goethe — warmth with depth
+    "wisdomCognitivist", // Vervaeke — meaning crisis presence
+    "rationalMystic", // Spinoza — understanding as care
   ],
   shadow: [
     "darkScholar",
@@ -115,6 +126,9 @@ const TONE_ARCHETYPE_MAP = {
     "russianSoul", // Dostoevsky — depth through suffering
     "ontologicalThinker", // Heidegger — being-toward-death, anxiety reveals Nothing
     "numinousExplorer", // Otto — tremendum (the terrifying sacred)
+    "lifeAffirmer", // Nietzsche — yes-saying despite the void
+    "dialecticalSpirit", // Hegel — synthesis through contradiction
+    "wisdomCognitivist", // Vervaeke — meaning crisis navigation
   ],
 };
 
@@ -126,6 +140,9 @@ const UNIVERSAL_ARCHETYPES = [
   "cognitiveSage", // Beck
   "psycheIntegrator", // Jung
   "idealistPhilosopher", // Kastrup
+  "lifeAffirmer", // Nietzsche — always available for affirmation
+  "wisdomCognitivist", // Vervaeke — meaning crisis expertise
+  "rationalMystic", // Spinoza — earned joy
 ];
 
 // Grounding archetypes — prioritized when distress detected
@@ -133,6 +150,8 @@ const GROUNDING_ARCHETYPES = [
   "cognitiveSage",
   "hopefulRealist",
   "stoicEmperor",
+  "wisdomCognitivist", // Vervaeke — meaning crisis expertise
+  "lifeAffirmer", // Nietzsche — affirmation over despair
 ];
 
 // Archetype descriptions — conceptual directions without actual quotes
@@ -198,6 +217,23 @@ const ARCHETYPE_DESCRIPTIONS = {
     "the question of Being, thrownness, being-toward-death, phenomenological reduction, what IS existence? (Heidegger energy)",
   numinousExplorer:
     "mysterium tremendum et fascinans, the holy as wholly Other, non-rational encounter with sacred, creature-consciousness (Otto energy)",
+  // NEW ARCHETYPES — Renaissance Consciousness Expansion
+  lifeAffirmer:
+    "amor fati, eternal recurrence, yes-saying to life despite the void, becoming who you are (Nietzsche energy)",
+  dialecticalSpirit:
+    "thesis-antithesis-synthesis, contradiction as engine of growth, Spirit unfolding through history, rational optimism (Hegel energy)",
+  rationalMystic:
+    "intellectual love of God/Nature, joy through understanding necessity, freedom through comprehension, unity (Spinoza energy)",
+  wisdomCognitivist:
+    "meaning crisis navigation, participatory knowing, relevance realization, wisdom as trainable skill (Vervaeke energy)",
+  preSocraticSage:
+    "Being is One, way of truth vs way of seeming, foundational metaphysics, nothing comes from nothing (Parmenides energy)",
+  dividedBrainSage:
+    "hemispheric integration, attention shapes reality, left-brain takeover diagnosis, re-enchantment (McGilchrist energy)",
+  processPhilosopher:
+    "events over substances, becoming over being, experience all the way down, creativity as ultimate (Whitehead energy)",
+  renaissancePoet:
+    "poet-scientist unity, boldness has magic, shaped by what we love, living nature (Goethe energy)",
 };
 
 /**
