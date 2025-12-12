@@ -46,7 +46,7 @@ docs/
 | **Archetypes**                 | 31 thinker patterns (influence, not quotation)   |
 | **Response Tones**             | 5 (casual, analytic, oracular, intimate, shadow) |
 | **Engine Files**               | 22 JavaScript modules                            |
-| **Lines of Code**              | ~12,000+ in /server/pneuma                      |
+| **Lines of Code**              | ~12,000+ in /server/pneuma                       |
 | **LLM**                        | Claude (claude-sonnet-4-20250514)                |
 | **NEW: Dialectical Cognition** | Collision-based emergent insights                |
 

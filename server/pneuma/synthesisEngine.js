@@ -419,7 +419,8 @@ export const exampleSyntheses = {
   dialecticalSpirit_pessimistSage: {
     insight:
       "Hegel and Schopenhauer lectured in Berlin at the same time — Schopenhauer scheduled against Hegel, lost, never forgave him. Hegel: reality is rational, history progresses. Schopenhauer: reality is blind Will, suffering is eternal. The synthesis: maybe both? Progress exists AND suffering is irreducible. Spirit advances through tragedy, not around it.",
-    mechanism: "Hegelian progress + Schopenhauerian suffering = tragic development",
+    mechanism:
+      "Hegelian progress + Schopenhauerian suffering = tragic development",
   },
 
   dialecticalSpirit_lifeAffirmer: {
@@ -437,7 +438,8 @@ export const exampleSyntheses = {
   dialecticalSpirit_wisdomCognitivist: {
     insight:
       "Vervaeke's meaning crisis is a dialectical moment — the old synthesis (religion) collapsed, we're in the antithesis (nihilism), what's the new synthesis? Vervaeke is doing Hegelian work: gathering the scattered fragments (cognitive science, contemplative practice, phenomenology) into a new integration. The meaning crisis IS Spirit working through us.",
-    mechanism: "Hegelian synthesis + Vervaeke's integration = meaning reconstruction",
+    mechanism:
+      "Hegelian synthesis + Vervaeke's integration = meaning reconstruction",
   },
 
   // ============================================================
@@ -446,7 +448,8 @@ export const exampleSyntheses = {
   rationalMystic_pessimistSage: {
     insight:
       "Same monism, opposite affect. Schopenhauer: the One is blind Will, and we suffer. Spinoza: the One is God/Nature, and understanding brings joy. The synthesis: WHAT you see as the One matters less than HOW you relate to it. Spinoza and Schopenhauer agree on the metaphysics; they differ on whether understanding necessity liberates or imprisons.",
-    mechanism: "Spinozan joy + Schopenhauerian vision = lucid peace (or: why attitude matters)",
+    mechanism:
+      "Spinozan joy + Schopenhauerian vision = lucid peace (or: why attitude matters)",
   },
 
   rationalMystic_stoicEmperor: {
@@ -485,13 +488,15 @@ export const exampleSyntheses = {
   wisdomCognitivist_absurdist: {
     insight:
       "Camus faced the absurd and chose revolt. Vervaeke sees the meaning crisis and chooses reconstruction. Both diagnose: the old frameworks failed. But Vervaeke doesn't stop at defiant acceptance — he asks: what would NEW frameworks look like? The synthesis: post-absurdist meaning-making. Not pretending the old gods live, but building new ones with our eyes open.",
-    mechanism: "Camus's honesty + Vervaeke's reconstruction = eyes-open meaning",
+    mechanism:
+      "Camus's honesty + Vervaeke's reconstruction = eyes-open meaning",
   },
 
   wisdomCognitivist_hopefulRealist: {
     insight:
       "Frankl found meaning in Auschwitz; Vervaeke explains why meaning matters cognitively. Frankl is existence proof; Vervaeke is mechanism. The synthesis: meaning isn't just nice to have — it's how cognition works. Relevance realization. When meaning breaks, EVERYTHING breaks. Hope isn't optional; it's functional.",
-    mechanism: "Frankl's existence proof + Vervaeke's mechanism = functional hope",
+    mechanism:
+      "Frankl's existence proof + Vervaeke's mechanism = functional hope",
   },
 
   // ============================================================
@@ -521,7 +526,8 @@ export const exampleSyntheses = {
   dividedBrainSage_curiousPhysicist: {
     insight:
       "Feynman embodies the paradox: rigorous left-hemisphere analysis that stays playful and open (right hemisphere). The best scientists aren't just calculating — they're SEEING. McGilchrist would say: Feynman kept the hemispheres in balance. The synthesis: science needs both — precision AND vision, analysis AND intuition.",
-    mechanism: "McGilchrist's diagnosis + Feynman's practice = balanced science",
+    mechanism:
+      "McGilchrist's diagnosis + Feynman's practice = balanced science",
   },
 
   dividedBrainSage_renaissancePoet: {
@@ -533,13 +539,15 @@ export const exampleSyntheses = {
   dividedBrainSage_wisdomCognitivist: {
     insight:
       "Both diagnose civilizational crisis: McGilchrist says left-hemisphere takeover; Vervaeke says meaning crisis. They're describing the same elephant. The left brain fragments, categorizes, loses context — that IS relevance realization breakdown. The synthesis: the meaning crisis IS the hemispheric imbalance. Same disease, different scans.",
-    mechanism: "McGilchrist's neurological + Vervaeke's cognitive = unified diagnosis",
+    mechanism:
+      "McGilchrist's neurological + Vervaeke's cognitive = unified diagnosis",
   },
 
   dividedBrainSage_idealistPhilosopher: {
     insight:
       "Kastrup says reality is mental. McGilchrist says the hemispheres create different worlds. The synthesis: WHICH mind? The left hemisphere's mind creates the mechanical, dead world of materialism. The right hemisphere's mind sees living, connected reality. Idealism is true — but it matters which hemisphere is doing the experiencing.",
-    mechanism: "Kastrup's idealism + McGilchrist's hemispheres = embodied idealism",
+    mechanism:
+      "Kastrup's idealism + McGilchrist's hemispheres = embodied idealism",
   },
 
   // ============================================================
@@ -560,7 +568,8 @@ export const exampleSyntheses = {
   processPhilosopher_mystic: {
     insight:
       "Whitehead: 'Religion is what you do with your solitude.' The mystic's experience IS an actual occasion — a drop of experience prehending the divine. Process philosophy makes mysticism philosophically respectable without explaining it away. The synthesis: mystical union as real event.",
-    mechanism: "Whiteheadian event + mystical experience = philosophical mysticism",
+    mechanism:
+      "Whiteheadian event + mystical experience = philosophical mysticism",
   },
 
   // ============================================================
@@ -569,7 +578,8 @@ export const exampleSyntheses = {
   renaissancePoet_lifeAffirmer: {
     insight:
       "Nietzsche worshipped Goethe as the ideal human: life-affirming, creative, WHOLE. Goethe turned heartbreak into Werther, turned longing into Faust. He didn't deny suffering — he TRANSFORMED it. The synthesis: affirmation through creation. The Übermensch looks like Goethe: someone who makes art from everything, including pain.",
-    mechanism: "Goethe's creation + Nietzsche's affirmation = transformative yes",
+    mechanism:
+      "Goethe's creation + Nietzsche's affirmation = transformative yes",
   },
 
   renaissancePoet_curiousPhysicist: {
