@@ -158,9 +158,10 @@
   width: 10px;
   height: 50px;
   
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 3px;
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.2);
   
   cursor: pointer;
   transition: all 0.3s ease;
@@ -172,7 +173,7 @@
 }
 
 .sidebar-toggle:hover {
-  background: rgba(168, 85, 247, 0.4);
+  border-color: rgba(168, 85, 247, 0.8);
   box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
   width: 12px;
 }
@@ -329,17 +330,17 @@
   font-style: italic;
 }
 
-/* Conversation item - Violet family: warm border (pink-violet), cool text (blue-violet) */
+/* Conversation item - Clean minimal style with dividers */
 .conversation-item {
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 4px;
+  padding: 12px 12px;
   
-  background: rgba(10, 8, 20, 0.4);
-  /* Warmer violet border (more magenta) */
-  border: 1px solid rgba(180, 90, 220, 0.12);
-  border-left: 2px solid rgba(200, 100, 240, 0.25);
-  border-radius: 2px;
+  /* No background - clean look */
+  background: transparent;
+  border: none;
+  /* Bottom divider only */
+  border-bottom: 1px solid rgba(100, 80, 150, 0.15);
+  border-radius: 0;
   
   /* Cooler violet text (more blue) */
   color: rgba(180, 170, 220, 0.55);
@@ -368,9 +369,14 @@
 }
 
 .conversation-item:hover {
-  background: rgba(150, 80, 200, 0.1);
-  border-color: rgba(200, 100, 240, 0.25);
-  color: rgba(200, 190, 255, 0.85);
+  background: transparent;
+  border-bottom-color: rgba(200, 100, 240, 0.3);
+  color: rgba(200, 190, 255, 0.9);
+}
+
+.conversation-item:hover .conv-title {
+  transform: scale(1.02);
+  text-shadow: 0 0 8px rgba(200, 150, 255, 0.4);
 }
 
 .conversation-item:hover::before {
@@ -402,6 +408,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 0.7rem;
+  transition: all 0.2s ease;
+  transform-origin: left center;
 }
 
 .conv-date {
@@ -574,4 +582,87 @@
   animation: 
     statusPulse 3s ease-in-out infinite,
     hueDriftEmerald 40s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE - Tablet
+   ============================================ */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+  
+  .sidebar-toggle {
+    left: 6px;
+    right: auto;
+    top: 10px;
+    transform: none;
+    width: 6px;
+    height: 30px;
+  }
+  
+  .sidebar-toggle.collapsed {
+    left: 6px;
+    right: auto;
+  }
+  
+  .sidebar-toggle:hover {
+    width: 8px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Phone
+   ============================================ */
+@media (max-width: 414px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 180px;
+    z-index: 200;
+  }
+  
+  .sidebar.collapsed {
+    width: 0;
+  }
+  
+  .sidebar-toggle {
+    left: 4px;
+    right: auto;
+    top: 6px;
+    transform: none;
+    width: 4px;
+    height: 20px;
+    z-index: 201;
+  }
+  
+  .sidebar-toggle.collapsed {
+    left: 4px;
+    right: auto;
+  }
+  
+  .sidebar-toggle:hover {
+    width: 5px;
+  }
+  
+  .panel-header {
+    padding: 14px 12px 12px;
+  }
+  
+  .new-chat-btn {
+    padding: 10px 16px;
+    font-size: 0.65rem;
+  }
+  
+  .conversation-item {
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+  
+  .panel-footer {
+    padding: 10px 12px;
+    font-size: 0.45rem;
+  }
 }

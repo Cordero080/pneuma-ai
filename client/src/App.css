@@ -251,12 +251,12 @@
 
 .app-container {
   padding: 10px 20px;
+  padding-left: 240px; /* Offset for fixed sidebar */
   color: white;
   height: 100vh;
-  width: 100%;
+  flex: 1;
   max-width: 1200px;
   margin: 0 auto;
-  margin-left: 200px; /* Account for minimal sidebar */
   font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   overflow: hidden;
   display: flex;
@@ -266,12 +266,50 @@
   position: relative;
   z-index: 1;
   
-  transition: margin-left 0.3s ease;
+  transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
-/* When sidebar is collapsed */
+/* When sidebar is collapsed - remove offset */
 .app-layout:has(.sidebar.collapsed) .app-container {
-  margin-left: 20px;
+  padding-left: 20px;
+}
+
+/* Large screens - expand container */
+@media (min-width: 1600px) {
+  .app-container {
+    max-width: 1400px;
+    padding: 15px 30px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 2000px) {
+  .app-container {
+    max-width: 1600px;
+    padding: 20px 40px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px 12px;
+    padding-left: 230px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 414px) {
+  .app-layout {
+    overflow-x: hidden;
+  }
+  
+  .app-container {
+    padding: 8px;
+    padding-left: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* ============================================

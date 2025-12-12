@@ -298,6 +298,93 @@
 }
 
 /* ============================================
+   MESSAGE ROW - wrapper for timestamp + bubble
+   ============================================ */
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.message-row.user {
+  flex-direction: row;
+}
+
+.message-row.ai {
+  flex-direction: row-reverse;
+}
+
+/* ============================================
+   TIMESTAMP NODE
+   Dot + inline timestamp on hover - outside bubble
+   ============================================ */
+.timestamp-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding-top: 12px;
+}
+
+.timestamp-node.user {
+  flex-direction: row-reverse;
+}
+
+.timestamp-node.ai {
+  flex-direction: row;
+}
+
+.timestamp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.25;
+  transition: all 0.2s ease;
+}
+
+.timestamp-node.user .timestamp-dot {
+  background: var(--user-text-color, #ff44dd);
+  box-shadow: 0 0 4px var(--user-glow-color, rgba(255, 68, 221, 0.4));
+}
+
+.timestamp-node.ai .timestamp-dot {
+  background: #7aff9a;
+  box-shadow: 0 0 4px rgba(122, 255, 154, 0.4);
+}
+
+.timestamp-text {
+  font-size: 9px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, max-width 0.3s ease;
+  white-space: nowrap;
+}
+
+.timestamp-node.user .timestamp-text {
+  color: var(--user-text-color, #ff44dd);
+}
+
+.timestamp-node.ai .timestamp-text {
+  color: #7aff9a;
+}
+
+.timestamp-node:hover .timestamp-dot {
+  opacity: 0.7;
+  transform: scale(1.3);
+}
+
+.timestamp-node:hover .timestamp-text {
+  opacity: 1;
+  max-width: 140px;
+  margin-left: 4px;
+}
+
+/* ============================================
    MESSAGES CONTAINER
    NEGATIVE SPACE: Generous padding, messages feel distant
    ============================================ */
@@ -662,25 +749,146 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+  .chat-wrapper {
+    max-height: calc(100vh - 80px);
+    /* Thinner chamfer on mobile */
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  
+  .chat-wrapper::before {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  
   .chat-container {
-    margin: 10px;
-    height: 85vh;
-    border-radius: 12px;
+    inset: 1px; /* Thinner border */
+    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  }
+  
+  .messages-container {
+    padding: 24px 16px;
+    gap: 20px;
   }
   
   .message-bubble {
-    max-width: 90%;
+    max-width: 88%;
     font-size: 0.9rem;
+    padding: 14px 16px;
+  }
+  
+  .message-bubble.user,
+  .message-bubble.ai {
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
   }
   
   .chat-input {
     padding: 14px 16px;
     font-size: 0.95rem;
+    min-height: 48px;
   }
   
   .send-button {
-    padding: 0 18px;
+    padding: 0 16px;
     font-size: 0.75rem;
+  }
+  
+  .color-picker {
+    top: 6px;
+    right: 6px;
+    gap: 6px;
+  }
+  
+  .color-btn {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .timestamp-node {
+    padding-top: 8px;
+  }
+  
+  .timestamp-dot {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* Small phones (iPhone 6/7/8, SE) */
+@media (max-width: 414px) {
+  .chat-wrapper {
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px); /* Dynamic viewport for mobile browsers */
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+  
+  .chat-wrapper::before {
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+  
+  .chat-container {
+    inset: 1px;
+    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+  }
+  
+  .messages-container {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+  
+  .message-bubble {
+    max-width: 92%;
+    font-size: 0.85rem;
+    padding: 12px 14px;
+  }
+  
+  .message-bubble.user,
+  .message-bubble.ai {
+    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+  }
+  
+  .input-container {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .chat-input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+  
+  .send-button {
+    padding: 0 14px;
+    font-size: 0.7rem;
+    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+  }
+  
+  .color-picker {
+    top: 4px;
+    right: 4px;
+    gap: 5px;
+  }
+  
+  .color-btn {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .timestamp-node {
+    padding-top: 6px;
+    gap: 3px;
+  }
+  
+  .timestamp-dot {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .timestamp-text {
+    font-size: 8px;
+  }
+  
+  .message-row {
+    gap: 4px;
   }
 }
 

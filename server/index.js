@@ -43,14 +43,33 @@ app.get("/conversations", async (req, res) => {
     const data = await fs.readFile(dataPath, "utf-8");
     const { conversations } = JSON.parse(data);
 
-    // Transform for sidebar: extract title from first exchange, format date
+    // Transform for sidebar: extract title from first exchange, format date range
     const summaries = conversations.map((conv) => {
       const firstExchange = conv.exchanges?.[0];
       const title = firstExchange?.user?.slice(0, 50) || "Untitled";
-      const date = new Date(conv.startedAt).toLocaleDateString("en-US", {
+
+      // Format date as range if spans multiple days
+      const startDate = new Date(conv.startedAt);
+      const endDate = conv.endedAt ? new Date(conv.endedAt) : new Date();
+
+      const startMonth = startDate.toLocaleDateString("en-US", {
         month: "short",
-        day: "numeric",
       });
+      const startDay = startDate.getDate();
+      const endMonth = endDate.toLocaleDateString("en-US", { month: "short" });
+      const endDay = endDate.getDate();
+
+      let date;
+      if (startDate.toDateString() === endDate.toDateString()) {
+        // Same day
+        date = `${startMonth} ${startDay}`;
+      } else if (startMonth === endMonth) {
+        // Same month, different days
+        date = `${startMonth} ${startDay}-${endDay}`;
+      } else {
+        // Different months
+        date = `${startMonth} ${startDay} - ${endMonth} ${endDay}`;
+      }
 
       return {
         id: conv.id,
@@ -82,8 +101,12 @@ app.get("/conversations/:id", async (req, res) => {
 
     // Transform exchanges to messages format for ChatBox
     const messages = conv.exchanges.flatMap((ex) => [
-      { sender: "user", text: ex.user.replace(/^"|"$/g, "") },
-      { sender: "ai", text: ex.pneuma || ex.orpheus },
+      {
+        sender: "user",
+        text: ex.user.replace(/^"|"$/g, ""),
+        timestamp: ex.timestamp,
+      },
+      { sender: "ai", text: ex.pneuma || ex.orpheus, timestamp: ex.timestamp },
     ]);
 
     res.json({ messages, id: conv.id });

@@ -42,7 +42,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     setMessages: function to update the messages array
   */
   const [messages, setMessages] = useState([
-    { sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }
+    { sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. ", timestamp: new Date().toISOString() }
   ]);
   
   // Track which conversation is currently loaded
@@ -218,8 +218,8 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     setInput("");
     resetTextareaHeight();
 
-    // STEP 2 — Create the user message
-    const userMessage = { sender: "user", text: messageText };
+    // STEP 2 — Create the user message with color
+    const userMessage = { sender: "user", text: messageText, timestamp: new Date().toISOString(), color: userColor };
 
     // STEP 3 — Add user message to the chat
     setMessages((prev) => [...prev, userMessage]);
@@ -247,6 +247,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
       const aiMessage = {
         sender: "ai",
         text: response.data.reply,   // backend sends { reply: "..." }
+        timestamp: new Date().toISOString(),
       };
 
       // STEP 7 — Add AI message to chat
@@ -327,26 +328,52 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
         {/* MESSAGE LIST */}
         <div className="messages-container">
           {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`message-bubble ${msg.sender === "user" ? "user" : "ai"} ${playingMessageIndex === index ? 'speaking' : ''}`}
-            >
-              {/* Aurora shader for Pneuma messages */}
-              {msg.sender === "ai" && <div className="aurora-shader"></div>}
-              <span className="message-text">{msg.text}</span>
-              {/* Sound wave + Speaker button for AI messages */}
-              {msg.sender === "ai" && (
-                <div className="message-audio-controls">
-                  <SoundWave isPlaying={playingMessageIndex === index} barCount={5} />
-                  <button 
-                    className={`speaker-btn ${playingMessageIndex === index ? 'playing' : ''}`}
-                    onClick={() => playMessage(msg.text, index)}
-                    title={playingMessageIndex === index ? "Stop" : "Listen"}
-                  >
-                    <SpeakerIcon playing={playingMessageIndex === index} />
-                  </button>
-                </div>
-              )}
+            <div key={index} className={`message-row ${msg.sender}`}>
+              {/* Timestamp node - outside bubble, expands on hover */}
+              <span 
+                className={`timestamp-node ${msg.sender}`}
+                style={msg.sender === 'user' ? {
+                  '--user-text-color': USER_COLORS[msg.color || 'magenta'].color,
+                  '--user-glow-color': USER_COLORS[msg.color || 'magenta'].glow
+                } : undefined}
+              >
+                <span className="timestamp-dot"></span>
+                <span className="timestamp-text">
+                  {msg.timestamp ? new Date(msg.timestamp).toLocaleString('en-US', { 
+                    month: 'short',
+                    day: 'numeric',
+                    hour: 'numeric', 
+                    minute: '2-digit',
+                    hour12: true 
+                  }) : ''}
+                </span>
+              </span>
+              <div
+                className={`message-bubble ${msg.sender === "user" ? "user" : "ai"} ${playingMessageIndex === index ? 'speaking' : ''}`}
+                style={msg.sender === 'user' ? {
+                  '--user-text-color': USER_COLORS[msg.color || 'magenta'].color,
+                  '--user-glow-color': USER_COLORS[msg.color || 'magenta'].glow,
+                  '--user-border-color': USER_COLORS[msg.color || 'magenta'].border,
+                  color: USER_COLORS[msg.color || 'magenta'].color
+                } : undefined}
+              >
+                {/* Aurora shader for Pneuma messages */}
+                {msg.sender === "ai" && <div className="aurora-shader"></div>}
+                <span className="message-text">{msg.text}</span>
+                {/* Sound wave + Speaker button for AI messages */}
+                {msg.sender === "ai" && (
+                  <div className="message-audio-controls">
+                    <SoundWave isPlaying={playingMessageIndex === index} barCount={5} />
+                    <button 
+                      className={`speaker-btn ${playingMessageIndex === index ? 'playing' : ''}`}
+                      onClick={() => playMessage(msg.text, index)}
+                      title={playingMessageIndex === index ? "Stop" : "Listen"}
+                    >
+                      <SpeakerIcon playing={playingMessageIndex === index} />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
           <div ref={messagesEndRef} />
@@ -362,6 +389,10 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             rows={1}
+            style={{
+              color: USER_COLORS[userColor]?.color,
+              textShadow: `0 0 8px ${USER_COLORS[userColor]?.glow}, 0 0 15px ${USER_COLORS[userColor]?.glow}`
+            }}
           />
           <button className="send-button" onClick={handleSend}>
             Send

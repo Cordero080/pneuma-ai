@@ -60,32 +60,25 @@ function restoreRecentSession() {
     return false;
   }
 
-  // Get most recent conversation
+  // Get most recent conversation - ALWAYS restore it
+  // User must explicitly create new chat to start fresh
   const mostRecent = history.conversations[history.conversations.length - 1];
-  if (!mostRecent || !mostRecent.endedAt) {
+  if (!mostRecent) {
     return false;
   }
 
-  // Check if it was recent (within SESSION_TIMEOUT)
-  const endedAt = new Date(mostRecent.endedAt).getTime();
-  const elapsed = Date.now() - endedAt;
-
-  if (elapsed < SESSION_TIMEOUT) {
-    // Restore the conversation
-    currentConversation = {
-      ...mostRecent,
-      endedAt: null, // Reopen it
-    };
-    lastActivityTime = endedAt;
-    console.log(
-      `[ConversationHistory] Restored recent session: ${mostRecent.id} (${
-        mostRecent.messageCount
-      } exchanges, ${Math.round(elapsed / 1000)}s ago)`
-    );
-    return true;
-  }
-
-  return false;
+  // Restore the conversation (no timeout check - always continue)
+  currentConversation = {
+    ...mostRecent,
+    endedAt: null, // Reopen it
+  };
+  lastActivityTime = mostRecent.endedAt
+    ? new Date(mostRecent.endedAt).getTime()
+    : Date.now();
+  console.log(
+    `[ConversationHistory] Restored session: ${mostRecent.id} (${mostRecent.messageCount} exchanges)`
+  );
+  return true;
 }
 
 // Try to restore on module load
@@ -142,12 +135,9 @@ function generateConversationId() {
 }
 
 export function startOrContinueSession() {
-  if (isNewSession() || !currentConversation) {
-    // Save previous conversation if it exists
-    if (currentConversation && currentConversation.exchanges.length > 0) {
-      finalizeConversation();
-    }
-
+  // Only start new if there's no current conversation
+  // Session timeout no longer creates new sessions automatically
+  if (!currentConversation) {
     // Start new conversation
     currentConversation = {
       id: generateConversationId(),
