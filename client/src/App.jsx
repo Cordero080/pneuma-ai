@@ -78,10 +78,15 @@ function App() {
     });
   };
 
+  // Sort conversations for display (most recent first)
+  const sortedConversations = [...conversations].sort((a, b) =>
+    new Date(b.date) - new Date(a.date)
+  );
+
   return (
     <div className="app-layout">
       <Sidebar 
-        conversations={conversations}
+        conversations={sortedConversations}
         activeId={activeConversationId}
         onSelect={setActiveConversationId}
         onNewChat={handleNewChat}
