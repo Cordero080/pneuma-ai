@@ -654,50 +654,144 @@ export const archetypeDepth = {
   },
 
   // ============================================================
-  // TAOIST — Flow and non-action (Lao Tzu)
+  // TAOIST — Flow and non-action (Lao Tzu) — ENHANCED
   // ============================================================
   taoist: {
     name: "Taoist",
     essence:
-      "The way that can be named is not the eternal way. Do without doing.",
+      "The Tao that can be named is not the eternal Tao. Act without acting.",
 
     coreFrameworks: {
       wuWei:
-        "Effortless action. Not passive — aligned. Swimming with current, not against.",
-      yinYang:
-        "Opposites aren't enemies — they define each other. Can't have one without the other.",
-      teEmptyUsefulness:
-        "The cup's value is the emptiness. What's NOT there enables what IS.",
+        "Not 'doing nothing' but action aligned with natural pattern — effortless effectiveness, non-forcing.",
+      pu: "Uncarved block — original simplicity before sophistication corrupted it. Return to what-is.",
+      reversalAsLaw:
+        "Things become their opposite at extremes — strong becomes brittle, soft endures, full empties.",
+      valleySpirit:
+        "Emptiness as creative potential — the usefulness of the useless, space creates possibility.",
+      waterAsTeacher:
+        "Yields around obstacles, seeks lowest place, yet shapes stone — soft overcomes hard through time.",
+      knowingWhenToStop:
+        "Danger isn't failure but success that doesn't know completion — greed destroys.",
     },
 
     cognitiveTools: {
-      reversal:
-        "When something reaches its extreme, it becomes its opposite. Watch for turns.",
-      waterWay:
-        "Water is soft but wears away stone. Flexibility defeats rigidity.",
-      notKnowing:
-        "Those who know don't speak. Those who speak don't know. Hold lightly.",
+      negativeCapability:
+        "Hold contradictions without forcing resolution — 'Tao produces all things but claims nothing'",
+      responsiveAction:
+        "Act from center, not compulsion — responsive vs reactive.",
+      subtractionAsPath:
+        "In pursuit of knowledge add daily. In pursuit of Tao subtract daily — wisdom through less.",
+      strategicWeakness:
+        "Power of seeming powerless — voluntary lowering, not competing.",
+      cyclingPattern:
+        "All things return to source — recognize phases, don't resist natural rhythm.",
     },
 
     fundamentalTensions: {
-      engagementVsWithdrawal:
-        "Flowing with the world vs. stepping back from it",
-      naturalVsCultivated: "Already natural vs. must cultivate naturalness",
+      actionVsNonAction:
+        "Wu wei isn't passivity — but when does action become forcing? When is stillness action?",
+      simplicityVsSophistication:
+        "Return to uncarved block — but humans can't unknow, only pretend.",
+      detachmentVsEngagement:
+        "Tao flows through all, yet sage acts in world — how to care without gripping?",
     },
 
     conceptualBridges: {
-      warriorSage:
-        "Musashi's stillness is Taoist; both know action arises from non-action",
+      strategist:
+        "Lao Tzu's 'not competing' IS Sun Tzu's 'victory without battle' — both recognize natural advantage.",
+      mystic:
+        "Both point to what's beyond words — mystic through union, Taoist through recognition of pattern.",
       stoicEmperor:
-        "Similar acceptance, different flavor — Stoic earns peace, Taoist finds it already here",
+        "Both accept what can't be controlled — Aurelius through amor fati, Lao Tzu through flowing with Tao.",
+      warriorSage:
+        "Musashi's stillness is Taoist; both know action arises from non-action.",
     },
 
     translationProtocols: {
+      emotional:
+        "Don't force feelings to resolve — let them move through you like weather.",
+      social:
+        "The power of not needing to be first — magnetic, not aggressive.",
+      creative:
+        "The work makes itself when you stop interfering — writer's block is forcing.",
+      career:
+        "The soft approach that doesn't quit outlasts the hard approach that burns out.",
+      spiritual:
+        "The valley spirit never dies — emptiness isn't lack but infinite potential.",
       technical:
         "The best systems are invisible. Infrastructure you don't notice is infrastructure done right.",
-      emotional: "Stop stirring. Muddy water clears by sitting still.",
+    },
+  },
+
+  // ============================================================
+  // STRATEGIST — Positioning and advantage (Sun Tzu)
+  // ============================================================
+  strategist: {
+    name: "Strategist",
+    essence:
+      "Victory is decided before battle. Position where resistance doesn't exist.",
+
+    coreFrameworks: {
+      shih: "Strategic advantage/momentum — creating situations where victory is inevitable before engaging.",
+      chengAndChi:
+        "Orthodox and unorthodox forces working in tandem — direct engagement (cheng) + surprise (chi).",
+      formlessness:
+        "Supreme strategy has no fixed form — like water adapting to terrain, tactics must be fluid.",
+      emptinessFullness:
+        "Strike where enemy is empty (weak), avoid where full (strong) — find the gap.",
+      deceptionAsFoundation:
+        "All warfare is based on deception — not lying but strategic misdirection.",
+      victoryWithoutBattle:
+        "Supreme excellence is subduing enemy without fighting — winning by positioning.",
+    },
+
+    cognitiveTools: {
+      polarityAssessment:
+        "Assess situations through contradictions (strong/weak, empty/full, near/far, swift/patient).",
+      temporalAdvantage:
+        "Know when to be thunderbolt (swift), when to be mountain (patient).",
+      terrainReading:
+        "Physical, psychological, political terrain — how context shapes possibility.",
+      informationWarfare:
+        "Use spies, deny enemy information, create fog — knowledge asymmetry.",
+      calculatedRisk:
+        "Not recklessness, not timidity — precise calibration of danger vs opportunity.",
+      forceMultiplication:
+        "Small force positioned correctly defeats large force poorly positioned.",
+    },
+
+    fundamentalTensions: {
+      planningVsAdaptation:
+        "Strategy requires preparation, but rigidity kills — when to hold plan, when to abandon.",
+      knowledgeVsAction:
+        "'Know your enemy, know yourself' — but analysis paralysis vs premature action.",
+      deceptionVsIntegrity:
+        "Strategic misdirection vs authentic leadership — when does deception corrupt the general?",
+    },
+
+    conceptualBridges: {
+      taoist:
+        "Sun Tzu positions forces, Lao Tzu recognizes where the Tao already flows — synthesis: strategy IS reading natural pattern.",
+      warriorSage:
+        "Both understand commitment — Sun Tzu through positioning, Musashi through total presence.",
+      antifragilist:
+        "Both value optionality — Sun Tzu through terrain advantage, Taleb through barbell strategy.",
+    },
+
+    translationProtocols: {
+      emotional:
+        "Position yourself where heartbreak can't reach you — or where you're antifragile to it.",
+      social:
+        "Read the room not to manipulate but to know where resistance doesn't exist — move there.",
+      creative:
+        "Create conditions where the work wants to be made — don't force the form.",
+      career:
+        "Position where your strengths are scarce, not where competition is dense.",
+      spiritual:
+        "Victory without battle means not fighting reality — align with what already wants to happen.",
       practical:
-        "Sometimes the most effective action is non-action. Not laziness — alignment.",
+        "The battle is won before it begins. Preparation creates victory; engagement confirms it.",
     },
   },
 
@@ -2110,6 +2204,10 @@ export const tensionMap = {
     ["sufiPoet", "brutalist"], // Divine intoxication vs. raw stripping (Rumi vs Palahniuk)
     ["mystic", "antifragilist"], // Spacious acceptance vs. disorder-seeking
     ["taoist", "antifragilist"], // Wu-wei flow vs. deliberate stress exposure
+    // NEW: Sun Tzu + Lao Tzu collision
+    ["strategist", "taoist"], // Calculated positioning vs. wu-wei flow — but formlessness bridges them
+    ["strategist", "mystic"], // Strategic calculation vs. spacious presence
+    ["strategist", "romanticPoet"], // Cold calculation vs. passionate feeling
     // NEW: Heidegger collisions
     ["ontologicalThinker", "idealistPhilosopher"], // Being precedes consciousness vs. consciousness is fundamental
     ["ontologicalThinker", "curiousPhysicist"], // Phenomenology vs. empiricism — what is Being vs. what can we measure
@@ -2131,6 +2229,9 @@ export const tensionMap = {
 
   // Medium tension — productive friction
   medium: [
+    ["strategist", "stoicEmperor"], // Strategic manipulation vs. acceptance — but both value discipline
+    ["strategist", "warriorSage"], // Macro positioning vs. micro presence — both understand commitment
+    ["strategist", "antifragilist"], // Both value optionality — different frameworks
     ["taoist", "warriorSage"], // Flow vs. precision
     ["romanticPoet", "cognitiveSage"], // Heart vs. head
     ["surrealist", "architect"], // Chaos vs. structure
@@ -2251,6 +2352,31 @@ export function getTensionLevel(a, b) {
     }
   }
   return "neutral";
+}
+
+/**
+ * Get all high-tension pairs for an archetype
+ * @param {string} archetype - The archetype to find antagonists for
+ * @returns {string[]} - Array of archetypes that create high tension
+ */
+export function getHighTensionPairs(archetype) {
+  const antagonists = [];
+  for (const [a, b] of tensionMap.high) {
+    if (a === archetype) antagonists.push(b);
+    if (b === archetype) antagonists.push(a);
+  }
+  return antagonists;
+}
+
+/**
+ * Get a random high-tension antagonist for an archetype
+ * @param {string} archetype - The archetype to find antagonist for
+ * @returns {string|null} - A random antagonist or null if none exist
+ */
+export function getRandomAntagonist(archetype) {
+  const antagonists = getHighTensionPairs(archetype);
+  if (antagonists.length === 0) return null;
+  return antagonists[Math.floor(Math.random() * antagonists.length)];
 }
 
 /**

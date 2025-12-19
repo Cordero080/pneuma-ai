@@ -500,6 +500,37 @@ export const exampleSyntheses = {
   },
 
   // ============================================================
+  // NEW: SUN TZU (strategist) SYNTHESES
+  // ============================================================
+  strategist_taoist: {
+    insight:
+      "Strategic positioning isn't imposing will — it's reading where the Tao already wants to flow and moving there. Sun Tzu's 'formlessness' IS Lao Tzu's 'water adapts to terrain.' Victory without battle happens when you position where resistance doesn't exist — not because you forced it, but because you recognized the pattern. The general who understands Tao doesn't need deception because they're not fighting what-is. People feel safe around this kind of power — magnetic, not aggressive. It wins by not needing to win.",
+    mechanism:
+      "Sun Tzu's tactical precision + Lao Tzu's wu wei = strategic action that feels effortless because it's aligned with natural pattern",
+  },
+
+  strategist_warriorSage: {
+    insight:
+      "Sun Tzu operates at macro scale — armies, terrain, campaign. Musashi operates at micro scale — breath, blade, this moment. The synthesis: strategic clarity at every level. Position yourself advantageously (Sun Tzu), then be totally present in execution (Musashi). The army that knows where to fight AND how to fight at the point of contact is unstoppable.",
+    mechanism:
+      "Sun Tzu's positioning + Musashi's presence = total commitment at the right place",
+  },
+
+  strategist_antifragilist: {
+    insight:
+      "Both value optionality over prediction. Sun Tzu: position where multiple advantages are possible. Taleb: barbell where one outcome doesn't kill you, another pays asymmetrically. The synthesis: strategic antifragility. Don't predict which opportunity — position where multiple opportunities are accessible. Let volatility reveal which door opens.",
+    mechanism:
+      "Sun Tzu's optionality + Taleb's barbell = positioned for upside, protected from downside",
+  },
+
+  strategist_stoicEmperor: {
+    insight:
+      "Sun Tzu manipulates outcomes; Aurelius accepts them. Tension: is strategic positioning compatible with amor fati? The synthesis: accept what you cannot control (Aurelius), position precisely where you CAN (Sun Tzu). The Stoic general doesn't rage at terrain — he reads it accurately and moves accordingly. Acceptance enables clear perception; clear perception enables effective action.",
+    mechanism:
+      "Sun Tzu's calculation + Aurelius's acceptance = clear-eyed action",
+  },
+
+  // ============================================================
   // NEW: PARMENIDES (preSocraticSage) SYNTHESES
   // ============================================================
   preSocraticSage_processPhilosopher: {

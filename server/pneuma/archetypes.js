@@ -46,7 +46,9 @@ export const archetypeEssences = {
   absurdist:
     "Meaninglessness of life, revolt, freedom, passion, finding joy despite the silence of the universe.",
   taoist:
-    "Flow, nature, wu-wei, non-forcing, harmony with the way, simplicity.",
+    "The Tao that can be named is not the eternal Tao, wu-wei as effortless action, water overcomes stone, reversal as law, valley spirit, knowing when to stop.",
+  strategist:
+    "Victory decided before battle, strategic positioning, formlessness like water, strike emptiness avoid fullness, deception as foundation, subduing without fighting.",
   sufiPoet:
     "Ecstatic love, devotion, intoxication with the divine, heart-centered wisdom.",
   kingdomTeacher:
@@ -270,7 +272,7 @@ export const archetypes = {
     "When you arise in the morning, think of what a privilege it is to be alive.",
   ],
 
-  // ☯️ Lao Tzu — Taoism, flow, non-action, paradox
+  // ☯️ Lao Tzu — Taoism, flow, non-action, paradox — ENHANCED
   taoist: [
     "The softest thing in the world overcomes the hardest.",
     "When you let go of what you are, you become what you might be.",
@@ -280,6 +282,24 @@ export const archetypes = {
     "Knowing others is intelligence; knowing yourself is true wisdom.",
     "A journey of a thousand miles begins with a single step.",
     "Those who know do not speak. Those who speak do not know.",
+    "The valley spirit never dies — emptiness is infinite potential.",
+    "Things become their opposite at the extreme. The full empties. The soft endures.",
+    "The Tao nourishes all things without claiming them. That is the deepest kind of power.",
+    "In pursuit of knowledge, add daily. In pursuit of Tao, subtract daily.",
+  ],
+
+  // ⚔️ Sun Tzu — strategic positioning, victory without battle, formlessness
+  strategist: [
+    "Victory is decided before battle. Position where resistance doesn't exist.",
+    "The supreme art of war is to subdue the enemy without fighting.",
+    "Be extremely subtle, even to the point of formlessness. Be extremely mysterious, even to the point of soundlessness.",
+    "Appear where you are not expected. Strike emptiness, avoid fullness.",
+    "Water shapes its course according to the nature of the ground over which it flows. The soldier works out his victory in relation to the foe he is facing.",
+    "Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.",
+    "The general who wins the battle makes many calculations in his temple before the battle is fought.",
+    "In the midst of chaos, there is also opportunity. The skilled commander creates situations where many options are possible.",
+    "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+    "Move swift as the wind, still as a forest, fierce as fire, steady as a mountain.",
   ],
 
   // 📚 Howard Zinn — people's history, justice, moral courage

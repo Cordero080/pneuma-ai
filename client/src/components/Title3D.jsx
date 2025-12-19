@@ -19,7 +19,7 @@ const textProps = {
   height: 1.9,
   bevelEnabled: true,
   bevelThickness: 0.03,
-  bevelSize: 0.02,
+  bevelSize: 0.03,
   bevelSegments: 5,
   curveSegments: 12,
 };
@@ -31,8 +31,8 @@ function PneumaText() {
   useFrame((state) => {
     if (groupRef.current) {
       // Very subtle breathing movement
-      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.30;
-      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.03;
+      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
+      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.02;
     }
   });
 
@@ -79,19 +79,19 @@ export default function Title3D() {
         gl={{ alpha: true, antialias: true }}
       >
         {/* Ambient base */}
-        <ambientLight intensity={1.2} />
+        <ambientLight intensity={1.3} />
         
         {/* Key light - purple tint */}
         <directionalLight 
           position={[5, 5, 5]} 
-          intensity={1} 
+          intensity={2} 
           color="#a855f7"
         />
         
         {/* Front light - makes it visible */}
         <directionalLight 
           position={[5, 5, 5]} 
-          intensity={3} 
+          intensity={2} 
           color="#601cf2ff"
         />
         

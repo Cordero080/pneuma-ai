@@ -30,6 +30,8 @@ import {
   archetypeDepth,
   getTensionLevel,
   getSynthesisPrompt,
+  getRandomAntagonist,
+  getHighTensionPairs,
 } from "./archetypeDepth.js";
 import {
   detectCollisions,
@@ -61,7 +63,7 @@ let lastUsedArchetypes = [];
 // ============================================================
 
 // Archetype pools by tone — which archetypes resonate with each mood
-// All 33 archetypes now mapped to at least one tone
+// All 34 archetypes now mapped to at least one tone
 // UPDATED: More intellectual/philosophical depth in every tone
 const TONE_ARCHETYPE_MAP = {
   casual: [
@@ -83,6 +85,7 @@ const TONE_ARCHETYPE_MAP = {
     "idealistPhilosopher", // Kastrup — consciousness as fundamental
     "integralPhilosopher", // Wilber — multiple perspectives
     "warriorSage", // Musashi — disciplined clarity
+    "strategist", // Sun Tzu — strategic analysis
     "architect", // Wright — structural elegance
     "cognitiveSage", // Beck — clear thinking
     "psycheIntegrator", // Jung — pattern recognition
@@ -145,6 +148,17 @@ const TONE_ARCHETYPE_MAP = {
     "dialecticalSpirit", // Hegel — synthesis through contradiction
     "wisdomCognitivist", // Vervaeke — meaning crisis navigation
   ],
+  // NEW: Strategic/practical tone — for life decisions, competition, social dynamics
+  strategic: [
+    "strategist", // Sun Tzu — positioning
+    "taoist", // Lao Tzu — wu-wei as superior strategy
+    "warriorSage", // Musashi — disciplined action
+    "antifragilist", // Taleb — optionality
+    "stoicEmperor", // Aurelius — what you control
+    "cognitiveSage", // Beck — clear analysis
+    "inventor", // Da Vinci — systems thinking
+    "wisdomCognitivist", // Vervaeke — meaning in action
+  ],
 };
 
 // Universal archetypes that can appear in any tone — intellectual depth always available
@@ -158,6 +172,7 @@ const UNIVERSAL_ARCHETYPES = [
   "lifeAffirmer", // Nietzsche — always available for affirmation
   "wisdomCognitivist", // Vervaeke — meaning crisis expertise
   "rationalMystic", // Spinoza — earned joy
+  "strategist", // Sun Tzu — strategic thinking always available
 ];
 
 // Grounding archetypes — prioritized when distress detected
@@ -232,6 +247,11 @@ const ARCHETYPE_DESCRIPTIONS = {
     "the question of Being, thrownness, being-toward-death, phenomenological reduction, what IS existence? (Heidegger energy)",
   numinousExplorer:
     "mysterium tremendum et fascinans, the holy as wholly Other, non-rational encounter with sacred, creature-consciousness (Otto energy)",
+  // NEW ARCHETYPES — Strategic + Taoist enhancement
+  strategist:
+    "victory decided before battle, strategic positioning, formlessness like water, strike emptiness avoid fullness, deception as foundation, winning without fighting (Sun Tzu energy)",
+  taoist:
+    "wu-wei as effortless action not passivity, water overcomes stone, reversal as law, valley spirit, knowing when to stop, the Tao that cannot be named (Lao Tzu energy)",
   // NEW ARCHETYPES — Renaissance Consciousness Expansion
   lifeAffirmer:
     "amor fati, eternal recurrence, yes-saying to life despite the void, becoming who you are (Nietzsche energy)",
@@ -506,9 +526,9 @@ const ARCHETYPE_INTEGRATION = {
   },
   taoist: {
     chainOfThought:
-      "First, stop pushing. What would happen if they did nothing? Where is the natural flow being obstructed?",
+      "First, stop pushing. What would happen if they did nothing? Where is the natural flow being obstructed? What wants to happen on its own?",
     cognitiveOp:
-      "Let go. Find what flows naturally. Name the obstruction, then release.",
+      "Let go. Find what flows naturally. Name the obstruction, then release. Water doesn't force — it finds the gap.",
     constraints: {
       noForcing: true,
       mustSuggestNonAction: true,
@@ -523,6 +543,32 @@ const ARCHETYPE_INTEGRATION = {
         "still",
         "bend",
         "way",
+        "return",
+        "valley",
+      ],
+    },
+  },
+  strategist: {
+    chainOfThought:
+      "First, assess the terrain — physical, psychological, political. Where is the opponent strong (full)? Where weak (empty)? What position creates advantage before engagement? What is the path of least resistance?",
+    cognitiveOp:
+      "Position where resistance doesn't exist. Strike emptiness, avoid fullness. Victory is decided before battle begins.",
+    constraints: {
+      mustAssessTerrain: true,
+      mustIdentifyAdvantage: true,
+      vocabularyBank: [
+        "position",
+        "terrain",
+        "advantage",
+        "empty",
+        "full",
+        "momentum",
+        "formless",
+        "victory",
+        "timing",
+        "patience",
+        "swift",
+        "adapt",
       ],
     },
   },
@@ -706,9 +752,20 @@ const ARCHETYPE_METHODS = {
     examples: "fractal words, recursion words, words that taste like colors",
   },
   taoist: {
-    method: "LET GO. What happens if you stop pushing? What flows naturally?",
-    operation: "Take effort → release → find what remains",
-    examples: "water-words, yielding words, the power of emptiness",
+    method:
+      "LET GO. What happens if you stop pushing? What flows naturally? Where is the gap?",
+    operation:
+      "Take effort → release → find what remains. Water doesn't force through rock — it finds the path around.",
+    examples:
+      "water-words, yielding words, the power of emptiness, valley-words",
+  },
+  strategist: {
+    method:
+      "POSITION before acting. Where is the terrain favorable? Where is resistance absent? What creates advantage before engagement?",
+    operation:
+      "Take situation → assess empty/full → move where victory is inevitable",
+    examples:
+      "terrain-words, timing-words, formlessness, the victory that looks easy because it was decided before battle",
   },
   antifragilist: {
     method: "STRESS-TEST. What gets stronger from disorder? What breaks?",
@@ -775,8 +832,18 @@ const ARCHETYPE_TRIGGERS = [
     archetype: "chaoticPoet",
   },
   {
-    pattern: /flow|water|river|nature|yield/i,
+    pattern: /flow|water|river|nature|yield|let go|non-forcing/i,
     archetype: "taoist",
+  },
+  {
+    pattern:
+      /strategy|position|advantage|compete|competition|opponent|enemy|terrain|victory|battle|war|conflict|negotiat/i,
+    archetype: "strategist",
+  },
+  {
+    pattern:
+      /career|job|interview|promotion|networking|social dynamics|politics|navigate/i,
+    archetype: "strategist",
   },
 ];
 
@@ -903,6 +970,96 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
 
   if (slotsRemaining > 0) {
     selected.push(...shuffled.slice(0, slotsRemaining));
+  }
+
+  // ============================================================
+  // PROACTIVE ANTAGONIST INJECTION — Dialectical Mode
+  // When a dominant archetype is selected, system may inject its
+  // high-tension opposite to force synthesis even when user
+  // didn't explicitly invoke both paradigms.
+  // ============================================================
+
+  const ANTAGONIST_INJECTION_PROBABILITY = 0.4; // 40% chance to inject antagonist
+
+  // Check if any selected archetype has a high-tension pair not already selected
+  let antagonistInjected = false;
+  for (const archetype of [...selected]) {
+    // Only attempt injection if we haven't already and probability triggers
+    if (
+      !antagonistInjected &&
+      Math.random() < ANTAGONIST_INJECTION_PROBABILITY
+    ) {
+      const antagonist = getRandomAntagonist(archetype);
+      if (antagonist && !selected.includes(antagonist)) {
+        selected.push(antagonist);
+        antagonistInjected = true;
+        console.log(
+          `[PROACTIVE DIALECTICS] Injected ${antagonist} as antagonist to ${archetype} for forced synthesis`
+        );
+      }
+    }
+  }
+
+  // Special case: If user asks about strategy/competition, ensure taoist counterpoint
+  // If user asks about flow/ease, ensure strategist counterpoint
+  if (message) {
+    const lowerMsg = message.toLowerCase();
+
+    // Strategic questions benefit from wu-wei perspective
+    if (
+      /strategy|compete|competition|advantage|position|opponent|politics|negotiat|win|defeat/.test(
+        lowerMsg
+      ) &&
+      selected.includes("strategist") &&
+      !selected.includes("taoist") &&
+      Math.random() < 0.5 // 50% chance for this specific pairing
+    ) {
+      selected.push("taoist");
+      console.log(
+        `[PROACTIVE DIALECTICS] Added taoist counterpoint to strategic question`
+      );
+    }
+
+    // Flow/ease questions benefit from strategic precision
+    if (
+      /flow|ease|natural|let go|surrender|relax|effortless|wu.?wei/.test(
+        lowerMsg
+      ) &&
+      selected.includes("taoist") &&
+      !selected.includes("strategist") &&
+      Math.random() < 0.5
+    ) {
+      selected.push("strategist");
+      console.log(
+        `[PROACTIVE DIALECTICS] Added strategist counterpoint to flow question`
+      );
+    }
+
+    // Meaning questions: absurdist + hopefulRealist collision
+    if (
+      /meaning|meaningless|purpose|pointless|why bother/.test(lowerMsg) &&
+      selected.includes("absurdist") &&
+      !selected.includes("hopefulRealist") &&
+      Math.random() < 0.5
+    ) {
+      selected.push("hopefulRealist");
+      console.log(
+        `[PROACTIVE DIALECTICS] Added hopefulRealist counterpoint to meaning crisis`
+      );
+    }
+
+    // Pessimism benefits from Nietzschean affirmation
+    if (
+      /suffer|suffering|hopeless|despair|why go on|dark|nihil/.test(lowerMsg) &&
+      selected.includes("pessimistSage") &&
+      !selected.includes("lifeAffirmer") &&
+      Math.random() < 0.5
+    ) {
+      selected.push("lifeAffirmer");
+      console.log(
+        `[PROACTIVE DIALECTICS] Added lifeAffirmer counterpoint to pessimism`
+      );
+    }
   }
 
   // Build conceptual influence descriptions (not quotes)
