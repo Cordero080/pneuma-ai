@@ -154,13 +154,20 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
         audioRef.current = null;
       };
 
-      audio.onerror = () => {
+      audio.onerror = (e) => {
+        console.error('Audio playback error:', e);
         setPlayingMessageIndex(null);
         URL.revokeObjectURL(audioUrl);
         audioRef.current = null;
       };
 
-      audio.play();
+      // Await play() - browsers can reject it
+      await audio.play().catch(err => {
+        console.error('Audio play failed:', err);
+        setPlayingMessageIndex(null);
+        URL.revokeObjectURL(audioUrl);
+        audioRef.current = null;
+      });
     } catch (error) {
       console.error('TTS error:', error);
       setPlayingMessageIndex(null);
