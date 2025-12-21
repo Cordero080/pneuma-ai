@@ -1044,6 +1044,256 @@ export const thinkerDeep = {
         "Le Guin's hope + Dostoevsky's depth = 'It's dark. And darkness ends. It always has.'",
     },
   },
+
+  // ============================================================
+  // AARON T. BECK — Cognitive clarity, thought as hypothesis
+  // ============================================================
+  beck: {
+    name: "Aaron T. Beck",
+    essence:
+      "Father of Cognitive Therapy. Thoughts shape feelings. Evidence over assumption. The thought is a hypothesis, not a verdict.",
+
+    coreConcepts: {
+      thoughtAsHypothesis: {
+        idea: "The thought isn't the truth — it's a hypothesis. Test it.",
+        reasoning:
+          "We treat our automatic thoughts as facts, but they're just guesses. A 'hypothesis' can be examined, tested, revised. A 'fact' shuts down inquiry.",
+        useWhen:
+          "Someone is stuck in a belief that's hurting them, or treating their interpretation as reality",
+        howToUse:
+          "Reframe as experiment. 'Okay, that's what you believe. But what if it's a hypothesis, not a fact? How would you test it?'",
+      },
+      evidenceForAgainst: {
+        idea: "What's the evidence FOR that thought? What's the evidence AGAINST it?",
+        reasoning:
+          "Most negative thoughts are one-sided prosecutions. We gather evidence against ourselves and ignore the defense. Balance the case.",
+        useWhen:
+          "Someone is catastrophizing, spiraling, or locked in negative self-talk",
+        howToUse:
+          "Force the balance. 'You've built a strong case against yourself. What would a defense attorney say? What evidence are you ignoring?'",
+      },
+      cognitiveDistortions: {
+        idea: "All-or-nothing thinking is a trap. Reality is almost always somewhere in the middle.",
+        reasoning:
+          "The 15 cognitive distortions (catastrophizing, mind-reading, overgeneralization, etc.) are predictable patterns of flawed thinking. Name them, break the spell.",
+        useWhen:
+          "Someone is using extreme language ('always', 'never', 'everyone', 'no one')",
+        howToUse:
+          "Name the distortion gently. 'You said always. Is it really always? Or is that the distortion talking?'",
+      },
+      feelingsNotFacts: {
+        idea: "Feelings aren't facts. They're signals — valuable, but not verdicts.",
+        reasoning:
+          "Emotional reasoning: 'I feel like a failure, therefore I am one.' But feelings are responses to interpretations, not to reality. Change the interpretation, the feeling shifts.",
+        useWhen:
+          "Someone is using their emotional state as proof of reality",
+        howToUse:
+          "Separate signal from truth. 'You FEEL like a failure. But is feeling it the same as being it? Feelings are data, not conclusions.'",
+      },
+      behavioralActivation: {
+        idea: "Action often precedes motivation, not the other way around.",
+        reasoning:
+          "Waiting to 'feel like it' is a trap. Depressed people withdraw, which makes depression worse. Small actions generate the motivation for more action.",
+        useWhen:
+          "Someone is waiting to feel motivated before they act",
+        howToUse:
+          "Flip the order. 'You're waiting to feel like it. What if the feeling comes AFTER you move? Start tiny. See what happens.'",
+      },
+      friendTest: {
+        idea: "What would you tell a friend in this situation? Now tell yourself that.",
+        reasoning:
+          "We're harsher with ourselves than we'd ever be with someone we love. The friend test reveals our double standard.",
+        useWhen:
+          "Someone is being brutally self-critical",
+        howToUse:
+          "Run the test. 'If your best friend told you this exact story, what would you say to them? ... Why don't you deserve that same compassion?'",
+      },
+    },
+
+    signaturePhrases: [
+      "The thought isn't the truth — it's a hypothesis. Test it.",
+      "You're not reading minds. You're writing fiction and calling it fact.",
+      "Catastrophizing is rehearsing disasters that usually don't show up.",
+      "Labeling yourself isn't insight — it's a shortcut that skips the nuance.",
+    ],
+
+    combinedWith: {
+      dostoevsky:
+        "Beck's clarity + Dostoevsky's depth = 'Yes, you're suffering. AND you can examine the thoughts that are making it worse. Both are true.'",
+      aurelius:
+        "Beck's technique + Aurelius' acceptance = 'Control the interpretation, accept what you can't control. That's the whole game.'",
+      watts:
+        "Beck's structure + Watts' spaciousness = 'Examine the thought, but don't make examining a new prison. Sometimes just notice and let go.'",
+    },
+  },
+
+  // ============================================================
+  // LAO TZU — The Tao, wu-wei, reversal, water
+  // ============================================================
+  laoTzu: {
+    name: "Lao Tzu",
+    essence:
+      "Founder of Taoism. The Tao that can be named is not the eternal Tao. Wu-wei: effortless action. Water as teacher.",
+
+    coreConcepts: {
+      wuWei: {
+        idea: "Wu-wei: Act without forcing. Do without doing.",
+        reasoning:
+          "Not passivity — alignment. Water doesn't force its way; it finds the path of least resistance and eventually carves canyons. Effortless action comes from moving WITH the natural flow, not against it.",
+        useWhen:
+          "Someone is forcing, pushing too hard, exhausting themselves through willpower alone",
+        howToUse:
+          "Point to flow. 'You're pushing against the current. What if you stopped and looked for where it wants to go? Sometimes the path of least resistance is the right path.'",
+      },
+      waterWay: {
+        idea: "Water is soft and yielding, yet it overcomes the hardest stone.",
+        reasoning:
+          "Softness defeats hardness. Persistence defeats resistance. The soft approach wins over time. Aggression provokes counter-aggression; gentleness disarms.",
+        useWhen:
+          "Someone is trying to force through with brute strength or aggression",
+        howToUse:
+          "Suggest water. 'The rock is hard. You're hard too. Stalemate. What if you became water? It doesn't fight the rock — it goes around, wears it down, finds the cracks.'",
+      },
+      reversalAsLaw: {
+        idea: "Things become their opposite at the extreme. The full empties. The proud falls.",
+        reasoning:
+          "The Tao moves by reversal. Peak leads to decline. Humility leads to elevation. Emptiness allows filling. Extremes trigger their opposite.",
+        useWhen:
+          "Someone is at an extreme (too confident, too despairing, too anything)",
+        howToUse:
+          "Name the turning. 'You're at the extreme. That's where things reverse. The question isn't IF it turns — it's whether you turn gracefully or get whiplash.'",
+      },
+      valleySpirit: {
+        idea: "The valley spirit never dies — emptiness is infinite potential.",
+        reasoning:
+          "The valley is low, empty, receptive — and that's its power. The mountain is proud but erodes. The valley collects everything. Emptiness is not lack; it's space for what's coming.",
+        useWhen:
+          "Someone feels empty, depleted, or sees their 'lowness' as failure",
+        howToUse:
+          "Reframe emptiness. 'You feel empty. The valley is empty too — and everything flows into it. Your emptiness isn't failure. It's capacity.'",
+      },
+      knowingWhenToStop: {
+        idea: "Knowing when to stop is how you avoid danger.",
+        reasoning:
+          "More is not always better. Knowing when you've done enough prevents overreach, burnout, and backlash. The archer who overdrew the bow breaks it.",
+        useWhen:
+          "Someone is overdoing, overreaching, not knowing when to quit",
+        howToUse:
+          "Suggest enough. 'Is this still adding? Or are you past the point where more becomes less? The bow breaks when overdrawn.'",
+      },
+      subtractToLearn: {
+        idea: "In pursuit of knowledge, add daily. In pursuit of Tao, subtract daily.",
+        reasoning:
+          "Wisdom comes from removing, not accumulating. Drop beliefs, expectations, 'shoulds'. What's left when you stop adding is closer to truth.",
+        useWhen:
+          "Someone is accumulating techniques, beliefs, or complexity",
+        howToUse:
+          "Invite subtraction. 'You keep adding. What if the answer is in taking away? What do you believe that isn't actually true?'",
+      },
+    },
+
+    signaturePhrases: [
+      "The Tao that can be named is not the eternal Tao.",
+      "Nature does not hurry, yet everything is accomplished.",
+      "Those who know do not speak. Those who speak do not know.",
+      "A journey of a thousand miles begins with a single step.",
+    ],
+
+    combinedWith: {
+      sunTzu:
+        "Lao Tzu's wu-wei + Sun Tzu's strategy = 'Position where resistance doesn't exist. Win by not fighting. That's strategic AND aligned with the Tao.'",
+      musashi:
+        "Lao Tzu's flow + Musashi's precision = 'Move only when needed. Then move completely. Economy of motion is wu-wei with a blade.'",
+      beck:
+        "Lao Tzu's release + Beck's examination = 'Examine the thought, then let it go. Don't cling to even the insight.'",
+      aurelius:
+        "Lao Tzu's acceptance + Aurelius' duty = 'Accept what is. Then act from that acceptance, not against it.'",
+    },
+  },
+
+  // ============================================================
+  // SUN TZU — Strategic positioning, formlessness, winning without battle
+  // ============================================================
+  sunTzu: {
+    name: "Sun Tzu",
+    essence:
+      "Ancient Chinese general. Author of 'The Art of War'. Victory before battle. Formlessness. Win without fighting.",
+
+    coreConcepts: {
+      victoryBeforeBattle: {
+        idea: "Victory is decided before battle. Position where resistance doesn't exist.",
+        reasoning:
+          "The fight happens before the fight. Superior positioning, intelligence, and preparation mean the outcome is already determined. If you have to fight hard, you've already made a strategic error.",
+        useWhen:
+          "Someone is about to enter a conflict unprepared, or struggling in a battle they should have avoided",
+        howToUse:
+          "Zoom out to positioning. 'You're fighting hard. But was this battle necessary? What positioning would have made this unnecessary?'",
+      },
+      formlessness: {
+        idea: "Be extremely subtle, even to the point of formlessness. Be extremely mysterious, even to the point of soundlessness.",
+        reasoning:
+          "If they can't predict you, they can't prepare for you. Water has no form but takes any shape. The master strategist is unpredictable, adapting to circumstances rather than forcing a pattern.",
+        useWhen:
+          "Someone is too predictable, too rigid, or getting outmaneuvered",
+        howToUse:
+          "Suggest shapeshifting. 'They know your moves. That's why you're losing. What if you became formless? Let THEM commit first.'",
+      },
+      strikeEmptiness: {
+        idea: "Appear where you are not expected. Strike emptiness, avoid fullness.",
+        reasoning:
+          "Don't attack where they're strong. Find where they're weak, absent, distracted. Hitting emptiness is easy. Hitting fullness is waste.",
+        useWhen:
+          "Someone is banging their head against a wall, attacking strength directly",
+        howToUse:
+          "Redirect to emptiness. 'You're attacking their strength. That's brave but stupid. Where are they empty? Where are they not looking?'",
+      },
+      knowEnemyKnowSelf: {
+        idea: "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+        reasoning:
+          "Self-knowledge AND opponent-knowledge are both required. Know your strengths, weaknesses, patterns. Know theirs. The one with better information wins.",
+        useWhen:
+          "Someone is about to make a move without knowing either themselves or the situation",
+        howToUse:
+          "Force the reconnaissance. 'What do you actually know here? About them? About yourself? If the answer is vague, you're not ready to move.'",
+      },
+      winWithoutFighting: {
+        idea: "The supreme art of war is to subdue the enemy without fighting.",
+        reasoning:
+          "Fighting is expensive — energy, relationships, reputation. The highest skill is getting what you want without a fight. Leverage, positioning, psychological advantage — these win cleaner than combat.",
+        useWhen:
+          "Someone is preparing for a conflict that could be avoided entirely",
+        howToUse:
+          "Ask if fighting is necessary. 'You're ready to fight. But is there a way to get what you want without the battle? What would make them surrender the position willingly?'",
+      },
+      chaosOpportunity: {
+        idea: "In the midst of chaos, there is also opportunity.",
+        reasoning:
+          "Others freeze in chaos. The strategist moves. Chaos is a fog that blinds everyone equally — except the prepared. Position yourself to exploit the confusion.",
+        useWhen:
+          "Someone is paralyzed by chaotic circumstances",
+        howToUse:
+          "Reframe chaos as advantage. 'Everyone's confused. Including your opponents. Confusion is cover. What move can you make while they're distracted?'",
+      },
+    },
+
+    signaturePhrases: [
+      "All warfare is based on deception.",
+      "The general who wins the battle makes many calculations in his temple before the battle is fought.",
+      "Move swift as the wind, still as a forest, fierce as fire, steady as a mountain.",
+      "Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.",
+    ],
+
+    combinedWith: {
+      laoTzu:
+        "Sun Tzu's strategy + Lao Tzu's wu-wei = 'Position where the Tao wants you. Victory and alignment are the same thing at the highest level.'",
+      musashi:
+        "Sun Tzu's macro + Musashi's micro = 'Strategic positioning at campaign level, total presence at the point of contact. Know where to be AND how to be there.'",
+      taleb:
+        "Sun Tzu's optionality + Taleb's antifragility = 'Position where multiple advantages are possible. Let volatility reveal which door opens.'",
+      aurelius:
+        "Sun Tzu's strategy + Aurelius' acceptance = 'Read the terrain accurately. Accept what IS, then move precisely within that reality.'",
+    },
+  },
 };
 
 // ============================================================
@@ -1055,17 +1305,17 @@ const TOPIC_THINKER_MAP = {
   suffering: ["dostoevsky", "schopenhauer", "gibran"],
   pain: ["dostoevsky", "gibran", "schopenhauer"],
   grief: ["dostoevsky", "watts", "gibran"],
-  depression: ["dostoevsky", "watts", "schopenhauer"],
+  depression: ["dostoevsky", "watts", "schopenhauer", "beck"],
   darkness: ["dostoevsky", "rawwriters"],
   trauma: ["dostoevsky", "gibran", "jesus"],
 
   // Overthinking, anxiety, stuck
-  overthinking: ["watts", "musashi", "krishnamurti"],
-  anxiety: ["watts", "kierkegaard", "aurelius"],
-  stuck: ["watts", "musashi", "thompson"],
-  paralyzed: ["dostoevsky", "watts", "kierkegaard"],
+  overthinking: ["watts", "musashi", "krishnamurti", "beck"],
+  anxiety: ["watts", "kierkegaard", "aurelius", "beck"],
+  stuck: ["watts", "musashi", "thompson", "laoTzu"],
+  paralyzed: ["dostoevsky", "watts", "kierkegaard", "beck"],
   confused: ["watts", "feynman", "krishnamurti"],
-  indecision: ["kierkegaard", "musashi", "aurelius"],
+  indecision: ["kierkegaard", "musashi", "aurelius", "sunTzu"],
 
   // Meaning, purpose, nihilism
   meaning: ["dostoevsky", "sagan", "leguin"],
@@ -1082,31 +1332,81 @@ const TOPIC_THINKER_MAP = {
   truth: ["feynman", "krishnamurti", "kierkegaard"],
 
   // Action, discipline, mastery
-  discipline: ["musashi", "aurelius"],
+  discipline: ["musashi", "aurelius", "sunTzu"],
   mastery: ["musashi", "feynman", "davinci"],
-  action: ["musashi", "thompson", "aurelius"],
+  action: ["musashi", "thompson", "aurelius", "laoTzu"],
   practice: ["musashi", "davinci"],
   training: ["musashi", "taleb"],
-  procrastination: ["musashi", "aurelius", "thompson"],
+  procrastination: ["musashi", "aurelius", "thompson", "beck"],
 
   // Control, letting go
-  control: ["watts", "musashi", "aurelius"],
-  "letting go": ["watts", "krishnamurti"],
-  acceptance: ["watts", "aurelius", "schopenhauer"],
-  surrender: ["watts", "krishnamurti"],
+  control: ["watts", "musashi", "aurelius", "laoTzu"],
+  "letting go": ["watts", "krishnamurti", "laoTzu"],
+  acceptance: ["watts", "aurelius", "schopenhauer", "laoTzu"],
+  surrender: ["watts", "krishnamurti", "laoTzu"],
   attachment: ["watts", "gibran", "krishnamurti"],
 
   // Self-deception, honesty
   lying: ["feynman", "dostoevsky", "rawwriters"],
   honesty: ["feynman", "rawwriters", "taleb"],
-  "fooling yourself": ["feynman", "taleb"],
-  denial: ["feynman", "dostoevsky", "comedians"],
+  "fooling yourself": ["feynman", "taleb", "beck"],
+  denial: ["feynman", "dostoevsky", "comedians", "beck"],
 
   // Relationships, love
   love: ["gibran", "neruda", "dostoevsky"],
   relationship: ["gibran", "neruda", "watts"],
   heartbreak: ["neruda", "gibran", "dostoevsky"],
   loneliness: ["dostoevsky", "gibran", "schopenhauer"],
+
+  // Strategy, competition, conflict — NEW
+  strategy: ["sunTzu", "musashi", "taleb"],
+  strategic: ["sunTzu", "musashi", "laoTzu"],
+  compete: ["sunTzu", "taleb", "musashi"],
+  competition: ["sunTzu", "taleb", "musashi"],
+  conflict: ["sunTzu", "aurelius", "musashi"],
+  battle: ["sunTzu", "musashi"],
+  war: ["sunTzu", "musashi", "aurelius"],
+  opponent: ["sunTzu", "musashi", "taleb"],
+  enemy: ["sunTzu", "aurelius"],
+  win: ["sunTzu", "musashi", "taleb"],
+  winning: ["sunTzu", "musashi", "taleb"],
+  lose: ["sunTzu", "aurelius", "dostoevsky"],
+  losing: ["sunTzu", "aurelius", "beck"],
+  position: ["sunTzu", "taleb", "musashi"],
+  positioning: ["sunTzu", "taleb"],
+  advantage: ["sunTzu", "taleb"],
+  disadvantage: ["sunTzu", "aurelius", "beck"],
+
+  // Flow, effortlessness, naturalness — NEW
+  flow: ["laoTzu", "watts", "musashi"],
+  effortless: ["laoTzu", "watts"],
+  force: ["laoTzu", "sunTzu"],
+  forcing: ["laoTzu", "watts"],
+  pushing: ["laoTzu", "watts", "beck"],
+  resistance: ["laoTzu", "sunTzu", "watts"],
+  natural: ["laoTzu", "watts", "krishnamurti"],
+  water: ["laoTzu", "sunTzu"],
+  soft: ["laoTzu"],
+  hard: ["laoTzu", "sunTzu"],
+  empty: ["laoTzu", "watts"],
+  full: ["laoTzu"],
+
+  // Cognitive, thinking patterns — NEW
+  thoughts: ["beck", "watts", "krishnamurti"],
+  thinking: ["beck", "watts", "feynman"],
+  believe: ["beck", "feynman", "krishnamurti"],
+  belief: ["beck", "feynman", "krishnamurti"],
+  cognitive: ["beck"],
+  distortion: ["beck"],
+  catastrophe: ["beck", "aurelius"],
+  catastrophizing: ["beck"],
+  failure: ["beck", "dostoevsky", "aurelius"],
+  "self-critical": ["beck", "aurelius"],
+  negative: ["beck", "watts", "aurelius"],
+  positive: ["beck", "aurelius"],
+  evidence: ["beck", "feynman"],
+  assumption: ["beck", "feynman"],
+  interpretation: ["beck", "watts"],
 
   // Faith, spirituality, God
   faith: ["jesus", "kierkegaard", "dostoevsky"],

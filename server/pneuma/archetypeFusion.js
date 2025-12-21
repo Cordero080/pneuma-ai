@@ -324,16 +324,26 @@ const POSITIVE_SIGNALS = [
   /\b(yes|yeah|exactly|precisely|good|nice|that's? (it|right|true))\b/i,
   /\b(I (agree|like|love) (that|this))\b/i,
   /\b(makes sense|fair point|true)\b/i,
-  /\b(damn|wow|whoa|shit)\b/i, // Surprise/impact (contextual)
+  /\b(damn|wow|whoa)\b/i, // Surprise/impact (removed "shit" - too ambiguous)
   /^(yes|yeah|true|exactly)[.!]?$/i, // Short affirmations
+  /\b(that('s| is) (helpful|insightful|what I (needed|meant)))\b/i,
+  /\b(you (get|got|understand) (it|me|this))\b/i,
 ];
 
 const NEGATIVE_SIGNALS = [
   /\b(no|nope|wrong|not (quite|really|what))\b/i,
   /\b(stop|don't|quit|enough)\b/i,
-  /\b(miss(ed|ing) the point|off track|tangent)\b/i,
+  /\b(miss(ed|ing) the (point|plot)|off track|tangent)\b/i,
   /\b(same (argument|thing)|stuck|loop|repetitive)\b/i,
   /\b(basic|shallow|surface|generic)\b/i,
+  // Frustration signals — Pablo's actual feedback patterns
+  /\b(dumbass|dick|idiot|asshole|stupid)\b/i,
+  /\b(what( the)? (hell|fuck)|wtf)\b/i,
+  /\b(you('re| are) (not|being) (helpful|listening|getting))\b/i,
+  /\b(turning.*(on me|this around))\b/i,
+  /\b(less (engaging|helpful|intelligent|wise))\b/i,
+  /\b(dodg(ing|ed)|deflect(ing|ed)|avoid(ing|ed))\b/i,
+  /\b(wait a minute|hold on|that's not)\b/i,
 ];
 
 /**

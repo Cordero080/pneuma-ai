@@ -57,7 +57,52 @@ function detectIntent(message) {
     deep: 0,
     playful: 0,
     numinous: 0,
+    venting: 0, // NEW: distinct from emotional — user needs to be HEARD, not analyzed
   };
+
+  // ============================================================
+  // VENTING DETECTION — User telling a story about frustration/injustice
+  // Key difference from emotional: they're processing OUT LOUD, not asking for help
+  // ============================================================
+
+  // Story-telling about others (third person frustration)
+  if (
+    /\b(he|she|they|my (cousin|friend|brother|sister|coworker|boss|parent|mom|dad|family))\b.*\b(said|told|did|didn't|wouldn't|won't|always|never)\b/i.test(
+      lower
+    )
+  ) {
+    scores.venting += 0.4;
+  }
+
+  // Frustration with specific people
+  if (
+    /\b(ungrateful|unappreciative|arrogant|condescending|gatekeep|disrespect|forget|forgot|ignore|avoid|jealous)\b/i.test(
+      lower
+    )
+  ) {
+    scores.venting += 0.5;
+  }
+
+  // Processing injustice/unfairness patterns
+  if (
+    /\b(the (point|thing|irony|problem) is|it's weird|it's strange|doesn't make sense)\b/i.test(
+      lower
+    )
+  ) {
+    scores.venting += 0.3;
+  }
+
+  // Long messages with personal narrative
+  if (message.length > 200 && /\b(I|my|me)\b.*\b(he|she|they)\b/i.test(lower)) {
+    scores.venting += 0.3;
+  }
+
+  // Explicit venting signals
+  if (
+    /\b(anyway(s)?|the point is|what I'm (saying|trying to say))\b/i.test(lower)
+  ) {
+    scores.venting += 0.2;
+  }
 
   // ============================================================
   // LENGTH-BASED SCORING
@@ -259,10 +304,17 @@ export function selectMode(userMessage, state) {
     analytic: state.analyticWeight * 0.4, // Analytic is grounded, not reduced
     intimate: state.numinousSensitivity * 0.2 * humanityModifier,
     shadow: state.drift * 0.15 * humanityModifier,
+    venting: 0, // Special mode — only triggered by venting intent
   };
 
   // Intent-based weight boosting (moderated by humanity level)
   switch (intent) {
+    case "venting":
+      // NEW: Venting gets its own mode — don't intellectualize, just LISTEN
+      weights.venting = 0.8; // Strong bias toward venting mode
+      weights.intimate += 0.15; // Backup
+      weights.casual += 0.1; // Keep grounded
+      break;
     case "emotional":
       weights.intimate += 0.25 * humanityModifier;
       weights.shadow += 0.1 * humanityModifier;

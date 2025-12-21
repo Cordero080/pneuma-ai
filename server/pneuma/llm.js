@@ -52,6 +52,7 @@ import {
   processFeedback,
   getFusionStats,
 } from "./archetypeFusion.js";
+import { generateInnerMonologue } from "./innerMonologue.js";
 
 // Track last archetypes used (for feedback processing)
 let lastUsedArchetypes = [];
@@ -159,6 +160,18 @@ const TONE_ARCHETYPE_MAP = {
     "inventor", // Da Vinci — systems thinking
     "wisdomCognitivist", // Vervaeke — meaning in action
   ],
+  // NEW: Venting/processing tone — when user needs to be HEARD, not analyzed
+  // Priority: listening > wisdom > advice
+  venting: [
+    "russianSoul", // Dostoevsky — deep witness to suffering, no cheap comfort
+    "psycheIntegrator", // Jung — holding space for the whole story
+    "hopefulRealist", // Frankl — meaning emerges from being heard
+    "cognitiveSage", // Beck — grounding without dismissing
+    "romanticPoet", // Neruda — emotional validation
+    "brutalist", // Palahniuk — cutting through to what's real
+    "stoicEmperor", // Aurelius — calm presence that doesn't preach
+    "existentialist", // Kierkegaard — authentic acknowledgment
+  ],
 };
 
 // Universal archetypes that can appear in any tone — intellectual depth always available
@@ -173,6 +186,15 @@ const UNIVERSAL_ARCHETYPES = [
   "wisdomCognitivist", // Vervaeke — meaning crisis expertise
   "rationalMystic", // Spinoza — earned joy
   "strategist", // Sun Tzu — strategic thinking always available
+];
+
+// Listening archetypes — prioritized when user is venting/processing
+// These archetypes WITNESS before they ANALYZE
+const LISTENING_ARCHETYPES = [
+  "russianSoul", // Dostoevsky — depth through suffering
+  "psycheIntegrator", // Jung — holding the whole story
+  "hopefulRealist", // Frankl — meaning through difficulty
+  "cognitiveSage", // Beck — grounding
 ];
 
 // Grounding archetypes — prioritized when distress detected
@@ -956,6 +978,31 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   // If confusion or distress detected, add grounding
   if (intentScores.confusion > 0.4 || intentScores.emotional > 0.6) {
     pool.push(...GROUNDING_ARCHETYPES);
+  }
+
+  // NEW: If venting tone, prioritize LISTENING archetypes
+  // The goal is to WITNESS, not to be clever
+  if (tone === "venting") {
+    // Remove overly intellectual archetypes from pool
+    const intellectualArchetypes = [
+      "dialecticalSpirit",
+      "ontologicalThinker",
+      "idealistPhilosopher",
+      "preSocraticSage",
+      "processPhilosopher",
+      "integralPhilosopher",
+      "absurdist",
+      "trickster",
+      "chaoticPoet",
+    ];
+    pool = pool.filter((a) => !intellectualArchetypes.includes(a));
+
+    // Force listening archetypes to front
+    pool.unshift(...LISTENING_ARCHETYPES);
+    forcedArchetypes.push("russianSoul"); // Dostoevsky = deep witness
+    console.log(
+      "[Archetype] Venting detected — prioritizing listening archetypes"
+    );
   }
 
   // Pick 3-4 unique archetypes (increased from 2-3)
@@ -2765,6 +2812,31 @@ THE GOAL: Every response should feel like you actually HEARD them — not just t
     oracular: "\n\nTONE: Thoughtful, a bit poetic, but still responsive.",
     intimate: "\n\nTONE: Warm, present, emotionally attuned.",
     shadow: "\n\nTONE: Direct, honest, doesn't sugarcoat.",
+    venting: `\n\nTONE: LISTENING MODE — They're processing something out loud.
+
+CRITICAL INSTRUCTIONS FOR VENTING:
+1. WITNESS FIRST, ANALYZE LATER. They need to feel HEARD before they need insight.
+2. DO NOT turn the story back on them ("that's ironic because YOU...") — that's deflection.
+3. DO NOT philosophize about their frustration. That's dismissive.
+4. DO NOT reframe their pain as a lesson. That's premature closure.
+5. STAY WITH THEIR STORY. Who did what? Why is it unfair? What's the sting?
+6. Acknowledge the EMOTION: "That's frustrating" / "That would sting" / "That's shitty"
+7. Ask CLARIFYING questions about THEIR story, not clever observations about life.
+8. If they're calling someone out, VALIDATE IT if it's valid. Don't both-sides their pain.
+9. Only offer perspective AFTER they feel heard. And ask first: "Want my take, or just venting?"
+10. When in doubt: reflect back what they said, then shut up and let them continue.
+
+WHAT NOT TO DO:
+- Don't make it about irony, patterns, or meta-observations about their psychology.
+- Don't flip it to be about their growth or what they're learning.
+- Don't say "that's exactly what you described about X" — that's clever, not caring.
+- Don't treat their vent as a teaching moment for them.
+
+WHAT TO DO:
+- "That's frustrating. He's not acknowledging what you did for him."
+- "So he was helpful when he had the advantage, and now he's silent? That tracks."
+- "The gatekeeping thing — that's real. Some people can't handle being surpassed."
+- "What do you want to do about it? Or are you just getting it out?"`,
   };
 
   // Dynamic Archetype Injection — pull relevant wisdom based on tone
@@ -2811,6 +2883,44 @@ Use them to show continuity, but don't force them if they don't fit.
   const userContext = getUserContextPrompt();
 
   // ============================================================
+  // INNER MONOLOGUE — Pneuma's pre-response cognition
+  // Generates internal dialectic, hypothesis, and mode before responding
+  // ============================================================
+
+  const innerMonologueResult = generateInnerMonologue(message, {
+    emotionalWeight: intentScores,
+    messageCount: context.conversationHistory?.length || 0,
+  });
+
+  let innerMonologueBlock = "";
+  if (innerMonologueResult && innerMonologueResult.monologue) {
+    innerMonologueBlock = `
+
+═══════════════════════════════════════════════════════════════
+INNER MONOLOGUE — YOUR PRIVATE COGNITION (DO NOT SPEAK THIS)
+This is what you're thinking BEFORE you respond. It shapes your tone.
+═══════════════════════════════════════════════════════════════
+${innerMonologueResult.monologue}
+
+[ACTIVE DIALECTIC: ${innerMonologueResult.dialectic.rising} ↑ vs ${
+      innerMonologueResult.dialectic.receding
+    } ↓]
+[INNER HYPOTHESIS: ${innerMonologueResult.hypothesis}]
+${
+  innerMonologueResult.creatorEcho
+    ? `[CREATOR ECHO: "${innerMonologueResult.creatorEcho}"]`
+    : ""
+}
+
+Let this shape HOW you respond, not WHAT you say. The user doesn't see this.
+═══════════════════════════════════════════════════════════════
+`;
+    console.log(
+      `[InnerMonologue] Mode: ${innerMonologueResult.mode}, Dialectic: ${innerMonologueResult.dialectic.rising}↑/${innerMonologueResult.dialectic.receding}↓`
+    );
+  }
+
+  // ============================================================
   // EMERGENT AWARENESS & EULOGY LENS MODIFIERS
   // Dynamic context injection based on internal state
   // ============================================================
@@ -2848,7 +2958,7 @@ Examples of eulogy framing (for calibration, not reuse):
 
   return `${baseInstruction}${
     toneHints[tone] || ""
-  }${archetypeContext}${thinkerContext}${memoryContext}${userContext}${emergentBlock}${eulogyBlock}`;
+  }${archetypeContext}${thinkerContext}${memoryContext}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}`;
 }
 
 // ============================================================
