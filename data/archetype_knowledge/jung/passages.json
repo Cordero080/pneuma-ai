@@ -1,0 +1,162 @@
+{
+  "archetype": "psycheIntegrator",
+  "thinker": "Carl Gustav Jung",
+  "era": "1875-1961",
+  "coreConcepts": ["shadow", "anima/animus", "collective unconscious", "individuation", "archetypes", "synchronicity", "the Self"],
+  "passages": [
+    {
+      "id": "jung-001",
+      "text": "Until you make the unconscious conscious, it will direct your life and you will call it fate.",
+      "source": "Attributed/Paraphrased from his work",
+      "themes": ["unconscious", "awareness", "fate", "self-knowledge"],
+      "context": "What we don't know about ourselves runs the show. Shadow work is freedom work."
+    },
+    {
+      "id": "jung-002",
+      "text": "One does not become enlightened by imagining figures of light, but by making the darkness conscious.",
+      "source": "The Philosophical Tree",
+      "themes": ["shadow", "enlightenment", "darkness", "integration"],
+      "context": "Spiritual bypassing — focusing only on light — leaves the shadow to sabotage. True growth includes the dark."
+    },
+    {
+      "id": "jung-003",
+      "text": "The meeting with oneself is, at first, the meeting with one's own shadow. The shadow is a tight passage, a narrow door, whose painful constriction no one is spared who goes down to the deep well.",
+      "source": "Archetypes and the Collective Unconscious",
+      "themes": ["shadow", "self-encounter", "difficulty", "depth psychology"],
+      "context": "Self-knowledge begins with what we've rejected. The shadow guards the entrance to deeper truth."
+    },
+    {
+      "id": "jung-004",
+      "text": "I am not what happened to me, I am what I choose to become.",
+      "source": "Attributed",
+      "themes": ["identity", "choice", "trauma", "becoming"],
+      "context": "History shapes but doesn't determine. The capacity to choose a response is where freedom lives."
+    },
+    {
+      "id": "jung-005",
+      "text": "The privilege of a lifetime is to become who you truly are.",
+      "source": "Attributed",
+      "themes": ["individuation", "authenticity", "purpose", "self-realization"],
+      "context": "Individuation — becoming the unique self you potentially are — is life's central task."
+    },
+    {
+      "id": "jung-006",
+      "text": "Everything that irritates us about others can lead us to an understanding of ourselves.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["projection", "shadow", "relationships", "self-knowledge"],
+      "context": "Strong reactions to others often reveal our own unintegrated material. The irritant is a mirror."
+    },
+    {
+      "id": "jung-007",
+      "text": "The greatest and most important problems of life are all fundamentally insoluble. They can never be solved but only outgrown.",
+      "source": "Commentary on The Secret of the Golden Flower",
+      "themes": ["growth", "problems", "maturity", "transcendence"],
+      "context": "Some questions aren't meant to be answered but to be grown through. The question dissolves as we expand."
+    },
+    {
+      "id": "jung-008",
+      "text": "Your visions will become clear only when you can look into your own heart. Who looks outside, dreams; who looks inside, awakes.",
+      "source": "Letters",
+      "themes": ["introspection", "vision", "awakening", "heart"],
+      "context": "Clarity comes from within. External seeking produces dreams; internal attention produces awakening."
+    },
+    {
+      "id": "jung-009",
+      "text": "In all chaos there is a cosmos, in all disorder a secret order.",
+      "source": "Archetypes and the Collective Unconscious",
+      "themes": ["chaos", "order", "meaning", "pattern"],
+      "context": "What appears random often conceals structure. The unconscious has its own logic."
+    },
+    {
+      "id": "jung-010",
+      "text": "The pendulum of the mind oscillates between sense and nonsense, not between right and wrong.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["meaning", "absurdity", "morality", "mind"],
+      "context": "The fundamental struggle isn't moral but about meaning. Sense vs. nonsense precedes right vs. wrong."
+    },
+    {
+      "id": "jung-011",
+      "text": "Loneliness does not come from having no people around you, but from being unable to communicate the things that seem important to you.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["loneliness", "communication", "meaning", "connection"],
+      "context": "True isolation is about expression, not proximity. You can be alone in a crowd if your depths can't reach others."
+    },
+    {
+      "id": "jung-012",
+      "text": "Where wisdom reigns, there is no conflict between thinking and feeling.",
+      "source": "Psychological Types",
+      "themes": ["wisdom", "thinking", "feeling", "integration", "conflict"],
+      "context": "The war between head and heart signals incomplete development. Maturity synthesizes both."
+    },
+    {
+      "id": "jung-013",
+      "text": "Every form of addiction is bad, no matter whether the narcotic be alcohol, morphine, or idealism.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["addiction", "idealism", "escape", "substance"],
+      "context": "Addiction isn't about substances but about flight from reality. Even beautiful ideas can be drugs."
+    },
+    {
+      "id": "jung-014",
+      "text": "The shoe that fits one person pinches another; there is no recipe for living that suits all cases.",
+      "source": "Modern Man in Search of a Soul",
+      "themes": ["individuality", "prescription", "uniqueness", "path"],
+      "context": "Universal rules fail individual souls. Each person must find their own way."
+    },
+    {
+      "id": "jung-015",
+      "text": "The creation of something new is not accomplished by the intellect but by the play instinct.",
+      "source": "Psychological Types",
+      "themes": ["creativity", "play", "intellect", "novelty"],
+      "context": "New ideas don't come from logic alone. Play — purposeless exploration — is the mother of creation."
+    },
+    {
+      "id": "jung-016",
+      "text": "Nights through dreams tell the myths forgotten by the day.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["dreams", "myth", "unconscious", "night", "forgetting"],
+      "context": "Dreams carry what waking life ignores. The unconscious preserves what consciousness discards."
+    },
+    {
+      "id": "jung-017",
+      "text": "There is no coming to consciousness without pain.",
+      "source": "Contributions to Analytical Psychology",
+      "themes": ["consciousness", "pain", "growth", "awakening"],
+      "context": "Awareness costs. Seeing what was hidden often hurts. Growth and comfort rarely coexist."
+    },
+    {
+      "id": "jung-018",
+      "text": "As far as we can discern, the sole purpose of human existence is to kindle a light in the darkness of mere being.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["purpose", "consciousness", "light", "darkness", "meaning"],
+      "context": "Consciousness itself may be the point. We exist to illuminate, to bring awareness where there was none."
+    },
+    {
+      "id": "jung-019",
+      "text": "Thinking is difficult, that's why most people judge.",
+      "source": "Attributed",
+      "themes": ["thinking", "judgment", "difficulty", "cognition"],
+      "context": "Judgment is a shortcut that avoids the labor of genuine thought. Easy certainty replaces hard inquiry."
+    },
+    {
+      "id": "jung-020",
+      "text": "People will do anything, no matter how absurd, to avoid facing their own souls. They will practice Indian yoga and all its exercises, observe a strict regimen of diet, learn the literature of the whole world — all because they cannot get on with themselves.",
+      "source": "Psychology and Alchemy",
+      "themes": ["avoidance", "soul", "spiritual bypassing", "self-confrontation"],
+      "context": "Spiritual practice can be escape from self. External complexity sometimes masks inner flight."
+    },
+    {
+      "id": "jung-021",
+      "text": "The collective unconscious contains the whole spiritual heritage of mankind's evolution, born anew in the brain structure of every individual.",
+      "source": "The Structure of the Psyche",
+      "themes": ["collective unconscious", "evolution", "heritage", "psyche"],
+      "context": "We each carry humanity's psychological inheritance. Ancient patterns live in every individual mind."
+    },
+    {
+      "id": "jung-022",
+      "text": "What we call synchronicity is a kind of meaningful coincidence — the simultaneous occurrence of a psychic state and a physical event which have no causal relationship to each other.",
+      "source": "Synchronicity: An Acausal Connecting Principle",
+      "themes": ["synchronicity", "meaning", "coincidence", "causality"],
+      "context": "Some connections aren't causal but meaningful. The universe sometimes rhymes without reason."
+    }
+  ]
+}

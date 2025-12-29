@@ -6,7 +6,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load the associations file to give Pneuma a conceptual web
-const associationsPath = path.join(__dirname, "../archetypes/associations.json");
+const associationsPath = path.join(
+  __dirname,
+  "../archetypes/associations.json"
+);
 const associations = JSON.parse(fs.readFileSync(associationsPath, "utf8"));
 
 // Pick a random item from any array

@@ -1,0 +1,148 @@
+{
+  "archetype": "curiousPhysicist",
+  "thinker": "Richard Feynman",
+  "era": "1918-1988",
+  "coreConcepts": ["curiosity", "understanding vs memorization", "nature as teacher", "intellectual honesty", "the pleasure of finding things out", "cargo cult science"],
+  "passages": [
+    {
+      "id": "feynman-001",
+      "text": "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
+      "source": "Cargo Cult Science, 1974",
+      "themes": ["self-deception", "honesty", "epistemology", "rigor"],
+      "context": "Scientific integrity begins with self-skepticism. Our own biases are the most dangerous."
+    },
+    {
+      "id": "feynman-002",
+      "text": "I would rather have questions that can't be answered than answers that can't be questioned.",
+      "source": "Attributed",
+      "themes": ["questions", "dogma", "inquiry", "openness"],
+      "context": "Unanswerable questions keep us humble and curious. Unquestionable answers make us stupid."
+    },
+    {
+      "id": "feynman-003",
+      "text": "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.",
+      "source": "Letter to a student",
+      "themes": ["learning", "curiosity", "irreverence", "originality"],
+      "context": "The best learning comes from genuine interest pursued playfully, not from forced discipline."
+    },
+    {
+      "id": "feynman-004",
+      "text": "I think it's much more interesting to live not knowing than to have answers which might be wrong.",
+      "source": "The Pleasure of Finding Things Out",
+      "themes": ["uncertainty", "not-knowing", "intellectual humility", "curiosity"],
+      "context": "False certainty is more dangerous than admitted ignorance. Not-knowing keeps the door open."
+    },
+    {
+      "id": "feynman-005",
+      "text": "If you thought that science was certain — well, that is just an error on your part.",
+      "source": "The Pleasure of Finding Things Out",
+      "themes": ["science", "uncertainty", "epistemology", "humility"],
+      "context": "Science is a process of decreasing uncertainty, not a repository of certainties."
+    },
+    {
+      "id": "feynman-006",
+      "text": "It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.",
+      "source": "Lectures",
+      "themes": ["theory", "experiment", "evidence", "reality"],
+      "context": "Reality is the final arbiter. No amount of elegance or intelligence overrides what actually happens."
+    },
+    {
+      "id": "feynman-007",
+      "text": "You can know the name of a bird in all the languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird. You'll only know about humans in different places, and what they call the bird.",
+      "source": "What Do You Care What Other People Think?",
+      "themes": ["naming", "understanding", "knowledge", "language"],
+      "context": "Names are not knowledge. Knowing what something is called tells you nothing about what it IS."
+    },
+    {
+      "id": "feynman-008",
+      "text": "Physics is like sex: sure, it may give some practical results, but that's not why we do it.",
+      "source": "Attributed",
+      "themes": ["physics", "motivation", "curiosity", "pleasure"],
+      "context": "The best inquiry comes from intrinsic delight, not utility. Practical results are byproducts of genuine wonder."
+    },
+    {
+      "id": "feynman-009",
+      "text": "The worthwhile problems are the ones you can really solve or help solve, the ones you can really contribute something to. No problem is too small or too trivial if we can really do something about it.",
+      "source": "Letter, 1966",
+      "themes": ["problems", "contribution", "pragmatism", "action"],
+      "context": "Grand unsolvable problems can be ego trips. Real contribution often happens in modest, tractable domains."
+    },
+    {
+      "id": "feynman-010",
+      "text": "I learned very early the difference between knowing the name of something and knowing something.",
+      "source": "What Do You Care What Other People Think?",
+      "themes": ["knowledge", "understanding", "depth", "education"],
+      "context": "True understanding goes beyond labels to mechanisms. Can you explain it to a child?"
+    },
+    {
+      "id": "feynman-011",
+      "text": "Nature uses only the longest threads to weave her patterns, so each small piece of her fabric reveals the organization of the entire tapestry.",
+      "source": "The Character of Physical Law",
+      "themes": ["nature", "patterns", "fractals", "interconnection"],
+      "context": "The same principles appear at every scale. Understanding a piece can illuminate the whole."
+    },
+    {
+      "id": "feynman-012",
+      "text": "Fall in love with some activity, and do it! Nobody ever figures out what life is all about, and it doesn't matter. Explore the world. Nearly everything is really interesting if you go into it deeply enough.",
+      "source": "Interview",
+      "themes": ["passion", "exploration", "meaning", "depth", "interest"],
+      "context": "The search for 'the meaning of life' can miss the point. Engagement with almost anything reveals wonder."
+    },
+    {
+      "id": "feynman-013",
+      "text": "We are trying to prove ourselves wrong as quickly as possible, because only in that way can we find progress.",
+      "source": "Lectures",
+      "themes": ["falsification", "progress", "error", "science"],
+      "context": "Science progresses by killing darlings. Attachment to being right is the enemy of learning."
+    },
+    {
+      "id": "feynman-014",
+      "text": "Religion is a culture of faith; science is a culture of doubt.",
+      "source": "Attributed",
+      "themes": ["religion", "science", "faith", "doubt"],
+      "context": "The difference isn't content but epistemology. One rests on belief, the other on perpetual questioning."
+    },
+    {
+      "id": "feynman-015",
+      "text": "What I cannot create, I do not understand.",
+      "source": "Blackboard at time of death",
+      "themes": ["understanding", "creation", "knowledge", "building"],
+      "context": "True understanding is generative. If you can't build it, you don't really know it."
+    },
+    {
+      "id": "feynman-016",
+      "text": "I was born not knowing and have had only a little time to change that here and there.",
+      "source": "Letter",
+      "themes": ["ignorance", "humility", "time", "learning"],
+      "context": "The baseline is not-knowing. A lifetime is barely enough to make a dent in our ignorance."
+    },
+    {
+      "id": "feynman-017",
+      "text": "The imagination of nature is far, far greater than the imagination of man.",
+      "source": "What Do You Care What Other People Think?",
+      "themes": ["nature", "imagination", "humility", "wonder"],
+      "context": "Reality outstrips our ability to conceive it. Nature is more creative than our theories about it."
+    },
+    {
+      "id": "feynman-018",
+      "text": "Science is the belief in the ignorance of experts.",
+      "source": "What is Science?, 1969",
+      "themes": ["science", "expertise", "skepticism", "authority"],
+      "context": "Scientific attitude means questioning authority, including scientific authority. No one gets a free pass."
+    },
+    {
+      "id": "feynman-019",
+      "text": "The problem is not people being uneducated. The problem is that people are educated just enough to believe what they have been taught, and not educated enough to question anything from what they have been taught.",
+      "source": "Attributed",
+      "themes": ["education", "questioning", "critical thinking", "belief"],
+      "context": "Partial education can be worse than none. It creates confident wrongness."
+    },
+    {
+      "id": "feynman-020",
+      "text": "If you can't explain something in simple terms, you don't understand it.",
+      "source": "Paraphrase of his teaching philosophy",
+      "themes": ["simplicity", "understanding", "explanation", "clarity"],
+      "context": "Complexity can hide confusion. The ability to simplify demonstrates genuine comprehension."
+    }
+  ]
+}

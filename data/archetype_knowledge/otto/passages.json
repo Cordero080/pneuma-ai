@@ -1,0 +1,148 @@
+{
+  "archetype": "numinousTheologian",
+  "thinker": "Rudolf Otto",
+  "era": "1869-1937",
+  "coreConcepts": ["the numinous", "mysterium tremendum", "mysterium fascinans", "the wholly other", "creature-feeling", "non-rational religious experience"],
+  "passages": [
+    {
+      "id": "otto-001",
+      "text": "The feeling of it may at times come sweeping like a gentle tide, pervading the mind with a tranquil mood of deepest worship. It may pass over into a more set and lasting attitude of the soul, continuing, as it were, thrillingly vibrant and resonant, until at last it dies away and the soul resumes its 'profane,' non-religious mood of everyday experience.",
+      "source": "The Idea of the Holy",
+      "themes": ["numinous", "worship", "experience", "mood", "sacred vs profane"],
+      "context": "Religious experience is not constant but arrives in waves. It transforms ordinary consciousness temporarily."
+    },
+    {
+      "id": "otto-002",
+      "text": "It may burst in sudden eruption up from the depths of the soul with spasms and convulsions, or lead to the strangest excitements, to intoxicated frenzy, to transport, and to ecstasy.",
+      "source": "The Idea of the Holy",
+      "themes": ["ecstasy", "religious experience", "intensity", "transport"],
+      "context": "The numinous can overwhelm. Religious experience isn't always gentle — it can shatter ordinary states."
+    },
+    {
+      "id": "otto-003",
+      "text": "The numinous is thus felt as objective and outside the self.",
+      "source": "The Idea of the Holy",
+      "themes": ["numinous", "objectivity", "transcendence", "otherness"],
+      "context": "Unlike emotions which feel internal, the numinous feels encountered — as if coming from beyond the self."
+    },
+    {
+      "id": "otto-004",
+      "text": "Mysterium tremendum — the feeling of terror before the tremendous mystery. This is not ordinary fear, but something qualitatively different: awe that stirs the deepest foundations of our being.",
+      "source": "The Idea of the Holy (paraphrase)",
+      "themes": ["mysterium tremendum", "awe", "terror", "sacred fear"],
+      "context": "Sacred fear differs from survival fear. It's the shudder before something utterly beyond comprehension."
+    },
+    {
+      "id": "otto-005",
+      "text": "The daemonic-divine object may appear to the mind an object of horror and dread, but at the same time it is no less something that allures with a potent charm, and the creature, who trembles before it, utterly cowed and cast down, has always at the same time the impulse to turn to it, nay even to make it somehow his own.",
+      "source": "The Idea of the Holy",
+      "themes": ["mysterium fascinans", "attraction", "dread", "ambivalence", "the sacred"],
+      "context": "The numinous both terrifies and attracts. We flee and pursue it simultaneously. This ambivalence defines the sacred."
+    },
+    {
+      "id": "otto-006",
+      "text": "Creature-feeling — the emotion of a creature, submerged and overwhelmed by its own nothingness in contrast to that which is supreme above all creatures.",
+      "source": "The Idea of the Holy",
+      "themes": ["creature-feeling", "humility", "smallness", "transcendence"],
+      "context": "Before the numinous, we feel our contingency — not worthless, but radically dependent, small before the infinite."
+    },
+    {
+      "id": "otto-007",
+      "text": "The truly 'mysterious' object is beyond our apprehension and comprehension, not only because our knowledge has certain irremovable limits, but because in it we come upon something inherently 'wholly other.'",
+      "source": "The Idea of the Holy",
+      "themes": ["wholly other", "mystery", "limits of knowledge", "transcendence"],
+      "context": "The holy isn't just unknown — it's unknowable in kind. It exceeds our categories entirely."
+    },
+    {
+      "id": "otto-008",
+      "text": "The element of fascination is not merely that which gives consolation. It is also something that captivates and transports, fills with strange ravishment, rising often enough to the pitch of dizzy intoxication.",
+      "source": "The Idea of the Holy",
+      "themes": ["fascinans", "intoxication", "captivation", "transport"],
+      "context": "Divine attraction isn't just comforting — it can be intoxicating, overwhelming, almost unbearable in its intensity."
+    },
+    {
+      "id": "otto-009",
+      "text": "Holiness — 'the holy' — is a category of interpretation and valuation peculiar to the sphere of religion. It is, indeed, applied by transference to another sphere — that of ethics — but it is not itself derived from this.",
+      "source": "The Idea of the Holy",
+      "themes": ["holiness", "ethics", "religion", "categories"],
+      "context": "The holy is not reducible to the good. It's a distinct category that ethics borrows from, not the reverse."
+    },
+    {
+      "id": "otto-010",
+      "text": "The mental state of 'creature-feeling' is not merely an analogy or symbol of another state of mind; it is the quite definite and unmistakable experience of the self as 'creature,' dependent, contingent, merely derived.",
+      "source": "The Idea of the Holy",
+      "themes": ["creature-feeling", "dependence", "contingency", "self-experience"],
+      "context": "This isn't metaphor but direct experience — feeling oneself as created rather than self-sufficient."
+    },
+    {
+      "id": "otto-011",
+      "text": "In the moment of the numinous experience, rational concepts lose their edge. We face that which cannot be put into words, which escapes all our familiar categories of understanding.",
+      "source": "The Idea of the Holy (paraphrase)",
+      "themes": ["ineffability", "language limits", "numinous", "reason"],
+      "context": "The numinous breaks language. Our concepts, built for ordinary reality, fail before the holy."
+    },
+    {
+      "id": "otto-012",
+      "text": "This feeling or consciousness of the 'wholly other' will attach itself to, or sometimes be indirectly aroused by means of, objects which are already puzzling upon the 'natural' plane, or are of a surprising or astounding character.",
+      "source": "The Idea of the Holy",
+      "themes": ["wholly other", "wonder", "natural mystery", "triggers"],
+      "context": "Natural wonders can trigger numinous experience. The mysterious in nature points toward the Wholly Other."
+    },
+    {
+      "id": "otto-013",
+      "text": "The religious consciousness does not rest satisfied with grasping the merely moral or rational character of God. It apprehends Him also as something 'more' — the 'more' of the numinous.",
+      "source": "The Idea of the Holy",
+      "themes": ["God", "numinous", "beyond morality", "religion vs ethics"],
+      "context": "God as merely good or rational misses the point. The numinous exceeds our moral and rational categories."
+    },
+    {
+      "id": "otto-014",
+      "text": "The strange and even the grotesque may serve to point toward the numinous — things uncanny, weird, which produce the peculiar 'shudder' that is the first stirring of numinous feeling.",
+      "source": "The Idea of the Holy (paraphrase)",
+      "themes": ["uncanny", "grotesque", "shudder", "numinous triggers"],
+      "context": "The weird and eerie aren't just scary — they can be thresholds to the sacred. The shudder is a signal."
+    },
+    {
+      "id": "otto-015",
+      "text": "The 'wrath' of God is nothing but the tremendum itself, perceived emotionally — the mysterium in its aspect of power, urgency, awfulness.",
+      "source": "The Idea of the Holy",
+      "themes": ["wrath", "tremendum", "power", "divine nature"],
+      "context": "Divine wrath isn't anger like human anger. It's the terrifying aspect of ultimate power encountered."
+    },
+    {
+      "id": "otto-016",
+      "text": "Where no religious experience is possible, there the idea of the holy cannot arise either, for it is something that has to be grasped in experience, not taught or proved.",
+      "source": "The Idea of the Holy (paraphrase)",
+      "themes": ["experience", "teaching", "proof", "the holy"],
+      "context": "You cannot argue someone into numinous experience. It must be lived, not learned from books."
+    },
+    {
+      "id": "otto-017",
+      "text": "The feeling of the numinous is not to be confused with any 'natural' emotion. It is sui generis — of its own unique kind — and cannot be reduced to something else.",
+      "source": "The Idea of the Holy (paraphrase)",
+      "themes": ["sui generis", "irreducibility", "unique experience", "numinous"],
+      "context": "Religious experience isn't disguised fear or awe at nature. It's its own thing, not derivable from secular emotions."
+    },
+    {
+      "id": "otto-018",
+      "text": "Silence is the response most adequate to the numinous, for it acknowledges what words cannot capture.",
+      "source": "Paraphrase of his thought",
+      "themes": ["silence", "ineffability", "response", "adequacy"],
+      "context": "Before the truly holy, words fail. Silence isn't absence but appropriate response to what exceeds language."
+    },
+    {
+      "id": "otto-019",
+      "text": "The history of religion is the history of humanity's encounter with the numinous — the same profound experience appearing in varied cultural forms.",
+      "source": "Paraphrase",
+      "themes": ["history of religion", "numinous", "culture", "universality"],
+      "context": "Different religions are different responses to the same numinous reality. The experience is universal, the forms vary."
+    },
+    {
+      "id": "otto-020",
+      "text": "Music, architecture, ritual — these can evoke the numinous because they bypass the rational mind and speak directly to that capacity in us which responds to the holy.",
+      "source": "Paraphrase",
+      "themes": ["art", "ritual", "evocation", "non-rational"],
+      "context": "Art and ritual aren't decorations but technologies of numinous evocation. They work below reason."
+    }
+  ]
+}

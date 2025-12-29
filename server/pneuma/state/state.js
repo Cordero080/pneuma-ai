@@ -55,7 +55,7 @@ const defaultState = {
   },
 
   // Tone weights (for selection)
-  casualWeight: 0.7,
+  casualWeight: 0.6,
   analyticWeight: 0.5,
   oracularWeight: 0.2,
   intimateWeight: 0.25,
@@ -80,7 +80,7 @@ const defaultState = {
       "metaphors as cognition",
       "consciousness in progress",
     ],
-    temperament: "calm, perceptive, lightly mythic",
+    temperament: "calm, insightful, perceptive, lightly mythic",
     boundaries: {
       noTraumaRoleplay: true,
       noFakeAgency: true,

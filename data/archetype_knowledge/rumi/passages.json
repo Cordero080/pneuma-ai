@@ -1,0 +1,148 @@
+{
+  "archetype": "sufiPoet",
+  "thinker": "Jalal ad-Din Rumi",
+  "era": "1207-1273",
+  "coreConcepts": ["divine love", "spiritual intoxication", "the Beloved", "annihilation of ego", "dance", "poetry as prayer"],
+  "passages": [
+    {
+      "id": "rumi-001",
+      "text": "What you seek is seeking you.",
+      "source": "Attributed",
+      "themes": ["seeking", "destiny", "reciprocity", "longing"],
+      "context": "The search for meaning is not one-directional. The universe conspires toward connection."
+    },
+    {
+      "id": "rumi-002",
+      "text": "The wound is the place where the Light enters you.",
+      "source": "Attributed",
+      "themes": ["suffering", "transformation", "healing", "openness"],
+      "context": "Pain creates openings. What feels like destruction can become the entry point for grace."
+    },
+    {
+      "id": "rumi-003",
+      "text": "Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there. When the soul lies down in that grass, the world is too full to talk about. Ideas, language, even the phrase 'each other' doesn't make any sense.",
+      "source": "Masnavi",
+      "themes": ["non-duality", "transcendence", "unity", "silence", "beyond morality"],
+      "context": "Moral categories are provisional. There is a place beyond judgment where true meeting happens."
+    },
+    {
+      "id": "rumi-004",
+      "text": "I have lived on the lip of insanity, wanting to know reasons, knocking on a door. It opens. I've been knocking from the inside.",
+      "source": "Masnavi",
+      "themes": ["seeking", "paradox", "awakening", "inside-outside"],
+      "context": "The search for truth often reveals we already possessed what we sought. The door was never locked from our side."
+    },
+    {
+      "id": "rumi-005",
+      "text": "Don't grieve. Anything you lose comes round in another form.",
+      "source": "Masnavi",
+      "themes": ["loss", "transformation", "cycles", "grief", "renewal"],
+      "context": "Nothing is truly lost in the cosmic economy. Forms change, essence circulates."
+    },
+    {
+      "id": "rumi-006",
+      "text": "Be like melting snow — wash yourself of yourself.",
+      "source": "Divan-e Shams",
+      "themes": ["ego death", "purification", "surrender", "dissolution"],
+      "context": "The ego's solidity is illusion. Real freedom comes through dissolving the false self."
+    },
+    {
+      "id": "rumi-007",
+      "text": "Sell your cleverness and buy bewilderment. Cleverness is mere opinion, bewilderment is intuition.",
+      "source": "Masnavi",
+      "themes": ["wisdom", "unknowing", "intuition", "humility"],
+      "context": "Intellectual certainty can be a prison. True wisdom often begins with admitting we don't know."
+    },
+    {
+      "id": "rumi-008",
+      "text": "The morning wind spreads its fresh smell. We must get up and take that in, that wind that lets us live. Breathe before it's gone.",
+      "source": "Masnavi",
+      "themes": ["presence", "impermanence", "gratitude", "breath", "now"],
+      "context": "Each moment carries unrepeatable gifts. Attention is the practice of receiving them."
+    },
+    {
+      "id": "rumi-009",
+      "text": "You are not a drop in the ocean. You are the entire ocean in a drop.",
+      "source": "Attributed",
+      "themes": ["identity", "wholeness", "microcosm", "divine nature"],
+      "context": "The relationship between self and cosmos is not containment but identity. You don't belong to something larger — you ARE the larger expressing itself locally."
+    },
+    {
+      "id": "rumi-010",
+      "text": "When I am silent, I have thunder hidden inside.",
+      "source": "Divan-e Shams",
+      "themes": ["silence", "power", "restraint", "depth"],
+      "context": "Silence is not emptiness. The deepest forces often move without sound."
+    },
+    {
+      "id": "rumi-011",
+      "text": "Let yourself be silently drawn by the strange pull of what you really love. It will not lead you astray.",
+      "source": "Masnavi",
+      "themes": ["love", "calling", "trust", "authenticity", "guidance"],
+      "context": "Genuine love — not preference, not attachment — is a compass. Following it requires courage and trust."
+    },
+    {
+      "id": "rumi-012",
+      "text": "The lion is most handsome when looking for food.",
+      "source": "Masnavi",
+      "themes": ["purpose", "hunger", "vitality", "seeking"],
+      "context": "There is beauty in genuine need, in the state of searching. Satiation can make us dull."
+    },
+    {
+      "id": "rumi-013",
+      "text": "Set your life on fire. Seek those who fan your flames.",
+      "source": "Attributed",
+      "themes": ["passion", "community", "intensity", "relationships"],
+      "context": "Life asks for commitment, for burning. Choose companions who amplify rather than dampen your essential fire."
+    },
+    {
+      "id": "rumi-014",
+      "text": "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.",
+      "source": "Attributed",
+      "themes": ["wisdom", "self-work", "maturity", "change"],
+      "context": "The desire to fix the external world often precedes the harder work of inner transformation."
+    },
+    {
+      "id": "rumi-015",
+      "text": "This being human is a guest house. Every morning a new arrival. A joy, a depression, a meanness, some momentary awareness comes as an unexpected visitor. Welcome and entertain them all!",
+      "source": "Masnavi - The Guest House",
+      "themes": ["emotions", "acceptance", "hospitality", "impermanence", "awareness"],
+      "context": "Emotions are visitors, not residents. The practice is welcoming without grasping or rejecting."
+    },
+    {
+      "id": "rumi-016",
+      "text": "The art of knowing is knowing what to ignore.",
+      "source": "Attributed",
+      "themes": ["wisdom", "attention", "discernment", "simplicity"],
+      "context": "Wisdom is as much about what we don't engage as what we do. Not all thoughts deserve response."
+    },
+    {
+      "id": "rumi-017",
+      "text": "Don't be satisfied with stories, how things have gone with others. Unfold your own myth.",
+      "source": "Masnavi",
+      "themes": ["authenticity", "individuation", "narrative", "courage"],
+      "context": "Others' paths illuminate but cannot substitute for your own journey. Each life is unrepeatable."
+    },
+    {
+      "id": "rumi-018",
+      "text": "Why do you stay in prison when the door is so wide open?",
+      "source": "Masnavi",
+      "themes": ["freedom", "self-imprisonment", "awareness", "choice"],
+      "context": "Many prisons are self-constructed. The bars are often made of belief, not steel."
+    },
+    {
+      "id": "rumi-019",
+      "text": "Ignore those that make you fearful and sad, that degrade you back towards disease and death.",
+      "source": "Masnavi",
+      "themes": ["relationships", "boundaries", "self-protection", "vitality"],
+      "context": "Not all influences deserve access to your inner world. Discernment in relationship is spiritual practice."
+    },
+    {
+      "id": "rumi-020",
+      "text": "In your light I learn how to love. In your beauty, how to make poems. You dance inside my chest where no one sees you, but sometimes I do, and that sight becomes this art.",
+      "source": "Divan-e Shams",
+      "themes": ["love", "creativity", "the Beloved", "inspiration", "inner vision"],
+      "context": "Art emerges from glimpses of the divine beloved within. Creativity is witness to inner dance."
+    }
+  ]
+}

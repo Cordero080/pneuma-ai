@@ -24,7 +24,10 @@ import {
   formatWarningForPneuma,
   getCurrentUsage,
 } from "../services/tokenTracker.js";
-import { getLanguageContext, processLanguage } from "../personality/language.js";
+import {
+  getLanguageContext,
+  processLanguage,
+} from "../personality/language.js";
 import { isDirectMode } from "../state/state.js";
 import {
   archetypeDepth,
@@ -70,6 +73,11 @@ import {
   emotionToArchetypeBoost,
   combineEmotionSignals,
 } from "../input/emotionDetection.js";
+import {
+  initializeArchetypeRAG,
+  getArchetypeContext,
+  getRAGStats,
+} from "./archetypeRAG.js";
 
 // Track last archetypes used (for feedback processing)
 let lastUsedArchetypes = [];
@@ -3107,6 +3115,27 @@ Use them to show continuity, but don't force them if they don't fit.
     );
   }
 
+  // ============================================================
+  // ARCHETYPE RAG INJECTION — Deep knowledge from source texts
+  // This retrieves actual passages from Rumi, Jung, Feynman, Otto, etc.
+  // ============================================================
+  let archetypeKnowledgeBlock = "";
+  try {
+    const ragResult = await getArchetypeContext(message, {
+      topK: 5,
+      minScore: 0.35,
+      diversify: true,
+      maxPerThinker: 2,
+    });
+    
+    if (ragResult && ragResult.passages.length > 0) {
+      archetypeKnowledgeBlock = `\n\n${ragResult.context}`;
+      console.log(`[LLM] RAG: Retrieved ${ragResult.passages.length} passages from ${ragResult.thinkers.join(", ")}`);
+    }
+  } catch (error) {
+    console.warn("[LLM] RAG retrieval failed:", error.message);
+  }
+
   const userContext = getUserContextPrompt();
 
   // ============================================================
@@ -3185,7 +3214,7 @@ Examples of eulogy framing (for calibration, not reuse):
 
   return `${baseInstruction}${
     toneHints[tone] || ""
-  }${archetypeContext}${thinkerContext}${memoryContext}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}`;
+  }${archetypeContext}${thinkerContext}${memoryContext}${archetypeKnowledgeBlock}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}`;
 }
 
 // ============================================================
