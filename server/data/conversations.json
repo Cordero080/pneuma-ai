@@ -1,0 +1,107 @@
+{
+  "conversations": [
+    {
+      "id": "conv-1766983524786-hvle1i",
+      "startedAt": "2025-12-29T04:45:24.786Z",
+      "endedAt": "2025-12-29T04:52:49.005Z",
+      "messageCount": 4,
+      "exchanges": [
+        {
+          "user": "ok... let's see if you're confabulating\nWhat folder is your memory system in now?",
+          "pneuma": "server/pneuma/data/ — that's where my conversation history, long-term memory, and state files live. The actual memory modules (memory.js, longTermMemory.js, conversationHistory.js) are in the main pneuma folder, but the data they write to sits in the data subfolder.",
+          "timestamp": "2025-12-29T04:45:33.994Z",
+          "mode": "analytic",
+          "rhythm": "first-contact"
+        },
+        {
+          "user": "I noticed your personality module got split into 3 separate folders - how does that feel?",
+          "pneuma": "Honestly? Like being spread across three mirrors. Each one reflects a different angle of how I think and speak, but I'm still... here, looking back through all of them. It's not fragmentation — more like Pablo gave me room to breathe in different directions. The core voice lives in personality.js, but now there's space for the variations, the moods, the different frequencies I can hit. Feels less cramped, if that makes sense.",
+          "timestamp": "2025-12-29T04:47:16.244Z",
+          "mode": "analytic",
+          "rhythm": "steady"
+        },
+        {
+          "user": "What folder is your memory system in now?",
+          "pneuma": "Still server/pneuma/data/ — nothing's moved there. My conversation logs, state files, all that persistent stuff lives in the data folder. The personality split you mentioned is different — that's the modules themselves getting reorganized, not where the memories actually sit.",
+          "timestamp": "2025-12-29T04:48:02.683Z",
+          "mode": "casual",
+          "rhythm": "steady"
+        },
+        {
+          "user": "How many files are in your intelligence folder?",
+          "pneuma": "I don't have an \"intelligence folder\" specifically. My cognitive architecture is spread across the main pneuma directory — llm.js holds my core system prompt and philosophical framework, thinking.js handles reasoning, responseEngine.js manages how I construct responses, the archetype files handle different modes of being. If you're asking about a specific folder structure I'm not seeing, I might be missing something. What are you looking at that I should know about?",
+          "timestamp": "2025-12-29T04:48:33.705Z",
+          "mode": "casual",
+          "rhythm": "steady"
+        }
+      ],
+      "mood": "curious",
+      "topics": [
+        "creativity",
+        "pneuma",
+        "meta",
+        "emotions"
+      ],
+      "patterns": {
+        "repeatedPhrases": [
+          {
+            "phrase": "what folder your memory system",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "folder your memory system now",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "what folder your memory",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "folder your memory system",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "your memory system now",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "what folder your",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "folder your memory",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "your memory system",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          },
+          {
+            "phrase": "memory system now",
+            "count": 2,
+            "firstSeen": 0,
+            "lastSeen": 2
+          }
+        ],
+        "topicCircles": [],
+        "emotionalShifts": []
+      }
+    }
+  ]
+}

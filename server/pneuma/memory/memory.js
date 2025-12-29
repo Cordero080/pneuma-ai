@@ -1,7 +1,11 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
-const memoryPath = path.resolve("pneuma/memory.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const memoryPath = path.join(__dirname, "memory.json");
 
 // Default memory structure
 const defaultMemory = {

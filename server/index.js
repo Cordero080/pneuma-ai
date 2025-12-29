@@ -14,27 +14,27 @@ import cors from "cors";
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import { pneumaRespond } from "./pneuma/fusion.js";
-import { textToSpeech } from "./pneuma/tts.js";
-import { initializeArchetypeEmbeddings } from "./pneuma/semanticRouter.js";
+import { pneumaRespond } from "./pneuma/core/fusion.js";
+import { textToSpeech } from "./pneuma/services/tts.js";
+import { initializeArchetypeEmbeddings } from "./pneuma/intelligence/semanticRouter.js";
 import {
   transcribeAudio,
   analyzeVoiceEmotion,
   analyzeTextEmotion,
   emotionToArchetypeBoost,
   combineEmotionSignals,
-} from "./pneuma/emotionDetection.js";
+} from "./pneuma/input/emotionDetection.js";
 import {
   startSession,
   boostActiveArchetypes,
   getMomentumStats,
-} from "./pneuma/archetypeMomentum.js";
+} from "./pneuma/archetypes/archetypeMomentum.js";
 import {
   getUndeliveredDreams,
   markDreamDelivered,
   formatDreamForDelivery,
   triggerDreaming,
-} from "./pneuma/dreamMode.js";
+} from "./pneuma/behavior/dreamMode.js";
 // ^ Your Pneuma fusion engine + TTS + Voice + Emotion + Dreams
 
 // ES Module __dirname equivalent

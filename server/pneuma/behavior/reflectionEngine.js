@@ -1,9 +1,13 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import { generateThoughtPattern } from "../intelligence/thinking.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Load reflections.txt (your psychological + artistic profile)
-const reflectionsPath = path.resolve("pneuma/reflections.txt");
+const reflectionsPath = path.join(__dirname, "../logs/reflections.txt");
 const reflections = fs.readFileSync(reflectionsPath, "utf8");
 
 // ============================================================

@@ -31,7 +31,7 @@ const __dirname = path.dirname(__filename);
 // LOAD REFLECTIONS — Pneuma's soul/creator knowledge
 // ============================================================
 
-const reflectionsPath = path.join(__dirname, "reflections.txt");
+const reflectionsPath = path.join(__dirname, "../logs/reflections.txt");
 let reflections = "";
 let parsedReflections = {};
 

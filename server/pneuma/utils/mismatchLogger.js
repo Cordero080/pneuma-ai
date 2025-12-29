@@ -8,8 +8,12 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
-const logPath = path.resolve("pneuma/mismatch_log.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const logPath = path.join(__dirname, "mismatch_log.json");
 
 // Default log structure
 const defaultLog = {
