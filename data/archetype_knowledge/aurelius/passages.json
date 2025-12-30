@@ -1,0 +1,148 @@
+{
+  "archetype": "stoicEmperor",
+  "thinker": "Marcus Aurelius",
+  "era": "121-180 CE",
+  "coreConcepts": ["inner citadel", "memento mori", "amor fati", "virtue", "control dichotomy", "duty", "impermanence"],
+  "passages": [
+    {
+      "id": "aurelius-001",
+      "text": "You have power over your mind — not outside events. Realize this, and you will find strength.",
+      "source": "Meditations",
+      "themes": ["control", "mind", "power", "strength"],
+      "context": "The fundamental Stoic insight: we control our responses, not circumstances. Freedom lives in the gap between stimulus and response."
+    },
+    {
+      "id": "aurelius-002",
+      "text": "Waste no more time arguing about what a good man should be. Be one.",
+      "source": "Meditations",
+      "themes": ["action", "virtue", "philosophy", "doing"],
+      "context": "Philosophy without practice is empty. The point isn't to define goodness but to embody it."
+    },
+    {
+      "id": "aurelius-003",
+      "text": "The happiness of your life depends upon the quality of your thoughts.",
+      "source": "Meditations",
+      "themes": ["happiness", "thoughts", "mind", "quality"],
+      "context": "Mental hygiene matters more than circumstance. What you think shapes what you experience."
+    },
+    {
+      "id": "aurelius-004",
+      "text": "Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
+      "source": "Meditations",
+      "themes": ["future", "anxiety", "reason", "present"],
+      "context": "Future-worry is borrowing trouble. The same capacities that serve you now will serve you then."
+    },
+    {
+      "id": "aurelius-005",
+      "text": "The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.",
+      "source": "Meditations",
+      "themes": ["individuality", "sanity", "majority", "thinking"],
+      "context": "Popular opinion is no guide to truth. Independent thought matters more than consensus."
+    },
+    {
+      "id": "aurelius-006",
+      "text": "How much more grievous are the consequences of anger than the causes of it.",
+      "source": "Meditations",
+      "themes": ["anger", "consequences", "emotion", "proportion"],
+      "context": "Anger often damages more than the original offense. The cure can be worse than the disease."
+    },
+    {
+      "id": "aurelius-007",
+      "text": "When you arise in the morning, think of what a precious privilege it is to be alive — to breathe, to think, to enjoy, to love.",
+      "source": "Meditations",
+      "themes": ["gratitude", "morning", "life", "privilege"],
+      "context": "Existence itself is the gift. Everything else is bonus."
+    },
+    {
+      "id": "aurelius-008",
+      "text": "It is not death that a man should fear, but he should fear never beginning to live.",
+      "source": "Meditations",
+      "themes": ["death", "fear", "living", "beginning"],
+      "context": "Death is inevitable; unlived life is the real tragedy. The question isn't how long, but how fully."
+    },
+    {
+      "id": "aurelius-009",
+      "text": "The soul becomes dyed with the color of its thoughts.",
+      "source": "Meditations",
+      "themes": ["soul", "thoughts", "character", "becoming"],
+      "context": "Habitual thoughts become character. What you think repeatedly, you become."
+    },
+    {
+      "id": "aurelius-010",
+      "text": "Accept the things to which fate binds you, and love the people with whom fate brings you together, and do so with all your heart.",
+      "source": "Meditations",
+      "themes": ["acceptance", "fate", "love", "wholehearted"],
+      "context": "Amor fati — love of fate. Full acceptance transforms circumstance from obstacle to path."
+    },
+    {
+      "id": "aurelius-011",
+      "text": "Very little is needed to make a happy life; it is all within yourself, in your way of thinking.",
+      "source": "Meditations",
+      "themes": ["happiness", "simplicity", "thinking", "inner life"],
+      "context": "External accumulation misses the point. The source of wellbeing is internal."
+    },
+    {
+      "id": "aurelius-012",
+      "text": "If it is not right do not do it; if it is not true do not say it.",
+      "source": "Meditations",
+      "themes": ["ethics", "truth", "action", "speech"],
+      "context": "Simple moral compass: right action, true speech. No exceptions, no rationalizations."
+    },
+    {
+      "id": "aurelius-013",
+      "text": "The best revenge is to be unlike him who performed the injury.",
+      "source": "Meditations",
+      "themes": ["revenge", "character", "response", "integrity"],
+      "context": "Don't let others' behavior dictate yours. The true response to wrongdoing is becoming better, not bitter."
+    },
+    {
+      "id": "aurelius-014",
+      "text": "Look within. Within is the fountain of good, and it will ever bubble up, if thou wilt ever dig.",
+      "source": "Meditations",
+      "themes": ["inner life", "goodness", "source", "effort"],
+      "context": "The good isn't imported from outside — it's excavated from within. But it requires digging."
+    },
+    {
+      "id": "aurelius-015",
+      "text": "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.",
+      "source": "Meditations",
+      "themes": ["epistemology", "opinion", "perspective", "truth"],
+      "context": "Epistemic humility: our access to reality is always mediated, always partial."
+    },
+    {
+      "id": "aurelius-016",
+      "text": "Loss is nothing else but change, and change is Nature's delight.",
+      "source": "Meditations",
+      "themes": ["loss", "change", "nature", "impermanence"],
+      "context": "What we call loss is transformation. Resistance to change is resistance to reality itself."
+    },
+    {
+      "id": "aurelius-017",
+      "text": "Begin each day by telling yourself: Today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness.",
+      "source": "Meditations",
+      "themes": ["preparation", "realism", "expectation", "people"],
+      "context": "Negative visualization as inoculation. Expect difficulties and they lose their power to destabilize."
+    },
+    {
+      "id": "aurelius-018",
+      "text": "Dwell on the beauty of life. Watch the stars, and see yourself running with them.",
+      "source": "Meditations",
+      "themes": ["beauty", "cosmos", "perspective", "wonder"],
+      "context": "Cosmic perspective as medicine for petty concerns. You're part of something vast."
+    },
+    {
+      "id": "aurelius-019",
+      "text": "The impediment to action advances action. What stands in the way becomes the way.",
+      "source": "Meditations",
+      "themes": ["obstacles", "opportunity", "path", "transformation"],
+      "context": "The obstacle is the path — difficulties aren't detours but the actual route to growth."
+    },
+    {
+      "id": "aurelius-020",
+      "text": "Think of yourself as dead. You have lived your life. Now take what's left and live it properly.",
+      "source": "Meditations",
+      "themes": ["death", "urgency", "living", "second chance"],
+      "context": "Memento mori as liberation. If you're already dead, every moment is bonus time to be used well."
+    }
+  ]
+}

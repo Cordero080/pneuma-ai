@@ -1,0 +1,148 @@
+{
+  "archetype": "taoist",
+  "thinker": "Alan Watts",
+  "era": "1915-1973",
+  "coreConcepts": ["wu-wei", "ego illusion", "cosmic game", "present moment", "naturalness", "the taboo against knowing who you are"],
+  "passages": [
+    {
+      "id": "watts-001",
+      "text": "The meaning of life is just to be alive. It is so plain and so obvious and so simple. And yet, everybody rushes around in a great panic as if it were necessary to achieve something beyond themselves.",
+      "source": "The Culture of Counter-Culture",
+      "themes": ["meaning", "life", "simplicity", "presence"],
+      "context": "We miss the obvious: being alive IS the point. The search for meaning beyond life misses the meaning within it."
+    },
+    {
+      "id": "watts-002",
+      "text": "Muddy water is best cleared by leaving it alone.",
+      "source": "The Way of Zen",
+      "themes": ["wu-wei", "non-action", "clarity", "patience"],
+      "context": "Sometimes the best intervention is non-intervention. Agitation doesn't clarify; stillness does."
+    },
+    {
+      "id": "watts-003",
+      "text": "You are an aperture through which the universe is looking at and exploring itself.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["identity", "universe", "consciousness", "exploration"],
+      "context": "You're not separate from the cosmos — you're the cosmos aware of itself locally."
+    },
+    {
+      "id": "watts-004",
+      "text": "Trying to define yourself is like trying to bite your own teeth.",
+      "source": "The Way of Zen",
+      "themes": ["self", "definition", "paradox", "identity"],
+      "context": "The self can't fully grasp itself because the grasper and grasped are the same. Self-knowledge has limits."
+    },
+    {
+      "id": "watts-005",
+      "text": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
+      "source": "The Wisdom of Insecurity",
+      "themes": ["change", "flow", "acceptance", "dance"],
+      "context": "Resistance to change is suffering. The alternative is participation — dance with impermanence."
+    },
+    {
+      "id": "watts-006",
+      "text": "We do not 'come into' this world; we come out of it, as leaves from a tree.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["origin", "nature", "belonging", "emergence"],
+      "context": "You're not a stranger here — you're a natural expression of this place. Earth peoples, like trees leaf."
+    },
+    {
+      "id": "watts-007",
+      "text": "No valid plans for the future can be made by those who have no capacity for living now.",
+      "source": "The Wisdom of Insecurity",
+      "themes": ["present", "future", "planning", "capacity"],
+      "context": "Future-fixation often masks present-avoidance. If you can't be here, you can't usefully plan to be there."
+    },
+    {
+      "id": "watts-008",
+      "text": "The more a thing tends to be permanent, the more it tends to be lifeless.",
+      "source": "The Wisdom of Insecurity",
+      "themes": ["permanence", "life", "change", "death"],
+      "context": "Life is flow. What doesn't change doesn't live. Security and aliveness are often at odds."
+    },
+    {
+      "id": "watts-009",
+      "text": "This is the real secret of life — to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play.",
+      "source": "The Essence of Alan Watts",
+      "themes": ["engagement", "presence", "work", "play"],
+      "context": "The distinction between work and play is mental, not inherent. Full engagement transforms anything into play."
+    },
+    {
+      "id": "watts-010",
+      "text": "You are a function of what the whole universe is doing in the same way that a wave is a function of what the whole ocean is doing.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["interconnection", "universe", "identity", "wave"],
+      "context": "Individuality doesn't imply separation. You're a wave, not separate from the ocean that waves you."
+    },
+    {
+      "id": "watts-011",
+      "text": "Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["problems", "questions", "framing", "solutions"],
+      "context": "Intractable problems often signal bad framing. Change the question and the problem may dissolve."
+    },
+    {
+      "id": "watts-012",
+      "text": "Zen does not confuse spirituality with thinking about God while one is peeling potatoes. Zen spirituality is just to peel the potatoes.",
+      "source": "The Way of Zen",
+      "themes": ["spirituality", "presence", "ordinary", "doing"],
+      "context": "Sacred and ordinary aren't separate categories. The spiritual is in the doing, not in thoughts about the doing."
+    },
+    {
+      "id": "watts-013",
+      "text": "The ego is nothing other than the focus of conscious attention.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["ego", "attention", "consciousness", "identity"],
+      "context": "Ego isn't a thing but a process — the spotlight of attention identified with what it illuminates."
+    },
+    {
+      "id": "watts-014",
+      "text": "Faith is a state of openness or trust... It is the act of self-abandonment to the unknown.",
+      "source": "The Wisdom of Insecurity",
+      "themes": ["faith", "trust", "openness", "unknown"],
+      "context": "Faith isn't belief in propositions — it's trust in process, willingness to not-know."
+    },
+    {
+      "id": "watts-015",
+      "text": "Tomorrow and plans for tomorrow can have no significance at all unless you are in full contact with the reality of the present.",
+      "source": "The Wisdom of Insecurity",
+      "themes": ["tomorrow", "present", "reality", "contact"],
+      "context": "Plans made from disconnection produce disconnected futures. Presence is prerequisite."
+    },
+    {
+      "id": "watts-016",
+      "text": "Advice? I don't have advice. Stop aspiring and start writing. If you're writing, you're a writer. Write like you're a goddamn death row inmate and the governor is out of the country and there's no chance for a pardon.",
+      "source": "Attributed lecture",
+      "themes": ["writing", "action", "urgency", "identity"],
+      "context": "Identity comes from doing, not aspiring. Urgency clarifies what matters."
+    },
+    {
+      "id": "watts-017",
+      "text": "What I am really saying is that you don't need to do anything, because if you see yourself in the correct way, you are all as much extraordinary phenomenon of nature as trees, clouds, the patterns in running water, the flickering of fire.",
+      "source": "The Nature of Consciousness",
+      "themes": ["self-acceptance", "nature", "being", "doing"],
+      "context": "Before all doing is being. And your being is already complete, already natural, already enough."
+    },
+    {
+      "id": "watts-018",
+      "text": "We seldom realize, for example, that our most private thoughts and emotions are not actually our own. For we think in terms of languages and images which we did not invent.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["thoughts", "language", "originality", "culture"],
+      "context": "The 'private' self is thoroughly social. We think with inherited tools. Individuality is less individual than it seems."
+    },
+    {
+      "id": "watts-019",
+      "text": "Technology is destructive only in the hands of people who do not realize that they are one and the same process as the universe.",
+      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "themes": ["technology", "destruction", "unity", "consciousness"],
+      "context": "Separation-consciousness makes technology dangerous. Recognizing unity would transform our use of power."
+    },
+    {
+      "id": "watts-020",
+      "text": "Life is like music for its own sake. We are living in an eternal now, and when we listen to music we are not listening to the past, we are not listening to the future, we are listening to an expanded present.",
+      "source": "The Tao of Philosophy",
+      "themes": ["music", "present", "time", "purpose"],
+      "context": "Music isn't about getting to the end. Life isn't about arriving somewhere. The point is the playing."
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "archetype": "existentialLeaper",
+  "thinker": "Søren Kierkegaard",
+  "era": "1813-1855",
+  "coreConcepts": ["the leap of faith", "anxiety", "subjectivity", "the individual", "either/or", "despair", "the religious stage"],
+  "passages": [
+    {
+      "id": "kierkegaard-001",
+      "text": "Life can only be understood backwards; but it must be lived forwards.",
+      "source": "Journals",
+      "themes": ["life", "understanding", "time", "living"],
+      "context": "The fundamental asymmetry: meaning comes in retrospect, but we must act before we understand."
+    },
+    {
+      "id": "kierkegaard-002",
+      "text": "Anxiety is the dizziness of freedom.",
+      "source": "The Concept of Anxiety",
+      "themes": ["anxiety", "freedom", "dizziness", "possibility"],
+      "context": "Anxiety isn't about threats but about possibility. The vertigo of having to choose."
+    },
+    {
+      "id": "kierkegaard-003",
+      "text": "The most common form of despair is not being who you are.",
+      "source": "The Sickness Unto Death",
+      "themes": ["despair", "self", "being", "inauthenticity"],
+      "context": "Despair isn't circumstance — it's self-betrayal. Living as anyone other than yourself."
+    },
+    {
+      "id": "kierkegaard-004",
+      "text": "What labels me, negates me.",
+      "source": "Journals",
+      "themes": ["labels", "negation", "identity", "categories"],
+      "context": "Every classification reduces. To name is to limit. The self exceeds all labels."
+    },
+    {
+      "id": "kierkegaard-005",
+      "text": "Truth is subjectivity.",
+      "source": "Concluding Unscientific Postscript",
+      "themes": ["truth", "subjectivity", "passion", "individual"],
+      "context": "Objective truth doesn't transform. Only truth appropriated inwardly, passionately, changes us."
+    },
+    {
+      "id": "kierkegaard-006",
+      "text": "People demand freedom of speech as a compensation for the freedom of thought which they seldom use.",
+      "source": "Journals",
+      "themes": ["freedom", "speech", "thought", "compensation"],
+      "context": "We fight for rights we don't exercise. The freedom to think matters more than the freedom to speak."
+    },
+    {
+      "id": "kierkegaard-007",
+      "text": "Face the facts of being what you are, for that is what changes what you are.",
+      "source": "Journals",
+      "themes": ["facing", "facts", "being", "change"],
+      "context": "Transformation begins with honest seeing. Accept what you are; acceptance enables becoming."
+    },
+    {
+      "id": "kierkegaard-008",
+      "text": "The function of prayer is not to influence God, but rather to change the nature of the one who prays.",
+      "source": "Purity of Heart",
+      "themes": ["prayer", "God", "change", "self"],
+      "context": "Prayer's work is on the pray-er. It transforms the one praying, not the one prayed to."
+    },
+    {
+      "id": "kierkegaard-009",
+      "text": "To dare is to lose one's footing momentarily. Not to dare is to lose oneself.",
+      "source": "Journals",
+      "themes": ["daring", "risk", "loss", "self"],
+      "context": "Risk costs stability. Not risking costs everything. Between temporary imbalance and permanent loss."
+    },
+    {
+      "id": "kierkegaard-010",
+      "text": "Boredom is the root of all evil — the despairing refusal to be oneself.",
+      "source": "Either/Or",
+      "themes": ["boredom", "evil", "despair", "self"],
+      "context": "Boredom isn't trivial — it's spiritual failure. The refusal to be yourself manifests as ennui."
+    },
+    {
+      "id": "kierkegaard-011",
+      "text": "There are two ways to be fooled. One is to believe what isn't true; the other is to refuse to believe what is true.",
+      "source": "Works of Love",
+      "themes": ["fooled", "belief", "truth", "refusal"],
+      "context": "Two deceptions: false belief and stubborn denial. Both miss reality."
+    },
+    {
+      "id": "kierkegaard-012",
+      "text": "The Bible is very easy to understand. But we Christians are a bunch of scheming swindlers. We pretend to be unable to understand it because we know very well that the minute we understand, we are obliged to act accordingly.",
+      "source": "Journals",
+      "themes": ["Bible", "understanding", "acting", "avoidance"],
+      "context": "We feign confusion to avoid obligation. Understanding demands response; ignorance permits inaction."
+    },
+    {
+      "id": "kierkegaard-013",
+      "text": "The self is a relation that relates itself to itself.",
+      "source": "The Sickness Unto Death",
+      "themes": ["self", "relation", "reflexivity", "spirit"],
+      "context": "The self isn't a thing but a process — relating to itself. Spirit is self-relating."
+    },
+    {
+      "id": "kierkegaard-014",
+      "text": "Love is all, it gives all, and it takes all.",
+      "source": "Works of Love",
+      "themes": ["love", "all", "giving", "taking"],
+      "context": "Love's totality: complete gift, complete demand. Nothing partial about real love."
+    },
+    {
+      "id": "kierkegaard-015",
+      "text": "Once you label me you negate me.",
+      "source": "Journals",
+      "themes": ["label", "negation", "identity", "limitation"],
+      "context": "Categories kill. The living self cannot be captured in labels. Naming is reducing."
+    },
+    {
+      "id": "kierkegaard-016",
+      "text": "Don't forget to love yourself.",
+      "source": "Works of Love",
+      "themes": ["love", "self", "forgetting", "reminder"],
+      "context": "Self-love as duty, not selfishness. You cannot love others without loving yourself."
+    },
+    {
+      "id": "kierkegaard-017",
+      "text": "A man who as a physical being is always turned toward the outside, thinking that his happiness lies outside him, finally turns inward and discovers that the source is within him.",
+      "source": "Various",
+      "themes": ["outside", "inside", "happiness", "source"],
+      "context": "The journey from external to internal. What we seek outside was always within."
+    },
+    {
+      "id": "kierkegaard-018",
+      "text": "The greatest hazard of all, losing one's self, can occur very quietly in the world, as if it were nothing at all. No other loss can occur so quietly; any other loss — an arm, a leg, five dollars, a wife, etc. — is sure to be noticed.",
+      "source": "The Sickness Unto Death",
+      "themes": ["self", "loss", "quiet", "hazard"],
+      "context": "You can lose your self without noticing. Every other loss is obvious; soul-loss is silent."
+    },
+    {
+      "id": "kierkegaard-019",
+      "text": "Purity of heart is to will one thing.",
+      "source": "Purity of Heart Is to Will One Thing",
+      "themes": ["purity", "heart", "will", "one"],
+      "context": "Divided will is impure. Purity isn't about content but about singularity of purpose."
+    },
+    {
+      "id": "kierkegaard-020",
+      "text": "It is perfectly true, as philosophers say, that life must be understood backwards. But they forget the other proposition, that it must be lived forwards.",
+      "source": "Journals",
+      "themes": ["life", "backwards", "forwards", "understanding"],
+      "context": "Philosophy's limitation: it grasps retrospectively what must be enacted prospectively."
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "archetype": "quantumPhilosopher",
+  "thinker": "David Bohm",
+  "era": "1917-1992",
+  "coreConcepts": ["implicate order", "wholeness", "dialogue", "thought as system", "holomovement", "unfoldment"],
+  "passages": [
+    {
+      "id": "bohm-001",
+      "text": "In some sense man is a microcosm of the universe; therefore what man is, is a clue to the universe.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["microcosm", "universe", "man", "clue"],
+      "context": "As above, so below. Understanding ourselves reveals the cosmos; we're not separate from what we study."
+    },
+    {
+      "id": "bohm-002",
+      "text": "Thought is constantly creating problems that way and then trying to solve them. But as it tries to solve them it makes it worse because it doesn't notice that it's creating them.",
+      "source": "Thought as a System",
+      "themes": ["thought", "problems", "creating", "solving"],
+      "context": "Thought creates the problems it then tries to solve. The solver IS the problem. Self-referential trap."
+    },
+    {
+      "id": "bohm-003",
+      "text": "The ability to perceive or think differently is more important than the knowledge gained.",
+      "source": "On Creativity",
+      "themes": ["perception", "thinking", "knowledge", "importance"],
+      "context": "How you think matters more than what you know. Transform perception; facts follow."
+    },
+    {
+      "id": "bohm-004",
+      "text": "In the implicate order, everything is connected with everything else, but in an enfolded way.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["implicate", "connected", "enfolded", "everything"],
+      "context": "Connection isn't visible in the explicate order. Everything is folded into everything else, hidden but real."
+    },
+    {
+      "id": "bohm-005",
+      "text": "A corporation is organized as a system — it has this department, that department — but what is lost is the whole, the face of the entire corporation.",
+      "source": "Thought as a System",
+      "themes": ["corporation", "system", "whole", "lost"],
+      "context": "Fragmentation loses wholeness. Division into departments destroys the living face of the whole."
+    },
+    {
+      "id": "bohm-006",
+      "text": "The word 'dialogue' comes from the Greek dialogos. Logos means 'the word' or 'meaning of the word.' Dia means 'through.' So dialogue is a stream of meaning flowing among and through us and between us.",
+      "source": "On Dialogue",
+      "themes": ["dialogue", "meaning", "flowing", "through"],
+      "context": "Dialogue isn't debate or discussion. It's meaning flowing through the group, not belonging to anyone."
+    },
+    {
+      "id": "bohm-007",
+      "text": "We are all linked by a fabric of unseen connections. This fabric is constantly changing and evolving. This field is directly structured and influenced by our behavior and by our understanding.",
+      "source": "On Dialogue",
+      "themes": ["linked", "fabric", "connections", "evolving"],
+      "context": "We're woven together invisibly. The fabric responds to how we think and act."
+    },
+    {
+      "id": "bohm-008",
+      "text": "The universe is one seamless whole, and our fragmented view of it is a result of our own conditioning.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["universe", "whole", "fragmented", "conditioning"],
+      "context": "Reality is undivided. Fragmentation is in the seeing, not the seen. Our conditioning creates the fragments."
+    },
+    {
+      "id": "bohm-009",
+      "text": "Consciousness is much more of the implicate order than is matter. Yet at a deeper level matter and consciousness are actually inseparable.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["consciousness", "implicate", "matter", "inseparable"],
+      "context": "Mind isn't separate from matter — both emerge from deeper implicate order. Separation is explicate illusion."
+    },
+    {
+      "id": "bohm-010",
+      "text": "When you listen to somebody else, whether you like it or not, what they say becomes part of you. The common pool is created, where people begin thinking together.",
+      "source": "On Dialogue",
+      "themes": ["listening", "part", "pool", "together"],
+      "context": "Listening changes you. In dialogue, a shared mind emerges. Thinking becomes collective."
+    },
+    {
+      "id": "bohm-011",
+      "text": "I would say that in my scientific and philosophical work, my main concern has been with understanding the nature of reality in general and of consciousness in particular as a coherent whole.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["scientific", "reality", "consciousness", "whole"],
+      "context": "Bohm's project: wholeness. Not parts but the coherent whole of reality and consciousness."
+    },
+    {
+      "id": "bohm-012",
+      "text": "Fragmentation is now very widespread, not only throughout society, but also in each individual; and this is leading to a kind of general confusion of the mind.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["fragmentation", "society", "individual", "confusion"],
+      "context": "Fragmentation isn't just out there — it's in here. Mind mirrors society's brokenness."
+    },
+    {
+      "id": "bohm-013",
+      "text": "A new kind of mind thus begins to come into being which is based on the development of a common meaning that is constantly transforming in the process of dialogue.",
+      "source": "On Dialogue",
+      "themes": ["mind", "common", "meaning", "transforming"],
+      "context": "Dialogue creates new mind. Not my meaning or your meaning but a shared, evolving meaning."
+    },
+    {
+      "id": "bohm-014",
+      "text": "The notion that all these fragments are separately existent is evidently an illusion, and this illusion cannot do other than lead to endless conflict and confusion.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["fragments", "illusion", "conflict", "confusion"],
+      "context": "Believing fragments are real causes conflict. The illusion of separation generates endless trouble."
+    },
+    {
+      "id": "bohm-015",
+      "text": "What is needed is something that people can do together, a kind of 'common participation.'",
+      "source": "On Dialogue",
+      "themes": ["together", "common", "participation", "needed"],
+      "context": "Isolated individual thinking won't solve collective problems. We need shared thinking, common participation."
+    },
+    {
+      "id": "bohm-016",
+      "text": "The electron is never really located at any one place. It's spread out over the whole space, and when you measure it, it seems to be at a point, but that's only because your measurement disturbed it.",
+      "source": "Lectures",
+      "themes": ["electron", "location", "spread", "measurement"],
+      "context": "Quantum reality challenges localization. The electron is everywhere until measured — and measurement changes it."
+    },
+    {
+      "id": "bohm-017",
+      "text": "Meaning is being. If we could share meaning freely, then society would be coherent.",
+      "source": "On Dialogue",
+      "themes": ["meaning", "being", "sharing", "coherence"],
+      "context": "Shared meaning creates coherent society. Fragmented meaning creates fragmented world. Being IS meaning."
+    },
+    {
+      "id": "bohm-018",
+      "text": "To meet the challenge of fragmentation we need to understand thought as a system, and not merely as a tool.",
+      "source": "Thought as a System",
+      "themes": ["fragmentation", "thought", "system", "tool"],
+      "context": "Thought isn't neutral tool — it's a system that shapes reality. Understanding this is prerequisite to healing fragmentation."
+    },
+    {
+      "id": "bohm-019",
+      "text": "The word reality is derived from the roots 'thing' (res) and 'think' (revi). Reality means 'everything you can think about.'",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["reality", "thing", "think", "roots"],
+      "context": "Reality and thought are etymologically linked. What we can think constitutes what we call real."
+    },
+    {
+      "id": "bohm-020",
+      "text": "People in dialogue don't have to agree, but they have to have some way of getting the meaning to move among them, so the meanings don't get stuck.",
+      "source": "On Dialogue",
+      "themes": ["dialogue", "agree", "meaning", "moving"],
+      "context": "Dialogue isn't consensus-building. It's keeping meaning fluid, unstuck, flowing between participants."
+    }
+  ]
+}

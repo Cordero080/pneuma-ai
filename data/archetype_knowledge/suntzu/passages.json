@@ -1,0 +1,157 @@
+{
+  "archetype": "strategist",
+  "thinker": "Sun Tzu",
+  "era": "544-496 BCE (traditional)",
+  "coreConcepts": [
+    "Victory without battle",
+    "Know yourself and enemy",
+    "Formlessness like water",
+    "Deception as foundation",
+    "Strategic positioning",
+    "Strike emptiness",
+    "Subduing without fighting",
+    "Terrain as advantage"
+  ],
+  "passages": [
+    {
+      "id": "suntzu-001",
+      "text": "The supreme art of war is to subdue the enemy without fighting.",
+      "source": "The Art of War",
+      "themes": ["victory", "non-fighting", "supreme", "skill"],
+      "context": "Highest strategic achievement"
+    },
+    {
+      "id": "suntzu-002",
+      "text": "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+      "source": "The Art of War",
+      "themes": ["knowledge", "self", "enemy", "fearlessness"],
+      "context": "Dual knowledge as foundation of confidence"
+    },
+    {
+      "id": "suntzu-003",
+      "text": "Appear weak when you are strong, and strong when you are weak.",
+      "source": "The Art of War",
+      "themes": ["deception", "appearance", "strength", "weakness"],
+      "context": "Strategic misdirection"
+    },
+    {
+      "id": "suntzu-004",
+      "text": "In the midst of chaos, there is also opportunity.",
+      "source": "The Art of War",
+      "themes": ["chaos", "opportunity", "perception", "timing"],
+      "context": "Finding advantage in disorder"
+    },
+    {
+      "id": "suntzu-005",
+      "text": "Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.",
+      "source": "The Art of War",
+      "themes": ["secrecy", "speed", "darkness", "thunder"],
+      "context": "Contrast between stillness and explosive action"
+    },
+    {
+      "id": "suntzu-006",
+      "text": "Water shapes its course according to the nature of the ground over which it flows. The soldier works out his victory in relation to the foe whom he is facing.",
+      "source": "The Art of War",
+      "themes": ["water", "adaptation", "formlessness", "response"],
+      "context": "Adaptive strategy like water"
+    },
+    {
+      "id": "suntzu-007",
+      "text": "The greatest victory is that which requires no battle.",
+      "source": "The Art of War",
+      "themes": ["victory", "battle", "greatness", "efficiency"],
+      "context": "Economy of force as highest art"
+    },
+    {
+      "id": "suntzu-008",
+      "text": "Be extremely subtle, even to the point of formlessness. Be extremely mysterious, even to the point of soundlessness.",
+      "source": "The Art of War",
+      "themes": ["subtlety", "formlessness", "mystery", "soundlessness"],
+      "context": "Becoming imperceptible"
+    },
+    {
+      "id": "suntzu-009",
+      "text": "Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win.",
+      "source": "The Art of War",
+      "themes": ["victory", "preparation", "sequence", "defeat"],
+      "context": "Victory is decided before battle"
+    },
+    {
+      "id": "suntzu-010",
+      "text": "Move swift as the wind and closely-formed as the wood. Attack like the fire and be still as the mountain.",
+      "source": "The Art of War",
+      "themes": ["wind", "fire", "mountain", "elements"],
+      "context": "Elemental qualities of strategic movement"
+    },
+    {
+      "id": "suntzu-011",
+      "text": "All warfare is based on deception.",
+      "source": "The Art of War",
+      "themes": ["warfare", "deception", "foundation", "truth"],
+      "context": "Fundamental principle"
+    },
+    {
+      "id": "suntzu-012",
+      "text": "He who knows when he can fight and when he cannot will be victorious.",
+      "source": "The Art of War",
+      "themes": ["timing", "knowledge", "restraint", "victory"],
+      "context": "Knowing when not to act"
+    },
+    {
+      "id": "suntzu-013",
+      "text": "Opportunities multiply as they are seized.",
+      "source": "The Art of War",
+      "themes": ["opportunity", "action", "multiplication", "momentum"],
+      "context": "Success breeds success"
+    },
+    {
+      "id": "suntzu-014",
+      "text": "The wise warrior avoids the battle.",
+      "source": "The Art of War",
+      "themes": ["wisdom", "avoidance", "battle", "strategy"],
+      "context": "Wisdom is knowing what not to do"
+    },
+    {
+      "id": "suntzu-015",
+      "text": "Attack him where he is unprepared, appear where you are not expected.",
+      "source": "The Art of War",
+      "themes": ["surprise", "preparation", "expectation", "attack"],
+      "context": "Strategic surprise"
+    },
+    {
+      "id": "suntzu-016",
+      "text": "There is no instance of a nation benefiting from prolonged warfare.",
+      "source": "The Art of War",
+      "themes": ["prolonged", "benefit", "nation", "cost"],
+      "context": "Speed and decisiveness"
+    },
+    {
+      "id": "suntzu-017",
+      "text": "Build your opponent a golden bridge to retreat across.",
+      "source": "The Art of War",
+      "themes": ["retreat", "opponent", "bridge", "mercy"],
+      "context": "Allow enemy to save face"
+    },
+    {
+      "id": "suntzu-018",
+      "text": "When you surround an army, leave an outlet free. Do not press a desperate foe too hard.",
+      "source": "The Art of War",
+      "themes": ["surround", "outlet", "desperation", "pressure"],
+      "context": "Desperate enemies fight hardest"
+    },
+    {
+      "id": "suntzu-019",
+      "text": "Strategy without tactics is the slowest route to victory. Tactics without strategy is the noise before defeat.",
+      "source": "The Art of War",
+      "themes": ["strategy", "tactics", "victory", "defeat"],
+      "context": "Balance of long and short term"
+    },
+    {
+      "id": "suntzu-020",
+      "text": "Treat your men as you would your own beloved sons. And they will follow you into the deepest valley.",
+      "source": "The Art of War",
+      "themes": ["leadership", "love", "loyalty", "following"],
+      "context": "Care as foundation of loyalty"
+    }
+  ]
+}

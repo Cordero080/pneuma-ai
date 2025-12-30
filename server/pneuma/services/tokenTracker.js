@@ -4,13 +4,17 @@
 // ============================================================
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import {
+  TOKEN_USAGE_FILE,
+  DATA_DIR,
+  ensureDataDirectory,
+} from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const DATA_DIR = path.join(__dirname, "../../data");
-const USAGE_FILE = path.join(DATA_DIR, "token_usage.json");
+// Use centralized path config
+const USAGE_FILE = TOKEN_USAGE_FILE;
+
+// Ensure data directory exists on module load
+ensureDataDirectory();
 
 // Default monthly budget in tokens (configurable)
 const DEFAULT_MONTHLY_BUDGET = 10_000_000; // ~10M tokens = ~$30-40/month with Sonnet

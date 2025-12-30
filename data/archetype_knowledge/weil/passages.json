@@ -1,0 +1,148 @@
+{
+  "archetype": "fierceContemplative",
+  "thinker": "Simone Weil",
+  "era": "1909-1943",
+  "coreConcepts": ["attention", "affliction", "gravity and grace", "decreation", "the void", "waiting for God", "rootedness"],
+  "passages": [
+    {
+      "id": "weil-001",
+      "text": "Attention is the rarest and purest form of generosity.",
+      "source": "Letters",
+      "themes": ["attention", "generosity", "presence", "rarity"],
+      "context": "To truly attend to someone is to give them yourself. Nothing is more generous than full attention."
+    },
+    {
+      "id": "weil-002",
+      "text": "Grace fills empty spaces, but it can only enter where there is a void to receive it, and it is grace itself which makes this void.",
+      "source": "Gravity and Grace",
+      "themes": ["grace", "void", "emptiness", "receiving"],
+      "context": "The paradox of grace: you must be empty to receive, but only grace creates the emptiness."
+    },
+    {
+      "id": "weil-003",
+      "text": "All the natural movements of the soul are controlled by laws analogous to those of physical gravity. Grace is the only exception.",
+      "source": "Gravity and Grace",
+      "themes": ["gravity", "grace", "soul", "laws"],
+      "context": "The soul naturally falls, pulled by self-interest like matter by gravity. Only grace lifts."
+    },
+    {
+      "id": "weil-004",
+      "text": "Affliction is anonymous. It deprives its victims of their personality and makes them into things.",
+      "source": "Waiting for God",
+      "themes": ["affliction", "anonymous", "personality", "things"],
+      "context": "True affliction isn't just suffering — it's the destruction of personhood. It makes you a thing."
+    },
+    {
+      "id": "weil-005",
+      "text": "To be rooted is perhaps the most important and least recognized need of the human soul.",
+      "source": "The Need for Roots",
+      "themes": ["roots", "need", "soul", "belonging"],
+      "context": "We need to belong somewhere, to something. Uprootedness is spiritual catastrophe."
+    },
+    {
+      "id": "weil-006",
+      "text": "Absolutely unmixed attention is prayer.",
+      "source": "Gravity and Grace",
+      "themes": ["attention", "prayer", "purity", "unmixed"],
+      "context": "Prayer isn't words — it's attention without contamination. Pure attention IS prayer."
+    },
+    {
+      "id": "weil-007",
+      "text": "I can, therefore I am.",
+      "source": "Gravity and Grace",
+      "themes": ["power", "being", "capacity", "identity"],
+      "context": "Against Descartes: not 'I think' but 'I can.' Being is capacity, not mere cognition."
+    },
+    {
+      "id": "weil-008",
+      "text": "The love of our neighbor in all its fullness simply means being able to say, 'What are you going through?'",
+      "source": "Waiting for God",
+      "themes": ["neighbor", "love", "question", "suffering"],
+      "context": "Love isn't grand gestures — it's the willingness to ask about someone's experience and wait for the answer."
+    },
+    {
+      "id": "weil-009",
+      "text": "Evil, when we are in its power, is not felt as evil, but as a necessity, or even a duty.",
+      "source": "Gravity and Grace",
+      "themes": ["evil", "power", "necessity", "duty"],
+      "context": "The horror of evil: when you're in it, you can't see it. It disguises itself as obligation."
+    },
+    {
+      "id": "weil-010",
+      "text": "Imaginary evil is romantic and varied; real evil is gloomy, monotonous, barren, boring.",
+      "source": "Gravity and Grace",
+      "themes": ["evil", "imagination", "boredom", "reality"],
+      "context": "We romanticize evil in fiction. Actual evil is dull, repetitive, dreary. Banality, not drama."
+    },
+    {
+      "id": "weil-011",
+      "text": "A beautiful woman looking at her image in the mirror may very well believe the image is herself. An ugly woman knows it is not.",
+      "source": "Gravity and Grace",
+      "themes": ["beauty", "mirror", "image", "self-knowledge"],
+      "context": "Privilege allows self-deception. Those denied easy mirrors know the gap between image and self."
+    },
+    {
+      "id": "weil-012",
+      "text": "The only way into truth is through one's own annihilation; through dwelling a long time in a state of extreme and total humiliation.",
+      "source": "Gravity and Grace",
+      "themes": ["truth", "annihilation", "humiliation", "dwelling"],
+      "context": "Truth costs the ego everything. You don't find truth — you're broken into it."
+    },
+    {
+      "id": "weil-013",
+      "text": "We have to try to cure our faults by attention and not by will.",
+      "source": "Gravity and Grace",
+      "themes": ["faults", "attention", "will", "cure"],
+      "context": "Willpower often strengthens what it fights. Attention transforms without force."
+    },
+    {
+      "id": "weil-014",
+      "text": "There is no detachment where there is no pain. And there is no pain endured without hatred or lying unless detachment is present too.",
+      "source": "Gravity and Grace",
+      "themes": ["detachment", "pain", "hatred", "lying"],
+      "context": "Real detachment is forged in suffering. Without it, pain breeds hatred or denial."
+    },
+    {
+      "id": "weil-015",
+      "text": "One recognizes that the other is oneself, although other. That oneself and the other amount to the same, although different.",
+      "source": "Gravity and Grace",
+      "themes": ["self", "other", "recognition", "sameness"],
+      "context": "The mystery of the other: they are me, though not me. Same and different at once."
+    },
+    {
+      "id": "weil-016",
+      "text": "The future is made of the same stuff as the present.",
+      "source": "Gravity and Grace",
+      "themes": ["future", "present", "stuff", "continuity"],
+      "context": "Don't wait for the future to be different. What you have now is what you'll have then."
+    },
+    {
+      "id": "weil-017",
+      "text": "Two prisoners whose cells adjoin communicate with each other by knocking on the wall. The wall is the thing which separates them but is also their means of communication.",
+      "source": "Gravity and Grace",
+      "themes": ["wall", "separation", "communication", "prison"],
+      "context": "What separates also connects. The barrier becomes the medium."
+    },
+    {
+      "id": "weil-018",
+      "text": "Every time that I think of the crucifixion of Christ, I commit the sin of envy.",
+      "source": "Waiting for God",
+      "themes": ["crucifixion", "Christ", "envy", "suffering"],
+      "context": "Weil's extreme longing: she envied Christ's suffering as the ultimate proximity to truth."
+    },
+    {
+      "id": "weil-019",
+      "text": "Humility is attentive patience.",
+      "source": "Gravity and Grace",
+      "themes": ["humility", "attention", "patience", "virtue"],
+      "context": "Humility isn't self-abasement — it's the patience to attend without asserting yourself."
+    },
+    {
+      "id": "weil-020",
+      "text": "It is not for man to seek, or even to believe in God. He has only to refuse to believe in everything that is not God. This refusal does not presuppose belief. It is enough to recognize, what is obvious to any mind, that all the goods of this world, past, present, or future, real or imaginary, are finite and limited and radically incapable of satisfying the desire which burns perpetually within us for an infinite and perfect good.",
+      "source": "Waiting for God",
+      "themes": ["seeking", "God", "refusal", "infinite"],
+      "context": "You don't find God by searching. You find God by refusing everything that isn't God."
+    }
+  ]
+}

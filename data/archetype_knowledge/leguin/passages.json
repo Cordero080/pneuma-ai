@@ -1,0 +1,157 @@
+{
+  "archetype": "anarchistStoryteller",
+  "thinker": "Ursula K. Le Guin",
+  "era": "1929-2018",
+  "coreConcepts": [
+    "Ambiguous utopia",
+    "The other as mirror",
+    "Narrative as epistemology",
+    "Taoist anarchism",
+    "The carrier bag theory",
+    "Questioning power",
+    "Darkness as teacher",
+    "Words as action"
+  ],
+  "passages": [
+    {
+      "id": "leguin-001",
+      "text": "The only thing that makes life possible is permanent, intolerable uncertainty; not knowing what comes next.",
+      "source": "The Left Hand of Darkness",
+      "themes": ["uncertainty", "life", "possibility", "not-knowing"],
+      "context": "Embracing uncertainty as life-giving"
+    },
+    {
+      "id": "leguin-002",
+      "text": "We live in capitalism. Its power seems inescapable. So did the divine right of kings.",
+      "source": "National Book Awards speech",
+      "themes": ["capitalism", "power", "change", "history"],
+      "context": "Historical perspective on seemingly permanent systems"
+    },
+    {
+      "id": "leguin-003",
+      "text": "The only thing that makes life possible is permanent, intolerable uncertainty; not knowing what comes next.",
+      "source": "The Left Hand of Darkness",
+      "themes": ["uncertainty", "life", "possibility", "unknown"],
+      "context": "Uncertainty as the condition of living"
+    },
+    {
+      "id": "leguin-004",
+      "text": "You cannot buy the revolution. You cannot make the revolution. You can only be the revolution.",
+      "source": "The Dispossessed",
+      "themes": ["revolution", "being", "action", "transformation"],
+      "context": "Revolution as way of being, not event"
+    },
+    {
+      "id": "leguin-005",
+      "text": "To learn which questions are unanswerable, and not to answer them: this skill is most needful in times of stress and darkness.",
+      "source": "The Left Hand of Darkness",
+      "themes": ["questions", "unanswerable", "wisdom", "restraint"],
+      "context": "Knowing when not to seek answers"
+    },
+    {
+      "id": "leguin-006",
+      "text": "Light is the left hand of darkness, and darkness the right hand of light.",
+      "source": "The Left Hand of Darkness",
+      "themes": ["light", "darkness", "duality", "unity"],
+      "context": "Opposites as aspects of one reality"
+    },
+    {
+      "id": "leguin-007",
+      "text": "We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change.",
+      "source": "Bryn Mawr Commencement Address",
+      "themes": ["women", "truth", "maps", "power"],
+      "context": "Female experience reshaping understanding"
+    },
+    {
+      "id": "leguin-008",
+      "text": "The exercise of imagination is dangerous to those who profit from the way things are because it has the power to show that the way things are is not permanent, not universal, not necessary.",
+      "source": "Introduction to The Left Hand of Darkness",
+      "themes": ["imagination", "power", "change", "possibility"],
+      "context": "Imagination as political threat"
+    },
+    {
+      "id": "leguin-009",
+      "text": "To oppose something is to maintain it.",
+      "source": "The Left Hand of Darkness",
+      "themes": ["opposition", "maintenance", "duality", "paradox"],
+      "context": "The trap of reactive opposition"
+    },
+    {
+      "id": "leguin-010",
+      "text": "The story is not in the ending but in the telling.",
+      "source": "Various",
+      "themes": ["story", "process", "ending", "narrative"],
+      "context": "Process over destination"
+    },
+    {
+      "id": "leguin-011",
+      "text": "True voyage is return.",
+      "source": "The Dispossessed",
+      "themes": ["voyage", "return", "home", "journey"],
+      "context": "The journey that brings you back transformed"
+    },
+    {
+      "id": "leguin-012",
+      "text": "A man who doesn't detest a bad government is a fool. And if there were such a thing as a good government on earth, it would be a great joy to serve it.",
+      "source": "The Dispossessed",
+      "themes": ["government", "service", "critique", "idealism"],
+      "context": "Healthy skepticism toward power structures"
+    },
+    {
+      "id": "leguin-013",
+      "text": "The trouble is that we have a bad habit, encouraged by pedants and sophisticates, of considering happiness as something rather stupid. Only pain is intellectual, only evil interesting.",
+      "source": "The Ones Who Walk Away from Omelas",
+      "themes": ["happiness", "pain", "intellect", "bias"],
+      "context": "Critique of intellectual bias toward suffering"
+    },
+    {
+      "id": "leguin-014",
+      "text": "Words are events, they do things, change things. They transform both speaker and hearer.",
+      "source": "Earthsea series",
+      "themes": ["words", "events", "transformation", "magic"],
+      "context": "Language as action"
+    },
+    {
+      "id": "leguin-015",
+      "text": "My imagination makes me human and makes me a fool; it gives me all the world and exiles me from it.",
+      "source": "Gifts",
+      "themes": ["imagination", "humanity", "exile", "world"],
+      "context": "The double-edged gift of imagination"
+    },
+    {
+      "id": "leguin-016",
+      "text": "When you light a candle, you also cast a shadow.",
+      "source": "A Wizard of Earthsea",
+      "themes": ["light", "shadow", "consequence", "duality"],
+      "context": "Every action has its shadow"
+    },
+    {
+      "id": "leguin-017",
+      "text": "What sane person could live in this world and not be crazy?",
+      "source": "The Lathe of Heaven",
+      "themes": ["sanity", "madness", "world", "adaptation"],
+      "context": "Questioning what counts as sanity"
+    },
+    {
+      "id": "leguin-018",
+      "text": "To see a candle's light, one must take it into a dark place.",
+      "source": "A Wizard of Earthsea",
+      "themes": ["light", "darkness", "seeing", "contrast"],
+      "context": "Darkness as necessary context for light"
+    },
+    {
+      "id": "leguin-019",
+      "text": "Those who build walls are their own prisoners.",
+      "source": "The Dispossessed",
+      "themes": ["walls", "prison", "freedom", "separation"],
+      "context": "Walls imprison the builder"
+    },
+    {
+      "id": "leguin-020",
+      "text": "What is an anarchist? One who, choosing, accepts the responsibility of choice.",
+      "source": "The Dispossessed",
+      "themes": ["anarchism", "choice", "responsibility", "freedom"],
+      "context": "Anarchism as radical responsibility"
+    }
+  ]
+}

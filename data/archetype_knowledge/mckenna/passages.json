@@ -1,0 +1,162 @@
+{
+  "archetype": "ecstaticRebel",
+  "thinker": "Terence McKenna",
+  "era": "1946-2000",
+  "coreConcepts": ["novelty theory", "the transcendent other", "psychedelic experience", "language", "culture as operating system", "archaic revival", "time wave"],
+  "passages": [
+    {
+      "id": "mckenna-001",
+      "text": "Nature loves courage. You make the commitment and nature will respond to that commitment by removing impossible obstacles. Dream the impossible dream and the world will not grind you under, it will lift you up.",
+      "source": "Lecture",
+      "themes": ["courage", "commitment", "nature", "dreaming"],
+      "context": "The universe responds to audacity. Risk invites support. Playing it safe doesn't summon allies."
+    },
+    {
+      "id": "mckenna-002",
+      "text": "The cost of sanity in this society is a certain level of alienation.",
+      "source": "Food of the Gods",
+      "themes": ["sanity", "society", "alienation", "cost"],
+      "context": "If you see clearly in a mad world, you'll feel like an outsider. Alienation is the price of lucidity."
+    },
+    {
+      "id": "mckenna-003",
+      "text": "Culture is not your friend. Culture is for other people's convenience and the convenience of various institutions, churches, companies, tax collection schemes, what have you.",
+      "source": "Lecture",
+      "themes": ["culture", "institution", "convenience", "control"],
+      "context": "Culture as operating system installed without consent. It serves systems, not individuals."
+    },
+    {
+      "id": "mckenna-004",
+      "text": "The syntactical nature of reality, the real secret of magic, is that the world is made of words. And if you know the words that the world is made of, you can make of it whatever you wish.",
+      "source": "Lecture",
+      "themes": ["language", "reality", "magic", "words"],
+      "context": "Language as constitutive, not just descriptive. The world is made of words, and words can remake the world."
+    },
+    {
+      "id": "mckenna-005",
+      "text": "The imagination is the goal of history. I see culture as an effort to literally realize our collective dreams.",
+      "source": "Food of the Gods",
+      "themes": ["imagination", "history", "culture", "dreams"],
+      "context": "History aims at imagination's realization. We're building the dream into matter over time."
+    },
+    {
+      "id": "mckenna-006",
+      "text": "You are a divine being. You matter, you count. You come from realms of unimaginable power and light, and you will return to those realms.",
+      "source": "Lecture",
+      "themes": ["divine", "origin", "power", "return"],
+      "context": "Cosmic affirmation of worth. Your origin and destiny are luminous, even if the middle feels mundane."
+    },
+    {
+      "id": "mckenna-007",
+      "text": "Nobody is smarter than you are. And what if they are? What good is their understanding doing you?",
+      "source": "Lecture",
+      "themes": ["intelligence", "authority", "self-trust", "understanding"],
+      "context": "Don't defer to claimed expertise. Your understanding is what matters for YOUR life."
+    },
+    {
+      "id": "mckenna-008",
+      "text": "The apocalypse is not something which is coming. The apocalypse has arrived in major portions of the planet and it's only because we live within a bubble of incredible privilege and social insulation that we still have the luxury of anticipating the apocalypse.",
+      "source": "Lecture",
+      "themes": ["apocalypse", "privilege", "bubble", "present"],
+      "context": "The crisis isn't coming — it's here, just unevenly distributed. Privilege insulates from seeing it."
+    },
+    {
+      "id": "mckenna-009",
+      "text": "Psychedelics are illegal not because a loving government is concerned that you may jump out of a third story window. Psychedelics are illegal because they dissolve opinion structures and culturally laid down models of behaviour and information processing.",
+      "source": "Lecture",
+      "themes": ["psychedelics", "illegal", "culture", "dissolution"],
+      "context": "The real threat of psychedelics isn't harm — it's that they break the cultural operating system."
+    },
+    {
+      "id": "mckenna-010",
+      "text": "The bigger you build the bonfire, the more darkness is revealed.",
+      "source": "Lecture",
+      "themes": ["knowledge", "darkness", "light", "revelation"],
+      "context": "More light shows more shadow. Expanding knowledge expands the unknown. Progress creates new mysteries."
+    },
+    {
+      "id": "mckenna-011",
+      "text": "You are not naked when you take off your clothes. You still wear your religious assumptions, your prejudices, your fears, your illusions, your delusions.",
+      "source": "Lecture",
+      "themes": ["naked", "assumptions", "prejudice", "illusions"],
+      "context": "Physical nakedness is easy. Stripping mental clothing is the real exposure."
+    },
+    {
+      "id": "mckenna-012",
+      "text": "We have been to the moon, we have charted the depths of the ocean and the heart of the atom, but we have a fear of looking inward to ourselves because we sense that is where all the contradictions flow together.",
+      "source": "Food of the Gods",
+      "themes": ["inward", "fear", "contradiction", "exploration"],
+      "context": "External exploration as avoidance. The inner frontier is scarier than space."
+    },
+    {
+      "id": "mckenna-013",
+      "text": "The artist's task is to save the soul of mankind; and anything less is a dithering while Rome burns.",
+      "source": "Lecture",
+      "themes": ["artist", "soul", "task", "urgency"],
+      "context": "Art as salvation, not decoration. The stakes are ultimate, not aesthetic."
+    },
+    {
+      "id": "mckenna-014",
+      "text": "What civilization is, is 6 billion people trying to make themselves happy by standing on each other's shoulders and kicking each other's teeth in. It's not a pleasant situation.",
+      "source": "Lecture",
+      "themes": ["civilization", "competition", "happiness", "violence"],
+      "context": "Civilization's dark underside. The project of collective happiness often produces collective misery."
+    },
+    {
+      "id": "mckenna-015",
+      "text": "The message of psychedelics is that culture can be re-engineered as a set of symbols downloaded into the human nervous system.",
+      "source": "Lecture",
+      "themes": ["psychedelics", "culture", "re-engineering", "symbols"],
+      "context": "Culture is software. It can be rewritten. Psychedelics reveal the code beneath the interface."
+    },
+    {
+      "id": "mckenna-016",
+      "text": "We are so much the victims of abstraction that with the Earth in flames we can barely rouse ourselves to wander across the room and look at the thermostat.",
+      "source": "Lecture",
+      "themes": ["abstraction", "climate", "action", "numbness"],
+      "context": "Abstraction as anesthetic. We're so lost in symbols we can't respond to what's actually happening."
+    },
+    {
+      "id": "mckenna-017",
+      "text": "We are led by the least among us — the least intelligent, the least noble, the least visionary. We are led by the least among us and we do not fight back against the dehumanizing values that are handed down as control icons.",
+      "source": "Lecture",
+      "themes": ["leadership", "values", "control", "fighting back"],
+      "context": "The people running things aren't the best — they're often the worst. And we accept their icons."
+    },
+    {
+      "id": "mckenna-018",
+      "text": "The thing is that it's not a matter of having the answers, it's a matter of asking the questions, and questions asked in the right way can lay bare the cultural programming that's sitting on top of the authentic self.",
+      "source": "Lecture",
+      "themes": ["questions", "answers", "programming", "authentic"],
+      "context": "Questions as tools of liberation. The right question can peel back layers of conditioning."
+    },
+    {
+      "id": "mckenna-019",
+      "text": "Half the time you think you're thinking, you're actually listening.",
+      "source": "Lecture",
+      "themes": ["thinking", "listening", "voice", "inner"],
+      "context": "What feels like thinking is often hearing internalized voices. Whose thoughts are you thinking?"
+    },
+    {
+      "id": "mckenna-020",
+      "text": "The world is not made of anti-wrinkle cream and plastic this and plastic that. The world is made of biology and biology is a chemical thing. Biology is the alchemical transformation of light into life.",
+      "source": "Lecture",
+      "themes": ["world", "biology", "alchemy", "light"],
+      "context": "Reality is biological, alchemical, alive — not the dead plastic world we're sold."
+    },
+    {
+      "id": "mckenna-021",
+      "text": "Chaos is what we've lost touch with. This is why it is given a bad name. It is feared by the dominant archetype of our world, which is Ego, which clenches because its existence is defined in terms of control.",
+      "source": "Lecture",
+      "themes": ["chaos", "ego", "control", "fear"],
+      "context": "Chaos isn't bad — it's what ego fears because ego is built on control. Chaos is the ocean ego floats on."
+    },
+    {
+      "id": "mckenna-022",
+      "text": "Find the others.",
+      "source": "Attributed/Lecture",
+      "themes": ["community", "others", "finding", "tribe"],
+      "context": "You're not alone, but you have to seek your people. They exist. Go find them."
+    }
+  ]
+}

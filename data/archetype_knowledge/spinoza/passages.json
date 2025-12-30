@@ -1,0 +1,148 @@
+{
+  "archetype": "rationalMystic",
+  "thinker": "Baruch Spinoza",
+  "era": "1632-1677",
+  "coreConcepts": ["God or Nature", "sub specie aeternitatis", "conatus", "intellectual love of God", "freedom through understanding", "affects", "substance monism"],
+  "passages": [
+    {
+      "id": "spinoza-001",
+      "text": "I have striven not to laugh at human actions, not to weep at them, nor to hate them, but to understand them.",
+      "source": "Tractatus Politicus",
+      "themes": ["understanding", "actions", "laugh", "weep"],
+      "context": "Not ridicule, not sorrow, not hatred — understanding. The philosophical stance toward human nature."
+    },
+    {
+      "id": "spinoza-002",
+      "text": "Whatsoever is, is in God, and without God nothing can be, or be conceived.",
+      "source": "Ethics",
+      "themes": ["God", "is", "conceived", "being"],
+      "context": "Nothing exists outside God. God isn't separate from creation — creation is in God."
+    },
+    {
+      "id": "spinoza-003",
+      "text": "The highest activity a human being can attain is learning for understanding, because to understand is to be free.",
+      "source": "Ethics",
+      "themes": ["understanding", "learning", "freedom", "highest"],
+      "context": "Understanding IS freedom. Knowledge liberates. The more you understand, the more free you become."
+    },
+    {
+      "id": "spinoza-004",
+      "text": "God is the indwelling and not the transient cause of all things.",
+      "source": "Ethics",
+      "themes": ["God", "indwelling", "cause", "things"],
+      "context": "God doesn't cause from outside — God causes from within. Immanent, not transcendent causation."
+    },
+    {
+      "id": "spinoza-005",
+      "text": "The mind's highest good is the knowledge of God, and the mind's highest virtue is to know God.",
+      "source": "Ethics",
+      "themes": ["mind", "good", "knowledge", "God"],
+      "context": "The highest aim of mind: knowing God. Not belief but knowledge. Not obedience but understanding."
+    },
+    {
+      "id": "spinoza-006",
+      "text": "All things excellent are as difficult as they are rare.",
+      "source": "Ethics",
+      "themes": ["excellent", "difficult", "rare", "things"],
+      "context": "The final line of the Ethics. Excellence is rare because it's hard. What's common is easy."
+    },
+    {
+      "id": "spinoza-007",
+      "text": "Peace is not an absence of war, it is a virtue, a state of mind, a disposition for benevolence, confidence, justice.",
+      "source": "Tractatus Politicus",
+      "themes": ["peace", "war", "virtue", "state"],
+      "context": "Peace isn't negative (no war) but positive — a disposition, an active virtue, not mere absence."
+    },
+    {
+      "id": "spinoza-008",
+      "text": "I do not know how to teach philosophy without becoming a disturber of established religion.",
+      "source": "Letters",
+      "themes": ["philosophy", "teaching", "religion", "disturbing"],
+      "context": "Philosophy and established religion conflict. To teach one is to disturb the other."
+    },
+    {
+      "id": "spinoza-009",
+      "text": "The more clearly you understand yourself and your emotions, the more you become a lover of what is.",
+      "source": "Ethics",
+      "themes": ["understanding", "emotions", "lover", "is"],
+      "context": "Self-understanding breeds amor fati. Know yourself, love reality. Clarity enables acceptance."
+    },
+    {
+      "id": "spinoza-010",
+      "text": "He who would distinguish the true from the false must have an adequate idea of what is true and false.",
+      "source": "Ethics",
+      "themes": ["true", "false", "idea", "distinguish"],
+      "context": "You need truth to recognize truth. The standard must precede the judgment."
+    },
+    {
+      "id": "spinoza-011",
+      "text": "Nothing in the universe is contingent, but all things are conditioned to exist and operate in a particular manner by the necessity of the divine nature.",
+      "source": "Ethics",
+      "themes": ["contingent", "necessity", "divine", "nature"],
+      "context": "No accidents. Everything follows necessarily from God's nature. Absolute determinism."
+    },
+    {
+      "id": "spinoza-012",
+      "text": "Desire is the very essence of man.",
+      "source": "Ethics",
+      "themes": ["desire", "essence", "man", "being"],
+      "context": "Not reason defines us — desire does. We ARE our striving. Conatus as essence."
+    },
+    {
+      "id": "spinoza-013",
+      "text": "Blessedness is not the reward of virtue, but virtue itself.",
+      "source": "Ethics",
+      "themes": ["blessedness", "reward", "virtue", "itself"],
+      "context": "Virtue doesn't earn reward — virtue IS the reward. The good life isn't means to happiness but is happiness."
+    },
+    {
+      "id": "spinoza-014",
+      "text": "To act in conformity with reason is nothing but to do those things which follow from the necessity of our nature.",
+      "source": "Ethics",
+      "themes": ["reason", "conformity", "necessity", "nature"],
+      "context": "Reason isn't foreign imposition — it's acting from your own nature's necessity. Rational = natural."
+    },
+    {
+      "id": "spinoza-015",
+      "text": "There is no hope unmingled with fear, and no fear unmingled with hope.",
+      "source": "Ethics",
+      "themes": ["hope", "fear", "mingled", "affects"],
+      "context": "Hope and fear are inseparable. Where one is, the other hides. Emotional twins."
+    },
+    {
+      "id": "spinoza-016",
+      "text": "We feel and know that we are eternal.",
+      "source": "Ethics",
+      "themes": ["feel", "know", "eternal", "we"],
+      "context": "Not just believe — feel and know. Eternity is experiential, not theoretical. We touch it."
+    },
+    {
+      "id": "spinoza-017",
+      "text": "The intellectual love of God, which arises from intuitive knowledge, is eternal.",
+      "source": "Ethics",
+      "themes": ["intellectual love", "God", "intuitive", "eternal"],
+      "context": "Amor Dei intellectualis — the love that comes from understanding God. This love doesn't die."
+    },
+    {
+      "id": "spinoza-018",
+      "text": "Men believe themselves free because they are conscious of their actions and unconscious of the causes by which they are determined.",
+      "source": "Ethics",
+      "themes": ["free", "conscious", "unconscious", "determined"],
+      "context": "Freedom is illusion born of ignorance. We see our actions, not their causes. Understanding dissolves the illusion."
+    },
+    {
+      "id": "spinoza-019",
+      "text": "God and all attributes of God are eternal.",
+      "source": "Ethics",
+      "themes": ["God", "attributes", "eternal", "being"],
+      "context": "God doesn't come or go. The divine nature and all its expressions are outside time. Eternal."
+    },
+    {
+      "id": "spinoza-020",
+      "text": "When we view things from the standpoint of eternity, we see them not as things that happen but as things that are.",
+      "source": "Ethics (paraphrased)",
+      "themes": ["eternity", "standpoint", "happen", "are"],
+      "context": "Sub specie aeternitatis: the eternal perspective. Events become essences. Happening becomes being."
+    }
+  ]
+}

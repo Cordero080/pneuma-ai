@@ -22,8 +22,22 @@ const openai = new OpenAI({
 });
 
 // Paths - data folder is at project root (../../.. from intelligence folder)
-const KNOWLEDGE_DIR = path.join(__dirname, "..", "..", "..", "data", "archetype_knowledge");
-const EMBEDDINGS_FILE = path.join(__dirname, "..", "..", "..", "data", "archetype_embeddings.json");
+const KNOWLEDGE_DIR = path.join(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "data",
+  "archetype_knowledge"
+);
+const EMBEDDINGS_FILE = path.join(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "data",
+  "archetype_embeddings.json"
+);
 
 // In-memory store for embedded passages
 let embeddedPassages = [];

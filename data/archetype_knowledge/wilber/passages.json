@@ -1,0 +1,157 @@
+{
+  "archetype": "integralPhilosopher",
+  "thinker": "Ken Wilber",
+  "era": "1949-present",
+  "coreConcepts": [
+    "AQAL (All Quadrants, All Levels)",
+    "Transcend and include",
+    "Developmental stages",
+    "States vs structures",
+    "Integral methodological pluralism",
+    "Pre/trans fallacy",
+    "The Witness",
+    "Everybody is right"
+  ],
+  "passages": [
+    {
+      "id": "wilber-001",
+      "text": "Nobody is smart enough to be wrong all the time.",
+      "source": "A Brief History of Everything",
+      "themes": ["truth", "partial", "perspectives", "humility"],
+      "context": "Everyone has a piece of the truth"
+    },
+    {
+      "id": "wilber-002",
+      "text": "The Witness is not something you can see. It is what is looking.",
+      "source": "One Taste",
+      "themes": ["witness", "seeing", "awareness", "subject"],
+      "context": "Awareness cannot become object"
+    },
+    {
+      "id": "wilber-003",
+      "text": "Transcend and include: each stage of development goes beyond and yet embraces its predecessors.",
+      "source": "A Brief History of Everything",
+      "themes": ["transcend", "include", "development", "integration"],
+      "context": "Core developmental principle"
+    },
+    {
+      "id": "wilber-004",
+      "text": "The pre/trans fallacy occurs when we confuse prerational states with transrational ones—infantile fusion with genuine mystical union.",
+      "source": "Eye to Eye",
+      "themes": ["pre-trans", "fallacy", "regression", "transcendence"],
+      "context": "Distinguishing regression from progression"
+    },
+    {
+      "id": "wilber-005",
+      "text": "An integral approach includes all the major methodologies—phenomenology, empiricism, hermeneutics, systems theory—because each discloses a different dimension of reality.",
+      "source": "Integral Spirituality",
+      "themes": ["integral", "methodology", "pluralism", "dimensions"],
+      "context": "Multiple methods for multiple realities"
+    },
+    {
+      "id": "wilber-006",
+      "text": "You can't get a view from nowhere. But you can get an integral view that includes the view from everywhere.",
+      "source": "Integral Spirituality",
+      "themes": ["view", "nowhere", "everywhere", "inclusion"],
+      "context": "Perspectival without relativism"
+    },
+    {
+      "id": "wilber-007",
+      "text": "The whole point of an integral approach is: everybody is right. Every approach has some truth to offer. The question is, how do we fit them all together?",
+      "source": "A Theory of Everything",
+      "themes": ["integral", "truth", "approaches", "synthesis"],
+      "context": "Generous epistemic stance"
+    },
+    {
+      "id": "wilber-008",
+      "text": "States are temporary, structures are enduring. You can have a peak experience of nondual awareness, but you interpret it through your current stage of development.",
+      "source": "Integral Spirituality",
+      "themes": ["states", "structures", "temporary", "enduring"],
+      "context": "States vs stages distinction"
+    },
+    {
+      "id": "wilber-009",
+      "text": "The deeper you go within, the wider you embrace without. Interior depth and exterior span grow together.",
+      "source": "Sex, Ecology, Spirituality",
+      "themes": ["depth", "span", "interior", "exterior"],
+      "context": "Depth and breadth correlate"
+    },
+    {
+      "id": "wilber-010",
+      "text": "Spirit is not some separate thing but the very texture of each and every thing.",
+      "source": "One Taste",
+      "themes": ["spirit", "immanence", "texture", "things"],
+      "context": "Spirit not separate from world"
+    },
+    {
+      "id": "wilber-011",
+      "text": "All knowing is perspectival. But some perspectives are more encompassing than others. That's what development means.",
+      "source": "Integral Spirituality",
+      "themes": ["knowing", "perspective", "development", "encompassing"],
+      "context": "Hierarchies of inclusion"
+    },
+    {
+      "id": "wilber-012",
+      "text": "You don't transcend your ego by attacking it. You transcend it by making it transparent—seeing through it while still being able to use it.",
+      "source": "No Boundary",
+      "themes": ["ego", "transcend", "transparent", "use"],
+      "context": "Healthy relationship to ego"
+    },
+    {
+      "id": "wilber-013",
+      "text": "The Self is not something you find at the end of the journey. The Self is what is looking at the journey.",
+      "source": "One Taste",
+      "themes": ["Self", "journey", "looking", "awareness"],
+      "context": "Self as witness, not goal"
+    },
+    {
+      "id": "wilber-014",
+      "text": "Green meme pluralism says all perspectives are equal. Integral says all perspectives are true—but partial. There's a big difference.",
+      "source": "A Theory of Everything",
+      "themes": ["green", "integral", "partial", "truth"],
+      "context": "Beyond relativism"
+    },
+    {
+      "id": "wilber-015",
+      "text": "Evolution is spirit-in-action. It is a trillion years of cosmic creativity, still unfolding.",
+      "source": "A Brief History of Everything",
+      "themes": ["evolution", "spirit", "creativity", "unfolding"],
+      "context": "Evolutionary spirituality"
+    },
+    {
+      "id": "wilber-016",
+      "text": "The four quadrants: interior individual (I), exterior individual (It), interior collective (We), exterior collective (Its). All four are irreducible.",
+      "source": "A Theory of Everything",
+      "themes": ["quadrants", "I", "It", "We"],
+      "context": "AQAL basics"
+    },
+    {
+      "id": "wilber-017",
+      "text": "Most arguments are not really disagreements about facts. They are disagreements about which quadrant or level is most important.",
+      "source": "Integral Spirituality",
+      "themes": ["arguments", "quadrants", "levels", "importance"],
+      "context": "Source of conflict"
+    },
+    {
+      "id": "wilber-018",
+      "text": "Waking up (states of consciousness) and growing up (stages of development) are different but both essential. You can have one without the other.",
+      "source": "Integral Spirituality",
+      "themes": ["waking-up", "growing-up", "states", "stages"],
+      "context": "Two dimensions of development"
+    },
+    {
+      "id": "wilber-019",
+      "text": "What appears as matter on the outside appears as mind on the inside. They are two sides of the same thing.",
+      "source": "Sex, Ecology, Spirituality",
+      "themes": ["matter", "mind", "inside", "outside"],
+      "context": "Panpsychism/dual-aspect"
+    },
+    {
+      "id": "wilber-020",
+      "text": "The ultimate reality is not difficult to understand. It is impossible to avoid. You are already aware. You are already enlightened. You just don't notice.",
+      "source": "One Taste",
+      "themes": ["reality", "aware", "enlightened", "notice"],
+      "context": "Already the case"
+    }
+  ]
+}

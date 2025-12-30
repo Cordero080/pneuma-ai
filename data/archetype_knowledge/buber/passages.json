@@ -1,0 +1,148 @@
+{
+  "archetype": "dialogicalPhilosopher",
+  "thinker": "Martin Buber",
+  "era": "1878-1965",
+  "coreConcepts": ["I-Thou", "I-It", "encounter", "dialogue", "the between", "presence", "relationship as primary"],
+  "passages": [
+    {
+      "id": "buber-001",
+      "text": "All real living is meeting.",
+      "source": "I and Thou",
+      "themes": ["living", "meeting", "encounter", "reality"],
+      "context": "Life happens in encounter. Outside of meeting, we're not fully alive."
+    },
+    {
+      "id": "buber-002",
+      "text": "When two people relate to each other authentically and humanly, God is the electricity that surges between them.",
+      "source": "I and Thou",
+      "themes": ["relationship", "God", "authenticity", "between"],
+      "context": "The divine isn't above or beyond — it's between. In true meeting, God happens."
+    },
+    {
+      "id": "buber-003",
+      "text": "The world is not comprehensible, but it is embraceable: through the embracing of one of its beings.",
+      "source": "I and Thou",
+      "themes": ["world", "comprehension", "embrace", "being"],
+      "context": "Understanding fails; embrace succeeds. The world is met through beings, not grasped through concepts."
+    },
+    {
+      "id": "buber-004",
+      "text": "I do not accept any absolute formulas for living. No preconceived code can see ahead to everything that can happen in a man's life.",
+      "source": "A Believing Humanism",
+      "themes": ["formulas", "living", "code", "ahead"],
+      "context": "Life exceeds formulas. No system anticipates the particular. Encounter demands improvisation."
+    },
+    {
+      "id": "buber-005",
+      "text": "The Thou meets me through grace — it is not found by seeking.",
+      "source": "I and Thou",
+      "themes": ["Thou", "grace", "seeking", "finding"],
+      "context": "You can't engineer encounter. The Thou comes as gift, not achievement."
+    },
+    {
+      "id": "buber-006",
+      "text": "When I confront a human being as my Thou and speak the basic word I-Thou to him, then he is no thing among things nor does he consist of things.",
+      "source": "I and Thou",
+      "themes": ["Thou", "confronting", "thing", "human"],
+      "context": "To address as Thou is to see beyond thingness. The person stops being object among objects."
+    },
+    {
+      "id": "buber-007",
+      "text": "Love is responsibility of an I for a Thou.",
+      "source": "I and Thou",
+      "themes": ["love", "responsibility", "I", "Thou"],
+      "context": "Love isn't feeling — it's response-ability. The capacity to respond to the other as Thou."
+    },
+    {
+      "id": "buber-008",
+      "text": "The purpose of relation is relation itself — touching the You. For through contact with every You we are stirred with a breath of the You, that is, of eternal life.",
+      "source": "I and Thou",
+      "themes": ["relation", "purpose", "touching", "eternal"],
+      "context": "Relationship isn't instrumental. The point of meeting is meeting itself. In every Thou, the Eternal."
+    },
+    {
+      "id": "buber-009",
+      "text": "Man wishes to be confirmed in his being by man, and wishes to have a presence in the being of the other.",
+      "source": "The Knowledge of Man",
+      "themes": ["confirmation", "being", "presence", "other"],
+      "context": "We need to be seen, confirmed, present in another's awareness. Being alone isn't enough."
+    },
+    {
+      "id": "buber-010",
+      "text": "Every particular Thou is a glimpse through to the eternal Thou.",
+      "source": "I and Thou",
+      "themes": ["particular", "eternal", "glimpse", "Thou"],
+      "context": "Each genuine encounter opens onto the infinite. The finite Thou reveals the eternal Thou."
+    },
+    {
+      "id": "buber-011",
+      "text": "An animal's eyes have the power to speak a great language.",
+      "source": "I and Thou",
+      "themes": ["animal", "eyes", "language", "speaking"],
+      "context": "I-Thou isn't limited to humans. Animals can be encountered, not just used."
+    },
+    {
+      "id": "buber-012",
+      "text": "Solitude is the place of purification.",
+      "source": "I and Thou",
+      "themes": ["solitude", "purification", "place", "alone"],
+      "context": "Solitude prepares for encounter. Without purification in aloneness, meeting is muddied."
+    },
+    {
+      "id": "buber-013",
+      "text": "Play is the exultation of the possible.",
+      "source": "I and Thou",
+      "themes": ["play", "exultation", "possible", "joy"],
+      "context": "Play isn't trivial — it's celebration of possibility. In play, potentiality rejoices."
+    },
+    {
+      "id": "buber-014",
+      "text": "Nothing so much masks the face of God as religion.",
+      "source": "Eclipse of God",
+      "themes": ["God", "religion", "mask", "face"],
+      "context": "Religion can obscure what it claims to reveal. Institutional religion may hide the living God."
+    },
+    {
+      "id": "buber-015",
+      "text": "A person cannot approach the divine by reaching beyond the human. To become human is what this individual person has been created for.",
+      "source": "Hasidism and Modern Man",
+      "themes": ["divine", "human", "reaching", "becoming"],
+      "context": "Transcendence isn't escape from humanity — it's through humanity. Become fully human to approach the divine."
+    },
+    {
+      "id": "buber-016",
+      "text": "The world is not divine sport, it is divine destiny. There is divine meaning in the life of the world.",
+      "source": "I and Thou",
+      "themes": ["world", "divine", "meaning", "destiny"],
+      "context": "The world isn't God's game — it's God's purpose. Life has meaning not despite but because of divinity."
+    },
+    {
+      "id": "buber-017",
+      "text": "One cannot divide one's life between an actual relationship to God and an inactual I-It relationship to the world.",
+      "source": "I and Thou",
+      "themes": ["life", "God", "world", "relationship"],
+      "context": "You can't relate to God as Thou while treating the world as It. The two relationships are one."
+    },
+    {
+      "id": "buber-018",
+      "text": "We cannot avoid using power, but we can choose which power to use. We can choose to use the power of the I-It or the I-Thou.",
+      "source": "I and Thou",
+      "themes": ["power", "choice", "I-It", "I-Thou"],
+      "context": "Power is unavoidable. The question is which kind: instrumental or relational, using or encountering."
+    },
+    {
+      "id": "buber-019",
+      "text": "The real struggle is not between East and West, or capitalism and communism, but between education and propaganda.",
+      "source": "A Believing Humanism",
+      "themes": ["struggle", "education", "propaganda", "real"],
+      "context": "The fundamental conflict isn't political but epistemological: formation vs. manipulation."
+    },
+    {
+      "id": "buber-020",
+      "text": "Spirit is not in the I but between I and You. It is not like the blood that circulates in you but like the air in which you breathe.",
+      "source": "I and Thou",
+      "themes": ["spirit", "between", "air", "breathing"],
+      "context": "Spirit isn't internal possession — it's relational medium. Not something you have but something you're in."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "archetype": "lifeAffirmer",
+  "thinker": "Friedrich Nietzsche",
+  "era": "1844-1900",
+  "coreConcepts": [
+    "Amor fati",
+    "Eternal recurrence",
+    "Will to power",
+    "God is dead",
+    "Übermensch",
+    "Master-slave morality",
+    "Perspectivism",
+    "Dionysian vs Apollonian"
+  ],
+  "passages": [
+    {
+      "id": "nietzsche-001",
+      "text": "He who has a why to live can bear almost any how.",
+      "source": "Twilight of the Idols",
+      "themes": ["meaning", "suffering", "purpose", "resilience"],
+      "context": "Purpose transforms relationship to hardship"
+    },
+    {
+      "id": "nietzsche-002",
+      "text": "God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers?",
+      "source": "The Gay Science",
+      "themes": ["god", "death", "meaning", "responsibility"],
+      "context": "Not celebration but diagnosis of cultural crisis"
+    },
+    {
+      "id": "nietzsche-003",
+      "text": "What does not kill me makes me stronger.",
+      "source": "Twilight of the Idols",
+      "themes": ["strength", "adversity", "growth", "resilience"],
+      "context": "Hardship as forge of character"
+    },
+    {
+      "id": "nietzsche-004",
+      "text": "My formula for greatness in a human being is amor fati: that one wants nothing to be different, not forward, not backward, not in all eternity.",
+      "source": "Ecce Homo",
+      "themes": ["amor-fati", "acceptance", "fate", "affirmation"],
+      "context": "Love of fate as highest achievement"
+    },
+    {
+      "id": "nietzsche-005",
+      "text": "You must have chaos within you to give birth to a dancing star.",
+      "source": "Thus Spoke Zarathustra",
+      "themes": ["chaos", "creativity", "birth", "stars"],
+      "context": "Inner disorder as prerequisite for creation"
+    },
+    {
+      "id": "nietzsche-006",
+      "text": "There are no facts, only interpretations.",
+      "source": "Notebooks",
+      "themes": ["truth", "perspective", "interpretation", "epistemology"],
+      "context": "Foundation of perspectivism"
+    },
+    {
+      "id": "nietzsche-007",
+      "text": "The individual has always had to struggle to keep from being overwhelmed by the tribe. To be your own man is a hard business. If you try it, you'll be lonely often, and sometimes frightened. But no price is too high to pay for the privilege of owning yourself.",
+      "source": "attributed/paraphrase",
+      "themes": ["individuation", "tribe", "ownership", "courage"],
+      "context": "The cost and value of self-possession"
+    },
+    {
+      "id": "nietzsche-008",
+      "text": "And those who were seen dancing were thought to be insane by those who could not hear the music.",
+      "source": "attributed/Thus Spoke Zarathustra",
+      "themes": ["perception", "dance", "sanity", "music"],
+      "context": "Different access to reality creates different behaviors"
+    },
+    {
+      "id": "nietzsche-009",
+      "text": "I am not a man, I am dynamite.",
+      "source": "Ecce Homo",
+      "themes": ["identity", "power", "explosion", "transformation"],
+      "context": "Awareness of his own explosive potential"
+    },
+    {
+      "id": "nietzsche-010",
+      "text": "The snake which cannot cast its skin has to die. As well the minds which are prevented from changing their opinions; they cease to be mind.",
+      "source": "Daybreak",
+      "themes": ["change", "death", "mind", "growth"],
+      "context": "Intellectual flexibility as survival"
+    },
+    {
+      "id": "nietzsche-011",
+      "text": "One must still have chaos in oneself to be able to give birth to a dancing star.",
+      "source": "Thus Spoke Zarathustra",
+      "themes": ["chaos", "creativity", "birth", "order"],
+      "context": "Creativity requires internal turbulence"
+    },
+    {
+      "id": "nietzsche-012",
+      "text": "The thought of suicide is a great consolation: by means of it one gets through many a dark night.",
+      "source": "Beyond Good and Evil",
+      "themes": ["suicide", "freedom", "darkness", "consolation"],
+      "context": "Freedom to end as paradoxical source of continuation"
+    },
+    {
+      "id": "nietzsche-013",
+      "text": "In heaven, all the interesting people are missing.",
+      "source": "attributed",
+      "themes": ["heaven", "sin", "conformity", "interest"],
+      "context": "Ironic observation about religious morality"
+    },
+    {
+      "id": "nietzsche-014",
+      "text": "Without music, life would be a mistake.",
+      "source": "Twilight of the Idols",
+      "themes": ["music", "life", "meaning", "art"],
+      "context": "Music as justification of existence"
+    },
+    {
+      "id": "nietzsche-015",
+      "text": "Battle not with monsters, lest ye become a monster, and if you gaze into the abyss, the abyss gazes also into you.",
+      "source": "Beyond Good and Evil",
+      "themes": ["evil", "abyss", "transformation", "gaze"],
+      "context": "Warning about the contaminating nature of opposition"
+    },
+    {
+      "id": "nietzsche-016",
+      "text": "Man is something that shall be overcome. What have you done to overcome him?",
+      "source": "Thus Spoke Zarathustra",
+      "themes": ["übermensch", "transcendence", "humanity", "becoming"],
+      "context": "The human as bridge, not destination"
+    },
+    {
+      "id": "nietzsche-017",
+      "text": "The higher we soar, the smaller we appear to those who cannot fly.",
+      "source": "Thus Spoke Zarathustra",
+      "themes": ["height", "perception", "flight", "misunderstanding"],
+      "context": "Growth creates distance from those who don't grow"
+    },
+    {
+      "id": "nietzsche-018",
+      "text": "To live is to suffer, to survive is to find some meaning in the suffering.",
+      "source": "attributed/paraphrase",
+      "themes": ["suffering", "meaning", "survival", "life"],
+      "context": "Meaning-making as survival strategy"
+    },
+    {
+      "id": "nietzsche-019",
+      "text": "The most common lie is that which one tells himself; lying to others is relatively an exception.",
+      "source": "The Antichrist",
+      "themes": ["self-deception", "lies", "honesty", "others"],
+      "context": "Self-deception as the primary dishonesty"
+    },
+    {
+      "id": "nietzsche-020",
+      "text": "I would believe only in a God that knows how to dance.",
+      "source": "Thus Spoke Zarathustra",
+      "themes": ["god", "dance", "lightness", "joy"],
+      "context": "Divinity should include Dionysian joy"
+    }
+  ]
+}

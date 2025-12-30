@@ -40,7 +40,7 @@ export async function transcribeAudio(audioInput) {
       audioFile = fs.createReadStream(audioInput);
     } else if (Buffer.isBuffer(audioInput)) {
       // Buffer provided — write to temp file
-      const tempPath = path.join(__dirname, "../../data/temp_audio.webm");
+      const tempPath = path.join(__dirname, "../../../data/temp_audio.webm");
       fs.writeFileSync(tempPath, audioInput);
       audioFile = fs.createReadStream(tempPath);
     } else {

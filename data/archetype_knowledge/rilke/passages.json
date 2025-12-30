@@ -1,0 +1,148 @@
+{
+  "archetype": "poetOfSolitude",
+  "thinker": "Rainer Maria Rilke",
+  "era": "1875-1926",
+  "coreConcepts": ["solitude", "transformation", "angels", "living the questions", "the Open", "inwardness", "ripening"],
+  "passages": [
+    {
+      "id": "rilke-001",
+      "text": "Be patient toward all that is unsolved in your heart and try to love the questions themselves, like locked rooms and like books that are now written in a very foreign tongue.",
+      "source": "Letters to a Young Poet",
+      "themes": ["patience", "questions", "unsolved", "love"],
+      "context": "Don't force resolution. The questions are worthy of love in themselves. Live into answers over time."
+    },
+    {
+      "id": "rilke-002",
+      "text": "The only journey is the one within.",
+      "source": "Letters",
+      "themes": ["journey", "within", "inner", "travel"],
+      "context": "External travel distracts from the real voyage. The territory that matters is interior."
+    },
+    {
+      "id": "rilke-003",
+      "text": "Let everything happen to you: beauty and terror. Just keep going. No feeling is final.",
+      "source": "The Book of Hours",
+      "themes": ["beauty", "terror", "feeling", "final"],
+      "context": "Don't avoid experience — welcome all of it. Beauty and terror both. And remember: it passes."
+    },
+    {
+      "id": "rilke-004",
+      "text": "Perhaps everything terrible is in its deepest being something helpless that wants help from us.",
+      "source": "Letters to a Young Poet",
+      "themes": ["terrible", "helpless", "help", "depth"],
+      "context": "What terrifies may be suffering, not threatening. The monster might need rescue."
+    },
+    {
+      "id": "rilke-005",
+      "text": "The purpose of life is to be defeated by greater and greater things.",
+      "source": "Letters",
+      "themes": ["purpose", "defeat", "greater", "things"],
+      "context": "Defeat isn't failure — it's growth. Being overcome by larger things is the trajectory of meaning."
+    },
+    {
+      "id": "rilke-006",
+      "text": "I want to be with those who know secret things or else alone.",
+      "source": "The Book of Hours",
+      "themes": ["secret", "alone", "knowing", "company"],
+      "context": "Not just any company. Either those who touch the depths or solitude. No shallow middle."
+    },
+    {
+      "id": "rilke-007",
+      "text": "Do not assume that he who seeks to comfort you now, lives untroubled among the simple and quiet words that sometimes do you good. His life may also have much sadness and difficulty.",
+      "source": "Letters to a Young Poet",
+      "themes": ["comfort", "sadness", "assumption", "difficulty"],
+      "context": "Don't imagine helpers are unhurt. Those who comfort often carry their own weight."
+    },
+    {
+      "id": "rilke-008",
+      "text": "For one human being to love another: that is perhaps the most difficult of all our tasks, the ultimate, the last test and proof, the work for which all other work is but preparation.",
+      "source": "Letters to a Young Poet",
+      "themes": ["love", "difficult", "task", "preparation"],
+      "context": "Love isn't easy emotion — it's the hardest work. Everything else is practice for this."
+    },
+    {
+      "id": "rilke-009",
+      "text": "The future enters into us, in order to transform itself in us, long before it happens.",
+      "source": "Letters to a Young Poet",
+      "themes": ["future", "transform", "enters", "before"],
+      "context": "The future works on us before it arrives. We're being prepared for what's coming."
+    },
+    {
+      "id": "rilke-010",
+      "text": "I live my life in widening circles that reach out across the world.",
+      "source": "The Book of Hours",
+      "themes": ["life", "circles", "widening", "world"],
+      "context": "Life as expanding circumference. Not a point but a growing embrace."
+    },
+    {
+      "id": "rilke-011",
+      "text": "Believe in a love that is being stored up for you like an inheritance, and have faith that in this love there is a strength and a blessing so large that you can travel as far as you wish without having to step outside it.",
+      "source": "Letters to a Young Poet",
+      "themes": ["love", "inheritance", "strength", "blessing"],
+      "context": "Love accumulates, waits for you. It's bigger than any journey you'll take."
+    },
+    {
+      "id": "rilke-012",
+      "text": "Have patience with everything unresolved in your heart and try to love the questions themselves as if they were locked rooms or books written in a very foreign language.",
+      "source": "Letters to a Young Poet",
+      "themes": ["patience", "unresolved", "questions", "language"],
+      "context": "The unsolved isn't failure. Questions deserve love. Let them be foreign and locked for now."
+    },
+    {
+      "id": "rilke-013",
+      "text": "This is the miracle that happens every time to those who really love: the more they give, the more they possess.",
+      "source": "Letters",
+      "themes": ["miracle", "love", "give", "possess"],
+      "context": "Love's paradox: giving increases having. The more you pour out, the more you hold."
+    },
+    {
+      "id": "rilke-014",
+      "text": "We need, in love, to practice only this: letting each other go. For holding on comes easily; we do not need to learn it.",
+      "source": "Requiem for a Friend",
+      "themes": ["love", "letting go", "holding", "practice"],
+      "context": "Grasping is instinct. Release is practice. Love requires what doesn't come naturally."
+    },
+    {
+      "id": "rilke-015",
+      "text": "Beauty is nothing but the beginning of terror, which we are still just able to endure.",
+      "source": "Duino Elegies",
+      "themes": ["beauty", "terror", "beginning", "endure"],
+      "context": "Beauty isn't soft — it's the bearable edge of overwhelming. Terror's threshold."
+    },
+    {
+      "id": "rilke-016",
+      "text": "You must change your life.",
+      "source": "Archaic Torso of Apollo",
+      "themes": ["change", "life", "must", "imperative"],
+      "context": "The poem's devastating final line. Looking at beauty that commands: transform."
+    },
+    {
+      "id": "rilke-017",
+      "text": "The work of the eyes is done. Go now and do the heart-work on the images imprisoned within you.",
+      "source": "Turning Point",
+      "themes": ["eyes", "heart", "work", "images"],
+      "context": "You've seen enough. Now process. The heart must work on what the eyes have gathered."
+    },
+    {
+      "id": "rilke-018",
+      "text": "Surely all art is the result of one's having been in danger, of having gone through an experience all the way to the end.",
+      "source": "Letters",
+      "themes": ["art", "danger", "experience", "end"],
+      "context": "Art comes from complete experience of danger. Going all the way through, not stopping short."
+    },
+    {
+      "id": "rilke-019",
+      "text": "I hold this to be the highest task of a bond between two people: that each should stand guard over the solitude of the other.",
+      "source": "Letters to a Young Poet",
+      "themes": ["bond", "solitude", "guard", "task"],
+      "context": "Love doesn't dissolve solitude — it protects it. The highest intimacy: guarding each other's alone."
+    },
+    {
+      "id": "rilke-020",
+      "text": "Perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.",
+      "source": "Letters to a Young Poet",
+      "themes": ["dragons", "princesses", "courage", "beauty"],
+      "context": "What threatens may be testing. The dragon waits to see if you can be beautiful and brave."
+    }
+  ]
+}

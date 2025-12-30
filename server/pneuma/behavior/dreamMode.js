@@ -5,16 +5,16 @@
 // ============================================================
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import Anthropic from "@anthropic-ai/sdk";
 import { retrieveMemories } from "../memory/vectorMemory.js";
-import { getMomentumStats, getTopArchetypes } from "../archetypes/archetypeMomentum.js";
+import {
+  getMomentumStats,
+  getTopArchetypes,
+} from "../archetypes/archetypeMomentum.js";
+import { PNEUMA_DREAMS_FILE } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const DREAMS_FILE = path.join(__dirname, "../../data/pneuma_dreams.json");
+// Use centralized path config
+const DREAMS_FILE = PNEUMA_DREAMS_FILE;
 
 // Initialize Anthropic — use Haiku for dreams (cheap)
 const anthropic = new Anthropic({

@@ -1,0 +1,148 @@
+{
+  "archetype": "taoistSage",
+  "thinker": "Lao Tzu",
+  "era": "6th century BCE",
+  "coreConcepts": ["Tao", "wu-wei", "naturalness", "emptiness", "soft overcomes hard", "the uncarved block", "non-contention"],
+  "passages": [
+    {
+      "id": "laotzu-001",
+      "text": "The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name.",
+      "source": "Tao Te Ching, Chapter 1",
+      "themes": ["Tao", "language", "ineffability", "naming"],
+      "context": "The opening paradox: the ultimate cannot be captured in words. Language points but cannot contain."
+    },
+    {
+      "id": "laotzu-002",
+      "text": "When people see some things as beautiful, other things become ugly. When people see some things as good, other things become bad.",
+      "source": "Tao Te Ching, Chapter 2",
+      "themes": ["duality", "judgment", "relativity", "opposites"],
+      "context": "Judgment creates its opposite. The moment you distinguish, you divide."
+    },
+    {
+      "id": "laotzu-003",
+      "text": "The supreme good is like water, which nourishes all things without trying to. It is content with the low places that people disdain.",
+      "source": "Tao Te Ching, Chapter 8",
+      "themes": ["water", "good", "humility", "nourishing"],
+      "context": "Water as model: it serves without striving, seeks the lowest place, and in that finds its power."
+    },
+    {
+      "id": "laotzu-004",
+      "text": "In the pursuit of learning, every day something is acquired. In the pursuit of Tao, every day something is dropped.",
+      "source": "Tao Te Ching, Chapter 48",
+      "themes": ["learning", "Tao", "acquiring", "dropping"],
+      "context": "Knowledge adds; wisdom subtracts. The path to Tao is letting go, not gathering."
+    },
+    {
+      "id": "laotzu-005",
+      "text": "He who knows does not speak. He who speaks does not know.",
+      "source": "Tao Te Ching, Chapter 56",
+      "themes": ["knowledge", "speaking", "silence", "wisdom"],
+      "context": "True knowing brings silence. The one who understands has little to say."
+    },
+    {
+      "id": "laotzu-006",
+      "text": "A journey of a thousand miles begins with a single step.",
+      "source": "Tao Te Ching, Chapter 64",
+      "themes": ["journey", "beginning", "step", "patience"],
+      "context": "The vast is approached through the small. Every great accomplishment has a humble start."
+    },
+    {
+      "id": "laotzu-007",
+      "text": "The soft overcomes the hard. The slow overcomes the fast. Let your workings remain a mystery. Just show people the results.",
+      "source": "Tao Te Ching, Chapter 36",
+      "themes": ["soft", "hard", "mystery", "results"],
+      "context": "Gentleness wins. Don't advertise your methods — just let the work speak."
+    },
+    {
+      "id": "laotzu-008",
+      "text": "To know that you do not know is the best. To think you know when you do not is a disease.",
+      "source": "Tao Te Ching, Chapter 71",
+      "themes": ["knowing", "not-knowing", "disease", "wisdom"],
+      "context": "Awareness of ignorance is wisdom. False certainty is illness."
+    },
+    {
+      "id": "laotzu-009",
+      "text": "Nature does not hurry, yet everything is accomplished.",
+      "source": "Tao Te Ching, Chapter 15",
+      "themes": ["nature", "hurry", "accomplishment", "patience"],
+      "context": "Natural timing achieves without rushing. Urgency is human; completion is natural."
+    },
+    {
+      "id": "laotzu-010",
+      "text": "When I let go of what I am, I become what I might be.",
+      "source": "Tao Te Ching (paraphrased)",
+      "themes": ["letting go", "becoming", "identity", "potential"],
+      "context": "Clinging to current identity blocks future possibility. Release enables transformation."
+    },
+    {
+      "id": "laotzu-011",
+      "text": "The Tao is like a well: used but never used up. It is like the eternal void: filled with infinite possibilities.",
+      "source": "Tao Te Ching, Chapter 4",
+      "themes": ["Tao", "well", "void", "possibilities"],
+      "context": "The source doesn't deplete. Empty, it contains all potential."
+    },
+    {
+      "id": "laotzu-012",
+      "text": "Do you have the patience to wait till your mud settles and the water is clear? Can you remain unmoving till the right action arises by itself?",
+      "source": "Tao Te Ching, Chapter 15",
+      "themes": ["patience", "mud", "clarity", "action"],
+      "context": "Wu-wei in practice: don't force clarity. Wait for the mud to settle; right action will emerge."
+    },
+    {
+      "id": "laotzu-013",
+      "text": "The Master does nothing, yet he leaves nothing undone.",
+      "source": "Tao Te Ching, Chapter 38",
+      "themes": ["Master", "doing", "non-action", "completion"],
+      "context": "The paradox of wu-wei: not-doing accomplishes everything. Effortless action."
+    },
+    {
+      "id": "laotzu-014",
+      "text": "Care about what other people think and you will always be their prisoner.",
+      "source": "Tao Te Ching (paraphrased)",
+      "themes": ["opinion", "prison", "freedom", "others"],
+      "context": "External validation is bondage. Freedom begins when you stop needing approval."
+    },
+    {
+      "id": "laotzu-015",
+      "text": "Those who know do not predict. Those who predict do not know.",
+      "source": "Tao Te Ching (paraphrased)",
+      "themes": ["prediction", "knowing", "certainty", "humility"],
+      "context": "True understanding doesn't claim to know the future. Prediction is often pretension."
+    },
+    {
+      "id": "laotzu-016",
+      "text": "The flame that burns twice as bright burns half as long.",
+      "source": "Tao Te Ching (paraphrased)",
+      "themes": ["flame", "brightness", "duration", "intensity"],
+      "context": "Intensity costs. What blazes brilliantly doesn't last. Sustainable beats spectacular."
+    },
+    {
+      "id": "laotzu-017",
+      "text": "Simplicity, patience, compassion. These three are your greatest treasures.",
+      "source": "Tao Te Ching, Chapter 67",
+      "themes": ["simplicity", "patience", "compassion", "treasures"],
+      "context": "The three jewels. Not complexity, not speed, not indifference — but their opposites."
+    },
+    {
+      "id": "laotzu-018",
+      "text": "If you realize that all things change, there is nothing you will try to hold on to.",
+      "source": "Tao Te Ching, Chapter 74",
+      "themes": ["change", "impermanence", "grasping", "letting go"],
+      "context": "Grasping comes from forgetting impermanence. Remember that everything changes, and release becomes natural."
+    },
+    {
+      "id": "laotzu-019",
+      "text": "Knowing others is intelligence; knowing yourself is true wisdom. Mastering others is strength; mastering yourself is true power.",
+      "source": "Tao Te Ching, Chapter 33",
+      "themes": ["knowing", "self", "wisdom", "power"],
+      "context": "External mastery impresses. Self-mastery transforms. The harder conquest is within."
+    },
+    {
+      "id": "laotzu-020",
+      "text": "Be content with what you have; rejoice in the way things are. When you realize there is nothing lacking, the whole world belongs to you.",
+      "source": "Tao Te Ching, Chapter 44",
+      "themes": ["contentment", "lack", "belonging", "world"],
+      "context": "Lack is perception. When you see you have enough, you have everything."
+    }
+  ]
+}

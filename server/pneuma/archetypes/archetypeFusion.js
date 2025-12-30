@@ -9,20 +9,11 @@
 // ============================================================
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { getEmbedding, cosineSimilarity } from "../memory/vectorMemory.js";
+import { ARCHETYPE_FUSIONS_FILE } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const FUSION_FILE = path.join(
-  __dirname,
-  "..",
-  "..",
-  "data",
-  "archetype_fusions.json"
-);
+// Use centralized path config
+const FUSION_FILE = ARCHETYPE_FUSIONS_FILE;
 
 // ============================================================
 // DATA STRUCTURE

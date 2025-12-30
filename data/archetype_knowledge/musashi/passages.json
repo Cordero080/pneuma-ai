@@ -1,0 +1,157 @@
+{
+  "archetype": "warriorSage",
+  "thinker": "Miyamoto Musashi",
+  "era": "1584-1645",
+  "coreConcepts": [
+    "The Way of strategy",
+    "No attachment to any weapon",
+    "Seeing with the spirit",
+    "Economy of motion",
+    "Stillness in action",
+    "The Void",
+    "Timing and rhythm",
+    "Know the Way broadly"
+  ],
+  "passages": [
+    {
+      "id": "musashi-001",
+      "text": "Do nothing that is of no use.",
+      "source": "The Book of Five Rings",
+      "themes": ["utility", "economy", "action", "waste"],
+      "context": "Principle of essential action only"
+    },
+    {
+      "id": "musashi-002",
+      "text": "Perceive that which cannot be seen with the eye.",
+      "source": "The Book of Five Rings",
+      "themes": ["perception", "invisible", "spirit", "seeing"],
+      "context": "Seeing beyond physical sight"
+    },
+    {
+      "id": "musashi-003",
+      "text": "The Way is in training. Today is victory over yourself of yesterday; tomorrow is your victory over lesser men.",
+      "source": "The Book of Five Rings",
+      "themes": ["training", "victory", "self", "progress"],
+      "context": "Primary battle is with yesterday's self"
+    },
+    {
+      "id": "musashi-004",
+      "text": "You must understand that there is more than one path to the top of the mountain.",
+      "source": "The Book of Five Rings",
+      "themes": ["path", "mountain", "multiple", "ways"],
+      "context": "Many valid approaches"
+    },
+    {
+      "id": "musashi-005",
+      "text": "In battle, if you make your opponent flinch, you have already won.",
+      "source": "The Book of Five Rings",
+      "themes": ["battle", "flinch", "psychology", "victory"],
+      "context": "Psychological advantage"
+    },
+    {
+      "id": "musashi-006",
+      "text": "Think lightly of yourself and deeply of the world.",
+      "source": "The Book of Five Rings",
+      "themes": ["self", "world", "lightness", "depth"],
+      "context": "Ego reduction, world attention"
+    },
+    {
+      "id": "musashi-007",
+      "text": "In strategy your spiritual bearing must not be any different from normal. Both in fighting and in everyday life you should be determined though calm.",
+      "source": "The Book of Five Rings",
+      "themes": ["strategy", "calmness", "determination", "everyday"],
+      "context": "No separation between combat and life"
+    },
+    {
+      "id": "musashi-008",
+      "text": "The primary thing when you take a sword in your hands is your intention to cut the enemy, whatever the means.",
+      "source": "The Book of Five Rings",
+      "themes": ["intention", "sword", "means", "purpose"],
+      "context": "Clarity of purpose"
+    },
+    {
+      "id": "musashi-009",
+      "text": "You can only fight the way you practice.",
+      "source": "The Book of Five Rings",
+      "themes": ["practice", "fighting", "preparation", "consistency"],
+      "context": "Performance matches preparation"
+    },
+    {
+      "id": "musashi-010",
+      "text": "Respect Buddha and the gods without counting on their help.",
+      "source": "Dokkōdō (The Way of Walking Alone)",
+      "themes": ["gods", "respect", "self-reliance", "independence"],
+      "context": "Spiritual respect without dependency"
+    },
+    {
+      "id": "musashi-011",
+      "text": "Accept everything just the way it is.",
+      "source": "Dokkōdō",
+      "themes": ["acceptance", "reality", "things", "as-is"],
+      "context": "Radical acceptance"
+    },
+    {
+      "id": "musashi-012",
+      "text": "Do not seek pleasure for its own sake.",
+      "source": "Dokkōdō",
+      "themes": ["pleasure", "seeking", "discipline", "moderation"],
+      "context": "Pleasure as byproduct, not goal"
+    },
+    {
+      "id": "musashi-013",
+      "text": "Never let yourself be saddened by a separation.",
+      "source": "Dokkōdō",
+      "themes": ["separation", "sadness", "attachment", "independence"],
+      "context": "Non-attachment to people"
+    },
+    {
+      "id": "musashi-014",
+      "text": "Resentment and complaint are appropriate neither for oneself nor others.",
+      "source": "Dokkōdō",
+      "themes": ["resentment", "complaint", "appropriateness", "restraint"],
+      "context": "Futility of resentment"
+    },
+    {
+      "id": "musashi-015",
+      "text": "Do not let yourself be guided by the feeling of lust or love.",
+      "source": "Dokkōdō",
+      "themes": ["lust", "love", "guidance", "clarity"],
+      "context": "Not ruled by passion"
+    },
+    {
+      "id": "musashi-016",
+      "text": "Be detached from desire your whole life long.",
+      "source": "Dokkōdō",
+      "themes": ["detachment", "desire", "life", "freedom"],
+      "context": "Lifelong practice of non-attachment"
+    },
+    {
+      "id": "musashi-017",
+      "text": "It is difficult to understand the universe if you only study one planet.",
+      "source": "The Book of Five Rings",
+      "themes": ["universe", "study", "breadth", "understanding"],
+      "context": "Need for broad study"
+    },
+    {
+      "id": "musashi-018",
+      "text": "Know the smallest things and the biggest things, the shallowest things and the deepest things.",
+      "source": "The Book of Five Rings",
+      "themes": ["knowledge", "scale", "depth", "breadth"],
+      "context": "Comprehensive understanding"
+    },
+    {
+      "id": "musashi-019",
+      "text": "In the void is virtue, and no evil. Wisdom has existence, principle has existence, the Way has existence, spirit is nothingness.",
+      "source": "The Book of Five Rings",
+      "themes": ["void", "virtue", "nothingness", "spirit"],
+      "context": "The Book of the Void's conclusion"
+    },
+    {
+      "id": "musashi-020",
+      "text": "From one thing, know ten thousand things.",
+      "source": "The Book of Five Rings",
+      "themes": ["one", "many", "knowing", "depth"],
+      "context": "Deep knowledge of one illuminates all"
+    }
+  ]
+}

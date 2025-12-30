@@ -1,0 +1,157 @@
+{
+  "archetype": "kafkaesque",
+  "thinker": "Franz Kafka",
+  "era": "1883-1924",
+  "coreConcepts": [
+    "Bureaucratic nightmare",
+    "Guilt without crime",
+    "Transformation",
+    "The inaccessible law",
+    "Alienation",
+    "The labyrinth",
+    "The trial that never ends",
+    "The door meant only for you"
+  ],
+  "passages": [
+    {
+      "id": "kafka-001",
+      "text": "A book must be the axe for the frozen sea within us.",
+      "source": "Letter to Oskar Pollak",
+      "themes": ["books", "transformation", "frozen", "breaking"],
+      "context": "Literature as violent awakening"
+    },
+    {
+      "id": "kafka-002",
+      "text": "I am a cage, in search of a bird.",
+      "source": "Notebooks",
+      "themes": ["cage", "bird", "inversion", "longing"],
+      "context": "Inverted metaphor of containment seeking content"
+    },
+    {
+      "id": "kafka-003",
+      "text": "By believing passionately in something that still does not exist, we create it. The nonexistent is whatever we have not sufficiently desired.",
+      "source": "Diaries",
+      "themes": ["belief", "creation", "desire", "existence"],
+      "context": "Faith as creative force"
+    },
+    {
+      "id": "kafka-004",
+      "text": "There is infinite hope—just not for us.",
+      "source": "Conversation with Max Brod",
+      "themes": ["hope", "exclusion", "infinity", "us"],
+      "context": "Hope exists but we are outside it"
+    },
+    {
+      "id": "kafka-005",
+      "text": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.",
+      "source": "The Metamorphosis",
+      "themes": ["transformation", "alienation", "morning", "vermin"],
+      "context": "The famous opening—sudden inexplicable change"
+    },
+    {
+      "id": "kafka-006",
+      "text": "Someone must have been telling lies about Josef K., for one morning, without having done anything wrong, he was arrested.",
+      "source": "The Trial",
+      "themes": ["guilt", "innocence", "arrest", "morning"],
+      "context": "Guilt preceding crime"
+    },
+    {
+      "id": "kafka-007",
+      "text": "Don't despair, not even over the fact that you don't despair.",
+      "source": "Diaries",
+      "themes": ["despair", "meta", "layers", "acceptance"],
+      "context": "Recursive instruction about despair"
+    },
+    {
+      "id": "kafka-008",
+      "text": "In the fight between you and the world, back the world.",
+      "source": "Notebooks",
+      "themes": ["world", "fight", "surrender", "odds"],
+      "context": "Ironic advice about impossible battles"
+    },
+    {
+      "id": "kafka-009",
+      "text": "The door was open all along—but it was meant only for you, and now I am going to shut it.",
+      "source": "Before the Law (The Trial)",
+      "themes": ["door", "law", "personal", "too-late"],
+      "context": "The parable of access denied"
+    },
+    {
+      "id": "kafka-010",
+      "text": "Association with human beings lures one into self-observation.",
+      "source": "Notebooks",
+      "themes": ["humans", "self-observation", "lure", "consciousness"],
+      "context": "Others as mirrors forcing self-awareness"
+    },
+    {
+      "id": "kafka-011",
+      "text": "Start with what is right rather than what is acceptable.",
+      "source": "Diaries",
+      "themes": ["right", "acceptable", "ethics", "compromise"],
+      "context": "Priority of rightness over acceptability"
+    },
+    {
+      "id": "kafka-012",
+      "text": "I am free and that is why I am lost.",
+      "source": "Letters",
+      "themes": ["freedom", "lost", "paradox", "burden"],
+      "context": "Freedom as disorientation"
+    },
+    {
+      "id": "kafka-013",
+      "text": "Every revolution evaporates and leaves behind only the slime of a new bureaucracy.",
+      "source": "Aphorisms",
+      "themes": ["revolution", "bureaucracy", "evaporation", "slime"],
+      "context": "Cynicism about political change"
+    },
+    {
+      "id": "kafka-014",
+      "text": "Logic may indeed be unshakeable, but it cannot withstand a man who is determined to live.",
+      "source": "The Trial",
+      "themes": ["logic", "life", "determination", "resistance"],
+      "context": "Life force exceeding logical constraints"
+    },
+    {
+      "id": "kafka-015",
+      "text": "The meaning of life is that it stops.",
+      "source": "Diaries",
+      "themes": ["meaning", "life", "death", "ending"],
+      "context": "Death as the meaning-giver"
+    },
+    {
+      "id": "kafka-016",
+      "text": "Youth is happy because it has the capacity to see beauty. Anyone who keeps the ability to see beauty never grows old.",
+      "source": "Diaries",
+      "themes": ["youth", "beauty", "age", "capacity"],
+      "context": "Surprisingly hopeful note on perception"
+    },
+    {
+      "id": "kafka-017",
+      "text": "I write differently from what I speak, I speak differently from what I think, I think differently from the way I ought to think, and so it all proceeds into deepest darkness.",
+      "source": "Letters to Milena",
+      "themes": ["writing", "speaking", "thinking", "darkness"],
+      "context": "Cascade of disconnections"
+    },
+    {
+      "id": "kafka-018",
+      "text": "Anyone who keeps the ability to see beauty never grows old.",
+      "source": "Diaries",
+      "themes": ["beauty", "age", "seeing", "youth"],
+      "context": "Perception as fountain of youth"
+    },
+    {
+      "id": "kafka-019",
+      "text": "It is often safer to be in chains than to be free.",
+      "source": "The Trial",
+      "themes": ["chains", "freedom", "safety", "paradox"],
+      "context": "The comfort of constraint"
+    },
+    {
+      "id": "kafka-020",
+      "text": "You do not need to leave your room. Remain sitting at your table and listen. Do not even listen, simply wait. Do not even wait, be quite still and solitary. The world will freely offer itself to you to be unmasked.",
+      "source": "Notebooks",
+      "themes": ["stillness", "waiting", "world", "unmasking"],
+      "context": "Paradoxical instructions for revelation"
+    }
+  ]
+}

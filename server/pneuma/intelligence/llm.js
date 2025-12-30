@@ -3127,10 +3127,14 @@ Use them to show continuity, but don't force them if they don't fit.
       diversify: true,
       maxPerThinker: 2,
     });
-    
+
     if (ragResult && ragResult.passages.length > 0) {
       archetypeKnowledgeBlock = `\n\n${ragResult.context}`;
-      console.log(`[LLM] RAG: Retrieved ${ragResult.passages.length} passages from ${ragResult.thinkers.join(", ")}`);
+      console.log(
+        `[LLM] RAG: Retrieved ${
+          ragResult.passages.length
+        } passages from ${ragResult.thinkers.join(", ")}`
+      );
     }
   } catch (error) {
     console.warn("[LLM] RAG retrieval failed:", error.message);

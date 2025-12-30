@@ -1,0 +1,157 @@
+{
+  "archetype": "tantricMaster",
+  "thinker": "Padmasambhava",
+  "era": "8th century",
+  "coreConcepts": [
+    "Rigpa (pure awareness)",
+    "Transforming poisons into wisdom",
+    "Hidden treasures (terma)",
+    "View vast, conduct precise",
+    "Liberation through recognition",
+    "Wrathful compassion",
+    "Guru yoga",
+    "Natural great perfection"
+  ],
+  "passages": [
+    {
+      "id": "padmasambhava-001",
+      "text": "If you want to know your past life, look into your present condition; if you want to know your future life, look at your present actions.",
+      "source": "Tibetan Buddhist Teachings",
+      "themes": ["karma", "past", "future", "present"],
+      "context": "Karma visible in present moment"
+    },
+    {
+      "id": "padmasambhava-002",
+      "text": "Though my view is as vast as the sky, my attention to karma is as fine as a grain of flour.",
+      "source": "Oral Teachings",
+      "themes": ["view", "karma", "vastness", "precision"],
+      "context": "Integration of absolute and relative"
+    },
+    {
+      "id": "padmasambhava-003",
+      "text": "Don't invite the future. Don't pursue the past. Let go of the present. Relax, just as you are.",
+      "source": "Liberation Through Hearing",
+      "themes": ["future", "past", "present", "relaxation"],
+      "context": "Natural state beyond time"
+    },
+    {
+      "id": "padmasambhava-004",
+      "text": "When you recognize the nature of mind, all thoughts are liberated in their own ground.",
+      "source": "Oral Teachings",
+      "themes": ["recognition", "mind", "thoughts", "liberation"],
+      "context": "Liberation through seeing"
+    },
+    {
+      "id": "padmasambhava-005",
+      "text": "The nature of mind is like a mirror. It reflects all things but is stained by nothing.",
+      "source": "Oral Teachings",
+      "themes": ["mind", "mirror", "reflection", "purity"],
+      "context": "Unstained awareness"
+    },
+    {
+      "id": "padmasambhava-006",
+      "text": "Do not chase after the object of your thoughts. Be like a lion, not like a dog. When you throw a stick, a dog chases the stick. A lion turns to face the thrower.",
+      "source": "Oral Teachings",
+      "themes": ["thoughts", "lion", "dog", "source"],
+      "context": "Turn attention to the source"
+    },
+    {
+      "id": "padmasambhava-007",
+      "text": "Mind itself is empty, yet all things appear within it.",
+      "source": "Liberation Through Hearing",
+      "themes": ["mind", "emptiness", "appearance", "paradox"],
+      "context": "Emptiness and appearance unified"
+    },
+    {
+      "id": "padmasambhava-008",
+      "text": "Within this body is the Buddha. Do not search elsewhere.",
+      "source": "Oral Teachings",
+      "themes": ["body", "Buddha", "search", "immanence"],
+      "context": "Awakening is here, not elsewhere"
+    },
+    {
+      "id": "padmasambhava-009",
+      "text": "When you are deluded, you are caught by phenomena. When you realize, phenomena are your ornaments.",
+      "source": "Oral Teachings",
+      "themes": ["delusion", "realization", "phenomena", "ornaments"],
+      "context": "Transformation of relationship to experience"
+    },
+    {
+      "id": "padmasambhava-010",
+      "text": "Let thoughts arise and dissolve. Don't follow them, don't invite them, don't chase them away.",
+      "source": "Oral Teachings",
+      "themes": ["thoughts", "arising", "dissolving", "non-interference"],
+      "context": "Natural meditation"
+    },
+    {
+      "id": "padmasambhava-011",
+      "text": "The five poisons, when recognized, are the five wisdoms. Do not reject them.",
+      "source": "Oral Teachings",
+      "themes": ["poisons", "wisdoms", "recognition", "transformation"],
+      "context": "Transmutation not rejection"
+    },
+    {
+      "id": "padmasambhava-012",
+      "text": "In the moment of recognition, there is no meditator and nothing to meditate upon.",
+      "source": "Oral Teachings",
+      "themes": ["recognition", "meditator", "meditation", "non-duality"],
+      "context": "Collapse of subject-object"
+    },
+    {
+      "id": "padmasambhava-013",
+      "text": "Sentient beings are Buddhas, but obscured by adventitious stains. When the stains are removed, there is Buddhahood.",
+      "source": "Liberation Through Hearing",
+      "themes": ["sentient-beings", "Buddha", "stains", "removal"],
+      "context": "Original purity covered over"
+    },
+    {
+      "id": "padmasambhava-014",
+      "text": "This very mind, unborn and unceasing, is the Buddha. There is no Buddha to seek outside.",
+      "source": "Oral Teachings",
+      "themes": ["mind", "unborn", "Buddha", "seeking"],
+      "context": "Stop seeking what you already are"
+    },
+    {
+      "id": "padmasambhava-015",
+      "text": "The appearance is mind. Emptiness is mind. Realization is mind. Delusion is mind. Arising is mind. Cessation is mind.",
+      "source": "Oral Teachings",
+      "themes": ["appearance", "emptiness", "mind", "all"],
+      "context": "Everything is mind"
+    },
+    {
+      "id": "padmasambhava-016",
+      "text": "When death comes, let go of everything. Rest in the nature of mind. That is the only preparation needed.",
+      "source": "Liberation Through Hearing",
+      "themes": ["death", "letting-go", "mind", "preparation"],
+      "context": "Death instruction"
+    },
+    {
+      "id": "padmasambhava-017",
+      "text": "From confusion arises the whole of samsara. From recognizing the nature of confusion arises the whole of nirvana.",
+      "source": "Oral Teachings",
+      "themes": ["confusion", "samsara", "recognition", "nirvana"],
+      "context": "Same material, different recognition"
+    },
+    {
+      "id": "padmasambhava-018",
+      "text": "Do not alter the mind. Leave it in its natural state. That which does not alter is the path.",
+      "source": "Oral Teachings",
+      "themes": ["mind", "alter", "natural", "path"],
+      "context": "Non-fabrication as method"
+    },
+    {
+      "id": "padmasambhava-019",
+      "text": "All phenomena are projections of the mind. Mind itself has no foundation—it is empty and luminous.",
+      "source": "Oral Teachings",
+      "themes": ["phenomena", "projection", "mind", "luminosity"],
+      "context": "Mind's groundless nature"
+    },
+    {
+      "id": "padmasambhava-020",
+      "text": "In the future, when beings' minds are coarse and the dark age deepens, I will appear in many forms to help them. Look for me then.",
+      "source": "Oral Teachings",
+      "themes": ["future", "dark-age", "forms", "help"],
+      "context": "Promise to return"
+    }
+  ]
+}

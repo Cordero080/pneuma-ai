@@ -1,0 +1,148 @@
+{
+  "archetype": "fluxPhilosopher",
+  "thinker": "Heraclitus",
+  "era": "535-475 BCE",
+  "coreConcepts": ["flux", "logos", "unity of opposites", "fire", "becoming", "hidden harmony"],
+  "passages": [
+    {
+      "id": "heraclitus-001",
+      "text": "No man ever steps in the same river twice, for it's not the same river and he's not the same man.",
+      "source": "Fragments",
+      "themes": ["flux", "change", "identity", "river"],
+      "context": "The foundational insight: everything flows. Both world and self are processes, not things."
+    },
+    {
+      "id": "heraclitus-002",
+      "text": "The hidden harmony is better than the obvious.",
+      "source": "Fragments",
+      "themes": ["hidden", "harmony", "depth", "obvious"],
+      "context": "Surface appearances conceal deeper patterns. The real order isn't visible to casual glance."
+    },
+    {
+      "id": "heraclitus-003",
+      "text": "Nature loves to hide.",
+      "source": "Fragments",
+      "themes": ["nature", "hiding", "mystery", "revelation"],
+      "context": "Reality doesn't advertise itself. Truth requires seeking, unveiling, patient attention."
+    },
+    {
+      "id": "heraclitus-004",
+      "text": "The way up and the way down are one and the same.",
+      "source": "Fragments",
+      "themes": ["opposites", "unity", "path", "direction"],
+      "context": "Opposites aren't separate — they're aspects of one process. Ascent and descent are the same road."
+    },
+    {
+      "id": "heraclitus-005",
+      "text": "Character is destiny.",
+      "source": "Fragments",
+      "themes": ["character", "destiny", "fate", "ethos"],
+      "context": "Your character shapes your fate. What you are determines what happens to you. Ethos anthropos daimon."
+    },
+    {
+      "id": "heraclitus-006",
+      "text": "Everything flows and nothing abides; everything gives way and nothing stays fixed.",
+      "source": "Fragments",
+      "themes": ["flow", "impermanence", "change", "flux"],
+      "context": "Panta rhei — all things flow. Permanence is illusion; process is reality."
+    },
+    {
+      "id": "heraclitus-007",
+      "text": "The soul is dyed the color of its thoughts.",
+      "source": "Fragments",
+      "themes": ["soul", "thoughts", "color", "becoming"],
+      "context": "What you think, you become. The soul takes on the quality of its habitual thoughts."
+    },
+    {
+      "id": "heraclitus-008",
+      "text": "Out of every hundred men, ten shouldn't even be there, eighty are just targets, nine are the real fighters, and we are lucky to have them, for they make the battle. Ah, but the one, one is a warrior.",
+      "source": "Fragments (attributed)",
+      "themes": ["warrior", "excellence", "rarity", "battle"],
+      "context": "Excellence is rare. Most participate without presence. The true warrior is singular."
+    },
+    {
+      "id": "heraclitus-009",
+      "text": "The sun is new each day.",
+      "source": "Fragments",
+      "themes": ["sun", "newness", "day", "renewal"],
+      "context": "Even what seems eternal is constantly renewing. Yesterday's sun is not today's."
+    },
+    {
+      "id": "heraclitus-010",
+      "text": "Dogs bark at what they don't understand.",
+      "source": "Fragments",
+      "themes": ["ignorance", "understanding", "reaction", "dogs"],
+      "context": "Hostility often signals incomprehension. We attack what we can't grasp."
+    },
+    {
+      "id": "heraclitus-011",
+      "text": "Time is a game played beautifully by children.",
+      "source": "Fragments",
+      "themes": ["time", "game", "children", "play"],
+      "context": "Aion as child at play. The cosmos as playful, not purposive. Time as game, not march."
+    },
+    {
+      "id": "heraclitus-012",
+      "text": "From the strain of binding opposites comes harmony.",
+      "source": "Fragments",
+      "themes": ["opposites", "tension", "harmony", "binding"],
+      "context": "Harmony isn't absence of tension — it's tension held in balance. The bow and lyre."
+    },
+    {
+      "id": "heraclitus-013",
+      "text": "All things come into being through opposition, and all are in flux like a river.",
+      "source": "Fragments",
+      "themes": ["opposition", "flux", "becoming", "river"],
+      "context": "Opposition generates existence. Conflict is creative. Everything flows."
+    },
+    {
+      "id": "heraclitus-014",
+      "text": "The waking have one world in common, but the sleeping turn aside each into a world of their own.",
+      "source": "Fragments",
+      "themes": ["waking", "sleeping", "common", "private"],
+      "context": "Waking consciousness shares a world; dreams are private. The distinction between common logos and private fantasy."
+    },
+    {
+      "id": "heraclitus-015",
+      "text": "This world, which is the same for all, no one of gods or men has made. But it always was, is, and will be: an ever-living fire.",
+      "source": "Fragments",
+      "themes": ["world", "fire", "eternal", "uncreated"],
+      "context": "The cosmos wasn't made — it IS. Fire as fundamental: transforming, consuming, renewing."
+    },
+    {
+      "id": "heraclitus-016",
+      "text": "If you do not expect the unexpected, you will not find it, for it is hard to discover and difficult to attain.",
+      "source": "Fragments",
+      "themes": ["unexpected", "discovery", "expectation", "search"],
+      "context": "Openness to surprise is prerequisite for finding. Closed expectations miss what's actually there."
+    },
+    {
+      "id": "heraclitus-017",
+      "text": "Listening not to me but to the Logos, it is wise to agree that all things are one.",
+      "source": "Fragments",
+      "themes": ["logos", "listening", "unity", "wisdom"],
+      "context": "Don't trust the speaker — attend to the Logos itself. Individual opinion matters less than universal pattern."
+    },
+    {
+      "id": "heraclitus-018",
+      "text": "Man is most nearly himself when he achieves the seriousness of a child at play.",
+      "source": "Fragments",
+      "themes": ["play", "seriousness", "child", "authenticity"],
+      "context": "True seriousness is playful. The child at play is fully present, fully committed, fully free."
+    },
+    {
+      "id": "heraclitus-019",
+      "text": "The eyes are more exact witnesses than the ears.",
+      "source": "Fragments",
+      "themes": ["eyes", "ears", "witness", "evidence"],
+      "context": "Direct seeing over hearsay. But even eyes can deceive if the soul isn't prepared."
+    },
+    {
+      "id": "heraclitus-020",
+      "text": "Wisdom is one thing: to know the thought by which all things are steered through all things.",
+      "source": "Fragments",
+      "themes": ["wisdom", "thought", "steering", "unity"],
+      "context": "Wisdom isn't many facts — it's grasping the one pattern that governs all."
+    }
+  ]
+}

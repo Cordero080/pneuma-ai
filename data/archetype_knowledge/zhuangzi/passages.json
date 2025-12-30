@@ -1,0 +1,157 @@
+{
+  "archetype": "cosmicTrickster",
+  "thinker": "Zhuangzi",
+  "era": "369-286 BCE",
+  "coreConcepts": [
+    "The butterfly dream",
+    "Uselessness as freedom",
+    "Free and easy wandering",
+    "Forgetting distinctions",
+    "The empty boat",
+    "Skill beyond technique",
+    "Perspective relativity",
+    "Spontaneous action (wu-wei)"
+  ],
+  "passages": [
+    {
+      "id": "zhuangzi-001",
+      "text": "Once upon a time, I dreamt I was a butterfly, fluttering hither and thither. Suddenly I awoke, and there I was, myself again. Now I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly, dreaming I am a man.",
+      "source": "Zhuangzi",
+      "themes": ["dream", "butterfly", "identity", "reality"],
+      "context": "The butterfly dream—questioning the real"
+    },
+    {
+      "id": "zhuangzi-002",
+      "text": "The fish trap exists because of the fish. Once you've gotten the fish, you can forget the trap. Words exist because of meaning. Once you've gotten the meaning, you can forget the words.",
+      "source": "Zhuangzi",
+      "themes": ["words", "meaning", "trap", "forgetting"],
+      "context": "Tools are means, not ends"
+    },
+    {
+      "id": "zhuangzi-003",
+      "text": "A frog in a well cannot conceive of the ocean.",
+      "source": "Zhuangzi",
+      "themes": ["frog", "well", "ocean", "perspective"],
+      "context": "Limitation of narrow experience"
+    },
+    {
+      "id": "zhuangzi-004",
+      "text": "Flow with whatever may happen and let your mind be free. Stay centered by accepting whatever you are doing. This is the ultimate.",
+      "source": "Zhuangzi",
+      "themes": ["flow", "freedom", "center", "acceptance"],
+      "context": "Natural action"
+    },
+    {
+      "id": "zhuangzi-005",
+      "text": "Happiness is the absence of the striving for happiness.",
+      "source": "Zhuangzi",
+      "themes": ["happiness", "striving", "absence", "paradox"],
+      "context": "Happiness through non-seeking"
+    },
+    {
+      "id": "zhuangzi-006",
+      "text": "The perfect man uses his mind as a mirror. It grasps nothing. It refuses nothing. It receives but does not keep.",
+      "source": "Zhuangzi",
+      "themes": ["mirror", "mind", "grasping", "receiving"],
+      "context": "Non-attachment in perception"
+    },
+    {
+      "id": "zhuangzi-007",
+      "text": "If a man is crossing a river and an empty boat collides with his own, even though he be a bad-tempered man he will not become angry. But if there is a man in the other boat, he will shout to him to steer clear.",
+      "source": "Zhuangzi",
+      "themes": ["boat", "anger", "empty", "projection"],
+      "context": "We get angry at selves, not things"
+    },
+    {
+      "id": "zhuangzi-008",
+      "text": "Great wisdom is generous; petty wisdom is contentious.",
+      "source": "Zhuangzi",
+      "themes": ["wisdom", "generous", "petty", "contention"],
+      "context": "Quality of different wisdoms"
+    },
+    {
+      "id": "zhuangzi-009",
+      "text": "To a mind that is still, the whole universe surrenders.",
+      "source": "Zhuangzi",
+      "themes": ["stillness", "mind", "universe", "surrender"],
+      "context": "Power of stillness"
+    },
+    {
+      "id": "zhuangzi-010",
+      "text": "Everyone knows the usefulness of the useful, but no one knows the usefulness of the useless.",
+      "source": "Zhuangzi",
+      "themes": ["useful", "useless", "knowledge", "paradox"],
+      "context": "Value of what seems valueless"
+    },
+    {
+      "id": "zhuangzi-011",
+      "text": "The wise man knows that it is better to sit on the banks of a remote mountain stream than to be emperor of the whole world.",
+      "source": "Zhuangzi",
+      "themes": ["wisdom", "emperor", "stream", "simplicity"],
+      "context": "True wealth"
+    },
+    {
+      "id": "zhuangzi-012",
+      "text": "When there is no more separation between 'this' and 'that,' it is called the still-point of the Tao.",
+      "source": "Zhuangzi",
+      "themes": ["separation", "this-that", "still-point", "Tao"],
+      "context": "Non-duality"
+    },
+    {
+      "id": "zhuangzi-013",
+      "text": "The effect of life in society is to complicate and confuse our existence, making us forget who we really are by causing us to become obsessed with what we are not.",
+      "source": "Zhuangzi",
+      "themes": ["society", "confusion", "identity", "obsession"],
+      "context": "Social conditioning"
+    },
+    {
+      "id": "zhuangzi-014",
+      "text": "Cook Ding was cutting up an ox for Lord Wen-hui. His knife had not been sharpened in nineteen years, yet the edge was as keen as if newly whetted. 'There are spaces in the joints. The blade has no thickness. Inserting what has no thickness into such spaces—there is plenty of room.'",
+      "source": "Zhuangzi",
+      "themes": ["skill", "spaces", "effortlessness", "mastery"],
+      "context": "Skill that finds the gaps"
+    },
+    {
+      "id": "zhuangzi-015",
+      "text": "Where can I find a man who has forgotten words so I can have a word with him?",
+      "source": "Zhuangzi",
+      "themes": ["words", "forgetting", "communication", "paradox"],
+      "context": "Longing for wordless understanding"
+    },
+    {
+      "id": "zhuangzi-016",
+      "text": "The torch of chaos and doubt—this is what the sage steers by.",
+      "source": "Zhuangzi",
+      "themes": ["chaos", "doubt", "sage", "navigation"],
+      "context": "Doubt as guide"
+    },
+    {
+      "id": "zhuangzi-017",
+      "text": "Men honor what lies within the sphere of their knowledge, but do not realize how dependent they are on what lies beyond it.",
+      "source": "Zhuangzi",
+      "themes": ["knowledge", "beyond", "dependence", "honor"],
+      "context": "Limits of knowledge"
+    },
+    {
+      "id": "zhuangzi-018",
+      "text": "A path is made by walking on it.",
+      "source": "Zhuangzi",
+      "themes": ["path", "walking", "creation", "action"],
+      "context": "No pre-existing path"
+    },
+    {
+      "id": "zhuangzi-019",
+      "text": "The purpose of a fish trap is to catch fish, and when the fish are caught the trap is forgotten. The purpose of words is to convey ideas. When the ideas are grasped, the words are forgotten.",
+      "source": "Zhuangzi",
+      "themes": ["trap", "fish", "words", "ideas"],
+      "context": "Means vs ends"
+    },
+    {
+      "id": "zhuangzi-020",
+      "text": "Rewards and punishments are the lowest form of education.",
+      "source": "Zhuangzi",
+      "themes": ["rewards", "punishments", "education", "lowest"],
+      "context": "Critique of external motivation"
+    }
+  ]
+}

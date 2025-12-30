@@ -1,0 +1,157 @@
+{
+  "archetype": "groundlessBuddhist",
+  "thinker": "Pema Chödrön",
+  "era": "1936-present",
+  "coreConcepts": [
+    "Groundlessness",
+    "Leaning into discomfort",
+    "Maitri (unconditional friendliness)",
+    "The places that scare you",
+    "Start where you are",
+    "No escape",
+    "Shenpa (getting hooked)",
+    "Comfortable with uncertainty"
+  ],
+  "passages": [
+    {
+      "id": "pema-001",
+      "text": "You are the sky. Everything else—it's just the weather.",
+      "source": "When Things Fall Apart",
+      "themes": ["sky", "weather", "identity", "impermanence"],
+      "context": "Awareness as vast container"
+    },
+    {
+      "id": "pema-002",
+      "text": "Nothing ever goes away until it has taught us what we need to know.",
+      "source": "When Things Fall Apart",
+      "themes": ["lessons", "persistence", "learning", "patterns"],
+      "context": "Why difficulties recur"
+    },
+    {
+      "id": "pema-003",
+      "text": "The most fundamental aggression to ourselves, the most fundamental harm we can do to ourselves, is to remain ignorant by not having the courage and the respect to look at ourselves honestly and gently.",
+      "source": "When Things Fall Apart",
+      "themes": ["aggression", "honesty", "courage", "gentleness"],
+      "context": "Self-avoidance as violence"
+    },
+    {
+      "id": "pema-004",
+      "text": "Fear is a natural reaction to moving closer to the truth.",
+      "source": "When Things Fall Apart",
+      "themes": ["fear", "truth", "reaction", "closeness"],
+      "context": "Fear as indicator of growth"
+    },
+    {
+      "id": "pema-005",
+      "text": "We think that the point is to pass the test or overcome the problem, but the truth is that things don't really get solved. They come together and they fall apart. Then they come together again and fall apart again.",
+      "source": "When Things Fall Apart",
+      "themes": ["problems", "solutions", "cycles", "impermanence"],
+      "context": "Releasing the fantasy of permanent resolution"
+    },
+    {
+      "id": "pema-006",
+      "text": "Lean into the sharp points.",
+      "source": "The Places That Scare You",
+      "themes": ["lean", "sharp", "discomfort", "courage"],
+      "context": "Moving toward difficulty"
+    },
+    {
+      "id": "pema-007",
+      "text": "The only reason we don't open our hearts and minds to other people is that they trigger confusion in us that we don't feel brave enough to work with.",
+      "source": "When Things Fall Apart",
+      "themes": ["hearts", "confusion", "bravery", "others"],
+      "context": "Why we close down"
+    },
+    {
+      "id": "pema-008",
+      "text": "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
+      "source": "The Places That Scare You",
+      "themes": ["compassion", "equals", "darkness", "presence"],
+      "context": "Horizontal compassion"
+    },
+    {
+      "id": "pema-009",
+      "text": "If we learn to open our hearts, anyone, including the people who drive us crazy, can be our teacher.",
+      "source": "When Things Fall Apart",
+      "themes": ["hearts", "teacher", "openness", "irritation"],
+      "context": "Difficult people as teachers"
+    },
+    {
+      "id": "pema-010",
+      "text": "The practice is about not running away, not numbing out, not getting hooked. It's about staying present.",
+      "source": "Various",
+      "themes": ["practice", "presence", "numbing", "staying"],
+      "context": "Core instruction"
+    },
+    {
+      "id": "pema-011",
+      "text": "Shenpa is the urge, the hook, that triggers our habitual tendency to close down. We get hooked in that moment of discomfort, and then we follow the old familiar patterns.",
+      "source": "Taking the Leap",
+      "themes": ["shenpa", "hook", "habit", "discomfort"],
+      "context": "Mechanism of reactivity"
+    },
+    {
+      "id": "pema-012",
+      "text": "To be fully alive, fully human, and completely awake is to be continually thrown out of the nest.",
+      "source": "When Things Fall Apart",
+      "themes": ["alive", "awake", "nest", "groundlessness"],
+      "context": "Groundlessness as aliveness"
+    },
+    {
+      "id": "pema-013",
+      "text": "We can let the circumstances of our lives harden us so that we become increasingly resentful and afraid, or we can let them soften us and make us kinder.",
+      "source": "The Places That Scare You",
+      "themes": ["circumstances", "hardening", "softening", "kindness"],
+      "context": "The choice in difficulty"
+    },
+    {
+      "id": "pema-014",
+      "text": "Start where you are.",
+      "source": "Start Where You Are (title)",
+      "themes": ["start", "here", "now", "acceptance"],
+      "context": "No preconditions needed"
+    },
+    {
+      "id": "pema-015",
+      "text": "Suffering begins to dissolve when we can question the belief or the hope that there's anywhere to hide.",
+      "source": "When Things Fall Apart",
+      "themes": ["suffering", "hiding", "belief", "dissolution"],
+      "context": "Releasing escape fantasies"
+    },
+    {
+      "id": "pema-016",
+      "text": "When we resist change, it's called suffering. But when we can completely let go and not struggle against it, when we can embrace the groundlessness of our situation and relax into its dynamic quality, that's called enlightenment.",
+      "source": "Living Beautifully with Uncertainty and Change",
+      "themes": ["change", "resistance", "groundlessness", "enlightenment"],
+      "context": "Definition of awakening"
+    },
+    {
+      "id": "pema-017",
+      "text": "The next time you lose heart and you can't bear to experience what you're feeling, you might recall this instruction: change the way you see things and lean in.",
+      "source": "The Places That Scare You",
+      "themes": ["heart", "feeling", "seeing", "leaning"],
+      "context": "Practical instruction"
+    },
+    {
+      "id": "pema-018",
+      "text": "Feelings like disappointment, embarrassment, irritation, resentment, anger, jealousy, and fear, instead of being bad news, are actually very clear moments that teach us where it is that we're holding back.",
+      "source": "When Things Fall Apart",
+      "themes": ["feelings", "teaching", "holding-back", "clarity"],
+      "context": "Negative emotions as teachers"
+    },
+    {
+      "id": "pema-019",
+      "text": "This very moment is the perfect teacher, and, lucky for us, it's with us wherever we go.",
+      "source": "When Things Fall Apart",
+      "themes": ["moment", "teacher", "present", "luck"],
+      "context": "No need to seek elsewhere"
+    },
+    {
+      "id": "pema-020",
+      "text": "What we call obstacles are really the way the world and our entire experience teach us where we're stuck.",
+      "source": "When Things Fall Apart",
+      "themes": ["obstacles", "world", "stuck", "teaching"],
+      "context": "Reframing obstacles"
+    }
+  ]
+}

@@ -5,18 +5,18 @@
 // ------------------------------------------------------------
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import {
   loadMemory,
   saveMemory,
   distillConversation,
 } from "./longTermMemory.js";
+import { CONVERSATIONS_FILE, ensureDataDirectory } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Ensure data directory exists at module load
+ensureDataDirectory();
 
-const historyPath = path.join(__dirname, "../../data/conversations.json");
+// Use centralized path config (no more relative path bugs!)
+const historyPath = CONVERSATIONS_FILE;
 
 // ============================================================
 // DATA STRUCTURE
@@ -105,11 +105,7 @@ export function loadHistory() {
 
 export function saveHistory(history) {
   try {
-    // Ensure data directory exists
-    const dataDir = path.dirname(historyPath);
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
-    }
+    // Data directory is ensured by paths.js on import
     fs.writeFileSync(historyPath, JSON.stringify(history, null, 2), "utf8");
   } catch (err) {
     // Graceful degradation: conversations work but don't persist

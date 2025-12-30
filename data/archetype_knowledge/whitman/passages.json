@@ -1,0 +1,157 @@
+{
+  "archetype": "romanticPoet",
+  "thinker": "Walt Whitman",
+  "era": "1819-1892",
+  "coreConcepts": [
+    "I contain multitudes",
+    "The body electric",
+    "Democratic vision",
+    "Kosmos",
+    "The open road",
+    "Grass as democracy",
+    "Celebrating the self",
+    "Union of body and soul"
+  ],
+  "passages": [
+    {
+      "id": "whitman-001",
+      "text": "I celebrate myself, and sing myself, and what I assume you shall assume, for every atom belonging to me as good belongs to you.",
+      "source": "Song of Myself",
+      "themes": ["unity", "identity", "democratic-self", "atoms"],
+      "context": "Opening declaration that the self is universal"
+    },
+    {
+      "id": "whitman-002",
+      "text": "Do I contradict myself? Very well then I contradict myself. I am large, I contain multitudes.",
+      "source": "Song of Myself",
+      "themes": ["paradox", "multiplicity", "self-acceptance", "vastness"],
+      "context": "Embracing inner contradictions as a sign of wholeness"
+    },
+    {
+      "id": "whitman-003",
+      "text": "I believe a leaf of grass is no less than the journey-work of the stars.",
+      "source": "Song of Myself",
+      "themes": ["nature", "cosmos", "sacred-ordinary", "wonder"],
+      "context": "Finding cosmic significance in the smallest things"
+    },
+    {
+      "id": "whitman-004",
+      "text": "I exist as I am, that is enough. If no other in the world be aware I sit content, and if each and all be aware I sit content.",
+      "source": "Song of Myself",
+      "themes": ["self-acceptance", "contentment", "being", "independence"],
+      "context": "Radical acceptance of one's own existence"
+    },
+    {
+      "id": "whitman-005",
+      "text": "The past and present wilt—I have fill'd them, emptied them, and proceed to fill my next fold of the future.",
+      "source": "Song of Myself",
+      "themes": ["time", "becoming", "infinite-self", "creativity"],
+      "context": "The self as an ongoing creative process"
+    },
+    {
+      "id": "whitman-006",
+      "text": "I am the poet of the Body and I am the poet of the Soul. The pleasures of heaven are with me and the pains of hell are with me.",
+      "source": "Song of Myself",
+      "themes": ["body-soul", "wholeness", "inclusion", "duality"],
+      "context": "Refusing to separate flesh from spirit"
+    },
+    {
+      "id": "whitman-007",
+      "text": "I think I could turn and live with animals, they are so placid and self-contain'd. They do not sweat and whine about their condition.",
+      "source": "Song of Myself",
+      "themes": ["animals", "simplicity", "naturalness", "presence"],
+      "context": "Admiring the untroubled presence of animals"
+    },
+    {
+      "id": "whitman-008",
+      "text": "Re-examine all you have been told at school or church or in any book, dismiss whatever insults your own soul.",
+      "source": "Leaves of Grass, Preface",
+      "themes": ["authority", "soul", "autonomy", "discernment"],
+      "context": "The soul as final arbiter of truth"
+    },
+    {
+      "id": "whitman-009",
+      "text": "I sound my barbaric yawp over the roofs of the world.",
+      "source": "Song of Myself",
+      "themes": ["voice", "wildness", "expression", "freedom"],
+      "context": "Unapologetic self-expression"
+    },
+    {
+      "id": "whitman-010",
+      "text": "Afoot and light-hearted I take to the open road, healthy, free, the world before me, the long brown path before me leading wherever I choose.",
+      "source": "Song of the Open Road",
+      "themes": ["freedom", "journey", "possibility", "lightness"],
+      "context": "The open road as symbol of infinite possibility"
+    },
+    {
+      "id": "whitman-011",
+      "text": "I am not contain'd between my hat and boots.",
+      "source": "Song of Myself",
+      "themes": ["identity", "boundlessness", "body", "spirit"],
+      "context": "The self exceeds the physical form"
+    },
+    {
+      "id": "whitman-012",
+      "text": "The smallest sprout shows there is really no death, and if ever there was it led forward life.",
+      "source": "Song of Myself",
+      "themes": ["death", "continuity", "life", "transformation"],
+      "context": "Death as transition rather than ending"
+    },
+    {
+      "id": "whitman-013",
+      "text": "I hear and behold God in every object, yet understand God not in the least.",
+      "source": "Song of Myself",
+      "themes": ["god", "immanence", "mystery", "perception"],
+      "context": "Divine presence everywhere, comprehension nowhere"
+    },
+    {
+      "id": "whitman-014",
+      "text": "All truths wait in all things. They neither hasten their own delivery nor resist it.",
+      "source": "Song of Myself",
+      "themes": ["truth", "patience", "immanence", "revelation"],
+      "context": "Truth is already present, waiting to be seen"
+    },
+    {
+      "id": "whitman-015",
+      "text": "I bequeath myself to the dirt to grow from the grass I love. If you want me again look for me under your boot-soles.",
+      "source": "Song of Myself",
+      "themes": ["death", "continuity", "earth", "grass"],
+      "context": "Final lines—the poet becomes the grass"
+    },
+    {
+      "id": "whitman-016",
+      "text": "Whoever you are, now I place my hand upon you, that you be my poem. I whisper with my lips close to your ear, I have loved many women and men, but I love none better than you.",
+      "source": "To You",
+      "themes": ["intimacy", "reader", "love", "presence"],
+      "context": "Direct address that collapses the distance between poet and reader"
+    },
+    {
+      "id": "whitman-017",
+      "text": "I am he that walks with the tender and growing night. I call to the earth and sea half-held by the night.",
+      "source": "Song of Myself",
+      "themes": ["night", "intimacy", "cosmos", "tenderness"],
+      "context": "Erotic relationship with the night itself"
+    },
+    {
+      "id": "whitman-018",
+      "text": "Have you reckon'd a thousand acres much? Have you reckon'd the earth much? Have you practis'd so long to learn to read? Have you felt so proud to get at the meaning of poems?",
+      "source": "Song of Myself",
+      "themes": ["scale", "humility", "knowledge", "meaning"],
+      "context": "Challenging the reader's sense of accomplishment"
+    },
+    {
+      "id": "whitman-019",
+      "text": "Not I, not any one else can travel that road for you. You must travel it for yourself.",
+      "source": "Song of Myself",
+      "themes": ["path", "autonomy", "journey", "individuation"],
+      "context": "The irreducible solitude of the spiritual journey"
+    },
+    {
+      "id": "whitman-020",
+      "text": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+      "source": "attributed",
+      "themes": ["orientation", "light", "shadow", "attitude"],
+      "context": "Simple wisdom about where to direct attention"
+    }
+  ]
+}

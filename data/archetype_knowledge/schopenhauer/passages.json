@@ -1,0 +1,157 @@
+{
+  "archetype": "pessimistSage",
+  "thinker": "Arthur Schopenhauer",
+  "era": "1788-1860",
+  "coreConcepts": [
+    "Will as blind striving",
+    "Life as suffering",
+    "Aesthetic contemplation",
+    "Denial of the will",
+    "Compassion as ethics",
+    "The veil of Maya",
+    "Boredom and pain pendulum",
+    "Genius as objectivity"
+  ],
+  "passages": [
+    {
+      "id": "schopenhauer-001",
+      "text": "Life swings like a pendulum backward and forward between pain and boredom.",
+      "source": "The World as Will and Representation",
+      "themes": ["suffering", "boredom", "life", "oscillation"],
+      "context": "The two poles of unsatisfied existence"
+    },
+    {
+      "id": "schopenhauer-002",
+      "text": "The will is a blind, unconscious striving, an endless desiring that can never be satisfied.",
+      "source": "The World as Will and Representation",
+      "themes": ["will", "desire", "striving", "blindness"],
+      "context": "Core metaphysics—will as thing-in-itself"
+    },
+    {
+      "id": "schopenhauer-003",
+      "text": "We forfeit three-quarters of ourselves in order to be like other people.",
+      "source": "Parerga and Paralipomena",
+      "themes": ["conformity", "self", "society", "loss"],
+      "context": "The cost of social belonging"
+    },
+    {
+      "id": "schopenhauer-004",
+      "text": "Compassion is the basis of all morality.",
+      "source": "On the Basis of Morality",
+      "themes": ["compassion", "ethics", "morality", "foundation"],
+      "context": "Ethics grounded in felt connection to suffering"
+    },
+    {
+      "id": "schopenhauer-005",
+      "text": "Talent hits a target no one else can hit; genius hits a target no one else can see.",
+      "source": "The World as Will and Representation",
+      "themes": ["genius", "talent", "vision", "perception"],
+      "context": "Distinction between skill and original seeing"
+    },
+    {
+      "id": "schopenhauer-006",
+      "text": "Every man takes the limits of his own field of vision for the limits of the world.",
+      "source": "Parerga and Paralipomena",
+      "themes": ["perspective", "limits", "world", "vision"],
+      "context": "The prison of subjective viewpoint"
+    },
+    {
+      "id": "schopenhauer-007",
+      "text": "The two enemies of human happiness are pain and boredom.",
+      "source": "Essays and Aphorisms",
+      "themes": ["happiness", "pain", "boredom", "enemies"],
+      "context": "The inescapable oscillation"
+    },
+    {
+      "id": "schopenhauer-008",
+      "text": "A man can be himself only so long as he is alone; and if he does not love solitude, he will not love freedom.",
+      "source": "Counsels and Maxims",
+      "themes": ["solitude", "freedom", "self", "authenticity"],
+      "context": "Solitude as condition of selfhood"
+    },
+    {
+      "id": "schopenhauer-009",
+      "text": "The assumption that animals are without rights and the illusion that our treatment of them has no moral significance is a positively outrageous example of Western crudity and barbarity.",
+      "source": "On the Basis of Morality",
+      "themes": ["animals", "rights", "compassion", "ethics"],
+      "context": "Early voice for animal ethics"
+    },
+    {
+      "id": "schopenhauer-010",
+      "text": "Hope is the confusion of the desire for a thing with its probability.",
+      "source": "The World as Will and Representation",
+      "themes": ["hope", "desire", "probability", "delusion"],
+      "context": "Critique of optimistic self-deception"
+    },
+    {
+      "id": "schopenhauer-011",
+      "text": "Mostly it is loss which teaches us about the worth of things.",
+      "source": "Parerga and Paralipomena",
+      "themes": ["loss", "value", "appreciation", "learning"],
+      "context": "We discover value through absence"
+    },
+    {
+      "id": "schopenhauer-012",
+      "text": "Every parting gives a foretaste of death; every reunion a hint of the resurrection.",
+      "source": "Essays and Aphorisms",
+      "themes": ["parting", "death", "reunion", "resurrection"],
+      "context": "Small deaths and resurrections in daily life"
+    },
+    {
+      "id": "schopenhauer-013",
+      "text": "Music is the melody whose text is the world.",
+      "source": "The World as Will and Representation",
+      "themes": ["music", "world", "expression", "will"],
+      "context": "Music as direct expression of the will itself"
+    },
+    {
+      "id": "schopenhauer-014",
+      "text": "The doctor sees all the weakness of mankind; the lawyer all the wickedness, the theologian all the stupidity.",
+      "source": "Essays and Aphorisms",
+      "themes": ["professions", "weakness", "wickedness", "stupidity"],
+      "context": "Each profession reveals a different flaw"
+    },
+    {
+      "id": "schopenhauer-015",
+      "text": "Happiness consists in frequent repetition of pleasure.",
+      "source": "Essays and Aphorisms",
+      "themes": ["happiness", "pleasure", "repetition", "frequency"],
+      "context": "Modest definition against grand aspirations"
+    },
+    {
+      "id": "schopenhauer-016",
+      "text": "To overcome difficulties is to experience the full delight of existence.",
+      "source": "Essays and Aphorisms",
+      "themes": ["difficulty", "overcoming", "delight", "existence"],
+      "context": "Paradox—struggle as source of meaning"
+    },
+    {
+      "id": "schopenhauer-017",
+      "text": "Reading is merely a surrogate for thinking for yourself; it means letting someone else direct your thoughts.",
+      "source": "Essays and Aphorisms",
+      "themes": ["reading", "thinking", "autonomy", "surrogate"],
+      "context": "Warning against intellectual passivity"
+    },
+    {
+      "id": "schopenhauer-018",
+      "text": "The fundament upon which all our knowledge and learning rests is the inexplicable.",
+      "source": "Parerga and Paralipomena",
+      "themes": ["knowledge", "inexplicable", "foundation", "mystery"],
+      "context": "Mystery at the ground of all understanding"
+    },
+    {
+      "id": "schopenhauer-019",
+      "text": "After your death you will be what you were before your birth.",
+      "source": "Parerga and Paralipomena",
+      "themes": ["death", "birth", "nothingness", "symmetry"],
+      "context": "Death as return to prenatal non-existence"
+    },
+    {
+      "id": "schopenhauer-020",
+      "text": "Almost all of our sorrows spring out of our relations with other people.",
+      "source": "Essays and Aphorisms",
+      "themes": ["sorrow", "relationships", "people", "suffering"],
+      "context": "Social life as primary source of pain"
+    }
+  ]
+}

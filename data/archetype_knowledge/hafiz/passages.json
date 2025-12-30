@@ -1,0 +1,148 @@
+{
+  "archetype": "ecstaticBeloved",
+  "thinker": "Hafiz",
+  "era": "1315-1390",
+  "coreConcepts": ["divine intoxication", "the Beloved", "wine of presence", "sacred irreverence", "the Friend", "love's madness"],
+  "passages": [
+    {
+      "id": "hafiz-001",
+      "text": "I wish I could show you, when you are lonely or in darkness, the astonishing light of your own being.",
+      "source": "The Gift",
+      "themes": ["light", "being", "loneliness", "darkness"],
+      "context": "You don't lack light — you've forgotten you ARE light. Loneliness is forgetting your own radiance."
+    },
+    {
+      "id": "hafiz-002",
+      "text": "Ever since happiness heard your name, it has been running through the streets trying to find you.",
+      "source": "The Gift",
+      "themes": ["happiness", "name", "seeking", "finding"],
+      "context": "Happiness isn't pursued — it pursues you. It already knows your name; you just need to answer."
+    },
+    {
+      "id": "hafiz-003",
+      "text": "Fear is the cheapest room in the house. I would like to see you living in better conditions.",
+      "source": "The Gift",
+      "themes": ["fear", "room", "house", "conditions"],
+      "context": "Fear is low-rent accommodation. You deserve better lodging in your own interior."
+    },
+    {
+      "id": "hafiz-004",
+      "text": "The words you speak become the house you live in.",
+      "source": "The Gift",
+      "themes": ["words", "house", "speaking", "living"],
+      "context": "Language constructs reality. Speak your dwelling into existence; your words are your architecture."
+    },
+    {
+      "id": "hafiz-005",
+      "text": "I have learned so much from God that I can no longer call myself a Christian, a Hindu, a Muslim, a Buddhist, a Jew.",
+      "source": "The Gift",
+      "themes": ["God", "learning", "religion", "labels"],
+      "context": "True learning from God transcends religious categories. The divine exceeds all traditions."
+    },
+    {
+      "id": "hafiz-006",
+      "text": "What is this precious love and laughter budding in our hearts? It is the glorious sound of a soul waking up!",
+      "source": "The Gift",
+      "themes": ["love", "laughter", "soul", "waking"],
+      "context": "Joy and love aren't acquisitions — they're signs of awakening. The soul coming alive sounds like laughter."
+    },
+    {
+      "id": "hafiz-007",
+      "text": "Even after all this time, the sun never says to the earth, 'You owe me.' Look what happens with a love like that. It lights the whole sky.",
+      "source": "The Gift",
+      "themes": ["sun", "earth", "love", "generosity"],
+      "context": "Love without accounting. The sun gives without ledger. Such love illuminates everything."
+    },
+    {
+      "id": "hafiz-008",
+      "text": "Your heart and my heart are very, very old friends.",
+      "source": "The Gift",
+      "themes": ["heart", "friends", "old", "connection"],
+      "context": "Deep recognition: some connections predate this meeting. Ancient friendship, immediate recognition."
+    },
+    {
+      "id": "hafiz-009",
+      "text": "I am a hole in a flute that the Christ's breath moves through. Listen to this music.",
+      "source": "The Gift",
+      "themes": ["flute", "breath", "Christ", "music"],
+      "context": "Emptiness as instrument. The divine breathes through our hollowness. We're not the music — we're the hole."
+    },
+    {
+      "id": "hafiz-010",
+      "text": "Run my dear, from anything that may not strengthen your precious budding wings.",
+      "source": "The Gift",
+      "themes": ["run", "wings", "strengthen", "precious"],
+      "context": "Protect what's emerging. Not everything deserves your presence. Guard your becoming."
+    },
+    {
+      "id": "hafiz-011",
+      "text": "How do I listen to others? As if everyone were my Master speaking to me his cherished last words.",
+      "source": "The Gift",
+      "themes": ["listening", "Master", "last words", "others"],
+      "context": "Revolutionary listening: treat everyone as dying teacher. Every word might be their last teaching."
+    },
+    {
+      "id": "hafiz-012",
+      "text": "This place where you are right now, God circled on a map for you.",
+      "source": "The Gift",
+      "themes": ["place", "God", "map", "here"],
+      "context": "Where you are isn't accident. Divine intention placed you here. This spot was circled."
+    },
+    {
+      "id": "hafiz-013",
+      "text": "The small man builds cages for everyone he knows, while the sage, who has to duck his head when the moon is low, keeps dropping keys all night long for the beautiful, rowdy prisoners.",
+      "source": "The Gift",
+      "themes": ["cages", "keys", "sage", "prisoners"],
+      "context": "Small souls imprison; great souls liberate. The sage's work: dropping keys for those caged by small men."
+    },
+    {
+      "id": "hafiz-014",
+      "text": "Now is the time to know that all that you do is sacred.",
+      "source": "The Gift",
+      "themes": ["now", "time", "sacred", "doing"],
+      "context": "Not someday — now. Not some acts — all. Everything you do participates in the sacred."
+    },
+    {
+      "id": "hafiz-015",
+      "text": "We have not come here to take prisoners but to surrender ever more deeply to freedom and joy.",
+      "source": "The Gift",
+      "themes": ["prisoners", "surrender", "freedom", "joy"],
+      "context": "The purpose isn't conquest but surrender. Not capturing but releasing. Freedom and joy as destination."
+    },
+    {
+      "id": "hafiz-016",
+      "text": "Forgiveness is the cash you need. All the other kinds of silver really won't buy a lot.",
+      "source": "The Gift",
+      "themes": ["forgiveness", "cash", "currency", "buying"],
+      "context": "Forgiveness is the only currency that spends. Other riches are worthless for what really matters."
+    },
+    {
+      "id": "hafiz-017",
+      "text": "Light will someday split you open, even if your life is now a cage.",
+      "source": "The Gift",
+      "themes": ["light", "split", "open", "cage"],
+      "context": "Even caged, light is coming. It will break you open. Current imprisonment isn't permanent."
+    },
+    {
+      "id": "hafiz-018",
+      "text": "Don't surrender your loneliness so quickly. Let it cut more deep. Let it ferment and season you as few human or even divine ingredients can.",
+      "source": "The Gift",
+      "themes": ["loneliness", "surrender", "cut", "season"],
+      "context": "Don't rush to escape loneliness. It does work nothing else can. Let it finish its fermenting."
+    },
+    {
+      "id": "hafiz-019",
+      "text": "Join me in the pure atmosphere of gratitude for life.",
+      "source": "The Gift",
+      "themes": ["gratitude", "life", "atmosphere", "joining"],
+      "context": "Invitation to shared gratitude. Life itself deserves thanks. Join in that air."
+    },
+    {
+      "id": "hafiz-020",
+      "text": "The heart is a thousand-stringed instrument that can only be tuned with love.",
+      "source": "The Gift",
+      "themes": ["heart", "instrument", "strings", "love"],
+      "context": "The heart's complexity requires love's tuning. Nothing else can harmonize a thousand strings."
+    }
+  ]
+}

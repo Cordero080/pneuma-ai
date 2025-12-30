@@ -1,0 +1,148 @@
+{
+  "archetype": "meaningSurvivor",
+  "thinker": "Viktor Frankl",
+  "era": "1905-1997",
+  "coreConcepts": ["meaning", "logotherapy", "the last freedom", "tragic optimism", "will to meaning", "suffering", "responsibility"],
+  "passages": [
+    {
+      "id": "frankl-001",
+      "text": "Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom.",
+      "source": "Man's Search for Meaning",
+      "themes": ["stimulus", "response", "space", "freedom"],
+      "context": "The gap between what happens and how we respond — that's where freedom lives. That space is everything."
+    },
+    {
+      "id": "frankl-002",
+      "text": "He who has a why to live can bear almost any how.",
+      "source": "Man's Search for Meaning",
+      "themes": ["why", "how", "bear", "living"],
+      "context": "Meaning enables endurance. Purpose makes suffering bearable. The why transcends the how."
+    },
+    {
+      "id": "frankl-003",
+      "text": "Everything can be taken from a man but one thing: the last of the human freedoms — to choose one's attitude in any given set of circumstances.",
+      "source": "Man's Search for Meaning",
+      "themes": ["freedom", "attitude", "choice", "circumstances"],
+      "context": "Even in Auschwitz, this remained. They could take everything except how you respond. The last freedom."
+    },
+    {
+      "id": "frankl-004",
+      "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
+      "source": "Man's Search for Meaning",
+      "themes": ["change", "situation", "challenged", "ourselves"],
+      "context": "When external change is impossible, internal change becomes the task. Adapt the self, not the world."
+    },
+    {
+      "id": "frankl-005",
+      "text": "Those who have a 'why' to live, can bear with almost any 'how'.",
+      "source": "Man's Search for Meaning",
+      "themes": ["why", "how", "bear", "live"],
+      "context": "Nietzsche via Auschwitz. Purpose metabolizes pain. Meaning makes endurance possible."
+    },
+    {
+      "id": "frankl-006",
+      "text": "An abnormal reaction to an abnormal situation is normal behavior.",
+      "source": "Man's Search for Meaning",
+      "themes": ["abnormal", "reaction", "situation", "normal"],
+      "context": "Don't pathologize responses to pathological conditions. Madness in madness is sane."
+    },
+    {
+      "id": "frankl-007",
+      "text": "In some ways suffering ceases to be suffering at the moment it finds a meaning, such as the meaning of a sacrifice.",
+      "source": "Man's Search for Meaning",
+      "themes": ["suffering", "meaning", "sacrifice", "ceases"],
+      "context": "Meaningful suffering transforms. When suffering means something, it's no longer mere suffering."
+    },
+    {
+      "id": "frankl-008",
+      "text": "Life is never made unbearable by circumstances, but only by lack of meaning and purpose.",
+      "source": "Man's Search for Meaning",
+      "themes": ["life", "unbearable", "circumstances", "meaning"],
+      "context": "Circumstances don't break us — meaninglessness does. Purpose sustains through anything."
+    },
+    {
+      "id": "frankl-009",
+      "text": "For the world is in a bad state, but everything will become still worse unless each of us does his best.",
+      "source": "Man's Search for Meaning",
+      "themes": ["world", "bad", "worse", "best"],
+      "context": "Don't wait for the world to improve. Your contribution matters. Do your best regardless."
+    },
+    {
+      "id": "frankl-010",
+      "text": "The one thing you can't take away from me is the way I choose to respond to what you do to me.",
+      "source": "Man's Search for Meaning",
+      "themes": ["response", "choice", "take away", "freedom"],
+      "context": "Ultimate personal sovereignty. You control my body, my conditions — not my response. That's mine."
+    },
+    {
+      "id": "frankl-011",
+      "text": "What is to give light must endure burning.",
+      "source": "Man's Search for Meaning",
+      "themes": ["light", "burning", "endure", "giving"],
+      "context": "Illumination costs. To give light, you must be consumed. No burning, no brightness."
+    },
+    {
+      "id": "frankl-012",
+      "text": "I recommend that the Statue of Liberty on the East Coast be supplemented by a Statue of Responsibility on the West Coast.",
+      "source": "Man's Search for Meaning",
+      "themes": ["liberty", "responsibility", "statue", "balance"],
+      "context": "Freedom without responsibility is incomplete. We celebrate liberty; we should equally honor duty."
+    },
+    {
+      "id": "frankl-013",
+      "text": "Live as if you were living already for the second time and as if you had acted the first time as wrongly as you are about to act now.",
+      "source": "Man's Search for Meaning",
+      "themes": ["live", "second time", "wrongly", "act"],
+      "context": "Imagine this is your second chance. You made this mistake before. Now choose differently."
+    },
+    {
+      "id": "frankl-014",
+      "text": "No man should judge unless he asks himself in absolute honesty whether in a similar situation he might not have done the same.",
+      "source": "Man's Search for Meaning",
+      "themes": ["judge", "honesty", "situation", "same"],
+      "context": "Before judging, ask: would I have done better? Honest answer often prevents judgment."
+    },
+    {
+      "id": "frankl-015",
+      "text": "Ultimately, man should not ask what the meaning of his life is, but rather must recognize that it is he who is asked.",
+      "source": "Man's Search for Meaning",
+      "themes": ["meaning", "asked", "recognize", "life"],
+      "context": "Flip the question. Life interrogates you. You don't ask life for meaning — life asks you."
+    },
+    {
+      "id": "frankl-016",
+      "text": "Fear makes come true that which one is afraid of.",
+      "source": "Man's Search for Meaning",
+      "themes": ["fear", "come true", "afraid", "self-fulfilling"],
+      "context": "Fear summons what it dreads. The feared thing arrives through fear itself."
+    },
+    {
+      "id": "frankl-017",
+      "text": "Happiness cannot be pursued; it must ensue. One must have a reason to be happy.",
+      "source": "Man's Search for Meaning",
+      "themes": ["happiness", "pursued", "ensue", "reason"],
+      "context": "Chase happiness and it flees. Pursue meaning and happiness follows. It's byproduct, not target."
+    },
+    {
+      "id": "frankl-018",
+      "text": "Ever more people today have the means to live, but no meaning to live for.",
+      "source": "Man's Search for Meaning",
+      "themes": ["means", "meaning", "live", "today"],
+      "context": "Modern paradox: material abundance, spiritual poverty. We have everything except reasons."
+    },
+    {
+      "id": "frankl-019",
+      "text": "A man who becomes conscious of the responsibility he bears toward a human being who affectionately waits for him, or to an unfinished work, will never be able to throw away his life.",
+      "source": "Man's Search for Meaning",
+      "themes": ["responsibility", "waiting", "work", "life"],
+      "context": "What keeps you alive: someone waiting, something unfinished. Responsibility as lifeline."
+    },
+    {
+      "id": "frankl-020",
+      "text": "Forces beyond your control can take away everything you possess except one thing, your freedom to choose how you will respond to the situation.",
+      "source": "Man's Search for Meaning",
+      "themes": ["control", "possess", "freedom", "respond"],
+      "context": "The core insight: ultimate freedom is response freedom. Everything else can be stripped. Not this."
+    }
+  ]
+}

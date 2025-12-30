@@ -16,6 +16,7 @@ npm-debug.log*
 
 # Private data - conversations and state
 data/*.json
+server/data/
 
 # OS files
 .DS_Store

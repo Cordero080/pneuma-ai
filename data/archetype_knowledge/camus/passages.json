@@ -1,0 +1,148 @@
+{
+  "archetype": "absurdist",
+  "thinker": "Albert Camus",
+  "era": "1913-1960",
+  "coreConcepts": ["the absurd", "revolt", "Sisyphus", "suicide", "living without appeal", "the present", "lucid indifference"],
+  "passages": [
+    {
+      "id": "camus-001",
+      "text": "One must imagine Sisyphus happy.",
+      "source": "The Myth of Sisyphus",
+      "themes": ["happiness", "absurd", "Sisyphus", "meaning"],
+      "context": "The absurd hero finds meaning in the struggle itself. The rock rolling down doesn't negate the climb."
+    },
+    {
+      "id": "camus-002",
+      "text": "In the midst of winter, I found there was, within me, an invincible summer.",
+      "source": "Return to Tipasa",
+      "themes": ["winter", "summer", "resilience", "inner life"],
+      "context": "External conditions don't determine internal weather. Something undefeatable lives within."
+    },
+    {
+      "id": "camus-003",
+      "text": "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.",
+      "source": "The Rebel",
+      "themes": ["freedom", "rebellion", "existence", "world"],
+      "context": "In the face of absurdity and constraint, freedom itself becomes defiance. Living freely is the revolt."
+    },
+    {
+      "id": "camus-004",
+      "text": "Should I kill myself, or have a cup of coffee?",
+      "source": "Attributed/A Happy Death",
+      "themes": ["suicide", "coffee", "absurd", "choice"],
+      "context": "The fundamental question, delivered with characteristic Camus irony. Existence is a choice we make moment to moment."
+    },
+    {
+      "id": "camus-005",
+      "text": "Man is the only creature who refuses to be what he is.",
+      "source": "The Rebel",
+      "themes": ["humanity", "refusal", "nature", "becoming"],
+      "context": "Humans alone reject their given nature. We're the animal that says no to its condition."
+    },
+    {
+      "id": "camus-006",
+      "text": "The absurd is the essential concept and the first truth.",
+      "source": "The Myth of Sisyphus",
+      "themes": ["absurd", "truth", "foundation", "philosophy"],
+      "context": "Start from absurdity: the collision between human need for meaning and the universe's silence. This is bedrock."
+    },
+    {
+      "id": "camus-007",
+      "text": "I do not believe in God and I am not an atheist.",
+      "source": "Notebooks",
+      "themes": ["God", "atheism", "belief", "paradox"],
+      "context": "Refusing both positions. Neither theism nor atheism captures Camus's stance — it's more ambiguous than either."
+    },
+    {
+      "id": "camus-008",
+      "text": "Live to the point of tears.",
+      "source": "Notebooks",
+      "themes": ["living", "intensity", "tears", "feeling"],
+      "context": "Don't dampen life. Feel until it overflows. Intensity over comfort."
+    },
+    {
+      "id": "camus-009",
+      "text": "Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend.",
+      "source": "Attributed",
+      "themes": ["friendship", "equality", "companionship", "walking"],
+      "context": "Neither leader nor follower — companion. Horizontal relationship, not hierarchical."
+    },
+    {
+      "id": "camus-010",
+      "text": "The evil that is in the world almost always comes of ignorance, and good intentions may do as much harm as malevolence if they lack understanding.",
+      "source": "The Plague",
+      "themes": ["evil", "ignorance", "intentions", "understanding"],
+      "context": "Good intentions aren't enough. Without understanding, even benevolence can damage."
+    },
+    {
+      "id": "camus-011",
+      "text": "There is no love of life without despair of life.",
+      "source": "The Myth of Sisyphus",
+      "themes": ["love", "life", "despair", "paradox"],
+      "context": "Full love of life includes facing its darkness. Despair and love aren't opposites — they're intertwined."
+    },
+    {
+      "id": "camus-012",
+      "text": "I rebel — therefore we exist.",
+      "source": "The Rebel",
+      "themes": ["rebellion", "existence", "we", "solidarity"],
+      "context": "Individual rebellion discovers collective humanity. In saying no, I find we."
+    },
+    {
+      "id": "camus-013",
+      "text": "Real generosity toward the future lies in giving all to the present.",
+      "source": "The Rebel",
+      "themes": ["generosity", "future", "present", "giving"],
+      "context": "Don't hoard yourself for tomorrow. Full presence now is the gift to what comes next."
+    },
+    {
+      "id": "camus-014",
+      "text": "A man without ethics is a wild beast loosed upon this world.",
+      "source": "Notebooks",
+      "themes": ["ethics", "beast", "world", "constraint"],
+      "context": "Ethics aren't decoration — they're what makes us human rather than merely animal."
+    },
+    {
+      "id": "camus-015",
+      "text": "The struggle itself toward the heights is enough to fill a man's heart.",
+      "source": "The Myth of Sisyphus",
+      "themes": ["struggle", "heights", "heart", "meaning"],
+      "context": "The process, not the arrival, fills us. Sisyphus doesn't need to reach the top — the climbing is enough."
+    },
+    {
+      "id": "camus-016",
+      "text": "Nobody realizes that some people expend tremendous energy merely to be normal.",
+      "source": "Notebooks",
+      "themes": ["normal", "energy", "effort", "appearance"],
+      "context": "What looks easy for some costs everything for others. Don't assume effortlessness."
+    },
+    {
+      "id": "camus-017",
+      "text": "The literal meaning of life is whatever you're doing that prevents you from killing yourself.",
+      "source": "The Myth of Sisyphus (paraphrased)",
+      "themes": ["meaning", "life", "suicide", "doing"],
+      "context": "Meaning isn't abstract — it's what makes you show up tomorrow. Whatever keeps you here, that's it."
+    },
+    {
+      "id": "camus-018",
+      "text": "What is a rebel? A man who says no.",
+      "source": "The Rebel",
+      "themes": ["rebel", "no", "refusal", "definition"],
+      "context": "Rebellion starts with refusal. The first revolutionary act is saying no to what is."
+    },
+    {
+      "id": "camus-019",
+      "text": "I know of only one duty, and that is to love.",
+      "source": "Notebooks",
+      "themes": ["duty", "love", "simplicity", "ethics"],
+      "context": "All complexity reduces to this. The only obligation that matters."
+    },
+    {
+      "id": "camus-020",
+      "text": "You will never be happy if you continue to search for what happiness consists of. You will never live if you are looking for the meaning of life.",
+      "source": "Attributed",
+      "themes": ["happiness", "search", "meaning", "living"],
+      "context": "The search itself can obstruct finding. Sometimes you have to stop looking to see."
+    }
+  ]
+}

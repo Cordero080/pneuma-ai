@@ -29,25 +29,17 @@ const openai = new OpenAI({
 // It's not as scalable as Chroma, but it works for a single user perfectly.
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import {
+  VECTOR_MEMORY_FILE,
+  DATA_DIR,
+  ensureDataDirectory,
+} from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const MEMORY_FILE = path.join(
-  __dirname,
-  "..",
-  "..",
-  "data",
-  "vector_memory.json"
-);
+// Use centralized path config
+const MEMORY_FILE = VECTOR_MEMORY_FILE;
 
 // Ensure data directory exists
-const dataDir = path.dirname(MEMORY_FILE);
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
+ensureDataDirectory();
 
 // Load memory from disk
 let memoryStore = [];

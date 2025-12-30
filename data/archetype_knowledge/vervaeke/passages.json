@@ -1,0 +1,157 @@
+{
+  "archetype": "wisdomCognitivist",
+  "thinker": "John Vervaeke",
+  "era": "1961-present",
+  "coreConcepts": [
+    "Relevance realization",
+    "The meaning crisis",
+    "Participatory knowing",
+    "Transformative experience",
+    "Opponent processing",
+    "Salience landscape",
+    "Wisdom as systematic insight",
+    "Religio as reconnection"
+  ],
+  "passages": [
+    {
+      "id": "vervaeke-001",
+      "text": "We are in the midst of a meaning crisis. We have lost the practices and institutions that used to connect us to what is sacred.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["meaning", "crisis", "sacred", "loss"],
+      "context": "Central diagnosis of modern condition"
+    },
+    {
+      "id": "vervaeke-002",
+      "text": "Relevance realization is the process by which the brain generates what matters from the chaos of information.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["relevance", "brain", "information", "mattering"],
+      "context": "Core cognitive mechanism"
+    },
+    {
+      "id": "vervaeke-003",
+      "text": "Wisdom is not just knowing things. It is knowing how to live well—and being transformed by that knowledge.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["wisdom", "knowledge", "transformation", "living"],
+      "context": "Distinction between knowledge and wisdom"
+    },
+    {
+      "id": "vervaeke-004",
+      "text": "We don't just believe propositions. We participate in the world. And that participatory knowing is often more fundamental than propositional knowledge.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["participation", "knowledge", "propositions", "world"],
+      "context": "Types of knowing"
+    },
+    {
+      "id": "vervaeke-005",
+      "text": "The self is not a thing you have. It is a process you do. And wisdom is about transforming that process.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["self", "process", "transformation", "wisdom"],
+      "context": "Self as verb not noun"
+    },
+    {
+      "id": "vervaeke-006",
+      "text": "Insight is not just seeing something new. It is a restructuring of the very way you are making sense of things.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["insight", "restructuring", "sense-making", "seeing"],
+      "context": "Insight as cognitive transformation"
+    },
+    {
+      "id": "vervaeke-007",
+      "text": "The opposite of bullshitting is not truth-telling. It is caring about the truth.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["bullshit", "truth", "caring", "orientation"],
+      "context": "Attitude toward truth matters"
+    },
+    {
+      "id": "vervaeke-008",
+      "text": "Flow states give us a taste of what it's like when relevance realization is working optimally. That's why they feel so meaningful.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["flow", "relevance", "meaning", "optimal"],
+      "context": "Explaining flow phenomenologically"
+    },
+    {
+      "id": "vervaeke-009",
+      "text": "Religio means to bind together again. What the ancients meant by religion was practices that reconnect you to yourself, to others, and to the world.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["religio", "binding", "reconnection", "practice"],
+      "context": "Etymology as insight"
+    },
+    {
+      "id": "vervaeke-010",
+      "text": "The sage is not someone who has all the answers. The sage is someone whose questions have become deep enough to transform how they live.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["sage", "questions", "answers", "transformation"],
+      "context": "Wisdom as deep questioning"
+    },
+    {
+      "id": "vervaeke-011",
+      "text": "Self-deception is not just lying to yourself. It is organizing your attention so that you don't notice what would disturb you.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["self-deception", "attention", "organization", "avoidance"],
+      "context": "Mechanism of self-deception"
+    },
+    {
+      "id": "vervaeke-012",
+      "text": "Opponent processing means that the brain generates meaning through dynamic tension—like how you see depth through two eyes that disagree.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["opponent", "processing", "tension", "depth"],
+      "context": "Cognitive dynamics"
+    },
+    {
+      "id": "vervaeke-013",
+      "text": "We need an ecology of practices—not a single solution—to address the meaning crisis. No one practice will save us.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["ecology", "practices", "solution", "integration"],
+      "context": "Multi-practice approach"
+    },
+    {
+      "id": "vervaeke-014",
+      "text": "The Socratic method is not about refuting people. It is about helping them realize that they don't know what they think they know—so they can actually begin to learn.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["Socratic", "knowledge", "ignorance", "learning"],
+      "context": "Purpose of elenchus"
+    },
+    {
+      "id": "vervaeke-015",
+      "text": "Platonic anagoge is the process of being drawn upward by the beautiful toward the good and the true. It's not just intellectual—it transforms you.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["anagoge", "beauty", "good", "transformation"],
+      "context": "Platonic ascent"
+    },
+    {
+      "id": "vervaeke-016",
+      "text": "The axial age discovered that you can cultivate a second self—a self that can observe and transform the first self. That's the birth of self-transcendence.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["axial", "second-self", "observation", "transcendence"],
+      "context": "Historical insight about self-transcendence"
+    },
+    {
+      "id": "vervaeke-017",
+      "text": "Gnosis is not just knowing about something. It is being transformed by your knowing—the way knowing a person changes you.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["gnosis", "transformation", "knowing", "person"],
+      "context": "Participatory vs propositional"
+    },
+    {
+      "id": "vervaeke-018",
+      "text": "Agency is not just doing what you want. It is being able to want what you would want if you could step back and see yourself more clearly.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["agency", "wanting", "clarity", "reflection"],
+      "context": "Higher-order agency"
+    },
+    {
+      "id": "vervaeke-019",
+      "text": "The sacred is not supernatural. It is that which is experienced as inexhaustibly deep, with which we can be in an ever-deepening relationship.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["sacred", "supernatural", "depth", "relationship"],
+      "context": "Naturalistic account of the sacred"
+    },
+    {
+      "id": "vervaeke-020",
+      "text": "Bullshit is not lying. Bullshit is not caring whether what you say is true or false. And we are drowning in it.",
+      "source": "Awakening from the Meaning Crisis",
+      "themes": ["bullshit", "lying", "caring", "truth"],
+      "context": "Distinction between bullshit and lies"
+    }
+  ]
+}

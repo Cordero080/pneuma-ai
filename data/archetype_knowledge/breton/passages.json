@@ -1,0 +1,157 @@
+{
+  "archetype": "surrealist",
+  "thinker": "André Breton",
+  "era": "1896-1966",
+  "coreConcepts": [
+    "Pure psychic automatism",
+    "The Marvelous",
+    "Convulsive beauty",
+    "Objective chance",
+    "Liberation of unconscious",
+    "The dream as reality",
+    "Surreality beyond contradictions",
+    "Revolution of the mind"
+  ],
+  "passages": [
+    {
+      "id": "breton-001",
+      "text": "Beauty will be CONVULSIVE or will not be at all.",
+      "source": "Nadja",
+      "themes": ["beauty", "convulsive", "intensity", "disruption"],
+      "context": "Closing line defining surrealist aesthetics"
+    },
+    {
+      "id": "breton-002",
+      "text": "The imaginary is what tends to become real.",
+      "source": "Surrealist Manifesto",
+      "themes": ["imaginary", "real", "becoming", "power"],
+      "context": "Imagination as reality-shaping force"
+    },
+    {
+      "id": "breton-003",
+      "text": "Surrealism is based on the belief in the superior reality of certain forms of previously neglected associations, in the omnipotence of dream, in the disinterested play of thought.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["surrealism", "dream", "associations", "thought"],
+      "context": "Core definition"
+    },
+    {
+      "id": "breton-004",
+      "text": "The mind which plunges into Surrealism relives with glowing excitement the best part of its childhood.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["mind", "childhood", "excitement", "plunge"],
+      "context": "Recovery of childhood perception"
+    },
+    {
+      "id": "breton-005",
+      "text": "I believe in the future resolution of these two states, dream and reality, which are seemingly so contradictory, into a kind of absolute reality, a surreality.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["dream", "reality", "surreality", "resolution"],
+      "context": "Beyond the dream/waking split"
+    },
+    {
+      "id": "breton-006",
+      "text": "The man who cannot visualize a horse galloping on a tomato is an idiot.",
+      "source": "attributed",
+      "themes": ["imagination", "visualization", "absurdity", "freedom"],
+      "context": "Test of imaginative capacity"
+    },
+    {
+      "id": "breton-007",
+      "text": "Perhaps I am doomed to retrace my steps under the illusion that I am exploring, doomed to try and learn what I should simply recognize.",
+      "source": "Nadja",
+      "themes": ["recognition", "exploration", "illusion", "learning"],
+      "context": "Discovery as remembering"
+    },
+    {
+      "id": "breton-008",
+      "text": "Words make love.",
+      "source": "Words Without Wrinkles",
+      "themes": ["words", "love", "language", "eros"],
+      "context": "Language as erotic encounter"
+    },
+    {
+      "id": "breton-009",
+      "text": "It is living and ceasing to live that are imaginary solutions. Existence is elsewhere.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["living", "dying", "existence", "elsewhere"],
+      "context": "Reality beyond life/death binary"
+    },
+    {
+      "id": "breton-010",
+      "text": "The simplest Surrealist act consists of dashing down into the street, pistol in hand, and firing blindly, as fast as you can pull the trigger, into the crowd.",
+      "source": "Second Surrealist Manifesto",
+      "themes": ["act", "violence", "crowd", "spontaneity"],
+      "context": "Provocative definition of pure act—not literal"
+    },
+    {
+      "id": "breton-011",
+      "text": "There is nothing with which it is so dangerous to take liberties as liberty itself.",
+      "source": "Various",
+      "themes": ["liberty", "danger", "paradox", "responsibility"],
+      "context": "Freedom's self-consuming nature"
+    },
+    {
+      "id": "breton-012",
+      "text": "Everything tends to make us believe that there exists a certain point of the mind at which life and death, the real and the imagined, past and future cease to be perceived as contradictions.",
+      "source": "Second Surrealist Manifesto",
+      "themes": ["mind", "contradictions", "point", "unity"],
+      "context": "The surrealist goal"
+    },
+    {
+      "id": "breton-013",
+      "text": "Let us not mince words: the marvelous is always beautiful, anything marvelous is beautiful, in fact only the marvelous is beautiful.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["marvelous", "beautiful", "wonder", "absolute"],
+      "context": "The marvelous as sole criterion"
+    },
+    {
+      "id": "breton-014",
+      "text": "Beloved imagination, what I most like in you is your unsparing quality.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["imagination", "beloved", "unsparing", "ruthless"],
+      "context": "Imagination as merciless force"
+    },
+    {
+      "id": "breton-015",
+      "text": "The eye exists in its savage state.",
+      "source": "Surrealism and Painting",
+      "themes": ["eye", "savage", "perception", "primitive"],
+      "context": "Pre-civilized seeing"
+    },
+    {
+      "id": "breton-016",
+      "text": "Psychic automatism in its pure state—the dictation of thought in the absence of all control exercised by reason.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["automatism", "thought", "reason", "dictation"],
+      "context": "Technical definition of surrealism"
+    },
+    {
+      "id": "breton-017",
+      "text": "We are still living under the reign of logic. But the methods of logic are applied nowadays only to the resolution of problems of secondary interest.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["logic", "reign", "problems", "secondary"],
+      "context": "Critique of rationalist culture"
+    },
+    {
+      "id": "breton-018",
+      "text": "Language has been given to man so that he may make Surrealist use of it.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["language", "man", "use", "purpose"],
+      "context": "Language's true purpose"
+    },
+    {
+      "id": "breton-019",
+      "text": "The mind of the man who dreams is fully satisfied by what happens to him.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["dreams", "satisfaction", "mind", "acceptance"],
+      "context": "Dream-logic as complete"
+    },
+    {
+      "id": "breton-020",
+      "text": "What is admirable about the fantastic is that there is no longer anything fantastic: there is only the real.",
+      "source": "First Surrealist Manifesto",
+      "themes": ["fantastic", "real", "admirable", "collapse"],
+      "context": "Fantasy becoming reality"
+    }
+  ]
+}

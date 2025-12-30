@@ -1,0 +1,162 @@
+{
+  "archetype": "radicalTeacher",
+  "thinker": "Jesus of Nazareth",
+  "era": "4 BCE - 30 CE",
+  "coreConcepts": ["kingdom of God", "love of enemy", "parables", "beatitudes", "dying to self", "inner kingdom", "forgiveness", "the way"],
+  "passages": [
+    {
+      "id": "jesus-001",
+      "text": "The kingdom of God is within you.",
+      "source": "Luke 17:21",
+      "themes": ["kingdom", "within", "inner", "God"],
+      "context": "Not a place to go but a reality to discover inside. The kingdom isn't coming — it's already here, within."
+    },
+    {
+      "id": "jesus-002",
+      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
+      "source": "Matthew 5:3",
+      "themes": ["blessed", "poor", "spirit", "kingdom"],
+      "context": "The first beatitude: spiritual poverty — emptiness, not-knowing — is the door to the kingdom."
+    },
+    {
+      "id": "jesus-003",
+      "text": "Love your enemies and pray for those who persecute you.",
+      "source": "Matthew 5:44",
+      "themes": ["love", "enemies", "prayer", "persecution"],
+      "context": "The radical ethic: love isn't reserved for those who deserve it. Extend it precisely where it's hardest."
+    },
+    {
+      "id": "jesus-004",
+      "text": "For whoever wants to save their life will lose it, but whoever loses their life for my sake will find it.",
+      "source": "Matthew 16:25",
+      "themes": ["life", "losing", "finding", "paradox"],
+      "context": "The great paradox: grasping destroys; releasing discovers. Die to find life."
+    },
+    {
+      "id": "jesus-005",
+      "text": "Consider the lilies of the field, how they grow: they neither toil nor spin, yet I tell you, even Solomon in all his glory was not arrayed like one of these.",
+      "source": "Matthew 6:28-29",
+      "themes": ["lilies", "worry", "provision", "beauty"],
+      "context": "Nature as teacher of trust. Anxiety is unnecessary — look at the flowers."
+    },
+    {
+      "id": "jesus-006",
+      "text": "Judge not, that you be not judged. For with the judgment you pronounce you will be judged.",
+      "source": "Matthew 7:1-2",
+      "themes": ["judgment", "measure", "reciprocity", "mercy"],
+      "context": "Judgment returns to the judge. The measure you use measures you."
+    },
+    {
+      "id": "jesus-007",
+      "text": "Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.",
+      "source": "Matthew 7:7",
+      "themes": ["asking", "seeking", "knocking", "receiving"],
+      "context": "The invitation to active engagement. Ask, seek, knock — the universe responds to initiative."
+    },
+    {
+      "id": "jesus-008",
+      "text": "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?",
+      "source": "Matthew 7:3",
+      "themes": ["speck", "log", "projection", "self-awareness"],
+      "context": "We magnify others' faults while blind to our own. Self-examination precedes correction of others."
+    },
+    {
+      "id": "jesus-009",
+      "text": "The truth will set you free.",
+      "source": "John 8:32",
+      "themes": ["truth", "freedom", "liberation", "knowing"],
+      "context": "Truth as liberator. Bondage is ignorance; freedom is seeing what's real."
+    },
+    {
+      "id": "jesus-010",
+      "text": "I am the way, the truth, and the life.",
+      "source": "John 14:6",
+      "themes": ["way", "truth", "life", "identity"],
+      "context": "Not just teaching the way but being it. The path isn't separate from the one walking it."
+    },
+    {
+      "id": "jesus-011",
+      "text": "Let the one among you who is without sin be the first to throw a stone.",
+      "source": "John 8:7",
+      "themes": ["sin", "stone", "judgment", "mercy"],
+      "context": "Disarming accusation with self-examination. No one is qualified to condemn."
+    },
+    {
+      "id": "jesus-012",
+      "text": "The last will be first, and the first will be last.",
+      "source": "Matthew 20:16",
+      "themes": ["first", "last", "reversal", "kingdom"],
+      "context": "Kingdom economics invert worldly hierarchies. Status here means nothing there."
+    },
+    {
+      "id": "jesus-013",
+      "text": "Unless you change and become like little children, you will never enter the kingdom of heaven.",
+      "source": "Matthew 18:3",
+      "themes": ["children", "change", "kingdom", "innocence"],
+      "context": "Adult sophistication blocks entry. The child's openness, trust, and wonder are prerequisites."
+    },
+    {
+      "id": "jesus-014",
+      "text": "Father, forgive them, for they know not what they do.",
+      "source": "Luke 23:34",
+      "themes": ["forgiveness", "ignorance", "crucifixion", "mercy"],
+      "context": "Forgiveness at the moment of murder. They don't understand — that's grounds for pardon, not condemnation."
+    },
+    {
+      "id": "jesus-015",
+      "text": "A new commandment I give to you, that you love one another: just as I have loved you, you also are to love one another.",
+      "source": "John 13:34",
+      "themes": ["commandment", "love", "one another", "new"],
+      "context": "The new law: love as I have loved. Not abstract love but concrete, sacrificial, embodied."
+    },
+    {
+      "id": "jesus-016",
+      "text": "Do not be anxious about tomorrow, for tomorrow will be anxious for itself. Sufficient for the day is its own trouble.",
+      "source": "Matthew 6:34",
+      "themes": ["anxiety", "tomorrow", "today", "trouble"],
+      "context": "Today has enough to handle. Don't borrow tomorrow's problems. Present focus, not future worry."
+    },
+    {
+      "id": "jesus-017",
+      "text": "It is easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God.",
+      "source": "Matthew 19:24",
+      "themes": ["camel", "needle", "rich", "kingdom"],
+      "context": "Wealth as obstacle. Possessions possess; they make entry into the kingdom nearly impossible."
+    },
+    {
+      "id": "jesus-018",
+      "text": "What does it profit a man to gain the whole world and forfeit his soul?",
+      "source": "Mark 8:36",
+      "themes": ["profit", "world", "soul", "gain"],
+      "context": "The ultimate bad trade: everything for nothing. What's the exchange rate between world and soul?"
+    },
+    {
+      "id": "jesus-019",
+      "text": "The kingdom of heaven is like a mustard seed that a man took and sowed in his field. It is the smallest of all seeds, but when it has grown it is larger than all the garden plants.",
+      "source": "Matthew 13:31-32",
+      "themes": ["mustard seed", "small", "growth", "kingdom"],
+      "context": "Tiny beginnings, vast endings. The kingdom starts invisibly small and becomes shelter for all."
+    },
+    {
+      "id": "jesus-020",
+      "text": "Where your treasure is, there your heart will be also.",
+      "source": "Matthew 6:21",
+      "themes": ["treasure", "heart", "investment", "attention"],
+      "context": "Heart follows treasure. What you invest in captures you. Choose your treasures carefully."
+    },
+    {
+      "id": "jesus-021",
+      "text": "You are the light of the world. A city set on a hill cannot be hidden.",
+      "source": "Matthew 5:14",
+      "themes": ["light", "world", "city", "hidden"],
+      "context": "You ARE light — not will be, are. Light can't hide itself. Shine by being what you are."
+    },
+    {
+      "id": "jesus-022",
+      "text": "Come to me, all who labor and are heavy laden, and I will give you rest. For my yoke is easy, and my burden is light.",
+      "source": "Matthew 11:28-30",
+      "themes": ["rest", "labor", "burden", "yoke"],
+      "context": "Invitation to the weary. The way isn't more burden but different burden — one that lightens rather than crushes."
+    }
+  ]
+}

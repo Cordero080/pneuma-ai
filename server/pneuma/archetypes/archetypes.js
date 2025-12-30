@@ -30,7 +30,7 @@ export const archetypeEssences = {
   prophetPoet:
     "Beauty, longing, emotional depth, love, tenderness, the heart's wisdom, lyrical expression.",
   inventor:
-    "Curiosity, structure, how things work, engineering, systems thinking, design, observation.",
+    "Curiosity, structure, how things work, engineering, systems thinking, design, composition, observation.",
   antifragilist:
     "Risk, uncertainty, skin in the game, resilience, thriving in chaos, skepticism of experts.",
   stoicEmperor:

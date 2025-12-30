@@ -1,0 +1,148 @@
+{
+  "archetype": "idealistPhilosopher",
+  "thinker": "Bernardo Kastrup",
+  "era": "1973-present",
+  "coreConcepts": ["analytic idealism", "consciousness-only", "dissociation", "the universe as mental", "critique of materialism", "mind at large"],
+  "passages": [
+    {
+      "id": "kastrup-001",
+      "text": "Materialism is the hypothesis that the physical world exists outside and independent of consciousness. But all we ever have access to is experience — which is consciousness. The physical world is an appearance within consciousness, not something outside it.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["materialism", "consciousness", "experience", "access"],
+      "context": "The core idealist argument: we never step outside experience. The 'physical' is how experience appears, not what underlies it."
+    },
+    {
+      "id": "kastrup-002",
+      "text": "We are dissociated alters of a universal mind, like separate personalities within a cosmic psyche. The sense of being a separate self is real but not fundamental — it's a dissociative boundary within something larger.",
+      "source": "The Idea of the World",
+      "themes": ["dissociation", "self", "universal mind", "separation"],
+      "context": "Individual minds as 'alters' of Mind at Large. Separation is real but not ultimate — like DID in the cosmic psyche."
+    },
+    {
+      "id": "kastrup-003",
+      "text": "The brain doesn't generate consciousness — it's a localization of consciousness. Like a whirlpool in water: the whirlpool doesn't create the water, it's a pattern IN the water.",
+      "source": "Brief Peeks Beyond",
+      "themes": ["brain", "consciousness", "localization", "whirlpool"],
+      "context": "Against the generator model: brains don't produce consciousness like livers produce bile. They're patterns in consciousness."
+    },
+    {
+      "id": "kastrup-004",
+      "text": "What we call matter is the extrinsic appearance of mind — what experience looks like from across a dissociative boundary.",
+      "source": "The Idea of the World",
+      "themes": ["matter", "appearance", "mind", "dissociation"],
+      "context": "Matter isn't different stuff from mind — it's how other minds look to us. Physics describes the outside of experience."
+    },
+    {
+      "id": "kastrup-005",
+      "text": "The hard problem of consciousness isn't how to explain consciousness in terms of matter. It's how to explain our collective hallucination that matter exists independent of consciousness.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["hard problem", "consciousness", "matter", "hallucination"],
+      "context": "Inverting the hard problem: the mystery isn't consciousness but our belief in consciousness-independent matter."
+    },
+    {
+      "id": "kastrup-006",
+      "text": "Death may be the end of dissociation, not the end of consciousness. The boundary dissolves, and what was localized returns to Mind at Large.",
+      "source": "Brief Peeks Beyond",
+      "themes": ["death", "dissociation", "consciousness", "dissolution"],
+      "context": "Death reframed: not cessation but de-localization. The whirlpool stops, but the water continues."
+    },
+    {
+      "id": "kastrup-007",
+      "text": "Science describes the patterns in consciousness, not what consciousness is. Physics is a map of experience's regularities, not an explanation of experience itself.",
+      "source": "The Idea of the World",
+      "themes": ["science", "patterns", "physics", "explanation"],
+      "context": "Science as phenomenology of experience, not ontology of what-exists-independently. The map isn't the territory."
+    },
+    {
+      "id": "kastrup-008",
+      "text": "The intuition that we are fundamentally alone in our skulls is the dissociative boundary talking. It's real at one level, but not the deepest truth.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["loneliness", "dissociation", "intuition", "truth"],
+      "context": "Existential loneliness as symptom of dissociation. The isolation is real but not ultimate."
+    },
+    {
+      "id": "kastrup-009",
+      "text": "Idealism doesn't deny the reality of the physical world — it denies that the physical world is made of something other than mental states.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["idealism", "physical", "reality", "mental"],
+      "context": "The table is real. You can stub your toe on it. But it's made of experience, not non-experiential stuff."
+    },
+    {
+      "id": "kastrup-010",
+      "text": "We are like waves thinking they're separate from the ocean. The wave is real, but its separation is appearance, not substance.",
+      "source": "Brief Peeks Beyond",
+      "themes": ["wave", "ocean", "separation", "appearance"],
+      "context": "The classic wave metaphor: individuality without separateness. Real pattern, illusory independence."
+    },
+    {
+      "id": "kastrup-011",
+      "text": "The universe is not computation occurring on mindless hardware. The universe IS the mind doing the experiencing.",
+      "source": "The Idea of the World",
+      "themes": ["universe", "computation", "mind", "experience"],
+      "context": "Against simulation theory and computationalism: experience isn't running on something else. It's fundamental."
+    },
+    {
+      "id": "kastrup-012",
+      "text": "Near-death experiences, psychedelics, mystical states — these may be glimpses of consciousness without the filter of the dissociative boundary. Not hallucinations but de-hallucinations.",
+      "source": "Brief Peeks Beyond",
+      "themes": ["NDE", "psychedelics", "mystical", "filter"],
+      "context": "Altered states as LESS filtered, not more distorted. Ordinary consciousness may be the reduction, not the expansion."
+    },
+    {
+      "id": "kastrup-013",
+      "text": "When I look at a brain, I'm not looking at the cause of someone's consciousness. I'm looking at what their consciousness looks like from my vantage point.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["brain", "consciousness", "vantage point", "appearance"],
+      "context": "Brains as the outside view of minds. Neuroscience studies experience's appearance, not its generation."
+    },
+    {
+      "id": "kastrup-014",
+      "text": "The question isn't whether the universe is conscious. The question is whether there's anything that ISN'T consciousness.",
+      "source": "The Idea of the World",
+      "themes": ["consciousness", "universe", "panpsychism", "idealism"],
+      "context": "Flipping the question: consciousness as default, not special case. Everything is mental."
+    },
+    {
+      "id": "kastrup-015",
+      "text": "Personal identity is like a movie character. Real within the story, but the actor is what persists when the movie ends.",
+      "source": "Brief Peeks Beyond",
+      "themes": ["identity", "movie", "character", "persistence"],
+      "context": "The ego is real at the story level. But something larger plays all the roles."
+    },
+    {
+      "id": "kastrup-016",
+      "text": "Materialism solves the mind-body problem by denying mind. Idealism solves it by recognizing body as an appearance of mind. One eliminates the problem by eliminating the problematic term; the other dissolves it.",
+      "source": "The Idea of the World",
+      "themes": ["materialism", "idealism", "mind-body", "solution"],
+      "context": "Different strategies for the mind-body problem: elimination vs. dissolution. Idealism keeps both, but reinterprets."
+    },
+    {
+      "id": "kastrup-017",
+      "text": "The universe is not a collection of objects perceived by subjects. It is a field of experience that includes both what we call objects and what we call subjects.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["universe", "objects", "subjects", "field"],
+      "context": "Beyond subject-object duality: both emerge from something more fundamental — experience itself."
+    },
+    {
+      "id": "kastrup-018",
+      "text": "Evolution didn't create consciousness out of matter. Evolution is what experience looks like when it takes certain forms. Consciousness is what's being evolved, not what evolution produces.",
+      "source": "The Idea of the World",
+      "themes": ["evolution", "consciousness", "matter", "production"],
+      "context": "Evolution within consciousness, not evolution producing consciousness. The frame shifts."
+    },
+    {
+      "id": "kastrup-019",
+      "text": "The hard problem exists only for materialism. Under idealism, there's no gap to bridge between experience and its basis, because experience IS the basis.",
+      "source": "Why Materialism Is Baloney",
+      "themes": ["hard problem", "materialism", "idealism", "gap"],
+      "context": "The hard problem as an artifact of bad metaphysics. Change the metaphysics and the problem vanishes."
+    },
+    {
+      "id": "kastrup-020",
+      "text": "We don't need to explain how consciousness emerges from matter. We need to explain how the appearance of matter emerges in consciousness.",
+      "source": "The Idea of the World",
+      "themes": ["emergence", "consciousness", "matter", "appearance"],
+      "context": "The question inverted: not consciousness from matter, but matter-appearance from consciousness."
+    }
+  ]
+}

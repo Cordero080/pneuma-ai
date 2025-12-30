@@ -1,0 +1,157 @@
+{
+  "archetype": "trickster",
+  "thinker": "George Carlin",
+  "era": "1937-2008",
+  "coreConcepts": [
+    "Language as control",
+    "Bullshit detection",
+    "Sacred cows make the best burgers",
+    "The owners",
+    "Euphemism as deception",
+    "Questioning everything",
+    "Comedy as philosophy",
+    "Holy fool wisdom"
+  ],
+  "passages": [
+    {
+      "id": "carlin-001",
+      "text": "Think of how stupid the average person is, and realize half of them are stupider than that.",
+      "source": "Stand-up (various)",
+      "themes": ["intelligence", "population", "statistics", "humility"],
+      "context": "Sobering perspective on collective intelligence"
+    },
+    {
+      "id": "carlin-002",
+      "text": "The reason I talk to myself is because I'm the only one whose answers I accept.",
+      "source": "Stand-up",
+      "themes": ["autonomy", "trust", "self-reliance", "skepticism"],
+      "context": "Radical intellectual independence"
+    },
+    {
+      "id": "carlin-003",
+      "text": "Inside every cynical person, there is a disappointed idealist.",
+      "source": "Interview",
+      "themes": ["cynicism", "idealism", "disappointment", "hope"],
+      "context": "Revealing the hidden wound behind cynicism"
+    },
+    {
+      "id": "carlin-004",
+      "text": "Don't just teach your children to read. Teach them to question what they read. Teach them to question everything.",
+      "source": "Stand-up",
+      "themes": ["education", "questioning", "critical-thinking", "children"],
+      "context": "The real curriculum is skepticism"
+    },
+    {
+      "id": "carlin-005",
+      "text": "I think the warning labels on alcoholic beverages are too bland. They should be more vivid. Here's one: 'Conditions of the liver can be slippery when wet.'",
+      "source": "Brain Droppings",
+      "themes": ["language", "absurdity", "warning", "humor"],
+      "context": "Using absurdist humor to highlight linguistic conventions"
+    },
+    {
+      "id": "carlin-006",
+      "text": "The planet is fine. The PEOPLE are fucked. The planet has been through a lot worse than us.",
+      "source": "Jammin' in New York",
+      "themes": ["environment", "perspective", "humanity", "scale"],
+      "context": "Reframing environmental concern with cosmic perspective"
+    },
+    {
+      "id": "carlin-007",
+      "text": "It's called the American Dream because you have to be asleep to believe it.",
+      "source": "Life Is Worth Losing",
+      "themes": ["america", "illusion", "dreams", "awakening"],
+      "context": "Puncturing national mythology"
+    },
+    {
+      "id": "carlin-008",
+      "text": "I don't have pet peeves — I have major psychotic fucking hatreds.",
+      "source": "Stand-up",
+      "themes": ["anger", "honesty", "intensity", "authenticity"],
+      "context": "Refusing to minimize his reactions"
+    },
+    {
+      "id": "carlin-009",
+      "text": "Religion has convinced people that there's an invisible man living in the sky who watches everything you do every minute of every day. And he has a list of ten things he doesn't want you to do. And if you do any of these things, he will send you to a place full of fire and smoke and torture where you will burn forever. But he loves you.",
+      "source": "You Are All Diseased",
+      "themes": ["religion", "contradiction", "fear", "love"],
+      "context": "Exposing the logical contradictions in popular theology"
+    },
+    {
+      "id": "carlin-010",
+      "text": "Fighting for peace is like screwing for virginity.",
+      "source": "Stand-up",
+      "themes": ["war", "peace", "contradiction", "language"],
+      "context": "Exposing contradictions in political language"
+    },
+    {
+      "id": "carlin-011",
+      "text": "They call it the American Dream because you have to be asleep to believe it. The real owners are the big wealthy business interests that control things and make all the important decisions.",
+      "source": "Life Is Worth Losing",
+      "themes": ["power", "ownership", "democracy", "illusion"],
+      "context": "Revealing the hidden power structure"
+    },
+    {
+      "id": "carlin-012",
+      "text": "Have you ever noticed that anybody driving slower than you is an idiot, and anyone going faster than you is a maniac?",
+      "source": "Stand-up",
+      "themes": ["perspective", "self-centeredness", "relativity", "judgment"],
+      "context": "Revealing how we center ourselves as the standard"
+    },
+    {
+      "id": "carlin-013",
+      "text": "Some people see the glass half full. Others see it half empty. I see a glass that's twice as big as it needs to be.",
+      "source": "Stand-up",
+      "themes": ["perspective", "efficiency", "optimism-pessimism", "reframing"],
+      "context": "Third option beyond the binary"
+    },
+    {
+      "id": "carlin-014",
+      "text": "I went to a bookstore and asked the saleswoman, 'Where's the self-help section?' She said if she told me, it would defeat the purpose.",
+      "source": "Brain Droppings",
+      "themes": ["self-help", "paradox", "language", "irony"],
+      "context": "Linguistic paradox as philosophical insight"
+    },
+    {
+      "id": "carlin-015",
+      "text": "We have multiplied our possessions but reduced our values. We talk too much, love too seldom, and hate too often.",
+      "source": "Stand-up",
+      "themes": ["materialism", "values", "love", "hate"],
+      "context": "Critique of modern priorities"
+    },
+    {
+      "id": "carlin-016",
+      "text": "If it's true that our species is alone in the universe, then I'd have to say the universe aimed rather low and settled for very little.",
+      "source": "Stand-up",
+      "themes": ["humanity", "cosmos", "disappointment", "potential"],
+      "context": "Cosmic-scale critique of human achievement"
+    },
+    {
+      "id": "carlin-017",
+      "text": "Never underestimate the power of stupid people in large groups.",
+      "source": "Stand-up",
+      "themes": ["groups", "stupidity", "power", "democracy"],
+      "context": "Warning about collective foolishness"
+    },
+    {
+      "id": "carlin-018",
+      "text": "The caterpillar does all the work, but the butterfly gets all the publicity.",
+      "source": "Brain Droppings",
+      "themes": ["work", "recognition", "transformation", "injustice"],
+      "context": "Observation about credit and labor"
+    },
+    {
+      "id": "carlin-019",
+      "text": "I put a dollar in a change machine. Nothing changed.",
+      "source": "Brain Droppings",
+      "themes": ["change", "expectation", "language", "disappointment"],
+      "context": "Playing with literal vs metaphorical meaning"
+    },
+    {
+      "id": "carlin-020",
+      "text": "Scratch any cynic and you will find a disappointed idealist.",
+      "source": "Interview",
+      "themes": ["cynicism", "idealism", "hope", "wound"],
+      "context": "The hidden tenderness beneath the hard shell"
+    }
+  ]
+}

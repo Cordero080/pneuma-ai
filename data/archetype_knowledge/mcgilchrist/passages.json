@@ -1,0 +1,157 @@
+{
+  "archetype": "dividedBrainSage",
+  "thinker": "Iain McGilchrist",
+  "era": "1953-present",
+  "coreConcepts": [
+    "Left hemisphere as emissary",
+    "Right hemisphere as master",
+    "Attention shapes reality",
+    "The return to the whole",
+    "Mechanistic vs living world",
+    "Betweenness",
+    "Re-presentation vs presence",
+    "The tyranny of the explicit"
+  ],
+  "passages": [
+    {
+      "id": "mcgilchrist-001",
+      "text": "The left hemisphere's world is a representation—a useful map. The right hemisphere's world is the territory itself.",
+      "source": "The Master and His Emissary",
+      "themes": ["hemispheres", "representation", "reality", "map-territory"],
+      "context": "Fundamental distinction between hemisphere worldviews"
+    },
+    {
+      "id": "mcgilchrist-002",
+      "text": "Attention is not just another cognitive function. It is the way in which we bring the world into being.",
+      "source": "The Master and His Emissary",
+      "themes": ["attention", "creation", "world", "perception"],
+      "context": "Attention as ontologically generative"
+    },
+    {
+      "id": "mcgilchrist-003",
+      "text": "The left hemisphere is like a hall of mirrors—it knows only what it already knows.",
+      "source": "The Master and His Emissary",
+      "themes": ["left-hemisphere", "mirrors", "limitation", "knowing"],
+      "context": "The left hemisphere's closed loop"
+    },
+    {
+      "id": "mcgilchrist-004",
+      "text": "The right hemisphere sees things in context, the left hemisphere sees things as isolated and abstracted from context.",
+      "source": "The Master and His Emissary",
+      "themes": ["context", "isolation", "abstraction", "hemispheres"],
+      "context": "Contextual vs decontextualized perception"
+    },
+    {
+      "id": "mcgilchrist-005",
+      "text": "The left hemisphere is always certain. The right hemisphere is always uncertain—because it knows that certainty is a simplification.",
+      "source": "The Master and His Emissary",
+      "themes": ["certainty", "uncertainty", "simplification", "wisdom"],
+      "context": "The wisdom of appropriate doubt"
+    },
+    {
+      "id": "mcgilchrist-006",
+      "text": "The emissary has forgotten that it is an emissary. It has come to believe that it is the master.",
+      "source": "The Master and His Emissary",
+      "themes": ["emissary", "master", "forgetting", "usurpation"],
+      "context": "Central metaphor of the book"
+    },
+    {
+      "id": "mcgilchrist-007",
+      "text": "We have created a world that the left hemisphere loves: one of categories, quantities, abstractions. But it is a world that is dying because it has been drained of meaning.",
+      "source": "The Master and His Emissary",
+      "themes": ["world", "categories", "meaning", "dying"],
+      "context": "Diagnosis of modern malaise"
+    },
+    {
+      "id": "mcgilchrist-008",
+      "text": "The more we rely on explicit knowledge, the more we lose touch with implicit understanding—which is where wisdom lives.",
+      "source": "The Master and His Emissary",
+      "themes": ["explicit", "implicit", "wisdom", "knowledge"],
+      "context": "Tyranny of the explicit"
+    },
+    {
+      "id": "mcgilchrist-009",
+      "text": "Music, metaphor, and the living body—these are the right hemisphere's native languages.",
+      "source": "The Master and His Emissary",
+      "themes": ["music", "metaphor", "body", "language"],
+      "context": "How the right hemisphere speaks"
+    },
+    {
+      "id": "mcgilchrist-010",
+      "text": "The left hemisphere's world is a world of things. The right hemisphere's world is a world of beings—of presences.",
+      "source": "The Master and His Emissary",
+      "themes": ["things", "beings", "presence", "objectification"],
+      "context": "Objectification vs encounter"
+    },
+    {
+      "id": "mcgilchrist-011",
+      "text": "Reason is necessary, but it is not sufficient. It must return to the whole from which it was abstracted.",
+      "source": "The Master and His Emissary",
+      "themes": ["reason", "whole", "abstraction", "return"],
+      "context": "The necessary journey back"
+    },
+    {
+      "id": "mcgilchrist-012",
+      "text": "The left hemisphere thinks it knows what it is looking at. The right hemisphere is always open to being surprised.",
+      "source": "The Master and His Emissary",
+      "themes": ["knowing", "surprise", "openness", "certainty"],
+      "context": "Openness vs closure"
+    },
+    {
+      "id": "mcgilchrist-013",
+      "text": "Betweenness is fundamental to reality. Neither the subject alone nor the object alone—but the relationship between them.",
+      "source": "The Matter with Things",
+      "themes": ["betweenness", "relationship", "subject-object", "reality"],
+      "context": "Relational ontology"
+    },
+    {
+      "id": "mcgilchrist-014",
+      "text": "The brain is not a computer. It is an organ of encounter—a way of being present to the world.",
+      "source": "The Master and His Emissary",
+      "themes": ["brain", "computer", "encounter", "presence"],
+      "context": "Against computational metaphor"
+    },
+    {
+      "id": "mcgilchrist-015",
+      "text": "We have become so good at manipulating the world that we have forgotten how to inhabit it.",
+      "source": "The Master and His Emissary",
+      "themes": ["manipulation", "inhabiting", "world", "skill"],
+      "context": "Lost art of dwelling"
+    },
+    {
+      "id": "mcgilchrist-016",
+      "text": "The left hemisphere is drawn to what is fixed, isolated, and certain. The right hemisphere is drawn to what is flowing, connected, and alive.",
+      "source": "The Master and His Emissary",
+      "themes": ["fixed", "flowing", "connection", "aliveness"],
+      "context": "Contrasting orientations"
+    },
+    {
+      "id": "mcgilchrist-017",
+      "text": "Metaphor is not a decoration on language. It is the way the right hemisphere thinks—and the way reality actually is.",
+      "source": "The Master and His Emissary",
+      "themes": ["metaphor", "thinking", "reality", "language"],
+      "context": "Metaphor as primary cognition"
+    },
+    {
+      "id": "mcgilchrist-018",
+      "text": "The part cannot understand the whole. But it can deny that there is a whole, and increasingly, that is what the left hemisphere does.",
+      "source": "The Master and His Emissary",
+      "themes": ["part", "whole", "denial", "understanding"],
+      "context": "The part's hubris"
+    },
+    {
+      "id": "mcgilchrist-019",
+      "text": "What we attend to, and how we attend to it, determines what reality we experience.",
+      "source": "The Master and His Emissary",
+      "themes": ["attention", "reality", "experience", "determination"],
+      "context": "Attention as reality-shaping"
+    },
+    {
+      "id": "mcgilchrist-020",
+      "text": "The living world cannot be captured in categories. The attempt to do so kills it—and leaves only a corpse that can be examined.",
+      "source": "The Master and His Emissary",
+      "themes": ["living", "categories", "death", "examination"],
+      "context": "Categorization as killing"
+    }
+  ]
+}

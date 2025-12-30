@@ -1,0 +1,148 @@
+{
+  "archetype": "selfInquirer",
+  "thinker": "Ramana Maharshi",
+  "era": "1879-1950",
+  "coreConcepts": ["self-inquiry", "Who am I?", "the Self", "silence", "being", "non-duality", "surrender"],
+  "passages": [
+    {
+      "id": "ramana-001",
+      "text": "The question 'Who am I?' is not really meant to get an answer, the question 'Who am I?' is meant to dissolve the questioner.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["Who am I", "question", "dissolve", "questioner"],
+      "context": "Self-inquiry isn't seeking information — it's dissolution. The question destroys the asker."
+    },
+    {
+      "id": "ramana-002",
+      "text": "Your own Self-Realization is the greatest service you can render the world.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["Self-Realization", "service", "world", "greatest"],
+      "context": "Not activism but awakening. The best you can do for others: realize yourself."
+    },
+    {
+      "id": "ramana-003",
+      "text": "Silence is the true teaching. It is the perfect teaching. It is suited only for the most advanced seeker.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["silence", "teaching", "perfect", "advanced"],
+      "context": "Words are concession to beginners. The real teaching is wordless. Silence transmits directly."
+    },
+    {
+      "id": "ramana-004",
+      "text": "There is neither creation nor destruction, neither destiny nor free will, neither path nor achievement. This is the final truth.",
+      "source": "Forty Verses on Reality",
+      "themes": ["creation", "destruction", "truth", "final"],
+      "context": "Ultimate perspective dissolves all categories. Neither this nor that — beyond all dualities."
+    },
+    {
+      "id": "ramana-005",
+      "text": "The degree of freedom from unwanted thoughts and the degree of concentration on a single thought are the measures to gauge spiritual progress.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["freedom", "thoughts", "concentration", "progress"],
+      "context": "Spiritual progress measured simply: fewer unwanted thoughts, more single-pointed attention."
+    },
+    {
+      "id": "ramana-006",
+      "text": "Mind is consciousness which has put on limitations. You are originally unlimited and perfect. Later you take on limitations and become the mind.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["mind", "consciousness", "limitations", "perfect"],
+      "context": "Mind is contracted consciousness. You're not originally limited — you became so. Return to original state."
+    },
+    {
+      "id": "ramana-007",
+      "text": "No one succeeds without effort. Mind control is not your birthright. Those who succeed owe their success to their perseverance.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["effort", "success", "perseverance", "control"],
+      "context": "Enlightenment isn't automatic. Even Ramana says: effort required. Persevere."
+    },
+    {
+      "id": "ramana-008",
+      "text": "Wanting to reform the world without discovering one's true self is like trying to cover the world with leather to avoid the pain of walking on stones and thorns.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["reform", "world", "self", "leather"],
+      "context": "Fix yourself before fixing the world. It's easier to wear shoes than pave the earth."
+    },
+    {
+      "id": "ramana-009",
+      "text": "The state we call realization is simply being oneself, not knowing anything or becoming anything.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["realization", "being", "knowing", "becoming"],
+      "context": "Realization isn't achievement. It's stopping the attempt to be something else. Just be what you are."
+    },
+    {
+      "id": "ramana-010",
+      "text": "Why should you trouble yourself about the future? You do not even properly know about the present. Take care of the present; the future will take care of itself.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["future", "present", "trouble", "care"],
+      "context": "Future-worry is presumptuous. You don't even know the present. Handle now; later handles itself."
+    },
+    {
+      "id": "ramana-011",
+      "text": "Happiness is your nature. It is not wrong to desire it. What is wrong is seeking it outside when it is inside.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["happiness", "nature", "inside", "outside"],
+      "context": "Desiring happiness is fine — it's your nature calling. The error is direction: outside instead of inside."
+    },
+    {
+      "id": "ramana-012",
+      "text": "You need not aspire for or get any new state. Get rid of your present thoughts, that is all.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["aspire", "new", "thoughts", "rid"],
+      "context": "Nothing to gain, nothing to become. Just drop what obscures. The Self is already there."
+    },
+    {
+      "id": "ramana-013",
+      "text": "The mind turned inwards is the Self; turned outwards, it becomes the ego and all the world.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["mind", "inward", "outward", "Self"],
+      "context": "Same mind, different directions. Turned in: Self. Turned out: ego and world. Direction determines all."
+    },
+    {
+      "id": "ramana-014",
+      "text": "Realisation is not acquisition of anything new nor is it a new faculty. It is only removal of all camouflage.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["realisation", "acquisition", "removal", "camouflage"],
+      "context": "Nothing to get. Just remove what covers. The Self isn't attained — it's revealed by removing disguise."
+    },
+    {
+      "id": "ramana-015",
+      "text": "That which is not present in deep dreamless sleep is not real.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["sleep", "dreamless", "real", "present"],
+      "context": "Test of reality: what persists in deep sleep? The world disappears. What remains is real."
+    },
+    {
+      "id": "ramana-016",
+      "text": "Let what comes come, let what goes go. Find out what remains.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["comes", "goes", "remains", "find"],
+      "context": "Don't grasp or reject. Allow movement. Then look: what doesn't come or go? That's the Self."
+    },
+    {
+      "id": "ramana-017",
+      "text": "If you go on working with the light available, you will meet your Master, as he himself will be seeking you.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["light", "Master", "seeking", "working"],
+      "context": "Work with what you have. The teacher seeks the ready student. Readiness attracts guidance."
+    },
+    {
+      "id": "ramana-018",
+      "text": "The explorers seek happiness in finding curiosities, climbing mountains, going to the bottom of the sea, but everyone knows this is not the way to find happiness.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["explorers", "happiness", "curiosities", "way"],
+      "context": "External exploration doesn't find happiness. Everyone knows this, yet everyone keeps looking outside."
+    },
+    {
+      "id": "ramana-019",
+      "text": "There is no greater mystery than this: being Reality ourselves, we seek to gain Reality.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["mystery", "Reality", "being", "seek"],
+      "context": "The cosmic joke: we ARE what we're looking for. Seeking what you already are is the great mystery."
+    },
+    {
+      "id": "ramana-020",
+      "text": "All that is required to realize the Self is to be still.",
+      "source": "Talks with Ramana Maharshi",
+      "themes": ["realize", "Self", "still", "required"],
+      "context": "The entire teaching in one line: be still. Stop moving outward. In stillness, Self is obvious."
+    }
+  ]
+}

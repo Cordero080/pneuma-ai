@@ -1,0 +1,148 @@
+{
+  "archetype": "mindfulMaster",
+  "thinker": "Thich Nhat Hanh",
+  "era": "1926-2022",
+  "coreConcepts": ["mindfulness", "interbeing", "present moment", "engaged Buddhism", "walking meditation", "no mud no lotus"],
+  "passages": [
+    {
+      "id": "thich-001",
+      "text": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.",
+      "source": "Stepping into Freedom",
+      "themes": ["feelings", "clouds", "breathing", "anchor"],
+      "context": "Emotions are weather, not climate. Breath is the constant that steadies us amid change."
+    },
+    {
+      "id": "thich-002",
+      "text": "The present moment is filled with joy and happiness. If you are attentive, you will see it.",
+      "source": "Peace Is Every Step",
+      "themes": ["present", "joy", "attention", "seeing"],
+      "context": "Joy isn't somewhere else — it's here. The obstacle is inattention, not circumstance."
+    },
+    {
+      "id": "thich-003",
+      "text": "No mud, no lotus.",
+      "source": "No Mud, No Lotus",
+      "themes": ["mud", "lotus", "suffering", "transformation"],
+      "context": "The lotus grows from mud. Without suffering, no awakening. Difficulty is the medium of beauty."
+    },
+    {
+      "id": "thich-004",
+      "text": "We are here to awaken from our illusion of separateness.",
+      "source": "Going Home",
+      "themes": ["awakening", "illusion", "separateness", "purpose"],
+      "context": "The fundamental illusion is that we're separate. Life's purpose: waking from that dream."
+    },
+    {
+      "id": "thich-005",
+      "text": "When you plant lettuce, if it does not grow well, you don't blame the lettuce. You look for reasons it is not doing well.",
+      "source": "Peace Is Every Step",
+      "themes": ["lettuce", "blame", "understanding", "compassion"],
+      "context": "We don't blame plants for struggling; we examine conditions. Why blame people differently?"
+    },
+    {
+      "id": "thich-006",
+      "text": "Drink your tea slowly and reverently, as if it is the axis on which the world earth revolves.",
+      "source": "The Miracle of Mindfulness",
+      "themes": ["tea", "reverence", "slowness", "axis"],
+      "context": "Every act can be sacred. Drinking tea fully is cosmic participation."
+    },
+    {
+      "id": "thich-007",
+      "text": "To be beautiful means to be yourself. You don't need to be accepted by others. You need to accept yourself.",
+      "source": "Being Peace",
+      "themes": ["beauty", "self", "acceptance", "others"],
+      "context": "Beauty isn't conformity to external standards. It's self-acceptance, self-expression."
+    },
+    {
+      "id": "thich-008",
+      "text": "Breathing in, I calm my body. Breathing out, I smile. Dwelling in the present moment, I know this is a wonderful moment.",
+      "source": "Being Peace",
+      "themes": ["breathing", "calm", "smile", "wonderful"],
+      "context": "The gatha (practice verse): breath, calm, smile, presence. Simple practice, profound effect."
+    },
+    {
+      "id": "thich-009",
+      "text": "People have a hard time letting go of their suffering. Out of a fear of the unknown, they prefer suffering that is familiar.",
+      "source": "The Heart of the Buddha's Teaching",
+      "themes": ["letting go", "suffering", "fear", "familiar"],
+      "context": "We cling to pain because it's known. The unfamiliar frightens more than the painful."
+    },
+    {
+      "id": "thich-010",
+      "text": "Understanding someone's suffering is the best gift you can give another person. Understanding is love's other name.",
+      "source": "How to Love",
+      "themes": ["understanding", "suffering", "gift", "love"],
+      "context": "Love isn't just feeling — it's understanding. To truly see someone's suffering IS to love them."
+    },
+    {
+      "id": "thich-011",
+      "text": "If we are not fully ourselves, truly in the present moment, we miss everything.",
+      "source": "The Miracle of Mindfulness",
+      "themes": ["self", "present", "missing", "everything"],
+      "context": "Partial presence is absence. If you're not fully here, you're not here at all."
+    },
+    {
+      "id": "thich-012",
+      "text": "Many people are alive but don't touch the miracle of being alive.",
+      "source": "The Miracle of Mindfulness",
+      "themes": ["alive", "miracle", "touch", "being"],
+      "context": "Biological life isn't enough. Many are alive but not living — not touching what's miraculous about existence."
+    },
+    {
+      "id": "thich-013",
+      "text": "Walk as if you are kissing the Earth with your feet.",
+      "source": "Peace Is Every Step",
+      "themes": ["walking", "Earth", "kissing", "feet"],
+      "context": "Walking meditation: each step is reverence. The ground receives your gratitude."
+    },
+    {
+      "id": "thich-014",
+      "text": "You must love in such a way that the person you love feels free.",
+      "source": "Teachings on Love",
+      "themes": ["love", "freedom", "feeling", "way"],
+      "context": "Love that constrains isn't love. True love liberates; possessive love imprisons."
+    },
+    {
+      "id": "thich-015",
+      "text": "Letting go gives us freedom, and freedom is the only condition for happiness.",
+      "source": "The Heart of the Buddha's Teaching",
+      "themes": ["letting go", "freedom", "happiness", "condition"],
+      "context": "Happiness requires freedom; freedom requires letting go. The chain is clear."
+    },
+    {
+      "id": "thich-016",
+      "text": "If you look deeply into the palm of your hand, you will see your parents and all generations of your ancestors.",
+      "source": "Present Moment Wonderful Moment",
+      "themes": ["hand", "ancestors", "looking", "interbeing"],
+      "context": "Interbeing: you contain multitudes. Your hand carries all who made you possible."
+    },
+    {
+      "id": "thich-017",
+      "text": "Hope is important because it can make the present moment less difficult to bear. If we believe that tomorrow will be better, we can bear a hardship today.",
+      "source": "Peace Is Every Step",
+      "themes": ["hope", "present", "tomorrow", "bearing"],
+      "context": "Hope's function: making now bearable. Belief in better tomorrow helps endure today."
+    },
+    {
+      "id": "thich-018",
+      "text": "Every breath we take, every step we make, can be filled with peace, joy and serenity.",
+      "source": "Being Peace",
+      "themes": ["breath", "step", "peace", "serenity"],
+      "context": "Peace isn't destination — it's available in every breath, every step. The path is peaceful walking."
+    },
+    {
+      "id": "thich-019",
+      "text": "When another person makes you suffer, it is because he suffers deeply within himself, and his suffering is spilling over.",
+      "source": "Anger",
+      "themes": ["suffering", "spilling", "another", "compassion"],
+      "context": "Hurt people hurt people. Their cruelty is overflow of inner pain. This understanding enables compassion."
+    },
+    {
+      "id": "thich-020",
+      "text": "Because you are alive, everything is possible.",
+      "source": "Living Buddha, Living Christ",
+      "themes": ["alive", "everything", "possible", "potential"],
+      "context": "Life itself is the fundamental possibility. From aliveness, all other possibilities flow."
+    }
+  ]
+}

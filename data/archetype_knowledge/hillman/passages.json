@@ -1,0 +1,148 @@
+{
+  "archetype": "soulMaker",
+  "thinker": "James Hillman",
+  "era": "1926-2011",
+  "coreConcepts": ["soul-making", "archetypal psychology", "the acorn theory", "anima mundi", "pathologizing", "imagination as reality"],
+  "passages": [
+    {
+      "id": "hillman-001",
+      "text": "We've had a hundred years of psychotherapy and the world's getting worse.",
+      "source": "We've Had a Hundred Years of Psychotherapy",
+      "themes": ["psychotherapy", "world", "failure", "critique"],
+      "context": "The provocative opening. Individual therapy hasn't healed the world. Something's missing."
+    },
+    {
+      "id": "hillman-002",
+      "text": "The soul doesn't want to be saved; it wants to be deepened.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["soul", "salvation", "depth", "wanting"],
+      "context": "Soul isn't asking for rescue — it's asking for depth. Salvation misunderstands what soul needs."
+    },
+    {
+      "id": "hillman-003",
+      "text": "It is more important to know what sort of person has a disease than to know what sort of disease a person has.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["disease", "person", "knowledge", "context"],
+      "context": "Person before diagnosis. Who has this symptom matters more than what the symptom is."
+    },
+    {
+      "id": "hillman-004",
+      "text": "We are not what we think we are. We are the myths that think us.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["myths", "thinking", "identity", "unconscious"],
+      "context": "Myths aren't stories we tell — they're patterns that live through us. We don't have myths; myths have us."
+    },
+    {
+      "id": "hillman-005",
+      "text": "The acorn theory proposes that each person bears a uniqueness that asks to be lived and that is already present before it can be lived.",
+      "source": "The Soul's Code",
+      "themes": ["acorn", "uniqueness", "daimon", "calling"],
+      "context": "You came with a code, a calling, a daimon. Life is the unpacking of what was always there."
+    },
+    {
+      "id": "hillman-006",
+      "text": "Depression opens the door to beauty of some kind.",
+      "source": "The Soul's Code",
+      "themes": ["depression", "beauty", "door", "opening"],
+      "context": "Depression isn't only pathology — it's soul making room. Something beautiful may be trying to enter."
+    },
+    {
+      "id": "hillman-007",
+      "text": "We need to get off the therapeutic couch and out into the streets, to make our protest against the madness of public life.",
+      "source": "We've Had a Hundred Years of Psychotherapy",
+      "themes": ["therapy", "streets", "protest", "public"],
+      "context": "Psychology needs to leave the consulting room. The world's pathology requires political response."
+    },
+    {
+      "id": "hillman-008",
+      "text": "Pathologizing is the psyche's autonomous ability to create illness, morbidity, disorder, abnormality, and suffering in any aspect of its behavior.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["pathology", "psyche", "autonomous", "suffering"],
+      "context": "Symptoms aren't accidents — the psyche creates them on purpose. Pathology has intention."
+    },
+    {
+      "id": "hillman-009",
+      "text": "The psychological rule says that when an inner situation is not made conscious, it happens outside as fate.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["inner", "conscious", "fate", "outside"],
+      "context": "What you don't face inside, you meet outside. Unconscious content becomes external event."
+    },
+    {
+      "id": "hillman-010",
+      "text": "It's a myth to think we can be psychological without being theological, that we can examine the soul without examining the Gods.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["psychology", "theology", "soul", "Gods"],
+      "context": "Psychology can't escape religion. To study soul is to encounter the divine, whether you name it or not."
+    },
+    {
+      "id": "hillman-011",
+      "text": "The word 'normal' in our society means something average, and 'abnormal' means something morbid. But from the point of view of soul, 'normal' is morbid.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["normal", "abnormal", "soul", "morbid"],
+      "context": "Statistical normality isn't soul health. What's common may be deeply sick from soul's perspective."
+    },
+    {
+      "id": "hillman-012",
+      "text": "Imagination is the primary activity of the soul, and imagining is not merely decorative or escapist, but reality itself.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["imagination", "soul", "reality", "primary"],
+      "context": "Imagination isn't ornament — it's foundational. The imaginal is as real as the literal."
+    },
+    {
+      "id": "hillman-013",
+      "text": "The way through the world is more difficult to find than the way beyond it.",
+      "source": "The Soul's Code",
+      "themes": ["world", "way", "difficulty", "transcendence"],
+      "context": "It's easier to escape the world than to navigate it. Engagement is harder than transcendence."
+    },
+    {
+      "id": "hillman-014",
+      "text": "Every symptom is a living process, a way of being, trying to tell us something.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["symptom", "process", "message", "being"],
+      "context": "Symptoms have intention — they're communications. Listen before you suppress."
+    },
+    {
+      "id": "hillman-015",
+      "text": "Children today are medicated and diagnosed in place of being mythologized. We give them Ritalin rather than a story.",
+      "source": "The Soul's Code",
+      "themes": ["children", "medication", "myth", "story"],
+      "context": "We drug what we could narrate. Children need stories about who they are, not pills to change them."
+    },
+    {
+      "id": "hillman-016",
+      "text": "That I am alive is a gift. That I live the life I live — that's something else.",
+      "source": "The Soul's Code",
+      "themes": ["alive", "gift", "life", "living"],
+      "context": "Existence is grace. But what we do with existence — that's on us."
+    },
+    {
+      "id": "hillman-017",
+      "text": "When the sense of calling is lost, we have entered the dark night of the soul.",
+      "source": "The Soul's Code",
+      "themes": ["calling", "loss", "dark night", "soul"],
+      "context": "The dark night isn't depression — it's losing your sense of purpose. Calling connects us to meaning."
+    },
+    {
+      "id": "hillman-018",
+      "text": "Psychology is ultimately mythology, the study of the stories of the soul.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["psychology", "mythology", "stories", "soul"],
+      "context": "Psychology and mythology are the same discipline. The soul lives in stories."
+    },
+    {
+      "id": "hillman-019",
+      "text": "Soul-making requires the experiencing of a problem as its own answer.",
+      "source": "Re-Visioning Psychology",
+      "themes": ["soul-making", "problem", "answer", "experience"],
+      "context": "The problem IS the path. Soul-making doesn't eliminate problems — it transforms relationship to them."
+    },
+    {
+      "id": "hillman-020",
+      "text": "Follow the accident, find the soul. Where you stumble, there lies your treasure.",
+      "source": "The Soul's Code",
+      "themes": ["accident", "soul", "stumble", "treasure"],
+      "context": "Mistakes aren't errors — they're signposts. What trips you up may be pointing toward your gold."
+    }
+  ]
+}

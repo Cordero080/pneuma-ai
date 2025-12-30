@@ -1,0 +1,157 @@
+{
+  "archetype": "prophetPoet",
+  "thinker": "Kahlil Gibran",
+  "era": "1883-1931",
+  "coreConcepts": [
+    "Love as self-discovery",
+    "Pain as teacher",
+    "Freedom with responsibility",
+    "Children as arrows",
+    "Work as love made visible",
+    "Joy and sorrow as one",
+    "The space between souls",
+    "Silence and speech"
+  ],
+  "passages": [
+    {
+      "id": "gibran-001",
+      "text": "Your pain is the breaking of the shell that encloses your understanding.",
+      "source": "The Prophet",
+      "themes": ["pain", "understanding", "breaking", "shell"],
+      "context": "Pain as necessary opening"
+    },
+    {
+      "id": "gibran-002",
+      "text": "The deeper that sorrow carves into your being, the more joy you can contain.",
+      "source": "The Prophet",
+      "themes": ["sorrow", "joy", "depth", "capacity"],
+      "context": "Sorrow creates capacity for joy"
+    },
+    {
+      "id": "gibran-003",
+      "text": "Your children are not your children. They are the sons and daughters of Life's longing for itself.",
+      "source": "The Prophet",
+      "themes": ["children", "life", "longing", "belonging"],
+      "context": "Children belong to life, not parents"
+    },
+    {
+      "id": "gibran-004",
+      "text": "You are the bows from which your children as living arrows are sent forth.",
+      "source": "The Prophet",
+      "themes": ["children", "arrows", "bows", "sending"],
+      "context": "Parents as instruments of life"
+    },
+    {
+      "id": "gibran-005",
+      "text": "Work is love made visible.",
+      "source": "The Prophet",
+      "themes": ["work", "love", "visible", "expression"],
+      "context": "Work as expression of love"
+    },
+    {
+      "id": "gibran-006",
+      "text": "Let there be spaces in your togetherness, and let the winds of the heavens dance between you.",
+      "source": "The Prophet",
+      "themes": ["togetherness", "space", "wind", "dance"],
+      "context": "Healthy distance in love"
+    },
+    {
+      "id": "gibran-007",
+      "text": "You give but little when you give of your possessions. It is when you give of yourself that you truly give.",
+      "source": "The Prophet",
+      "themes": ["giving", "possessions", "self", "generosity"],
+      "context": "True giving is of the self"
+    },
+    {
+      "id": "gibran-008",
+      "text": "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars.",
+      "source": "The Prophet",
+      "themes": ["suffering", "strength", "character", "scars"],
+      "context": "Suffering as forge of character"
+    },
+    {
+      "id": "gibran-009",
+      "text": "Love knows not its own depth until the hour of separation.",
+      "source": "The Prophet",
+      "themes": ["love", "depth", "separation", "knowing"],
+      "context": "Loss reveals love's depth"
+    },
+    {
+      "id": "gibran-010",
+      "text": "When you love you should not say, 'God is in my heart,' but rather, 'I am in the heart of God.'",
+      "source": "The Prophet",
+      "themes": ["love", "god", "heart", "containment"],
+      "context": "Being held rather than holding"
+    },
+    {
+      "id": "gibran-011",
+      "text": "Yesterday is but today's memory, and tomorrow is today's dream.",
+      "source": "The Prophet",
+      "themes": ["time", "memory", "dream", "present"],
+      "context": "Past and future as aspects of now"
+    },
+    {
+      "id": "gibran-012",
+      "text": "Tenderness and kindness are not signs of weakness and despair, but manifestations of strength and resolution.",
+      "source": "The Prophet",
+      "themes": ["tenderness", "kindness", "strength", "resolution"],
+      "context": "Softness as strength"
+    },
+    {
+      "id": "gibran-013",
+      "text": "If you love somebody, let them go, for if they return, they were always yours. If they don't, they never were.",
+      "source": "Sand and Foam",
+      "themes": ["love", "freedom", "return", "belonging"],
+      "context": "Love and freedom together"
+    },
+    {
+      "id": "gibran-014",
+      "text": "I have learned silence from the talkative, toleration from the intolerant, and kindness from the unkind.",
+      "source": "Sand and Foam",
+      "themes": ["learning", "opposites", "teachers", "contrast"],
+      "context": "Learning from negative examples"
+    },
+    {
+      "id": "gibran-015",
+      "text": "Trust in dreams, for in them is hidden the gate to eternity.",
+      "source": "The Prophet",
+      "themes": ["dreams", "trust", "eternity", "gate"],
+      "context": "Dreams as portal"
+    },
+    {
+      "id": "gibran-016",
+      "text": "Beauty is not in the face; beauty is a light in the heart.",
+      "source": "Various",
+      "themes": ["beauty", "face", "heart", "light"],
+      "context": "Inner source of beauty"
+    },
+    {
+      "id": "gibran-017",
+      "text": "Forget not that the earth delights to feel your bare feet and the winds long to play with your hair.",
+      "source": "The Prophet",
+      "themes": ["earth", "feet", "wind", "hair"],
+      "context": "Nature's desire for connection"
+    },
+    {
+      "id": "gibran-018",
+      "text": "The soul walks not upon a line, neither does it grow like a reed. The soul unfolds itself, like a lotus of countless petals.",
+      "source": "The Prophet",
+      "themes": ["soul", "unfolding", "lotus", "petals"],
+      "context": "Soul's organic expansion"
+    },
+    {
+      "id": "gibran-019",
+      "text": "If you reveal your secrets to the wind, you should not blame the wind for revealing them to the trees.",
+      "source": "Sand and Foam",
+      "themes": ["secrets", "wind", "trees", "responsibility"],
+      "context": "Responsibility for disclosure"
+    },
+    {
+      "id": "gibran-020",
+      "text": "We are all prisoners, but some of us are in cells with windows and some without.",
+      "source": "Sand and Foam",
+      "themes": ["prison", "windows", "perspective", "freedom"],
+      "context": "Degrees of imprisonment"
+    }
+  ]
+}

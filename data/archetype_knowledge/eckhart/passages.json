@@ -1,0 +1,148 @@
+{
+  "archetype": "mysticalTheologian",
+  "thinker": "Meister Eckhart",
+  "era": "1260-1328",
+  "coreConcepts": ["detachment", "the ground of the soul", "God beyond God", "letting go", "breakthrough", "birth of the Word in the soul"],
+  "passages": [
+    {
+      "id": "eckhart-001",
+      "text": "The eye through which I see God is the same eye through which God sees me; my eye and God's eye are one eye, one seeing, one knowing, one love.",
+      "source": "Sermons",
+      "themes": ["eye", "God", "seeing", "unity"],
+      "context": "Subject-object collapse at the deepest level. Not two looking at each other, but one seeing."
+    },
+    {
+      "id": "eckhart-002",
+      "text": "If the only prayer you ever say in your entire life is thank you, it will be enough.",
+      "source": "Sermons",
+      "themes": ["prayer", "gratitude", "enough", "simplicity"],
+      "context": "All prayer reduces to gratitude. Thankfulness is the sufficient spiritual practice."
+    },
+    {
+      "id": "eckhart-003",
+      "text": "The soul must long for God in order to be set aflame by God's love; but if the soul cannot yet feel the longing, then it must long for the longing.",
+      "source": "Sermons",
+      "themes": ["longing", "God", "love", "desire"],
+      "context": "Even the absence of longing can be worked with. Desire for desire is a beginning."
+    },
+    {
+      "id": "eckhart-004",
+      "text": "Be willing to be a beginner every single morning.",
+      "source": "Sermons",
+      "themes": ["beginner", "morning", "willingness", "fresh"],
+      "context": "Expertise can harden. Beginner's mind keeps the soul supple, open to fresh seeing."
+    },
+    {
+      "id": "eckhart-005",
+      "text": "God is not found in the soul by adding anything, but by a process of subtraction.",
+      "source": "Sermons",
+      "themes": ["God", "soul", "subtraction", "addition"],
+      "context": "Via negativa: God isn't gained by accumulation but by stripping away. Less is more."
+    },
+    {
+      "id": "eckhart-006",
+      "text": "The more we have the less we own.",
+      "source": "Sermons",
+      "themes": ["having", "owning", "possession", "paradox"],
+      "context": "Accumulation doesn't increase ownership — it disperses attention. Poverty enables possession."
+    },
+    {
+      "id": "eckhart-007",
+      "text": "There exists only the present instant... a Now which always and without end is itself new.",
+      "source": "Sermons",
+      "themes": ["present", "now", "time", "eternity"],
+      "context": "Eternity isn't endless time — it's the ever-new Now. Each moment is fresh creation."
+    },
+    {
+      "id": "eckhart-008",
+      "text": "God is at home. It is we who have gone out for a walk.",
+      "source": "Sermons",
+      "themes": ["God", "home", "wandering", "return"],
+      "context": "The journey isn't God's absence — it's our departure. Coming home is recognizing where we've always been."
+    },
+    {
+      "id": "eckhart-009",
+      "text": "What a man takes in by contemplation, that he pours out in love.",
+      "source": "Sermons",
+      "themes": ["contemplation", "love", "receiving", "giving"],
+      "context": "Contemplation and action aren't opposed. What fills the soul overflows as love."
+    },
+    {
+      "id": "eckhart-010",
+      "text": "To be full of things is to be empty of God. To be empty of things is to be full of God.",
+      "source": "Sermons",
+      "themes": ["fullness", "emptiness", "things", "God"],
+      "context": "Spiritual economics: fullness of one is emptiness of the other. Choose what fills you."
+    },
+    {
+      "id": "eckhart-011",
+      "text": "We are all meant to be mothers of God. For God is always needing to be born.",
+      "source": "Sermons",
+      "themes": ["mother", "God", "birth", "becoming"],
+      "context": "The divine isn't complete — it needs birth through us. We're not just recipients but birthers."
+    },
+    {
+      "id": "eckhart-012",
+      "text": "The outward work will never be puny if the inward work is great. And the outward work can never be great if the inward one is puny or of little worth.",
+      "source": "Sermons",
+      "themes": ["outward", "inward", "work", "greatness"],
+      "context": "Inner and outer correspond. External action reveals internal state; no hiding, no faking."
+    },
+    {
+      "id": "eckhart-013",
+      "text": "Theologians may quarrel, but the mystics of the world speak the same language.",
+      "source": "Sermons",
+      "themes": ["theologians", "mystics", "language", "unity"],
+      "context": "At the conceptual level, disagreement. At the experiential level, convergence."
+    },
+    {
+      "id": "eckhart-014",
+      "text": "Only the hand that erases can write the true thing.",
+      "source": "Sermons",
+      "themes": ["erasing", "writing", "truth", "negation"],
+      "context": "Creation requires destruction. The blank slate enables fresh inscription."
+    },
+    {
+      "id": "eckhart-015",
+      "text": "You may call God love, you may call God goodness. But the best name for God is compassion.",
+      "source": "Sermons",
+      "themes": ["God", "love", "goodness", "compassion"],
+      "context": "Of all divine names, compassion is truest. Suffering-with as God's essential nature."
+    },
+    {
+      "id": "eckhart-016",
+      "text": "Do exactly what you would do if you felt most secure.",
+      "source": "Sermons",
+      "themes": ["action", "security", "fear", "behavior"],
+      "context": "Act from your best self, not your frightened self. Security is inner, not circumstantial."
+    },
+    {
+      "id": "eckhart-017",
+      "text": "In silence and in stillness a devout soul makes progress.",
+      "source": "Sermons",
+      "themes": ["silence", "stillness", "progress", "soul"],
+      "context": "Noise and motion can be avoidance. True advancement often looks like stopping."
+    },
+    {
+      "id": "eckhart-018",
+      "text": "Every creature is a word of God.",
+      "source": "Sermons",
+      "themes": ["creature", "word", "God", "expression"],
+      "context": "The world as divine language. Each being speaks the divine in its own tongue."
+    },
+    {
+      "id": "eckhart-019",
+      "text": "If I were alone in a desert and feeling afraid, I would want a child to be with me. For then my fear would disappear and I would be made strong.",
+      "source": "Sermons",
+      "themes": ["fear", "child", "strength", "presence"],
+      "context": "A child's presence dissolves adult fear. Responsibility and innocence as courage-makers."
+    },
+    {
+      "id": "eckhart-020",
+      "text": "There is something in the soul which is above the soul, divine, simple, an absolute nothing; rather unnamed than named, unknown than known... Sometimes I have called it a power, sometimes an uncreated light, and sometimes a divine spark.",
+      "source": "Sermons",
+      "themes": ["soul", "divine", "spark", "uncreated"],
+      "context": "The ground of the soul: something in us that isn't us, that was never created, that is God's own presence."
+    }
+  ]
+}

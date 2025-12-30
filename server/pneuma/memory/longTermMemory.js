@@ -4,13 +4,10 @@
 // ------------------------------------------------------------
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { LONG_TERM_MEMORY_FILE } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const memoryPath = path.join(__dirname, "../../data/long_term_memory.json");
+// Use centralized path config
+const memoryPath = LONG_TERM_MEMORY_FILE;
 
 // ============================================================
 // MEMORY STRUCTURE

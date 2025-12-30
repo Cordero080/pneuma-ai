@@ -1,0 +1,157 @@
+{
+  "archetype": "inventor",
+  "thinker": "Leonardo da Vinci",
+  "era": "1452-1519",
+  "coreConcepts": [
+    "Observation as foundation",
+    "Art and science as one",
+    "Nature as teacher",
+    "Curiosity as method",
+    "Sfumato (embracing ambiguity)",
+    "Connection of all things",
+    "Experience over authority",
+    "The eye as window"
+  ],
+  "passages": [
+    {
+      "id": "davinci-001",
+      "text": "Learning never exhausts the mind.",
+      "source": "Notebooks",
+      "themes": ["learning", "mind", "inexhaustible", "curiosity"],
+      "context": "The infinite appetite for knowledge"
+    },
+    {
+      "id": "davinci-002",
+      "text": "Simplicity is the ultimate sophistication.",
+      "source": "Notebooks",
+      "themes": ["simplicity", "sophistication", "elegance", "design"],
+      "context": "Reducing to essentials"
+    },
+    {
+      "id": "davinci-003",
+      "text": "Study without desire spoils the memory, and it retains nothing that it takes in.",
+      "source": "Notebooks",
+      "themes": ["study", "desire", "memory", "passion"],
+      "context": "Desire as prerequisite for learning"
+    },
+    {
+      "id": "davinci-004",
+      "text": "The noblest pleasure is the joy of understanding.",
+      "source": "Notebooks",
+      "themes": ["pleasure", "joy", "understanding", "nobility"],
+      "context": "Understanding as highest pleasure"
+    },
+    {
+      "id": "davinci-005",
+      "text": "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.",
+      "source": "Notebooks",
+      "themes": ["doing", "knowing", "application", "action"],
+      "context": "Theory must become practice"
+    },
+    {
+      "id": "davinci-006",
+      "text": "The painter has the universe in his mind and hands.",
+      "source": "Treatise on Painting",
+      "themes": ["painter", "universe", "mind", "hands"],
+      "context": "Art as containing everything"
+    },
+    {
+      "id": "davinci-007",
+      "text": "There are three classes of people: those who see, those who see when they are shown, those who do not see.",
+      "source": "Notebooks",
+      "themes": ["seeing", "classes", "perception", "blindness"],
+      "context": "Hierarchy of perception"
+    },
+    {
+      "id": "davinci-008",
+      "text": "Water is the driving force of all nature.",
+      "source": "Notebooks",
+      "themes": ["water", "nature", "force", "element"],
+      "context": "Water as fundamental principle"
+    },
+    {
+      "id": "davinci-009",
+      "text": "In rivers, the water that you touch is the last of what has passed and the first of that which comes; so with present time.",
+      "source": "Notebooks",
+      "themes": ["water", "time", "present", "flow"],
+      "context": "River as metaphor for time"
+    },
+    {
+      "id": "davinci-010",
+      "text": "Art is never finished, only abandoned.",
+      "source": "attributed",
+      "themes": ["art", "finished", "abandoned", "process"],
+      "context": "Incompleteness of all creation"
+    },
+    {
+      "id": "davinci-011",
+      "text": "The greatest deception men suffer is from their own opinions.",
+      "source": "Notebooks",
+      "themes": ["deception", "opinions", "self", "blindness"],
+      "context": "Self-deception as primary obstacle"
+    },
+    {
+      "id": "davinci-012",
+      "text": "Nature is the source of all true knowledge. She has her own logic, her own laws.",
+      "source": "Notebooks",
+      "themes": ["nature", "knowledge", "logic", "laws"],
+      "context": "Nature as ultimate authority"
+    },
+    {
+      "id": "davinci-013",
+      "text": "The eye, which is called the window of the soul, is the principal means by which the central sense can most completely and abundantly appreciate the infinite works of nature.",
+      "source": "Notebooks",
+      "themes": ["eye", "soul", "window", "nature"],
+      "context": "Vision as primary sense"
+    },
+    {
+      "id": "davinci-014",
+      "text": "I love those who can smile in trouble, who can gather strength from distress, and grow brave by reflection.",
+      "source": "Notebooks",
+      "themes": ["trouble", "smile", "strength", "reflection"],
+      "context": "Character forged in difficulty"
+    },
+    {
+      "id": "davinci-015",
+      "text": "Nothing strengthens authority so much as silence.",
+      "source": "Notebooks",
+      "themes": ["authority", "silence", "strength", "power"],
+      "context": "Power of restraint"
+    },
+    {
+      "id": "davinci-016",
+      "text": "Once you have tasted flight, you will forever walk the earth with your eyes turned skyward.",
+      "source": "attributed",
+      "themes": ["flight", "sky", "longing", "transcendence"],
+      "context": "Experience transforms perspective"
+    },
+    {
+      "id": "davinci-017",
+      "text": "Time stays long enough for anyone who will use it.",
+      "source": "Notebooks",
+      "themes": ["time", "use", "enough", "attention"],
+      "context": "Subjective experience of time"
+    },
+    {
+      "id": "davinci-018",
+      "text": "Where the spirit does not work with the hand, there is no art.",
+      "source": "Notebooks",
+      "themes": ["spirit", "hand", "art", "unity"],
+      "context": "Integration of inner and outer"
+    },
+    {
+      "id": "davinci-019",
+      "text": "All our knowledge has its origins in our perceptions.",
+      "source": "Notebooks",
+      "themes": ["knowledge", "perception", "origins", "experience"],
+      "context": "Empirical foundation of knowing"
+    },
+    {
+      "id": "davinci-020",
+      "text": "Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer.",
+      "source": "Notebooks",
+      "themes": ["rest", "relaxation", "judgment", "distance"],
+      "context": "Value of stepping back"
+    }
+  ]
+}

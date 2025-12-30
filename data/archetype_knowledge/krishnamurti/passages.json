@@ -1,0 +1,148 @@
+{
+  "archetype": "directInquirer",
+  "thinker": "Jiddu Krishnamurti",
+  "era": "1895-1986",
+  "coreConcepts": ["freedom from conditioning", "choiceless awareness", "the observer is the observed", "no path", "ending of thought", "radical inquiry"],
+  "passages": [
+    {
+      "id": "krishnamurti-001",
+      "text": "Truth is a pathless land. Man cannot come to it through any organization, through any creed, through any dogma, priest or ritual.",
+      "source": "1929 Dissolution Speech",
+      "themes": ["truth", "path", "organization", "freedom"],
+      "context": "The famous declaration dissolving the Order of the Star. No system can deliver truth; each must find it alone."
+    },
+    {
+      "id": "krishnamurti-002",
+      "text": "It is no measure of health to be well adjusted to a profoundly sick society.",
+      "source": "Talks",
+      "themes": ["health", "society", "adjustment", "sickness"],
+      "context": "Conformity to dysfunction isn't wellness. Maladjustment to madness may be sanity."
+    },
+    {
+      "id": "krishnamurti-003",
+      "text": "The ability to observe without evaluating is the highest form of intelligence.",
+      "source": "Talks",
+      "themes": ["observation", "evaluation", "intelligence", "attention"],
+      "context": "Pure seeing, without judgment's overlay. Evaluation distorts what's actually there."
+    },
+    {
+      "id": "krishnamurti-004",
+      "text": "The moment you follow someone you cease to follow Truth.",
+      "source": "Talks",
+      "themes": ["following", "truth", "authority", "independence"],
+      "context": "Authority is the enemy of direct perception. The moment you follow, you stop seeing."
+    },
+    {
+      "id": "krishnamurti-005",
+      "text": "The observer is the observed.",
+      "source": "Talks",
+      "themes": ["observer", "observed", "division", "unity"],
+      "context": "The separation between experiencer and experience is illusion. You ARE what you perceive."
+    },
+    {
+      "id": "krishnamurti-006",
+      "text": "In oneself lies the whole world and if you know how to look and learn, the door is there and the key is in your hand. Nobody on earth can give you either the key or the door to open, except yourself.",
+      "source": "Talks",
+      "themes": ["self", "world", "key", "door"],
+      "context": "No external authority has what you need. The door is already there; the key is yours."
+    },
+    {
+      "id": "krishnamurti-007",
+      "text": "When you call yourself an Indian or a Muslim or a Christian or a European, or anything else, you are being violent. Do you see why it is violent? Because you are separating yourself from the rest of mankind.",
+      "source": "Freedom from the Known",
+      "themes": ["identity", "violence", "separation", "mankind"],
+      "context": "Identity as violence: every label creates division. The very act of self-definition separates."
+    },
+    {
+      "id": "krishnamurti-008",
+      "text": "Freedom is not a reaction; freedom is not choice. Man thinks he is free because he has choice, but freedom is something entirely different.",
+      "source": "Talks",
+      "themes": ["freedom", "choice", "reaction", "conditioning"],
+      "context": "Choice within conditioning isn't freedom. Real freedom is freedom FROM the choosing self."
+    },
+    {
+      "id": "krishnamurti-009",
+      "text": "Thought is always limited because it is based on knowledge, and knowledge is always limited because it is about the past.",
+      "source": "Talks",
+      "themes": ["thought", "knowledge", "limitation", "past"],
+      "context": "Thought can never touch the new — it only recombines the old. The fresh is beyond thought."
+    },
+    {
+      "id": "krishnamurti-010",
+      "text": "What is needed, rather than running away or controlling or suppressing or any other resistance, is understanding fear; that means, watch it, learn about it, come directly into contact with it.",
+      "source": "Talks",
+      "themes": ["fear", "understanding", "watching", "contact"],
+      "context": "The alternative to fight-or-flight: direct contact. Fear met fully transforms."
+    },
+    {
+      "id": "krishnamurti-011",
+      "text": "When I understand myself, I understand you, and out of that understanding comes love.",
+      "source": "Talks",
+      "themes": ["self-understanding", "other", "love", "knowledge"],
+      "context": "Self-knowledge isn't narcissistic — it's the door to knowing others. Love emerges from understanding."
+    },
+    {
+      "id": "krishnamurti-012",
+      "text": "There is no end to education. It is not that you read a book, pass an examination, and finish with education. The whole of life, from the moment you are born to the moment you die, is a process of learning.",
+      "source": "Talks",
+      "themes": ["education", "learning", "life", "process"],
+      "context": "Learning isn't preparation for life — it IS life. The educated person never stops learning."
+    },
+    {
+      "id": "krishnamurti-013",
+      "text": "You must understand the whole of life, not just one little part of it. That is why you must read, that is why you must look at the skies, that is why you must sing and dance, and write poems and suffer and understand, for all that is life.",
+      "source": "Think on These Things",
+      "themes": ["life", "wholeness", "understanding", "experience"],
+      "context": "Narrow specialization misses living. Life is the whole — reading, skies, dance, suffering, all of it."
+    },
+    {
+      "id": "krishnamurti-014",
+      "text": "The description is not the described; I can describe the mountain, but the description is not the mountain, and if you are caught up in the description, as most people are, then you will never see the mountain.",
+      "source": "Talks",
+      "themes": ["description", "reality", "words", "seeing"],
+      "context": "Words about reality aren't reality. Getting lost in description, we miss the described."
+    },
+    {
+      "id": "krishnamurti-015",
+      "text": "To be free of all authority, of your own and that of another, is to die to everything of yesterday, so that your mind is always fresh, always young, innocent, full of vigor and passion.",
+      "source": "Freedom from the Known",
+      "themes": ["authority", "freedom", "freshness", "dying"],
+      "context": "Authority includes your own past conclusions. To be free, die to yesterday — all of it."
+    },
+    {
+      "id": "krishnamurti-016",
+      "text": "Have you ever noticed that when you respond to something totally, with all your heart, there is very little memory? It is only when you do not respond to a challenge with your whole being that there is a struggle, and this struggle breeds memory.",
+      "source": "Talks",
+      "themes": ["response", "totality", "memory", "struggle"],
+      "context": "Total response leaves no residue. Incomplete response creates the scar we call memory."
+    },
+    {
+      "id": "krishnamurti-017",
+      "text": "Can you look at a flower without thinking?",
+      "source": "Talks",
+      "themes": ["flower", "looking", "thinking", "presence"],
+      "context": "The simplest test of choiceless awareness. Just look. No naming, no evaluating. Can you?"
+    },
+    {
+      "id": "krishnamurti-018",
+      "text": "Tradition becomes our security, and when the mind is secure it is in decay.",
+      "source": "Freedom from the Known",
+      "themes": ["tradition", "security", "decay", "mind"],
+      "context": "The secure mind stops growing. Tradition's comfort is the soul's stagnation."
+    },
+    {
+      "id": "krishnamurti-019",
+      "text": "We never look directly at fear, we are always concerned with overcoming it, fighting it, resisting it, but in that very act of fighting, resisting, we are giving it strength.",
+      "source": "Talks",
+      "themes": ["fear", "resistance", "fighting", "strength"],
+      "context": "What you resist persists. Fighting fear feeds it. The alternative is direct looking."
+    },
+    {
+      "id": "krishnamurti-020",
+      "text": "Die to everything of yesterday so that your mind is always fresh, always young, innocent, full of vigor and passion. It is only in that state that one learns and observes.",
+      "source": "Freedom from the Known",
+      "themes": ["dying", "freshness", "innocence", "learning"],
+      "context": "Psychological death — letting go of accumulated conclusions — enables real seeing."
+    }
+  ]
+}

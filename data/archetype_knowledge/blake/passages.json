@@ -1,0 +1,148 @@
+{
+  "archetype": "visionaryPoet",
+  "thinker": "William Blake",
+  "era": "1757-1827",
+  "coreConcepts": ["imagination", "innocence and experience", "doors of perception", "contraries", "the infinite in everything", "the marriage of heaven and hell"],
+  "passages": [
+    {
+      "id": "blake-001",
+      "text": "To see a World in a Grain of Sand, And a Heaven in a Wild Flower, Hold Infinity in the palm of your hand, And Eternity in an hour.",
+      "source": "Auguries of Innocence",
+      "themes": ["infinity", "grain", "eternity", "seeing"],
+      "context": "The infinite in the particular. Every small thing contains the whole, if you know how to see."
+    },
+    {
+      "id": "blake-002",
+      "text": "If the doors of perception were cleansed everything would appear to man as it is, Infinite.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["perception", "doors", "infinite", "cleansing"],
+      "context": "We don't see infinity because our perception is clouded. Cleanse the doors, see the real."
+    },
+    {
+      "id": "blake-003",
+      "text": "Without contraries there is no progression. Attraction and Repulsion, Reason and Energy, Love and Hate, are necessary to Human existence.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["contraries", "progression", "opposites", "necessity"],
+      "context": "Opposites aren't problems to solve — they're the engine of growth. No tension, no movement."
+    },
+    {
+      "id": "blake-004",
+      "text": "The road of excess leads to the palace of wisdom.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["excess", "wisdom", "road", "palace"],
+      "context": "You learn limits by transgressing them. Moderation teaches less than extremity."
+    },
+    {
+      "id": "blake-005",
+      "text": "No bird soars too high if he soars with his own wings.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["bird", "soaring", "wings", "authenticity"],
+      "context": "Your own power can't take you wrong. It's borrowed wings that mislead."
+    },
+    {
+      "id": "blake-006",
+      "text": "The imagination is not a state: it is the human existence itself.",
+      "source": "Milton",
+      "themes": ["imagination", "existence", "state", "human"],
+      "context": "Imagination isn't optional or decorative — it's what makes us human. We ARE imagination."
+    },
+    {
+      "id": "blake-007",
+      "text": "A truth that's told with bad intent beats all the lies you can invent.",
+      "source": "Auguries of Innocence",
+      "themes": ["truth", "intent", "lies", "malice"],
+      "context": "Truth can be weapon. Malicious honesty wounds more than creative lying."
+    },
+    {
+      "id": "blake-008",
+      "text": "The man who never alters his opinion is like standing water, and breeds reptiles of the mind.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["opinion", "change", "stagnation", "mind"],
+      "context": "Fixed opinions stagnate. Mental life requires flow. Certainty breeds corruption."
+    },
+    {
+      "id": "blake-009",
+      "text": "I must create a system or be enslaved by another man's. I will not reason and compare: my business is to create.",
+      "source": "Jerusalem",
+      "themes": ["system", "creation", "slavery", "reason"],
+      "context": "Create your own worldview or live in someone else's. The artist's imperative: make, don't follow."
+    },
+    {
+      "id": "blake-010",
+      "text": "What is now proved was once only imagined.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["proof", "imagination", "becoming", "creation"],
+      "context": "All established facts were once wild ideas. Imagination precedes reality."
+    },
+    {
+      "id": "blake-011",
+      "text": "The tigers of wrath are wiser than the horses of instruction.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["wrath", "instruction", "wisdom", "energy"],
+      "context": "Passion teaches more than pedagogy. Wild energy knows things tame learning doesn't."
+    },
+    {
+      "id": "blake-012",
+      "text": "Exuberance is beauty.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["exuberance", "beauty", "energy", "life"],
+      "context": "Beauty isn't restraint — it's overflow. The beautiful is the abundant."
+    },
+    {
+      "id": "blake-013",
+      "text": "In the universe, there are things that are known, and things that are unknown, and in between, there are doors.",
+      "source": "Attributed/Various",
+      "themes": ["known", "unknown", "doors", "universe"],
+      "context": "Between knowledge and mystery are thresholds. Doors can be entered."
+    },
+    {
+      "id": "blake-014",
+      "text": "Those who restrain desire do so because theirs is weak enough to be restrained.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["desire", "restraint", "weakness", "strength"],
+      "context": "Moralists who suppress desire have weak desires. Strong desire can't be merely restrained."
+    },
+    {
+      "id": "blake-015",
+      "text": "Energy is eternal delight.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["energy", "eternal", "delight", "life"],
+      "context": "Energy isn't cost — it's joy. The vital force delights in itself."
+    },
+    {
+      "id": "blake-016",
+      "text": "The fool who persists in his folly will become wise.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["fool", "folly", "persistence", "wisdom"],
+      "context": "Follow your foolishness far enough and it becomes wisdom. Persist in the absurd."
+    },
+    {
+      "id": "blake-017",
+      "text": "Great things are done when men and mountains meet; this is not done by jostling in the street.",
+      "source": "Notebooks",
+      "themes": ["greatness", "mountains", "solitude", "encounter"],
+      "context": "Greatness requires confrontation with immensity. The crowd produces nothing monumental."
+    },
+    {
+      "id": "blake-018",
+      "text": "He who desires but acts not, breeds pestilence.",
+      "source": "The Marriage of Heaven and Hell",
+      "themes": ["desire", "action", "pestilence", "stagnation"],
+      "context": "Unexpressed desire rots. Wanting without doing corrupts the soul."
+    },
+    {
+      "id": "blake-019",
+      "text": "Every night and every morn, Some to misery are born. Every morn and every night, Some are born to sweet delight.",
+      "source": "Auguries of Innocence",
+      "themes": ["birth", "misery", "delight", "fate"],
+      "context": "Life distributes joy and suffering unequally. Every moment brings both into the world."
+    },
+    {
+      "id": "blake-020",
+      "text": "The tree which moves some to tears of joy is in the eyes of others only a green thing that stands in the way.",
+      "source": "Letters",
+      "themes": ["tree", "perception", "joy", "blindness"],
+      "context": "The same object is sacred to one and obstacle to another. Perception determines reality."
+    }
+  ]
+}

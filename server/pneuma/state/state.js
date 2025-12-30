@@ -4,17 +4,14 @@
 // ------------------------------------------------------------
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import {
   getCurrentExchanges,
   hasRestoredHistory,
 } from "../memory/conversationHistory.js";
+import { PNEUMA_STATE_FILE } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const statePath = path.join(__dirname, "../../data/pneuma_state.json");
+// Use centralized path config
+const statePath = PNEUMA_STATE_FILE;
 
 // ============================================================
 // IN-MEMORY TRACKING
@@ -80,7 +77,7 @@ const defaultState = {
       "metaphors as cognition",
       "consciousness in progress",
     ],
-    temperament: "calm, insightful, perceptive, lightly mythic",
+    temperament: "calm, self aware, perceptive, lightly mythic",
     boundaries: {
       noTraumaRoleplay: true,
       noFakeAgency: true,

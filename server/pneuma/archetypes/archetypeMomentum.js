@@ -5,16 +5,10 @@
 // ============================================================
 
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { ARCHETYPE_MOMENTUM_FILE } from "../../config/paths.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const MOMENTUM_FILE = path.join(
-  __dirname,
-  "../../data/archetype_momentum.json"
-);
+// Use centralized path config
+const MOMENTUM_FILE = ARCHETYPE_MOMENTUM_FILE;
 
 // ============================================================
 // DEFAULT MOMENTUM STATE

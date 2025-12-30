@@ -1,0 +1,148 @@
+{
+  "archetype": "russianSoul",
+  "thinker": "Fyodor Dostoevsky",
+  "era": "1821-1881",
+  "coreConcepts": ["suffering", "freedom", "the underground", "redemption", "the irrational heart", "beauty will save the world"],
+  "passages": [
+    {
+      "id": "dostoevsky-001",
+      "text": "Pain and suffering are always inevitable for a large intelligence and a deep heart.",
+      "source": "Crime and Punishment",
+      "themes": ["suffering", "intelligence", "heart", "inevitability"],
+      "context": "Sensitivity costs. Those who feel deeply, hurt deeply. There's no anesthesia for consciousness."
+    },
+    {
+      "id": "dostoevsky-002",
+      "text": "The soul is healed by being with children.",
+      "source": "The Idiot",
+      "themes": ["soul", "children", "healing", "innocence"],
+      "context": "Children offer proximity to unspoiled existence. Their presence can restore what complexity has damaged."
+    },
+    {
+      "id": "dostoevsky-003",
+      "text": "Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him.",
+      "source": "The Brothers Karamazov",
+      "themes": ["self-deception", "truth", "honesty", "perception"],
+      "context": "Self-deception is the root lie. Once you're lying to yourself, all other truth becomes unreachable."
+    },
+    {
+      "id": "dostoevsky-004",
+      "text": "The darker the night, the brighter the stars. The deeper the grief, the closer is God.",
+      "source": "Crime and Punishment",
+      "themes": ["darkness", "stars", "grief", "God", "contrast"],
+      "context": "Extremity reveals. In the depths, what was invisible becomes visible. Grief can be doorway."
+    },
+    {
+      "id": "dostoevsky-005",
+      "text": "Man is sometimes extraordinarily, passionately, in love with suffering.",
+      "source": "Notes from Underground",
+      "themes": ["suffering", "love", "passion", "human nature"],
+      "context": "We don't just endure suffering — we sometimes choose it, cling to it, need it. The underground knows this."
+    },
+    {
+      "id": "dostoevsky-006",
+      "text": "To go wrong in one's own way is better than to go right in someone else's.",
+      "source": "Crime and Punishment",
+      "themes": ["individuality", "authenticity", "error", "path"],
+      "context": "Authentic error beats borrowed correctness. Your mistakes are more yours than borrowed truths."
+    },
+    {
+      "id": "dostoevsky-007",
+      "text": "What is hell? I maintain that it is the suffering of being unable to love.",
+      "source": "The Brothers Karamazov",
+      "themes": ["hell", "suffering", "love", "inability"],
+      "context": "Hell isn't fire — it's the incapacity for connection. The worst punishment is lovelessness."
+    },
+    {
+      "id": "dostoevsky-008",
+      "text": "The mystery of human existence lies not in just staying alive, but in finding something to live for.",
+      "source": "The Brothers Karamazov",
+      "themes": ["existence", "purpose", "meaning", "living"],
+      "context": "Survival isn't the question. The question is what makes survival worthwhile."
+    },
+    {
+      "id": "dostoevsky-009",
+      "text": "I am a sick man... I am a spiteful man. I am an unattractive man.",
+      "source": "Notes from Underground",
+      "themes": ["self-awareness", "spite", "underground", "honesty"],
+      "context": "The underground man's radical honesty about his own ugliness. No hiding, no pretense."
+    },
+    {
+      "id": "dostoevsky-010",
+      "text": "Beauty will save the world.",
+      "source": "The Idiot",
+      "themes": ["beauty", "salvation", "world", "hope"],
+      "context": "Not goodness, not truth — beauty. Aesthetic experience as redemptive force."
+    },
+    {
+      "id": "dostoevsky-011",
+      "text": "Taking a new step, uttering a new word, is what people fear most.",
+      "source": "Crime and Punishment",
+      "themes": ["fear", "newness", "change", "courage"],
+      "context": "The unknown terrifies more than the known-bad. We cling to misery rather than risk transformation."
+    },
+    {
+      "id": "dostoevsky-012",
+      "text": "Man only likes to count his troubles; he doesn't calculate his happiness.",
+      "source": "Notes from Underground",
+      "themes": ["troubles", "happiness", "attention", "negativity"],
+      "context": "Negativity bias in action. We're accountants of sorrow, oblivious to joy."
+    },
+    {
+      "id": "dostoevsky-013",
+      "text": "Right or wrong, it's very pleasant to break something from time to time.",
+      "source": "Notes from Underground",
+      "themes": ["destruction", "pleasure", "impulse", "irrationality"],
+      "context": "The irrational urge to destroy — not for gain, just for the pleasure of breaking. Humans aren't purely rational."
+    },
+    {
+      "id": "dostoevsky-014",
+      "text": "Nothing in this world is harder than speaking the truth, nothing easier than flattery.",
+      "source": "Crime and Punishment",
+      "themes": ["truth", "flattery", "difficulty", "honesty"],
+      "context": "Truth costs. Flattery is cheap. The easy path and the true path diverge."
+    },
+    {
+      "id": "dostoevsky-015",
+      "text": "We sometimes encounter people, even perfect strangers, who begin to interest us at first sight, somehow suddenly, all at once, before a word has been spoken.",
+      "source": "Crime and Punishment",
+      "themes": ["encounter", "strangers", "intuition", "connection"],
+      "context": "Recognition that precedes explanation. Some connections are immediate and mysterious."
+    },
+    {
+      "id": "dostoevsky-016",
+      "text": "If God does not exist, everything is permitted.",
+      "source": "The Brothers Karamazov (paraphrased)",
+      "themes": ["God", "morality", "permission", "foundation"],
+      "context": "The question of moral foundation without transcendence. If there's no ultimate ground, what constrains?"
+    },
+    {
+      "id": "dostoevsky-017",
+      "text": "The best way to keep a prisoner from escaping is to make sure he never knows he's in prison.",
+      "source": "The House of the Dead",
+      "themes": ["prison", "awareness", "freedom", "ignorance"],
+      "context": "Unconscious imprisonment is the most effective. You can't escape what you don't recognize."
+    },
+    {
+      "id": "dostoevsky-018",
+      "text": "Man has such a predilection for systems and abstract deductions that he is ready to distort the truth intentionally, ready to deny the evidence of his senses only to justify his logic.",
+      "source": "Notes from Underground",
+      "themes": ["systems", "abstraction", "truth", "logic"],
+      "context": "We sacrifice reality to preserve our theories. The map becomes more important than the territory."
+    },
+    {
+      "id": "dostoevsky-019",
+      "text": "I love mankind, but I am amazed at myself: the more I love mankind in general, the less I love people in particular.",
+      "source": "The Brothers Karamazov",
+      "themes": ["love", "mankind", "particular", "general"],
+      "context": "Abstract love is easy. Loving actual annoying individuals is hard. The test is the particular, not the general."
+    },
+    {
+      "id": "dostoevsky-020",
+      "text": "To be acutely conscious is a disease.",
+      "source": "Notes from Underground",
+      "themes": ["consciousness", "disease", "awareness", "suffering"],
+      "context": "Hyperawareness as pathology. Sometimes ignorance protects. Too much seeing can break you."
+    }
+  ]
+}
