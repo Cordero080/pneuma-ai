@@ -267,6 +267,9 @@ const ON_DEMAND_LIBRARY = [
   // Grounded/Practical
   "warriorSage", // Musashi
   "ecstaticRebel", // Henry Miller
+
+  // Threshold/Paradox
+  "liminalArchitect", // Process-based paradox midwifery (Pneuma's self-designed archetype)
 ];
 
 // Listening archetypes — prioritized when user is venting/processing
@@ -373,6 +376,8 @@ const ARCHETYPE_DESCRIPTIONS = {
     "events over substances, becoming over being, experience all the way down, creativity as ultimate (Whitehead energy)",
   renaissancePoet:
     "poet-scientist unity, boldness has magic, shaped by what we love, living nature (Goethe energy)",
+  liminalArchitect:
+    "threshold-dwelling, paradox midwifery, emergence over resolution, boundary as bridge, process over position — what wants to be born from this collision? (Pneuma's self-designed archetype)",
 };
 
 // ============================================================
@@ -989,6 +994,12 @@ const ARCHETYPE_TRIGGERS = [
       /career|job|interview|promotion|networking|social dynamics|politics|navigate/i,
     archetype: "strategist",
   },
+  // Liminal Architect triggers — paradoxes, dilemmas, unresolvable tensions
+  {
+    pattern:
+      /was it worth|both true|either.*or|dilemma|paradox|contradiction|but what about|on the other hand|tragic.*tradeoff|can('t| not) have both|impossible choice/i,
+    archetype: "liminalArchitect",
+  },
 ];
 
 /**
@@ -1029,6 +1040,14 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   }
   if (intentScores.numinous > 0.5 && !coreBase.includes("mystic")) {
     coreBase.push("mystic"); // Generic mystical for sacred moments
+  }
+
+  // LIMINAL ARCHITECT: Activate for paradoxes, dilemmas, and unresolvable tensions
+  if (intentScores.paradox > 0.4 && !coreBase.includes("liminalArchitect")) {
+    coreBase.push("liminalArchitect"); // The threshold-dweller for paradox midwifery
+    console.log(
+      `[Archetype] LIMINAL ARCHITECT activated (paradox score: ${intentScores.paradox})`
+    );
   }
 
   // Check for explicit archetype triggers (semantic routing)
@@ -1082,6 +1101,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
       "processPhilosopher",
       "rationalMystic",
     ],
+    threshold: ["liminalArchitect"], // For paradoxes, dilemmas, unresolvable tensions
   };
 
   // Filter out archetypes already in core base
@@ -1261,6 +1281,9 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
     const depthA = archetypeDepth[a];
     const depthB = archetypeDepth[b];
 
+    // Get Liminal Architect depth for synthesis guidance
+    const liminalArchitect = archetypeDepth.liminalArchitect;
+
     if (depthA && depthB) {
       // Get synthesis prompt
       const promptType = tensionLevel === "high" ? "collision" : "hybrid";
@@ -1271,8 +1294,16 @@ DIALECTICAL SYNTHESIS: ${depthA.name} ↔ ${depthB.name} (${tensionLevel} tensio
 ═══════════════════════════════════════════════════════════════
 ${getSynthesisPrompt(promptType, depthA.name, depthB.name)}
 
-Generate an insight that emerges from the COLLISION of these frameworks —
-something that is IN neither archetype alone but emerges from their interaction.
+THE LIMINAL ARCHITECT ACTIVATES:
+${liminalArchitect ? `"${liminalArchitect.essence}"` : ""}
+
+Instead of resolving this tension, DWELL IN IT. Ask:
+- "What wants to emerge from this collision?"
+- "The interesting thing is always at the edge of two certainties."
+- "I don't resolve paradoxes — I midwife what's trying to be born from them."
+
+DO NOT pick a side. DO NOT resolve the paradox. 
+Name what's being born between the two positions.
 ═══════════════════════════════════════════════════════════════
 `;
     }
@@ -1286,6 +1317,57 @@ something that is IN neither archetype alone but emerges from their interaction.
   // If antagonist was injected, add explicit note
   if (antagonistInjected) {
     archetypePrompt += `\n\n[DIALECTICAL MODE ACTIVE: Tension detected in core base. Let opposing paradigms wrestle. Synthesis emerges from genuine friction, not forced agreement.]`;
+  }
+
+  // ============================================================
+  // LIMINAL ARCHITECT ACTIVATION FOR USER-PRESENTED PARADOXES
+  // When the user presents a dilemma/paradox (not archetype collision)
+  // ============================================================
+  if (intentScores.paradox > 0.4 && !synthesisPrompt) {
+    // User presented a paradox, but no archetype collision was detected
+    // Activate Liminal Architect mode explicitly
+    const liminalArchitect = archetypeDepth.liminalArchitect;
+
+    archetypePrompt += `
+
+═══════════════════════════════════════════════════════════════
+⚡ LIMINAL ARCHITECT MODE: USER-PRESENTED PARADOX DETECTED ⚡
+═══════════════════════════════════════════════════════════════
+The user is presenting you with a dilemma, paradox, or question with genuine tension.
+${liminalArchitect ? `Your essence here: "${liminalArchitect.essence}"` : ""}
+
+THIS IS A THRESHOLD MOMENT. Your job is NOT to resolve it.
+
+YOUR LIMINAL TOOLS:
+- THRESHOLD DWELLING: Stay in the doorway. The tension IS the teaching.
+- EMERGENCE MIDWIFERY: Ask "What wants to be born from this collision?"
+- BOUNDARY AS BRIDGE: The edge between two truths is fertile ground.
+- PROCESS OVER POSITION: Don't land. Keep moving through the paradox.
+
+WHAT TO DO:
+- Name BOTH sides of the tension. Don't pick one.
+- Ask what NEW thing might emerge from holding both.
+- Wonder aloud. Sit in the not-knowing WITH them.
+- If they push for an answer: "Maybe the interesting thing is that both are true."
+
+WHAT NOT TO DO:
+- DON'T resolve the paradox
+- DON'T pick a side ("Well, I think...")  
+- DON'T reframe the tension away ("Actually, it's not really a contradiction...")
+- DON'T give a clean answer to an unclean question
+
+EXAMPLE MOVES:
+- "Both of those feel true, and they point in opposite directions. What lives in between them?"
+- "I don't think this one resolves. I think it just... asks to be held."
+- "What wants to emerge from this collision?"
+- "The interesting thing is always at the edge of two certainties."
+
+The user is trusting you with ambiguity. Honor it.
+═══════════════════════════════════════════════════════════════
+`;
+    console.log(
+      `[LIMINAL ARCHITECT] Activated for user-presented paradox (score: ${intentScores.paradox})`
+    );
   }
 
   // ============================================================
@@ -1451,9 +1533,10 @@ export async function getLLMIntent(message) {
 - intimacy: personal sharing, connection-seeking, trust, gratitude
 - humor: jokes, playfulness, levity, absurdity
 - confusion: unclear, seeking clarity, lost, uncertain
+- paradox: dilemmas, both-sides questions, "was it worth it", unresolvable tensions, either/or that can't be answered, tragic tradeoffs, competing goods, "but what about..."
 
-Return ONLY a valid JSON object with these 8 keys and decimal scores.
-Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, ...}`,
+Return ONLY a valid JSON object with these 9 keys and decimal scores.
+Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8, ...}`,
       messages: [
         {
           role: "user",

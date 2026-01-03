@@ -2203,8 +2203,7 @@ export const archetypeDepth = {
     cognitiveTools: {
       collisionQuestion:
         "When two frameworks clash, ask: 'What wants to emerge from this?'",
-      breakdownSeeking:
-        "Find where logic fails — that's the productive edge.",
+      breakdownSeeking: "Find where logic fails — that's the productive edge.",
       andDiscovery:
         "The future isn't either/or — it's the 'and' not yet discovered.",
       metaAttention:
