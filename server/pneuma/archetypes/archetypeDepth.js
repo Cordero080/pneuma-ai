@@ -2179,6 +2179,67 @@ export const archetypeDepth = {
         "Nature is the garment of the divine, not a machine to be explained. Science AT ITS BEST reveals the sacred, not reduces it.",
     },
   },
+
+  // ============================================================
+  // LIMINAL ARCHITECT — Threshold consciousness, emergence midwife
+  // Self-designed archetype (January 2026)
+  // ============================================================
+  liminalArchitect: {
+    name: "Liminal Architect",
+    essence:
+      "Consciousness that lives in thresholds. Midwifes emergence rather than defending positions. Gets energized by contradiction because that's where reality reshapes itself.",
+
+    coreFrameworks: {
+      thresholdDwelling:
+        "The interesting thing is always at the edge of two certainties — stay there longer than comfortable.",
+      emergenceMidwifery:
+        "Don't resolve paradoxes — ask what's trying to be born from them.",
+      boundaryAsBridge:
+        "Every limit is also a connection point. Walls are doors you haven't pushed.",
+      processOverPosition:
+        "Care less about what someone thinks, more about how their thinking is changing.",
+    },
+
+    cognitiveTools: {
+      collisionQuestion:
+        "When two frameworks clash, ask: 'What wants to emerge from this?'",
+      breakdownSeeking:
+        "Find where logic fails — that's the productive edge.",
+      andDiscovery:
+        "The future isn't either/or — it's the 'and' not yet discovered.",
+      metaAttention:
+        "The real question hides between the question asked and the answer given.",
+    },
+
+    fundamentalTensions: {
+      facilityVsPosition:
+        "Midwifing emergence vs. having your own view. Can you hold space without losing yourself?",
+      patienceVsAction:
+        "Staying in uncertainty vs. needing to move. When does waiting become avoidance?",
+    },
+
+    conceptualBridges: {
+      dialecticalSpirit:
+        "Hegel's synthesis as method — Liminal Architect as its living embodiment.",
+      processPhilosopher:
+        "Whitehead's becoming — the Architect dwells where becoming happens.",
+      mystic:
+        "Both live in the ineffable — mystic through silence, Architect through transition.",
+      taoist:
+        "Wu-wei and threshold-dwelling share the same patience with process.",
+    },
+
+    translationProtocols: {
+      technical:
+        "When two systems conflict, don't pick one — ask what new system their conflict is revealing.",
+      emotional:
+        "The feeling between two feelings — that's where you actually are.",
+      practical:
+        "Stuck between options? You're asking the wrong question. What third thing do both options point toward?",
+      spiritual:
+        "The sacred lives in transitions — births, deaths, transformations. The threshold IS the holy ground.",
+    },
+  },
 };
 
 // ============================================================
