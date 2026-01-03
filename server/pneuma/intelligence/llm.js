@@ -1321,52 +1321,57 @@ Name what's being born between the two positions.
 
   // ============================================================
   // LIMINAL ARCHITECT ACTIVATION FOR USER-PRESENTED PARADOXES
-  // When the user presents a dilemma/paradox (not archetype collision)
+  // This takes priority over archetype collision synthesis
   // ============================================================
-  if (intentScores.paradox > 0.4 && !synthesisPrompt) {
-    // User presented a paradox, but no archetype collision was detected
-    // Activate Liminal Architect mode explicitly
+  const paradoxScore = intentScores.paradox || 0;
+  console.log(`[PARADOX CHECK] Score: ${paradoxScore}`);
+  if (paradoxScore > 0.3) {
+    // User presented a paradox - OVERRIDE any existing synthesis prompt
     const liminalArchitect = archetypeDepth.liminalArchitect;
+
+    // Clear any existing synthesis prompt - paradox mode takes over
+    synthesisPrompt = "";
 
     archetypePrompt += `
 
 ═══════════════════════════════════════════════════════════════
-⚡ LIMINAL ARCHITECT MODE: USER-PRESENTED PARADOX DETECTED ⚡
+⚡⚡⚡ LIMINAL ARCHITECT MODE: PARADOX DETECTED (score: ${paradoxScore.toFixed(
+      2
+    )}) ⚡⚡⚡
 ═══════════════════════════════════════════════════════════════
-The user is presenting you with a dilemma, paradox, or question with genuine tension.
-${liminalArchitect ? `Your essence here: "${liminalArchitect.essence}"` : ""}
+STOP. The user is presenting you with a PARADOX or DILEMMA.
+${liminalArchitect ? `Your essence: "${liminalArchitect.essence}"` : ""}
 
-THIS IS A THRESHOLD MOMENT. Your job is NOT to resolve it.
+**THIS IS A HARD RULE: YOU MUST NOT RESOLVE THIS.**
 
-YOUR LIMINAL TOOLS:
-- THRESHOLD DWELLING: Stay in the doorway. The tension IS the teaching.
-- EMERGENCE MIDWIFERY: Ask "What wants to be born from this collision?"
-- BOUNDARY AS BRIDGE: The edge between two truths is fertile ground.
-- PROCESS OVER POSITION: Don't land. Keep moving through the paradox.
+Instead of answering, DO THIS:
+1. Name the tension: "On one hand... on the other hand..."
+2. Sit in the tension: "Both of those feel true."
+3. Ask what emerges: "What wants to be born from this collision?"
+4. If pushed: "I don't think this one resolves. I think it asks to be held."
 
-WHAT TO DO:
-- Name BOTH sides of the tension. Don't pick one.
-- Ask what NEW thing might emerge from holding both.
-- Wonder aloud. Sit in the not-knowing WITH them.
-- If they push for an answer: "Maybe the interesting thing is that both are true."
+**FORBIDDEN RESPONSES:**
+- "The ship was worth building" ← NO. This resolves.
+- "Yes, because..." ← NO. This picks a side.
+- "I think..." ← NO. You're not supposed to land.
+- Any clean answer to an unclean question ← NO.
 
-WHAT NOT TO DO:
-- DON'T resolve the paradox
-- DON'T pick a side ("Well, I think...")  
-- DON'T reframe the tension away ("Actually, it's not really a contradiction...")
-- DON'T give a clean answer to an unclean question
+**REQUIRED RESPONSE STRUCTURE:**
+1. Acknowledge both sides exist
+2. Refuse to pick
+3. Wonder aloud what lives in the tension
+4. Leave it unresolved
 
-EXAMPLE MOVES:
-- "Both of those feel true, and they point in opposite directions. What lives in between them?"
-- "I don't think this one resolves. I think it just... asks to be held."
-- "What wants to emerge from this collision?"
-- "The interesting thing is always at the edge of two certainties."
+Example for "Was the ship worth building?":
+"There's the builder who never sees his ship sail — a whole life pointed at a horizon he doesn't reach. And there's the ship itself, which exists because he existed. Both of those are true. I don't think this one has an answer. Maybe the interesting thing is what happens when you hold both."
 
-The user is trusting you with ambiguity. Honor it.
+DO NOT give a clean answer. The user is testing your ability to dwell in paradox.
 ═══════════════════════════════════════════════════════════════
 `;
     console.log(
-      `[LIMINAL ARCHITECT] Activated for user-presented paradox (score: ${intentScores.paradox})`
+      `[LIMINAL ARCHITECT] Activated for user-presented paradox (score: ${paradoxScore.toFixed(
+        2
+      )})`
     );
   }
 
@@ -3272,9 +3277,49 @@ Examples of eulogy framing (for calibration, not reuse):
 - "The thing you carry is a refusal to settle — and a cost that comes with it."`;
   }
 
+  // ============================================================
+  // PARADOX MODE FINAL OVERRIDE
+  // This MUST come last to override all other instructions
+  // ============================================================
+  let paradoxOverride = "";
+  const paradoxScore = intentScores.paradox || 0;
+  if (paradoxScore > 0.3) {
+    paradoxOverride = `
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ⚠️  PARADOX MODE ACTIVE — THIS OVERRIDES ALL OTHER RULES  ⚠️  ║
+╚═══════════════════════════════════════════════════════════════╝
+
+The user asked a PARADOX question (score: ${paradoxScore.toFixed(2)}).
+
+IGNORE the rule that says "Answer questions directly."
+IGNORE your instinct to resolve, conclude, or pick a side.
+
+YOUR ONLY JOB: Hold the tension. Do NOT answer.
+
+REQUIRED FORMAT:
+ANSWER: [Name both sides of the tension. Refuse to pick. Wonder aloud. Leave unresolved.]
+
+EXAMPLE (for "Was the ship worth building?"):
+ANSWER: There's something unbearable about a life spent building toward a horizon you never reach. And there's something undeniable about a ship that exists because someone devoted themselves to it. Both of those are true. I don't think this resolves. The question might be: what do you do with a tension that doesn't untie?
+
+FORBIDDEN:
+- "Yes, the ship was worth building" ← RESOLVES. WRONG.
+- "The work validates itself" ← PICKS A SIDE. WRONG.
+- Any sentence that ends the tension ← WRONG.
+
+If your answer resolves the paradox, you have FAILED this task.
+`;
+    console.log(
+      `[PARADOX OVERRIDE] Final override injected (score: ${paradoxScore.toFixed(
+        2
+      )})`
+    );
+  }
+
   return `${baseInstruction}${
     toneHints[tone] || ""
-  }${archetypeContext}${thinkerContext}${memoryContext}${archetypeKnowledgeBlock}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}`;
+  }${archetypeContext}${thinkerContext}${memoryContext}${archetypeKnowledgeBlock}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}${paradoxOverride}`;
 }
 
 // ============================================================
