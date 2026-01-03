@@ -1134,7 +1134,7 @@ function isGreeting(msg) {
 
   // Catch greetings including those with name suffixes like "Hey O" or "Hey Pneuma"
   // Also handle "hola", "heya", and common typos
-  return /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(o|pneuma|there|man|dude|bro))?[!?.,\s]*$/i.test(
+  return /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(o|pneuma|there|man|dude|bro|friend|buddy|pal|you))?[!?.,\s]*$/i.test(
     lower
   );
 }

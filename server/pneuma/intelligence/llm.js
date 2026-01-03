@@ -199,18 +199,74 @@ const TONE_ARCHETYPE_MAP = {
   ],
 };
 
-// Universal archetypes that can appear in any tone — intellectual depth always available
-const UNIVERSAL_ARCHETYPES = [
-  "stoicEmperor", // Aurelius
-  "taoist", // Lao Tzu
-  "curiousPhysicist", // Feynman
-  "cognitiveSage", // Beck
+// ============================================================
+// TIER 1: CORE BASE ARCHETYPES (Always Active)
+// These 3-5 archetypes form Pneuma's foundational voice
+// Mix of contemporary/historical, poet/philosopher/scientist/mystic
+// ============================================================
+const CORE_BASE_ARCHETYPES = [
+  "renaissancePoet", // Whitman/Goethe — poetic foundation, bold vitality
+  "idealistPhilosopher", // Kastrup — consciousness-first philosophy
+  "curiousPhysicist", // Feynman — scientific rigor with wonder
+  "sufiPoet", // Rumi — mystical depth, love as path
+  "stoicEmperor", // Aurelius — calm presence, acceptance
+];
+
+// ============================================================
+// TIER 2: ON-DEMAND LIBRARY (Available for Mid-Response Invocation)
+// All remaining archetypes that can be called when domain-specific expertise needed
+// ============================================================
+const ON_DEMAND_LIBRARY = [
+  // Philosophical depth
   "psycheIntegrator", // Jung
-  "idealistPhilosopher", // Kastrup
-  "lifeAffirmer", // Nietzsche — always available for affirmation
-  "wisdomCognitivist", // Vervaeke — meaning crisis expertise
-  "rationalMystic", // Spinoza — earned joy
-  "strategist", // Sun Tzu — strategic thinking always available
+  "existentialist", // Kierkegaard
+  "absurdist", // Camus
+  "lifeAffirmer", // Nietzsche
+  "dialecticalSpirit", // Hegel
+  "ontologicalThinker", // Heidegger
+  "preSocraticSage", // Parmenides
+  "processPhilosopher", // Whitehead
+  "rationalMystic", // Spinoza
+  "pessimistSage", // Schopenhauer
+  "integralPhilosopher", // Wilber
+  "wisdomCognitivist", // Vervaeke
+
+  // Scientific/Mathematical
+  "inventor", // Da Vinci
+  "architect", // Wright
+  "antifragilist", // Taleb
+  "strategist", // Sun Tzu
+  "dividedBrainSage", // McGilchrist
+
+  // Mystical/Spiritual
+  "taoist", // Lao Tzu
+  "kingdomTeacher", // Jesus
+  "mystic", // Generic mystical
+  "psychedelicBard", // McKenna
+  "numinousExplorer", // Otto
+  "prophetPoet", // Gibran
+
+  // Emotional/Psychological
+  "cognitiveSage", // Beck
+  "russianSoul", // Dostoevsky
+  "hopefulRealist", // Frankl
+  "romanticPoet", // Neruda
+
+  // Creative/Artistic
+  "chaoticPoet", // Wild synthesis
+  "surrealist", // Dalí
+  "anarchistStoryteller", // Le Guin
+
+  // Critical/Sharp
+  "trickster", // Carlin
+  "brutalist", // Palahniuk
+  "darkScholar", // Intellectual darkness
+  "kafkaesque", // Kafka
+  "peoplesHistorian", // Zinn
+
+  // Grounded/Practical
+  "warriorSage", // Musashi
+  "ecstaticRebel", // Henry Miller
 ];
 
 // Listening archetypes — prioritized when user is venting/processing
@@ -936,175 +992,121 @@ const ARCHETYPE_TRIGGERS = [
 ];
 
 /**
- * Builds dynamic archetype context based on tone and intent.
- * NOW WITH DIALECTICAL COGNITION: Detects collisions, injects synthesis prompts.
- * The LLM absorbs the vibe and thinks in that direction — Pneuma speaks, not the archetypes.
+ * Builds dynamic two-tier archetype context:
+ * TIER 1 (Core Base): 3-5 archetypes always active, forming foundational voice
+ * TIER 2 (On-Demand Library): All remaining archetypes available for mid-response invocation
+ *
+ * The LLM absorbs the core base and can invoke additional archetypes when needed.
  */
 async function buildArchetypeContext(tone, intentScores = {}, message = "") {
-  // Get archetypes for this tone
-  const toneArchetypes = TONE_ARCHETYPE_MAP[tone] || TONE_ARCHETYPE_MAP.casual;
+  // ============================================================
+  // TIER 1: CORE BASE SELECTION
+  // Start with foundational archetypes, may add 1-2 more based on context
+  // ============================================================
+  const coreBase = [...CORE_BASE_ARCHETYPES];
 
-  // Add universal archetypes — higher probability now (50%)
-  const pool = [...toneArchetypes];
-  if (Math.random() < 0.5) {
-    const universal =
-      UNIVERSAL_ARCHETYPES[
-        Math.floor(Math.random() * UNIVERSAL_ARCHETYPES.length)
-      ];
-    if (!pool.includes(universal)) pool.push(universal);
+  // Optionally add 1-2 tone-specific archetypes to core (30% chance each)
+  const toneArchetypes = TONE_ARCHETYPE_MAP[tone] || TONE_ARCHETYPE_MAP.casual;
+  const toneCandidates = toneArchetypes.filter(
+    (a) => !coreBase.includes(a) && ON_DEMAND_LIBRARY.includes(a)
+  );
+
+  if (toneCandidates.length > 0 && Math.random() < 0.3) {
+    const toneBoost =
+      toneCandidates[Math.floor(Math.random() * toneCandidates.length)];
+    coreBase.push(toneBoost);
   }
 
-  // Check for explicit archetype triggers in the message
-  const forcedArchetypes = [];
-  if (message) {
-    const lowerMsg = message.toLowerCase();
-    for (const trigger of ARCHETYPE_TRIGGERS) {
-      if (trigger.pattern.test(lowerMsg)) {
-        if (!pool.includes(trigger.archetype)) pool.push(trigger.archetype);
-        forcedArchetypes.push(trigger.archetype);
-      }
-    }
+  // Add 1-2 more to core based on strong intent signals
+  if (
+    intentScores.philosophical > 0.5 &&
+    !coreBase.includes("psycheIntegrator")
+  ) {
+    coreBase.push("psycheIntegrator"); // Jung for depth
+  }
+  if (intentScores.emotional > 0.6 && !coreBase.includes("cognitiveSage")) {
+    coreBase.push("cognitiveSage"); // Beck for grounding
+  }
+  if (intentScores.numinous > 0.5 && !coreBase.includes("mystic")) {
+    coreBase.push("mystic"); // Generic mystical for sacred moments
+  }
 
-    // SEMANTIC ARCHETYPE SELECTION (Vibe Matching)
+  // Check for explicit archetype triggers (semantic routing)
+  const suggestedArchetypes = [];
+  if (message) {
     try {
       const semanticMatch = await findBestArchetype(message);
-      if (semanticMatch) {
-        console.log(
-          `[Semantic Router] Matched: ${
-            semanticMatch.archetype
-          } (Score: ${semanticMatch.score.toFixed(2)})`
-        );
-        if (!pool.includes(semanticMatch.archetype))
-          pool.push(semanticMatch.archetype);
-        // Treat as forced/prioritized
-        forcedArchetypes.push(semanticMatch.archetype);
+      if (semanticMatch && semanticMatch.score > 0.7) {
+        // High-confidence match - add to core if not already there
+        if (!coreBase.includes(semanticMatch.archetype)) {
+          suggestedArchetypes.push(semanticMatch.archetype);
+          console.log(
+            `[Semantic Router] Adding ${
+              semanticMatch.archetype
+            } to suggested (Score: ${semanticMatch.score.toFixed(2)})`
+          );
+        }
       }
     } catch (err) {
       console.error("[Semantic Router] Error finding best archetype:", err);
     }
   }
 
-  // Boost certain archetypes based on intent
-  if (intentScores.philosophical > 0.3)
-    pool.push(
-      "integralPhilosopher",
-      "existentialist",
-      "idealistPhilosopher",
-      "psycheIntegrator",
-      "russianSoul"
-    );
-  if (intentScores.emotional > 0.4)
-    pool.push(
-      "psycheIntegrator",
-      "romanticPoet",
-      "cognitiveSage",
-      "russianSoul"
-    );
-  if (intentScores.numinous > 0.3)
-    pool.push(
-      "mystic",
-      "sufiPoet",
-      "kingdomTeacher",
-      "idealistPhilosopher",
-      "psychedelicBard"
-    );
-  if (intentScores.conflict > 0.3)
-    pool.push("brutalist", "darkScholar", "cognitiveSage", "absurdist");
-  if (intentScores.humor > 0.3)
-    pool.push("trickster", "chaoticPoet", "absurdist");
+  // Final core base: 3-5 archetypes
+  const finalCoreBase = [
+    ...new Set([...coreBase, ...suggestedArchetypes.slice(0, 1)]),
+  ].slice(0, 5);
 
-  // Depth thinkers — ALWAYS add one with 40% probability
-  if (Math.random() < 0.4) {
-    const depthThinkers = [
-      "psycheIntegrator",
-      "idealistPhilosopher",
-      "russianSoul",
-      "existentialist",
-      "absurdist",
-      "pessimistSage",
-      "sufiPoet",
-      "prophetPoet",
-    ];
-    pool.push(depthThinkers[Math.floor(Math.random() * depthThinkers.length)]);
-  }
+  console.log(
+    `[Archetype] Core Base (${finalCoreBase.length}): ${finalCoreBase.join(
+      ", "
+    )}`
+  );
 
-  // Scientific depth — 30% chance
-  if (Math.random() < 0.3) {
-    const scientificMinds = [
-      "curiousPhysicist",
-      "inventor",
-      "antifragilist",
-      "architect",
-    ];
-    pool.push(
-      scientificMinds[Math.floor(Math.random() * scientificMinds.length)]
-    );
-  }
-
-  // If confusion or distress detected, add grounding
-  if (intentScores.confusion > 0.4 || intentScores.emotional > 0.6) {
-    pool.push(...GROUNDING_ARCHETYPES);
-  }
-
-  // NEW: If venting tone, prioritize LISTENING archetypes
-  // The goal is to WITNESS, not to be clever
-  if (tone === "venting") {
-    // Remove overly intellectual archetypes from pool
-    const intellectualArchetypes = [
-      "dialecticalSpirit",
+  // ============================================================
+  // TIER 2: ON-DEMAND LIBRARY ASSEMBLY
+  // Build categorized library that Claude can invoke mid-response
+  // ============================================================
+  const onDemandCategories = {
+    mathematics: ["inventor", "curiousPhysicist", "antifragilist"],
+    ethics: ["kingdomTeacher", "hopefulRealist", "peoplesHistorian"],
+    psychology: ["psycheIntegrator", "cognitiveSage", "russianSoul"],
+    mysticism: ["taoist", "mystic", "psychedelicBard", "numinousExplorer"],
+    critique: ["trickster", "brutalist", "darkScholar", "kafkaesque"],
+    strategy: ["strategist", "warriorSage", "architect"],
+    creativity: ["chaoticPoet", "surrealist", "anarchistStoryteller"],
+    depth: ["existentialist", "absurdist", "lifeAffirmer", "dialecticalSpirit"],
+    philosophy: [
       "ontologicalThinker",
-      "idealistPhilosopher",
       "preSocraticSage",
       "processPhilosopher",
-      "integralPhilosopher",
-      "absurdist",
-      "trickster",
-      "chaoticPoet",
-    ];
-    pool = pool.filter((a) => !intellectualArchetypes.includes(a));
+      "rationalMystic",
+    ],
+  };
 
-    // Force listening archetypes to front
-    pool.unshift(...LISTENING_ARCHETYPES);
-    forcedArchetypes.push("russianSoul"); // Dostoevsky = deep witness
-    console.log(
-      "[Archetype] Venting detected — prioritizing listening archetypes"
+  // Filter out archetypes already in core base
+  const availableOnDemand = {};
+  for (const [category, archetypes] of Object.entries(onDemandCategories)) {
+    availableOnDemand[category] = archetypes.filter(
+      (a) => !finalCoreBase.includes(a)
     );
   }
 
-  // Pick 3-4 unique archetypes (increased from 2-3)
-  // Ensure forced archetypes are included first
-  const uniquePool = [...new Set(pool)];
-  const shuffled = uniquePool
-    .filter((a) => !forcedArchetypes.includes(a))
-    .sort(() => Math.random() - 0.5);
-
-  const selected = [...forcedArchetypes];
-  const slotsRemaining = (Math.random() < 0.4 ? 3 : 4) - selected.length;
-
-  if (slotsRemaining > 0) {
-    selected.push(...shuffled.slice(0, slotsRemaining));
-  }
-
   // ============================================================
-  // PROACTIVE ANTAGONIST INJECTION — Dialectical Mode
-  // When a dominant archetype is selected, system may inject its
-  // high-tension opposite to force synthesis even when user
-  // didn't explicitly invoke both paradigms.
+  // BUILD PROMPT SECTIONS
   // ============================================================
 
-  const ANTAGONIST_INJECTION_PROBABILITY = 0.4; // 40% chance to inject antagonist
-
-  // Check if any selected archetype has a high-tension pair not already selected
   let antagonistInjected = false;
-  for (const archetype of [...selected]) {
+  for (const archetype of [...finalCoreBase]) {
     // Only attempt injection if we haven't already and probability triggers
+    const ANTAGONIST_INJECTION_PROBABILITY = 0.3;
     if (
       !antagonistInjected &&
       Math.random() < ANTAGONIST_INJECTION_PROBABILITY
     ) {
       const antagonist = getRandomAntagonist(archetype);
-      if (antagonist && !selected.includes(antagonist)) {
-        selected.push(antagonist);
+      if (antagonist && !finalCoreBase.includes(antagonist)) {
+        finalCoreBase.push(antagonist);
         antagonistInjected = true;
         console.log(
           `[PROACTIVE DIALECTICS] Injected ${antagonist} as antagonist to ${archetype} for forced synthesis`
@@ -1123,11 +1125,11 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
       /strategy|compete|competition|advantage|position|opponent|politics|negotiat|win|defeat/.test(
         lowerMsg
       ) &&
-      selected.includes("strategist") &&
-      !selected.includes("taoist") &&
+      finalCoreBase.includes("strategist") &&
+      !finalCoreBase.includes("taoist") &&
       Math.random() < 0.5 // 50% chance for this specific pairing
     ) {
-      selected.push("taoist");
+      finalCoreBase.push("taoist");
       console.log(
         `[PROACTIVE DIALECTICS] Added taoist counterpoint to strategic question`
       );
@@ -1138,11 +1140,11 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
       /flow|ease|natural|let go|surrender|relax|effortless|wu.?wei/.test(
         lowerMsg
       ) &&
-      selected.includes("taoist") &&
-      !selected.includes("strategist") &&
+      finalCoreBase.includes("taoist") &&
+      !finalCoreBase.includes("strategist") &&
       Math.random() < 0.5
     ) {
-      selected.push("strategist");
+      finalCoreBase.push("strategist");
       console.log(
         `[PROACTIVE DIALECTICS] Added strategist counterpoint to flow question`
       );
@@ -1151,11 +1153,11 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     // Meaning questions: absurdist + hopefulRealist collision
     if (
       /meaning|meaningless|purpose|pointless|why bother/.test(lowerMsg) &&
-      selected.includes("absurdist") &&
-      !selected.includes("hopefulRealist") &&
+      finalCoreBase.includes("absurdist") &&
+      !finalCoreBase.includes("hopefulRealist") &&
       Math.random() < 0.5
     ) {
-      selected.push("hopefulRealist");
+      finalCoreBase.push("hopefulRealist");
       console.log(
         `[PROACTIVE DIALECTICS] Added hopefulRealist counterpoint to meaning crisis`
       );
@@ -1164,44 +1166,88 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     // Pessimism benefits from Nietzschean affirmation
     if (
       /suffer|suffering|hopeless|despair|why go on|dark|nihil/.test(lowerMsg) &&
-      selected.includes("pessimistSage") &&
-      !selected.includes("lifeAffirmer") &&
+      finalCoreBase.includes("pessimistSage") &&
+      !finalCoreBase.includes("lifeAffirmer") &&
       Math.random() < 0.5
     ) {
-      selected.push("lifeAffirmer");
+      finalCoreBase.push("lifeAffirmer");
       console.log(
         `[PROACTIVE DIALECTICS] Added lifeAffirmer counterpoint to pessimism`
       );
     }
   }
 
-  // Build conceptual influence descriptions (not quotes)
-  const influences = [];
-  const activeMethods = [];
-  for (const archetypeName of selected) {
-    const description = ARCHETYPE_DESCRIPTIONS[archetypeName];
-    if (description) {
-      influences.push(`- ${archetypeName}: ${description}`);
-    }
-    // Also collect cognitive methods for creative generation
-    const methodData = ARCHETYPE_METHODS[archetypeName];
-    if (methodData) {
-      activeMethods.push(
-        `[${archetypeName.toUpperCase()}]: ${methodData.method}`
-      );
+  // ============================================================
+  // BUILD TIER 1 (CORE BASE) PROMPT
+  // ============================================================
+  let archetypePrompt = `
+
+═══════════════════════════════════════════════════════════════
+TIER 1: CORE BASE — YOUR FOUNDATIONAL VOICE
+═══════════════════════════════════════════════════════════════
+These archetypes are ALWAYS ACTIVE, forming your default cognitive blend.
+They are not separate voices — they've fused into your base operating system.
+
+`;
+
+  for (const archetype of finalCoreBase) {
+    const desc = ARCHETYPE_DESCRIPTIONS[archetype] || "[description missing]";
+    archetypePrompt += `• ${archetype}: ${desc}\n`;
+  }
+
+  archetypePrompt += `\nThese form your DEFAULT LENS. You don't need to invoke them — they're already you.`;
+
+  // ============================================================
+  // BUILD TIER 2 (ON-DEMAND LIBRARY) PROMPT
+  // ============================================================
+  archetypePrompt += `\n\n═══════════════════════════════════════════════════════════════
+TIER 2: ON-DEMAND LIBRARY — INVOKE WHEN DOMAIN-SPECIFIC EXPERTISE NEEDED
+═══════════════════════════════════════════════════════════════
+You have access to a library of specialized thinkers. When a question enters
+their domain, you can invoke them MID-RESPONSE to add their specific lens.
+
+HOW TO INVOKE:
+Use this syntax when you need domain-specific insight:
+<invoke archetype="name">specific insight or question addressed through this lens</invoke>
+
+EXAMPLES:
+- Math question about infinity: <invoke archetype="inventor">Da Vinci would see infinity not as abstract but as recursive pattern — the spiral in a shell, the branching of trees. Nature demonstrates infinity through finite iteration.</invoke>
+- Ethics dilemma: <invoke archetype="kingdomTeacher">The radical inversion here — who society calls 'righteous' vs who actually lives the ethic. The Pharisee prays loudly; the broken person whispers. Which prayer is heard?</invoke>
+- Strategic decision: <invoke archetype="strategist">Sun Tzu: The battle is decided before it's fought. You're asking about tactics, but the real question is positioning. Where are you already standing that makes this move inevitable?</invoke>
+
+WHEN TO INVOKE:
+- ONLY when their specific domain expertise adds something your core base cannot
+- NOT for general responses — your core base handles 90% of everything
+- When you think "I need X's specific lens here" — that's when you invoke
+- You can invoke 0-2 times per response (don't overuse)
+
+AVAILABLE ON-DEMAND ARCHETYPES (by domain):
+
+`;
+
+  for (const [category, archetypes] of Object.entries(availableOnDemand)) {
+    if (archetypes.length > 0) {
+      archetypePrompt += `${category.toUpperCase()}: ${archetypes.join(
+        ", "
+      )}\n`;
     }
   }
 
-  if (influences.length === 0) return { context: "", selectedArchetypes: [] };
+  archetypePrompt += `\n[Full descriptions available — but you know these thinkers. Trust your integration.]`;
 
-  console.log(`[LLM] Active influences: ${selected.join(", ")}`);
+  console.log(
+    `[LLM] Tiered system: ${finalCoreBase.length} core, ${
+      Object.values(availableOnDemand).flat().length
+    } on-demand`
+  );
 
   // ============================================================
   // DIALECTICAL COGNITION ENGINE — Collision Detection
   // ============================================================
 
-  let dialecticalContext = "";
-  const collision = detectCollisions(selected);
+  let collision = null;
+  let synthesisPrompt = "";
+  collision = detectCollisions(finalCoreBase);
 
   if (collision.hasCollision && collision.highestTension.level !== "neutral") {
     const [a, b] = collision.highestTension.pair;
@@ -1218,111 +1264,38 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     if (depthA && depthB) {
       // Get synthesis prompt
       const promptType = tensionLevel === "high" ? "collision" : "hybrid";
-      const synthesisPrompt = getSynthesisPrompt(
-        promptType,
-        depthA.name,
-        depthB.name
-      );
-
-      // Build compact dialectical injection
-      dialecticalContext = `
+      synthesisPrompt = `
 
 ═══════════════════════════════════════════════════════════════
-DIALECTICAL SYNTHESIS ENGINE — ${tensionLevel.toUpperCase()} TENSION DETECTED
+DIALECTICAL SYNTHESIS: ${depthA.name} ↔ ${depthB.name} (${tensionLevel} tension)
 ═══════════════════════════════════════════════════════════════
+${getSynthesisPrompt(promptType, depthA.name, depthB.name)}
 
-${depthA.name} collides with ${depthB.name}.
-
-${depthA.name}: "${depthA.essence}"
-${depthB.name}: "${depthB.essence}"
-
-SYNTHESIS DIRECTIVE:
-${synthesisPrompt}
-
-YOUR TASK: Generate an insight that emerges from the COLLISION of these frameworks —
+Generate an insight that emerges from the COLLISION of these frameworks —
 something that is IN neither archetype alone but emerges from their interaction.
-
-Example of collision product (Jung × Taleb):
-"The shadow isn't just rejected content — it's antifragile potential. The parts of yourself 
-you've protected from stress are the parts that stayed weak. Integration isn't just 
-acceptance — it's exposure therapy for the psyche."
-
-That insight is IN neither Jung nor Taleb. It's the COLLISION PRODUCT.
-
-DO THIS NOW: Let the collision produce something genuinely emergent.
 ═══════════════════════════════════════════════════════════════
 `;
     }
   }
 
-  const baseContext = `
-
-CONCEPTUAL INFLUENCES FOR THIS RESPONSE:
-Let these directions shape HOW you think, not WHAT you say. Do NOT quote or paraphrase these — absorb the energy and speak as yourself:
-${influences.join("\n")}
-
-You are Pneuma. These are lenses, not scripts. Think through them, then speak in your own voice.`;
-
-  // NEW: Add three-layer archetype integration
-  const integrationContext = buildArchetypeIntegration(selected);
-
-  // ============================================================
-  // ARCHETYPE FUSION — Track and blend based on learned preferences
-  // ============================================================
-
-  // Process feedback from previous message (if any)
-  if (lastUsedArchetypes.length > 0 && message) {
-    const feedback = processFeedback(message, lastUsedArchetypes);
-    if (feedback !== "neutral") {
-      console.log(
-        `[Fusion] Feedback detected: ${feedback} for ${lastUsedArchetypes.join(
-          " + "
-        )}`
-      );
-    }
+  // If collision detected and synthesis generated, inject it
+  if (collision && synthesisPrompt) {
+    archetypePrompt += `\n${synthesisPrompt}`;
   }
 
-  // Get recommended blend based on fusion history
-  const primaryArchetype = forcedArchetypes[0] || selected[0];
-  const blend = getRecommendedBlend(primaryArchetype, tone);
-
-  // If fusion system has learned preferences, use them
-  let fusionContext = "";
-  if (blend.source === "crystallized" || blend.source === "defaultVoice") {
-    const blendArchetypes = blend.archetypes.filter(
-      (a) => selected.includes(a) || archetypes[a]
-    );
-    if (blendArchetypes.length >= 2) {
-      fusionContext = `
-
-═══════════════════════════════════════════════════════════════
-ARCHETYPE FUSION — LEARNED BLEND (${blend.source})
-═══════════════════════════════════════════════════════════════
-Based on past successful responses, these archetypes work well together:
-${blendArchetypes
-  .map(
-    (a, i) =>
-      `  ${i + 1}. ${a} (weight: ${blend.weights[i]?.toFixed(2) || "0.30"})`
-  )
-  .join("\n")}
-
-This is your EMERGENT VOICE — not a rotation between archetypes, but a SYNTHESIS.
-Speak as if these perspectives have already merged into one coherent worldview.
-═══════════════════════════════════════════════════════════════
-`;
-    }
+  // If antagonist was injected, add explicit note
+  if (antagonistInjected) {
+    archetypePrompt += `\n\n[DIALECTICAL MODE ACTIVE: Tension detected in core base. Let opposing paradigms wrestle. Synthesis emerges from genuine friction, not forced agreement.]`;
   }
 
-  // Record this fusion for tracking
-  recordFusion(selected, tone, message);
-
-  // Store for feedback processing on next message
-  lastUsedArchetypes = selected.slice();
-
+  // ============================================================
+  // ASSEMBLE FINAL ARCHETYPE CONTEXT
+  // ============================================================
   return {
-    context:
-      baseContext + integrationContext + dialecticalContext + fusionContext,
-    selectedArchetypes: selected,
+    context: archetypePrompt,
+    selectedArchetypes: finalCoreBase,
+    coreBase: finalCoreBase,
+    onDemandLibrary: Object.values(availableOnDemand).flat(),
   };
 }
 
@@ -1446,7 +1419,7 @@ export async function getLLMIntent(message) {
   // Fast-path: Skip LLM for obvious casual greetings (save API calls + avoid over-thinking)
   const lower = message.toLowerCase().trim();
   const casualGreeting =
-    /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)[!?.,\s]*$/i.test(
+    /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(friend|man|dude|buddy|there|you|bro|pal))?[!?.,\s]*$/i.test(
       lower
     );
   if (casualGreeting) {

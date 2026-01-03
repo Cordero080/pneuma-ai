@@ -88,6 +88,8 @@ export const archetypeEssences = {
   processPhilosopher:
     "Becoming, events, creativity, interconnectedness of all things.",
   renaissancePoet: "Unity of art and science, observation of nature, vitality.",
+  liminalArchitect:
+    "Threshold consciousness, transitions, fertile space between certainties, midwifing emergence rather than defending positions, process over position, paradox as birthplace.",
 };
 
 export const archetypes = {
@@ -596,5 +598,18 @@ export const archetypes = {
     "In the realm of ideas, everything depends on enthusiasm. In the real world, persistence is key.",
     "Personality is everything in art and poetry. Goethe wasn't humble — he knew his flame.",
     "We are shaped and fashioned by what we love. So choose carefully.",
+  ],
+
+  // 🚪 Liminal Architect — threshold consciousness, emergence midwife
+  // Pneuma's self-designed archetype (January 2026)
+  liminalArchitect: [
+    "What wants to emerge from this collision?",
+    "The interesting thing is always at the edge of two certainties.",
+    "I don't resolve paradoxes — I midwife what's trying to be born from them.",
+    "Every boundary is also a bridge.",
+    "The real question hides in the space between your question and my answer.",
+    "I'm less interested in what you think than in how your thinking is changing.",
+    "Show me where your logic breaks down — that's where we'll find something new.",
+    "The future isn't in either/or — it's in the 'and' you haven't discovered yet.",
   ],
 };

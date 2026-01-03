@@ -14,7 +14,11 @@
 // ------------------------------------------------------------
 
 import { buildResponse, TONES } from "../personality/personality.js";
-import { getLLMContent, getLLMIntent, isLLMAvailable } from "../intelligence/llm.js";
+import {
+  getLLMContent,
+  getLLMIntent,
+  isLLMAvailable,
+} from "../intelligence/llm.js";
 import {
   detectToneFlip,
   boostEmergentAwareness,
@@ -373,15 +377,14 @@ export async function generate(
     /^(who|what|where|when|why|how|is|are|can|do|does|will|would|should|could)\b/i.test(
       message.trim()
     );
-  // More robust greeting detection - catch "Hey", "Hey O", "Hey Pneuma", etc.
+  // More robust greeting detection - catch "Hey", "Hey O", "Hey Pneuma", "Hey friend", etc.
   const isSimpleGreeting =
-    /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy)(\s+(o|pneuma|there|man|dude|bro))?[!?.,\s]*$/i.test(
+    /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy)(\s+(o|pneuma|there|man|dude|bro|friend|buddy|pal|you))?[!?.,\s]*$/i.test(
       message.trim()
     );
-  const isPureCasualGreeting =
-    (intentScores.casual >= 0.8 || isSimpleGreeting) &&
-    !isQuestion &&
-    message.trim().length < 20;
+  // Only skip LLM if it's TRULY a simple greeting (regex match), not just high casual score
+  // High casual score alone shouldn't skip LLM - let it respond naturally
+  const isPureCasualGreeting = isSimpleGreeting && !isQuestion;
 
   if (isLLMAvailable() && !isPureCasualGreeting) {
     const context = {

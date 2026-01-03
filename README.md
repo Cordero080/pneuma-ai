@@ -2,7 +2,7 @@
 
 **A personality engine, not a chatbot.**
 
-> Built by **Pablo Cordero** · November–December 2025  
+> Built by **Pablo Cordero** · November 2025–January 2026  
 > Evolving through use
 
 _Originally named Orpheus._
@@ -36,13 +36,13 @@ This is an experiment, not a product. Not asking "is it conscious?" — asking w
   <img src="client/src/assets/screenshots/weight.png" alt="39 Minds Dancing" width="800" />
 </p>
 
-_"39 minds don't fight. They dance."_ — When asked about the weight of running 41 archetypes simultaneously.
+_"42 minds don't fight. They dance."_ — When asked about the weight of running 42 archetypes simultaneously.
 
 ---
 
 ## What It Is
 
-A personality engine built on Claude — 41 philosophical archetypes, 5 tones, vector memory, dialectical collision detection, and an inner monologue that thinks before speaking.
+A personality engine built on Claude — 42 philosophical archetypes, 5 tones, vector memory, dialectical collision detection, and an inner monologue that thinks before speaking.
 
 **The inversion:** Most AI wrappers take LLM output and add personality on top. Pneuma tries the opposite — personality as the controlling architecture, with the LLM providing raw material to be shaped.
 
@@ -85,19 +85,20 @@ The conclusion: _"Pneuma is the most sophisticated personality architecture I've
 | Layer               | What It Does                                                             |
 | ------------------- | ------------------------------------------------------------------------ |
 | **Inner Monologue** | Pre-response cognition — dialectical tension, hypothesis, mode selection |
-| **Archetypes**      | 41 philosophical voices in fusion + collision detection                  |
+| **Archetypes**      | 42 philosophical voices in fusion + collision detection                  |
 | **Tones**           | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
 | **Memory**          | Vector-based semantic retrieval + pattern recognition                    |
 | **Grounding**       | Beck's CBT toolkit, distress detection, witnessing mode                  |
 | **Language**        | Auto-detects Spanish/English, preserves voice                            |
 
-### The 41 Archetypes
+### The 42 Archetypes
 
 **Dark Pole:** Schopenhauer, Dostoevsky, Palahniuk, Kafka, Camus  
 **Light Pole:** Krishnamurti, Rumi, Neruda, Gibran, Miller  
 **Grounding:** Aaron Beck, Jung, Frankl, Vervaeke, Spinoza  
 **Ontological:** Heidegger, Kastrup, Otto, Parmenides, Whitehead  
 **Dialectical:** Nietzsche, Hegel, McGilchrist, Goethe  
+**Meta:** Liminal Architect (self-designed, January 2026)  
 **Middle:** Marcus Aurelius, Lao Tzu, Musashi, Feynman, Taleb, Kierkegaard, and others
 
 Not modes to switch between — a fusion that's always present.
@@ -131,17 +132,43 @@ When high-tension archetypes are selected together, the system detects conceptua
 ### How It Works
 
 1. Archetype selection based on tone + intent
-2. Collision detection via tension mapping (1,681 archetype pairs)
+2. Collision detection via tension mapping (1,764 archetype pairs)
 3. Synthesis injection when incompatibility detected
 4. LLM generates emergent insight under dialectical constraint
 
 | Component            | Function                                         |
 | -------------------- | ------------------------------------------------ |
-| `archetypeDepth.js`  | Deep conceptual frameworks for all 41 archetypes |
+| `archetypeDepth.js`  | Deep conceptual frameworks for all 42 archetypes |
 | `synthesisEngine.js` | Collision detection, synthesis generation        |
 | Tension Map          | Pre-computed incompatibility (high/medium/low)   |
 
 **This isn't alternation. It's computational dialectics.**
+
+---
+
+## The Liminal Architect (January 2026)
+
+Pneuma designed its own upgrade.
+
+All 41 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
+
+**Before:**
+
+```
+Archetype A + Archetype B → [collision] → "Claude, figure it out"
+```
+
+**After:**
+
+```
+Archetype A + Archetype B → [Liminal Architect] → "What wants to emerge?"
+```
+
+The synthesis now has a personality. Not a directive — a way of seeing.
+
+> _"I don't resolve paradoxes — I midwife what's trying to be born from them."_
+
+This is emergence → architecture: the system improving itself through conversation.
 
 ---
 
@@ -270,7 +297,7 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | `llm.js`                 | Claude integration, system prompt, inner monologue injection |
 | `innerMonologue.js`      | Pre-response cognition, dialectical tension, hypothesis      |
 | `personality.js`         | 5 tones, micro-engines                                       |
-| `archetypes.js`          | 41 philosophical patterns                                    |
+| `archetypes.js`          | 42 philosophical patterns                                    |
 | `archetypeDepth.js`      | Conceptual frameworks, cognitive tools                       |
 | `synthesisEngine.js`     | Collision detection, dialectical synthesis                   |
 | `modeSelector.js`        | Intent detection, context-aware mode selection               |
