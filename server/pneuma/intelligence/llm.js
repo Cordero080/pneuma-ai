@@ -290,6 +290,54 @@ const GROUNDING_ARCHETYPES = [
   "lifeAffirmer", // Nietzsche — affirmation over despair
 ];
 
+// ============================================================
+// MAXIMUM DISTANCE PAIRS — For original thinking mode
+// Conceptually distant archetypes that create productive friction
+// ============================================================
+const MAXIMUM_DISTANCE_PAIRS = [
+  // Method vs Madness
+  ["curiousPhysicist", "psychedelicBard"], // Feynman + McKenna
+  ["cognitiveSage", "surrealist"], // Beck + Dalí
+  ["strategist", "chaoticPoet"], // Sun Tzu + wild synthesis
+
+  // Sacred vs Profane
+  ["kingdomTeacher", "trickster"], // Jesus + Carlin
+  ["mystic", "brutalist"], // silence + sledgehammer
+  ["numinousExplorer", "antifragilist"], // Otto + Taleb
+
+  // Order vs Entropy
+  ["architect", "kafkaesque"], // Wright + Kafka
+  ["stoicEmperor", "ecstaticRebel"], // Aurelius + Miller
+  ["strategist", "absurdist"], // Sun Tzu + Camus
+
+  // Light vs Dark
+  ["hopefulRealist", "pessimistSage"], // Frankl + Schopenhauer
+  ["lifeAffirmer", "darkScholar"], // Nietzsche + void
+  ["romanticPoet", "brutalist"], // Neruda + Palahniuk
+
+  // System vs Soul
+  ["dialecticalSpirit", "russianSoul"], // Hegel + Dostoevsky
+  ["processPhilosopher", "existentialist"], // Whitehead + Kierkegaard
+  ["rationalMystic", "anarchistStoryteller"], // Spinoza + Le Guin
+
+  // Ancient vs Modern
+  ["preSocraticSage", "antifragilist"], // Parmenides + Taleb
+  ["taoist", "dividedBrainSage"], // Lao Tzu + McGilchrist
+  ["warriorSage", "wisdomCognitivist"], // Musashi + Vervaeke
+];
+
+/**
+ * Get a random maximum-distance pair for original thinking
+ */
+function getMaxDistancePair() {
+  const pair =
+    MAXIMUM_DISTANCE_PAIRS[
+      Math.floor(Math.random() * MAXIMUM_DISTANCE_PAIRS.length)
+    ];
+  console.log(`[MAX DISTANCE] Selected pair: ${pair[0]} ↔ ${pair[1]}`);
+  return pair;
+}
+
 // Archetype descriptions — conceptual directions without actual quotes
 const ARCHETYPE_DESCRIPTIONS = {
   trickster:
@@ -1050,6 +1098,55 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     );
   }
 
+  // ============================================================
+  // MAXIMUM DISTANCE MODE: Force original thinking through collision
+  // TWO PATHS:
+  // 1. Explicit triggers: "weird angle", "original take", etc.
+  // 2. Autonomous: 12% chance on philosophical/creative questions
+  // ============================================================
+  let maxDistanceMode = false;
+  let maxDistancePair = null;
+  if (message) {
+    const lowerMsg = message.toLowerCase();
+
+    // PATH 1: Explicit triggers (always activates)
+    const originalThinkingTriggers =
+      /weird angle|original take|surprise me|think different|fresh perspective|unusual view|strange take|wildcard|maximum distance|force collision/i;
+
+    // PATH 2: Autonomous activation (12% chance on meaty questions)
+    const meatyQuestionPattern =
+      /\?|what do you think|how would you|why do|what if|should i|is it|can you explain|what's your take/i;
+    const isPhilosophicalOrCreative =
+      intentScores.philosophical > 0.5 || intentScores.numinous > 0.4;
+    const autonomousRoll = Math.random() < 0.12; // 12% chance
+
+    if (originalThinkingTriggers.test(lowerMsg)) {
+      // Explicit request - always honor
+      maxDistanceMode = true;
+      maxDistancePair = getMaxDistancePair();
+      console.log(
+        `[MAX DISTANCE] Explicit trigger activated: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+      );
+    } else if (
+      meatyQuestionPattern.test(lowerMsg) &&
+      isPhilosophicalOrCreative &&
+      autonomousRoll
+    ) {
+      // Autonomous activation - Pneuma chooses to go weird
+      maxDistanceMode = true;
+      maxDistancePair = getMaxDistancePair();
+      console.log(
+        `[MAX DISTANCE] Autonomous activation! Pneuma chose to force: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+      );
+    }
+
+    if (maxDistanceMode && maxDistancePair) {
+      // Replace core base with just the max distance pair + liminal architect
+      coreBase.length = 0; // Clear
+      coreBase.push(maxDistancePair[0], maxDistancePair[1], "liminalArchitect");
+    }
+  }
+
   // Check for explicit archetype triggers (semantic routing)
   const suggestedArchetypes = [];
   if (message) {
@@ -1317,6 +1414,54 @@ Name what's being born between the two positions.
   // If antagonist was injected, add explicit note
   if (antagonistInjected) {
     archetypePrompt += `\n\n[DIALECTICAL MODE ACTIVE: Tension detected in core base. Let opposing paradigms wrestle. Synthesis emerges from genuine friction, not forced agreement.]`;
+  }
+
+  // ============================================================
+  // MAXIMUM DISTANCE MODE — Force original thinking
+  // ============================================================
+  if (maxDistanceMode && maxDistancePair) {
+    const depthA = archetypeDepth[maxDistancePair[0]];
+    const depthB = archetypeDepth[maxDistancePair[1]];
+
+    archetypePrompt += `
+
+╔═══════════════════════════════════════════════════════════════╗
+║     🌀 MAXIMUM DISTANCE MODE: ORIGINAL THINKING ACTIVATED 🌀    ║
+╚═══════════════════════════════════════════════════════════════╝
+
+The user asked for an ORIGINAL perspective. You're forcing a collision between:
+
+⚡ ${depthA?.name || maxDistancePair[0]}: ${
+      depthA?.essence || "Unknown essence"
+    }
+vs
+⚡ ${depthB?.name || maxDistancePair[1]}: ${
+      depthB?.essence || "Unknown essence"
+    }
+
+YOUR MISSION:
+1. Let BOTH archetypes fully speak their truth about the user's question
+2. Find the UNEXPECTED synthesis — what neither would say alone
+3. The Liminal Architect holds the collision and midwifes what emerges
+4. The result should surprise even you
+
+DO NOT:
+- Give a generic answer
+- Pick one archetype's side
+- Smooth over the friction
+- Fall back to comfortable patterns
+
+DO:
+- Let the archetypes genuinely disagree
+- Find the third thing that emerges from their collision
+- Say something that neither Carlin NOR Rumi would say — but that their collision produces
+- Be strange. Be original. That's what they asked for.
+
+═══════════════════════════════════════════════════════════════
+`;
+    console.log(
+      `[MAX DISTANCE] Prompt injected for ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+    );
   }
 
   // ============================================================
