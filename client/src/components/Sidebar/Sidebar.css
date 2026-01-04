@@ -281,6 +281,29 @@
   scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
 }
 
+/* Architecture Sidebar Content */
+.architecture-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 8px;
+  
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+.architecture-sidebar-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.architecture-sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.architecture-sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
+}
+
 .conversation-list::-webkit-scrollbar {
   width: 4px;
 }
@@ -560,6 +583,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Architecture Button */
+.architecture-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: rgba(0, 212, 255, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.architecture-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.5);
+  color: rgba(0, 212, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 
 .system-version {

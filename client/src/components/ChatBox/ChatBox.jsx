@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";          // Used to send requests to the backend
 import "./ChatBox.css";
-import { API_ENDPOINTS } from "../config/api";
-import SoundWave from "./SoundWave";
+import { API_ENDPOINTS } from "../../config/api";
+import SoundWave from "../SoundWave/SoundWave";
 
 // User text color options
 const USER_COLORS = {

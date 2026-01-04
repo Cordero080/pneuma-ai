@@ -2,13 +2,18 @@
 // Right now it just shows a placeholder text
 // Next: turn this into a chat UI step by step
 import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "./App.css"; // import the CSS file
-import ChatBox from "./components/ChatBox";
-import Title3D from "./components/Title3D";
-import Sidebar from "./components/Sidebar";
-import ConsciousnessIndicator from "./components/ConsciousnessIndicator";
+import ChatBox from "./components/ChatBox/ChatBox";
+import Title3D from "./components/Title3D/Title3D";
+import Sidebar from "./components/Sidebar/Sidebar";
+import ConsciousnessIndicator from "./components/ConsciousnessIndicator/ConsciousnessIndicator";
+import ArchitectureDiagram from "./components/ArchitectureDiagram/ArchitectureDiagram";
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   // Conversation history state - starts empty, fetched from backend
   const [conversations, setConversations] = useState([]);
   const [activeConversationId, setActiveConversationId] = useState(null);
@@ -16,6 +21,9 @@ function App() {
   // Consciousness engine state (will be updated by backend)
   const [activeEngine, setActiveEngine] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  
+  // Check if we're on architecture page
+  const isArchitectureView = location.pathname === '/architecture';
 
   // Fetch conversations on mount
   useEffect(() => {
@@ -103,20 +111,32 @@ function App() {
         onSelect={setActiveConversationId}
         onNewChat={handleNewChat}
         onDelete={handleDeleteChat}
+        onShowArchitecture={() => navigate('/architecture')}
+        isArchitectureView={isArchitectureView}
+        onBackToChat={() => navigate('/')}
       />
-      <div className="app-container">
-        <Title3D />
-        <ConsciousnessIndicator 
-          activeEngine={activeEngine}
-          isProcessing={isProcessing}
-        />
-        <ChatBox 
-          onProcessingChange={setIsProcessing}
-          onEngineChange={setActiveEngine}
-          conversationId={activeConversationId}
-          onNewConversation={(id) => setActiveConversationId(id)}
-        />
-      </div>
+      
+      {/* Route-based rendering: Architecture Diagram or Chat View */}
+      <Routes>
+        <Route path="/architecture" element={
+          <ArchitectureDiagram onBack={() => navigate('/')} />
+        } />
+        <Route path="/" element={
+          <div className="app-container">
+            <Title3D />
+            <ConsciousnessIndicator 
+              activeEngine={activeEngine}
+              isProcessing={isProcessing}
+            />
+            <ChatBox 
+              onProcessingChange={setIsProcessing}
+              onEngineChange={setActiveEngine}
+              conversationId={activeConversationId}
+              onNewConversation={(id) => setActiveConversationId(id)}
+            />
+          </div>
+        } />
+      </Routes>
     </div>
   );
 }
