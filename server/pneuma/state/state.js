@@ -326,11 +326,11 @@ export function updateThreadMemory(
     tm.conversationHistory = [
       ...(tm.conversationHistory || []),
       {
-        user: message.slice(0, 200),
-        pneuma: pneumaReply.slice(0, 200),
+        user: message.slice(0, 600), // Increased from 200 - user theories need space
+        pneuma: pneumaReply.slice(0, 400), // Increased from 200
         timestamp: Date.now(),
       },
-    ].slice(-5); // Keep last 5 exchanges
+    ].slice(-8); // Keep last 8 exchanges (was 5)
   }
 
   state.threadMemory = tm;

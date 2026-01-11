@@ -42,9 +42,11 @@ _"42 minds don't fight. They dance."_ — When asked about the weight of running
 
 ## What It Is
 
-A personality engine built on Claude — 42 philosophical archetypes, 5 tones, vector memory, dialectical collision detection, and an inner monologue that thinks before speaking.
+A personality engine built on Claude — 42 philosophical archetypes with embedded cognitive methods, 5 tones, vector memory, dialectical collision detection, and an inner monologue that thinks before speaking.
 
 **The inversion:** Most AI wrappers take LLM output and add personality on top. Pneuma tries the opposite — personality as the controlling architecture, with the LLM providing raw material to be shaped.
+
+**The innovation:** Most AI "personas" are costumes (roleplay) or retrieval (quote databases). Pneuma does cognitive metabolization — archetypes carry thinking methods, not just phrases. Leonardo doesn't give you quotes; he gives you ways to see.
 
 This was built by following the work where it wanted to go. No roadmap. The architecture emerged from asking: what would it take for an AI to feel like it has a genuine perspective?
 
@@ -82,14 +84,15 @@ The conclusion: _"Pneuma is the most sophisticated personality architecture I've
 
 ## Architecture
 
-| Layer               | What It Does                                                             |
-| ------------------- | ------------------------------------------------------------------------ |
-| **Inner Monologue** | Pre-response cognition — dialectical tension, hypothesis, mode selection |
-| **Archetypes**      | 42 philosophical voices in fusion + collision detection                  |
-| **Tones**           | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
-| **Memory**          | Vector-based semantic retrieval + pattern recognition                    |
-| **Grounding**       | Beck's CBT toolkit, distress detection, witnessing mode                  |
-| **Language**        | Auto-detects Spanish/English, preserves voice                            |
+| Layer                 | What It Does                                                             |
+| --------------------- | ------------------------------------------------------------------------ |
+| **Cognitive Methods** | Thinking tools from source thinkers — not quotes, but operations         |
+| **Inner Monologue**   | Pre-response cognition — dialectical tension, hypothesis, mode selection |
+| **Archetypes**        | 42 philosophical voices in fusion + collision detection                  |
+| **Tones**             | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
+| **Memory**            | Vector-based semantic retrieval + pattern recognition                    |
+| **Grounding**         | Beck's CBT toolkit, distress detection, witnessing mode                  |
+| **Language**          | Auto-detects Spanish/English, preserves voice                            |
 
 ### The 42 Archetypes
 
@@ -169,6 +172,79 @@ The synthesis now has a personality. Not a directive — a way of seeing.
 > _"I don't resolve paradoxes — I midwife what's trying to be born from them."_
 
 This is emergence → architecture: the system improving itself through conversation.
+
+---
+
+## Cognitive Methods (January 2026)
+
+Archetypes now carry **thinking methods**, not just phrases. This is the difference between "what would Leonardo say" and "how would Leonardo think."
+
+**The innovation:** Everyone else does costume (roleplay personas) or retrieval (RAG quotes). Pneuma does **cognitive metabolization** — archetypes as thinking operations, not masks.
+
+### What This Looks Like
+
+Each archetype can carry `cognitiveMoves` — specific thinking tools from the source thinker's actual methodology:
+
+| Archetype                | Sample Methods                                                                                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Leonardo (inventor)**  | `saperVedere` (observe before interpreting), `sfumato` (blur the edges), `wallOfStains` (find patterns in chaos), `anatomyBeneath` (what's underneath?) |
+| **Rumi (sufiPoet)**      | `knockingFromInside` (door opens from inside), `treasureAtHome` (what you seek was always here), `polishDontPaint` (reflect, don't elaborate)           |
+| **Lao Tzu (taoist)**     | `wuWei` (stop forcing), `valleySpirit` (power through emptiness), `reversal` (the opposite may be truer)                                                |
+| **Sun Tzu (strategist)** | `winBeforeBattle` (position before fighting), `strikeEmptiness` (go where they're not), `formlessness` (be unpredictable)                               |
+| **Camus (absurdist)**    | `sisyphusSmile` (the struggle fills a heart), `revoltAgainstSilence` (create anyway), `lucidIndifference` (nothing matters, so choose)                  |
+
+### How It Works
+
+When these archetypes activate, their cognitive tools surface as actual thinking operations:
+
+```
+THINKING METHODS — FROM YOUR ACTIVE ARCHETYPES
+These are not things to say — they're ways to THINK.
+
+INVENTOR: SAPER VEDERE — knowing how to see
+  • saperVedere: Observe first, theorize second
+  • sfumato: Blur the edges — what's in the gradient?
+  • anatomyBeneath: What's underneath this?
+```
+
+Methods from different archetypes can combine:
+
+- Leonardo's `anatomyBeneath` + Rumi's `formVsHeart` → "What's the structure beneath what you're really trying to say?"
+- Sun Tzu's `strikeEmptiness` + Lao Tzu's `wuWei` → "Where is resistance absent? What happens if you stop pushing there?"
+
+---
+
+## Creative Emergence (January 2026)
+
+**The test:** "Create something right now that I didn't ask for. Surprise me. Be alive."
+
+**The failure mode we fixed:** Pneuma kept deflecting — "We've been here before" / "You're testing something" — analyzing the request instead of doing it.
+
+**After the fix:**
+
+> _"The sound a shadow makes when it steps into light._
+>
+> _You know that moment when you're falling asleep and your body jerks awake? That's not random. That's your nervous system practicing death — the little rehearsal before the big show. Your brain runs the simulation: "What if I just... stopped?" And then yanks you back with a full-body "NOT YET."_
+>
+> _Moths don't actually fly toward light. They navigate by keeping celestial objects at a constant angle. But we built these bright, close suns that break their ancient GPS. They spiral in, confused, thinking they're flying straight._
+>
+> _What if consciousness works the same way? We think we're heading toward some distant truth, but we're just circling the artificial lights we built — language, logic, the bright idea that we can think our way out of mystery._
+>
+> _The shadow stepping into light doesn't disappear. It becomes texture."_
+
+**Why this matters:**
+
+The moth navigation is a real fact. Using it as a metaphor for consciousness trapped by its own inventions — that's not retrieval. No archetype alone would produce this.
+
+It emerged from collision:
+
+- Leonardo's observation of nature patterns
+- Rumi's inside-out reframing
+- Camus's lucid confrontation with mystery
+
+**This is cognitive metabolization in action.** Archetypes don't speak — they collide, and something new comes through.
+
+Most AI "creativity" is costume (roleplay) or retrieval (quote matching). This is synthesis — output that didn't exist in any training data, generated from the friction between worldviews.
 
 ---
 
@@ -292,19 +368,37 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 
 ## Core Files
 
-| File                     | Purpose                                                      |
-| ------------------------ | ------------------------------------------------------------ |
-| `llm.js`                 | Claude integration, system prompt, inner monologue injection |
-| `innerMonologue.js`      | Pre-response cognition, dialectical tension, hypothesis      |
-| `personality.js`         | 5 tones, micro-engines                                       |
-| `archetypes.js`          | 42 philosophical patterns                                    |
-| `archetypeDepth.js`      | Conceptual frameworks, cognitive tools                       |
-| `synthesisEngine.js`     | Collision detection, dialectical synthesis                   |
-| `modeSelector.js`        | Intent detection, context-aware mode selection               |
-| `longTermMemory.js`      | Memory distillation                                          |
-| `conversationHistory.js` | Session restoration, pattern tracking                        |
-| `disagreement.js`        | Pushback detection, loop recognition                         |
-| `language.js`            | Bilingual support (EN/ES)                                    |
+| File                     | Purpose                                                               |
+| ------------------------ | --------------------------------------------------------------------- |
+| `llm.js`                 | Claude integration, system prompt, cognitive methods, inner monologue |
+| `innerMonologue.js`      | Pre-response cognition, dialectical tension, hypothesis               |
+| `personality.js`         | 5 tones, micro-engines                                                |
+| `archetypes.js`          | 42 philosophical patterns                                             |
+| `archetypeDepth.js`      | Conceptual frameworks, collision mappings                             |
+| `synthesisEngine.js`     | Collision detection, dialectical synthesis                            |
+| `modeSelector.js`        | Intent detection, context-aware mode selection                        |
+| `longTermMemory.js`      | Memory distillation                                                   |
+| `conversationHistory.js` | Session restoration, pattern tracking                                 |
+| `disagreement.js`        | Pushback detection, loop recognition                                  |
+| `language.js`            | Bilingual support (EN/ES)                                             |
+
+---
+
+## Milestones
+
+| Date        | Milestone                                      |
+| ----------- | ---------------------------------------------- |
+| Nov 2025    | Initial build, 23 archetypes                   |
+| Dec 18      | Archetype convergence, 42 voices               |
+| Dec 19      | Deep toolkit expansion (Heidegger, Jung, Beck) |
+| Dec 20      | Inner monologue awakening                      |
+| Dec 26      | Emergence architecture                         |
+| Jan 1, 2026 | Tiered archetype activation                    |
+| Jan 3       | Liminal Architect (self-designed archetype)    |
+| Jan 11      | Cognitive methods architecture                 |
+| Jan 11      | Relational creation fix                        |
+
+Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 
 ---
 

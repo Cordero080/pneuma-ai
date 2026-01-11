@@ -113,6 +113,32 @@ function detectTraumaDisclosure(msg) {
 }
 
 function detectLoop(message, history) {
+  // CRITICAL FIX: If user is repeating a REQUEST or COMMAND, that means we FAILED.
+  // Don't treat repeated requests as "loops" to call out.
+  const requestPatterns = [
+    /create something/i,
+    /surprise me/i,
+    /make something/i,
+    /do (this|it|the thing)/i,
+    /actually (do|answer|respond|engage)/i,
+    /just do it/i,
+    /address (what|this|it|my)/i,
+    /re-?read/i,
+    /answer (my|the) question/i,
+    /you (still )?(haven't|didn't|never)/i,
+  ];
+
+  const isRequest = requestPatterns.some((p) => p.test(message));
+  if (isRequest) {
+    // User is repeating a request because we failed. DON'T push back.
+    return {
+      detected: false,
+      confidence: 0,
+      suggestion: null,
+      isRepeatedRequest: true, // Flag that we failed, not that they're looping
+    };
+  }
+
   // User is saying the same thing repeatedly
   const recent = history.slice(-5).map((h) => h.user?.toLowerCase() || "");
   const current = message.toLowerCase();

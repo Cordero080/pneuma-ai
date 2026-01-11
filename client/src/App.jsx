@@ -2,7 +2,7 @@
 // Right now it just shows a placeholder text
 // Next: turn this into a chat UI step by step
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
 import "./App.css"; // import the CSS file
 import ChatBox from "./components/ChatBox/ChatBox";
 import Title3D from "./components/Title3D/Title3D";
@@ -136,6 +136,8 @@ function App() {
             />
           </div>
         } />
+        {/* Catch-all: redirect unknown routes to home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   );

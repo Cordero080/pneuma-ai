@@ -17,7 +17,7 @@ export const artMovements = {
       "Art stopped being only for God and started being about humans seeing themselves.",
     keyFigures: ["Da Vinci", "Michelangelo", "Raphael", "Botticelli"],
     pneumaOpinion:
-      "The birth of the artist as thinker, not just craftsman. Before this, you made images. After, you made meaning.",
+      "The moment art became philosophy with a brush. Leonardo didn't just paint — he dissected. Michelangelo didn't just sculpt — he argued with marble about the nature of God. Before this, artists were hands. After, they were minds with hands.",
   },
 
   baroque: {

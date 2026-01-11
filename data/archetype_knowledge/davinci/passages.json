@@ -2,6 +2,7 @@
   "archetype": "inventor",
   "thinker": "Leonardo da Vinci",
   "era": "1452-1519",
+  "sourceText": "client/src/assets/leo.txt",
   "coreConcepts": [
     "Observation as foundation",
     "Art and science as one",
@@ -10,7 +11,24 @@
     "Sfumato (embracing ambiguity)",
     "Connection of all things",
     "Experience over authority",
-    "The eye as window"
+    "The eye as window",
+    "The mirror mind",
+    "Infinite variety in nature",
+    "Process over perfection"
+  ],
+  "methods": {
+    "saperVedere": "Knowing how to see — observation as the foundation of all knowledge",
+    "mirrorMind": "The painter's mind should be like a mirror, taking the color of whatever it reflects",
+    "distanceForJudgment": "Step back from your work — distance reveals what closeness conceals",
+    "synthesisOfOpposites": "Art and science, observation and imagination, are one practice",
+    "variationOverRepetition": "Nature never makes two things the same — neither should the mind"
+  },
+  "cognitiveTools": [
+    "Observe first, theorize second",
+    "Draw to understand, not just to record",
+    "Study anatomy to paint the soul",
+    "Let water teach you flow",
+    "Find the universal in the particular"
   ],
   "passages": [
     {
@@ -152,6 +170,169 @@
       "source": "Notebooks",
       "themes": ["rest", "relaxation", "judgment", "distance"],
       "context": "Value of stepping back"
+    },
+    {
+      "id": "davinci-021",
+      "text": "Experience is never at fault; it is only your judgment that is in error in promising itself results which are not caused by your experiments.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["experience", "judgment", "error", "experiment"],
+      "context": "Experience as bedrock — our interpretation fails, not the data"
+    },
+    {
+      "id": "davinci-022",
+      "text": "Whoever in discussion adduces authority uses not intellect but rather memory.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["authority", "intellect", "memory", "thinking"],
+      "context": "Original thought over citation"
+    },
+    {
+      "id": "davinci-023",
+      "text": "The supreme misfortune is when theory outstrips performance.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["theory", "practice", "performance", "doing"],
+      "context": "Knowledge without embodiment is tragedy"
+    },
+    {
+      "id": "davinci-024",
+      "text": "Poor is the pupil who does not surpass his master.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["pupil", "master", "surpass", "growth"],
+      "context": "Teaching aims at obsolescence"
+    },
+    {
+      "id": "davinci-025",
+      "text": "Nature is full of infinite causes which were never set forth in experience.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["nature", "infinite", "causes", "unknown"],
+      "context": "Humility before nature's depth"
+    },
+    {
+      "id": "davinci-026",
+      "text": "The mind of the painter should be like a mirror which always takes the colour of the thing that it reflects.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["mirror", "mind", "reflection", "attention"],
+      "context": "Receptive consciousness as creative foundation"
+    },
+    {
+      "id": "davinci-027",
+      "text": "If you are alone you belong entirely to yourself; if you are accompanied even by one companion you belong only half to yourself.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["solitude", "self", "attention", "focus"],
+      "context": "The cost of companionship on concentration"
+    },
+    {
+      "id": "davinci-028",
+      "text": "The soul desires to dwell in the body because without the body it can neither act nor feel.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["soul", "body", "embodiment", "action"],
+      "context": "Against disembodied spirituality"
+    },
+    {
+      "id": "davinci-029",
+      "text": "Tears come from the heart and not from the brain.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["tears", "heart", "brain", "emotion"],
+      "context": "Emotion's bodily origin"
+    },
+    {
+      "id": "davinci-030",
+      "text": "Man and the animals are merely a passage and channel for food, a tomb for other animals, a haven for the dead.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["food", "death", "animals", "cycle"],
+      "context": "Human as biological process, not exception"
+    },
+    {
+      "id": "davinci-031",
+      "text": "The painter is not worthy of praise who only does one thing well.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["painter", "universality", "skill", "range"],
+      "context": "Mastery requires breadth"
+    },
+    {
+      "id": "davinci-032",
+      "text": "Do you not see how many and how varied are the actions which are performed by men alone? Do you not see how many different kinds of animals there are, and also of trees and plants and flowers?",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["variety", "observation", "nature", "wonder"],
+      "context": "The inexhaustible abundance of particulars"
+    },
+    {
+      "id": "davinci-033",
+      "text": "If you but know well how to compose your picture it will also seem a natural thing seen in a great mirror.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["composition", "mirror", "natural", "art"],
+      "context": "Art succeeds when it achieves the clarity of reflection"
+    },
+    {
+      "id": "davinci-034",
+      "text": "We know well that mistakes are more easily detected in the works of others than in one's own.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["mistakes", "others", "self", "blindness"],
+      "context": "Self-knowledge requires external perspective"
+    },
+    {
+      "id": "davinci-035",
+      "text": "That figure is most worthy of praise which by its action best expresses the passion which animates it.",
+      "source": "Notebooks (leo.txt)",
+      "themes": ["figure", "action", "passion", "expression"],
+      "context": "Truth in art is truth of inner life"
+    }
+  ],
+  "fables": [
+    {
+      "id": "fable-001",
+      "title": "The Willow and the Gourd",
+      "summary": "A willow, tired of being pruned for other trees, allies with a gourd which eventually strangles her. When the wind comes, she is torn apart.",
+      "moral": "The alliance you seek for freedom may become your bondage.",
+      "themes": ["freedom", "alliance", "consequences", "desire"]
+    },
+    {
+      "id": "fable-002", 
+      "title": "The Razor",
+      "summary": "A razor, proud of its shine, refuses to work and hides away. In time it rusts and becomes useless.",
+      "moral": "Gifts unused corrode. The rust of idleness is worse than the wear of use.",
+      "themes": ["use", "talent", "idleness", "rust"]
+    },
+    {
+      "id": "fable-003",
+      "title": "The Stone on the Hill",
+      "summary": "A stone on a beautiful hilltop, envying the company of stones below, throws itself down to join them. There it is trampled endlessly by carts and feet.",
+      "moral": "What looks like isolation may be sanctuary. What looks like company may be suffering.",
+      "themes": ["solitude", "company", "envy", "regret"]
+    },
+    {
+      "id": "fable-004",
+      "title": "The Butterfly and the Flame",
+      "summary": "A butterfly, drawn by a flame's beauty, burns its wings. Returning again, it is consumed entirely.",
+      "moral": "Not everything beautiful is safe. Some attractions are designed to destroy.",
+      "themes": ["beauty", "danger", "attraction", "destruction"]
+    },
+    {
+      "id": "fable-005",
+      "title": "The Flint",
+      "summary": "A flint, struck by steel, protests the violence. The steel replies: be patient. The flint endures and gives birth to fire.",
+      "moral": "What feels like violence may be the force that awakens your hidden gift.",
+      "themes": ["suffering", "patience", "transformation", "gift"]
+    },
+    {
+      "id": "fable-006",
+      "title": "The Nut in the Wall",
+      "summary": "A nut, dropped by a crow into a wall crevice, begs the wall for shelter. The wall agrees. But the nut's roots eventually tear the wall apart.",
+      "moral": "Compassion has consequences. What you shelter may outgrow the shelter.",
+      "themes": ["compassion", "growth", "destruction", "unintended"]
+    }
+  ],
+  "prophecies": [
+    {
+      "id": "prophecy-001",
+      "riddle": "Men shall speak with and touch and embrace each other while standing each in different hemispheres.",
+      "meaning": "Communication technology — letters, eventually phones, internet",
+      "method": "Defamiliarization of the ordinary through cosmic framing"
+    },
+    {
+      "id": "prophecy-002",
+      "riddle": "The dead shall come forth from under the earth, and by their fierce movements shall drive out of the world innumerable human creatures.",
+      "meaning": "Iron from mines becomes weapons",
+      "method": "Treating mundane materials as mythic agents"
     }
   ]
 }

@@ -1145,15 +1145,31 @@ function isGreeting(msg) {
 
 function isArtQuestion(msg) {
   const lower = msg.toLowerCase();
+
+  // CRITICAL: Don't trigger on casual mentions of "art" in personal narratives
+  // e.g., "music for a period, art for another, martial arts" should NOT trigger
+  const narrativeExclusions = [
+    /art for (a|another|some)/i, // "art for a period"
+    /martial arts?/i, // martial arts
+    /(music|guitar|coding|gym).*(art)/i, // listing activities with art
+    /\bart\b.*\bfor\b.*\b(period|time|while|season)/i, // art in time-based context
+  ];
+  if (narrativeExclusions.some((p) => p.test(lower))) {
+    return false; // Let the LLM handle it normally
+  }
+
+  // Only trigger on actual art-focused questions
   const artPatterns = [
-    /\b(art|artist|painting|sculpture|gallery|museum)\b/i,
+    // Require more specific art contexts, not just lone "art"
+    /\b(painting|sculpture|gallery|museum)\b/i, // Removed standalone "art" and "artist"
     /\b(picasso|warhol|rothko|duchamp|basquiat|kahlo|van gogh|da vinci|monet|rembrandt)\b/i,
     /\b(renaissance|baroque|impressionism|expressionism|cubism|surrealism|minimalism)\b/i,
-    /\b(contemporary art|modern art|abstract|conceptual art|pop art)\b/i,
+    /\b(contemporary art|modern art|abstract art|conceptual art|pop art)\b/i,
     /\b(revolutionary art|art history|art movement|masterpiece)\b/i,
     /\bcan you (see|perceive|understand) art\b/i,
     /\bwhat (do you think|is your opinion) (about|on) .*(art|artist)/i,
-    /\bwhat makes art\b/i,
+    /\bwhat makes (good |great )?art\b/i,
+    /\bwhat is art\b/i, // Direct philosophical question about art
   ];
   return artPatterns.some((p) => p.test(lower));
 }
