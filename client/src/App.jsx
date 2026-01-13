@@ -9,6 +9,7 @@ import Title3D from "./components/Title3D/Title3D";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ConsciousnessIndicator from "./components/ConsciousnessIndicator/ConsciousnessIndicator";
 import ArchitectureDiagram from "./components/ArchitectureDiagram/ArchitectureDiagram";
+import CreativeBreakthrough from "./components/ArchitectureDiagram/CaseStudy/CreativeBreakthrough";
 
 function App() {
   const navigate = useNavigate();
@@ -22,8 +23,8 @@ function App() {
   const [activeEngine, setActiveEngine] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   
-  // Check if we're on architecture page
-  const isArchitectureView = location.pathname === '/architecture';
+  // Check if we're on architecture page (including sub-pages)
+  const isArchitectureView = location.pathname.startsWith('/architecture');
 
   // Fetch conversations on mount
   useEffect(() => {
@@ -120,6 +121,9 @@ function App() {
       <Routes>
         <Route path="/architecture" element={
           <ArchitectureDiagram onBack={() => navigate('/')} />
+        } />
+        <Route path="/architecture/case-study" element={
+          <CreativeBreakthrough onBack={() => navigate('/architecture')} />
         } />
         <Route path="/" element={
           <div className="app-container">

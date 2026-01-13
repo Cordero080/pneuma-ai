@@ -668,6 +668,39 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
   return [...selected].slice(0, 4);
 }`}</ModalCodeBlock>
         </ModalSection>
+
+        <ModalSection title="Cognitive Methods Architecture (Jan 2026)">
+          <ModalDesc>
+            Beyond selection, archetypes now carry <strong>cognitive operations</strong> — actual thinking moves
+            that get injected as available tools. This is "cognitive metabolization" vs. just quoting.
+          </ModalDesc>
+          <ModalCodeBlock>{`// ARCHETYPE_METHODS in llm.js
+{
+  inventor: {  // Leonardo da Vinci
+    source: "Notebooks, anatomical studies, 35 passages",
+    cognitiveMoves: {
+      anatomize: "Dissect the question into hidden parts",
+      sfumato_edges: "Blur boundaries between categories",
+      reverse_engineer: "Work backwards from desired end",
+      cross_pollinate: "Import methods from unrelated domains"
+    }
+  },
+  sufiPoet: {  // Rumi
+    source: "Masnavi teaching tales, ecstatic poetry",
+    cognitiveMoves: {
+      inside_out: "Turn the problem inside out",
+      turn_the_mirror: "Shift perspective to reveal self",
+      name_the_beloved: "Identify what they're yearning toward"
+    }
+  }
+  // ... 5 archetypes have cognitive methods so far
+}`}</ModalCodeBlock>
+          <ModalExample label="How it's used">
+            System prompt includes: "You can use [anatomize] to dissect the question, 
+            [sfumato_edges] to blur categories..."<br /><br />
+            Result: Archetypes become <em>thinking tools</em>, not masks.
+          </ModalExample>
+        </ModalSection>
       </Modal>
 
       {/* Nested method modals */}

@@ -1,0 +1,218 @@
+/* ============================================
+   CREATIVE BREAKTHROUGH CASE STUDY
+   Additional styles for case study page
+   Extends ArchitectureDiagram.css
+   ============================================ */
+
+/* Case study section headers */
+.case-study-section {
+  margin: 50px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.case-study-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-study-heading::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(180deg, #00d4ff, #b800ff);
+  border-radius: 2px;
+}
+
+/* The prompt display */
+.case-study-prompt {
+  background: linear-gradient(135deg, rgba(180,0,255,0.1), rgba(0,150,255,0.05));
+  border: 1px solid rgba(180,0,255,0.3);
+  border-radius: 12px;
+  padding: 20px 25px;
+  position: relative;
+}
+
+.prompt-label {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #0a0a0f;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #b400ff;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+.case-study-prompt p {
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+/* The output showcase */
+.case-study-output {
+  background: linear-gradient(135deg, rgba(0,255,150,0.08), rgba(0,100,80,0.03));
+  border: 1px solid rgba(0,255,150,0.3);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.case-study-output p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.05rem;
+}
+
+.case-study-output p:last-child {
+  margin-bottom: 0;
+}
+
+.breakthrough-line {
+  background: linear-gradient(135deg, rgba(255,100,0,0.15), rgba(255,50,0,0.05));
+  border-left: 3px solid #ff6400;
+  padding: 15px 20px;
+  margin-top: 25px;
+  border-radius: 0 8px 8px 0;
+}
+
+.breakthrough-line strong {
+  color: #ff6400;
+}
+
+/* Analysis cards grid */
+.case-study-analysis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 600px) {
+  .case-study-analysis {
+    grid-template-columns: 1fr;
+  }
+}
+
+.analysis-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.analysis-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.analysis-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.analysis-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* Terminal output display */
+.terminal-output {
+  background: #0d0d12;
+  border: 1px solid rgba(0,255,150,0.2);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.terminal-output:hover {
+  border-color: rgba(0,255,150,0.4);
+}
+
+.terminal-output pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #00ff96;
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Sidebar link styling */
+.case-study-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(255,100,0,0.15), rgba(255,50,0,0.05));
+  border: 1px solid rgba(255,100,0,0.3);
+  border-radius: 8px;
+  color: #ff6400;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+.case-study-link:hover {
+  background: linear-gradient(135deg, rgba(255,100,0,0.25), rgba(255,50,0,0.1));
+  border-color: rgba(255,100,0,0.5);
+  transform: translateY(-1px);
+}
+
+.case-study-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Learning center section for case studies */
+.learning-section-case {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.learning-section-case h3 {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.learning-section-case h3 svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal, {
   ModalSection,
   ModalFilePath,
@@ -40,6 +41,7 @@ const ARCHETYPES = {
 const LearningCenter = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [nestedModal, setNestedModal] = useState(null);
+  const navigate = useNavigate();
 
   const apis = [
     {
@@ -110,6 +112,23 @@ const LearningCenter = () => {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Case Study Section */}
+      <div className="api-section">
+        <h3 className="api-section-title"><span className="section-icon"><SynthesisIcon /></span> Case Studies</h3>
+        <div 
+          className="api-item"
+          onClick={() => navigate('/architecture/case-study')}
+          style={{ '--api-color': '#ff6400' }}
+        >
+          <span className="api-icon">✦</span>
+          <div className="api-info">
+            <span className="api-name">Creative Breakthrough</span>
+            <span className="api-desc">How MAX DISTANCE + RAG produced emergence</span>
+          </div>
+          <span className="api-arrow">&rarr;</span>
         </div>
       </div>
 

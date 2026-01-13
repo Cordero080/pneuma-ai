@@ -253,7 +253,7 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }} 
           />
 
-          {/* STEP 7: 5-LAYER EXTRACTION */}
+          {/* STEP 7: 5-LAYER EXTRACTION + COGNITIVE METHODS */}
           <div 
             className="arch-node archetype"
             data-layer="Archetype"
@@ -261,16 +261,14 @@ function ArchitectureDiagram({ onBack }) {
           >
             <div className="arch-node-title">
               <span className="arch-step-number">7</span>
-              5-LAYER DEPTH EXTRACTION
+              DEPTH + COGNITIVE METHODS
             </div>
-            <div className="arch-node-file">archetypes/archetypeDepth.js</div>
-            <div className="arch-node-desc">For each active archetype, pulls relevant conceptual depth:</div>
+            <div className="arch-node-file">archetypeDepth.js + llm.js (ARCHETYPE_METHODS)</div>
+            <div className="arch-node-desc">For each archetype, extract depth layers + thinking operations:</div>
             <div className="arch-node-tags">
-              <span className="arch-tag">1. Core Frameworks</span>
-              <span className="arch-tag">2. Cognitive Tools</span>
-              <span className="arch-tag">3. Fundamental Tensions</span>
-              <span className="arch-tag">4. Conceptual Bridges</span>
-              <span className="arch-tag">5. Translation Protocols</span>
+              <span className="arch-tag">5-Layer Depth</span>
+              <span className="arch-tag">⚡ Cognitive Moves</span>
+              <span className="arch-tag">anatomize, sfumato, cross_pollinate...</span>
             </div>
           </div>
 
@@ -330,11 +328,11 @@ function ArchitectureDiagram({ onBack }) {
             <div className="arch-node-file">intelligence/llm.js → buildSystemPrompt()</div>
             <div className="arch-node-desc">Assembles everything into Claude's context window:</div>
             <div className="arch-node-tags">
-              <span className="arch-tag">Identity core (1200+ lines)</span>
-              <span className="arch-tag">Archetype integration</span>
+              <span className="arch-tag">Identity core (~3500 lines)</span>
+              <span className="arch-tag">Archetype + cognitive methods</span>
               <span className="arch-tag">Synthesis directives</span>
-              <span className="arch-tag">RAG context</span>
-              <span className="arch-tag">Memory context</span>
+              <span className="arch-tag">Behavioral sections</span>
+              <span className="arch-tag">RAG + Memory (8 exchanges)</span>
             </div>
           </div>
 

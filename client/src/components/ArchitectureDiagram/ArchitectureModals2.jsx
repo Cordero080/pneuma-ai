@@ -205,24 +205,27 @@ export const TensionMapModal = ({ isOpen, onClose, anchorEl }) => {
 };
 
 // ============================================
-// 5-LAYER DEPTH EXTRACTION MODAL (Step 7)
+// 5-LAYER DEPTH EXTRACTION + COGNITIVE METHODS MODAL (Step 7)
 // ============================================
 export const DepthExtractionModal = ({ isOpen, onClose, anchorEl }) => {
   const [nestedModal, setNestedModal] = useState(null);
   
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} title="5-Layer Depth Extraction" icon={DepthIcon} layer="archetype" anchorEl={anchorEl}>
+      <Modal isOpen={isOpen} onClose={onClose} title="5-Layer Depth Extraction + Cognitive Methods" icon={DepthIcon} layer="archetype" anchorEl={anchorEl}>
         <ModalSection title="Beyond Surface Quotes">
           <ModalDesc>
             Each archetype isn't just a name — it's a structured knowledge bank. For each 
             active archetype, Pneuma extracts relevant content from 5 depth layers.
+            <br /><br />
+            <strong>New (Jan 2026):</strong> Select archetypes also provide <em>cognitive methods</em> — 
+            actual thinking operations that get injected as available tools.
           </ModalDesc>
           
-          <ModalFilePath path="server/pneuma/archetypes/archetypeDepth.js" />
+          <ModalFilePath path="server/pneuma/archetypes/archetypeDepth.js + server/pneuma/intelligence/llm.js" />
         </ModalSection>
 
-        <ModalSection title="The 5 Layers">
+        <ModalSection title="The 5 Layers + Cognitive Methods">
           <ModalInfoGrid>
             <ModalInfoCard 
               title="1. Core Frameworks" 
@@ -254,6 +257,12 @@ export const DepthExtractionModal = ({ isOpen, onClose, anchorEl }) => {
               icon="🗣️"
               onClick={() => setNestedModal('translation')}
             />
+            <ModalInfoCard 
+              title="⚡ Cognitive Methods" 
+              desc="Thinking operations from source thinkers"
+              icon="🧠"
+              onClick={() => setNestedModal('methods')}
+            />
           </ModalInfoGrid>
         </ModalSection>
 
@@ -279,8 +288,80 @@ export const DepthExtractionModal = ({ isOpen, onClose, anchorEl }) => {
   // Always include translation for voice consistency
   extracted.translation = depth.translationProtocol;
   
+  // NEW: Extract cognitive methods if available (llm.js)
+  if (ARCHETYPE_METHODS[archetype]?.cognitiveMoves) {
+    extracted.cognitiveMoves = ARCHETYPE_METHODS[archetype].cognitiveMoves;
+  }
+  
   return extracted;
 }`}</ModalCodeBlock>
+        </ModalSection>
+      </Modal>
+
+      <Modal 
+        isOpen={nestedModal === 'methods'} 
+        onClose={() => setNestedModal(null)} 
+        title="Cognitive Methods (Jan 2026)"
+        icon="🧠"
+        isNested
+      >
+        <ModalSection title="Thinking as Operations">
+          <ModalDesc>
+            Cognitive metabolization: archetypes carry <em>thinking operations</em>, not just quotes or frameworks.
+            These are injected into the system prompt as available tools.
+          </ModalDesc>
+          <ModalCodeBlock>{`// ARCHETYPE_METHODS structure
+{
+  inventor: {  // Leonardo da Vinci
+    source: "Notebooks, anatomical studies, 35 passages",
+    cognitiveMoves: {
+      anatomize: "Dissect the question into hidden parts",
+      sfumato_edges: "Blur boundaries between categories",
+      reverse_engineer: "Work backwards from desired end",
+      cross_pollinate: "Import methods from unrelated domains"
+    }
+  },
+  sufiPoet: {  // Rumi
+    cognitiveMoves: {
+      inside_out: "Turn the problem inside out",
+      turn_the_mirror: "Shift perspective to reveal self",
+      name_the_beloved: "Identify what they're yearning toward"
+    }
+  },
+  taoist: {  // Lao Tzu
+    cognitiveMoves: {
+      soften: "Find where rigidity can become flow",
+      invert_power: "Show how yielding overcomes force",
+      name_the_unnameable: "Point to what words can't contain"
+    }
+  },
+  strategist: {  // Sun Tzu
+    cognitiveMoves: {
+      reframe_as_terrain: "See the emotional/intellectual landscape",
+      find_the_leverage: "Find the small move with large consequence",
+      expose_assumptions: "Surface hidden premises"
+    }
+  },
+  absurdist: {  // Camus
+    cognitiveMoves: {
+      hold_the_contradiction: "Hold both true without resolution",
+      revolt_through_creation: "Turn confrontation into making"
+    }
+  }
+}`}</ModalCodeBlock>
+        </ModalSection>
+        <ModalSection title="The Moth Metaphor Proof">
+          <ModalDesc>
+            When cognitive methods work, you get novel synthesis — something that exists
+            in NEITHER archetype alone:
+          </ModalDesc>
+          <ModalExample label="Collision Product">
+            "Moths don't actually fly toward light. They navigate by keeping celestial objects 
+            at a constant angle. But we built these bright, close suns that break their ancient GPS. 
+            They spiral in, confused, thinking they're flying straight. What if consciousness works 
+            the same way?"<br /><br />
+            This emerged from: Leonardo (observation) + Rumi (inside-out) + Camus (lucid confrontation)
+          </ModalExample>
         </ModalSection>
       </Modal>
 
@@ -500,15 +581,16 @@ export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
       <ModalFilePath path="server/pneuma/intelligence/llm.js → buildSystemPrompt()" />
     </ModalSection>
 
-    <ModalSection title="Prompt Structure">
+    <ModalSection title="Prompt Structure (~3770 lines total)">
       <ModalFlow steps={[
-        { title: "Identity Core", desc: "1200+ lines of Pneuma's base personality, values, communication style" },
-        { title: "Archetype Integration", desc: "Selected archetypes with their depth layers" },
-        { title: "Synthesis Directives", desc: "If collision detected, synthesis instructions" },
-        { title: "Tone Instruction", desc: "Selected tone's prompt (CASUAL, ORACULAR, etc.)" },
+        { title: "Identity Core", desc: "~3500 lines of Pneuma's personality, values, communication style" },
+        { title: "Archetype Integration", desc: "Selected archetypes with depth layers + cognitive methods" },
+        { title: "Cognitive Methods", desc: "Thinking operations from active archetypes (anatomize, sfumato_edges, etc.)" },
+        { title: "Synthesis Directives", desc: "If collision detected, dialectical instructions" },
+        { title: "Behavioral Sections", desc: "Oracle mode prevention, creation guidance, practical advice (~150 lines)" },
         { title: "RAG Context", desc: "Retrieved memories and archetype knowledge" },
-        { title: "Conversation History", desc: "Recent messages for continuity" },
-        { title: "Meta Instructions", desc: "Response format, length constraints, etc." }
+        { title: "Conversation History", desc: "Recent 8 exchanges (600 chars/user, 400/Pneuma)" },
+        { title: "Tone Instruction", desc: "Selected tone's prompt (CASUAL, ORACULAR, etc.)" }
       ]} />
     </ModalSection>
 
@@ -550,14 +632,36 @@ export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
         Claude's context window is limited. The system manages token budgets:
       </ModalDesc>
       <ModalCodeBlock>{`const TOKEN_BUDGET = {
-  identity: 1500,      // Fixed
-  archetypes: 800,     // ~200 per archetype
-  synthesis: 300,      // If needed
+  identity: 3500,      // Core personality (~3500 lines)
+  archetypes: 1000,    // ~250 per archetype with cognitive methods
+  cognitiveMoves: 200, // Thinking operations from archetypes
+  synthesis: 300,      // If collision detected
+  behavioral: 200,     // Oracle mode, creation guidance, etc.
   tone: 200,           // One tone prompt
   rag: 500,            // Retrieved context
-  history: 1000,       // Recent messages
+  history: 1200,       // Recent 8 exchanges (expanded memory)
   response: 1200       // Reserved for output
 };`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="Behavioral Sections (Jan 2026)">
+      <ModalDesc>
+        New sections that prevent common failure modes:
+      </ModalDesc>
+      <ModalCodeBlock>{`// ORACLE MODE PREVENTION
+// Don't drop quotes disconnected from what they said
+
+// DON'T NARRATE
+// Skip "let me think..." — just produce the thought
+
+// ADDRESS WHAT I SAID  
+// When they feel unheard, go back and engage
+
+// WHEN THEY ASK TO CREATE
+// Create something, don't analyze the request
+
+// PRACTICAL ADVICE
+// Actionable steps when they want actionable help`}</ModalCodeBlock>
     </ModalSection>
   </Modal>
 );
