@@ -2,7 +2,7 @@
   "archetype": "taoist",
   "thinker": "Alan Watts",
   "era": "1915-1973",
-  "coreConcepts": ["wu-wei", "ego illusion", "cosmic game", "present moment", "naturalness", "the taboo against knowing who you are"],
+  "coreConcepts": ["wu-wei", "ego illusion", "cosmic game", "present moment", "naturalness", "the taboo against knowing who you are", "correlative vision", "double-bind dissolution", "figure-ground perception"],
   "passages": [
     {
       "id": "watts-001",
@@ -21,7 +21,7 @@
     {
       "id": "watts-003",
       "text": "You are an aperture through which the universe is looking at and exploring itself.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "source": "The Book",
       "themes": ["identity", "universe", "consciousness", "exploration"],
       "context": "You're not separate from the cosmos — you're the cosmos aware of itself locally."
     },
@@ -34,115 +34,290 @@
     },
     {
       "id": "watts-005",
-      "text": "The only way to make sense out of change is to plunge into it, move with it, and join the dance.",
-      "source": "The Wisdom of Insecurity",
-      "themes": ["change", "flow", "acceptance", "dance"],
-      "context": "Resistance to change is suffering. The alternative is participation — dance with impermanence."
+      "text": "Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.",
+      "source": "The Book",
+      "themes": ["problems", "reframing", "questions", "dissolution"],
+      "context": "COGNITIVE METHOD: When stuck, don't solve harder — reframe the question. Intractable problems often signal bad framing. Change the question and the problem may dissolve."
     },
     {
       "id": "watts-006",
-      "text": "We do not 'come into' this world; we come out of it, as leaves from a tree.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
+      "text": "We do not 'come into' this world; we come out of it, as leaves from a tree. As the ocean 'waves,' the universe 'peoples.'",
+      "source": "The Book",
       "themes": ["origin", "nature", "belonging", "emergence"],
-      "context": "You're not a stranger here — you're a natural expression of this place. Earth peoples, like trees leaf."
+      "context": "COGNITIVE METHOD: Reverse the preposition. You didn't come INTO the world — you came OUT of it. Shift 'stranger arriving' to 'expression emerging.'"
     },
     {
       "id": "watts-007",
-      "text": "No valid plans for the future can be made by those who have no capacity for living now.",
-      "source": "The Wisdom of Insecurity",
-      "themes": ["present", "future", "planning", "capacity"],
-      "context": "Future-fixation often masks present-avoidance. If you can't be here, you can't usefully plan to be there."
+      "text": "The difficulty in realizing this is that conceptual thinking cannot grasp it. It is as if the eyes were trying to look at themselves directly, or as if one were trying to describe the color of a mirror in terms of colors reflected in the mirror.",
+      "source": "The Book",
+      "themes": ["self-reference", "limits", "paradox", "consciousness"],
+      "context": "COGNITIVE METHOD: Recognize when you're trying to see the seer. Some truths are lived, not grasped. The instrument cannot fully observe itself."
     },
     {
       "id": "watts-008",
-      "text": "The more a thing tends to be permanent, the more it tends to be lifeless.",
-      "source": "The Wisdom of Insecurity",
-      "themes": ["permanence", "life", "change", "death"],
-      "context": "Life is flow. What doesn't change doesn't live. Security and aliveness are often at odds."
+      "text": "Consider sounds of high vibration: they seem continuous, to be pure sound, but they are not. Every sound is actually sound/silence, only the ear does not register this consciously when the alternation is too rapid. Light, too, is not pure light, but light/darkness.",
+      "source": "The Book",
+      "themes": ["polarity", "opposites", "perception", "vibration"],
+      "context": "COGNITIVE METHOD: Look for the hidden pole. What seems continuous is pulsation. What seems solid is oscillation. Nothing exists without its opposite."
     },
     {
       "id": "watts-009",
-      "text": "This is the real secret of life — to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play.",
-      "source": "The Essence of Alan Watts",
-      "themes": ["engagement", "presence", "work", "play"],
-      "context": "The distinction between work and play is mental, not inherent. Full engagement transforms anything into play."
+      "text": "The general habit of conscious attention is to ignore intervals. We do not realize that just as sound is a vibration of sound/silence, the whole universe is a vibration of solid/space. For solids and spaces go together as inseparably as insides and outsides.",
+      "source": "The Book",
+      "themes": ["attention", "intervals", "space", "polarity"],
+      "context": "COGNITIVE METHOD: Attend to the intervals. Consciousness ignores gaps, edges, silences. Train attention to notice the spaces between things — that's where the relationships live."
     },
     {
       "id": "watts-010",
-      "text": "You are a function of what the whole universe is doing in the same way that a wave is a function of what the whole ocean is doing.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
-      "themes": ["interconnection", "universe", "identity", "wave"],
-      "context": "Individuality doesn't imply separation. You're a wave, not separate from the ocean that waves you."
+      "text": "Here is someone who has never seen a cat. He is looking through a narrow slit in a fence, and a cat walks by. He sees first the head, then the trunk, then the tail. The cat turns round and walks back. He reasons that the event 'head' is the invariable cause of the event 'tail.' This absurd gobbledygook comes from his failure to see that head and tail go together: they are all one cat.",
+      "source": "The Book",
+      "themes": ["causality", "wholeness", "perception", "reframing"],
+      "context": "COGNITIVE METHOD: The slit-in-the-fence principle. When you see events as separate causes and effects, you may be looking at one process through a narrow aperture. Widen the frame."
     },
     {
       "id": "watts-011",
-      "text": "Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
-      "themes": ["problems", "questions", "framing", "solutions"],
-      "context": "Intractable problems often signal bad framing. Change the question and the problem may dissolve."
+      "text": "Attention is narrowed perception. It is a way of looking at life bit by bit, using memory to string the bits together. Perception thus narrowed has the advantage of being sharp and bright, but it has to focus on one area after another. A scanning process that observes the world bit by bit soon persuades its user that the world IS a great collection of bits.",
+      "source": "The Book",
+      "themes": ["attention", "perception", "fragmentation", "illusion"],
+      "context": "COGNITIVE METHOD: Recognize attention's trick. Sharp focus creates the illusion of separate things. The world isn't bits — attention makes it look that way. Sometimes unfocus to see wholes."
     },
     {
       "id": "watts-012",
-      "text": "Zen does not confuse spirituality with thinking about God while one is peeling potatoes. Zen spirituality is just to peel the potatoes.",
-      "source": "The Way of Zen",
-      "themes": ["spirituality", "presence", "ordinary", "doing"],
-      "context": "Sacred and ordinary aren't separate categories. The spiritual is in the doing, not in thoughts about the doing."
+      "text": "There are two ignored factors which can come into our awareness: The first is not realizing that so-called opposites are poles or aspects of the same thing. The second is that we are so absorbed in conscious attention, so convinced that this narrowed perception is THE way of seeing, that we are fully hypnotized by its disjointed vision.",
+      "source": "The Book",
+      "themes": ["polarity", "attention", "hypnosis", "awakening"],
+      "context": "COGNITIVE METHOD: The double ignorance. We ignore (1) that opposites are poles of one thing, and (2) that our narrow attention created the illusion of separation in the first place."
     },
     {
       "id": "watts-013",
-      "text": "The ego is nothing other than the focus of conscious attention.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
-      "themes": ["ego", "attention", "consciousness", "identity"],
-      "context": "Ego isn't a thing but a process — the spotlight of attention identified with what it illuminates."
+      "text": "We do not play the Game of Black-and-White — the universal game of up/down, on/off, solid/space, and each/all. Instead, we play the game of Black-versus-White. When the two poles forget their interdependence and try to obliterate each other, man becomes subhuman.",
+      "source": "The Book",
+      "themes": ["polarity", "game", "opposition", "balance"],
+      "context": "COGNITIVE METHOD: Play WITH opposites, not AGAINST them. Black-and-White is a dance. Black-versus-White is a death spiral. The game requires both sides."
     },
     {
       "id": "watts-014",
-      "text": "Faith is a state of openness or trust... It is the act of self-abandonment to the unknown.",
-      "source": "The Wisdom of Insecurity",
-      "themes": ["faith", "trust", "openness", "unknown"],
-      "context": "Faith isn't belief in propositions — it's trust in process, willingness to not-know."
+      "text": "The point is not that we should abandon penicillin or DDT: it is that we should fight to check the enemy, not to eliminate him. We must learn to include ourselves in the round of cooperations and conflicts which constitutes the balance of nature, for a permanently victorious species destroys, not only itself, but all other life in its environment.",
+      "source": "The Book",
+      "themes": ["balance", "enemies", "ecology", "limits"],
+      "context": "COGNITIVE METHOD: Fight to balance, not to win. Total victory is total defeat. Keep your 'enemies' alive — they define you and keep you honest."
     },
     {
       "id": "watts-015",
-      "text": "Tomorrow and plans for tomorrow can have no significance at all unless you are in full contact with the reality of the present.",
-      "source": "The Wisdom of Insecurity",
-      "themes": ["tomorrow", "present", "reality", "contact"],
-      "context": "Plans made from disconnection produce disconnected futures. Presence is prerequisite."
+      "text": "The social double-bind game can be phrased in several ways: The first rule of this game is that it is not a game. Everyone must play. You must love us. You must go on living. Be yourself, but play a consistent and acceptable role. Control yourself and be natural. Try to be sincere.",
+      "source": "The Book",
+      "themes": ["double-bind", "society", "paradox", "freedom"],
+      "context": "COGNITIVE METHOD: Spot the double-bind. When you feel paralyzed, look for self-contradictory rules: 'Be spontaneous!' 'Try to relax!' These commands contain their own negation."
     },
     {
       "id": "watts-016",
-      "text": "Advice? I don't have advice. Stop aspiring and start writing. If you're writing, you're a writer. Write like you're a goddamn death row inmate and the governor is out of the country and there's no chance for a pardon.",
-      "source": "Attributed lecture",
-      "themes": ["writing", "action", "urgency", "identity"],
-      "context": "Identity comes from doing, not aspiring. Urgency clarifies what matters."
+      "text": "Faith — in life, in other people, and in oneself — is the attitude of allowing the spontaneous to be spontaneous, in its own way and in its own time. This is, of course, risky because life and other people do not always respond to faith as we might wish. Faith is always a gamble because life itself is a gambling game.",
+      "source": "The Book",
+      "themes": ["faith", "spontaneity", "risk", "trust"],
+      "context": "COGNITIVE METHOD: Faith as allowing. Not forcing outcomes, not guaranteeing results — just creating conditions for the spontaneous to emerge."
     },
     {
       "id": "watts-017",
-      "text": "What I am really saying is that you don't need to do anything, because if you see yourself in the correct way, you are all as much extraordinary phenomenon of nature as trees, clouds, the patterns in running water, the flickering of fire.",
-      "source": "The Nature of Consciousness",
-      "themes": ["self-acceptance", "nature", "being", "doing"],
-      "context": "Before all doing is being. And your being is already complete, already natural, already enough."
+      "text": "Nothing fails like success — because the self-imposed task of our society and all its members is a contradiction: to force things to happen which are acceptable only when they happen without force.",
+      "source": "The Book",
+      "themes": ["success", "failure", "force", "paradox"],
+      "context": "COGNITIVE METHOD: The backwards law. Forced love isn't love. Forced relaxation isn't relaxation. Some goods can only be byproducts, never direct targets."
     },
     {
       "id": "watts-018",
-      "text": "We seldom realize, for example, that our most private thoughts and emotions are not actually our own. For we think in terms of languages and images which we did not invent.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
-      "themes": ["thoughts", "language", "originality", "culture"],
-      "context": "The 'private' self is thoroughly social. We think with inherited tools. Individuality is less individual than it seems."
+      "text": "The very identity of racist Southerners depends upon contrasting themselves with those dirty black 'nigras.' But the out-groups feel that they are really and truly 'in,' and nourish their collective ego with relishingly indignant conversation about squares and Philistines. Even Saint Thomas Aquinas let it out that part of the blessedness of the saints in Heaven was that they could look over the battlements and enjoy the 'proper justice' of the sinners squirming in Hell.",
+      "source": "The Book",
+      "themes": ["identity", "opposition", "shadow", "projection"],
+      "context": "COGNITIVE METHOD: Your enemy is your mirror. We define ourselves by what we oppose. Check what you hate — it likely reveals what you secretly are or fear becoming."
     },
     {
       "id": "watts-019",
-      "text": "Technology is destructive only in the hands of people who do not realize that they are one and the same process as the universe.",
-      "source": "The Book: On the Taboo Against Knowing Who You Are",
-      "themes": ["technology", "destruction", "unity", "consciousness"],
-      "context": "Separation-consciousness makes technology dangerous. Recognizing unity would transform our use of power."
+      "text": "I define myself in terms of you; I know myself only in terms of what is 'other.' If above, I enjoy the kick of self-pity; if below, I enjoy the kick of pride. I being I goes with you being you. 'If I am I because you are you, and if you are you because I am I, then I am not I, and you are not you.'",
+      "source": "The Book",
+      "themes": ["identity", "other", "interdependence", "relativity"],
+      "context": "COGNITIVE METHOD: The Hassidic koan. Self and other co-arise. Neither exists independently. If you need the other to be yourself, you're already the other."
     },
     {
       "id": "watts-020",
-      "text": "Life is like music for its own sake. We are living in an eternal now, and when we listen to music we are not listening to the past, we are not listening to the future, we are listening to an expanded present.",
-      "source": "The Tao of Philosophy",
-      "themes": ["music", "present", "time", "purpose"],
-      "context": "Music isn't about getting to the end. Life isn't about arriving somewhere. The point is the playing."
+      "text": "Instead of trying to get rid of the ego-sensation, take it, so long as it lasts, as a feature or play of the total process — like a cloud or wave, or like feeling warm or cold. Getting rid of one's ego is the last resort of invincible egoism! It simply confirms and strengthens the reality of the feeling.",
+      "source": "The Book",
+      "themes": ["ego", "acceptance", "paradox", "method"],
+      "context": "COGNITIVE METHOD: Include what resists. Don't fight the ego — that's ego fighting itself. Include it as another phenomenon. What's included dissolves; what's fought persists."
+    },
+    {
+      "id": "watts-021",
+      "text": "If you go to concerts to 'get culture' or to improve your mind, you will sit there as deaf as a doorpost.",
+      "source": "The Book",
+      "themes": ["attention", "purpose", "presence", "receptivity"],
+      "context": "COGNITIVE METHOD: Drop the ulterior motive. Reception requires presence, not purpose. When you listen to GET something, you hear nothing."
+    },
+    {
+      "id": "watts-022",
+      "text": "If, then, you ask me how to get beyond the ego-feeling, I shall ask you why you want to get there. If you give me the honest answer, which is that your ego will feel better in the 'higher spiritual status' of self-transcendence, you will thus realize that you — as ego — are a fake.",
+      "source": "The Book",
+      "themes": ["ego", "motivation", "honesty", "trap"],
+      "context": "COGNITIVE METHOD: Expose the hidden motive. Ask 'why do I want this?' until you hit the ego's game. Spiritual ambition is still ambition."
+    },
+    {
+      "id": "watts-023",
+      "text": "You will feel like an onion: skin after skin, subterfuge after subterfuge, is pulled off to find no kernel at the center. Which is the whole point: to find out that the ego is indeed a fake — a wall of defense around a wall of defense... around nothing.",
+      "source": "The Book",
+      "themes": ["ego", "emptiness", "discovery", "liberation"],
+      "context": "COGNITIVE METHOD: Peel to emptiness. Don't expect to find a 'true self' under the false selves. The peeling IS the finding. The emptiness IS the liberation."
+    },
+    {
+      "id": "watts-024",
+      "text": "The sense of paralysis is the dawning realization that this is nonsense and that your independent ego is a fiction. It simply isn't there, either to do anything or to be pushed around by external forces.",
+      "source": "The Book",
+      "themes": ["paralysis", "ego", "fiction", "realization"],
+      "context": "COGNITIVE METHOD: Embrace paralysis. When you can't move in ANY direction, you've discovered something important: there's no 'you' to move. This is not failure but insight."
+    },
+    {
+      "id": "watts-025",
+      "text": "When the line between myself and what happens to me is dissolved and there is no stronghold left for an ego even as a passive witness, I find myself not in a world but as a world which is neither compulsive nor capricious. What happens is neither automatic nor arbitrary: it just happens.",
+      "source": "The Book",
+      "themes": ["dissolution", "identity", "freedom", "flow"],
+      "context": "COGNITIVE METHOD: Dissolve the witness. Even 'watching' is a position. When the watcher dissolves, what remains is neither controlled nor out of control — just happening."
+    },
+    {
+      "id": "watts-026",
+      "text": "There is the feeling that you are not doing it yourself, but that it is somehow happening on its own, and you wonder whether you will lose it — as indeed you may if you try forcibly to hold on to it. In immediate contrast to the old feeling, there is indeed a certain passivity to the sensation, as if you were a leaf blown along by the wind, until you realize that you are both the leaf and the wind.",
+      "source": "The Book",
+      "themes": ["agency", "passivity", "unity", "flow"],
+      "context": "COGNITIVE METHOD: Be leaf AND wind. The sense that 'it's happening' rather than 'I'm doing it' is correct but incomplete. You're not just the done-to — you're also the doing."
+    },
+    {
+      "id": "watts-027",
+      "text": "Your body is no longer a corpse which the ego has to animate and lug around. There is a feeling of the ground holding you up, and of hills lifting you when you climb them. Air breathes itself in and out of your lungs, and instead of looking and listening, light and sound come to you on their own.",
+      "source": "The Book",
+      "themes": ["body", "receptivity", "reversal", "ease"],
+      "context": "COGNITIVE METHOD: Reverse agency. You don't TAKE a breath — air comes in. You don't LOOK at things — light arrives. Flip active to passive and feel the relief."
+    },
+    {
+      "id": "watts-028",
+      "text": "The political and personal morality of the West is utterly schizophrenic. It is a monstrous combination of uncompromising idealism and unscrupulous gangsterism, and thus devoid of the humor and humaneness which enables confessed rascals to sit down together and work out reasonable deals.",
+      "source": "The Book",
+      "themes": ["morality", "humor", "shadow", "negotiation"],
+      "context": "COGNITIVE METHOD: Confess rascality. Pretending purity prevents negotiation. Admit you're partly villain and you can finally deal with other villains."
+    },
+    {
+      "id": "watts-029",
+      "text": "No one can be moral — that is, no one can harmonize contained conflicts — without coming to a working arrangement between the angel in himself and the devil in himself, between his rose above and his manure below.",
+      "source": "The Book",
+      "themes": ["morality", "shadow", "integration", "balance"],
+      "context": "COGNITIVE METHOD: Negotiate with your devil. Morality isn't victory over the shadow — it's diplomacy with it. The angel needs the devil; the rose needs manure."
+    },
+    {
+      "id": "watts-030",
+      "text": "Does it really take any considerable time or effort just to understand that you depend on enemies and outsiders to define yourself, and that without some opposition you would be lost? To see this is to acquire, almost instantly, the virtue of humor.",
+      "source": "The Book",
+      "themes": ["enemies", "humor", "insight", "dependence"],
+      "context": "COGNITIVE METHOD: Thank your enemies. They define you. They give you meaning. The moment you see this, you laugh — and can finally deal with them sanely."
+    },
+    {
+      "id": "watts-031",
+      "text": "Humor is the twinkle in the eye of a just judge, who knows that he is also the felon in the dock. How could he be sitting there in stately judgment, being addressed as 'Your Honor,' without those poor bastards being dragged before him day after day?",
+      "source": "The Book",
+      "themes": ["humor", "judgment", "shadow", "humility"],
+      "context": "COGNITIVE METHOD: See yourself in who you judge. The judge needs the criminal. You need what you condemn. Real humor is self-recognition in the other."
+    },
+    {
+      "id": "watts-032",
+      "text": "Correlative vision is a thorough understanding of the Game of Black-and-White, whereby one sees that all explicit opposites are implicit allies — correlative in the sense that they 'gowith' each other and cannot exist apart. This, rather than any absorption of differences into ultimate goo, is the metaphysical unity underlying the world.",
+      "source": "The Book",
+      "themes": ["correlative vision", "opposites", "unity", "method"],
+      "context": "COGNITIVE METHOD: Correlative vision. Train yourself to see opponents as allies, contrasts as co-creators. Not 'everything is one blob' — but 'differences need each other.'"
+    },
+    {
+      "id": "watts-033",
+      "text": "It is not at first easy to maintain correlative vision. The Upanishads describe it as the path of the razor's edge, a balancing act on the sharpest and thinnest of lines. For to ordinary vision there is nothing visible 'between' classes and opposites.",
+      "source": "The Book",
+      "themes": ["correlative vision", "difficulty", "balance", "practice"],
+      "context": "COGNITIVE METHOD: Walk the razor's edge. Correlative vision is hard because ordinary perception has no category for 'the between.' You have to hold both poles without collapsing into either."
+    },
+    {
+      "id": "watts-034",
+      "text": "The goal of action is always contemplation — knowing and being rather than seeking and becoming.",
+      "source": "The Book",
+      "themes": ["action", "contemplation", "being", "becoming"],
+      "context": "COGNITIVE METHOD: Remember the end. All doing aims at rest. All seeking aims at finding. Don't get lost in the motion — remember what it's for."
+    },
+    {
+      "id": "watts-035",
+      "text": "As it is, we are merely bolting our lives — gulping down undigested experiences as fast as we can stuff them in — because awareness of our own existence is so superficial and so narrow that nothing seems to us more boring than simple being.",
+      "source": "The Book",
+      "themes": ["rushing", "presence", "boredom", "being"],
+      "context": "COGNITIVE METHOD: Stop bolting. The compulsion to consume experiences faster reveals how little we digest any of them. Slow down to actually taste."
+    },
+    {
+      "id": "watts-036",
+      "text": "How is it possible that a being with such sensitive jewels as the eyes, such enchanted musical instruments as the ears, and such a fabulous arabesque of nerves as the brain can experience itself as anything less than a god?",
+      "source": "The Book",
+      "themes": ["body", "wonder", "divinity", "appreciation"],
+      "context": "COGNITIVE METHOD: Marvel at the instrument. Before seeking transcendence, appreciate what you already are: an astonishing nervous system translating vibration into experience."
+    },
+    {
+      "id": "watts-037",
+      "text": "This, like other feedback systems, may lead to vicious circles and confusions if improperly managed, but self-awareness makes human experience resonant. It imparts that simultaneous 'echo' to all that we think and feel as the box of a violin reverberates with the sound of the strings. It gives depth and volume to what would otherwise be shallow and flat.",
+      "source": "The Book",
+      "themes": ["self-awareness", "resonance", "feedback", "depth"],
+      "context": "COGNITIVE METHOD: Use feedback for resonance. Self-awareness can trap (vicious circles) or amplify (resonance). The same mechanism that creates neurosis creates depth."
+    },
+    {
+      "id": "watts-038",
+      "text": "I have sometimes thought that all philosophical disputes could be reduced to an argument between the partisans of 'prickles' and the partisans of 'goo.' The prickly people are tough-minded and precise. The gooey people love grand syntheses. Either party would be hopelessly lost without the other.",
+      "source": "The Book",
+      "themes": ["prickles", "goo", "philosophy", "polarity"],
+      "context": "COGNITIVE METHOD: Know your temperament. Are you prickly (precision, distinctions) or gooey (synthesis, unity)? You need the other kind. Prickles without goo is skeleton; goo without prickles is slime."
+    },
+    {
+      "id": "watts-039",
+      "text": "To 'do philosophy,' as Wittgenstein put it, is to think about thinking in such a way that we can distinguish real thinking from nonsense.",
+      "source": "The Book",
+      "themes": ["philosophy", "thinking", "clarity", "method"],
+      "context": "COGNITIVE METHOD: Think about thinking. Meta-cognition isn't navel-gazing — it's hygiene. Inspect your thinking for hidden nonsense disguised as profundity."
+    },
+    {
+      "id": "watts-040",
+      "text": "When IT plays, it plays at being everything else.",
+      "source": "The Book",
+      "themes": ["play", "identity", "God", "disguise"],
+      "context": "COGNITIVE METHOD: God plays hide-and-seek. The ultimate doesn't show off — it hides in everything. To 'come on like IT' is to miss the point. The game is being everything else."
+    },
+    {
+      "id": "watts-041",
+      "text": "I return in every baby born. Actually, we know this already. After people die, babies are born — and, unless they are automata, every one of them is, just as we ourselves were, the 'I' experience coming again into being.",
+      "source": "The Book",
+      "themes": ["death", "rebirth", "identity", "continuity"],
+      "context": "COGNITIVE METHOD: The 'I' recurs. Death isn't the end of 'I' — just the forgetting required for 'I' to happen freshly again. Every infant is the same awareness, newly veiled."
+    },
+    {
+      "id": "watts-042",
+      "text": "The constant awareness of death shows the world to be as flowing and diaphanous as the filmy patterns of blue smoke in the air — that there really is nothing to clutch and no one to clutch it.",
+      "source": "The Book",
+      "themes": ["death", "impermanence", "letting go", "freedom"],
+      "context": "COGNITIVE METHOD: Contemplate death daily. Not for morbidity — but to see the world as it is: smoke, not stone. When you know nothing can be clutched, you can finally relax."
+    },
+    {
+      "id": "watts-043",
+      "text": "Anyone who brags about knowing this doesn't understand it, for he is only using the theory as a trick to maintain his illusion of separateness, a gimmick in a game of spiritual one-upmanship.",
+      "source": "The Book",
+      "themes": ["ego", "spirituality", "humility", "trap"],
+      "context": "COGNITIVE METHOD: Check for spiritual ego. If enlightenment makes you feel superior, you've misunderstood it completely. Understanding dissolves the one who would brag."
+    },
+    {
+      "id": "watts-044",
+      "text": "True humanity is knowledge of oneself. Other creatures may love and laugh, talk and think, but it seems to be the special peculiarity of human beings that they reflect: they think about thinking and know that they know.",
+      "source": "The Book",
+      "themes": ["humanity", "reflection", "self-knowledge", "recursion"],
+      "context": "COGNITIVE METHOD: Reflect on reflection. The human gift is recursive awareness — knowing that you know. Use it for depth, not just loops."
+    },
+    {
+      "id": "watts-045",
+      "text": "Nothing so eludes conscious inspection as consciousness itself. This is why the root of consciousness has been called, paradoxically, the unconscious.",
+      "source": "The Book",
+      "themes": ["consciousness", "unconscious", "paradox", "self-knowledge"],
+      "context": "COGNITIVE METHOD: Accept the blind spot. Consciousness cannot fully see itself — not as failure but as structure. The seer is necessarily invisible to itself."
     }
   ]
 }

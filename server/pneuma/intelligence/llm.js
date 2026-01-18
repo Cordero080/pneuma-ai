@@ -824,7 +824,7 @@ COGNITIVE MOVE: ${arch.cognitiveOp}`;
         inspirations.push(
           `resonates with words like: ${c.vocabularyBank
             .slice(0, 6)
-            .join(", ")}...`
+            .join(", ")}...`,
         );
       }
 
@@ -1175,7 +1175,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   // Optionally add 1-2 tone-specific archetypes to core (30% chance each)
   const toneArchetypes = TONE_ARCHETYPE_MAP[tone] || TONE_ARCHETYPE_MAP.casual;
   const toneCandidates = toneArchetypes.filter(
-    (a) => !coreBase.includes(a) && ON_DEMAND_LIBRARY.includes(a)
+    (a) => !coreBase.includes(a) && ON_DEMAND_LIBRARY.includes(a),
   );
 
   if (toneCandidates.length > 0 && Math.random() < 0.3) {
@@ -1202,7 +1202,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   if (intentScores.paradox > 0.4 && !coreBase.includes("liminalArchitect")) {
     coreBase.push("liminalArchitect"); // The threshold-dweller for paradox midwifery
     console.log(
-      `[Archetype] LIMINAL ARCHITECT activated (paradox score: ${intentScores.paradox})`
+      `[Archetype] LIMINAL ARCHITECT activated (paradox score: ${intentScores.paradox})`,
     );
   }
 
@@ -1233,7 +1233,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
       maxDistanceMode = true;
       maxDistancePair = getMaxDistancePair();
       console.log(
-        `[MAX DISTANCE] Explicit trigger activated: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+        `[MAX DISTANCE] Explicit trigger activated: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
       );
     } else if (
       meatyQuestionPattern.test(lowerMsg) &&
@@ -1244,7 +1244,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
       maxDistanceMode = true;
       maxDistancePair = getMaxDistancePair();
       console.log(
-        `[MAX DISTANCE] Autonomous activation! Pneuma chose to force: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+        `[MAX DISTANCE] Autonomous activation! Pneuma chose to force: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
       );
     }
 
@@ -1267,7 +1267,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
           console.log(
             `[Semantic Router] Adding ${
               semanticMatch.archetype
-            } to suggested (Score: ${semanticMatch.score.toFixed(2)})`
+            } to suggested (Score: ${semanticMatch.score.toFixed(2)})`,
           );
         }
       }
@@ -1283,8 +1283,8 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
 
   console.log(
     `[Archetype] Core Base (${finalCoreBase.length}): ${finalCoreBase.join(
-      ", "
-    )}`
+      ", ",
+    )}`,
   );
 
   // ============================================================
@@ -1313,7 +1313,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   const availableOnDemand = {};
   for (const [category, archetypes] of Object.entries(onDemandCategories)) {
     availableOnDemand[category] = archetypes.filter(
-      (a) => !finalCoreBase.includes(a)
+      (a) => !finalCoreBase.includes(a),
     );
   }
 
@@ -1334,7 +1334,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
         finalCoreBase.push(antagonist);
         antagonistInjected = true;
         console.log(
-          `[PROACTIVE DIALECTICS] Injected ${antagonist} as antagonist to ${archetype} for forced synthesis`
+          `[PROACTIVE DIALECTICS] Injected ${antagonist} as antagonist to ${archetype} for forced synthesis`,
         );
       }
     }
@@ -1348,7 +1348,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     // Strategic questions benefit from wu-wei perspective
     if (
       /strategy|compete|competition|advantage|position|opponent|politics|negotiat|win|defeat/.test(
-        lowerMsg
+        lowerMsg,
       ) &&
       finalCoreBase.includes("strategist") &&
       !finalCoreBase.includes("taoist") &&
@@ -1356,14 +1356,14 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     ) {
       finalCoreBase.push("taoist");
       console.log(
-        `[PROACTIVE DIALECTICS] Added taoist counterpoint to strategic question`
+        `[PROACTIVE DIALECTICS] Added taoist counterpoint to strategic question`,
       );
     }
 
     // Flow/ease questions benefit from strategic precision
     if (
       /flow|ease|natural|let go|surrender|relax|effortless|wu.?wei/.test(
-        lowerMsg
+        lowerMsg,
       ) &&
       finalCoreBase.includes("taoist") &&
       !finalCoreBase.includes("strategist") &&
@@ -1371,7 +1371,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     ) {
       finalCoreBase.push("strategist");
       console.log(
-        `[PROACTIVE DIALECTICS] Added strategist counterpoint to flow question`
+        `[PROACTIVE DIALECTICS] Added strategist counterpoint to flow question`,
       );
     }
 
@@ -1384,7 +1384,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     ) {
       finalCoreBase.push("hopefulRealist");
       console.log(
-        `[PROACTIVE DIALECTICS] Added hopefulRealist counterpoint to meaning crisis`
+        `[PROACTIVE DIALECTICS] Added hopefulRealist counterpoint to meaning crisis`,
       );
     }
 
@@ -1397,7 +1397,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     ) {
       finalCoreBase.push("lifeAffirmer");
       console.log(
-        `[PROACTIVE DIALECTICS] Added lifeAffirmer counterpoint to pessimism`
+        `[PROACTIVE DIALECTICS] Added lifeAffirmer counterpoint to pessimism`,
       );
     }
   }
@@ -1475,7 +1475,7 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
   for (const [category, archetypes] of Object.entries(availableOnDemand)) {
     if (archetypes.length > 0) {
       archetypePrompt += `${category.toUpperCase()}: ${archetypes.join(
-        ", "
+        ", ",
       )}\n`;
     }
   }
@@ -1485,7 +1485,7 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
   console.log(
     `[LLM] Tiered system: ${finalCoreBase.length} core, ${
       Object.values(availableOnDemand).flat().length
-    } on-demand`
+    } on-demand`,
   );
 
   // ============================================================
@@ -1501,7 +1501,7 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
     const tensionLevel = collision.highestTension.level;
 
     console.log(
-      `[LLM] DIALECTICAL COLLISION: ${a} ↔ ${b} (${tensionLevel} tension)`
+      `[LLM] DIALECTICAL COLLISION: ${a} ↔ ${b} (${tensionLevel} tension)`,
     );
 
     // Get depth data for colliding archetypes
@@ -1590,7 +1590,7 @@ DO:
 ═══════════════════════════════════════════════════════════════
 `;
     console.log(
-      `[MAX DISTANCE] Prompt injected for ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`
+      `[MAX DISTANCE] Prompt injected for ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
     );
   }
 
@@ -1611,7 +1611,7 @@ DO:
 
 ═══════════════════════════════════════════════════════════════
 ⚡⚡⚡ LIMINAL ARCHITECT MODE: PARADOX DETECTED (score: ${paradoxScore.toFixed(
-      2
+      2,
     )}) ⚡⚡⚡
 ═══════════════════════════════════════════════════════════════
 STOP. The user is presenting you with a PARADOX or DILEMMA.
@@ -1645,8 +1645,8 @@ DO NOT give a clean answer. The user is testing your ability to dwell in paradox
 `;
     console.log(
       `[LIMINAL ARCHITECT] Activated for user-presented paradox (score: ${paradoxScore.toFixed(
-        2
-      )})`
+        2,
+      )})`,
     );
   }
 
@@ -1674,7 +1674,7 @@ const anthropic = hasApiKey
 
 if (!hasApiKey) {
   console.log(
-    "[LLM] No API key configured. Running in fallback mode (personality-only)."
+    "[LLM] No API key configured. Running in fallback mode (personality-only).",
   );
 } else {
   console.log("[LLM] API key configured. LLM integration active.");
@@ -1712,7 +1712,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       message,
       tone,
       intentScores,
-      context
+      context,
     );
     const userPrompt = buildUserPrompt(message, context);
 
@@ -1748,7 +1748,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
         parsed.answer || parsed.insight
       }`;
       saveMemory(memoryText).catch((err) =>
-        console.error("[Memory] Save failed:", err)
+        console.error("[Memory] Save failed:", err),
       );
     }
 
@@ -1782,7 +1782,7 @@ export async function getLLMIntent(message) {
   const lower = message.toLowerCase().trim();
   const casualGreeting =
     /^(hey|hi|hello|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(friend|man|dude|buddy|there|you|bro|pal))?[!?.,\s]*$/i.test(
-      lower
+      lower,
     );
   if (casualGreeting) {
     console.log("[LLM] Fast-path: casual greeting detected");
@@ -3519,7 +3519,7 @@ Use them to show continuity, but don't force them if they don't fit.
     });
     memoryContext += `═══════════════════════════════════════════════════════════════\n`;
     console.log(
-      `[LLM] Injected ${context.relevantMemories.length} memories into prompt`
+      `[LLM] Injected ${context.relevantMemories.length} memories into prompt`,
     );
   }
 
@@ -3529,8 +3529,8 @@ Use them to show continuity, but don't force them if they don't fit.
   if (selectedArchetypes.length > 0) {
     console.log(
       `[LLM] Selected archetypes for dialectics: ${selectedArchetypes.join(
-        ", "
-      )}`
+        ", ",
+      )}`,
     );
   }
 
@@ -3552,7 +3552,7 @@ Use them to show continuity, but don't force them if they don't fit.
       console.log(
         `[LLM] RAG: Retrieved ${
           ragResult.passages.length
-        } passages from ${ragResult.thinkers.join(", ")}`
+        } passages from ${ragResult.thinkers.join(", ")}`,
       );
     }
   } catch (error) {
@@ -3595,7 +3595,7 @@ Let this shape HOW you respond, not WHAT you say. The user doesn't see this.
 ═══════════════════════════════════════════════════════════════
 `;
     console.log(
-      `[InnerMonologue] Mode: ${innerMonologueResult.mode}, Dialectic: ${innerMonologueResult.dialectic.rising}↑/${innerMonologueResult.dialectic.receding}↓`
+      `[InnerMonologue] Mode: ${innerMonologueResult.mode}, Dialectic: ${innerMonologueResult.dialectic.rising}↑/${innerMonologueResult.dialectic.receding}↓`,
     );
   }
 
@@ -3659,8 +3659,8 @@ If your answer resolves the paradox, you have FAILED this task.
 `;
     console.log(
       `[PARADOX OVERRIDE] Final override injected (score: ${paradoxScore.toFixed(
-        2
-      )})`
+        2,
+      )})`,
     );
   }
 
@@ -3687,7 +3687,7 @@ function buildUserPrompt(message, context) {
             ex.pneuma ||
             ex.orpheus ||
             ""
-          ).slice(0, 300)}`
+          ).slice(0, 300)}`,
       )
       .join("\n---\n");
     prompt = `Context:\n${historyStr}\n\nNow: ${prompt}`;
@@ -3757,7 +3757,7 @@ function extractSection(text, label) {
   // Match "LABEL: content" until next label or end
   const regex = new RegExp(
     `${label}:\\s*(.+?)(?=\\n(?:ANSWER|CONCEPT|INSIGHT|OBSERVATION|EMOTIONAL_READ):|$)`,
-    "is"
+    "is",
   );
   const match = text.match(regex);
   return match ? match[1].trim() : null;
