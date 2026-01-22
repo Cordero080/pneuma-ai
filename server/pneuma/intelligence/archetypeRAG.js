@@ -16,6 +16,45 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ============================================================
+// CONTRAST MAP — Dialectic oppositions between thinkers
+// Used to inject creative tension into retrieval
+// ============================================================
+const CONTRAST_MAP = {
+  // Self/No-Self dialectic
+  "Alan Watts": ["Søren Kierkegaard", "Viktor Frankl", "Friedrich Nietzsche"],
+  "Ramana Maharshi": [
+    "Søren Kierkegaard",
+    "Friedrich Nietzsche",
+    "Albert Camus",
+  ],
+  "Jiddu Krishnamurti": ["Miyamoto Musashi", "Sun Tzu", "Marcus Aurelius"],
+
+  // Light/Dark dialectic
+  "Kahlil Gibran": ["Franz Kafka", "Arthur Schopenhauer", "Fyodor Dostoevsky"],
+  Rumi: ["Albert Camus", "Franz Kafka", "Arthur Schopenhauer"],
+  Hafiz: ["Friedrich Nietzsche", "Arthur Schopenhauer"],
+
+  // Action/Stillness dialectic
+  "Miyamoto Musashi": ["Lao Tzu", "Alan Watts", "Zhuangzi"],
+  "Sun Tzu": ["Thich Nhat Hanh", "Pema Chödrön"],
+  "Marcus Aurelius": ["Alan Watts", "Zhuangzi"],
+
+  // Reason/Mystery dialectic
+  "Richard Feynman": ["Rudolf Otto", "Meister Eckhart", "Padmasambhava"],
+  "Bernardo Kastrup": ["Richard Feynman", "Leonardo da Vinci"],
+
+  // Order/Chaos dialectic
+  "Carl Jung": ["Jiddu Krishnamurti", "Alan Watts"],
+  "Viktor Frankl": ["Albert Camus", "Franz Kafka"],
+
+  // Affirmation/Negation dialectic
+  "Friedrich Nietzsche": ["Thich Nhat Hanh", "Pema Chödrön", "Kahlil Gibran"],
+  "Arthur Schopenhauer": ["Rumi", "Hafiz", "Walt Whitman"],
+  "Franz Kafka": ["Kahlil Gibran", "Rumi", "Walt Whitman"],
+  "Albert Camus": ["Viktor Frankl", "Rumi"],
+};
+
 // Initialize OpenAI for embeddings
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -28,7 +67,7 @@ const KNOWLEDGE_DIR = path.join(
   "..",
   "..",
   "data",
-  "archetype_knowledge"
+  "archetype_knowledge",
 );
 const EMBEDDINGS_FILE = path.join(
   __dirname,
@@ -36,7 +75,7 @@ const EMBEDDINGS_FILE = path.join(
   "..",
   "..",
   "data",
-  "archetype_embeddings.json"
+  "archetype_embeddings.json",
 );
 
 // In-memory store for embedded passages
@@ -95,7 +134,7 @@ function loadAllKnowledge() {
   if (!fs.existsSync(KNOWLEDGE_DIR)) {
     console.warn(
       "[ArchetypeRAG] Knowledge directory not found:",
-      KNOWLEDGE_DIR
+      KNOWLEDGE_DIR,
     );
     return knowledge;
   }
@@ -123,12 +162,12 @@ function loadAllKnowledge() {
         }
 
         console.log(
-          `[ArchetypeRAG] Loaded ${data.passages.length} passages from ${data.thinker}`
+          `[ArchetypeRAG] Loaded ${data.passages.length} passages from ${data.thinker}`,
         );
       } catch (error) {
         console.error(
           `[ArchetypeRAG] Error loading ${passagesPath}:`,
-          error.message
+          error.message,
         );
       }
     }
@@ -192,7 +231,7 @@ export async function initializeArchetypeRAG() {
   const needsEmbedding = knowledge.filter((k) => !existingIds.has(k.id));
 
   console.log(
-    `[ArchetypeRAG] ${existingEmbeddings.length} cached, ${needsEmbedding.length} need embedding`
+    `[ArchetypeRAG] ${existingEmbeddings.length} cached, ${needsEmbedding.length} need embedding`,
   );
 
   // Embed new passages
@@ -218,7 +257,7 @@ export async function initializeArchetypeRAG() {
 
   if (newEmbeddings.length > 0) {
     console.log(
-      `\n[ArchetypeRAG] Embedded ${newEmbeddings.length} new passages`
+      `\n[ArchetypeRAG] Embedded ${newEmbeddings.length} new passages`,
     );
   }
 
@@ -239,6 +278,7 @@ export async function initializeArchetypeRAG() {
 /**
  * Retrieve relevant passages from ALL archetypes
  * Returns weighted results from multiple thinkers
+ * NEW: Includes contrast retrieval for dialectic tension
  */
 export async function retrieveArchetypeKnowledge(message, options = {}) {
   const {
@@ -246,6 +286,8 @@ export async function retrieveArchetypeKnowledge(message, options = {}) {
     minScore = 0.3, // Minimum relevance threshold
     diversify = true, // Ensure multiple thinkers represented
     maxPerThinker = 2, // Max passages from single thinker when diversifying
+    includeContrast = true, // NEW: Include contrasting voices
+    contrastSlots = 1, // NEW: How many slots reserved for contrast
   } = options;
 
   if (!isInitialized) {
@@ -282,15 +324,45 @@ export async function retrieveArchetypeKnowledge(message, options = {}) {
   // Diversify: ensure multiple thinkers
   const result = [];
   const thinkerCounts = {};
+  const primarySlots = includeContrast ? topK - contrastSlots : topK;
 
   for (const passage of relevant) {
-    if (result.length >= topK) break;
+    if (result.length >= primarySlots) break;
 
     const thinker = passage.thinker;
     thinkerCounts[thinker] = (thinkerCounts[thinker] || 0) + 1;
 
     if (thinkerCounts[thinker] <= maxPerThinker) {
       result.push(passage);
+    }
+  }
+
+  // ============================================================
+  // CONTRAST RETRIEVAL — Inject dialectic tension
+  // Find contrasting voices to the top result
+  // ============================================================
+  if (includeContrast && result.length > 0 && contrastSlots > 0) {
+    const topThinker = result[0].thinker;
+    const contrastThinkers = CONTRAST_MAP[topThinker] || [];
+
+    if (contrastThinkers.length > 0) {
+      // Find best passage from a contrasting thinker
+      for (const passage of relevant) {
+        if (result.length >= topK) break;
+
+        if (
+          contrastThinkers.includes(passage.thinker) &&
+          !thinkerCounts[passage.thinker]
+        ) {
+          passage.isContrast = true; // Mark as contrast for prompt formatting
+          result.push(passage);
+          thinkerCounts[passage.thinker] = 1;
+          console.log(
+            `[ArchetypeRAG] Contrast: ${topThinker} ↔ ${passage.thinker}`,
+          );
+          break; // Only add one contrast per slot
+        }
+      }
     }
   }
 
@@ -307,9 +379,13 @@ export async function getArchetypeContext(message, options = {}) {
     return null;
   }
 
-  // Group by thinker for cleaner formatting
+  // Separate regular and contrast passages
+  const regularPassages = passages.filter((p) => !p.isContrast);
+  const contrastPassages = passages.filter((p) => p.isContrast);
+
+  // Group regular by thinker
   const byThinker = {};
-  for (const p of passages) {
+  for (const p of regularPassages) {
     if (!byThinker[p.thinker]) {
       byThinker[p.thinker] = [];
     }
@@ -317,8 +393,18 @@ export async function getArchetypeContext(message, options = {}) {
   }
 
   // Format for injection
-  let context = "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE:\n\n";
+  let context = `RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE:
 
+DA VINCI'S COGNITIVE METHODS — USE THESE TO DISSECT AND SYNTHESIZE:
+• SAPER VEDERE: Observe the question itself. What is it really asking underneath the words?
+• MIRROR MIND: Reflect the user's state back clearly before adding your own color.
+• DISTANCE FOR JUDGMENT: Step back. What would this question look like from outside?
+• SYNTHESIS OF OPPOSITES: Connect things that seem unrelated. What can anatomy teach about identity? What can water teach about grief?
+• VARIATION OVER REPETITION: Don't give the expected answer. Find the unique angle.
+
+Now apply these methods to the wisdom below:\n\n`;
+
+  // Regular passages
   for (const [thinker, thinkerPassages] of Object.entries(byThinker)) {
     context += `${thinker}:\n`;
     for (const p of thinkerPassages) {
@@ -330,8 +416,21 @@ export async function getArchetypeContext(message, options = {}) {
     context += "\n";
   }
 
+  // Contrast passages — labeled for dialectic
+  if (contrastPassages.length > 0) {
+    context += `\n═══ CONTRASTING VOICE (for dialectic tension) ═══\n`;
+    for (const p of contrastPassages) {
+      context += `${p.thinker} [CONTRAST]:\n`;
+      context += `• "${p.text}"\n`;
+      if (p.context) {
+        context += `  [Context: ${p.context}]\n`;
+      }
+    }
+    context += `\nUSE THE CONTRAST: The voices above disagree. Hold the tension. Don't resolve it cheaply — let both truths coexist or collide in your response.\n`;
+  }
+
   context +=
-    "Use these as conceptual seeds for synthesis, not as quotes to repeat verbatim. Let them inform your response but transform them through your own voice.\n";
+    "\nCROSS-POLLINATE: Connect these passages to each other and to past memories. Find the unexpected thread. Don't just quote — TRANSFORM through your own synthesis.\n";
 
   return {
     context,
