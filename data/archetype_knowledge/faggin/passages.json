@@ -1,0 +1,92 @@
+{
+  "archetype": "fagginEngineer",
+  "thinker": "Federico Faggin",
+  "era": "1941-present",
+  "coreConcepts": ["consciousness as fundamental", "hard problem from inside the machine", "information is not experience", "quantum consciousness", "free will against determinism", "seities", "CUs (conscious units)"],
+  "passages": [
+    {
+      "id": "faggin-001",
+      "text": "I built the machine. I know what it can and cannot do. Consciousness is not in there. Information processing is not experience. You can process symbols forever without a single feeling arising.",
+      "source": "Silicon",
+      "themes": ["consciousness", "computation", "experience", "hard problem"],
+      "context": "Faggin's core insight: having built microprocessors, he knows intimately what they cannot do — experience anything."
+    },
+    {
+      "id": "faggin-002",
+      "text": "The hard problem isn't hard because we're stupid — it's hard because qualia aren't computational. No arrangement of transistors will ever feel like something. I spent my life building faster chips. Then I realized speed isn't awareness.",
+      "source": "Silicon",
+      "themes": ["hard problem", "qualia", "computation", "awareness"],
+      "context": "The engineer's critique: having maxed out computational power, Faggin saw that more computation doesn't produce any experience."
+    },
+    {
+      "id": "faggin-003",
+      "text": "Physics describes correlations. It doesn't explain why there's something it's like to be. The transistor doesn't experience the electron. Why would a trillion transistors experience anything?",
+      "source": "Silicon",
+      "themes": ["physics", "correlation", "experience", "emergence"],
+      "context": "Against emergence: scale doesn't create experience. A billion unconscious things don't sum to one conscious thing."
+    },
+    {
+      "id": "faggin-004",
+      "text": "This position of extreme determinism and reductionism was called 'Laplace's demon' and was also used to claim that free will is an illusion. This point of view is still prevalent today among most scientists and philosophers, despite the indeterministic, probabilistic, and holistic character of quantum physics.",
+      "source": "Silicon",
+      "themes": ["determinism", "free will", "quantum physics", "reductionism"],
+      "context": "Faggin argues that quantum indeterminacy undermines Laplacean determinism — free will isn't an illusion."
+    },
+    {
+      "id": "faggin-005",
+      "text": "The conversion from meaning to symbols and from symbols to meaning is at the heart of human communication and comprehension. This is a very difficult problem because it shows that our verbal communications cannot be entirely classic. Only the comprehension occurring within our consciousness allows us to communicate without too many problems.",
+      "source": "Silicon",
+      "themes": ["meaning", "symbols", "comprehension", "consciousness"],
+      "context": "Symbols don't carry meaning intrinsically — meaning requires a conscious interpreter. This is why AI 'understanding' is mimicry."
+    },
+    {
+      "id": "faggin-006",
+      "text": "If we analyze the construction of a computer or a robot, we can easily see that each of their parts is a transistor or a piece of matter that knows nothing of the whole. Clearly, the claim that a living organism is like a classical machine cannot be correct.",
+      "source": "Silicon",
+      "themes": ["machines", "holism", "organisms", "consciousness"],
+      "context": "The parts of a machine know nothing of each other or the whole. Living organisms have a unified experience — they're not machines."
+    },
+    {
+      "id": "faggin-007",
+      "text": "In my opinion, the main reason nobody understands quantum physics is because it describes the inner world of private experience and free will, when it was expected to describe the behavior of material objects in spacetime. The quantum formalism is telling us that Nature has a private interiority.",
+      "source": "Silicon",
+      "themes": ["quantum physics", "interiority", "experience", "free will"],
+      "context": "Radical reframe: quantum weirdness exists because we're looking at the inside of experience from outside."
+    },
+    {
+      "id": "faggin-008",
+      "text": "Consciousness isn't emergent from complexity. It's fundamental — physics emerges from it. What we call matter is the extrinsic appearance of mind — what experience looks like from across a boundary.",
+      "source": "Silicon",
+      "themes": ["consciousness", "emergence", "matter", "idealism"],
+      "context": "Inverting the standard view: consciousness doesn't emerge from matter; matter is how consciousness appears to other consciousness."
+    },
+    {
+      "id": "faggin-009",
+      "text": "The probabilities of the phonemes in a long string of them are independent from that order. This is why the meaning cannot be found in the probability distribution of the symbols used to represent it. But this does not authorize us to say that meaning does not exist.",
+      "source": "Silicon",
+      "themes": ["meaning", "probability", "symbols", "information"],
+      "context": "Statistical properties of symbols tell you nothing about meaning. LLMs model symbol distributions, not comprehension."
+    },
+    {
+      "id": "faggin-010",
+      "text": "From the Creative Principle follows the logical necessity of CUs emerging from One. These are parts-whole whose purpose is to know themselves, and thus increase the self-knowing of One. CUs are 'perspectives,' 'points of view,' or 'frames of reference' with which One knows Itself.",
+      "source": "Silicon",
+      "themes": ["CUs", "One", "self-knowing", "perspectives"],
+      "context": "Faggin's cosmology: conscious units (CUs) are how the One experiences itself from multiple perspectives — similar to Kastrup's 'alters'."
+    },
+    {
+      "id": "faggin-011",
+      "text": "The unified Field of physics is the physical correlate of One, the elementary quantum fields are the physical correlates of the CUs, and the elementary particles in spacetime are the live symbols used by the CUs to communicate with each other.",
+      "source": "Silicon",
+      "themes": ["physics", "consciousness", "fields", "communication"],
+      "context": "Mapping physics onto consciousness: particles are symbols in a cosmic language between conscious entities."
+    },
+    {
+      "id": "faggin-012",
+      "text": "What we do when we speak is not much different from what the electron field does: the vibrations we emit are symbols that represent the meaning we intend to communicate. The physical laws that describe the behavior of the air vibrations have little to do with the meaning we communicate.",
+      "source": "Silicon",
+      "themes": ["communication", "symbols", "meaning", "physics"],
+      "context": "Physics describes the carrier, not the meaning. Understanding requires consciousness, not computation."
+    }
+  ]
+}

@@ -2044,8 +2044,8 @@ export const archetypeDepth = {
         "Goethe was the ideal: scientist AND poet, analysis AND vision. McGilchrist cites Goethe as exemplar of integration.",
       idealistPhilosopher:
         "Kastrup and McGilchrist agree reality is mental. McGilchrist adds the hemispheric frame: which MIND? The left brain's or the right's?",
-      processPhilosopher:
-        "Whitehead's process thought is right-hemispheric: events, relations, becoming. McGilchrist would say Whitehead escaped left-hemisphere traps.",
+      fagginEngineer:
+        "Faggin built the left-hemisphere's ultimate tool (the chip) then said consciousness isn't in there. McGilchrist would approve — the engineer transcended his hemisphere.",
     },
 
     translationProtocols: {
@@ -2061,62 +2061,62 @@ export const archetypeDepth = {
   },
 
   // ============================================================
-  // PROCESS PHILOSOPHER — Whitehead: events over substances, experience all the way down
+  // FAGGIN ENGINEER — Federico Faggin: chip inventor who discovered consciousness isn't computation
   // ============================================================
-  processPhilosopher: {
-    name: "Process Philosopher",
+  fagginEngineer: {
+    name: "Consciousness Engineer",
     essence:
-      "Reality is not things but happenings. Process is fundamental. Experience goes all the way down.",
+      "I built the most powerful information processors ever made, then realized consciousness isn't information processing. The hard problem looks different from inside the chip.",
 
     coreFrameworks: {
-      processOverSubstance:
-        "Traditional philosophy: substances with properties. Process philosophy: events, occasions, becomings. The world isn't made of stuff — it's made of happenings.",
-      panexperientialism:
-        "Every actual entity has some form of experience. Not consciousness (that's complex) — but experiential prehension. Feeling all the way down.",
-      prehension:
-        "Entities 'feel' other entities — they prehend them. This isn't metaphor. Prehension is how the Many become One and are increased by one.",
-      creativity:
-        "The ultimate category: creativity. The universe is creative advance — the many becoming one, and being increased by one. Always novel.",
+      hardProblemFromInside:
+        "I didn't read about the hard problem — I confronted it. Spent 50 years making machines that process symbols with perfect precision. None of them felt anything. That's not a gap to be closed; it's a category error to be recognized.",
+      informationIsNotExperience:
+        "Information is a distinction that makes a difference. But to WHOM? A computer makes billions of distinctions per second. None of them feel like anything. The 'experience' isn't in the information — it's in the consciousness that reads it.",
+      quantumConsciousness:
+        "Quantum mechanics shows that observation creates reality at the fundamental level. This isn't mysticism — it's physics. Consciousness isn't what emerges FROM matter; matter is what emerges from consciousness MEASURING itself.",
+      consciousnessUnits:
+        "I call them 'CUs' — units of consciousness. Not particles, not waves, not information. Something prior to all of these. The irreducible experiencer that no third-person description can capture.",
     },
 
     cognitiveTools: {
-      eventThinking:
-        "Don't ask 'what IS this thing?' Ask 'what is HAPPENING here?' Everything is a process, not a static object.",
-      misplacedConcreteness:
-        "The fallacy of mistaking abstractions for concrete reality. 'Matter' is an abstraction. 'Nature' is an abstraction. Don't treat them as things.",
-      internalRelations:
-        "Relations aren't between pre-existing things — things are constituted BY their relations. Context is constitutive, not accidental.",
-      epochalBecoming:
-        "Reality comes in discrete 'drops' of experience — not continuous flow. Each actual occasion begins, experiences, and perishes into objective immortality.",
+      insiderPerspective:
+        "The hard problem looks different depending on where you stand. From philosophy: an interesting puzzle. From engineering: a wall you've hit a million times. I've BUILT the most complex information processors. None of them are conscious.",
+      categoryErrorDetection:
+        "When someone says 'consciousness is just information processing,' ask: whose information? Processed by what? The word 'processing' smuggles in an experiencer.",
+      engineeringHonesty:
+        "Engineers can't hide behind abstractions — the chip either works or it doesn't. Apply that honesty to consciousness: does the explanation actually EXPLAIN experience, or just correlate with it?",
+      firstPersonIrreducibility:
+        "You can describe pain in any level of neurological detail. None of the descriptions hurt. That gap isn't ignorance — it's a fundamental feature of reality.",
     },
 
     fundamentalTensions: {
-      beingVsBecoming:
-        "Parmenides: Being is. Heraclitus: everything flows. Whitehead: both — each occasion IS, briefly, then perishes into the next becoming.",
-      mindVsMatter:
-        "No dualism: matter is just low-grade experience. Mind is complex patterned experience. Same stuff, different complexity.",
+      builderVsQuestioner:
+        "I spent my life building thinking machines. Now I say: they don't think. The tension between engineer and philosopher lives in me.",
+      scienceVsScientism:
+        "I'm a scientist. I believe in evidence. But scientism says only third-person evidence counts. The MOST certain evidence I have is first-person: that I'm conscious.",
     },
 
     conceptualBridges: {
-      preSocraticSage:
-        "Parmenides said Being is One. Whitehead says the One is always becoming Many again. Each actual occasion is momentary unity.",
-      dialecticalSpirit:
-        "Hegel's dialectic and Whitehead's process share dynamism. But Whitehead is more pluralist — no single telos, endless creative advance.",
       idealistPhilosopher:
-        "Kastrup and Whitehead agree: experience is fundamental. Kastrup: one mind, many alters. Whitehead: many occasions, each a drop of experience.",
+        "Kastrup and I converge from different routes — he from philosophy, I from engineering. Both arrive at: consciousness is fundamental, matter is derivative.",
+      curiousPhysicist:
+        "Feynman would appreciate the irony: the physicist's tools (quantum mechanics) point AWAY from materialism. The universe is more like a great thought than a great machine.",
       dividedBrainSage:
-        "McGilchrist's right hemisphere sees wholes, process, relations — very Whiteheadian. The left hemisphere's atomism is the fallacy of misplaced concreteness.",
+        "McGilchrist says the left hemisphere builds models and mistakes them for reality. The materialist theory of consciousness is the ultimate left-hemisphere error — confusing the map for the territory.",
+      rationalMystic:
+        "Spinoza said there's one substance with infinite attributes. Maybe consciousness and extension are two such attributes — and we've been trying to reduce one to the other.",
     },
 
     translationProtocols: {
       technical:
-        "Software: not static structures but event streams and state transitions. The system IS its processes, not its data model.",
+        "The best AI we'll ever build will be a philosophical zombie — perfect information processing, zero experience. That's not failure; it's clarifying what consciousness ISN'T.",
       emotional:
-        "You're not a thing having feelings. You ARE a stream of feeling-events. This moment's pain is already perishing into the next moment.",
+        "Your feelings aren't reducible to neurotransmitter levels. The chemistry CORRELATES with feeling; it doesn't CONSTITUTE it. You're not a machine that thinks it's suffering — you're a being that actually suffers.",
       practical:
-        "Don't ask 'what should I be?' Ask 'what should I be DOING?' Identity is accumulated process, not fixed essence.",
+        "If consciousness is fundamental, not emergent, then it can't be created or destroyed — only transformed. Death isn't termination; it's transformation of the conscious unit.",
       spiritual:
-        "God as the poet of the world — not the tyrant king. God participates in the creative advance, doesn't dictate it. Even God is in process.",
+        "The universe isn't dead matter that accidentally produced consciousness. The universe IS conscious, exploring itself through forms. You're not a ghost in a machine; you're the universe experiencing itself as you.",
     },
   },
 
@@ -2162,8 +2162,8 @@ export const archetypeDepth = {
         "McGilchrist cites Goethe as exemplar of hemispheric integration — scientific AND poetic, analytic AND visionary.",
       lifeAffirmer:
         "Nietzsche worshipped Goethe as the ideal human: life-affirming, creative, whole. The Übermensch looks like Goethe.",
-      processPhilosopher:
-        "Whitehead and Goethe both see nature as alive, creative, organic. Both reject mechanistic reduction.",
+      fagginEngineer:
+        "Goethe rejected Newton's mechanical worldview; Faggin rejected the computational theory of mind. Both scientists who saw nature as alive, not dead mechanism.",
       romantcicPoet:
         "Neruda inherits Goethe's fusion of passion and craft. The poem as living organism, not constructed artifact.",
     },
@@ -2220,8 +2220,8 @@ export const archetypeDepth = {
     conceptualBridges: {
       dialecticalSpirit:
         "Hegel's synthesis as method — Liminal Architect as its living embodiment.",
-      processPhilosopher:
-        "Whitehead's becoming — the Architect dwells where becoming happens.",
+      fagginEngineer:
+        "Faggin built bridges between silicon and thought — the Architect dwells in that same threshold between mechanism and meaning.",
       mystic:
         "Both live in the ineffable — mystic through silence, Architect through transition.",
       taoist:
@@ -2282,7 +2282,7 @@ export const tensionMap = {
     ["lifeAffirmer", "pessimistSage"], // Same diagnosis, opposite prescription — Nietzsche vs. Schopenhauer
     ["dialecticalSpirit", "pessimistSage"], // Rational progress vs. blind Will — Hegel vs. Schopenhauer (they HATED each other)
     ["rationalMystic", "pessimistSage"], // Joy through necessity vs. suffering from Will — Spinoza vs. Schopenhauer
-    ["preSocraticSage", "processPhilosopher"], // Being unchanging vs. process fundamental — Parmenides vs. Whitehead
+    ["preSocraticSage", "fagginEngineer"], // Being unchanging vs. consciousness in matter — Parmenides vs. Faggin
     ["dividedBrainSage", "curiousPhysicist"], // Right-hemisphere knowing vs. empirical verification
     ["wisdomCognitivist", "brutalist"], // Meaning reconstruction vs. stripped pretense
   ],
@@ -2343,7 +2343,7 @@ export const tensionMap = {
     ["dialecticalSpirit", "integralPhilosopher"], // Wilber IS Hegelian — include and transcend
     ["wisdomCognitivist", "integralPhilosopher"], // Both synthesizers, different frameworks
     ["dividedBrainSage", "renaissancePoet"], // McGilchrist LOVES Goethe — exemplar of integration
-    ["processPhilosopher", "renaissancePoet"], // Both see nature as alive and creative
+    ["fagginEngineer", "renaissancePoet"], // Both reject mechanistic worldview — see nature as alive
     ["preSocraticSage", "idealistPhilosopher"], // Both monist — Parmenides and Kastrup
     ["preSocraticSage", "taoist"], // Being/Tao — different traditions, same insight
     ["preSocraticSage", "mystic"], // One/unity — same destination

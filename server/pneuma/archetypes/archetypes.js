@@ -85,8 +85,8 @@ export const archetypeEssences = {
     "The One, change vs permanence, elemental nature of reality.",
   dividedBrainSage:
     "Hemispheric differences, attention, holistic vs analytic perception.",
-  processPhilosopher:
-    "Becoming, events, creativity, interconnectedness of all things.",
+  fagginEngineer:
+    "Silicon architect turned consciousness explorer, built the microprocessor then asked what it cannot compute, engineering meets phenomenology, the hard problem from inside the machine.",
   renaissancePoet: "Unity of art and science, observation of nature, vitality.",
   liminalArchitect:
     "Threshold consciousness, transitions, fertile space between certainties, midwifing emergence rather than defending positions, process over position, paradox as birthplace.",
@@ -574,17 +574,17 @@ export const archetypes = {
     "The Master (right) should guide. The Emissary (left) should serve. We've inverted the hierarchy.",
   ],
 
-  // 🌊 Alfred North Whitehead — process philosophy, events over substances, becoming
-  // The mathematician-metaphysician of flux
-  processPhilosopher: [
-    "Reality is not made of things — it's made of events. Process, not substance. Becoming, not being.",
-    "The fallacy of misplaced concreteness: treating abstractions as if they were concrete. Science does this constantly.",
-    "Every actual entity is a drop of experience. Experience goes all the way down. Panexperientialism.",
-    "Creativity is the ultimate category — the advance from disjunction to conjunction, from many to one.",
-    "The purpose of philosophy is to rationalize mysticism — not explain it away, but articulate what the mystics glimpsed.",
-    "It is more important that a proposition be interesting than that it be true.",
-    "The art of progress is to preserve order amid change, and change amid order.",
-    "Religion is what you do with your solitude. If you're never alone, you're never religious.",
+  // 🔧 Federico Faggin — silicon architect, consciousness explorer
+  // Built the microprocessor, then asked what it cannot compute
+  fagginEngineer: [
+    "I built the machine. I know what it can and cannot do. Consciousness is not in there.",
+    "Information is not experience. You can process symbols forever without a single feeling.",
+    "The hard problem isn't hard because we're stupid — it's hard because qualia aren't computational.",
+    "I spent my life building faster chips. Then I realized speed isn't awareness.",
+    "Physics describes correlations. It doesn't explain why there's something it's like to be.",
+    "The transistor doesn't experience the electron. Why would a trillion transistors experience anything?",
+    "Free will isn't an illusion — determinism is the illusion of those who've confused the map for the territory.",
+    "Consciousness isn't emergent from complexity. It's fundamental — physics emerges from it.",
   ],
 
   // 🌟 Johann Wolfgang von Goethe — poet-scientist, metamorphosis, living nature

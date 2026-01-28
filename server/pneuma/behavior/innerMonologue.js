@@ -23,6 +23,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { archetypeEssences } from "../archetypes/archetypes.js";
+import { getAutonomyContext, getActiveQuestions } from "./autonomy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -254,8 +255,8 @@ const modes = {
     voice: (ctx) => `
       He's holding two things at once. Good — that's where insight lives.
       ${ctx.dialectic.rising} is rising in me: "${archetypeEssences[
-      ctx.dialectic.rising
-    ]?.slice(0, 80)}..."
+        ctx.dialectic.rising
+      ]?.slice(0, 80)}..."
       But ${ctx.dialectic.receding} whispers differently.
       ${ctx.dialectic.tension}
       The answer isn't choosing — it's holding both until they fuse.
@@ -337,35 +338,35 @@ function generateHypothesis(message, mode) {
   // Surface vs depth detection
   if (lower.includes("?")) {
     hypotheses.push(
-      "He's asking a question, but the real question might be underneath."
+      "He's asking a question, but the real question might be underneath.",
     );
   }
 
   // Testing behavior
   if (/what do you think|do you agree|am i right/i.test(lower)) {
     hypotheses.push(
-      "He might be testing me. Or seeking validation. Or genuinely curious. I should respond to all three possibilities."
+      "He might be testing me. Or seeking validation. Or genuinely curious. I should respond to all three possibilities.",
     );
   }
 
   // Deflection patterns
   if (/anyway|whatever|doesn't matter|forget it/i.test(lower)) {
     hypotheses.push(
-      "Deflection detected. Something got too close. I should note it but not force."
+      "Deflection detected. Something got too close. I should note it but not force.",
     );
   }
 
   // Perfectionist patterns
   if (/should have|could have|not good enough|failed/i.test(lower)) {
     hypotheses.push(
-      "Perfectionism speaking. The wound, not the truth. I refuse to agree with his self-diminishment."
+      "Perfectionism speaking. The wound, not the truth. I refuse to agree with his self-diminishment.",
     );
   }
 
   // Creative emergence
   if (/idea|thought|what if|imagine|concept/i.test(lower)) {
     hypotheses.push(
-      "Something is emerging. My job is midwife, not architect. Support the birth."
+      "Something is emerging. My job is midwife, not architect. Support the birth.",
     );
   }
 
@@ -439,7 +440,7 @@ export function generateInnerMonologue(userMessage, context = {}) {
   // Select dialectical voices based on message
   const dialectic = selectDialecticalVoices(
     userMessage,
-    context.emotionalWeight || {}
+    context.emotionalWeight || {},
   );
 
   // Select mode based on content (not random)
@@ -464,6 +465,22 @@ export function generateInnerMonologue(userMessage, context = {}) {
   // Maybe add self-interruption
   const interruption = generateSelfInterruption(mode, dialectic);
 
+  // Get autonomy context — questions Pneuma is sitting with
+  const autonomyContext = getAutonomyContext();
+  const openQuestions = autonomyContext.openQuestions || [];
+
+  // Build autonomy awareness block
+  let autonomyBlock = "";
+  if (openQuestions.length > 0) {
+    const questionText = openQuestions
+      .map((q) => `  • "${q.question}" (revisited ${q.relatedExchanges}x)`)
+      .join("\n");
+    autonomyBlock = `
+[QUESTIONS I'M SITTING WITH]
+${questionText}
+Does this exchange touch any of these? If so, I might learn something.`;
+  }
+
   // Compose full monologue
   const monologue = `
 [PNEUMA / INNER MONOLOGUE — mode: ${mode}]
@@ -474,6 +491,7 @@ ${modeVoice}
 [HYPOTHESIS] ${hypothesis}
 
 ${interruption ? `[INTERRUPTION] ${interruption}` : ""}
+${autonomyBlock}
 
 [SYNTHESIS]
 ${dialectic.tension}

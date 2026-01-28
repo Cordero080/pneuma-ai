@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './Sidebar.css';
 import ApiReference from '../ArchitectureDiagram/ApiReference/ApiReference';
 import LearningCenter from '../ArchitectureDiagram/LearningCenter/LearningCenter';
@@ -8,6 +8,20 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
   const [selectedIds, setSelectedIds] = useState(new Set());
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const lastClickedIndex = useRef(null);
+  const sidebarRef = useRef(null);
+
+  // Reset scroll position on resize to prevent header overflow
+  useEffect(() => {
+    const handleResize = () => {
+      if (sidebarRef.current) {
+        sidebarRef.current.scrollTop = 0;
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Sort conversations by ID (contains timestamp), most recent first
     const sortedConversations = [...conversations].sort((a, b) => {
     // Extract timestamp from ID format: conv-TIMESTAMP-random
@@ -90,7 +104,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
         aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
       />
 
-      <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+      <div ref={sidebarRef} className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
         {!isCollapsed && (
           <>
             {/* Panel Header - Status Section */}

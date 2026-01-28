@@ -37,6 +37,8 @@ const SpeakerIcon = ({ playing }) => (
 );
 
 function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConversation }) {
+  // Fullscreen toggle state
+  const [isFullscreen, setIsFullscreen] = useState(false);
   /*
     messages: array that stores all chat messages
     setMessages: function to update the messages array
@@ -300,8 +302,8 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
   }
 
   return (
-    <div 
-      className="chat-wrapper"
+    <div
+      className={`chat-wrapper${isFullscreen ? ' fullscreen' : ''}`}
       style={{
         '--user-text-color': USER_COLORS[userColor].color,
         '--user-glow-color': USER_COLORS[userColor].glow,
@@ -309,35 +311,59 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
       }}
     >
       <div className="chat-container">
-        
+        {/* FULLSCREEN TOGGLE BUTTON */}
+        <button
+          className={`fullscreen-toggle${isFullscreen ? ' active' : ''}`}
+          onClick={() => setIsFullscreen(f => !f)}
+          title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen Chat'}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {isFullscreen ? (
+              <>
+                <polyline points="4 14 4 20 10 20" />
+                <polyline points="20 10 20 4 14 4" />
+                <line x1="14" y1="10" x2="20" y2="4" />
+                <line x1="4" y1="20" x2="10" y2="14" />
+              </>
+            ) : (
+              <>
+                <polyline points="15 3 21 3 21 9" />
+                <polyline points="9 21 3 21 3 15" />
+                <line x1="21" y1="3" x2="14" y2="10" />
+                <line x1="3" y1="21" x2="10" y2="14" />
+              </>
+            )}
+          </svg>
+        </button>
+
         {/* COLOR PICKER */}
         <div className="color-picker">
           <span className="color-label">YOUR COLOR</span>
           <div className="color-options">
-            <button 
+            <button
               className={`color-btn magenta ${userColor === 'magenta' ? 'active' : ''}`}
               onClick={() => setUserColor('magenta')}
               title="Magenta"
             />
-            <button 
+            <button
               className={`color-btn white ${userColor === 'white' ? 'active' : ''}`}
               onClick={() => setUserColor('white')}
               title="White"
             />
-            <button 
+            <button
               className={`color-btn blue ${userColor === 'blue' ? 'active' : ''}`}
               onClick={() => setUserColor('blue')}
               title="Electric Blue"
             />
           </div>
         </div>
-        
+
         {/* MESSAGE LIST */}
         <div className="messages-container">
           {messages.map((msg, index) => (
             <div key={index} className={`message-row ${msg.sender}`}>
               {/* Timestamp node - outside bubble, expands on hover */}
-              <span 
+              <span
                 className={`timestamp-node ${msg.sender}`}
                 style={msg.sender === 'user' ? {
                   '--user-text-color': USER_COLORS[msg.color || 'magenta'].color,
@@ -346,12 +372,12 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
               >
                 <span className="timestamp-dot"></span>
                 <span className="timestamp-text">
-                  {msg.timestamp ? new Date(msg.timestamp).toLocaleString('en-US', { 
+                  {msg.timestamp ? new Date(msg.timestamp).toLocaleString('en-US', {
                     month: 'short',
                     day: 'numeric',
-                    hour: 'numeric', 
+                    hour: 'numeric',
                     minute: '2-digit',
-                    hour12: true 
+                    hour12: true
                   }) : ''}
                 </span>
               </span>
@@ -371,7 +397,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
                 {msg.sender === "ai" && (
                   <div className="message-audio-controls">
                     <SoundWave isPlaying={playingMessageIndex === index} barCount={5} />
-                    <button 
+                    <button
                       className={`speaker-btn ${playingMessageIndex === index ? 'playing' : ''}`}
                       onClick={() => playMessage(msg.text, index)}
                       title={playingMessageIndex === index ? "Stop" : "Listen"}
@@ -402,7 +428,11 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
             }}
           />
           <button className="send-button" onClick={handleSend}>
-            Send
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="btn-scan"></span>
           </button>
         </div>
       </div>

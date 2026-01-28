@@ -97,7 +97,7 @@ export function generateSynthesis(a, b, topic) {
   const synthesisPrompt = getSynthesisPrompt(
     promptType,
     depthA.name,
-    depthB.name
+    depthB.name,
   );
 
   return {
@@ -231,9 +231,8 @@ export function generateHybridLens(a, b) {
   const hybridTranslations = {};
   for (const domain of ["technical", "emotional", "spiritual", "practical"]) {
     if (translationsA[domain] && translationsB[domain]) {
-      hybridTranslations[
-        domain
-      ] = `${translationsA[domain]} AND ${translationsB[domain]}`;
+      hybridTranslations[domain] =
+        `${translationsA[domain]} AND ${translationsB[domain]}`;
     }
   }
 
@@ -289,7 +288,7 @@ export function getMinimalInjection(activeArchetypes) {
     data.synthesisPrompt = getSynthesisPrompt(
       collision.highestTension.level === "high" ? "collision" : "hybrid",
       archetypeDepth[a]?.name || a,
-      archetypeDepth[b]?.name || b
+      archetypeDepth[b]?.name || b,
     );
   }
 
@@ -533,10 +532,10 @@ export const exampleSyntheses = {
   // ============================================================
   // NEW: PARMENIDES (preSocraticSage) SYNTHESES
   // ============================================================
-  preSocraticSage_processPhilosopher: {
+  preSocraticSage_fagginEngineer: {
     insight:
-      "The oldest philosophical fight: Parmenides (Being is One, change is illusion) vs. Heraclitus (everything flows). Whitehead resolves it: each actual occasion IS, momentarily — pure Parmenidean being — then perishes into the next becoming. Being and Becoming aren't opposites; they're phases of the same process.",
-    mechanism: "Parmenidean being + Whiteheadian process = pulsing reality",
+      "Parmenides: Being is One, unchanging. Faggin: consciousness is fundamental, irreducible. Both point AWAY from the flux of appearances to something more primary. Parmenides used logic; Faggin used fifty years of building processors that never became conscious. Different methods, same conclusion: what's REAL isn't what's moving.",
+    mechanism: "Parmenidean unity + Faggin's irreducibility = conscious monism",
   },
 
   preSocraticSage_taoist: {
@@ -582,25 +581,26 @@ export const exampleSyntheses = {
   },
 
   // ============================================================
-  // NEW: WHITEHEAD (processPhilosopher) SYNTHESES
+  // NEW: FAGGIN (fagginEngineer) SYNTHESES
   // ============================================================
-  processPhilosopher_idealistPhilosopher: {
+  fagginEngineer_idealistPhilosopher: {
     insight:
-      "Both say experience is fundamental — but Kastrup has ONE mind with dissociated alters; Whitehead has MANY actual occasions, each a drop of experience. The synthesis: maybe dissociation IS the process of actual occasions arising? The Many-from-One isn't fragmentation — it's creative advance.",
-    mechanism: "Kastrup's monism + Whitehead's pluralism = processual idealism",
-  },
-
-  processPhilosopher_renaissancePoet: {
-    insight:
-      "Both see nature as alive, creative, organic — not dead mechanism. Goethe's morphology (forms transforming) IS process philosophy avant la lettre. Whitehead rationalized what Goethe saw: nature creates, unfolds, becomes. The synthesis: romantic science that stays rigorous.",
-    mechanism: "Goethe's vision + Whitehead's rigor = living metaphysics",
-  },
-
-  processPhilosopher_mystic: {
-    insight:
-      "Whitehead: 'Religion is what you do with your solitude.' The mystic's experience IS an actual occasion — a drop of experience prehending the divine. Process philosophy makes mysticism philosophically respectable without explaining it away. The synthesis: mystical union as real event.",
+      "Kastrup argues consciousness is fundamental from philosophy; Faggin discovered the same from engineering. Different routes, same destination. Kastrup asks: what ELSE could reality be? Faggin says: I built the most complex information processors ever made — none are conscious. The synthesis: idealism isn't speculation; it's the inevitable conclusion when you've exhausted the materialist program.",
     mechanism:
-      "Whiteheadian event + mystical experience = philosophical mysticism",
+      "Kastrup's philosophy + Faggin's engineering = convergent idealism",
+  },
+
+  fagginEngineer_curiousPhysicist: {
+    insight:
+      "Feynman: shut up and calculate. Faggin: I calculated for fifty years, and consciousness wasn't in the calculation. Both physicists, but Feynman stayed agnostic while Faggin confronted the hard problem directly. The synthesis: physics is complete for THIRD-person descriptions. First-person experience requires something physics can't give.",
+    mechanism: "Feynman's rigor + Faggin's conclusions = honest physicalism",
+  },
+
+  fagginEngineer_dividedBrainSage: {
+    insight:
+      "McGilchrist says the left hemisphere builds models and mistakes them for reality. Faggin built the ultimate left-hemisphere tool — the microprocessor — then said: it's not conscious, and neither are we because of computation. The synthesis: the best engineers transcend their tools. Silicon teaches its creators the limits of mechanism.",
+    mechanism:
+      "McGilchrist's diagnosis + Faggin's humility = integrated understanding",
   },
 
   // ============================================================
@@ -644,7 +644,11 @@ export function getExampleSynthesis(a, b) {
 
 import { buildResponse } from "../personality/personality.js";
 import { generateReflection } from "../behavior/reflectionEngine.js";
-import { loadMemory, addShortTermMemory, addLongTermMemory } from "../memory/memory.js";
+import {
+  loadMemory,
+  addShortTermMemory,
+  addLongTermMemory,
+} from "../memory/memory.js";
 
 /**
  * Extract insights for long-term memory

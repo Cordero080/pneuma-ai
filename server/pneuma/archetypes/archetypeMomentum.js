@@ -59,7 +59,7 @@ const DEFAULT_MOMENTUM = {
     wisdomCognitivist: 0.5,
     preSocraticSage: 0.5,
     dividedBrainSage: 0.5,
-    processPhilosopher: 0.5,
+    fagginEngineer: 0.5,
     renaissancePoet: 0.5,
   },
 
@@ -130,7 +130,7 @@ export function boostActiveArchetypes(activeArchetypes, userEngagement = 0.5) {
       // Boost the active archetype
       state.archetypes[archetype] = Math.min(
         1.0,
-        state.archetypes[archetype] + boostAmount
+        state.archetypes[archetype] + boostAmount,
       );
 
       // Track activation
@@ -164,7 +164,7 @@ export function decayInactiveArchetypes() {
   const recentlyActive = new Set(
     state.recentActivations
       .filter((a) => now - a.timestamp < decayThreshold)
-      .map((a) => a.archetype)
+      .map((a) => a.archetype),
   );
 
   // Decay those not recently active
