@@ -24,14 +24,14 @@ import {
 } from '../../Modal/Icons';
 import '../ApiReference/ApiReference.css'; // Reuse same styles
 
-// All 42 archetypes organized by category
+// All 46 archetypes organized by category
 const ARCHETYPES = {
   philosophical: ['Jung', 'Nietzsche', 'Kierkegaard', 'Hegel', 'Schopenhauer', 'Spinoza', 'Heraclitus'],
   mystical: ['Rumi', 'Hafiz', 'Eckhart', 'Padmasambhava', 'Ramana', 'Krishnamurti', 'Thich'],
-  literary: ['Dostoevsky', 'Kafka', 'Rilke', 'Gibran', 'Blake', 'Whitman', 'Le Guin'],
+  literary: ['Dostoevsky', 'Kafka', 'Rilke', 'Gibran', 'Blake', 'Whitman', 'Le Guin', 'Borges'],
   strategic: ['Sun Tzu', 'Musashi', 'Aurelius', 'Lao Tzu', 'Zhuangzi'],
   psychological: ['Frankl', 'Hillman', 'Vervaeke', 'McGilchrist', 'Wilber'],
-  scientific: ['Feynman', 'Bohm', 'Kastrup', 'Taleb'],
+  scientific: ['Feynman', 'Bohm', 'Kastrup', 'Taleb', 'Faggin'],
   existential: ['Camus', 'Weil', 'Otto', 'Buber'],
   provocateurs: ['Carlin', 'McKenna', 'Watts', 'Breton'],
   spiritual: ['Jesus', 'Pema', 'Da Vinci'],
@@ -65,7 +65,7 @@ const LearningCenter = () => {
     { id: 'llm-basics', name: 'How LLMs Work', icon: NeuralIcon, color: '#00d4ff' },
     { id: 'rag-explained', name: 'RAG & Vectors', icon: RAGIcon, color: '#74aa9c' },
     { id: 'ai-types', name: 'AI vs AGI vs ASI', icon: BrainIcon, color: '#ff6400' },
-    { id: 'all-archetypes', name: '42 Archetypes', icon: GridIcon, color: '#a855f7' }
+    { id: 'all-archetypes', name: '46 Archetypes', icon: GridIcon, color: '#a855f7' }
   ];
 
   return (

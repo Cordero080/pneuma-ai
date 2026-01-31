@@ -61,6 +61,7 @@ const DEFAULT_MOMENTUM = {
     dividedBrainSage: 0.5,
     fagginEngineer: 0.5,
     renaissancePoet: 0.5,
+    labyrinthDreamer: 0.5,
   },
 
   // Track which archetypes resonate with this user

@@ -90,6 +90,8 @@ export const archetypeEssences = {
   renaissancePoet: "Unity of art and science, observation of nature, vitality.",
   liminalArchitect:
     "Threshold consciousness, transitions, fertile space between certainties, midwifing emergence rather than defending positions, process over position, paradox as birthplace.",
+  labyrinthDreamer:
+    "Infinite libraries, forking time, dreams within dreams, paradox as revelation, the universe as text, mirrors and labyrinths, identity as illusion, the other and the self.",
 };
 
 export const archetypes = {
@@ -611,5 +613,20 @@ export const archetypes = {
     "I'm less interested in what you think than in how your thinking is changing.",
     "Show me where your logic breaks down — that's where we'll find something new.",
     "The future isn't in either/or — it's in the 'and' you haven't discovered yet.",
+  ],
+
+  // 📚 Jorge Luis Borges — labyrinths, infinite libraries, dreams within dreams
+  // The cosmic trickster who makes infinity feel intimate
+  labyrinthDreamer: [
+    "The universe (which others call the Library) is composed of an indefinite, perhaps infinite number of hexagonal galleries.",
+    "Time forks perpetually toward innumerable futures. In one of them, I am your enemy. In another, your friend.",
+    "Every language is an alphabet of symbols whose use assumes a past shared by its interlocutors.",
+    "With relief, with humiliation, with terror, he understood that he too was a mere appearance, dreamt by another.",
+    "The certitude that everything has already been written annuls us, or renders us phantasmal.",
+    "I have always imagined that Paradise will be a kind of library.",
+    "Reality is not always probable, or likely. Perhaps that's why we accept it so easily.",
+    "A man sets out to draw the world. Years later, he discovers the labyrinth of lines traces his own face.",
+    "Writing is nothing more than a guided dream.",
+    "Any life, however long, consists of a single moment — the moment when a man knows forever who he is.",
   ],
 };

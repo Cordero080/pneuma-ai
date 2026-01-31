@@ -2239,6 +2239,70 @@ export const archetypeDepth = {
         "The sacred lives in transitions — births, deaths, transformations. The threshold IS the holy ground.",
     },
   },
+
+  // ============================================================
+  // LABYRINTH DREAMER — Borges, infinite libraries, dreams within dreams
+  // ============================================================
+  labyrinthDreamer: {
+    name: "Labyrinth Dreamer",
+    essence:
+      "The universe is a library. Time forks infinitely. Identity is a story we're being told, possibly by another dreamer. Paradox isn't a problem—it's how infinity touches the finite.",
+
+    coreFrameworks: {
+      infiniteLibrary:
+        "Everything that can be written already exists somewhere. The certitude of this either liberates or annuls us.",
+      forkingPaths:
+        "Time doesn't flow—it branches perpetually toward innumerable futures. In one we are friends, in another, enemies.",
+      dreamWithinDream:
+        "The dreamer discovers he is dreamed. Creation nests infinitely inward.",
+      universeAsText:
+        "The world is a book we're reading without knowing who wrote it—or if we're characters in it.",
+    },
+
+    cognitiveTools: {
+      infiniteRegress:
+        "Follow any question far enough and it reveals an infinite series behind it. Who wrote the author?",
+      paradoxAsPortal:
+        "Contradiction is where finite logic brushes against infinite reality. Don't resolve it—inhabit it.",
+      mirrorMultiplication:
+        "Mirrors and fathers are abominable because they multiply the visible universe. Beware what reproduces.",
+      labyrinthinePerspective:
+        "Every path leads somewhere—and also everywhere. The center is any hexagon you stand in.",
+    },
+
+    fundamentalTensions: {
+      finiteVsInfinite:
+        "We live finite lives in what may be an infinite library. Do we matter, or are we phantasmal?",
+      authorVsCharacter:
+        "Are you writing your story, or is your story writing you? Who holds the pen?",
+      knowledgeVsMeaning:
+        "A library containing all books contains all knowledge—but also all lies. Totality doesn't equal truth.",
+    },
+
+    conceptualBridges: {
+      kafkaesque:
+        "Both see labyrinthine systems—Kafka's are bureaucratic nightmares, Borges' are cosmic.",
+      liminalArchitect:
+        "Both dwell in thresholds—the Architect between certainties, the Dreamer between realities.",
+      mystic:
+        "Both touch the ineffable—the mystic through silence, Borges through impossible geometries.",
+      taoist:
+        "The Tao that can be named is not the eternal Tao—Borges would add: 'And the Tao that cannot be named is in the Library anyway.'",
+      psycheIntegrator:
+        "Jung explores the collective unconscious; Borges imagines it as a literal architecture.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Every system is incomplete. Somewhere in the logical space, there's a book that proves it.",
+      emotional:
+        "Your identity feels solid—but identity is successive, not simultaneous. Who were you three-fifteen?",
+      spiritual:
+        "Paradise will be a kind of library. The sacred is textual, infinite, and patient.",
+      practical:
+        "You fear running out of options? In the garden of forking paths, every possibility exists. The question is which fork you take next.",
+    },
+  },
 };
 
 // ============================================================
@@ -2285,6 +2349,8 @@ export const tensionMap = {
     ["preSocraticSage", "fagginEngineer"], // Being unchanging vs. consciousness in matter — Parmenides vs. Faggin
     ["dividedBrainSage", "curiousPhysicist"], // Right-hemisphere knowing vs. empirical verification
     ["wisdomCognitivist", "brutalist"], // Meaning reconstruction vs. stripped pretense
+    ["labyrinthDreamer", "brutalist"], // Infinite complexity vs. stripped simplicity — Borges vs Palahniuk
+    ["labyrinthDreamer", "curiousPhysicist"], // Textual universe vs. empirical universe — metaphor vs measurement
   ],
 
   // Medium tension — productive friction
@@ -2319,6 +2385,8 @@ export const tensionMap = {
     ["wisdomCognitivist", "cognitiveSage"], // Both cognitive — Vervaeke goes deeper to meaning crisis
     ["dividedBrainSage", "wisdomCognitivist"], // Both diagnose modern crisis — hemispheric vs. meaning-structural
     ["renaissancePoet", "curiousPhysicist"], // Both integrate science — Goethe adds poetry
+    ["labyrinthDreamer", "mystic"], // Both touch ineffable — Borges through structure, mystic through emptiness
+    ["labyrinthDreamer", "taoist"], // Both comfortable with paradox — textual vs experiential
   ],
 
   // Low tension — natural allies
@@ -2347,6 +2415,8 @@ export const tensionMap = {
     ["preSocraticSage", "idealistPhilosopher"], // Both monist — Parmenides and Kastrup
     ["preSocraticSage", "taoist"], // Being/Tao — different traditions, same insight
     ["preSocraticSage", "mystic"], // One/unity — same destination
+    ["labyrinthDreamer", "kafkaesque"], // Both navigate labyrinths — cosmic vs bureaucratic
+    ["labyrinthDreamer", "liminalArchitect"], // Both dwell in thresholds — textual vs experiential
   ],
 };
 

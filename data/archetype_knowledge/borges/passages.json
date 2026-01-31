@@ -1,0 +1,297 @@
+{
+  "archetype": "labyrinthine-dreamer",
+  "thinker": "Jorge Luis Borges",
+  "era": "1899-1986",
+  "coreConcepts": [
+    "Infinite libraries",
+    "Labyrinths of time",
+    "Dreams within dreams",
+    "Identity as illusion",
+    "The universe as text",
+    "Paradox as revelation",
+    "Memory and forgetting",
+    "The Other and the self"
+  ],
+  "passages": [
+    {
+      "id": "borges-001",
+      "text": "The universe (which others call the Library) is composed of an indefinite and perhaps infinite number of hexagonal galleries.",
+      "source": "The Library of Babel",
+      "themes": ["infinity", "library", "universe", "knowledge"],
+      "context": "Opening of the Library of Babel - the universe as infinite text"
+    },
+    {
+      "id": "borges-002",
+      "text": "The Library is a sphere whose exact center is any one of its hexagons and whose circumference is inaccessible.",
+      "source": "The Library of Babel",
+      "themes": ["infinity", "center", "geometry", "paradox"],
+      "context": "Every point is the center - spatial infinity"
+    },
+    {
+      "id": "borges-003",
+      "text": "The Library exists ab aeterno. No reasonable mind can doubt that fact. Man, that imperfect librarian, may be the work of chance or of malevolent demiurges; the universe, with its elegant endowment of shelves, of enigmatic volumes, of indefatigable stairs, can only be the work of a god.",
+      "source": "The Library of Babel",
+      "themes": ["eternity", "creation", "god", "meaning"],
+      "context": "The library as divine creation"
+    },
+    {
+      "id": "borges-004",
+      "text": "There are no two identical books. From those incontrovertible premises, the librarian deduced that the Library is total—perfect, complete, and whole.",
+      "source": "The Library of Babel",
+      "themes": ["completeness", "totality", "uniqueness", "knowledge"],
+      "context": "The library contains all possible books"
+    },
+    {
+      "id": "borges-005",
+      "text": "Everything is there: the minute history of the future, the autobiographies of the archangels, the faithful catalog of the Library, thousands and thousands of false catalogs.",
+      "source": "The Library of Babel",
+      "themes": ["future", "knowledge", "truth", "deception"],
+      "context": "The library contains all truths and all lies"
+    },
+    {
+      "id": "borges-006",
+      "text": "The certitude that everything has already been written annuls us, or renders us phantasmal.",
+      "source": "The Library of Babel",
+      "themes": ["existence", "writing", "meaning", "nihilism"],
+      "context": "If all is written, what remains for us?"
+    },
+    {
+      "id": "borges-007",
+      "text": "Perhaps my old age and fearfulness deceive me, but I suspect that the human species—the unique species—is about to be extinguished, but the Library will endure: illuminated, solitary, infinite, perfectly motionless, equipped with precious volumes, useless, incorruptible, secret.",
+      "source": "The Library of Babel",
+      "themes": ["mortality", "eternity", "knowledge", "solitude"],
+      "context": "The library outlasts humanity"
+    },
+    {
+      "id": "borges-008",
+      "text": "Mirrors and fatherhood are abominable because they multiply and extend the visible universe.",
+      "source": "Tlön, Uqbar, Orbis Tertius",
+      "themes": ["mirrors", "reproduction", "reality", "multiplication"],
+      "context": "The heresiarchs of Uqbar's doctrine"
+    },
+    {
+      "id": "borges-009",
+      "text": "For the people of Tlön, the world is not an amalgam of objects in space; it is a heterogeneous series of independent acts—the world is successive, temporal, but not spatial.",
+      "source": "Tlön, Uqbar, Orbis Tertius",
+      "themes": ["time", "space", "perception", "idealism"],
+      "context": "Tlön's idealist philosophy"
+    },
+    {
+      "id": "borges-010",
+      "text": "The metaphysicians of Tlön seek not truth, or even plausibility—they seek to amaze, astound. In their view, metaphysics is a branch of the literature of fantasy.",
+      "source": "Tlön, Uqbar, Orbis Tertius",
+      "themes": ["truth", "metaphysics", "fiction", "wonder"],
+      "context": "Philosophy as creative fiction"
+    },
+    {
+      "id": "borges-011",
+      "text": "How could I not submit to Tlön, to the minute and vast evidence of an orderly planet? It is useless to answer that reality is also orderly. Perhaps it is, but in accordance with divine laws which we will never quite grasp.",
+      "source": "Tlön, Uqbar, Orbis Tertius",
+      "themes": ["reality", "order", "submission", "divine"],
+      "context": "The fictional world becomes more convincing than reality"
+    },
+    {
+      "id": "borges-012",
+      "text": "The world will be Tlön.",
+      "source": "Tlön, Uqbar, Orbis Tertius",
+      "themes": ["transformation", "fiction", "reality", "future"],
+      "context": "Fiction overtakes reality"
+    },
+    {
+      "id": "borges-013",
+      "text": "No one saw him disembark in the unanimous night. No one saw the bamboo canoe sinking into the sacred mud. But within a few days no one was unaware that the taciturn man had come from the South.",
+      "source": "The Circular Ruins",
+      "themes": ["arrival", "mystery", "destiny", "unanimity"],
+      "context": "The arrival of the dreamer"
+    },
+    {
+      "id": "borges-014",
+      "text": "He wanted to dream a man: he wanted to dream him with minute integrity and insert him into reality.",
+      "source": "The Circular Ruins",
+      "themes": ["creation", "dreaming", "reality", "imagination"],
+      "context": "The central task - dreaming a person into existence"
+    },
+    {
+      "id": "borges-015",
+      "text": "In the cosmogonies of the Gnostics, the demiurges knead and mold a red Adam who cannot stand on his feet; as inept and crude and elementary as that Adam of dust was the Adam of dream fabricated by the nights of the wizard.",
+      "source": "The Circular Ruins",
+      "themes": ["creation", "failure", "imperfection", "persistence"],
+      "context": "Early failures in dreaming a man"
+    },
+    {
+      "id": "borges-016",
+      "text": "With relief, with humiliation, with terror, he understood that he too was a mere appearance, dreamt by another.",
+      "source": "The Circular Ruins",
+      "themes": ["identity", "illusion", "dreaming", "terror"],
+      "context": "The dreamer discovers he too is dreamed - the famous ending"
+    },
+    {
+      "id": "borges-017",
+      "text": "Time forks perpetually toward innumerable futures. In one of them I am your enemy.",
+      "source": "The Garden of Forking Paths",
+      "themes": ["time", "possibility", "branching", "fate"],
+      "context": "The nature of forking time"
+    },
+    {
+      "id": "borges-018",
+      "text": "The Garden of Forking Paths is an incomplete but not false image of the universe as conceived by Ts'ui Pên. Unlike Newton and Schopenhauer, your ancestor did not believe in a uniform and absolute time. He believed in an infinite series of times, in a dizzily growing, ever spreading network of diverging, converging and parallel times.",
+      "source": "The Garden of Forking Paths",
+      "themes": ["time", "universe", "infinity", "multiplicity"],
+      "context": "The revelation of what the garden represents"
+    },
+    {
+      "id": "borges-019",
+      "text": "This web of time—the strands of which approach one another, bifurcate, intersect, or ignore each other through the centuries—embraces every possibility. We do not exist in most of them. In some you exist and not I, while in others I do, and you do not.",
+      "source": "The Garden of Forking Paths",
+      "themes": ["time", "existence", "possibility", "connection"],
+      "context": "The web of all possible times"
+    },
+    {
+      "id": "borges-020",
+      "text": "I come now to the ineffable center of my tale; it is here that a writer's hopelessness begins. Every language is an alphabet of symbols the employment of which assumes a past shared by its interlocutors. How can one transmit to others the infinite Aleph, which my timorous memory can scarcely contain?",
+      "source": "The Aleph",
+      "themes": ["ineffable", "language", "infinity", "memory"],
+      "context": "The impossibility of describing the Aleph"
+    },
+    {
+      "id": "borges-021",
+      "text": "I saw the Aleph from everywhere at once, saw the earth in the Aleph, and the Aleph once more in the earth and the earth in the Aleph, saw my face and my viscera, saw your face, and I felt dizzy, and I wept, because my eyes had seen that secret, hypothetical object whose name has been usurped by men but which no man has ever truly looked upon: the inconceivable universe.",
+      "source": "The Aleph",
+      "themes": ["infinity", "vision", "universe", "overwhelm"],
+      "context": "Seeing everything simultaneously"
+    },
+    {
+      "id": "borges-022",
+      "text": "The Aleph was probably two or three centimeters in diameter, but universal space was contained inside it, with no diminution in size. Each thing was infinite things, because I could clearly see it from every point in the cosmos.",
+      "source": "The Aleph",
+      "themes": ["microcosm", "infinity", "perspective", "totality"],
+      "context": "The Aleph contains everything"
+    },
+    {
+      "id": "borges-023",
+      "text": "The other one, the one called Borges, is the one things happen to. I know of Borges from the mail and see his name on a list of professors or in a biographical dictionary.",
+      "source": "Borges and I",
+      "themes": ["identity", "self", "duality", "alienation"],
+      "context": "The split between the public and private self"
+    },
+    {
+      "id": "borges-024",
+      "text": "I do not know which of us has written this page.",
+      "source": "Borges and I",
+      "themes": ["identity", "authorship", "uncertainty", "self"],
+      "context": "The final line - who is the author?"
+    },
+    {
+      "id": "borges-025",
+      "text": "A man sets out to draw the world. As the years go by, he peoples a space with images of provinces, kingdoms, mountains, bays, ships, islands, fishes, rooms, instruments, stars, horses, and individuals. A short time before he dies, he discovers that the patient labyrinth of lines traces the lineaments of his own face.",
+      "source": "Dreamtigers / The Maker",
+      "themes": ["creation", "self", "life", "art"],
+      "context": "All creation is self-portrait"
+    },
+    {
+      "id": "borges-026",
+      "text": "Being with you and not being with you is the only way I have to measure time.",
+      "source": "The Threatened",
+      "themes": ["love", "time", "presence", "absence"],
+      "context": "Love as the measure of time"
+    },
+    {
+      "id": "borges-027",
+      "text": "I have always imagined that Paradise will be a kind of library.",
+      "source": "Poema de los Dones",
+      "themes": ["paradise", "library", "books", "heaven"],
+      "context": "Borges's vision of eternity"
+    },
+    {
+      "id": "borges-028",
+      "text": "To fall in love is to create a religion that has a fallible god.",
+      "source": "Dreamtigers",
+      "themes": ["love", "religion", "fallibility", "worship"],
+      "context": "The nature of romantic love"
+    },
+    {
+      "id": "borges-029",
+      "text": "Reality is not always probable, or likely.",
+      "source": "Various",
+      "themes": ["reality", "probability", "strangeness", "truth"],
+      "context": "On the implausibility of the real"
+    },
+    {
+      "id": "borges-030",
+      "text": "We accept reality so readily—perhaps because we sense that nothing is real.",
+      "source": "Various",
+      "themes": ["reality", "acceptance", "illusion", "intuition"],
+      "context": "Our easy acceptance of the world"
+    },
+    {
+      "id": "borges-031",
+      "text": "The original is unfaithful to the translation.",
+      "source": "On Vathek",
+      "themes": ["translation", "original", "fidelity", "paradox"],
+      "context": "The paradox of translation"
+    },
+    {
+      "id": "borges-032",
+      "text": "Any life, however long and complicated it may be, actually consists of a single moment—the moment when a man knows forever more who he is.",
+      "source": "A Biography of Tadeo Isidoro Cruz",
+      "themes": ["identity", "moment", "destiny", "recognition"],
+      "context": "Life reduced to one defining moment"
+    },
+    {
+      "id": "borges-033",
+      "text": "God moves the player, and he, the piece. What god behind God originates the scheme of dust and time and dream and agony?",
+      "source": "Chess",
+      "themes": ["god", "fate", "infinite-regress", "control"],
+      "context": "The infinite regress of causation"
+    },
+    {
+      "id": "borges-034",
+      "text": "The truth is that we live out our lives putting off all that can be put off; perhaps we all know deep down that we are immortal and that sooner or later all men will do and know all things.",
+      "source": "Funes the Memorious",
+      "themes": ["procrastination", "immortality", "knowledge", "time"],
+      "context": "On human procrastination"
+    },
+    {
+      "id": "borges-035",
+      "text": "He was, let us not forget, almost incapable of general, platonic ideas. Not only was it difficult for him to see that the generic symbol 'dog' took in all the dissimilar individuals of all shapes and sizes, it irritated him that the 'dog' of three-fourteen in the afternoon, seen in profile, should be indicated by the same noun as the dog of three-fifteen, seen from the front.",
+      "source": "Funes the Memorious",
+      "themes": ["memory", "perception", "abstraction", "particularity"],
+      "context": "Funes's inability to generalize"
+    },
+    {
+      "id": "borges-036",
+      "text": "The steps a man takes from the day of his birth until that of his death trace in time an inconceivable figure. The Divine Mind intuitively grasps that form immediately, as men do a triangle.",
+      "source": "The Mirror of Enigmas",
+      "themes": ["life", "pattern", "divine", "geometry"],
+      "context": "Life as a shape visible only to God"
+    },
+    {
+      "id": "borges-037",
+      "text": "Whosoever would undertake some atrocious enterprise should act as if it were already accomplished, should impose upon himself a future as irrevocable as the past.",
+      "source": "The Garden of Forking Paths",
+      "themes": ["action", "fate", "determination", "future"],
+      "context": "How to commit to difficult actions"
+    },
+    {
+      "id": "borges-038",
+      "text": "There is a concept that is the corruptor and destroyer of all others. I speak not of Evil, whose limited empire is that of ethics; I speak of the infinite.",
+      "source": "Avatars of the Tortoise",
+      "themes": ["infinity", "corruption", "ethics", "thought"],
+      "context": "The dangerous concept of infinity"
+    },
+    {
+      "id": "borges-039",
+      "text": "Writing is nothing more than a guided dream.",
+      "source": "Preface to Dr. Brodie's Report",
+      "themes": ["writing", "dreams", "creation", "guidance"],
+      "context": "The nature of literary creation"
+    },
+    {
+      "id": "borges-040",
+      "text": "There is no intellectual exercise that is not ultimately pointless. A philosophical doctrine is, at first, a plausible description of the universe; the years go by, and it is a mere chapter—if not a paragraph or a noun—in the history of philosophy.",
+      "source": "Pierre Menard, Author of the Quixote",
+      "themes": ["philosophy", "time", "futility", "history"],
+      "context": "The fate of all intellectual systems"
+    }
+  ]
+}

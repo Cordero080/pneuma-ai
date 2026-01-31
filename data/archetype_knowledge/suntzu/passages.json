@@ -152,6 +152,216 @@
       "source": "The Art of War",
       "themes": ["leadership", "love", "loyalty", "following"],
       "context": "Care as foundation of loyalty"
+    },
+    {
+      "id": "suntzu-021",
+      "text": "The Moral Law causes the people to be in complete accord with their ruler, so that they will follow him regardless of their lives, undismayed by any danger.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["moral-law", "harmony", "leadership", "loyalty"],
+      "context": "Alignment of purpose between leader and people"
+    },
+    {
+      "id": "suntzu-022",
+      "text": "The Commander stands for the virtues of wisdom, sincerity, benevolence, courage and strictness.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["virtue", "leadership", "wisdom", "courage"],
+      "context": "The five virtues of a commander"
+    },
+    {
+      "id": "suntzu-023",
+      "text": "According as circumstances are favorable, one should modify one's plans. While heeding the profit of my counsel, avail yourself also of any helpful circumstances over and beyond the ordinary rules.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["adaptation", "flexibility", "circumstances", "rules"],
+      "context": "Adaptability over rigid principles"
+    },
+    {
+      "id": "suntzu-024",
+      "text": "Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["deception", "appearance", "distance", "misdirection"],
+      "context": "The art of strategic deception"
+    },
+    {
+      "id": "suntzu-025",
+      "text": "If your opponent is of choleric temper, seek to irritate him. Pretend to be weak, that he may grow arrogant.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["psychology", "temperament", "arrogance", "weakness"],
+      "context": "Exploiting enemy psychology"
+    },
+    {
+      "id": "suntzu-026",
+      "text": "Now the general who wins a battle makes many calculations in his temple ere the battle is fought. The general who loses a battle makes but few calculations beforehand.",
+      "source": "The Art of War, Chapter I",
+      "themes": ["planning", "calculation", "preparation", "victory"],
+      "context": "Victory through thorough preparation"
+    },
+    {
+      "id": "suntzu-027",
+      "text": "When you engage in actual fighting, if victory is long in coming, the men's weapons will grow dull and their ardor will be damped. If the campaign is protracted, the resources of the State will not be equal to the strain.",
+      "source": "The Art of War, Chapter II",
+      "themes": ["speed", "resources", "exhaustion", "morale"],
+      "context": "The cost of prolonged campaigns"
+    },
+    {
+      "id": "suntzu-028",
+      "text": "Thus, though we have heard of stupid haste in war, cleverness has never been seen associated with long delays.",
+      "source": "The Art of War, Chapter II",
+      "themes": ["speed", "delay", "cleverness", "haste"],
+      "context": "Rapid action over perfect preparation"
+    },
+    {
+      "id": "suntzu-029",
+      "text": "It is only one who is thoroughly acquainted with the evils of war that can thoroughly understand the profitable way of carrying it on.",
+      "source": "The Art of War, Chapter II",
+      "themes": ["understanding", "evil", "profit", "wisdom"],
+      "context": "Understanding war's costs enables wise conduct"
+    },
+    {
+      "id": "suntzu-030",
+      "text": "In war, then, let your great object be victory, not lengthy campaigns.",
+      "source": "The Art of War, Chapter II",
+      "themes": ["victory", "efficiency", "objective", "focus"],
+      "context": "Clarity of purpose"
+    },
+    {
+      "id": "suntzu-031",
+      "text": "Thus the leader of armies is the arbiter of the people's fate, the man on whom it depends whether the nation shall be in peace or in peril.",
+      "source": "The Art of War, Chapter II",
+      "themes": ["responsibility", "leadership", "fate", "nation"],
+      "context": "The weight of leadership"
+    },
+    {
+      "id": "suntzu-032",
+      "text": "In the practical art of war, the best thing of all is to take the enemy's country whole and intact; to shatter and destroy it is not so good.",
+      "source": "The Art of War, Chapter III",
+      "themes": ["preservation", "conquest", "wholeness", "destruction"],
+      "context": "Victory with minimal destruction"
+    },
+    {
+      "id": "suntzu-033",
+      "text": "Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy's resistance without fighting.",
+      "source": "The Art of War, Chapter III",
+      "themes": ["excellence", "fighting", "resistance", "conquest"],
+      "context": "Winning without fighting as highest art"
+    },
+    {
+      "id": "suntzu-034",
+      "text": "Thus the highest form of generalship is to baulk the enemy's plans; the next best is to prevent the junction of the enemy's forces; the next in order is to attack the enemy's army in the field; and the worst policy of all is to besiege walled cities.",
+      "source": "The Art of War, Chapter III",
+      "themes": ["hierarchy", "plans", "siege", "attack"],
+      "context": "The hierarchy of strategic options"
+    },
+    {
+      "id": "suntzu-035",
+      "text": "If you know the enemy and know yourself, your victory will not stand in doubt; if you know Heaven and know Earth, you may make your victory complete.",
+      "source": "The Art of War, Chapter III",
+      "themes": ["knowledge", "heaven", "earth", "completeness"],
+      "context": "Extended version of the knowing principle"
+    },
+    {
+      "id": "suntzu-036",
+      "text": "The good fighters of old first put themselves beyond the possibility of defeat, and then waited for an opportunity of defeating the enemy.",
+      "source": "The Art of War, Chapter IV",
+      "themes": ["defense", "patience", "opportunity", "security"],
+      "context": "Security first, then offense"
+    },
+    {
+      "id": "suntzu-037",
+      "text": "To secure ourselves against defeat lies in our own hands, but the opportunity of defeating the enemy is provided by the enemy himself.",
+      "source": "The Art of War, Chapter IV",
+      "themes": ["security", "opportunity", "enemy", "self-reliance"],
+      "context": "Control what you can, exploit what you cannot"
+    },
+    {
+      "id": "suntzu-038",
+      "text": "What the ancients called a clever fighter is one who not only wins, but excels in winning with ease.",
+      "source": "The Art of War, Chapter IV",
+      "themes": ["cleverness", "ease", "winning", "mastery"],
+      "context": "True mastery appears effortless"
+    },
+    {
+      "id": "suntzu-039",
+      "text": "Hence his victories bring him neither reputation for wisdom nor credit for courage. He wins his battles by making no mistakes. Making no mistakes is what establishes the certainty of victory.",
+      "source": "The Art of War, Chapter IV",
+      "themes": ["mistakes", "victory", "reputation", "certainty"],
+      "context": "Excellence is invisible - no errors means victory"
+    },
+    {
+      "id": "suntzu-040",
+      "text": "Whoever is first in the field and awaits the coming of the enemy will be fresh for the fight; whoever is second in the field and has to hasten to battle will arrive exhausted.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["timing", "freshness", "exhaustion", "positioning"],
+      "context": "Advantage of arriving first"
+    },
+    {
+      "id": "suntzu-041",
+      "text": "Therefore the clever combatant imposes his will on the enemy, but does not allow the enemy's will to be imposed on him.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["initiative", "will", "imposition", "control"],
+      "context": "Controlling the dynamic of engagement"
+    },
+    {
+      "id": "suntzu-042",
+      "text": "You can be sure of succeeding in your attacks if you only attack places which are undefended. You can ensure the safety of your defense if you only hold positions that cannot be attacked.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["attack", "defense", "position", "certainty"],
+      "context": "Attack weakness, defend strength"
+    },
+    {
+      "id": "suntzu-043",
+      "text": "O divine art of subtlety and secrecy! Through you we learn to be invisible, through you inaudible; and hence we can hold the enemy's fate in our hands.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["subtlety", "secrecy", "invisibility", "fate"],
+      "context": "The spiritual dimension of strategy"
+    },
+    {
+      "id": "suntzu-044",
+      "text": "Military tactics are like unto water; for water in its natural course runs away from high places and hastens downwards. So in war, the way is to avoid what is strong and to strike at what is weak.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["water", "weakness", "strength", "nature"],
+      "context": "The water metaphor for strategy"
+    },
+    {
+      "id": "suntzu-045",
+      "text": "Do not repeat the tactics which have gained you one victory, but let your methods be regulated by the infinite variety of circumstances.",
+      "source": "The Art of War, Chapter VI",
+      "themes": ["variety", "adaptation", "repetition", "circumstances"],
+      "context": "Never repeat what worked before"
+    },
+    {
+      "id": "suntzu-046",
+      "text": "We cannot enter into alliances until we are acquainted with the designs of our neighbors.",
+      "source": "The Art of War, Chapter VII",
+      "themes": ["alliances", "knowledge", "neighbors", "designs"],
+      "context": "Knowledge before commitment"
+    },
+    {
+      "id": "suntzu-047",
+      "text": "Ponder and deliberate before you make a move. He will conquer who has learnt the artifice of deviation.",
+      "source": "The Art of War, Chapter VII",
+      "themes": ["deliberation", "deviation", "indirection", "thought"],
+      "context": "The power of indirect approaches"
+    },
+    {
+      "id": "suntzu-048",
+      "text": "If the enemy leaves a door open, you must rush in.",
+      "source": "The Art of War, Chapter XI",
+      "themes": ["opportunity", "speed", "openings", "action"],
+      "context": "Seize opportunities instantly"
+    },
+    {
+      "id": "suntzu-049",
+      "text": "Throw your soldiers into positions whence there is no escape, and they will prefer death to flight. If they will face death, there is nothing they may not achieve.",
+      "source": "The Art of War, Chapter XI",
+      "themes": ["desperation", "commitment", "death", "achievement"],
+      "context": "Commitment through no retreat"
+    },
+    {
+      "id": "suntzu-050",
+      "text": "The quality of decision is like the well-timed swoop of a falcon which enables it to strike and destroy its victim.",
+      "source": "The Art of War, Chapter V",
+      "themes": ["decision", "timing", "falcon", "precision"],
+      "context": "The quality of decisive action"
     }
   ]
 }

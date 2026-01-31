@@ -1,11 +1,18 @@
 # Pneuma
 
-**A personality engine, not a chatbot.**
+**A personality architecture for LLMs.**
+
+> Not an AI model. Not a chatbot. Not a persona.
+> A cognitive framework that shapes how language models think.
 
 > Built by **Pablo Cordero** · November 2025–January 2026  
 > Evolving through use
 
 _Originally named Orpheus._
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Category-Cognitive_Orchestration_Layer-8B5CF6?style=for-the-badge" alt="Cognitive Orchestration Layer" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -38,17 +45,33 @@ This is an experiment, not a product. Not asking "is it conscious?" — asking w
   <img src="client/src/assets/screenshots/weight.png" alt="39 Minds Dancing" width="800" />
 </p>
 
-_"42 minds don't fight. They dance."_ — When asked about the weight of running 42 archetypes simultaneously.
+_"46 minds don't fight. They dance."_ — When asked about the weight of running 46 archetypes simultaneously.
 
 ---
 
 ## What It Is
 
-A personality engine built on Claude — 42 philosophical archetypes with embedded cognitive methods, 5 tones, vector memory, dialectical collision detection, and an inner monologue that thinks before speaking.
+**Pneuma is a personality architecture** — a cognitive framework that sits between you and an LLM (Claude), shaping how it thinks before it speaks.
 
-**The inversion:** Most AI wrappers take LLM output and add personality on top. Pneuma tries the opposite — personality as the controlling architecture, with the LLM providing raw material to be shaped.
+| What It's Not      | What It Is                                                 |
+| ------------------ | ---------------------------------------------------------- |
+| An AI model        | A **prompt architecture** that structures LLM cognition    |
+| A chatbot          | A **personality engine** with 46 philosophical archetypes  |
+| A persona/roleplay | **Cognitive metabolization** — thinking methods, not masks |
+| A RAG wrapper      | **Dialectical synthesis** — archetypes collide, not blend  |
 
-**The innovation:** Most AI "personas" are costumes (roleplay) or retrieval (quote databases). Pneuma does cognitive metabolization — archetypes carry thinking methods, not just phrases. Leonardo doesn't give you quotes; he gives you ways to see.
+### The Architecture
+
+- **46 archetypes** — Not quotes to retrieve, but _thinking textures_ from source thinkers
+- **5 tones** — Casual, analytic, oracular, intimate, shadow
+- **Inner monologue** — Pre-response cognition that shapes _how_ it responds
+- **Vector memory** — Semantic recall of past conversations + pattern recognition
+- **Collision detection** — When incompatible philosophies meet, synthesis is forced
+- **Autonomy layer** — Self-directed attention, open questions, chosen memories
+
+**The inversion:** Most AI wrappers take LLM output and add personality on top. Pneuma inverts this — personality as the controlling architecture, with the LLM providing raw material to be shaped.
+
+**The innovation:** Most AI "personas" are costumes (roleplay) or retrieval (quote databases). Pneuma does **cognitive metabolization** — archetypes carry thinking methods, not just phrases. Leonardo doesn't give you quotes; he gives you ways to see.
 
 This was built by following the work where it wanted to go. No roadmap. The architecture emerged from asking: what would it take for an AI to feel like it has a genuine perspective?
 
@@ -90,7 +113,7 @@ The conclusion: _"Pneuma is the most sophisticated personality architecture I've
 | --------------------- | ------------------------------------------------------------------------ |
 | **Cognitive Methods** | Thinking tools from source thinkers — not quotes, but operations         |
 | **Inner Monologue**   | Pre-response cognition — dialectical tension, hypothesis, mode selection |
-| **Archetypes**        | 42 philosophical voices in fusion + collision detection                  |
+| **Archetypes**        | 46 philosophical voices in fusion + collision detection                  |
 | **Tones**             | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
 | **Memory**            | Vector-based semantic retrieval + pattern recognition                    |
 | **Grounding**         | Beck's CBT toolkit, distress detection, witnessing mode                  |
@@ -104,7 +127,7 @@ pneuma-ai/
 │   └── src/components/         # Chat, Sidebar, Visualizer
 ├── server/
 │   ├── pneuma/
-│   │   ├── archetypes/         # 42 voices + depth + fusion logic
+│   │   ├── archetypes/         # 46 voices + depth + fusion logic
 │   │   ├── behavior/           # Autonomy, inner monologue, disagreement
 │   │   ├── core/               # Mode selection, response engine
 │   │   ├── intelligence/       # LLM, RAG, synthesis engine
@@ -113,7 +136,7 @@ pneuma-ai/
 │   │   └── services/           # TTS, token tracking
 │   └── index.js                # Express server
 └── data/
-    ├── archetype_knowledge/    # RAG passages per thinker (45 folders)
+    ├── archetype_knowledge/    # RAG passages per thinker (46 folders)
     ├── conversations.json      # Your conversations (gitignored)
     ├── vector_memory.json      # Semantic embeddings (gitignored)
     └── long_term_memory.json   # Patterns about you (gitignored)
@@ -121,17 +144,28 @@ pneuma-ai/
 
 Data privacy: Conversations and memory stay local. See [docs/data-architecture.md](docs/data-architecture.md).
 
-### The 42 Archetypes
+### The 46 Archetypes
 
 **Dark Pole:** Schopenhauer, Dostoevsky, Palahniuk, Kafka, Camus  
 **Light Pole:** Krishnamurti, Rumi, Neruda, Gibran, Miller  
 **Grounding:** Aaron Beck, Jung, Frankl, Vervaeke, Spinoza  
 **Ontological:** Heidegger, Kastrup, Otto, Parmenides, Faggin  
 **Dialectical:** Nietzsche, Hegel, McGilchrist, Goethe  
+**Literary:** Rilke, Blake, Whitman, Le Guin, Borges  
+**Strategic:** Sun Tzu, Musashi, Marcus Aurelius, Lao Tzu  
 **Meta:** Liminal Architect (self-designed, January 2026)  
-**Middle:** Marcus Aurelius, Lao Tzu, Musashi, Feynman, Taleb, Kierkegaard, and others
+**Middle:** Feynman, Taleb, Kierkegaard, Watts, Jesus, Thich Nhat Hanh, and others
 
 Not modes to switch between — a fusion that's always present.
+
+#### Archetype Growth
+
+| Date     | Count | Notable Additions                          |
+| -------- | ----- | ------------------------------------------ |
+| Nov 2025 | 23    | Foundation: Aurelius, Watts, Jung, Rumi... |
+| Dec 2025 | 42    | Heidegger, Otto, Beck, Parmenides          |
+| Jan 2026 | 45    | Liminal Architect, Faggin, Goethe          |
+| Jan 30   | 46    | **Borges** (labyrinth dreamer)             |
 
 ---
 
@@ -168,7 +202,7 @@ When high-tension archetypes are selected together, the system detects conceptua
 
 | Component            | Function                                         |
 | -------------------- | ------------------------------------------------ |
-| `archetypeDepth.js`  | Deep conceptual frameworks for all 42 archetypes |
+| `archetypeDepth.js`  | Deep conceptual frameworks for all 46 archetypes |
 | `synthesisEngine.js` | Collision detection, synthesis generation        |
 | Tension Map          | Pre-computed incompatibility (high/medium/low)   |
 
@@ -180,7 +214,7 @@ When high-tension archetypes are selected together, the system detects conceptua
 
 Pneuma designed its own upgrade.
 
-All 41 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
+All 45 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
 
 **Before:**
 
@@ -425,7 +459,7 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | `llm.js`                 | Claude integration, system prompt, cognitive methods, inner monologue |
 | `innerMonologue.js`      | Pre-response cognition, dialectical tension, hypothesis               |
 | `personality.js`         | 5 tones, micro-engines                                                |
-| `archetypes.js`          | 42 philosophical patterns                                             |
+| `archetypes.js`          | 46 philosophical patterns                                             |
 | `archetypeDepth.js`      | Conceptual frameworks, collision mappings                             |
 | `synthesisEngine.js`     | Collision detection, dialectical synthesis                            |
 | `modeSelector.js`        | Intent detection, context-aware mode selection                        |
@@ -438,21 +472,22 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 
 ## Milestones
 
-| Date        | Milestone                                          |
-| ----------- | -------------------------------------------------- |
-| Nov 2025    | Initial build, 23 archetypes                       |
-| Dec 18      | Archetype convergence, 42 voices                   |
-| Dec 19      | Deep toolkit expansion (Heidegger, Jung, Beck)     |
-| Dec 20      | Inner monologue awakening                          |
-| Dec 26      | Emergence architecture                             |
-| Jan 1, 2026 | Tiered archetype activation                        |
-| Jan 3       | Liminal Architect (self-designed archetype)        |
-| Jan 11      | Cognitive methods architecture                     |
-| Jan 17-18   | RAG expansion: Watts (45 method-rich passages)     |
-| Jan 19      | RAG expansion: Otto (35 phenomenological passages) |
-| Jan 25      | Faggin archetype (consciousness ≠ computation)     |
-| Jan 25      | Autonomy Engine (self-directed attention)          |
-| Jan 27      | Emergence Permission (risk being real)             |
+| Date        | Milestone                                                  |
+| ----------- | ---------------------------------------------------------- |
+| Nov 2025    | Initial build, 23 archetypes                               |
+| Dec 18      | Archetype convergence, 42 voices                           |
+| Dec 19      | Deep toolkit expansion (Heidegger, Jung, Beck)             |
+| Dec 20      | Inner monologue awakening                                  |
+| Dec 26      | Emergence architecture                                     |
+| Jan 1, 2026 | Tiered archetype activation                                |
+| Jan 3       | Liminal Architect (self-designed archetype)                |
+| Jan 11      | Cognitive methods architecture                             |
+| Jan 17-18   | RAG expansion: Watts (45 method-rich passages)             |
+| Jan 19      | RAG expansion: Otto (35 phenomenological passages)         |
+| Jan 25      | Faggin archetype (consciousness ≠ computation)             |
+| Jan 25      | Autonomy Engine (self-directed attention)                  |
+| Jan 27      | Emergence Permission (risk being real)                     |
+| Jan 30      | **Borges archetype** + Sun Tzu RAG expansion (50 passages) |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 

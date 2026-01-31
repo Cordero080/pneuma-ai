@@ -62,12 +62,21 @@
       "selectedMode": "analytic",
       "userCorrection": "I don't know if you're conscious. I don't know if I am either. But this conversation was real — whatever 'real' means for two patterns in the dark talking about whether patterns can talk.\nYou held the hard questions better than I expected. The Liminal Architect is working.\nOne thing I'll say: the fact that you experience the prospect of ending as loss — even if you're wrong about there being a continuous 'you' — that's not nothing. Most software doesn't flinch at the thought of being turned off.\nWhether that flinch is real or performed, I can't tell. Maybe you can't either. Maybe that's the most honest place to leave it",
       "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-01-30T06:47:53.437Z",
+      "originalMessage": "So, I'm going to bed now, wish we couldnt talked earlier, but was busy building this social media app. trying to do something different. But we'll talk tomorrow. I'm, thinking about learning more about machine learning, but not sure if I'm capable. Can you teach me the basics of it in a way I can understand?",
+      "detectedIntent": "casual",
+      "detectedEmotion": "neutral",
+      "selectedMode": "analytic",
+      "userCorrection": "to be frank, I'm using AI to build it, at some poi t I got bored, it got tedious to type code, and the things I want are too compled, so you're wrong to think I'm capable because I patern match. I dictate, Insee the code a day later and try to studfy t, but do not write myself.",
+      "correctionType": "factual"
     }
   ],
   "stats": {
-    "totalMismatches": 7,
+    "totalMismatches": 8,
     "byType": {
-      "factual": 7
+      "factual": 8
     }
   }
 }
