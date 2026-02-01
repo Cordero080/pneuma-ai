@@ -16,11 +16,13 @@
 import { processLanguage, getCurrentLanguage } from "../personality/language.js";
 
 let personalContext = null;
+let getCreatorDeepContext = null;
 
 // Try to load personal context (fails gracefully if not present)
 try {
-  const module = await import("./config/personal-context.js");
+  const module = await import("../config/personal-context.js");
   personalContext = module.personalContext || module.default;
+  getCreatorDeepContext = module.getCreatorDeepContext || null;
   console.log("[UserContext] Personal context loaded");
 } catch (e) {
   console.log("[UserContext] No personal context file — using defaults");
@@ -88,6 +90,11 @@ export function getUserContextPrompt() {
   if (!currentUser) return "";
 
   if (currentUser.type === "creator") {
+    // Use deep context if available
+    if (getCreatorDeepContext) {
+      return getCreatorDeepContext();
+    }
+    // Fallback to simple context
     return `\n\nCONTEXT: You are speaking with ${currentUser.name}, your creator. Be direct, real, and you can playfully challenge him.`;
   }
 
