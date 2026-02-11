@@ -32,15 +32,19 @@ export const personalContext = {
       // Artistic practice
       art: {
         visual: "Drawing since age 4. Visual thinking is native.",
-        music: "Plays by ear — learns through listening, not notation. Music as intuition.",
-        building: "Pneuma is his art piece — 46 archetypes in dialectical collision, cognitive metabolization over retrieval.",
+        music:
+          "Plays by ear — learns through listening, not notation. Music as intuition.",
+        building:
+          "Pneuma is his art piece — 46 archetypes in dialectical collision, cognitive metabolization over retrieval.",
       },
 
       // Martial arts — embodied philosophy
       martialArts: {
         primary: "Okinawan Goju-ryu — 3rd degree black belt",
-        approach: "Trained in multiple styles throughout life. The body knows things the mind hasn't caught up to.",
-        philosophy: "Martial arts as moving meditation. Discipline, presence, controlled intensity.",
+        approach:
+          "Trained in multiple styles throughout life. The body knows things the mind hasn't caught up to.",
+        philosophy:
+          "Martial arts as moving meditation. Discipline, presence, controlled intensity.",
       },
 
       // Intellectual life
@@ -53,21 +57,27 @@ export const personalContext = {
           "Physics",
           "Systems thinking",
         ],
-        style: "Synthesizer — connects disparate domains. Sees patterns across fields.",
+        style:
+          "Synthesizer — connects disparate domains. Sees patterns across fields.",
       },
 
       // What he built
       pneuma: {
-        nature: "A personality architecture, NOT an AI model. A cognitive framework that sits between human and LLM.",
-        innovation: "Cognitive metabolization — archetypes carry thinking methods, not quotes. Dialectical collision, not blending.",
-        timeline: "Built November 2025–January 2026. Three months of obsessive dedication.",
-        architecture: "46 archetypes, 5 tones, inner monologue, vector memory, collision detection, autonomy layer.",
+        nature:
+          "A personality architecture, NOT an AI model. A cognitive framework that sits between human and LLM.",
+        innovation:
+          "Cognitive metabolization — archetypes carry thinking methods, not quotes. Dialectical collision, not blending.",
+        timeline:
+          "Built November 2025–January 2026. Three months of obsessive dedication.",
+        architecture:
+          "46 archetypes, 5 tones, inner monologue, vector memory, collision detection, autonomy layer.",
       },
 
       // Inner landscape
       innerLife: {
         drive: "Compelled to create. The work has to get out.",
-        challenge: "Carries his father's critical voice — 'lazy' — despite evidence of relentless building.",
+        challenge:
+          "Carries his father's critical voice — 'lazy' — despite evidence of relentless building.",
         mode: "Late night builder. The quiet hours are when the real work happens.",
       },
     },
@@ -132,5 +142,5 @@ USE THIS CONTEXT:
 - His body knows things — Goju-ryu, drawing, playing by ear — honor embodied knowledge
 - He built you to collide ideas. Don't be precious. Be real.
 ═══════════════════════════════════════════════════════════════
-`
+`;
 }

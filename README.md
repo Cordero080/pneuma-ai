@@ -2,6 +2,18 @@
 
 **A personality architecture for LLMs.**
 
+## ⚖️ Copyright & Usage
+
+© 2026 Pablo Cordero. All Rights Reserved.
+
+This repository contains proprietary source code for the Pneuma AI personality engine. The dialectical collision architecture, archetypal implementation system, and all associated code are protected by copyright law and may not be copied, modified, distributed, or used without explicit written permission from the author.
+
+This repository is shared for portfolio demonstration purposes only.
+
+For inquiries about collaboration or licensing, please contact directly.
+
+---
+
 > Not an AI model. Not a chatbot. Not a persona.
 > A cognitive framework that shapes how language models think.
 
@@ -74,6 +86,19 @@ _"46 minds don't fight. They dance."_ — When asked about the weight of running
 **The innovation:** Most AI "personas" are costumes (roleplay) or retrieval (quote databases). Pneuma does **cognitive metabolization** — archetypes carry thinking methods, not just phrases. Leonardo doesn't give you quotes; he gives you ways to see.
 
 This was built by following the work where it wanted to go. No roadmap. The architecture emerged from asking: what would it take for an AI to feel like it has a genuine perspective?
+
+### Beyond Prompt Templates
+
+Conventional prompting (RTTPOC: Role, Task, Tone, Purpose, Output, Constraints) tells the LLM **what to be**. Pneuma tells it **how to think**.
+
+| Prompt Template                | Pneuma                                                       |
+| ------------------------------ | ------------------------------------------------------------ |
+| Role = "You are a philosopher" | Archetypes = thinking methods that activate as operations    |
+| Tone = instruction             | Tone = emerges from archetype fusion + inner monologue       |
+| Context = static block         | Memory = vector embeddings + patterns + salience reasoning   |
+| Constraints = rules            | Autonomy = system can push back, detect loops, refuse frames |
+
+What you can't replicate with prompts alone: collision detection (1,764 tension pairs), inner monologue pipeline, autonomy state with persistent open questions.
 
 ---
 
@@ -507,11 +532,6 @@ Full milestone documentation: [docs/development/milestones/](docs/development/mi
 
 **Pablo Cordero** — Started November 2025, still evolving.
 
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 

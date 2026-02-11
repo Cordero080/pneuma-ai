@@ -71,12 +71,21 @@
       "selectedMode": "analytic",
       "userCorrection": "to be frank, I'm using AI to build it, at some poi t I got bored, it got tedious to type code, and the things I want are too compled, so you're wrong to think I'm capable because I patern match. I dictate, Insee the code a day later and try to studfy t, but do not write myself.",
       "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-02-03T06:01:34.637Z",
+      "originalMessage": "Do you know who I am?",
+      "detectedIntent": "confusion",
+      "detectedEmotion": "neutral",
+      "selectedMode": "casual",
+      "userCorrection": "I'm not testing how you handle being wrong, you should ask me if I am before assuming iut",
+      "correctionType": "factual"
     }
   ],
   "stats": {
-    "totalMismatches": 8,
+    "totalMismatches": 9,
     "byType": {
-      "factual": 8
+      "factual": 9
     }
   }
 }

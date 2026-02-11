@@ -10,10 +10,14 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import ConsciousnessIndicator from "./components/ConsciousnessIndicator/ConsciousnessIndicator";
 import ArchitectureDiagram from "./components/ArchitectureDiagram/ArchitectureDiagram";
 import CreativeBreakthrough from "./components/ArchitectureDiagram/CaseStudy/CreativeBreakthrough";
+import LandingPage from "./components/LandingPage/LandingPage";
 
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  
+  // Landing page state - show landing first
+  const [hasEntered, setHasEntered] = useState(false);
   
   // Conversation history state - starts empty, fetched from backend
   const [conversations, setConversations] = useState([]);
@@ -103,6 +107,11 @@ function App() {
     };
     return getTimestamp(b.id) - getTimestamp(a.id);
   });
+
+  // Show landing page first
+  if (!hasEntered) {
+    return <LandingPage onEnter={() => setHasEntered(true)} />;
+  }
 
   return (
     <div className="app-layout">

@@ -114,7 +114,7 @@ export async function saveMemory(text, metadata = {}) {
  * Retrieves relevant memories for a given query.
  
  */
-export async function retrieveMemories(query, limit = 3) {
+export async function retrieveMemories(query, limit = 5) {
   const queryEmbedding = await getEmbedding(query);
   if (!queryEmbedding) return [];
 
@@ -126,7 +126,7 @@ export async function retrieveMemories(query, limit = 3) {
 
   // Sort by score (descending) and filter by threshold
   const relevant = scoredMemories
-    .filter((mem) => mem.score > 0.4) // Similarity threshold (0.4 is a decent starting point)
+    .filter((mem) => mem.score > 0.35) // Lowered threshold for broader recall
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 

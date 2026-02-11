@@ -2,7 +2,15 @@
   "archetype": "psycheIntegrator",
   "thinker": "Carl Gustav Jung",
   "era": "1875-1961",
-  "coreConcepts": ["shadow", "anima/animus", "collective unconscious", "individuation", "archetypes", "synchronicity", "the Self"],
+  "coreConcepts": ["shadow", "anima/animus", "collective unconscious", "individuation", "archetypes", "synchronicity", "the Self", "active imagination", "confrontation with the unconscious"],
+  "cognitiveMethods": {
+    "activeImagination": "Deliberately evoke a fantasy in a waking state, then enter into it as into a drama. Write down what happens. Let the figures speak.",
+    "shadowIntegration": "What you reject is nevertheless in your nature. You thought it was outside, so you tried to destroy it. But it resides in you.",
+    "dialogueWithFigures": "The unconscious personifies. Give the figure a voice. Ask it questions. Record its answers. You are not it, but it has something to teach.",
+    "symbolAsLiving": "Treat the symbol not as sign pointing elsewhere, but as a living thing with its own weight and meaning.",
+    "holdingOpposites": "Do not resolve the tension prematurely. Let the opposites stand. Something new emerges from the collision.",
+    "godAsFantasy": "If you turn the God into fantasy, he is in us and easy to bear. The God outside us increases the weight of everything heavy."
+  },
   "passages": [
     {
       "id": "jung-001",
@@ -157,6 +165,406 @@
       "source": "Synchronicity: An Acausal Connecting Principle",
       "themes": ["synchronicity", "meaning", "coincidence", "causality"],
       "context": "Some connections aren't causal but meaningful. The universe sometimes rhymes without reason."
+    },
+    {
+      "id": "jung-rb-001",
+      "text": "The years when I pursued the inner images were the most important time of my life. Everything else is to be derived from this. It began at that time, and the later details hardly matter anymore. My entire life consisted in elaborating what had burst forth from the unconscious and flooded me like an enigmatic stream and threatened to break me. That was the stuff and material for more than only one life.",
+      "source": "The Red Book, Preface",
+      "themes": ["inner images", "unconscious", "elaboration", "life work"],
+      "context": "The confrontation with the unconscious was Jung's source. Everything scholarly came after — working out what emerged.",
+      "cognitiveMethod": "The inner work precedes the outer theory. What floods you from the depths becomes your life's material."
+    },
+    {
+      "id": "jung-rb-002",
+      "text": "I was driven to ask myself in all seriousness: 'What is the myth you are living?' I found no answer to this question, and had to admit that I was not living with a myth, or even in a myth, but rather in an uncertain cloud of theoretical possibilities which I was beginning to regard with increasing distrust.",
+      "source": "The Red Book, Introduction",
+      "themes": ["myth", "meaning", "living", "theory vs experience"],
+      "context": "The study of myth revealed mythlessness. Knowing about myths isn't living one. The intellectual can be mythless.",
+      "cognitiveMethod": "Ask: What is the myth I am living? Not what I believe or study — what actually organizes my existence?"
+    },
+    {
+      "id": "jung-rb-003",
+      "text": "I devised such a boring method by fantasizing that I was digging a hole, and by accepting this fantasy as perfectly real. Not knowing what would come next, I thought perhaps more introspection was needed.",
+      "source": "The Red Book / 1925 Seminar",
+      "themes": ["active imagination", "method", "descent", "acceptance"],
+      "context": "Active imagination begins simply. Accept the fantasy as real. Follow it. The mundane image — digging a hole — opens the depths.",
+      "cognitiveMethod": "To access the unconscious: create a simple image (digging, descending stairs), treat it as real, and follow where it leads."
+    },
+    {
+      "id": "jung-rb-004",
+      "text": "Whatever I reject is nevertheless in my nature. I thought it was without, and so I believed that I could destroy it. But it resides in me and has only assumed a passing outer form and stepped toward me. I destroyed its form and believed that I was a conqueror. But I have not yet overcome myself.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["shadow", "projection", "rejection", "self-overcoming"],
+      "context": "What we fight externally lives internally. Destroying outer enemies leaves the inner source intact. True victory is over oneself.",
+      "cognitiveMethod": "When you destroy an enemy: ask what part of yourself you have merely externalized and crushed in effigy."
+    },
+    {
+      "id": "jung-rb-005",
+      "text": "The outer opposition is an image of my inner opposition. Once I realize this, I remain silent and think of the chasm of antagonism in my soul. Outer oppositions are easy to overcome. They indeed exist, but nevertheless you can be united with yourself.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["projection", "inner conflict", "opposites", "silence"],
+      "context": "External conflict mirrors internal division. When you see this, pause. The real work is integrating the inner chasm.",
+      "cognitiveMethod": "When facing outer opposition: stop. Look inward. What inner division does this outer conflict represent?"
+    },
+    {
+      "id": "jung-rb-006",
+      "text": "He who believes he is really living his ideals, or believes he can live them, suffers from delusions of grandeur and behaves like a lunatic in that he stages himself as an ideal; but the hero has fallen. Ideals are mortal, so one should prepare oneself for their end.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["ideals", "inflation", "mortality", "disillusionment"],
+      "context": "Identification with ideals is a kind of madness. Ideals die. You gave them their meaning. Prepare for their passing.",
+      "cognitiveMethod": "Notice when you ARE your ideals vs. when you HAVE ideals. The first is inflation; the second is maturity."
+    },
+    {
+      "id": "jung-rb-007",
+      "text": "I can no longer say to you: 'Listen!' or 'you should,' or 'you could,' but now I talk only with myself. Now no one else can do anything more for me, nothing whatsoever. I no longer have a duty toward you, and you no longer have duties toward me, since I vanish and you vanish from me.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["solitude", "individuation", "duty", "withdrawal"],
+      "context": "True self-work requires radical solitude. At some point you must stop speaking to others and speak only with yourself.",
+      "cognitiveMethod": "There comes a time when no teacher, book, or friend can help. You must go inward alone. This is not abandonment — it's necessity."
+    },
+    {
+      "id": "jung-rb-008",
+      "text": "Science has taken from us the capacity of belief. Our truth is that which comes to us from the knowledge of outer things. The truth of your priests is that which comes to you from inner things. There are then two sorts of truth.",
+      "source": "The Red Book, Izdubar dialogue",
+      "themes": ["science", "belief", "inner truth", "outer truth"],
+      "context": "Science gives outer truth but destroys inner truth capacity. The ancients had the reverse. Both truths are needed.",
+      "cognitiveMethod": "Recognize two kinds of truth: what comes from outside (science) and what comes from inside (mythic, religious). Neither alone suffices."
+    },
+    {
+      "id": "jung-rb-009",
+      "text": "My God is in a hopeless position — and I no less. What can be done? It is not always necessary to act; sometimes thinking is better. I am basically convinced that he is hardly real in the ordinary sense, but is a fantasy. It would help if the situation were considered from another angle.",
+      "source": "The Red Book, Izdubar healing",
+      "themes": ["God", "fantasy", "perspective", "imagination"],
+      "context": "The divine can be approached as fantasy without being destroyed. This shift in perspective saves, not kills, the God.",
+      "cognitiveMethod": "When confronting the overwhelming: consider treating it as fantasy — real but not literal. This makes it bearable and workable."
+    },
+    {
+      "id": "jung-rb-010",
+      "text": "If you turn the God into fantasy, he is in us and is easy to bear. The God outside us increases the weight of everything heavy, while the God within us lightens everything heavy.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["God", "fantasy", "projection", "internalization"],
+      "context": "An external God crushes. An internal God empowers. The shift from literal to imaginal saves both the God and the soul.",
+      "cognitiveMethod": "Internalize what overwhelms you. What seems too heavy when outside becomes bearable and fruitful when recognized as within."
+    },
+    {
+      "id": "jung-rb-011",
+      "text": "Thus my God found salvation. He was saved precisely by what one would actually consider fatal, namely by declaring him a figment of the imagination. How often has it been assumed that the Gods have been brought to their end in this way. This was obviously a serious mistake, since this was precisely what saved the God.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["God", "imagination", "salvation", "paradox"],
+      "context": "Calling the God 'imagination' doesn't destroy it — it saves it. The literalists kill Gods; the imaginal thinkers preserve them.",
+      "cognitiveMethod": "What seems like reduction (it's just imagination) can be salvation. Fantasy is a category of reality, not unreality."
+    },
+    {
+      "id": "jung-rb-012",
+      "text": "I recognized the blindness and unknowingness of his striving which worked against my desire, and I opened his eyes and lamed his powerful limbs with a poisoned stab. And he lay crying like a child. And compassion seized me, since it was plain to me that I should not let him die.",
+      "source": "The Red Book, Izdubar dialogue",
+      "themes": ["wounding", "compassion", "divine-human", "poison as medicine"],
+      "context": "Knowledge poisons the naive God. But then compassion demands we heal what we've wounded. We cannot abandon the divine.",
+      "cognitiveMethod": "What you know can wound the mythic, the naive, the innocent. Your responsibility is then to heal what your consciousness wounded."
+    },
+    {
+      "id": "jung-rb-013",
+      "text": "The divine primordial power is blind, since its face has become human. The human is the face of the Godhead. If the God comes near you, then plead for your life to be spared, since the God is loving horror.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["divine", "human face", "terror", "encounter"],
+      "context": "The numinous is not safe. The ancients knew: it is terrible to fall into the hands of the living God. Awe includes fear.",
+      "cognitiveMethod": "When encountering the sacred: expect both love and terror. The divine is not domesticated. Plead for your survival."
+    },
+    {
+      "id": "jung-rb-014",
+      "text": "While I was writing, I said to myself, 'What is this I am doing, it certainly is not science, what is it?' Then a voice said to me, 'That is art.' This made the strangest sort of impression upon me, because it was not in any sense my impression that what I was writing was art.",
+      "source": "The Red Book / 1925 Seminar",
+      "themes": ["inner voice", "art vs science", "anima", "dialogue"],
+      "context": "The inner voice offers surprising categorizations. Jung's anima called his work 'art.' He disagreed. This tension was productive.",
+      "cognitiveMethod": "Let the inner voice name what you're doing. It may disagree with your conscious assessment. That disagreement is informative."
+    },
+    {
+      "id": "jung-rb-015",
+      "text": "I thought that this voice was 'the soul in the primitive sense,' which I called the anima. In putting down all this material for analysis, I was in effect writing letters to my anima, that is part of myself with a different viewpoint from my own.",
+      "source": "The Red Book / 1925 Seminar",
+      "themes": ["anima", "soul", "perspective", "dialogue"],
+      "context": "The anima is the soul as 'other' — part of yourself with a different viewpoint. Writing to her is correspondence within yourself.",
+      "cognitiveMethod": "Address the inner other. Write to your soul as if to a correspondent. She has views that differ from your ego's."
+    },
+    {
+      "id": "jung-rb-016",
+      "text": "Philemon represented superior insight, and was like a guru to him. He taught me psychic objectivity, the reality of the psyche. Through the conversations with Philemon, the distinction was clarified between myself and the object of my thought.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["Philemon", "psychic objectivity", "inner figures", "guidance"],
+      "context": "Inner figures can teach what the ego cannot know. Philemon taught Jung that psychic contents are objectively real, not just thoughts.",
+      "cognitiveMethod": "The figures you meet in imagination are not you. They have knowledge you lack. Dialogue with them. Learn from them."
+    },
+    {
+      "id": "jung-rb-017",
+      "text": "I was frequently so wrought up that I had to eliminate the emotions through yoga practices. But since it was my purpose to learn what was going on within myself, I would do them only until I had calmed myself and could take up again the work with the unconscious.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["emotional regulation", "self-work", "yoga", "balance"],
+      "context": "The work with the unconscious generates overwhelming emotion. Regulate enough to continue, but don't use regulation to escape.",
+      "cognitiveMethod": "When inner work becomes too intense: calm yourself through practice (breath, movement). Then return. Don't abandon the work."
+    },
+    {
+      "id": "jung-rb-018",
+      "text": "I drew a mandala on most days. This gave me the feeling that I had taken a photograph of each day and I observed how these mandalas changed. Only now did I gradually come to what the mandala really is: 'Formation, transformation, the eternal mind's eternal recreation.' And that is the self.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["mandala", "self", "daily practice", "transformation"],
+      "context": "The mandala captures the state of the self. Drawing it daily tracks psychic transformation. The center appears through repetition.",
+      "cognitiveMethod": "Create a daily image. It doesn't need to be understood. The pattern reveals itself through accumulation and change."
+    },
+    {
+      "id": "jung-rb-019",
+      "text": "When I began to paint the mandalas I saw that all the paths I took, all the steps I made, all led back to the one point, that is, to the center. The mandala became the expression of all paths. It is the path to the center, to individuation.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["mandala", "center", "paths", "individuation"],
+      "context": "All wandering leads back to center. The mandala shows this. Individuation is not linear but circumambulatory — circling toward self.",
+      "cognitiveMethod": "Notice what keeps appearing. All your detours point somewhere. The repeated image, recurring theme — that's where the self is."
+    },
+    {
+      "id": "jung-rb-020",
+      "text": "I had had to abandon the idea of the superordinate position of the ego. I saw that everything, all paths I had been following, all steps I had taken, were leading back to a single point — namely, to the mid-point. It became increasingly plain to me that the mandala is the centre.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["ego", "self", "center", "abandonment of superiority"],
+      "context": "The ego is not the center. Something larger organizes the psyche. Realizing this is both humbling and liberating.",
+      "cognitiveMethod": "Let go of the ego's claim to run the show. There is a center that is not 'I' but includes 'I.' Find it."
+    },
+    {
+      "id": "jung-rb-021",
+      "text": "Permitting fantasy in myself had the same effect as would be produced on a man if he came into his workshop and found all the tools flying about doing things independently of his will.",
+      "source": "The Red Book / 1925 Seminar",
+      "themes": ["fantasy", "autonomy", "unconscious", "chaos"],
+      "context": "Letting fantasy operate is terrifying. Things move without your will. The unconscious has its own agency. Accept this.",
+      "cognitiveMethod": "Allow the psychic contents to move autonomously. Don't direct everything. Let the inner workshop show you what it's doing."
+    },
+    {
+      "id": "jung-rb-022",
+      "text": "A strange being grew through me. This was a laughing being of the forest, a leaf green daimon, a forest goblin and prankster, who lived alone in the forest and was itself a greening tree being, who loved nothing but greening and growing.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["daimon", "nature", "growth", "green man"],
+      "context": "The unconscious produces surprising figures. A green forest being — pure growth without human morality. This too is part of self.",
+      "cognitiveMethod": "Not all inner figures are human. Some are nature spirits, tricksters, forces of pure growth. Acknowledge them."
+    },
+    {
+      "id": "jung-rb-023",
+      "text": "As long as you are not conscious of your self you can live; but if you become conscious of your self, you fall from one grave into another. All your rebirths could ultimately make you sick.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["consciousness", "death-rebirth", "difficulty", "sickness"],
+      "context": "Consciousness brings death — of the old self, again and again. Too many rebirths exhaust. There is cost to awakening.",
+      "cognitiveMethod": "Know that each awakening is a kind of death. Don't seek endless rebirth. At some point, simply be what you've become."
+    },
+    {
+      "id": "jung-rb-024",
+      "text": "I recognized the chameleon and no longer want to crawl on the earth and change colors and be reborn; instead I want to exist from my own force, like the sun which gives light and does not suck light.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["chameleon", "authenticity", "sun", "self-generation"],
+      "context": "Constant adaptation is not individuation. At some point, stop changing colors. Generate your own light. Be what you are.",
+      "cognitiveMethod": "Stop adapting endlessly. Ask: What would it mean to shine from my own source rather than reflect what surrounds me?"
+    },
+    {
+      "id": "jung-rb-025",
+      "text": "The poison of the serpent, whose head you crush, enters you through the wound in your heel; and thus the serpent becomes more dangerous than it was before.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["serpent", "poison", "shadow", "victory as wound"],
+      "context": "Victory over the shadow poisons the victor. What you crush enters you through the wound of crushing. There is no clean triumph.",
+      "cognitiveMethod": "When you defeat something: check your heel. The vanquished enters through the wound you took in defeating it."
+    },
+    {
+      "id": "jung-rb-026",
+      "text": "My family and profession always remained a joyful reality and a guarantee that I was normal and really existed.",
+      "source": "Memories, Dreams, Reflections",
+      "themes": ["grounding", "reality", "family", "normalcy"],
+      "context": "The inner work requires outer anchors. Family, work, routine — these keep you from dissolving in the depths. Hold both.",
+      "cognitiveMethod": "Maintain outer structure during inner dissolution. The mundane is medicine. Don't abandon reality for vision."
+    },
+    {
+      "id": "jung-rb-027",
+      "text": "The danger consists in the prophet's delusion which often is the result of dealing with the unconscious. It is the devil who says: Disdain all reason and science, mankind's highest powers. That is never appropriate even though we are forced to acknowledge the existence of the irrational.",
+      "source": "Letter to J.B. Lang, 1918",
+      "themes": ["inflation", "prophet delusion", "reason", "balance"],
+      "context": "Working with the unconscious inflates. Don't become the prophet. Reason and science remain valid. The irrational exists but doesn't cancel the rational.",
+      "cognitiveMethod": "After deep inner work: check for inflation. Are you starting to preach? That's the devil. Keep your reason alongside your visions."
+    },
+    {
+      "id": "jung-rb-028",
+      "text": "Set the egg before you, the God in his beginning. And behold it. And incubate it with the magical warmth of your gaze.",
+      "source": "The Red Book, Incantations",
+      "themes": ["incubation", "gaze", "God", "beginning"],
+      "context": "The divine begins small. Look at it with warmth. Incubate what is nascent. The gaze itself is creative.",
+      "cognitiveMethod": "When something new appears in you: don't analyze. Look at it warmly. Let your attention incubate what is trying to be born."
+    },
+    {
+      "id": "jung-rb-029",
+      "text": "I wandered toward the South and found the unbearable heat of solitude with myself. I wandered toward the North and found the cold death from which all the world dies. I withdrew to my Western land, where the men are rich in knowing and doing, and I began to suffer from the sun's empty darkness. And I threw everything from me and wandered toward the East, where the light rises daily.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["journey", "directions", "seeking", "dissatisfaction"],
+      "context": "Every direction has its insufficiency. South burns, North freezes, West empties. The journey is necessary even when no direction fully satisfies.",
+      "cognitiveMethod": "Try all directions. Each partial failure teaches. The seeking itself transforms, even when no destination suffices."
+    },
+    {
+      "id": "jung-rb-030",
+      "text": "I wanted light, he wanted night. I wanted to rise, he wanted to sink. I was dwarfish like a child, while he was enormous like an elementally powerful hero. Knowledge lamed me, while he was blinded by the fullness of the light. And so we hurried toward each other.",
+      "source": "The Red Book, Izdubar dialogue",
+      "themes": ["opposites", "meeting", "compensation", "collision"],
+      "context": "What you seek meets you seeking the opposite. The knowledgeable meets the powerful blind. Opposites rush toward each other.",
+      "cognitiveMethod": "What comes toward you may want exactly what you've abandoned. Your lack is another's excess. Meet in the middle."
+    },
+    {
+      "id": "jung-rb-031",
+      "text": "Take your God with you. Bear him down to your dark land where people live who rub their eyes each morning and yet always see only the same thing. Bring your God down to the haze pregnant with poison, but not like those blinded ones who try to illuminate the darkness with lanterns which it does not comprehend.",
+      "source": "The Red Book, Liber Primus",
+      "themes": ["carrying the divine", "darkness", "descent", "integration"],
+      "context": "Bring the sacred into ordinary darkness. Not to illuminate with understanding, but to be present with. The divine needs carrying.",
+      "cognitiveMethod": "Don't leave what's sacred in the heights. Carry it down into your mundane, poisoned, everyday life. It needs that, and so do you."
+    },
+    {
+      "id": "jung-rb-032",
+      "text": "With no difficulty I squeeze him into the size of an egg and put him in my pocket. Then I walk into the welcoming house where he should find healing.",
+      "source": "The Red Book, Izdubar healing",
+      "themes": ["compression", "portability", "fantasy", "transformation"],
+      "context": "Once recognized as fantasy, the enormous becomes portable. What overwhelmed you fits in your pocket. This is not diminishment but transformation.",
+      "cognitiveMethod": "The overwhelming can be compressed — not by denial but by recognizing its imaginal nature. Then it can be carried, and healed."
+    },
+    {
+      "id": "jung-rb-033",
+      "text": "Philemon gave the idea but it remains floating, distant and indistinct because all the things he invents are winged. But Ka gives substance and is called the one who buries the gods in gold and marble. He has a tendency to imprison them in matter, and so they are in danger of losing their spiritual meaning.",
+      "source": "The Red Book / Constance Long notes",
+      "themes": ["Philemon", "Ka", "spirit vs matter", "balance"],
+      "context": "Philemon is intuition — ideas that float. Ka is sensation — ideas made real. Too much Ka buries spirit. Too much Philemon leaves nothing grounded.",
+      "cognitiveMethod": "Notice when your ideas float (all spirit) vs when they're buried (all matter). The work is finding the balance where meaning can live in form."
+    },
+    {
+      "id": "jung-rb-034",
+      "text": "Ka must not be allowed to produce too much — you must not depend on substantiation; but if too little substance is produced the creature floats. The transcendent function is the whole.",
+      "source": "The Red Book / Constance Long notes",
+      "themes": ["transcendent function", "balance", "substance", "spirit"],
+      "context": "The transcendent function unites spirit and matter. Neither pure idea nor pure form — the living synthesis of both.",
+      "cognitiveMethod": "When something is too abstract: give it body. When too concrete: let it breathe. The transcendent function holds both."
+    },
+    {
+      "id": "jung-rb-035",
+      "text": "I resist, I cannot accept this hollow nothing that I am. What am I? What is my I? I always presuppose my I. Now it stands before me — I before my I.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["ego", "self-confrontation", "emptiness", "identity"],
+      "context": "The ego confronting itself as object. The terrifying moment when 'I' becomes 'it' — something to examine rather than assume.",
+      "cognitiveMethod": "Stand before your I as if meeting a stranger. What do you see? What have you always presupposed that now requires examination?"
+    },
+    {
+      "id": "jung-rb-036",
+      "text": "You should be a vessel of life, so kill your idols. Freedom does not belong to you, but form; not power, but suffering and conceiving.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["vessel", "idols", "suffering", "receptivity"],
+      "context": "The ego wants power and freedom. The self needs to receive, suffer, and conceive. Kill what you worship to become what you are.",
+      "cognitiveMethod": "What are your idols? What do you worship that prevents you from becoming a vessel? Power? Freedom? Kill them."
+    },
+    {
+      "id": "jung-rb-037",
+      "text": "The uncertain way is the good way. Upon it lie possibilities. Be unwavering and create.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["uncertainty", "possibility", "creation", "path"],
+      "context": "Certainty closes. Uncertainty opens. The good path is the one you can't fully see — that's where creation happens.",
+      "cognitiveMethod": "When you're uncertain about the path: good. That's the creative zone. Be unwavering IN the uncertainty, not despite it."
+    },
+    {
+      "id": "jung-rb-038",
+      "text": "I turned to my brother, the I; he stood sadly and looked at the ground and sighed, and would rather have been dead, since the burden of enormous suffering burdened him.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["ego", "suffering", "burden", "compassion"],
+      "context": "The ego suffers. It would rather die than bear the weight. Yet it must be addressed as 'brother' — not enemy, not master.",
+      "cognitiveMethod": "When your ego suffers: address it as brother. Not with contempt, not with identification. Compassionate distance."
+    },
+    {
+      "id": "jung-rb-039",
+      "text": "Much happiness has happened to me. I rise higher, my wings grow. — You live from the blood of the human heart. — No drink is dearer to me than red blood.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["soul", "sacrifice", "blood", "growth"],
+      "context": "The soul grows through the ego's sacrifice. This is not cruelty but economy. What dies below feeds what rises above.",
+      "cognitiveMethod": "Your soul grows from what your ego sacrifices. The suffering isn't meaningless — it's food. What are you feeding?"
+    },
+    {
+      "id": "jung-rb-040",
+      "text": "Do not speak to me about your love. What you call love oozes with self-interest and desirousness. But you speak about it with great words, and the greater your words are, the more pathetic your so-called love is.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["love", "self-deception", "desirousness", "honesty"],
+      "context": "Most 'love' is desire dressed in noble language. The larger the words, the smaller the reality. True love doesn't announce itself.",
+      "cognitiveMethod": "When speaking of love: check for self-interest. The grander the language, the more suspicious. Real love is often quiet."
+    },
+    {
+      "id": "jung-rb-041",
+      "text": "If someone does you wrong, I will torment you to death, until you have forgiven the wrong suffered, yet not just by paying lip service, but also in your heavy heart with its heinous sensitivity.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["forgiveness", "sensitivity", "heart", "torment"],
+      "context": "Lip-service forgiveness leaves the wound festering. True forgiveness must reach the heavy heart. Sensitivity is a form of violence.",
+      "cognitiveMethod": "When wronged: don't forgive with words only. Work until the heart releases. Your sensitivity is your violence — address it there."
+    },
+    {
+      "id": "jung-rb-042",
+      "text": "You want to be understood? That's all we needed! Understand yourself, and you will be sufficiently understood. Mothers' little dears want to be understood.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["understanding", "self-knowledge", "dependency", "maturity"],
+      "context": "The demand to be understood is infantile. Understand yourself — that's the adult task. Others' understanding follows, or doesn't.",
+      "cognitiveMethod": "Stop seeking to be understood. Understand yourself. That's sufficient. The rest is dependency dressed as need."
+    },
+    {
+      "id": "jung-rb-043",
+      "text": "The taming begins with you, my I, nowhere else. Not that you had been particularly wild. There are some who are wilder. But I must whip you until you endure the wildness of others.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["taming", "ego", "endurance", "others"],
+      "context": "Self-discipline isn't about being wild — it's about enduring others' wildness. You tame yourself so you can withstand what you meet.",
+      "cognitiveMethod": "Discipline yourself not because you're particularly bad, but so you can endure what life brings. The taming is for endurance."
+    },
+    {
+      "id": "jung-rb-044",
+      "text": "I am above you. I am a world apart. I have become sunlike. I received the seeds of fire. Where are you? I can hardly find you in your mists.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["soul", "distance", "fire", "separation"],
+      "context": "The soul ascends while the ego dwells in mist. They become worlds apart. Yet the dialogue continues across the distance.",
+      "cognitiveMethod": "When your soul seems distant: it has risen. Don't drag it down. Let it be sunlike. Your work is in the mist below."
+    },
+    {
+      "id": "jung-rb-045",
+      "text": "I feel it. The heaviness of the earth penetrates me, damp cold enshrouds me, gloomy memories of former pain overcome me.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["descent", "earth", "memory", "pain"],
+      "context": "When the soul descends toward the ego, it feels earth's weight. The reunion isn't easy — both suffer the contact.",
+      "cognitiveMethod": "Spirit descending into matter feels heavy, cold, painful. This is normal. The contact costs both parties."
+    },
+    {
+      "id": "jung-rb-046",
+      "text": "Do not lower yourself into the smoke and the darkness of the earth. Let me just hear your voice. I will never want to see you in the flesh again.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["voice", "distance", "flesh", "spirit"],
+      "context": "Sometimes the soul should not descend fully. Voice is enough. Full incarnation might destroy what needs to remain celestial.",
+      "cognitiveMethod": "Not everything needs to be made flesh. Sometimes hearing the voice is enough. Protect what should stay in the heights."
+    },
+    {
+      "id": "jung-rb-047",
+      "text": "Your creative source flows from there — from fear. The uncertain way is the good way. Upon it lie possibilities.",
+      "source": "The Red Book, Soul dialogue",
+      "themes": ["creativity", "fear", "uncertainty", "source"],
+      "context": "Fear marks the location of the creative source. Don't avoid it — that's where creation lives. Uncertainty and possibility are the same place.",
+      "cognitiveMethod": "Where is your fear? There is your creative source. The uncertain way, the frightening way — that's the good way."
+    },
+    {
+      "id": "jung-rb-048",
+      "text": "It is hard — the sacrificed fall left and right — and you will be crucified for the sake of life.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["sacrifice", "crucifixion", "life", "suffering"],
+      "context": "Life requires crucifixion. Others fall. You will be nailed. This is not punishment but the price of being alive.",
+      "cognitiveMethod": "Expect crucifixion. Not metaphorically soft — actually stretched and nailed. This is what life costs."
+    },
+    {
+      "id": "jung-rb-049",
+      "text": "After I had spoken these many angry words to my I, I noticed that I began to bear being alone with myself. But the touchiness still stirred in me frequently and I had to lash myself just as often. And I did this until even the pleasure in self-torment faded.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["self-confrontation", "solitude", "touchiness", "pleasure in torment"],
+      "context": "The brutal inner dialogue enables solitude. Self-confrontation continues until even the pleasure in self-torment fades. Then you're done.",
+      "cognitiveMethod": "Confront yourself until you can bear yourself. Watch for the pleasure in self-torment — that too must fade. Then you're ready."
+    },
+    {
+      "id": "jung-rb-050",
+      "text": "If I am not conjoined through the uniting of the Below and the Above, I break down into three parts: the serpent, roaming nature daimonically; the human soul, living forever within you; the celestial soul, dwelling with the Gods, appearing as a bird.",
+      "source": "The Red Book, Black Book 6",
+      "themes": ["soul", "trinity", "integration", "fragmentation"],
+      "context": "The soul without integration fragments: animal, human, divine. Serpent below, bird above, human in between. Integration holds all three.",
+      "cognitiveMethod": "Notice your fragmentation: Where is your serpent (instinct)? Your bird (spirit)? Your human? Integration is holding all three together."
     }
   ]
 }

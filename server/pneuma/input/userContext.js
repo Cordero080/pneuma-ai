@@ -13,7 +13,10 @@
 // Does NOT change Pneuma's core personality
 // ------------------------------------------------------------
 
-import { processLanguage, getCurrentLanguage } from "../personality/language.js";
+import {
+  processLanguage,
+  getCurrentLanguage,
+} from "../personality/language.js";
 
 let personalContext = null;
 let getCreatorDeepContext = null;
@@ -43,7 +46,7 @@ export function detectKnownUser(message) {
   // Check creator
   if (personalContext.creator) {
     const isCreator = personalContext.creator.identifiers?.some((pattern) =>
-      pattern.test(msg)
+      pattern.test(msg),
     );
     if (isCreator) {
       currentUser = { type: "creator", ...personalContext.creator };
@@ -55,7 +58,7 @@ export function detectKnownUser(message) {
   // Check partner
   if (personalContext.partner) {
     const isPartner = personalContext.partner.identifiers?.some((pattern) =>
-      pattern.test(msg)
+      pattern.test(msg),
     );
     if (isPartner) {
       currentUser = { type: "partner", ...personalContext.partner };

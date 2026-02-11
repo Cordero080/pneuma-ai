@@ -442,7 +442,7 @@ function ArchitectureDiagram({ onBack }) {
             </ul>
           </div>
           <div className="arch-side-panel arch-archetype-panel">
-            <h3><span className="panel-icon"><EyeIcon /></span> 42 ARCHETYPES (Sample)</h3>
+            <h3><span className="panel-icon"><EyeIcon /></span> 46 ARCHETYPES (Sample)</h3>
             <ul>
               <li>Jung</li>
               <li>Taleb</li>
