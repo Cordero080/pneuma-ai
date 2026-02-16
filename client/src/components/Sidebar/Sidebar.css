@@ -622,50 +622,24 @@
   }
   
   .sidebar-toggle {
-    left: 12px;
+    left: 6px;
     right: auto;
-    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    top: calc(env(safe-area-inset-top, 20px) + 60px);
     transform: none;
-    width: 36px;
-    height: 36px;
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  
-  /* Hamburger lines */
-  .sidebar-toggle::before,
-  .sidebar-toggle::after {
-    content: '';
-    width: 18px;
-    height: 2px;
-    background: rgba(168, 85, 247, 0.8);
-    border-radius: 1px;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebar-toggle .hamburger-line {
-    width: 18px;
-    height: 2px;
-    background: rgba(168, 85, 247, 0.8);
-    border-radius: 1px;
+    width: 6px;
+    height: 40px;
+    background: rgba(168, 85, 247, 0.15);
+    border-radius: 4px;
   }
   
   .sidebar-toggle.collapsed {
-    left: 12px;
+    left: 6px;
     right: auto;
-    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    top: calc(env(safe-area-inset-top, 20px) + 60px);
   }
   
   .sidebar-toggle:hover {
-    width: 36px;
-    border-color: rgba(168, 85, 247, 0.8);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+    width: 8px;
   }
 }
 
@@ -688,31 +662,25 @@
   }
   
   .sidebar-toggle {
-    left: 10px;
+    left: 4px;
     right: auto;
-    top: calc(env(safe-area-inset-top, 0px) + 10px);
+    top: calc(env(safe-area-inset-top, 20px) + 60px);
     transform: none;
-    width: 32px;
-    height: 32px;
+    width: 6px;
+    height: 40px;
     z-index: 201;
-    border-radius: 6px;
-    background: rgba(10, 10, 10, 0.95);
-    border: 1px solid rgba(168, 85, 247, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.15);
   }
   
   .sidebar-toggle.collapsed {
-    left: 10px;
+    left: 4px;
     right: auto;
-    top: calc(env(safe-area-inset-top, 0px) + 10px);
+    top: calc(env(safe-area-inset-top, 20px) + 60px);
   }
   
   .sidebar-toggle:hover {
-    width: 32px;
+    width: 5px;
   }
   
   .panel-header {

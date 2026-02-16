@@ -102,14 +102,12 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
 
   return (
     <>
-      {/* Toggle button - hamburger menu on mobile */}
+      {/* Toggle button - vertical control strip */}
       <button 
         className={`sidebar-toggle ${isCollapsed ? 'collapsed' : ''}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
         aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-      >
-        <span className="hamburger-line"></span>
-      </button>
+      />
 
       <div ref={sidebarRef} className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
         {!isCollapsed && (
