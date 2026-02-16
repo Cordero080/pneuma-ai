@@ -198,18 +198,32 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     }
   };
 
+  // Track if first render for scroll behavior
+  const isFirstRender = useRef(true);
+
   /*
-    scrollToBottom: smoothly scrolls to the bottom of messages
+    scrollToBottom: scrolls to the bottom of messages
+    - instant on first load (no disorienting animation)
+    - smooth on new messages
   */
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToBottom = (instant = false) => {
+    messagesEndRef.current?.scrollIntoView({ 
+      behavior: instant ? "instant" : "smooth" 
+    });
   };
 
   /*
     useEffect: scroll to bottom when messages change
   */
   useEffect(() => {
-    scrollToBottom();
+    if (isFirstRender.current) {
+      // First render: instant scroll, no animation
+      scrollToBottom(true);
+      isFirstRender.current = false;
+    } else {
+      // Subsequent messages: smooth scroll
+      scrollToBottom(false);
+    }
   }, [messages]);
 
   /*
