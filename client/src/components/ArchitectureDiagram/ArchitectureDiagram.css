@@ -50,8 +50,86 @@
   text-align: center;
   color: #666;
   font-size: 1rem;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================
+   EXECUTIVE SUMMARY
+   Interview-ready pitch section
+   ============================================ */
+.arch-executive-summary {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  padding: 30px;
+  background: linear-gradient(145deg, rgba(0, 200, 150, 0.08), rgba(0, 100, 200, 0.04));
+  border: 1px solid rgba(0, 200, 150, 0.25);
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(0, 200, 150, 0.1);
+}
+
+.arch-executive-summary h2 {
+  font-size: 1.3rem;
+  color: #00c896;
+  margin-bottom: 15px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-pitch {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 200, 150, 0.2);
+}
+
+.summary-pitch strong {
+  color: #00ff96;
+}
+
+.summary-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.highlight-item {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border-left: 3px solid #00c896;
+}
+
+.highlight-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #00c896;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.highlight-item p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.summary-tagline {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  margin: 0;
 }
 
 /* Flow container */
@@ -733,7 +811,25 @@
   
   .architecture-subtitle {
     font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  
+  .arch-executive-summary {
+    padding: 20px;
     margin-bottom: 30px;
+  }
+  
+  .arch-executive-summary h2 {
+    font-size: 1.1rem;
+  }
+  
+  .summary-pitch {
+    font-size: 1rem;
+  }
+  
+  .summary-highlights {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
   
   .arch-node { 
@@ -794,6 +890,39 @@
     font-size: 0.75rem;
     margin-bottom: 20px;
     line-height: 1.4;
+  }
+  
+  .arch-executive-summary {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .arch-executive-summary h2 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .summary-pitch {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  
+  .highlight-item {
+    padding: 12px;
+  }
+  
+  .highlight-label {
+    font-size: 0.75rem;
+  }
+  
+  .highlight-item p {
+    font-size: 0.8rem;
+  }
+  
+  .summary-tagline {
+    font-size: 0.85rem;
   }
   
   .arch-node { 

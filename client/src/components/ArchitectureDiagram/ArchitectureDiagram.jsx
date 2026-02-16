@@ -77,6 +77,43 @@ function ArchitectureDiagram({ onBack }) {
           Cognitive Pipeline: User Input → Dialectical Collision → Response
         </p>
 
+        {/* Executive Summary */}
+        <div className="arch-executive-summary">
+          <h2>What Is This?</h2>
+          <p className="summary-pitch">
+            <strong>Pneuma is a multi-archetype AI system with RAG and dialectical synthesis</strong>—not a chatbot wrapper. 
+            It's a 13-step cognitive pipeline with intent classification, archetype routing, collision detection, 
+            and 4-layer response processing.
+          </p>
+          
+          <div className="summary-highlights">
+            <div className="highlight-item">
+              <span className="highlight-label">Architectural Depth</span>
+              <p>Multi-layer pipeline: input validation → intent classification → archetype selection → 
+              collision detection → RAG retrieval → prompt assembly → LLM generation → 4-layer post-processing</p>
+            </div>
+            <div className="highlight-item">
+              <span className="highlight-label">Domain Complexity</span>
+              <p>46 archetypes with tiered depth (SURFACE → CORE → DEEP), cognitive methods per archetype, 
+              momentum tracking with decay, and Hegelian collision resolution</p>
+            </div>
+            <div className="highlight-item">
+              <span className="highlight-label">Real AI Engineering</span>
+              <p>Retrieval-Augmented Generation with vector embeddings across 46 knowledge bases. 
+              ~3,770-line system prompt with dynamic archetype injection. Not just an API wrapper.</p>
+            </div>
+            <div className="highlight-item">
+              <span className="highlight-label">Separation of Concerns</span>
+              <p>Clean layer architecture: Input → Routing → Intelligence → Archetype → Synthesis → LLM → Output. 
+              Each layer has single responsibility with defined interfaces.</p>
+            </div>
+          </div>
+          
+          <p className="summary-tagline">
+            This diagram proves I understand what I built. Click any step to explore the implementation details.
+          </p>
+        </div>
+
         <div className="architecture-flow">
           
           {/* USER INPUT */}
