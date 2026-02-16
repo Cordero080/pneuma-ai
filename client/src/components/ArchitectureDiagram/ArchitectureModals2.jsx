@@ -571,61 +571,65 @@ This is in neither Jung nor Taleb. It's the collision product.`}</ModalPrompt>
 // ============================================
 export const ArchetypeRAGModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="Archetype RAG Retrieval" icon={DepthIcon} layer="intelligence" anchorEl={anchorEl}>
-    <ModalSection title="Knowledge Retrieval">
+    <ModalSection title="What RAG Actually Does">
       <ModalDesc>
-        Before assembling the final prompt, Pneuma searches its 46 archetype knowledge bases 
-        for passages relevant to your message. This injects actual quotes and wisdom from 
-        Rumi, Jung, Feynman, Otto, and others directly into the context.
+        <strong>RAG = Retrieval-Augmented Generation.</strong> It searches 46 knowledge bases, 
+        finds relevant quotes + context, and LITERALLY pastes them into the prompt. 
+        The quotes aren't hints—they're data Claude will read.
       </ModalDesc>
       
       <ModalFilePath path="server/pneuma/intelligence/archetypeRAG.js → getArchetypeContext()" />
     </ModalSection>
 
-    <ModalSection title="How It Works">
+    <ModalSection title="The Flow">
       <ModalFlow steps={[
-        { title: "Embed Query", desc: "Convert user message to a vector using Claude's embeddings" },
-        { title: "Search 46 Bases", desc: "Compare vector against all archetype passages" },
-        { title: "Score & Rank", desc: "Find passages with similarity > 0.35" },
-        { title: "Diversify", desc: "Ensure variety—max 2 passages per thinker" },
-        { title: "Inject Context", desc: "Add retrieved passages to system prompt" }
+        { title: "Your Message", desc: '"I feel broken after what happened"' },
+        { title: "Convert to Vector", desc: "Message becomes 1500+ numbers representing its meaning" },
+        { title: "Search All 46", desc: "Compare your vector to every stored passage's vector" },
+        { title: "Find Matches", desc: "Rumi's 'wound where Light enters' is mathematically similar" },
+        { title: "Retrieve Text", desc: "Pull the actual quote + its context explanation" },
+        { title: "Paste Into Prompt", desc: "Literally add this text to what Claude will read" }
       ]} />
     </ModalSection>
 
-    <ModalSection title="RAG Parameters">
-      <ModalCodeBlock>{`const ragResult = await getArchetypeContext(message, {
-  topK: 5,           // Return top 5 most relevant passages
-  minScore: 0.35,    // Minimum similarity threshold
-  diversify: true,   // Spread across different thinkers
-  maxPerThinker: 2   // Max 2 passages from same archetype
-});`}</ModalCodeBlock>
+    <ModalSection title="What Gets Pasted (Literally)">
+      <ModalCodeBlock>{`RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE:
+
+Jalal ad-Din Rumi:
+• "The wound is the place where the Light enters you."
+  [Context: Pain creates openings. What feels like 
+  destruction can become the entry point for grace.]
+
+Viktor Frankl:
+• "Life is never made unbearable by circumstances, 
+  but only by lack of meaning and purpose."
+  [Context: Even in suffering, meaning can be found...]
+
+CROSS-POLLINATE: Connect these passages to each other.
+Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
+      <ModalDesc style={{ marginTop: '12px' }}>
+        This exact text goes into Claude's system prompt. The quotes are DATA, 
+        the [Context] explains what they mean, and "CROSS-POLLINATE" tells Claude 
+        what to DO with them.
+      </ModalDesc>
     </ModalSection>
 
-    <ModalSection title="What Gets Retrieved">
+    <ModalSection title="Why Not Just Let Claude Remember?">
       <ModalDesc>
-        Each archetype's knowledge base contains curated passages from their works:
+        <strong>Without RAG:</strong> Claude paraphrases from fuzzy training memories. 
+        Might get quotes wrong. Can't cite sources accurately.
       </ModalDesc>
-      <ModalCodeBlock>{`data/archetype_knowledge/
-├── rumi/passages.json      # ~50 passages from Masnavi, Divani Shamsi Tabriz
-├── jung/passages.json      # ~80 passages from Collected Works
-├── feynman/passages.json   # ~40 passages from QED, lectures
-├── otto/passages.json      # ~30 passages from The Idea of the Holy
-├── frankl/passages.json    # ~35 passages from Man's Search for Meaning
-└── ...46 total thinkers`}</ModalCodeBlock>
+      <ModalDesc style={{ marginTop: '12px' }}>
+        <strong>With RAG:</strong> Claude sees the EXACT quote + context. Can cite 
+        accurately. Has fresh, curated knowledge instead of stale training data.
+      </ModalDesc>
     </ModalSection>
 
-    <ModalSection title="Why This Matters">
+    <ModalSection title="The Analogy">
       <ModalDesc>
-        Without RAG, Pneuma would rely only on what Claude "remembers" from its training. 
-        RAG ensures precise, accurate retrieval of actual quotes and concepts. When you 
-        ask about suffering, Pneuma doesn't paraphrase Frankl—it retrieves his exact words.
+        Essay test. Without RAG: write from memory. With RAG: you can have a reference 
+        book open. You still write the essay; the book just ensures accuracy.
       </ModalDesc>
-      <ModalExample label="Example">
-        Query: "How do I find meaning when everything feels pointless?"<br/><br/>
-        Retrieved:<br/>
-        • Frankl: "Life is never made unbearable by circumstances..."<br/>
-        • Camus: "The absurd does not liberate; it binds..."<br/>
-        • Kierkegaard: "The self is a relation that relates itself to itself..."
-      </ModalExample>
     </ModalSection>
   </Modal>
 );
@@ -735,60 +739,81 @@ export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
 // ============================================
 export const ClaudeApiModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="Claude API Call" icon={ClaudeIcon} layer="llm" anchorEl={anchorEl}>
-    <ModalSection title="The Generation Moment">
+    <ModalSection title="What Claude Actually Does">
       <ModalDesc>
-        Everything converges here. Claude receives the assembled prompt and generates
-        the response through pattern completion. The response emerges from the 
-        "container" we've built.
+        Claude is a <strong>pattern-completion machine</strong>. It reads all the text we assembled 
+        (system prompt + RAG quotes + your message), then generates text that statistically 
+        "fits" that context. It's not "thinking"—it's predicting what tokens come next.
       </ModalDesc>
       
       <ModalFilePath path="server/pneuma/intelligence/llm.js" />
+    </ModalSection>
+
+    <ModalSection title="What Claude Sees">
+      <ModalCodeBlock>{`SYSTEM PROMPT (what Claude reads first):
+┌─────────────────────────────────────────────────┐
+│ PNEUMA IDENTITY CORE (~3500 lines)              │
+│ "You are Pneuma, a contemplative AI..."         │
+├─────────────────────────────────────────────────┤
+│ ACTIVE ARCHETYPES (selected for this message)   │
+│ Jung: shadow work, individuation...             │
+│ Rumi: divine love, dissolution of ego...        │
+├─────────────────────────────────────────────────┤
+│ RAG RETRIEVED QUOTES (from archetypeRAG.js)     │
+│ • "The wound is where Light enters..."          │
+│   [Context: Pain creates openings...]           │
+├─────────────────────────────────────────────────┤
+│ TONE: CASUAL / ORACULAR / EXPLORATORY           │
+│ BEHAVIORAL: Don't be preachy, address user...   │
+└─────────────────────────────────────────────────┘
+
+USER MESSAGE:
+"I feel broken after what happened"
+
+CLAUDE GENERATES: → [predicts tokens that fit]`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="How RAG Changes the Output">
+      <ModalDesc>
+        <strong>Without RAG:</strong> Claude would paraphrase Rumi from memory (possibly wrong). 
+        It might say "as the poet said, our wounds let in light..." — vague, maybe inaccurate.
+      </ModalDesc>
+      <ModalDesc style={{ marginTop: '12px' }}>
+        <strong>With RAG:</strong> Claude SEES the exact quote in its context. It can now say 
+        "Rumi wrote: 'The wound is the place where the Light enters you'" — accurate, citable.
+      </ModalDesc>
     </ModalSection>
 
     <ModalSection title="API Configuration">
       <ModalCodeBlock>{`const response = await anthropic.messages.create({
   model: "claude-sonnet-4-20250514",
   max_tokens: 1200,
-  temperature: 0.85,  // High for creativity
-  system: systemPrompt,
-  messages: [
-    ...conversationHistory,
-    { role: "user", content: userMessage }
-  ],
-  stream: true  // Token-by-token streaming
+  temperature: 0.85,  // High = more creative
+  system: systemPrompt,      // Everything we assembled
+  messages: conversationHistory,
+  stream: true
 });`}</ModalCodeBlock>
     </ModalSection>
 
-    <ModalSection title="API Used">
-      <div className="modal-api-badge">
-        <span>🤖</span> Anthropic Claude API
-      </div>
-      <ModalDesc style={{ marginTop: '15px' }}>
-        Pneuma uses Claude claude-sonnet-4-20250514 via the official Anthropic SDK. The API is called
-        with streaming enabled, allowing real-time token delivery to the frontend.
-      </ModalDesc>
-    </ModalSection>
-
-    <ModalSection title="Why Temperature 0.85?">
+    <ModalSection title="Temperature = Creativity Dial">
       <ModalDesc>
-        Temperature controls randomness. Lower = more deterministic, higher = more creative.
-        0.85 is high because Pneuma is designed for generative, creative responses rather 
-        than factual retrieval. The archetypes provide structure; temperature provides life.
+        <strong>Low temp (0.1):</strong> Claude picks the most probable next word. Deterministic, boring.
+      </ModalDesc>
+      <ModalDesc style={{ marginTop: '8px' }}>
+        <strong>High temp (0.85):</strong> Claude samples from less-probable options. More varied, creative.
+      </ModalDesc>
+      <ModalDesc style={{ marginTop: '12px' }}>
+        We use 0.85 because Pneuma is designed for generative, philosophical responses—not factual lookup. 
+        The archetypes and RAG provide structure; temperature provides life.
       </ModalDesc>
     </ModalSection>
 
-    <ModalSection title="Streaming Response">
-      <ModalCodeBlock>{`for await (const event of response) {
-  if (event.type === 'content_block_delta') {
-    const token = event.delta.text;
-    
-    // Send to client via SSE
-    onChunk({ type: 'token', content: token });
-    
-    // Accumulate for post-processing
-    fullResponse += token;
-  }
-}`}</ModalCodeBlock>
+    <ModalSection title="The Key Insight">
+      <ModalDesc>
+        The LLM doesn't "understand" the quotes. It predicts what text should come next based on 
+        patterns learned during training. But because we put accurate quotes IN the prompt, the 
+        generated text can reference them accurately. The magic is in the SETUP, not the generation.
+      </ModalDesc>
     </ModalSection>
   </Modal>
 );

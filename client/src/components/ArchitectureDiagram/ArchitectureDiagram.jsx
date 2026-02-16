@@ -81,36 +81,36 @@ function ArchitectureDiagram({ onBack }) {
         <div className="arch-executive-summary">
           <h2>What Is This?</h2>
           <p className="summary-pitch">
-            <strong>Pneuma is a multi-archetype AI system with RAG and dialectical synthesis</strong>—not a chatbot wrapper. 
-            It's a 13-step cognitive pipeline with intent classification, archetype routing, collision detection, 
-            and 4-layer response processing.
+            <strong>Pneuma is a multi-archetype AI system with RAG and dialectical synthesis.</strong> 
+            It's a 13-step pipeline that ASSEMBLES context before the LLM generates. The magic is in 
+            the setup—what we PUT in the prompt—not just calling an AI API.
           </p>
           
           <div className="summary-highlights">
             <div className="highlight-item">
-              <span className="highlight-label">Architectural Depth</span>
-              <p>Multi-layer pipeline: input validation → intent classification → archetype selection → 
-              collision detection → RAG retrieval → prompt assembly → LLM generation → 4-layer post-processing</p>
+              <span className="highlight-label">RAG = Literal Injection</span>
+              <p>Searches 46 knowledge bases, finds relevant quotes + context, and LITERALLY pastes them 
+              into the prompt. Claude sees exact text: "The wound is where Light enters..." Not hints—data.</p>
             </div>
             <div className="highlight-item">
-              <span className="highlight-label">Domain Complexity</span>
-              <p>46 archetypes with tiered depth (SURFACE → CORE → DEEP), cognitive methods per archetype, 
-              momentum tracking with decay, and Hegelian collision resolution</p>
+              <span className="highlight-label">Prompt = The Container</span>
+              <p>~3,770-line system prompt assembled dynamically: identity core + selected archetypes + 
+              RAG quotes + tone + history. This is what Claude READS before responding.</p>
             </div>
             <div className="highlight-item">
-              <span className="highlight-label">Real AI Engineering</span>
-              <p>Retrieval-Augmented Generation with vector embeddings across 46 knowledge bases. 
-              ~3,770-line system prompt with dynamic archetype injection. Not just an API wrapper.</p>
+              <span className="highlight-label">LLM = Pattern Completion</span>
+              <p>Claude doesn't "understand"—it predicts what tokens fit the context we assembled. 
+              Because we put accurate quotes IN the prompt, it can reference them accurately.</p>
             </div>
             <div className="highlight-item">
-              <span className="highlight-label">Separation of Concerns</span>
-              <p>Clean layer architecture: Input → Routing → Intelligence → Archetype → Synthesis → LLM → Output. 
-              Each layer has single responsibility with defined interfaces.</p>
+              <span className="highlight-label">46 Archetypes</span>
+              <p>Jung, Rumi, Feynman, Frankl, Nietzsche, etc. Each has depth tiers (SURFACE → CORE → DEEP), 
+              cognitive methods, and curated passage databases for RAG retrieval.</p>
             </div>
           </div>
           
           <p className="summary-tagline">
-            This diagram proves I understand what I built. Click any step to explore the implementation details.
+            Click any step below to see exactly what happens in the code.
           </p>
         </div>
 
@@ -381,7 +381,7 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
           />
 
-          {/* STEP 10: SYSTEM PROMPT */}}
+          {/* STEP 10: SYSTEM PROMPT */}
           <div 
             className="arch-node intelligence"
             data-layer="Intelligence"
@@ -504,17 +504,17 @@ function ArchitectureDiagram({ onBack }) {
               <div className="process-item">
                 <span className="process-label">① ARCHETYPE RAG</span>
                 <span className="process-file">archetypeRAG.js</span>
-                <p>Searches 46 knowledge bases for relevant passages. Returns actual quotes from Rumi, Jung, Frankl, etc. This is <strong>retrieval</strong>—finding existing text.</p>
+                <p><strong>RETRIEVAL</strong> — Searches 46 knowledge bases. Finds quotes + context that match your message. Literally pastes them into the prompt. The quotes are DATA, not hints.</p>
               </div>
               <div className="process-item">
                 <span className="process-label">② PROMPT ASSEMBLY</span>
                 <span className="process-file">llm.js → buildSystemPrompt()</span>
-                <p>Builds the ~3770-line system prompt: identity core, active archetypes, cognitive methods, RAG results, tone, history. This is <strong>composition</strong>—assembling the container.</p>
+                <p><strong>COMPOSITION</strong> — Assembles ~3770-line system prompt: identity + archetypes + RAG quotes + tone + history. This is what Claude will READ before responding.</p>
               </div>
               <div className="process-item">
                 <span className="process-label">③ CLAUDE API CALL</span>
                 <span className="process-file">llm.js → generateResponse()</span>
-                <p>Sends assembled prompt to Claude Sonnet. Claude generates the response through pattern completion. This is <strong>generation</strong>—creating new text.</p>
+                <p><strong>GENERATION</strong> — Claude reads all assembled text, then predicts what tokens come next. It's pattern-completion, not "thinking." The magic is in the SETUP.</p>
               </div>
             </div>
           </div>
