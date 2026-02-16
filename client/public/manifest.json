@@ -1,0 +1,25 @@
+{
+  "name": "Pneuma AI Architecture",
+  "short_name": "Pneuma Arch",
+  "description": "Interactive architecture diagram for Pneuma AI - 46 archetypes, RAG, and dialectical synthesis",
+  "start_url": "/architecture",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00ff96",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "productivity"]
+}
