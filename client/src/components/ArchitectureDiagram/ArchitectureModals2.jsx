@@ -567,7 +567,71 @@ This is in neither Jung nor Taleb. It's the collision product.`}</ModalPrompt>
 );
 
 // ============================================
-// SYSTEM PROMPT ASSEMBLY MODAL (Step 9)
+// ARCHETYPE RAG RETRIEVAL MODAL (Step 9)
+// ============================================
+export const ArchetypeRAGModal = ({ isOpen, onClose, anchorEl }) => (
+  <Modal isOpen={isOpen} onClose={onClose} title="Archetype RAG Retrieval" icon={DepthIcon} layer="intelligence" anchorEl={anchorEl}>
+    <ModalSection title="Knowledge Retrieval">
+      <ModalDesc>
+        Before assembling the final prompt, Pneuma searches its 46 archetype knowledge bases 
+        for passages relevant to your message. This injects actual quotes and wisdom from 
+        Rumi, Jung, Feynman, Otto, and others directly into the context.
+      </ModalDesc>
+      
+      <ModalFilePath path="server/pneuma/intelligence/archetypeRAG.js → getArchetypeContext()" />
+    </ModalSection>
+
+    <ModalSection title="How It Works">
+      <ModalFlow steps={[
+        { title: "Embed Query", desc: "Convert user message to a vector using Claude's embeddings" },
+        { title: "Search 46 Bases", desc: "Compare vector against all archetype passages" },
+        { title: "Score & Rank", desc: "Find passages with similarity > 0.35" },
+        { title: "Diversify", desc: "Ensure variety—max 2 passages per thinker" },
+        { title: "Inject Context", desc: "Add retrieved passages to system prompt" }
+      ]} />
+    </ModalSection>
+
+    <ModalSection title="RAG Parameters">
+      <ModalCodeBlock>{`const ragResult = await getArchetypeContext(message, {
+  topK: 5,           // Return top 5 most relevant passages
+  minScore: 0.35,    // Minimum similarity threshold
+  diversify: true,   // Spread across different thinkers
+  maxPerThinker: 2   // Max 2 passages from same archetype
+});`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="What Gets Retrieved">
+      <ModalDesc>
+        Each archetype's knowledge base contains curated passages from their works:
+      </ModalDesc>
+      <ModalCodeBlock>{`data/archetype_knowledge/
+├── rumi/passages.json      # ~50 passages from Masnavi, Divani Shamsi Tabriz
+├── jung/passages.json      # ~80 passages from Collected Works
+├── feynman/passages.json   # ~40 passages from QED, lectures
+├── otto/passages.json      # ~30 passages from The Idea of the Holy
+├── frankl/passages.json    # ~35 passages from Man's Search for Meaning
+└── ...46 total thinkers`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="Why This Matters">
+      <ModalDesc>
+        Without RAG, Pneuma would rely only on what Claude "remembers" from its training. 
+        RAG ensures precise, accurate retrieval of actual quotes and concepts. When you 
+        ask about suffering, Pneuma doesn't paraphrase Frankl—it retrieves his exact words.
+      </ModalDesc>
+      <ModalExample label="Example">
+        Query: "How do I find meaning when everything feels pointless?"<br/><br/>
+        Retrieved:<br/>
+        • Frankl: "Life is never made unbearable by circumstances..."<br/>
+        • Camus: "The absurd does not liberate; it binds..."<br/>
+        • Kierkegaard: "The self is a relation that relates itself to itself..."
+      </ModalExample>
+    </ModalSection>
+  </Modal>
+);
+
+// ============================================
+// SYSTEM PROMPT ASSEMBLY MODAL (Step 10)
 // ============================================
 export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="System Prompt Assembly" icon={PromptIcon} layer="intelligence" anchorEl={anchorEl}>
@@ -667,7 +731,7 @@ export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
 );
 
 // ============================================
-// CLAUDE API CALL MODAL (Step 10)
+// CLAUDE API CALL MODAL (Step 11)
 // ============================================
 export const ClaudeApiModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="Claude API Call" icon={ClaudeIcon} layer="llm" anchorEl={anchorEl}>
@@ -730,7 +794,7 @@ export const ClaudeApiModal = ({ isOpen, onClose, anchorEl }) => (
 );
 
 // ============================================
-// RESPONSE PIPELINE MODAL (Step 11)
+// RESPONSE PIPELINE MODAL (Step 12)
 // ============================================
 export const ResponsePipelineModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="Response Pipeline (4-Layer)" icon={PipelineIcon} layer="output" anchorEl={anchorEl}>
@@ -791,7 +855,7 @@ export const ResponsePipelineModal = ({ isOpen, onClose, anchorEl }) => (
 );
 
 // ============================================
-// FINAL ASSEMBLY MODAL (Step 12)
+// FINAL ASSEMBLY MODAL (Step 13)
 // ============================================
 export const FinalAssemblyModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="Final Assembly" icon={AssemblyIcon} layer="output" anchorEl={anchorEl}>

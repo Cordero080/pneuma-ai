@@ -393,7 +393,7 @@ export default defineConfig({
       >
         <ModalSection title="Purpose">
           <ModalDesc>
-            Manages the 42 archetypes—selecting which perspectives to invoke, extracting 
+            Manages the 46 archetypes—selecting which perspectives to invoke, extracting 
             their 5-layer depth, and detecting productive tensions between them.
           </ModalDesc>
         </ModalSection>
@@ -506,6 +506,7 @@ export default defineConfig({
             { title: "Collision Check", desc: "Detect productive tensions" },
             { title: "Depth Extraction", desc: "Pull 5 layers per archetype" },
             { title: "Synthesis", desc: "If collision, inject synthesis directive" },
+            { title: "Archetype RAG", desc: "Retrieve passages from 46 knowledge bases" },
             { title: "Prompt Assembly", desc: "Combine all into system prompt" },
             { title: "Claude API", desc: "Generate response with streaming" },
             { title: "Post-Process", desc: "4-layer refinement pipeline" },
@@ -527,6 +528,7 @@ export default defineConfig({
 │   └── responseEngine.js  # Intent, tone, post-process
 ├── intelligence/
 │   ├── llm.js            # Claude API integration
+│   ├── archetypeRAG.js    # Knowledge retrieval (46 bases)
 │   ├── semanticRouter.js  # Vector-based routing
 │   └── synthesisEngine.js # Collision synthesis
 ├── archetypes/

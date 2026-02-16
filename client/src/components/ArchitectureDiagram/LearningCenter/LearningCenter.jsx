@@ -218,7 +218,7 @@ const LearningCenter = () => {
         <ModalSection title="Personality-First Design">
           <ModalFlow steps={[
             { title: "Identity Core", desc: "~1500 tokens defining who Pneuma IS, not just what it does" },
-            { title: "Archetype Fusion", desc: "42 thinkers inform responses—not as sources, but as perspectives" },
+            { title: "Archetype Fusion", desc: "46 thinkers inform responses—not as sources, but as perspectives" },
             { title: "Dialectical Thinking", desc: "When archetypes conflict, Pneuma synthesizes rather than choosing" },
             { title: "Memory & Continuity", desc: "Pneuma remembers you across sessions, building real relationship" }
           ]} />
@@ -527,16 +527,16 @@ const LearningCenter = () => {
         </ModalSection>
       </Modal>
 
-      {/* All 42 Archetypes */}
+      {/* All 46 Archetypes */}
       <Modal
         isOpen={activeModal === 'all-archetypes'}
         onClose={() => setActiveModal(null)}
-        title="The 42 Archetypes"
+        title="The 46 Archetypes"
         icon={GridIcon}
       >
-        <ModalSection title="Why 42?">
+        <ModalSection title="Why 46?">
           <ModalDesc>
-            Pneuma draws on 42 distinct thinkers across philosophy, mysticism, psychology, 
+            Pneuma draws on 46 distinct thinkers across philosophy, mysticism, psychology, 
             literature, and more. Each brings a unique lens—not as authorities to quote, 
             but as perspectives to inhabit.
           </ModalDesc>

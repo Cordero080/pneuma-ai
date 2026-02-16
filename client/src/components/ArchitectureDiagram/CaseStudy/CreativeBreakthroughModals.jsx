@@ -105,7 +105,7 @@ function cosineSimilarity(vecA, vecB) {
         <ModalSection title="In This Conversation">
           <ModalDesc>
             When you said "Create something...surprise me...be alive", that text was embedded into a vector.
-            Then Pneuma compared it against the embedded knowledge of all 42 archetypes to find who resonates.
+            Then Pneuma compared it against the embedded knowledge of all 46 archetypes to find who resonates.
           </ModalDesc>
           <ModalExample label="What the System Found">
             Your message vector was closest to:<br/><br/>

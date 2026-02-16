@@ -15,6 +15,7 @@ import {
   TensionMapModal,
   DepthExtractionModal,
   SynthesisModal,
+  ArchetypeRAGModal,
   SystemPromptModal,
   ClaudeApiModal,
   ResponsePipelineModal,
@@ -315,14 +316,42 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(255,100,0,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
           />
 
-          {/* STEP 9: SYSTEM PROMPT */}
+          {/* STEP 9: ARCHETYPE RAG */}
           <div 
             className="arch-node intelligence"
             data-layer="Intelligence"
-            onClick={(e) => handleNodeClick('step9', 'System Prompt Assembly', e)}
+            onClick={(e) => handleNodeClick('step9', 'Archetype RAG Retrieval', e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">9</span>
+              ARCHETYPE RAG RETRIEVAL
+            </div>
+            <div className="arch-node-file">intelligence/archetypeRAG.js → getArchetypeContext()</div>
+            <div className="arch-node-desc">
+              Embeds user message, searches 46 archetype knowledge bases for relevant passages.
+              Retrieves actual quotes from Rumi, Jung, Feynman, Otto, etc.
+            </div>
+            <div className="arch-node-tags">
+              <span className="arch-tag">Vector similarity</span>
+              <span className="arch-tag">topK: 5</span>
+              <span className="arch-tag">minScore: 0.35</span>
+              <span className="arch-tag">diversify: true</span>
+            </div>
+          </div>
+
+          <div 
+            className="arch-connector" 
+            style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
+          />
+
+          {/* STEP 10: SYSTEM PROMPT */}}
+          <div 
+            className="arch-node intelligence"
+            data-layer="Intelligence"
+            onClick={(e) => handleNodeClick('step10', 'System Prompt Assembly', e)}
+          >
+            <div className="arch-node-title">
+              <span className="arch-step-number">10</span>
               SYSTEM PROMPT ASSEMBLY
             </div>
             <div className="arch-node-file">intelligence/llm.js → buildSystemPrompt()</div>
@@ -341,14 +370,14 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(255,255,255,0.5)' }} 
           />
 
-          {/* STEP 10: CLAUDE */}
+          {/* STEP 11: CLAUDE */}
           <div 
             className="arch-node llm"
             data-layer="LLM Core"
-            onClick={(e) => handleNodeClick('step10', 'Claude API Call', e)}
+            onClick={(e) => handleNodeClick('step11', 'Claude API Call', e)}
           >
             <div className="arch-node-title">
-              <span className="arch-step-number">10</span>
+              <span className="arch-step-number">11</span>
               CLAUDE API CALL
             </div>
             <div className="arch-node-file">intelligence/llm.js → anthropic.messages.create()</div>
@@ -367,14 +396,14 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(255,255,255,0.5)', '--to-color': 'rgba(255,50,100,0.4)' }} 
           />
 
-          {/* STEP 11: RESPONSE PIPELINE */}
+          {/* STEP 12: RESPONSE PIPELINE */}
           <div 
             className="arch-node output"
             data-layer="Output"
-            onClick={(e) => handleNodeClick('step11', 'Response Pipeline', e)}
+            onClick={(e) => handleNodeClick('step12', 'Response Pipeline', e)}
           >
             <div className="arch-node-title">
-              <span className="arch-step-number">11</span>
+              <span className="arch-step-number">12</span>
               RESPONSE PIPELINE (4-LAYER)
             </div>
             <div className="arch-node-file">core/responseEngine.js → generate()</div>
@@ -392,14 +421,14 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(255,50,100,0.4)', '--to-color': 'rgba(255,50,100,0.4)' }} 
           />
 
-          {/* STEP 12: FINAL ASSEMBLY */}
+          {/* STEP 13: FINAL ASSEMBLY */}
           <div 
             className="arch-node output"
             data-layer="Output"
-            onClick={(e) => handleNodeClick('step12', 'Final Assembly', e)}
+            onClick={(e) => handleNodeClick('step13', 'Final Assembly', e)}
           >
             <div className="arch-node-title">
-              <span className="arch-step-number">12</span>
+              <span className="arch-step-number">13</span>
               FINAL ASSEMBLY
             </div>
             <div className="arch-node-file">core/fusion.js</div>
@@ -432,6 +461,26 @@ function ArchitectureDiagram({ onBack }) {
 
         {/* Side Panels */}
         <div className="arch-side-panels">
+          <div className="arch-side-panel arch-process-panel">
+            <h3><span className="panel-icon"><BrainIcon /></span> RAG vs PROMPT vs LLM</h3>
+            <div className="process-distinction">
+              <div className="process-item">
+                <span className="process-label">① ARCHETYPE RAG</span>
+                <span className="process-file">archetypeRAG.js</span>
+                <p>Searches 46 knowledge bases for relevant passages. Returns actual quotes from Rumi, Jung, Frankl, etc. This is <strong>retrieval</strong>—finding existing text.</p>
+              </div>
+              <div className="process-item">
+                <span className="process-label">② PROMPT ASSEMBLY</span>
+                <span className="process-file">llm.js → buildSystemPrompt()</span>
+                <p>Builds the ~3770-line system prompt: identity core, active archetypes, cognitive methods, RAG results, tone, history. This is <strong>composition</strong>—assembling the container.</p>
+              </div>
+              <div className="process-item">
+                <span className="process-label">③ CLAUDE API CALL</span>
+                <span className="process-file">llm.js → generateResponse()</span>
+                <p>Sends assembled prompt to Claude Sonnet. Claude generates the response through pattern completion. This is <strong>generation</strong>—creating new text.</p>
+              </div>
+            </div>
+          </div>
           <div className="arch-side-panel arch-memory-panel">
             <h3><span className="panel-icon"><BrainIcon /></span> MEMORY SYSTEMS</h3>
             <ul>
@@ -503,10 +552,11 @@ function ArchitectureDiagram({ onBack }) {
       <TensionMapModal isOpen={!!openModals.step6} onClose={() => closeModal('step6')} anchorEl={openModals.step6} />
       <DepthExtractionModal isOpen={!!openModals.step7} onClose={() => closeModal('step7')} anchorEl={openModals.step7} />
       <SynthesisModal isOpen={!!openModals.step8} onClose={() => closeModal('step8')} anchorEl={openModals.step8} />
-      <SystemPromptModal isOpen={!!openModals.step9} onClose={() => closeModal('step9')} anchorEl={openModals.step9} />
-      <ClaudeApiModal isOpen={!!openModals.step10} onClose={() => closeModal('step10')} anchorEl={openModals.step10} />
-      <ResponsePipelineModal isOpen={!!openModals.step11} onClose={() => closeModal('step11')} anchorEl={openModals.step11} />
-      <FinalAssemblyModal isOpen={!!openModals.step12} onClose={() => closeModal('step12')} anchorEl={openModals.step12} />
+      <ArchetypeRAGModal isOpen={!!openModals.step9} onClose={() => closeModal('step9')} anchorEl={openModals.step9} />
+      <SystemPromptModal isOpen={!!openModals.step10} onClose={() => closeModal('step10')} anchorEl={openModals.step10} />
+      <ClaudeApiModal isOpen={!!openModals.step11} onClose={() => closeModal('step11')} anchorEl={openModals.step11} />
+      <ResponsePipelineModal isOpen={!!openModals.step12} onClose={() => closeModal('step12')} anchorEl={openModals.step12} />
+      <FinalAssemblyModal isOpen={!!openModals.step13} onClose={() => closeModal('step13')} anchorEl={openModals.step13} />
       <OutputModal isOpen={!!openModals.output} onClose={() => closeModal('output')} anchorEl={openModals.output} />
     </div>
   );

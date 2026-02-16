@@ -31,16 +31,35 @@
   to { opacity: 1; }
 }
 
-/* Modal Container - Base */
+/* Modal Container - Base - Holographic dark glass effect */
 .modal-container {
-  background: linear-gradient(135deg, #0f0f18 0%, #1a1a2e 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Multi-layered holographic background */
+  background:
+    linear-gradient(145deg, rgba(18, 16, 24, 0.98), rgba(8, 8, 14, 0.99)),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.5), transparent 50%),
+    linear-gradient(45deg, rgba(138, 43, 226, 0.04), rgba(0, 212, 255, 0.03), rgba(138, 43, 226, 0.04));
+  background-size: 100% 100%, 150% 150%, 150% 150%, 200% 200%;
+  background-blend-mode: normal, overlay, multiply, overlay;
+  
+  border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-              0 0 40px rgba(100, 100, 255, 0.1);
+  
+  /* Enhanced depth shadows */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(138, 43, 226, 0.08),
+    0 0 60px rgba(0, 212, 255, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+  
+  /* Glass effect */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
   position: relative;
 }
 
@@ -93,11 +112,39 @@
   max-height: 70vh;
 }
 
-/* Layer-specific border accents */
-.modal-container.layer-routing { border-color: rgba(0, 150, 255, 0.4); }
-.modal-container.layer-intelligence { border-color: rgba(0, 255, 150, 0.4); }
-.modal-container.layer-archetype { border-color: rgba(180, 0, 255, 0.4); }
-.modal-container.layer-synthesis { border-color: rgba(255, 100, 0, 0.4); }
+/* Layer-specific holographic accents */
+.modal-container.layer-routing { 
+  border-color: rgba(0, 150, 255, 0.35);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(0, 150, 255, 0.12),
+    inset 0 1px 2px rgba(0, 150, 255, 0.08),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
+.modal-container.layer-intelligence { 
+  border-color: rgba(0, 255, 150, 0.35);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(0, 255, 150, 0.12),
+    inset 0 1px 2px rgba(0, 255, 150, 0.08),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
+.modal-container.layer-archetype { 
+  border-color: rgba(180, 0, 255, 0.35);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(180, 0, 255, 0.12),
+    inset 0 1px 2px rgba(180, 0, 255, 0.08),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
+.modal-container.layer-synthesis { 
+  border-color: rgba(255, 100, 0, 0.35);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(255, 100, 0, 0.12),
+    inset 0 1px 2px rgba(255, 100, 0, 0.08),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
 .modal-container.layer-llm { border-color: rgba(255, 255, 255, 0.5); }
 .modal-container.layer-output { border-color: rgba(255, 50, 100, 0.4); }
 .modal-container.layer-input { border-color: rgba(255, 255, 255, 0.3); }
@@ -575,4 +622,269 @@
   border-radius: 6px;
   font-size: 0.8rem;
   color: #ff8c00;
+}
+
+/* ============================================
+   RESPONSIVE - Tablet (768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Modals centered on tablet */
+  .modal-container.popover {
+    min-width: unset;
+    width: calc(100vw - 40px);
+    max-width: 500px;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+  
+  .modal-container.expanded {
+    width: 95%;
+    max-width: 100%;
+    max-height: 80vh;
+  }
+  
+  .modal-header {
+    padding: 12px 14px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1rem;
+  }
+  
+  .modal-body {
+    padding: 15px;
+  }
+  
+  .modal-section h3 {
+    font-size: 0.9rem;
+  }
+  
+  .modal-code-block {
+    font-size: 0.75rem;
+    padding: 12px;
+  }
+  
+  .modal-flow-step {
+    padding: 10px;
+  }
+  
+  .modal-flow-title {
+    font-size: 0.85rem;
+  }
+  
+  .modal-flow-desc {
+    font-size: 0.75rem;
+  }
+  
+  .modal-info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Phone (480px)
+   ============================================ */
+@media (max-width: 480px) {
+  /* Full-screen modals on phone */
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .modal-container.popover {
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto;
+    width: calc(100vw - 24px);
+    max-width: 400px;
+    max-height: 70vh;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 auto;
+  }
+  
+  .modal-container.expanded {
+    width: 100%;
+    max-height: 90vh;
+    margin: 0;
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  
+  .modal-header h2 {
+    font-size: 0.9rem;
+  }
+  
+  .modal-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .modal-actions {
+    gap: 4px;
+  }
+  
+  .modal-action-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+  
+  .modal-body {
+    padding: 12px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-section {
+    margin-bottom: 20px;
+  }
+  
+  .modal-section h3 {
+    font-size: 0.85rem;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-filepath {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+  
+  .modal-code-block {
+    font-size: 0.7rem;
+    padding: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-flow-step {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  
+  .modal-flow-number {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+  
+  .modal-flow-title {
+    font-size: 0.8rem;
+  }
+  
+  .modal-flow-desc {
+    font-size: 0.7rem;
+  }
+  
+  .modal-info-card {
+    padding: 12px;
+  }
+  
+  .modal-info-card h4 {
+    font-size: 0.8rem;
+  }
+  
+  .modal-info-card p,
+  .modal-info-card li {
+    font-size: 0.75rem;
+  }
+  
+  .modal-tag-grid {
+    gap: 6px;
+  }
+  
+  .modal-tag {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+  
+  .modal-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .modal-example {
+    padding: 12px;
+  }
+  
+  .modal-example-content {
+    font-size: 0.8rem;
+  }
+  
+  .modal-prompt-display {
+    padding: 12px;
+    font-size: 0.75rem;
+  }
+  
+  /* Hide resize handle on mobile */
+  .modal-resize-handle {
+    display: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Small Phone (375px)
+   ============================================ */
+@media (max-width: 375px) {
+  .modal-container.popover {
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    width: calc(100vw - 16px);
+    max-width: 360px;
+    max-height: 75vh;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .modal-header h2 {
+    font-size: 0.85rem;
+  }
+  
+  .modal-body {
+    padding: 10px;
+  }
+  
+  .modal-code-block {
+    font-size: 0.65rem;
+  }
+}
+
+/* ============================================
+   TOUCH IMPROVEMENTS
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for close buttons */
+  .modal-action-btn {
+    min-width: 36px;
+    min-height: 36px;
+  }
+  
+  /* Disable dragging on touch devices - use full screen instead */
+  .modal-container.popover.dragging {
+    cursor: default;
+  }
+  
+  /* Smooth scrolling in modal body */
+  .modal-body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Better touch feedback */
+  .modal-action-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  
+  .modal-link:active,
+  .modal-tag:active {
+    opacity: 0.7;
+  }
 }
