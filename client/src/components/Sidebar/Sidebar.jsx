@@ -58,6 +58,11 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
       setSelectedIds(new Set());
       lastClickedIndex.current = index;
       onSelect(convId);
+      
+      // Auto-close sidebar on mobile when conversation is selected
+      if (window.innerWidth <= 768) {
+        setIsCollapsed(true);
+      }
     }
   };
 
@@ -97,12 +102,14 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
 
   return (
     <>
-      {/* Toggle button - vertical control strip */}
+      {/* Toggle button - hamburger menu on mobile */}
       <button 
         className={`sidebar-toggle ${isCollapsed ? 'collapsed' : ''}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
         aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-      />
+      >
+        <span className="hamburger-line"></span>
+      </button>
 
       <div ref={sidebarRef} className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
         {!isCollapsed && (
@@ -116,7 +123,10 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
               
               {/* New chat button OR Back to Chat button */}
               {isArchitectureView ? (
-                <button className="new-chat-btn back-to-chat" onClick={onBackToChat} title="Back to Chat">
+                <button className="new-chat-btn back-to-chat" onClick={() => {
+                  onBackToChat();
+                  if (window.innerWidth <= 768) setIsCollapsed(true);
+                }} title="Back to Chat">
                   <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                     <path d="M12 5L5 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -124,7 +134,10 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                   <span>Back to Chat</span>
                 </button>
               ) : (
-                <button className="new-chat-btn" onClick={onNewChat} title="New Session">
+                <button className="new-chat-btn" onClick={() => {
+                  onNewChat();
+                  if (window.innerWidth <= 768) setIsCollapsed(true);
+                }} title="New Session">
                   <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                     <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
