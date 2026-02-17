@@ -207,6 +207,19 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
               >
                 ◈ Architecture
               </button>
+              <button
+                className="documentation-btn"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.history && window.history.pushState) {
+                    window.history.pushState({}, '', '/docs/rag-llm-explanation');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }
+                }}
+                title="How RAG Works with LLM"
+                style={{ padding: '4px 8px', fontSize: '0.55rem', borderRadius: '4px', marginLeft: '4px', fontWeight: 500 }}
+              >
+                Docs
+              </button>
               <span className="system-version">PNEUMA v2.0</span>
               <span className="system-status">
                 <span className="status-dot"></span>

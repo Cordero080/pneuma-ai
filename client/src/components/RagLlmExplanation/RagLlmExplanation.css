@@ -1,0 +1,320 @@
+/* RagLlmExplanation.css */
+
+/* RagLlmExplanation.css */
+
+.rag-llm-explanation-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
+  color: #e0e6ed;
+  padding: 2rem;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* Rest of the CSS stays the same... */
+/* Header */
+.rag-llm-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(255, 170, 0, 0.1);
+  border: 1px solid #ffaa00;
+  color: #ffaa00;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 170, 0, 0.2);
+  transform: translateX(-5px);
+}
+
+.rag-llm-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(90deg, #00fff2, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #8a93a6;
+  margin: 0;
+}
+
+/* Tab Navigation */
+.rag-llm-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  background: rgba(26, 31, 53, 0.6);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  color: #8a93a6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tab-button:hover {
+  border-color: #00fff2;
+  color: #00fff2;
+}
+
+.tab-button.active {
+  background: rgba(0, 255, 242, 0.15);
+  border-color: #00fff2;
+  color: #00fff2;
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.3);
+}
+
+/* Tab Content */
+.rag-llm-tab-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.tab-section {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-section h3 {
+  font-size: 1.8rem;
+  color: #ffaa00;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tab-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #b8c0d0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-intro {
+  font-style: italic;
+  color: #8a93a6;
+}
+
+/* Step List */
+.step-list {
+  text-align: left;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding-left: 2rem;
+}
+
+.step-list li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #b8c0d0;
+}
+
+.step-list strong {
+  color: #00fff2;
+}
+
+/* Diagrams */
+.diagram-container {
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+.flow-diagram {
+  background: #181c2a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  white-space: pre;
+  font-family: 'Courier New', monospace;
+}
+
+.llm-flow {
+  color: #00fff2;
+  border-color: rgba(0, 255, 242, 0.3);
+}
+
+.rag-flow {
+  color: #ffaa00;
+  border-color: rgba(255, 170, 0, 0.3);
+}
+
+/* Insight Boxes */
+.insight-box {
+  background: rgba(0, 255, 242, 0.1);
+  border-left: 4px solid #00fff2;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  max-width: 700px;
+}
+
+.insight-box.highlight {
+  background: rgba(255, 170, 0, 0.1);
+  border-left-color: #ffaa00;
+}
+
+.insight-box strong {
+  color: #00fff2;
+}
+
+.insight-box.highlight strong {
+  color: #ffaa00;
+}
+
+/* Comparison Grid */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+.comparison-item {
+  background: rgba(26, 31, 53, 0.6);
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.comparison-item h4 {
+  color: #ffaa00;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Q&A Conversation */
+.qa-conversation {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.qa-exchange {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(26, 31, 53, 0.4);
+  border-radius: 12px;
+  border-left: 3px solid rgba(0, 255, 242, 0.3);
+}
+
+.qa-exchange.breakthrough {
+  background: rgba(255, 170, 0, 0.1);
+  border-left-color: #ffaa00;
+}
+
+.qa-question {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(0, 255, 242, 0.05);
+  border-radius: 8px;
+}
+
+.qa-question strong {
+  color: #00fff2;
+}
+
+.qa-answer {
+  padding: 0.75rem;
+  background: rgba(255, 170, 0, 0.05);
+  border-radius: 8px;
+}
+
+.qa-answer strong {
+  color: #ffaa00;
+}
+
+.qa-answer ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.qa-answer li {
+  margin-bottom: 0.5rem;
+  color: #b8c0d0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .rag-llm-explanation-page {
+    padding: 1rem;
+  }
+
+  .rag-llm-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .back-button {
+    position: static;
+    display: block;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+
+  .step-list {
+    padding-left: 1.5rem;
+  }
+
+  .flow-diagram {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}

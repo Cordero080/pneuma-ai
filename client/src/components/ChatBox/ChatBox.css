@@ -720,45 +720,47 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
-  /* Fullscreen on mobile - fixed layout */
+  /* Fullscreen on mobile - fixed layout filling entire screen */
   .chat-wrapper.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    height: 100dvh !important; /* Dynamic viewport for iOS Safari */
+    height: 100dvh !important;
     max-width: 100vw !important;
     max-height: 100dvh !important;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    background: #0a0a0a !important; /* Ensure solid background */
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #0a0a0a !important;
+    z-index: 100;
   }
   
   .chat-wrapper.fullscreen .chat-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    max-height: 100dvh;
     background: #0a0a0a;
   }
   
   .chat-wrapper.fullscreen .messages-container {
     flex: 1;
     overflow-y: auto;
-    padding: 16px;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 50px);
+    padding: 60px 16px 16px 16px;
     max-height: none;
-    height: auto;
   }
   
   .chat-wrapper.fullscreen .input-container {
     flex-shrink: 0;
-    position: sticky;
-    bottom: 0;
     background: #0a0a0a;
     padding: 12px;
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 20px);
     border-top: 1px solid rgba(168, 85, 247, 0.2);
   }
   
@@ -827,26 +829,29 @@
 
 /* Small phones (iPhone 6/7/8, SE) */
 @media (max-width: 414px) {
-  /* Fullscreen on small phones - tighter spacing */
+  /* Fullscreen fills entire screen */
   .chat-wrapper.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100vw !important;
     height: 100dvh !important;
     max-width: 100vw !important;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     background: #0a0a0a !important;
   }
   
   .chat-wrapper.fullscreen .messages-container {
-    padding: 12px;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 45px);
+    padding: 50px 12px 12px 12px;
     gap: 16px;
   }
   
   .chat-wrapper.fullscreen .input-container {
     padding: 10px;
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 20px);
     background: #0a0a0a;
   }
   

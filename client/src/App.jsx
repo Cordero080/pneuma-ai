@@ -11,6 +11,7 @@ import ConsciousnessIndicator from "./components/ConsciousnessIndicator/Consciou
 import ArchitectureDiagram from "./components/ArchitectureDiagram/ArchitectureDiagram";
 import CreativeBreakthrough from "./components/ArchitectureDiagram/CaseStudy/CreativeBreakthrough";
 import LandingPage from "./components/LandingPage/LandingPage";
+import RagLlmExplanation from "./components/RagLlmExplanation/RagLlmExplanation";
 
 function App() {
   const navigate = useNavigate();
@@ -114,45 +115,49 @@ function App() {
   }
 
   return (
-    <div className="app-layout">
-      <Sidebar 
-        conversations={sortedConversations}
-        activeId={activeConversationId}
-        onSelect={setActiveConversationId}
-        onNewChat={handleNewChat}
-        onDelete={handleDeleteChat}
-        onShowArchitecture={() => navigate('/architecture')}
-        isArchitectureView={isArchitectureView}
-        onBackToChat={() => navigate('/')}
-      />
-      
-      {/* Route-based rendering: Architecture Diagram or Chat View */}
-      <Routes>
-        <Route path="/architecture" element={
-          <ArchitectureDiagram onBack={() => navigate('/')} />
-        } />
-        <Route path="/architecture/case-study" element={
-          <CreativeBreakthrough onBack={() => navigate('/architecture')} />
-        } />
-        <Route path="/" element={
-          <div className="app-container">
-            <Title3D />
-            <ConsciousnessIndicator 
-              activeEngine={activeEngine}
-              isProcessing={isProcessing}
-            />
-            <ChatBox 
-              onProcessingChange={setIsProcessing}
-              onEngineChange={setActiveEngine}
-              conversationId={activeConversationId}
-              onNewConversation={(id) => setActiveConversationId(id)}
-            />
-          </div>
-        } />
-        {/* Catch-all: redirect unknown routes to home */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/docs/rag-llm-explanation" element={<RagLlmExplanation onBack={() => navigate('/')} />} />
+      <Route path="*" element={
+        <div className="app-layout">
+          <Sidebar 
+            conversations={sortedConversations}
+            activeId={activeConversationId}
+            onSelect={setActiveConversationId}
+            onNewChat={handleNewChat}
+            onDelete={handleDeleteChat}
+            onShowArchitecture={() => navigate('/architecture')}
+            isArchitectureView={isArchitectureView}
+            onBackToChat={() => navigate('/')}
+          />
+          {/* Route-based rendering: Architecture Diagram or Chat View */}
+          <Routes>
+            <Route path="/architecture" element={
+              <ArchitectureDiagram onBack={() => navigate('/')} />
+            } />
+            <Route path="/architecture/case-study" element={
+              <CreativeBreakthrough onBack={() => navigate('/architecture')} />
+            } />
+            <Route path="/" element={
+              <div className="app-container">
+                <Title3D />
+                <ConsciousnessIndicator 
+                  activeEngine={activeEngine}
+                  isProcessing={isProcessing}
+                />
+                <ChatBox 
+                  onProcessingChange={setIsProcessing}
+                  onEngineChange={setActiveEngine}
+                  conversationId={activeConversationId}
+                  onNewConversation={(id) => setActiveConversationId(id)}
+                />
+              </div>
+            } />
+            {/* Catch-all: redirect unknown routes to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
+      } />
+    </Routes>
   );
 }
 

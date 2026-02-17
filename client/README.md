@@ -6,7 +6,7 @@ A quantum holographic AI companion with a multi-layer consciousness system.
 
 Pneuma's mind is powered by 4 cognitive engines, visualized in the Consciousness Indicator:
 
-| Engine  | Icon                | Color               | Purpose                                      |
+| Engine  | Icons                | Color               | Purpose                                      |
 | ------- | ------------------- | ------------------- | -------------------------------------------- |
 | **MEM** | Brain with circuits | `#00f0ff` (cyan)    | Long-term memory recall                      |
 | **ARC** | Mask/persona        | `#c084fc` (purple)  | Personality archetypes & behavioral patterns |
