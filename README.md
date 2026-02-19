@@ -535,9 +535,9 @@ Full milestone documentation: [docs/development/milestones/](docs/development/mi
 ## Author
 
 
+
 **Pablo Cordero** — Started November 2025, still evolving.
 
-d
 ---
 
 _"The uncertainty IS the point, not a bug to fix."_

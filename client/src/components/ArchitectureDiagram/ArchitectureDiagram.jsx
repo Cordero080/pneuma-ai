@@ -94,8 +94,7 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="highlight-item">
               <span className="highlight-label">Prompt = The Container</span>
-              <p>~3,770-line system prompt assembled dynamically: identity core + selected archetypes + 
-              RAG quotes + tone + history. This is what Claude READS before responding.</p>
+              <p>System prompt assembled dynamically in tiers: Tier 1 identity core (always) + Tier 2 deep-knowledge blocks (conditional by intent score) + archetypes + RAG quotes + tone. This is what Claude READS before responding.</p>
             </div>
             <div className="highlight-item">
               <span className="highlight-label">LLM = Pattern Completion</span>
@@ -394,11 +393,11 @@ function ArchitectureDiagram({ onBack }) {
             <div className="arch-node-file">intelligence/llm.js → buildSystemPrompt()</div>
             <div className="arch-node-desc">Assembles everything into Claude's context window:</div>
             <div className="arch-node-tags">
-              <span className="arch-tag">Identity core (~3500 lines)</span>
+              <span className="arch-tag">Tier 1: Identity core (always)</span>
+              <span className="arch-tag">Tier 2: Deep blocks (conditional by intent)</span>
               <span className="arch-tag">Archetype + cognitive methods</span>
               <span className="arch-tag">Synthesis directives</span>
-              <span className="arch-tag">Behavioral sections</span>
-              <span className="arch-tag">RAG + Memory (8 exchanges)</span>
+              <span className="arch-tag">RAG context (Tier 3)</span>
             </div>
           </div>
 
@@ -423,8 +422,9 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">claude-sonnet-4-20250514</span>
-              <span className="arch-tag">temp: 0.85</span>
-              <span className="arch-tag">max: 1200 tokens</span>
+              <span className="arch-tag">temp: 0.8</span>
+              <span className="arch-tag">max: 2200 tokens</span>
+              <span className="arch-tag">last 6 exchanges as real turns</span>
             </div>
           </div>
 
