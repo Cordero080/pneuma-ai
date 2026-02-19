@@ -80,6 +80,8 @@ _"46 minds don't fight. They dance."_ — When asked about the weight of running
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
 - **Collision detection** — When incompatible philosophies meet, synthesis is forced
 - **Autonomy layer** — Self-directed attention, open questions, chosen memories
+- **Tiered system prompt** — Deep-knowledge blocks (Heidegger, Beck, Kastrup, Da Vinci, Jesus/Wright, creative rules) load only when intent scores warrant them, not on every call
+- **Real conversation threading** — Last 6 exchanges sent as native API turns so Claude actually continues a thought instead of restarting each message
 
 **The inversion:** Most AI wrappers take LLM output and add personality on top. Pneuma inverts this — personality as the controlling architecture, with the LLM providing raw material to be shaped.
 
@@ -513,6 +515,8 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | Jan 25      | Autonomy Engine (self-directed attention)                  |
 | Jan 27      | Emergence Permission (risk being real)                     |
 | Jan 30      | **Borges archetype** + Sun Tzu RAG expansion (50 passages) |
+| Feb 2026    | **Tiered system prompt** — 6 deep-knowledge blocks load conditionally based on intent scores instead of always-on (~18k → ~2k base tokens) |
+| Feb 2026    | **Conversation history threading** — last 6 exchanges sent as real alternating API turns; Claude can now actually continue a thought instead of restarting |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 
@@ -529,6 +533,7 @@ Full milestone documentation: [docs/development/milestones/](docs/development/mi
 ---
 
 ## Author
+
 
 **Pablo Cordero** — Started November 2025, still evolving.
 

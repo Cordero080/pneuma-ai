@@ -507,50 +507,143 @@
    NEGATIVE SPACE: Smaller max-width = more void around them
    ============================================ */
 .message-bubble {
-  max-width: 85%; /* Wider - more natural reading */
-  padding: 12px 0;
+  max-width: 72%; /* Narrower - more empty space on sides */
+  padding: 16px 20px;
   font-size: 0.92rem;
-  line-height: 1.7;
+  line-height: 1.7; /* More breathing room in text */
   font-family: 'JetBrains Mono', 'SF Mono', monospace;
   position: relative;
   transition: all 0.3s ease;
+  overflow: hidden;
   word-wrap: break-word;
   overflow-wrap: break-word;
   flex-shrink: 0;
-  /* No borders, no backgrounds - open and free */
-  background: transparent;
 }
 
-/* User message: aligned right, magenta glow */
+/* User message: aligned right, dynamic color with clip-path */
 .message-bubble.user {
   margin-left: auto;
-  text-align: right;
   color: var(--user-text-color, #ff44dd);
-  text-shadow: 0 0 10px var(--user-glow-color, rgba(255, 68, 221, 0.3));
+
+  /* Clip-path: cut top-right and bottom-left corners (mirrored) */
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+
+  text-shadow: 0 0 10px var(--user-glow-color, rgba(255, 68, 221, 0.4));
 }
 
-/* No border pseudo-elements for user */
-.message-bubble.user::before,
+/* User message - glowing border layer */
+.message-bubble.user::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    var(--user-border-color, rgba(255, 68, 221, 0.6)) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    var(--user-border-color, rgba(255, 68, 221, 0.6)) 100%
+  );
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* User message - inner background layer */
 .message-bubble.user::after {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background:
+    linear-gradient(145deg, rgba(1, 10, 12, 0.95), rgba(0, 12, 17, 0.98)),
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15), transparent 50%);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* AI/Pneuma message: aligned left, clean green text - no decorations */
+/* AI/Pneuma message: aligned left, green glow with clip-path */
 .message-bubble.ai {
   margin-right: auto;
   color: #7aff9a;
-  background: transparent;
+
+  /* Clip-path: cut top-left and bottom-right corners */
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+
+  text-shadow: 0 0 8px rgba(122, 255, 154, 0.3), 0 0 16px rgba(122, 255, 154, 0.15);
+
+  animation: messageGlow 6s ease-in-out infinite;
+
+  /* Enable stacking context for aurora */
+  isolation: isolate;
+  overflow: hidden;
 }
 
-/* No border pseudo-elements for AI */
-.message-bubble.ai::before,
+/* AI message - glowing border layer */
+.message-bubble.ai::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 65, 0.5) 0%,
+    rgba(0, 180, 120, 0.3) 50%,
+    rgba(0, 255, 65, 0.5) 100%
+  );
+  clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px);
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* AI message - inner background layer */
 .message-bubble.ai::after {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 1px;
+
+  /* Cosmic Black Holographic */
+  background:
+    linear-gradient(145deg, #0a0a0a, #000000),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.5), transparent 50%),
+    linear-gradient(45deg,
+      rgba(0, 255, 65, 0.06),
+      rgba(0, 212, 255, 0.04),
+      rgba(0, 255, 65, 0.06)
+    );
+  background-size: 100% 100%, 150% 150%, 150% 150%, 200% 200%;
+  background-blend-mode: normal, overlay, multiply, overlay;
+
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  z-index: -2;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Hide aurora shader - keeping it simple */
+/* Aurora shader - radiating thought effect */
 .message-bubble.ai .aurora-shader {
-  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+}
+
+.message-bubble.ai .aurora-shader::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 50%, rgba(138, 43, 226, 0.6), transparent 50%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(255, 0, 204, 0.5), transparent 50%),
+    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(0, 212, 255, 0.4), transparent 50%);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation:
+    auroraWave 8s ease-in-out infinite,
+    auroraBreath 12s ease-in-out infinite;
+  opacity: 0.5;
 }
 
 /* ============================================

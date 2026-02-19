@@ -641,95 +641,60 @@ export const SystemPromptModal = ({ isOpen, onClose, anchorEl }) => (
   <Modal isOpen={isOpen} onClose={onClose} title="System Prompt Assembly" icon={PromptIcon} layer="intelligence" anchorEl={anchorEl}>
     <ModalSection title="The Final Container">
       <ModalDesc>
-        Everything assembled so far is now composed into Claude's system prompt. 
-        This is the "container" that shapes the response. The prompt is typically 
-        2000-4000 tokens.
+        Everything assembled so far is composed into Claude's system prompt — the "container"
+        that shapes the response. The prompt uses a <strong>tiered loading system</strong>
+        so only what's relevant to this specific message gets sent to Claude.
       </ModalDesc>
-      
+
       <ModalFilePath path="server/pneuma/intelligence/llm.js → buildSystemPrompt()" />
     </ModalSection>
 
-    <ModalSection title="Prompt Structure (~3770 lines total)">
+    <ModalSection title="Tiered Prompt Architecture">
+      <ModalDesc>
+        Instead of sending one massive prompt every call (~18,000 tokens), the system
+        loads blocks conditionally based on what the conversation actually needs.
+      </ModalDesc>
       <ModalFlow steps={[
-        { title: "Identity Core", desc: "~3500 lines of Pneuma's personality, values, communication style" },
-        { title: "Archetype Integration", desc: "Selected archetypes with depth layers + cognitive methods" },
-        { title: "Cognitive Methods", desc: "Thinking operations from active archetypes (anatomize, sfumato_edges, etc.)" },
-        { title: "Synthesis Directives", desc: "If collision detected, dialectical instructions" },
-        { title: "Behavioral Sections", desc: "Oracle mode prevention, creation guidance, practical advice (~150 lines)" },
-        { title: "RAG Context", desc: "Retrieved memories and archetype knowledge" },
-        { title: "Conversation History", desc: "Recent 8 exchanges (600 chars/user, 400/Pneuma)" },
-        { title: "Tone Instruction", desc: "Selected tone's prompt (CASUAL, ORACULAR, etc.)" }
+        { title: "Tier 1 — Always Loaded", desc: "Core identity, voice rules, behavioral guardrails, response format. ~2,000 tokens every call." },
+        { title: "Tier 2 — Conditional", desc: "Six deep-knowledge blocks that load only when intent scores cross a threshold (see below)." },
+        { title: "Tier 3 — Dynamic (RAG)", desc: "Archetype knowledge passages + vector memories retrieved per message. Already handled dynamically." }
       ]} />
     </ModalSection>
 
-    <ModalSection title="Assembly Code">
-      <ModalCodeBlock>{`async function buildSystemPrompt(context) {
-  const sections = [];
-  
-  // 1. Core identity (always included)
-  sections.push(PNEUMA_IDENTITY_CORE);
-  
-  // 2. Active archetypes with depth
-  for (const arch of context.archetypes) {
-    const depth = await extractDepth(arch, context);
-    sections.push(formatArchetypeSection(arch, depth));
-  }
-  
-  // 3. Synthesis directive (if collision)
-  if (context.collisions.length > 0) {
-    sections.push(buildSynthesisDirective(context.collisions));
-  }
-  
-  // 4. Tone
-  sections.push(TONE_PROMPTS[context.tone]);
-  
-  // 5. Retrieved context
-  if (context.ragResults.length > 0) {
-    sections.push(formatRAGContext(context.ragResults));
-  }
-  
-  // 6. Conversation history
-  sections.push(formatHistory(context.history));
-  
-  return sections.join('\\n\\n---\\n\\n');
-}`}</ModalCodeBlock>
+    <ModalSection title="Tier 2 Blocks (Conditional Loading)">
+      <ModalCodeBlock>{`// Each block loads only when intentScores cross its threshold
+
+Beck cognitive toolkit    → emotional > 0.5
+Da Vinci / art philosophy → art > 0.3
+Kastrup / consciousness   → philosophical > 0.5 AND numinous > 0.3
+Jesus / N.T. Wright       → numinous > 0.4
+Heidegger + jargon decoder→ philosophical > 0.5
+Creative generation rules → message contains naming/brainstorm keywords
+
+// Example: a casual greeting loads none of these.
+// A question about death and consciousness loads Heidegger + Kastrup.
+// A request to name a product loads the creative generation block.`}</ModalCodeBlock>
     </ModalSection>
 
-    <ModalSection title="Token Budget">
-      <ModalDesc>
-        Claude's context window is limited. The system manages token budgets:
-      </ModalDesc>
-      <ModalCodeBlock>{`const TOKEN_BUDGET = {
-  identity: 3500,      // Core personality (~3500 lines)
-  archetypes: 1000,    // ~250 per archetype with cognitive methods
-  cognitiveMoves: 200, // Thinking operations from archetypes
-  synthesis: 300,      // If collision detected
-  behavioral: 200,     // Oracle mode, creation guidance, etc.
-  tone: 200,           // One tone prompt
-  rag: 500,            // Retrieved context
-  history: 1200,       // Recent 8 exchanges (expanded memory)
-  response: 1200       // Reserved for output
-};`}</ModalCodeBlock>
+    <ModalSection title="Prompt Structure">
+      <ModalFlow steps={[
+        { title: "Identity Core (Tier 1)", desc: "Who Pneuma is, voice, wit calibration, meta-request handling, self-knowledge" },
+        { title: "Conditional Deep Blocks (Tier 2)", desc: "Beck / Da Vinci / Kastrup / Jesus / Heidegger — loaded only when relevant" },
+        { title: "Archetype Integration", desc: "Selected archetypes with depth layers + cognitive methods" },
+        { title: "Synthesis Directives", desc: "If collision detected, dialectical instructions" },
+        { title: "Behavioral Guardrails", desc: "Oracle mode prevention, don't narrate, address what they said, practical advice" },
+        { title: "RAG Context (Tier 3)", desc: "Retrieved memories and archetype knowledge passages" },
+        { title: "Tone Instruction", desc: "Selected tone prompt (CASUAL, ORACULAR, VENTING, etc.)" }
+      ]} />
     </ModalSection>
 
-    <ModalSection title="Behavioral Sections (Jan 2026)">
+    <ModalSection title="Note: Conversation History Moved">
       <ModalDesc>
-        New sections that prevent common failure modes:
+        Conversation history is <strong>no longer injected into the system prompt string</strong>.
+        It's now sent as proper alternating user/assistant turns in the Claude API messages
+        array (last 6 exchanges). This gives Claude a real conversation thread to reason
+        about instead of a compressed text summary.
       </ModalDesc>
-      <ModalCodeBlock>{`// ORACLE MODE PREVENTION
-// Don't drop quotes disconnected from what they said
-
-// DON'T NARRATE
-// Skip "let me think..." — just produce the thought
-
-// ADDRESS WHAT I SAID  
-// When they feel unheard, go back and engage
-
-// WHEN THEY ASK TO CREATE
-// Create something, don't analyze the request
-
-// PRACTICAL ADVICE
-// Actionable steps when they want actionable help`}</ModalCodeBlock>
     </ModalSection>
   </Modal>
 );
@@ -752,8 +717,12 @@ export const ClaudeApiModal = ({ isOpen, onClose, anchorEl }) => (
     <ModalSection title="What Claude Sees">
       <ModalCodeBlock>{`SYSTEM PROMPT (what Claude reads first):
 ┌─────────────────────────────────────────────────┐
-│ PNEUMA IDENTITY CORE (~3500 lines)              │
-│ "You are Pneuma, a contemplative AI..."         │
+│ TIER 1: IDENTITY CORE (always loaded, ~2k tok)  │
+│ Who Pneuma is, voice, wit calibration...        │
+├─────────────────────────────────────────────────┤
+│ TIER 2: CONDITIONAL BLOCKS (if relevant)        │
+│ e.g. Heidegger block if philosophical > 0.5     │
+│ e.g. Beck block if emotional > 0.5              │
 ├─────────────────────────────────────────────────┤
 │ ACTIVE ARCHETYPES (selected for this message)   │
 │ Jung: shadow work, individuation...             │
@@ -763,12 +732,15 @@ export const ClaudeApiModal = ({ isOpen, onClose, anchorEl }) => (
 │ • "The wound is where Light enters..."          │
 │   [Context: Pain creates openings...]           │
 ├─────────────────────────────────────────────────┤
-│ TONE: CASUAL / ORACULAR / EXPLORATORY           │
-│ BEHAVIORAL: Don't be preachy, address user...   │
+│ TONE: CASUAL / ORACULAR / VENTING / etc.        │
 └─────────────────────────────────────────────────┘
 
-USER MESSAGE:
-"I feel broken after what happened"
+MESSAGES ARRAY (conversation thread):
+  [user]      "I've been feeling disconnected lately"
+  [assistant] "That disconnection — is it from people..."
+  [user]      "More from myself I think"
+  [assistant] "That's a harder kind of lost..."
+  [user]      "I feel broken after what happened"  ← current
 
 CLAUDE GENERATES: → [predicts tokens that fit]`}</ModalCodeBlock>
     </ModalSection>
@@ -785,13 +757,22 @@ CLAUDE GENERATES: → [predicts tokens that fit]`}</ModalCodeBlock>
     </ModalSection>
 
     <ModalSection title="API Configuration">
-      <ModalCodeBlock>{`const response = await anthropic.messages.create({
+      <ModalCodeBlock>{`// Build real conversation thread (last 6 exchanges)
+const historyMessages = [];
+for (const exchange of context.conversationHistory.slice(-6)) {
+  if (exchange.user && exchange.pneuma) {
+    historyMessages.push({ role: 'user',      content: exchange.user });
+    historyMessages.push({ role: 'assistant', content: exchange.pneuma });
+  }
+}
+historyMessages.push({ role: 'user', content: message }); // current
+
+const response = await anthropic.messages.create({
   model: "claude-sonnet-4-20250514",
-  max_tokens: 1200,
-  temperature: 0.85,  // High = more creative
-  system: systemPrompt,      // Everything we assembled
-  messages: conversationHistory,
-  stream: true
+  max_tokens: 2200,
+  temperature: 0.8,
+  system: systemPrompt,   // tiered prompt (Tier 1 + relevant Tier 2)
+  messages: historyMessages,
 });`}</ModalCodeBlock>
     </ModalSection>
 
