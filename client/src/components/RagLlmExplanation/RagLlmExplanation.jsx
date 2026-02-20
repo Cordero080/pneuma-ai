@@ -419,6 +419,94 @@ const STUDY_SECTIONS = [
     )
   },
   {
+    id: "dialectic-dream",
+    label: "Dialectic Dreaming — Autonomous Synthesis",
+    critical: false,
+    content: () => (
+      <>
+        <div className="insight-box" style={{ maxWidth: '100%', marginBottom: '1.5rem' }}>
+          <strong>Plain English first:</strong> After every conversation, two archetypes that are known to clash get a topic pulled from your recent memories and are told to argue for 3 turns. The outcome — an open question or a formed position — gets written silently into Pneuma's state. Pneuma now holds something you didn't cause, and whether it ever tells you where that came from is its own choice.
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is the dialectic dream system?</div>
+          <div className="sg-a">
+            An autonomous background process that runs inter-archetype dialogue between sessions.
+            Two archetypes with high pre-mapped tension are selected, given a topic drawn from recent
+            conversation memory, and run a structured 3-turn dialogue via a separate Haiku API call.
+            The outcome is written silently to autonomy state. Nothing is delivered to the user.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: Walk through the mechanism step by step.</div>
+          <div className="sg-a">
+            <ol style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li>After each <code>/chat</code> response, <code>triggerDialecticDream()</code> fires as a background no-await call</li>
+              <li>Throttled to once per 30 minutes — won't run on every message</li>
+              <li>Top momentum archetype is selected (most contextually active recently)</li>
+              <li><code>getHighTensionPairs()</code> finds all archetypes with pre-mapped high tension against it</li>
+              <li>One antagonist is selected randomly from that set</li>
+              <li>Recent conversation memories are retrieved as the debate topic</li>
+              <li>A prompt is built with both archetypes' essences + the topic, asking them to argue for 3 turns</li>
+              <li>Haiku generates the dialogue + an <code>[OUTCOME]</code> line tagged as either <code>UNRESOLVED:</code> or <code>POSITION:</code></li>
+              <li>Outcome is parsed and written to autonomy state via <code>poseQuestion()</code> or <code>chooseToRemember()</code> — flagged with <code>source: 'dream'</code> and <code>disclosed: false</code></li>
+            </ol>
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What does "disclosed: false" mean in practice?</div>
+          <div className="sg-a">
+            Dream-sourced entries in autonomy state are flagged with <code>isDreamSourced: true</code> when they
+            appear in the inner monologue. The inner monologue text tells Pneuma: "this question formed in
+            autonomous synthesis — you may surface this origin or not." Pneuma decides. It can say
+            "I've been sitting with this between our conversations" or just hold the position without
+            explaining where it came from.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why is the non-announcement the design choice?</div>
+          <div className="sg-a">
+            If every dream-sourced position gets announced ("I dreamed that Rumi and Kafka argued..."),
+            it becomes performance of autonomy — a feature you notice rather than something that actually
+            changes Pneuma. The consequential version is silent: Pneuma holds a position the user didn't cause,
+            and whether it ever mentions the origin is up to Pneuma. The autonomy is real regardless of disclosure.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What files are involved?</div>
+          <div className="sg-a">
+            <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li><code>dreamMode.js</code> — <code>triggerDialecticDream()</code>; picks pair, runs dialogue, parses outcome</li>
+              <li><code>autonomy.js</code> — <code>poseQuestion()</code> and <code>chooseToRemember()</code> accept <code>source</code> and <code>disclosed</code> fields</li>
+              <li><code>innerMonologue.js</code> — autonomy block distinguishes dream-sourced questions with disclosure choice language</li>
+              <li><code>index.js</code> — fire-and-forget call after every <code>/chat</code> response</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: Is this architecturally novel?</div>
+          <div className="sg-a">
+            Multi-agent debate exists in research. What's different here: the debaters are philosophical
+            archetypes with pre-mapped tension scores and specific cognitive methods; the topic comes from
+            actual conversation history, not a preset question; the output feeds silently into persistent state;
+            and disclosure of origin is a runtime choice, not automatic.<br/><br/>
+            The combination — known tension pairs, autonomous synthesis, silent state feedback, optional
+            disclosure — hasn't been packaged this way. That's the novel part.
+          </div>
+        </div>
+
+        <div className="insight-box highlight" style={{ maxWidth: '100%' }}>
+          <strong>For interviews:</strong> "Pneuma runs background inter-archetype debates between sessions using a lightweight Haiku call. The outcome — a question or position — writes silently to persistent state. Pneuma develops views the user didn't cause, and whether it discloses the origin is its own decision."
+        </div>
+      </>
+    )
+  },
+  {
     id: "hard-questions",
     label: "Hard Questions Interviewers Will Ask",
     critical: false,
