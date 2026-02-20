@@ -361,6 +361,156 @@ const STUDY_SECTIONS = [
     )
   },
   {
+    id: "hard-questions",
+    label: "Hard Questions Interviewers Will Ask",
+    critical: false,
+    content: () => (
+      <>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Doesn't Claude already have a personality? Aren't you just layering over it?</div>
+          <div className="sg-a">
+            Yes — and that's a sharp observation. Claude has a base personality from training: helpful, balanced, careful.
+            You're not building from zero. But here's the hierarchy:<br/><br/>
+            <strong>Base Claude</strong> — default helpful, generic. What you get with no system prompt.<br/>
+            <strong>Your system prompt</strong> — redirects it. You're saying "don't be default Claude — be this specific philosophical voice with these specific tendencies." The base is still underneath (coherent sentences, empathy), but the character, perspective, and depth are your layer.<br/>
+            <strong>RAG + memory + synthesis</strong> — further shapes what Claude does within the personality you set.<br/><br/>
+            Every app built on Claude or GPT is layering over the same base model. ChatGPT, Pneuma, customer service bots — same foundation. The layering IS the engineering. An interviewer who understands AI will respect you more for acknowledging this honestly.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: If Claude does the actual generation, didn't you just write prompts?</div>
+          <div className="sg-a">
+            A film director doesn't physically act in the movie. The actors deliver the performance.
+            But without the director, there's no script, no casting, no scene composition, no vision.<br/><br/>
+            Claude is the actor. You're the director. You decided which archetypes exist. You designed
+            the collision detection that determines when two philosophical perspectives clash. You built
+            the tiered prompt assembly. You built the memory system. You built the RAG pipeline.<br/><br/>
+            Without your architecture, Claude says generic things. It has no archetypes, no dialectical tension,
+            no memory, no personality depth. It's a blank actor on an empty stage.
+            What you built is the mind. Claude is the mouth.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Who decides that two archetypes conflict — you or Claude?</div>
+          <div className="sg-a">
+            You do. You built a tension map — a data structure that rates archetype pairs as high, medium,
+            low, or neutral tension. You manually defined which philosophical perspectives clash based on
+            your understanding of these thinkers. Sun Tzu vs Lao Tzu (force vs inaction) — you rated that.
+            That's not Claude deciding. That's your intellectual architecture.<br/><br/>
+            When a collision is detected, your code:<br/>
+            1. Pulls depth data for both archetypes (frameworks, tools, bridges)<br/>
+            2. Assembles a synthesis directive injected into the system prompt<br/>
+            3. Tells Claude to find the insight that lives in NEITHER voice alone<br/><br/>
+            Claude generates the synthesis language — but inside a container you designed, from conceptual
+            material you defined, under pressure you built. <em>You built the pressure. Claude responds to it.
+            The synthesis is the diamond that forms under that pressure.</em>
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why are vectors valid here — why not just keyword matching?</div>
+          <div className="sg-a">
+            If a user says "I feel like I'm wearing a mask around everyone" and your Jung archetype
+            talks about "the constructed persona that conceals the authentic self" — keyword matching
+            misses it completely. Zero words in common.<br/><br/>
+            Vectors match <strong>meaning</strong>, not words. Those two phrases land close together in
+            vector space. Your archetypes speak in philosophical language. Your users speak in human language.
+            Vectors bridge that gap. A JSON lookup or keyword filter can't do that — you'd need to manually
+            map every possible phrasing to every archetype. Impossible at scale.
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
+    id: "why-you",
+    label: "Why You're Worth Hiring",
+    critical: false,
+    content: () => (
+      <>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What's actually interesting about this project to an employer?</div>
+          <div className="sg-a">
+            <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li><strong>You built something architecturally uncommon.</strong> Most bootcamp grads build CRUD apps. You built a cognitive orchestration layer with collision detection, tiered prompt assembly, vector memory, and native conversation threading. That combination doesn't exist in tutorials — you had to reason about it.</li>
+              <li><strong>You understood the problem before you had the vocabulary.</strong> You built the tiered system prompt intuitively before you could explain why it was correct. That's engineering instinct, not tutorial-following.</li>
+              <li><strong>You have real AI/LLM integration experience.</strong> Not just "I called an API" — you understand context windows, token cost, conversation threading as API turns, RAG architecture, intent scoring. These are skills companies are actively hiring for.</li>
+              <li><strong>The architecture diagram shows self-awareness.</strong> Building a diagram to understand your own system is what senior engineers do. It signals you think about systems, not just code.</li>
+            </ul>
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What makes you different from other bootcamp grads?</div>
+          <div className="sg-a">
+            You learn by building something real. You push through things you don't fully understand yet.
+            You ask the right questions — not "how do I make this work" but "why does this work this way."
+            The instinct to understand something deeply enough to explain it is the instinct of someone
+            who actually cares about the craft.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What's the honest gap to close?</div>
+          <div className="sg-a">
+            Vocabulary. You can build the system — now you need to own the explanation.
+            The gap between "built it" and "can explain it" is just time, and you're already closing it.
+            That's what this study guide is for.
+          </div>
+        </div>
+        <div className="insight-box highlight" style={{ maxWidth: '100%' }}>
+          <strong>Remember:</strong> The people who built the models you're using started somewhere too. What you're developing — the instinct to build systems instead of just features — is the foundation they had.
+        </div>
+      </>
+    )
+  },
+  {
+    id: "openai-vs-anthropic",
+    label: "Why Both OpenAI and Anthropic?",
+    critical: false,
+    content: () => (
+      <>
+        <div className="sg-qa">
+          <div className="sg-q">Q: I thought this uses Claude — why is OpenAI in the code?</div>
+          <div className="sg-a">
+            Two different APIs, two different jobs. Anthropic doesn't expose a public embeddings API,
+            so OpenAI handles the one task that requires it. Claude does everything else.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What does OpenAI actually do in Pneuma?</div>
+          <div className="sg-a">
+            Three things, all utility-level:
+            <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li><strong>archetypeRAG.js</strong> — converts text into vectors for semantic search across 46 archetype knowledge bases</li>
+              <li><strong>vectorMemory.js</strong> — embeds user messages and memories so they can be retrieved by similarity later</li>
+              <li><strong>emotionDetection.js</strong> — Whisper API for speech-to-text (audio transcription)</li>
+            </ul>
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What does Anthropic (Claude) do?</div>
+          <div className="sg-a">
+            Everything meaningful: the actual response generation, the cognitive context assembly,
+            all the archetype reasoning, synthesis, inner monologue, and conversation threading.
+            Claude is the engine. OpenAI is a utility.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why not just use one provider?</div>
+          <div className="sg-a">
+            Anthropic doesn't offer a publicly available embeddings API. Embeddings are what
+            power RAG — they convert text to vectors so you can do similarity search.
+            Without them, you can't retrieve the right archetype passages for a given message.
+            OpenAI's <code>text-embedding-ada-002</code> handles that one job, then the result
+            is handed to Claude for generation. This is a standard pattern in production AI systems
+            — best tool for each job.
+          </div>
+        </div>
+        <div className="insight-box" style={{ maxWidth: '100%' }}>
+          <strong>One sentence for an interview:</strong> "OpenAI handles embeddings for vector similarity search because Anthropic doesn't expose an embeddings API — Claude does all the actual generation."
+        </div>
+      </>
+    )
+  },
+  {
     id: "vocab",
     label: "Quick Reference Vocabulary",
     critical: false,
