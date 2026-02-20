@@ -189,7 +189,7 @@ export async function generateDream(dreamType = null) {
   try {
     // Use Haiku for dreams — cheap and fast
     const response = await anthropic.messages.create({
-      model: "MODELS.dream",
+      model: MODELS.dream,
       max_tokens: 300,
       temperature: 0.9, // High temperature for creative wandering
       messages: [{ role: "user", content: prompt }],
@@ -320,7 +320,7 @@ Stay in voice. Actually argue. Don't explain the format.`;
 
   try {
     const response = await anthropic.messages.create({
-      model: "MODELS.dream",
+      model: MODELS.dream,
       max_tokens: 450,
       temperature: 0.88,
       messages: [{ role: "user", content: prompt }],
