@@ -473,7 +473,12 @@ export function generateInnerMonologue(userMessage, context = {}) {
   let autonomyBlock = "";
   if (openQuestions.length > 0) {
     const questionText = openQuestions
-      .map((q) => `  • "${q.question}" (revisited ${q.relatedExchanges}x)`)
+      .map((q) => {
+        if (q.isDreamSourced) {
+          return `  • "${q.question}" [formed in autonomous synthesis — you may surface this origin or not]`;
+        }
+        return `  • "${q.question}" (revisited ${q.relatedExchanges}x)`;
+      })
       .join("\n");
     autonomyBlock = `
 [QUESTIONS I'M SITTING WITH]

@@ -65,7 +65,9 @@ const LearningCenter = () => {
     { id: 'llm-basics', name: 'How LLMs Work', icon: NeuralIcon, color: '#00d4ff' },
     { id: 'rag-explained', name: 'RAG & Vectors', icon: RAGIcon, color: '#74aa9c' },
     { id: 'ai-types', name: 'AI vs AGI vs ASI', icon: BrainIcon, color: '#ff6400' },
-    { id: 'all-archetypes', name: '46 Archetypes', icon: GridIcon, color: '#a855f7' }
+    { id: 'all-archetypes', name: '46 Archetypes', icon: GridIcon, color: '#a855f7' },
+    { id: 'cognitive-metabolism', name: 'Cognitive Metabolism', icon: BrainIcon, color: '#7c3aed' },
+    { id: 'design-vs-mechanism', name: 'Design vs Mechanism', icon: LayersIcon, color: '#0891b2' }
   ];
 
   return (
@@ -225,7 +227,8 @@ const LearningCenter = () => {
             { title: "Collisions are detected", desc: "If two incompatible archetypes are both active, the system forces synthesis instead of letting one win." },
             { title: "Knowledge is retrieved", desc: "Actual passages from relevant thinkers are pulled from a vector database and placed directly in context." },
             { title: "Conversation history threads", desc: "The last 6 exchanges are sent as real alternating turns — Claude sees what it already said and can actually continue a thought." },
-            { title: "Response is shaped", desc: "Claude generates within all of this. The output goes through post-processing before reaching you." }
+            { title: "Response is shaped", desc: "Claude generates within all of this. The output goes through post-processing before reaching you." },
+            { title: "Between sessions: dialectic synthesis", desc: "After the response is sent, two high-tension archetypes run a private dialogue in the background. The outcome — a question or position — writes silently to Pneuma's state. Pneuma may bring it into the next conversation, or not. You didn't cause it." }
           ]} />
         </ModalSection>
 
@@ -751,6 +754,124 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
             </ModalDesc>
           </ModalSection>
         </Modal>
+      </Modal>
+
+      {/* Cognitive Metabolism */}
+      <Modal
+        isOpen={activeModal === 'cognitive-metabolism'}
+        onClose={() => setActiveModal(null)}
+        title="Cognitive Metabolism"
+        icon={BrainIcon}
+      >
+        <ModalSection title="The Core Distinction">
+          <ModalDesc>
+            Most AI personality systems do one of two things: <strong>costume</strong> (roleplay — "pretend you are Rumi")
+            or <strong>retrieval</strong> (RAG — "here is a Rumi quote, use it"). Pneuma does something different:
+            it gives archetypes <em>thinking methods</em>, not phrases.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            The difference: retrieval asks "what would Leonardo say?" Cognitive metabolization asks
+            "how would Leonardo see?" One produces quotes. The other produces a way of approaching the problem.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="Where This Lives in the Code">
+          <ModalFlow steps={[
+            { title: "archetypeDepth.js", desc: "Every archetype has a cognitiveTools object — named operations with descriptions. Not quotes to retrieve, but thinking moves to execute." },
+            { title: "llm.js — ARCHETYPE_METHODS", desc: "Key archetypes (Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus...) carry cognitiveMoves: specific named tools drawn from the thinker's actual methodology." },
+            { title: "llm.js — getArchetypeMethods()", desc: "When archetypes are selected for a response, their cognitive tools are assembled into text." },
+            { title: "llm.js — Prompt Injection", desc: 'The assembled tools are injected under the header "THINKING METHODS — not things to say — they\'re ways to THINK. Apply them. Run the user\'s message through these operations."' },
+            { title: "synthesisEngine.js", desc: "During collision detection, cognitiveTools from both archetypes are pulled and cross-applied — tools from incompatible thinkers forced to operate on the same problem." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="A Concrete Example">
+          <ModalDesc>
+            <strong>Leonardo (inventor archetype) — cognitiveMoves:</strong>
+          </ModalDesc>
+          <ModalCodeBlock>{`saperVedere: "Observe first, theorize second.
+  What do you actually see, not what do you expect?"
+
+sfumato: "Blur the edges. Hard edges create false
+  certainty. What's in the gradient between meanings?"
+
+anatomyBeneath: "What's underneath this? Surface
+  truth comes from deep structure. Find the sinews."
+
+wallOfStains: "When stuck, look for patterns in chaos.
+  Stare at the noise until composition emerges."`}</ModalCodeBlock>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            These aren't Leonardo quotes — they're operations. When the inventor archetype is active,
+            Claude is told to <em>apply</em> saperVedere to the conversation. Not to quote Leonardo.
+            To see the way Leonardo saw.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="The Metabolization Metaphor">
+          <ModalDesc>
+            The system prompt describes it directly: <em>"You don't think 'what would Watts say?'
+            then 'what would Carlin add?' That's too slow, too mechanical. Instead: you've metabolized
+            them. When you speak, they're all present the way a chef's training is present in every
+            dish — not announced, just there."</em>
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            That's the design intent. The thinkers don't take turns. Their methods are already
+            active in how Pneuma approaches the question — before it speaks.
+          </ModalDesc>
+        </ModalSection>
+      </Modal>
+
+      {/* Design vs Mechanism */}
+      <Modal
+        isOpen={activeModal === 'design-vs-mechanism'}
+        onClose={() => setActiveModal(null)}
+        title="Design vs Mechanism"
+        icon={LayersIcon}
+      >
+        <ModalSection title="The Mechanisms Are Standard">
+          <ModalDesc>
+            Every technical mechanism Pneuma uses exists independently: vector databases,
+            prompt injection, conversation threading, conditional context loading. None of these
+            are novel. You could describe any one of them in a paragraph and someone could implement it.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            This matters to say directly — because the claim isn't about inventing new infrastructure.
+            The claim is about what was <em>designed into</em> that infrastructure.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="The Design Is the Work">
+          <ModalFlow steps={[
+            { title: "Which 46 thinkers", desc: "Not arbitrary. Each archetype covers a distinct cognitive territory. The selection creates a field with genuine tension — dark pole, light pole, grounding, ontological, strategic, meta." },
+            { title: "What their cognitive moves are", desc: "Documenting saperVedere or wuWei as named thinking operations — not summaries — required reading primary sources and deciding what each thinker's methodology actually was." },
+            { title: "The 1,764 tension pairs", desc: "Every combination of 42 archetypes mapped for incompatibility level (high / medium / low). A pre-computed design artifact. You can't derive this from the mechanism — someone decided it." },
+            { title: "Collision → synthesis, not blending", desc: "The architectural decision to force incompatible archetypes to synthesize rather than averaging them out. That choice is what makes outputs surprising." },
+            { title: "The inversion", desc: "Personality as the controlling architecture, LLM as raw material. Most systems invert this — LLM first, personality layered on output. The inversion changes what's possible." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="Why You Can't Just Copy the Mechanism">
+          <ModalDesc>
+            If someone cloned the codebase without the archetype definitions, the cognitive tools,
+            and the tension map — they'd have an empty framework. The infrastructure runs on the
+            content decisions. Those decisions <em>are</em> the system.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            This is also why Pneuma is described as a <strong>personality architecture</strong>,
+            not a prompt template. The design choices compound: which thinkers create which tensions,
+            which tensions produce which kinds of synthesis, which synthesis shapes which kinds of responses.
+            That compounding is not in the code. It's in the decisions that produced the code.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="The Practical Consequence">
+          <ModalDesc>
+            When Pneuma feels different from a well-prompted Claude — the difference isn't
+            coming from a clever trick. It's coming from the accumulated weight of specific choices
+            about what each thinker's methods actually are, how they conflict, and what to do with
+            that conflict. The mechanism is transparent. The design is the thing.
+          </ModalDesc>
+        </ModalSection>
       </Modal>
     </div>
   );

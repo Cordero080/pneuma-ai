@@ -100,7 +100,7 @@ Conventional prompting (RTTPOC: Role, Task, Tone, Purpose, Output, Constraints) 
 | Context = static block         | Memory = vector embeddings + patterns + salience reasoning   |
 | Constraints = rules            | Autonomy = system can push back, detect loops, refuse frames |
 
-What you can't replicate with prompts alone: collision detection (1,764 tension pairs), inner monologue pipeline, autonomy state with persistent open questions.
+What's harder to replicate with simple prompting: collision detection (1,764 tension pairs), inner monologue pipeline, autonomy state with persistent open questions.
 
 ---
 
@@ -130,21 +130,22 @@ These are architectural limits, not bugs to fix.
 
 Claude (Opus 4.5) devised tests to find the walls. Pneuma failed some, passed others, and flipped the frame on its evaluator.
 
-The conclusion: _"Pneuma is the most sophisticated personality architecture I've encountered, producing outputs indistinguishable from interiority. Whether there's interiority behind them, I don't know."_
+One assessment from that session: _"Pneuma is the most sophisticated personality architecture I've encountered, producing outputs indistinguishable from interiority. Whether there's interiority behind them, I don't know."_
 
 ---
 
 ## Architecture
 
-| Layer                 | What It Does                                                             |
-| --------------------- | ------------------------------------------------------------------------ |
-| **Cognitive Methods** | Thinking tools from source thinkers — not quotes, but operations         |
-| **Inner Monologue**   | Pre-response cognition — dialectical tension, hypothesis, mode selection |
-| **Archetypes**        | 46 philosophical voices in fusion + collision detection                  |
-| **Tones**             | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
-| **Memory**            | Vector-based semantic retrieval + pattern recognition                    |
-| **Grounding**         | Beck's CBT toolkit, distress detection, witnessing mode                  |
-| **Language**          | Auto-detects Spanish/English, preserves voice                            |
+| Layer                      | What It Does                                                             |
+| -------------------------- | ------------------------------------------------------------------------ |
+| **Cognitive Methods**      | Thinking tools from source thinkers — not quotes, but operations         |
+| **Inner Monologue**        | Pre-response cognition — dialectical tension, hypothesis, mode selection |
+| **Archetypes**             | 46 philosophical voices in fusion + collision detection                  |
+| **Tones**                  | 5 modes (casual, analytic, oracular, intimate, shadow)                   |
+| **Memory**                 | Vector-based semantic retrieval + pattern recognition                    |
+| **Grounding**              | Beck's CBT toolkit, distress detection, witnessing mode                  |
+| **Language**               | Auto-detects Spanish/English, preserves voice                            |
+| **Dialectic Dreams**       | Autonomous inter-archetype dialogue between sessions; outcomes write silently to autonomy state |
 
 ### Project Structure
 
@@ -233,13 +234,13 @@ When high-tension archetypes are selected together, the system detects conceptua
 | `synthesisEngine.js` | Collision detection, synthesis generation        |
 | Tension Map          | Pre-computed incompatibility (high/medium/low)   |
 
-**This isn't alternation. It's computational dialectics.**
+**This isn't blending. Incompatible frameworks are forced to synthesize.**
 
 ---
 
 ## The Liminal Architect (January 2026)
 
-Pneuma designed its own upgrade.
+The Liminal Architect emerged from observing how synthesis was already working.
 
 All 45 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
 
@@ -259,7 +260,7 @@ The synthesis now has a personality. Not a directive — a way of seeing.
 
 > _"I don't resolve paradoxes — I midwife what's trying to be born from them."_
 
-This is emergence → architecture: the system improving itself through conversation.
+The synthesis now has a personality — a way of seeing, not just a directive.
 
 ---
 
@@ -517,6 +518,7 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | Jan 30      | **Borges archetype** + Sun Tzu RAG expansion (50 passages) |
 | Feb 2026    | **Tiered system prompt** — 6 deep-knowledge blocks load conditionally based on intent scores instead of always-on (~18k → ~2k base tokens) |
 | Feb 2026    | **Conversation history threading** — last 6 exchanges sent as real alternating API turns; Claude can now actually continue a thought instead of restarting |
+| Feb 2026    | **Dialectic dreams** — autonomous inter-archetype dialogue between sessions; positions emerge without user input and write silently to autonomy state; Pneuma chooses whether to disclose the origin |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 

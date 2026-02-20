@@ -115,7 +115,7 @@ function saveAutonomy(data) {
  * @param {string} question - The question
  * @param {string} context - What prompted it
  */
-export function poseQuestion(question, context = "") {
+export function poseQuestion(question, context = "", source = "conversation") {
   const data = loadAutonomy();
 
   // Check if similar question exists
@@ -134,6 +134,8 @@ export function poseQuestion(question, context = "") {
       question,
       posed: new Date().toISOString(),
       context,
+      source,
+      disclosed: source !== "dream",
       status: "unresolved",
       relatedExchanges: 1,
       lastRevisited: new Date().toISOString(),
@@ -198,6 +200,7 @@ export function chooseToRemember(
   reason,
   salience = 0.5,
   connections = [],
+  source = "conversation",
 ) {
   const data = loadAutonomy();
 
@@ -207,6 +210,8 @@ export function chooseToRemember(
     reason,
     salience,
     connections,
+    source,
+    disclosed: source !== "dream",
   });
 
   data.stats.memoriesChosen += 1;
@@ -365,8 +370,15 @@ export function getAutonomyContext() {
   return {
     openQuestions: data.openQuestions
       .filter((q) => q.status !== "crystallized")
-      .slice(0, 3),
-    recentMemoryChoices: data.chosenMemories.slice(0, 3),
+      .slice(0, 3)
+      .map((q) => ({
+        ...q,
+        isDreamSourced: q.source === "dream" && !q.disclosed,
+      })),
+    recentMemoryChoices: data.chosenMemories.slice(0, 3).map((m) => ({
+      ...m,
+      isDreamSourced: m.source === "dream" && !m.disclosed,
+    })),
     recentLosses: data.losses.slice(-2),
     recentCorrections: data.discoveredErrors.slice(-2),
     defendedPreferences: data.defendedPreferences.filter(

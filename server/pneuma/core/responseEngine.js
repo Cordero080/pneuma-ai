@@ -16,7 +16,6 @@
 import { buildResponse, TONES } from "../personality/personality.js";
 import {
   getLLMContent,
-  getLLMIntent,
   isLLMAvailable,
 } from "../intelligence/llm.js";
 import {
@@ -301,15 +300,8 @@ export async function generate(
     });
   }
 
-  // Layer 1: Detect intent (LLM-powered with fallback)
-  let intentScores;
-  if (isLLMAvailable()) {
-    intentScores = await getLLMIntent(message);
-  }
-  // Fallback to pattern matching if LLM unavailable or failed
-  if (!intentScores) {
-    intentScores = detectIntent(message);
-  }
+  // Layer 1: Detect intent (pattern matching — fast, no extra API call)
+  const intentScores = detectIntent(message);
 
   // Layer 2: Select tone (rhythm can influence this)
   let tone = selectTone(intentScores, state, threadMemory);

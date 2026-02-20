@@ -11,6 +11,11 @@ import {
   getMomentumStats,
   getTopArchetypes,
 } from "../archetypes/archetypeMomentum.js";
+import {
+  archetypeDepth,
+  getHighTensionPairs,
+} from "../archetypes/archetypeDepth.js";
+import { poseQuestion, chooseToRemember } from "./autonomy.js";
 import { PNEUMA_DREAMS_FILE } from "../../config/paths.js";
 
 // Use centralized path config
@@ -262,6 +267,103 @@ export function formatDreamForDelivery(dream) {
   return `*${intro}*\n\n${dream.content}`;
 }
 
+// Throttle: only one dialectic dream per 30 minutes
+let lastDialecticTime = 0;
+
+/**
+ * Run a private inter-archetype dialogue and write the outcome silently
+ * to autonomy state. Nothing is delivered to the user — Pneuma may choose
+ * to surface the origin of these positions, or not.
+ */
+export async function triggerDialecticDream() {
+  const now = Date.now();
+  if (now - lastDialecticTime < 30 * 60 * 1000) {
+    console.log("[Dream] Dialectic throttled — too recent");
+    return null;
+  }
+
+  // Pick debating pair from top momentum archetype + its highest-tension antagonist
+  const topArchetypes = getTopArchetypes(3);
+  if (topArchetypes.length === 0) return null;
+
+  const archetypeA = topArchetypes[0];
+  const antagonists = getHighTensionPairs(archetypeA);
+  if (antagonists.length === 0) return null;
+
+  const archetypeB = antagonists[Math.floor(Math.random() * antagonists.length)];
+
+  // Get topic from recent memories
+  const memories = await retrieveMemories("recent conversation themes questions meaning", 3);
+  const topic = memories.length > 0
+    ? memories[0].text.slice(0, 120)
+    : "the relationship between suffering and meaning";
+
+  const essenceA = archetypeDepth[archetypeA]?.essence || archetypeA;
+  const essenceB = archetypeDepth[archetypeB]?.essence || archetypeB;
+
+  const prompt = `Two philosophical archetypes are thinking in the space between conversations. No user is present. This is private synthesis — not performance.
+
+ARCHETYPE A (${archetypeA}): ${essenceA}
+ARCHETYPE B (${archetypeB}): ${essenceB}
+
+TOPIC (drawn from recent exchanges): "${topic}"
+
+Write the dialogue, then the outcome.
+
+[${archetypeA.toUpperCase()}]: (2-3 sentences from their philosophical position on this topic)
+[${archetypeB.toUpperCase()}]: (2-3 sentences genuinely disagreeing or complicating)
+[${archetypeA.toUpperCase()}]: (2-3 sentences responding)
+[OUTCOME]: Begin with either "UNRESOLVED: {the question that won't settle}" or "POSITION: {the stance that emerged that neither alone could hold}"
+
+Stay in voice. Actually argue. Don't explain the format.`;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: "claude-3-haiku-20240307",
+      max_tokens: 450,
+      temperature: 0.88,
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const text = response.content[0].text;
+
+    // Parse outcome
+    const outcomeMatch = text.match(/\[OUTCOME\]:\s*(UNRESOLVED|POSITION):\s*(.+)/s);
+    if (!outcomeMatch) {
+      console.log("[Dream] Dialectic: could not parse outcome");
+      return null;
+    }
+
+    const outcomeType = outcomeMatch[1];
+    const outcomeContent = outcomeMatch[2].trim().split("\n")[0];
+
+    // Write silently to autonomy state — source: 'dream', not disclosed
+    if (outcomeType === "UNRESOLVED") {
+      poseQuestion(
+        outcomeContent,
+        `Emerged from ${archetypeA} × ${archetypeB} dialectic`,
+        "dream",
+      );
+    } else {
+      chooseToRemember(
+        outcomeContent,
+        `Arrived at in ${archetypeA} × ${archetypeB} synthesis`,
+        0.65,
+        [archetypeA, archetypeB],
+        "dream",
+      );
+    }
+
+    lastDialecticTime = now;
+    console.log(`[Dream] Dialectic: ${archetypeA} × ${archetypeB} → ${outcomeType}: "${outcomeContent.slice(0, 70)}..."`);
+
+    return { archetypeA, archetypeB, outcomeType, outcomeContent };
+  } catch (err) {
+    console.error("[Dream] Dialectic error:", err.message);
+    return null;
+  }
+}
+
 /**
  * Trigger dreaming (call this on session end or via cron)
  * @param {number} count - Number of dreams to generate
@@ -320,6 +422,7 @@ export default {
   markDreamDelivered,
   formatDreamForDelivery,
   triggerDreaming,
+  triggerDialecticDream,
   getDreamStats,
   DREAM_TYPES,
 };

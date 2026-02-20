@@ -35,6 +35,7 @@ import {
   markDreamDelivered,
   formatDreamForDelivery,
   triggerDreaming,
+  triggerDialecticDream,
 } from "./pneuma/behavior/dreamMode.js";
 // ^ Your Pneuma fusion engine + TTS + Voice + Emotion + Dreams
 
@@ -193,6 +194,11 @@ app.post("/chat", async (req, res) => {
       engine: modeToEngine[mode] || null,
       mode,
     });
+
+    // Fire-and-forget: run dialectic dream in background (throttled to 30min)
+    triggerDialecticDream().catch((err) =>
+      console.error("[Dream] Background dialectic failed:", err.message),
+    );
   } catch (error) {
     console.error("[Pneuma] Error processing message:", error.message);
     res.status(500).json({
