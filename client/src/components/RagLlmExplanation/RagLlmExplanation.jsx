@@ -186,6 +186,40 @@ const STUDY_SECTIONS = [
     )
   },
   {
+    id: "six-way",
+    label: "The 6-Way Archetype Selection System",
+    critical: false,
+    content: () => (
+      <>
+        <div className="sg-qa">
+          <div className="sg-q">Q: How does Pneuma decide which archetypes activate for a given message?</div>
+          <div className="sg-a">
+            Six methods run simultaneously, each scoring archetypes from a different angle.
+            Think of it as six scouts each reading the message differently. The top 3–4 scores win.
+            <ul style={{ marginTop: '0.75rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li><strong>Tone-based</strong> — what's the emotional texture? Angry, curious, vulnerable? Maps to archetypes that match that tone.</li>
+              <li><strong>Intent-based</strong> — is this philosophical, emotional, casual, humorous? Boosts archetypes suited to that intent.</li>
+              <li><strong>Keyword triggers</strong> — specific words activate specific archetypes. Someone mentions "war" or "strategy," Sun Tzu gets a boost.</li>
+              <li><strong>Semantic routing</strong> — OpenAI embeddings run vector similarity search to find which archetype's knowledge base is closest in meaning to the message.</li>
+              <li><strong>Random depth injection</strong> — 40% chance of injecting a deep thinker archetype to keep responses unpredictable and prevent Pneuma from becoming formulaic.</li>
+              <li><strong>Antagonist injection</strong> — 40% chance of deliberately throwing in an archetype that disagrees with the others. This intentionally forces conflict.</li>
+            </ul>
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why the random and antagonist injections — isn't that chaotic?</div>
+          <div className="sg-a">
+            Intentionally. Without them, the same message would always produce the same archetypes.
+            Pneuma would become predictable and formulaic — a different costume on the same response every time.
+            The 40% injections mean two conversations on the same topic can produce genuinely different
+            perspectives. The antagonist injection is specifically designed to force collision —
+            you're deliberately seeding the conditions for synthesis.
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     id: "collision",
     label: "Collision Detection",
     critical: false,
@@ -289,6 +323,30 @@ const STUDY_SECTIONS = [
           </div>
         </div>
 
+        <div className="sg-qa">
+          <div className="sg-q">Q: How does something actually emerge from conflict — who causes that?</div>
+          <div className="sg-a">
+            The tension map identifies the conflict. But emergence doesn't come from the map — the map just says "these two fight."
+            Emergence comes from the synthesis directive you inject into the prompt.<br/><br/>
+            Think of it this way: if you sit a nihilist and a devout priest in a room and say "discuss,"
+            they'll argue past each other. Nothing emerges. But if you say "don't argue —
+            find the one thing you both know to be true that neither of you could have articulated alone" —
+            now something has to emerge. You changed the rules. They can't just defend their positions.
+            They have to find the third thing.<br/><br/>
+            That's your synthesis directive. You're not telling Claude "here are two archetypes."
+            You're telling Claude: "these two are in tension — don't pick a side, don't alternate,
+            find what lives in the space between them."<br/><br/>
+            Example — Jung × Taleb: "The shadow isn't just rejected content — it's antifragile potential."
+            Jung alone talks about the shadow as repressed material. Taleb alone talks about antifragility
+            as growth through stress. Neither connects shadow to antifragility. When Claude is forced to
+            synthesize them under your directive, that connection gets made. Neither archetype produced it.
+            The constraint produced it.<br/><br/>
+            The chain: <strong>you built the tension map</strong> (defines who fights) →
+            <strong> you wrote the synthesis directive</strong> (defines the rules of engagement) →
+            <strong> Claude finds the language</strong> (produces the emergent insight under those constraints).<br/><br/>
+            You caused the emergence. The tension map is your tool for causing it.
+          </div>
+        </div>
         <div className="sg-qa">
           <div className="sg-q">Q: Can you replicate this with a prompt?</div>
           <div className="sg-a">
