@@ -1,22 +1,22 @@
-/* Documentation button styles */
+/* Documentation button styles — matches architecture-btn */
 .documentation-btn {
-  background: rgba(255, 140, 0, 0.10);
-  border: 1px solid #009dff9b;
-  color: #00f2ff;
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: rgba(0, 212, 255, 0.6);
+  padding: 4px 8px;
   border-radius: 4px;
-  padding-left: 4px;
-  margin-left: 1px;
-  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 0.55rem;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border 0.2s;
+  transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.5px;
 }
 .documentation-btn:hover {
-  background: rgba(0, 217, 255, 0.307);
-  color: #fff;
-  border-color: #0be1e4;
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.5);
+  color: rgba(0, 212, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 /* ============================================
    SIDEBAR — Spaceship Control Panel
@@ -573,16 +573,23 @@
    ============================================ */
 .panel-footer {
   padding: 12px 16px;
-  /* Warmer violet border */
   border-top: 1px solid rgba(200, 100, 240, 0.15);
-  
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.5rem;
-  /* Cooler violet text */
   color: rgba(150, 140, 200, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
-  
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.footer-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -640,25 +647,30 @@
     width: 220px;
     padding-top: env(safe-area-inset-top, 0px);
   }
-  
+
+  /* When sidebar is open: move toggle to its right edge so it doesn't overlap content */
   .sidebar-toggle {
-    left: 6px;
+    left: 218px;
     right: auto;
-    top: 120px;
-    transform: none;
+    top: 50%;
+    transform: translateY(-50%);
     width: 8px;
     height: 50px;
-    background: rgba(168, 85, 247, 0.3);
-    border: 1px solid rgba(168, 85, 247, 0.5);
-    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    border-radius: 0 4px 4px 0;
   }
-  
+
+  /* When sidebar is collapsed: move toggle to left edge */
   .sidebar-toggle.collapsed {
     left: 6px;
-    right: auto;
     top: 120px;
+    transform: none;
+    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.3);
+    border-color: rgba(168, 85, 247, 0.5);
   }
-  
+
   .sidebar-toggle:hover {
     width: 8px;
   }
@@ -677,15 +689,23 @@
     z-index: 200;
     padding-top: env(safe-area-inset-top, 0px);
   }
-  
+
   .sidebar.collapsed {
     width: 0;
   }
-  
+
+  /* On phones: hide toggle when sidebar is open (close via item tap or back button) */
   .sidebar-toggle {
-    left: 4px;
-    right: auto;
-    top: 120px;
+    display: none;
+  }
+
+  /* Show toggle only when collapsed — bottom-right corner as a subtle open handle */
+  .sidebar-toggle.collapsed {
+    display: block;
+    right: 6px;
+    left: auto;
+    top: auto;
+    bottom: 80px;
     transform: none;
     width: 8px;
     height: 50px;
@@ -694,15 +714,9 @@
     background: rgba(168, 85, 247, 0.3);
     border: 1px solid rgba(168, 85, 247, 0.5);
   }
-  
-  .sidebar-toggle.collapsed {
-    left: 4px;
-    right: auto;
-    top: 120px;
-  }
-  
+
   .sidebar-toggle:hover {
-    width: 5px;
+    width: 8px;
   }
   
   .panel-header {

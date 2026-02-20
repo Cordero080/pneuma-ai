@@ -283,6 +283,116 @@
   color: #b8c0d0;
 }
 
+/* Study Guide Accordion */
+.study-accordion {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordion-item {
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.accordion-item.critical {
+  border-color: rgba(255, 170, 0, 0.5);
+}
+
+.accordion-item.open {
+  border-color: rgba(0, 255, 242, 0.5);
+}
+
+.accordion-item.critical.open {
+  border-color: #ffaa00;
+  box-shadow: 0 0 16px rgba(255, 170, 0, 0.2);
+}
+
+.accordion-header {
+  width: 100%;
+  background: rgba(26, 31, 53, 0.7);
+  border: none;
+  color: #b8c0d0;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.accordion-item.critical .accordion-header {
+  color: #ffaa00;
+  background: rgba(255, 170, 0, 0.08);
+}
+
+.accordion-header:hover {
+  background: rgba(0, 255, 242, 0.08);
+  color: #00fff2;
+}
+
+.accordion-item.critical .accordion-header:hover {
+  background: rgba(255, 170, 0, 0.15);
+  color: #ffaa00;
+}
+
+.accordion-arrow {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.accordion-body {
+  padding: 1.2rem 1.4rem;
+  background: rgba(10, 14, 26, 0.5);
+  animation: fadeIn 0.25s ease;
+}
+
+/* Study Guide Q&A Styles */
+.sg-qa {
+  margin-bottom: 1.2rem;
+}
+
+.sg-qa:last-child {
+  margin-bottom: 0;
+}
+
+.sg-q {
+  font-size: 0.9rem;
+  color: #00fff2;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 255, 242, 0.06);
+  border-radius: 6px;
+}
+
+.sg-a {
+  font-size: 0.9rem;
+  color: #b8c0d0;
+  line-height: 1.65;
+  padding: 0.5rem 0.75rem;
+}
+
+.sg-a code {
+  background: rgba(0, 255, 242, 0.1);
+  color: #00fff2;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.sg-a strong {
+  color: #e0e6ed;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .rag-llm-explanation-page {

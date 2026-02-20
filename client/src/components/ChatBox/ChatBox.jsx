@@ -64,6 +64,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
         const res = await fetch(`http://localhost:3000/conversations/${conversationId}`);
         if (res.ok) {
           const data = await res.json();
+          isLoadingConversation.current = true;
           if (data.messages?.length > 0) {
             setMessages(data.messages);
           } else {
@@ -72,12 +73,14 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
           }
         } else {
           // Conversation doesn't exist on server - it's a new one, start fresh
+          isLoadingConversation.current = true;
           setMessages([{ sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }]);
         }
         setLoadedConversationId(conversationId);
       } catch (error) {
         console.error('Failed to load conversation:', error);
         // On error, start fresh
+        isLoadingConversation.current = true;
         setMessages([{ sender: "ai", text: "Hey Pablo, I'm Pneuma. Talk to me. " }]);
         setLoadedConversationId(conversationId);
       }
@@ -198,17 +201,18 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     }
   };
 
-  // Track if first render for scroll behavior
+  // Track if scroll should be instant (first render or conversation load)
   const isFirstRender = useRef(true);
+  const isLoadingConversation = useRef(false);
 
   /*
     scrollToBottom: scrolls to the bottom of messages
-    - instant on first load (no disorienting animation)
+    - instant on first load or conversation switch (no disorienting animation)
     - smooth on new messages
   */
   const scrollToBottom = (instant = false) => {
-    messagesEndRef.current?.scrollIntoView({ 
-      behavior: instant ? "instant" : "smooth" 
+    messagesEndRef.current?.scrollIntoView({
+      behavior: instant ? "instant" : "smooth"
     });
   };
 
@@ -216,12 +220,13 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
     useEffect: scroll to bottom when messages change
   */
   useEffect(() => {
-    if (isFirstRender.current) {
-      // First render: instant scroll, no animation
+    if (isFirstRender.current || isLoadingConversation.current) {
+      // First render or conversation load: instant, no animation
       scrollToBottom(true);
       isFirstRender.current = false;
+      isLoadingConversation.current = false;
     } else {
-      // Subsequent messages: smooth scroll
+      // New message sent/received: smooth scroll
       scrollToBottom(false);
     }
   }, [messages]);
