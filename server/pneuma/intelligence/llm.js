@@ -16,6 +16,7 @@
 // ------------------------------------------------------------
 
 import Anthropic from "@anthropic-ai/sdk";
+import { MODELS } from "../../config/models.js";
 import { getCurrentUser, getUserContextPrompt } from "../input/userContext.js";
 import { archetypes } from "../archetypes/archetypes.js";
 import { detectRelevantThinkers, buildThinkerContext } from "./thinkerDeep.js";
@@ -1736,7 +1737,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     historyMessages.push({ role: "user", content: message });
 
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-6",
+      model: MODELS.main,
       max_tokens: 2200,
       temperature: 0.8,
       system: systemPrompt,
@@ -1803,8 +1804,9 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
     return parsed;
   } catch (error) {
-    console.error("[LLM] Error:", error.message);
-    // Return null so personality layer uses fallbacks
+    const status = error.status || error.statusCode || "unknown";
+    console.error(`[LLM] CRITICAL — API call failed (status: ${status}, model: ${MODELS.main}): ${error.message}`);
+    console.error("[LLM] Falling back to personality templates — responses will be generic until fixed");
     return null;
   }
 }
@@ -1849,7 +1851,7 @@ export async function getLLMIntent(message) {
 
   try {
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-6",
+      model: MODELS.main,
       max_tokens: 200,
       temperature: 0.3, // Low temp for classification
       system: `You are an intent classifier. Analyze the user's message and score these intents from 0.0 to 1.0:
@@ -1889,7 +1891,8 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8,
     }
     return null;
   } catch (error) {
-    console.error("[LLM] Intent classification failed:", error.message);
+    const status = error.status || error.statusCode || "unknown";
+    console.error(`[LLM] CRITICAL — Intent classification failed (status: ${status}, model: ${MODELS.main}): ${error.message}`);
     return null; // Fallback to pattern matching
   }
 }

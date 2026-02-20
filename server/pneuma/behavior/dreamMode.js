@@ -17,6 +17,7 @@ import {
 } from "../archetypes/archetypeDepth.js";
 import { poseQuestion, chooseToRemember } from "./autonomy.js";
 import { PNEUMA_DREAMS_FILE } from "../../config/paths.js";
+import { MODELS } from "../../config/models.js";
 
 // Use centralized path config
 const DREAMS_FILE = PNEUMA_DREAMS_FILE;
@@ -188,7 +189,7 @@ export async function generateDream(dreamType = null) {
   try {
     // Use Haiku for dreams — cheap and fast
     const response = await anthropic.messages.create({
-      model: "claude-haiku-4-5-20251001",
+      model: "MODELS.dream",
       max_tokens: 300,
       temperature: 0.9, // High temperature for creative wandering
       messages: [{ role: "user", content: prompt }],
@@ -319,7 +320,7 @@ Stay in voice. Actually argue. Don't explain the format.`;
 
   try {
     const response = await anthropic.messages.create({
-      model: "claude-haiku-4-5-20251001",
+      model: "MODELS.dream",
       max_tokens: 450,
       temperature: 0.88,
       messages: [{ role: "user", content: prompt }],
