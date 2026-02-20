@@ -1722,18 +1722,6 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     );
     const userPrompt = buildUserPrompt(message, context);
 
-    const isComplex =
-      intentScores.philosophical > 0.5 ||
-      intentScores.emotional > 0.5 ||
-      intentScores.numinous > 0.4;
-
-    const model = isComplex
-    
-      ? "claude-sonnet-4-5-20250929"
-      : "claude-sonnet-4-20250514";
-
-    console.log(`[LLM] Model: ${model} (complex: ${isComplex})`);
-
     // Build messages array: last 6 exchanges as alternating turns, then current message
     const historyMessages = [];
     if (context.conversationHistory && context.conversationHistory.length > 0) {
@@ -1748,8 +1736,8 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     historyMessages.push({ role: "user", content: message });
 
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 2200, // Increased for creative generation tasks (20 options need room)
+      model: "claude-sonnet-4-6",
+      max_tokens: 2200,
       temperature: 0.8,
       system: systemPrompt,
       messages: historyMessages,
@@ -1861,7 +1849,7 @@ export async function getLLMIntent(message) {
 
   try {
     const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: 200,
       temperature: 0.3, // Low temp for classification
       system: `You are an intent classifier. Analyze the user's message and score these intents from 0.0 to 1.0:
