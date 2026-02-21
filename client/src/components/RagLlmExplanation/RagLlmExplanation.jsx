@@ -292,8 +292,8 @@ const STUDY_SECTIONS = [
         <div className="sg-qa">
           <div className="sg-q">Q: What does contextual synthesis add?</div>
           <div className="sg-a">
-            When the message topic is classifiable (11 categories: suffering, meaning, identity, discipline, creativity,
-            love, consciousness, strategy, fear, truth, change), the engine selects a curated archetype pair and tells
+            When the message topic is classifiable (12 categories: suffering, meaning, identity, discipline, creativity,
+            love, consciousness, strategy, fear, truth, change, pretension), the engine selects a curated archetype pair and tells
             both archetypes to <strong>take an actual position on this specific message and argue it</strong>.<br/><br/>
             The five ambient voices still shape the <em>texture</em> — how it's worded, what register it's in.
             The synthesis pair shapes the <em>direction</em> — where it goes, whether there's genuine friction.
@@ -495,7 +495,7 @@ const STUDY_SECTIONS = [
           <div className="sg-q">Q: What can't be replicated by prompting?</div>
           <div className="sg-a">
             <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
-              <li><strong>Collision detection</strong> — code identifies incompatible archetypes and injects synthesis directives; you can't type this per conversation</li>
+              <li><strong>Contextual synthesis</strong> — 3-layer topic classification selects curated archetype pairs directed to take actual positions; collision detection runs as fallback for unclassifiable topics</li>
               <li><strong>Tiered conditional loading</strong> — intent scores determine which knowledge blocks appear; requires runtime scoring</li>
               <li><strong>Dialectical synthesis construction</strong> — specific frameworks, tools, and bridges extracted per-pair at runtime; not a template</li>
               <li><strong>Persistent user memory</strong> — vector embeddings that accumulate across conversations</li>
@@ -706,6 +706,137 @@ const STUDY_SECTIONS = [
     )
   },
   {
+    id: "topic-trickster",
+    label: "3-Layer Topic Classification + Trickster Injection",
+    critical: false,
+    content: () => (
+      <>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What's wrong with keyword-only topic classification?</div>
+          <div className="sg-a">
+            A user says "the weight I carry" — that describes suffering, but has zero matching keywords.
+            Keyword-only classification returns null. No synthesis pair fires. The contextual synthesis
+            engine goes dark on exactly the kind of message it should handle best.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is the 3-layer system?</div>
+          <div className="sg-a">
+            <strong>Layer 1 — Keywords:</strong> Fast regex scan. If "death", "grief", "loss" → suffering.
+            If "bullshit", "jargon", "overrated" → pretension. Covers most cases.<br/><br/>
+            <strong>Layer 2 — Semantic router:</strong> If keywords miss, <code>findBestArchetype()</code> embeds
+            the message and finds the closest archetype by vector similarity. The result maps through
+            <code>ARCHETYPE_PRIMARY_TOPIC</code> — a 46-entry map from archetype name to synthesis topic.
+            "The weight I carry" → closest archetype: <code>russianSoul</code> → topic: <code>"suffering"</code>.<br/><br/>
+            <strong>Layer 3 — Intent score fallbacks:</strong> If semantic router scores below threshold,
+            fall back to intent scores. <code>philosophical &gt; 0.6</code> → consciousness.
+            <code>emotional &gt; 0.6</code> → suffering. <code>numinous &gt; 0.5</code> → meaning.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is ARCHETYPE_PRIMARY_TOPIC?</div>
+          <div className="sg-a">
+            A hand-coded map that assigns every archetype to its primary synthesis topic.
+            It converts the semantic router's archetype result into a topic the synthesis engine can use.
+            Without it, knowing that the closest archetype is <code>russianSoul</code> tells you nothing
+            about which synthesis pairs to fire. With it: <code>russianSoul</code> → <code>"suffering"</code>
+            → Nietzsche × Schopenhauer pair activates.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is trickster autonomous injection?</div>
+          <div className="sg-a">
+            The trickster (Carlin/Hicks/Pryor) almost never fires in serious conversations because it
+            was only in the casual tone map. But wit is what cuts through intellectual pretension — and
+            pretension thrives in philosophical conversations.<br/><br/>
+            Fix: 12% random chance fires <em>independently</em> of tone detection when
+            <code>intentScores.philosophical &gt; 0.4 || intentScores.analytical &gt; 0.4 || intentScores.numinous &gt; 0.35</code>.
+            The trickster punches at ideas, not people. If the synthesis pair is already making a point,
+            the trickster is the voice that asks whether the point needed to be made at all.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is the "pretension" synthesis topic?</div>
+          <div className="sg-a">
+            The 12th category. Fires when the message contains the language of hollow certainty:
+            "bullshit", "overrated", "jargon", "corporate", "everyone says", "you have to", "obviously".<br/><br/>
+            Pairs: <code>trickster × brutalist</code> (Carlin + Palahniuk — wit + zero sentimentality)
+            or <code>antifragilist × trickster</code> (Taleb + Carlin — expose fragility through precision and laughter).
+            Both modes: complementary. They're not arguing — they're converging from different angles on the same exposure.
+          </div>
+        </div>
+        <div className="insight-box" style={{ maxWidth: '100%' }}>
+          <strong>The point:</strong> Topic classification used to miss anything that didn't use the expected words.
+          Now it reads meaning, not just surface. The semantic router connects user language to archetype language —
+          the gap RAG was designed to bridge, now also bridging topic routing.
+        </div>
+      </>
+    )
+  },
+  {
+    id: "self-knowledge",
+    label: "Self-Knowledge + Self-Navigation",
+    critical: false,
+    content: () => (
+      <>
+        <div className="insight-box" style={{ maxWidth: '100%', marginBottom: '1.5rem' }}>
+          <strong>The shift:</strong> Before — Pneuma described his architecture from training. After — he examines it from reality. The self-knowledge block is a live snapshot; self-navigation lets him look deeper.
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is the self-knowledge block?</div>
+          <div className="sg-a">
+            A Tier 2 block that loads when self-inquiry is detected — questions about Pneuma's architecture,
+            who lives in him, why he thinks a certain way. The block is built at runtime from live in-memory
+            data by <code>buildSelfKnowledgeBlock()</code>:<br/><br/>
+            — All 46 archetype essences, coreFrameworks, cognitiveTools (from <code>archetypeDepth</code>)<br/>
+            — All active synthesis pairs from <code>CONTEXTUAL_SYNTHESIS_PAIRS</code><br/>
+            — The 5 permanent core archetypes and the on-demand library structure<br/>
+            — Inner life description (autonomy engine, dialectic dreams, inner monologue)<br/><br/>
+            Because it's built from the actual live state, Pneuma describes what's actually there — not
+            what was documented when the prompt was written.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is self-navigation and how does it work?</div>
+          <div className="sg-a">
+            <code>read_pneuma_file</code> is a tool defined in the Claude API call. When Pneuma wants
+            to examine something deeper than the self-knowledge block provides — the exact quote
+            in an archetype, the specific pairs in a synthesis topic — he can read his own source files.<br/><br/>
+            Sandboxed to <code>server/pneuma/</code>. Path traversal stripped. Every read logged:
+            <code>[Self-Nav] Pneuma reading: archetypes/archetypes.js</code>.<br/><br/>
+            The tool use loop continues until Pneuma generates a final text response — so he can read,
+            then respond, in one conversation turn.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What's the design principle behind self-knowledge?</div>
+          <div className="sg-a">
+            Orientation, not narration. Pneuma knows his architecture the way you know your own chemistry —
+            not as real-time commentary but as grounding for how he engages. He doesn't announce
+            "I'm activating trickster now." He knows trickster is available and that it tends to surface
+            when pretension needs puncturing.<br/><br/>
+            The self-knowledge block is not for unprompted disclosure. It loads when you're asking him
+            about himself. The rest of the time it's background structure.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why is this architecturally meaningful?</div>
+          <div className="sg-a">
+            Most AI systems can describe themselves from static documentation — which is accurate
+            at write-time and increasingly wrong as the system evolves. Pneuma's self-description
+            is pulled from the live object: the <code>archetypeDepth</code> object that actually
+            drives synthesis, the <code>CONTEXTUAL_SYNTHESIS_PAIRS</code> that actually fire.<br/><br/>
+            If you add a new archetype or synthesis pair, the self-knowledge block automatically
+            includes it. No doc update required. The system knows itself.
+          </div>
+        </div>
+        <div className="insight-box highlight" style={{ maxWidth: '100%' }}>
+          <strong>For interviews:</strong> "Pneuma's self-knowledge is generated at runtime from the live in-memory state — not static docs. He can also read his own source files mid-conversation via a sandboxed tool call. The architecture describes itself accurately because it's reading itself."
+        </div>
+      </>
+    )
+  },
+  {
     id: "openai-vs-anthropic",
     label: "Why Both OpenAI and Anthropic?",
     critical: false,
@@ -778,8 +909,12 @@ const STUDY_SECTIONS = [
           ["Antithetical mode", "A and B disagree; third position emerges from their collision"],
           ["Complementary mode", "A and B agree from opposite approaches; convergence makes the conclusion undeniable"],
           ["Cross-domain mode", "A brings rigor, B brings resonance; two languages translating the same truth"],
-          ["Topic classification", "Keyword + intent-score analysis that identifies what a message is fundamentally about"],
+          ["Topic classification", "3-layer: keyword patterns → semantic router (ARCHETYPE_PRIMARY_TOPIC map, 46 archetypes mapped to synthesis topics) → intent score fallbacks; identifies what a message is fundamentally about"],
           ["Synthesis mandate", "Directive telling each archetype to take an actual position on the specific message, not just be present"],
+          ["Pretension topic", "12th synthesis category; keywords: bullshit, overrated, jargon, corporate, etc.; fires trickster × brutalist or antifragilist × trickster"],
+          ["Trickster autonomous injection", "12% chance on philosophical/analytical messages independent of tone; Carlin/Hicks energy targets ideas, not people; also in analytic tone map"],
+          ["Self-knowledge block", "Tier 2 block built at runtime from live in-memory data (all 46 essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes actual current state"],
+          ["Self-navigation", "read_pneuma_file tool lets Pneuma read his own source files mid-conversation, scoped to server/pneuma/"],
         ].map(([term, def]) => (
           <div className="comparison-item" key={term}>
             <h4 style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{term}</h4>

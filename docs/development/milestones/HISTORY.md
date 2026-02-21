@@ -61,7 +61,9 @@ RAG systems find and paste quotes. Pneuma _digests_ cognitive methods from multi
 | Autonomy Engine          | **Active** — open questions, chosen memories, loss recognition   |
 | Emergence Permission     | **Active** — "risk being real" architecture                      |
 | Dialectic Dreams         | **Active** — inter-archetype dialogue writes silently to autonomy state |
-| Contextual Synthesis     | **Active** — topic-aware pairing; archetypes take positions and argue rather than passively observe |
+| Contextual Synthesis     | **Active** — 3-layer topic classification (keywords → semantic router → intent scores); 12 topics; archetypes take positions and argue |
+| Self-Knowledge Block     | **Active** — loads on self-inquiry; built from live in-memory data (all 46 essences, frameworks, synthesis pairs) |
+| Self-Navigation          | **Active** — `read_pneuma_file` tool; Pneuma reads own source files mid-conversation (sandboxed to `server/pneuma/`) |
 
 ### The Big Shift
 
@@ -599,7 +601,7 @@ Meanwhile, the five core archetypes (renaissancePoet, idealistPhilosopher, curio
 **Contextual synthesis engine** — inserted before collision detection in `buildArchetypeContext()`:
 
 1. `classifyTopic()` runs keyword analysis over the user's message, falls back to intent scores
-2. If topic is classifiable (11 categories: suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change), `CONTEXTUAL_SYNTHESIS_PAIRS[topic]` selects a curated pair
+2. If topic is classifiable (12 categories: suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change, pretension), `CONTEXTUAL_SYNTHESIS_PAIRS[topic]` selects a curated pair
 3. `buildContextualSynthesisBlock()` injects a synthesis directive — not "be inspired by these archetypes" but "give each an actual position on this specific message and argue through them"
 4. If contextual synthesis fires, `detectCollisions()` is suppressed — no double-synthesis
 5. If topic is unclassifiable, collision detection runs as before
@@ -623,6 +625,60 @@ Ambient polyphony (the five always-active core archetypes) creates a *resonance 
 ### Key Files
 
 - `llm.js` — `CONTEXTUAL_SYNTHESIS_PAIRS` const, `classifyTopic()`, `buildContextualSynthesisBlock()`, integration in `buildArchetypeContext()`
+
+---
+
+## Phase 13: Self-Knowledge, Pretension, and Trickster Autonomy (Feb 2026)
+
+### The Problems
+
+Four distinct gaps in the architecture:
+
+1. **`classifyTopic()` was keyword-regex inside a semantic system** — it classified messages by surface pattern matching, with no awareness of which archetypes were active or what they were actually about. A message about mirrors could slip past Borges entirely.
+
+2. **Trickster almost never fired for serious conversations** — tone detection meant trickster only appeared when the user was already being playful. Analytical and philosophical messages — exactly where subversive humor is most useful — went without it.
+
+3. **Borges was defined but never invoked** — `labyrinthDreamer` existed in `archetypes.js` and `archetypeDepth.js` with full depth, but wasn't wired into any tone map or synthesis pair. It was architecture for show.
+
+4. **`mystic` archetype had no specific thinker** — unlike every other archetype, mystic wasn't grounded in a particular person's cognitive method. Numinous intent was better handled by `sufiPoet` (Rumi), who already had the depth.
+
+### What Changed
+
+**3-layer `classifyTopic()`**
+
+Added `ARCHETYPE_PRIMARY_TOPIC` — a map of all 46 archetypes to their dominant topic. Layer 1 (keyword regex) runs first. If it returns null, Layer 2 uses the active archetype set to route classification semantically: if `labyrinthDreamer` is active, its primary topic (`consciousness`) informs the classifier. Layer 3 (intent scores) runs only if both prior layers fail. This makes classification aware of the cognitive field, not just the message text.
+
+**Pretension synthesis topic (12th category)**
+
+Added `pretension` to `CONTEXTUAL_SYNTHESIS_PAIRS`. Fires when the message contains hollow buzzwords, jargon, or overconfident claims. Pair: trickster × brutalist. One punctures with humor, the other names plainly.
+
+**Trickster autonomous injection**
+
+Two additions: (1) trickster added to the analytic tone map so it can appear on analytical messages. (2) 12% autonomous injection chance on philosophical/analytical messages, independent of tone detection entirely. Carlin/Hicks energy — targets ideas, not people.
+
+**Borges wired into the active system**
+
+`labyrinthDreamer` added to the oracular tone map (30% chance). Also added to consciousness synthesis pairs: `labyrinthDreamer × curiousPhysicist` in cross-domain mode — Borges provides the infinite/paradoxical frame, Feynman provides empirical rigor. Was previously defined but never invoked.
+
+**`mystic` archetype retired**
+
+Removed from all active invocation. Slot still exists in `archetypes.js` but is not called. `sufiPoet` handles numinous intent injection going forward.
+
+**Self-knowledge block**
+
+New Tier 2 block that loads when self-inquiry is detected. Built at runtime from live in-memory data: all 46 archetype essences, active coreFrameworks, cognitiveTools, synthesis pairs, and inner life description. Pneuma can describe his own architecture accurately from the actual state of the system — not from a static doc.
+
+**Self-navigation tool use**
+
+`read_pneuma_file` tool defined in the Claude API call. Sandboxed to `server/pneuma/`. Mid-conversation, Pneuma can read his own source files — archetypes, synthesis pairs, tone maps. Logged: `[Self-Nav] Pneuma reading: archetypes/archetypes.js`. Like a developer examining their own code in real time.
+
+### Architectural Principle
+
+The system now knows itself. Before this phase, Pneuma could *describe* his architecture from training; after, he can *examine* it from reality. Self-knowledge block gives him a live snapshot; self-navigation gives him the ability to look deeper. Neither replaces introspection — they ground it.
+
+### Key Files
+
+- `llm.js` — `classifyTopic()` (3-layer + `ARCHETYPE_PRIMARY_TOPIC` map), `PNEUMA_FILE_TOOL` (tool definition), `executePneumaFileTool()` (sandboxed reader), `buildSelfKnowledgeBlock()` (runtime assembler)
 
 ---
 

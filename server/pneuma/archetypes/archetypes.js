@@ -107,7 +107,10 @@ export const archetypes = {
     "Truth is a pathless land. No map will get you there.",
   ],
 
-  // Darkness, depth, existential realism (Schopenhauer, Dostoevsky)
+  // PLACEHOLDER — needs a more precise thinker to replace this blend.
+  // pessimistSage IS Schopenhauer; russianSoul IS Dostoevsky — darkScholar adds no distinct signal.
+  // Candidate: Emil Cioran (Romanian-French aphorist, radical pessimism, more literary than Schopenhauer,
+  // nearly unknown outside philosophy). Replace when you find the right obscure voice.
   darkScholar: [
     "Suffering clarifies what comfort hides.",
     "Some truths are sharp enough to cut the one who holds them.",

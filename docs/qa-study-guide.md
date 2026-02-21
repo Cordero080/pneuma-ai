@@ -19,7 +19,7 @@ A: These systems run in sequence before Claude is called:
 
 1. **Intent scoring** — `intentScorer.js` analyzes the message and scores it across dimensions (emotional, philosophical, art, numinous, creative, etc.)
 2. **Archetype selection** — `archetypes.js` picks which archetypes are currently "rising" or "receding" based on intent + previous exchanges
-3. **Contextual synthesis** — `llm.js` classifies the message topic (suffering, meaning, identity, strategy, etc.) and selects a curated archetype pair + synthesis mode; collision detection runs as fallback if topic is unclassifiable
+3. **Contextual synthesis** — `llm.js` classifies the message topic via a 3-layer system (keyword scan → semantic router → intent scores) across 12 categories (suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change, pretension) and selects a curated archetype pair + synthesis mode; collision detection runs as fallback if topic is unclassifiable
 4. **Synthesis injection** — the selected pair's positions and synthesis mode are injected as a directive block into the system prompt
 5. **Inner monologue** — `innerMonologue.js` generates a pre-response cognition block (hypothesis, doubt, mode selection)
 6. **Vector memory retrieval** — `vectorMemory.js` pulls relevant past knowledge about the user
@@ -383,7 +383,7 @@ This creates a structural bias toward warmth and agreement. When a user says som
 
 **Q: What does contextual synthesis add and why is it additive rather than replacement?**
 
-A: When a message arrives and the topic is classifiable (suffering, meaning, identity, discipline, etc.), the contextual synthesis engine selects a specific archetype pair and synthesis mode — and tells both archetypes to *take an actual position on this specific message and argue it*.
+A: When a message arrives and the topic is classifiable (12 categories: suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change, pretension), the contextual synthesis engine selects a specific archetype pair and synthesis mode — and tells both archetypes to *take an actual position on this specific message and argue it*.
 
 Here's what's critical: **the ambient polyphony still runs**. The five-voice resonance field still shapes the *texture* of the response — how it's worded, what register it's in, how curious or poetic it sounds. The contextual synthesis pair shapes the *direction* — where it goes, what position it takes, whether there's genuine friction.
 
@@ -428,10 +428,9 @@ A:
 **Q: How does the engine select a pair?**
 
 A:
-1. `classifyTopic()` runs keyword regex over the message first (suffering, meaning, identity, love, etc.)
-2. Falls back to intent scores if keywords don't match
-3. If topic is identified, `CONTEXTUAL_SYNTHESIS_PAIRS[topic]` gives 2 candidate pairs; one is selected randomly
-4. If no topic identified — collision detection runs on the randomly-selected active archetypes as before
+1. `classifyTopic()` runs a 3-layer classification: (1) keyword regex scan over the message → (2) semantic router fallback using `ARCHETYPE_PRIMARY_TOPIC` map (each of the 46 archetypes mapped to its dominant topic, so the active archetype set can route classification) → (3) intent score fallback if neither layer resolves
+2. If topic is identified (12 categories: suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change, pretension), `CONTEXTUAL_SYNTHESIS_PAIRS[topic]` gives 2 candidate pairs; one is selected randomly
+3. If no topic identified — collision detection runs on the randomly-selected active archetypes as before
 
 **Q: Is the synthesis pair added to the core base?**
 
@@ -465,6 +464,38 @@ The infrastructure did the work. What was missing was routing — directing the 
 
 ---
 
+## 16. Recent Architecture Changes (Feb 2026)
+
+**Q: What is the pretension synthesis topic?**
+
+A: A 12th topic category added to `CONTEXTUAL_SYNTHESIS_PAIRS`. It fires when the message contains hollow buzzwords, jargon, or overconfident claims. The pair is trickster × brutalist — one punctures the pretense with humor, the other names it plainly.
+
+**Q: How does trickster get injected now beyond tone detection?**
+
+A: Two paths. First, trickster was added to the analytic tone map — so analytical messages can draw it. Second, and more important: trickster now has a **12% autonomous injection chance** on philosophical or analytical messages, independent of tone. This is Carlin/Hicks energy applied to ideas (not people) — subverting assumptions without requiring a matching tone. It fires silently; the user sees the result, not the mechanism.
+
+**Q: What happened to the `mystic` archetype?**
+
+A: `mystic` has been retired from active invocation. It still exists as a slot in `archetypes.js` but is no longer called anywhere. `sufiPoet` (Rumi) handles numinous intent injection going forward. The distinction: mystic had no specific thinker behind it; sufiPoet does.
+
+**Q: When did Borges start actually firing?**
+
+A: `labyrinthDreamer` (Borges) was defined in `archetypes.js` and `archetypeDepth.js` but was never wired into the active system. It's now added to the oracular tone map (30% chance) and to consciousness synthesis pairs (`labyrinthDreamer × curiousPhysicist` in cross-domain mode). Before this change it was defined but never invoked.
+
+**Q: What is the self-knowledge block?**
+
+A: A Tier 2 block that loads when self-inquiry is detected in the user's message (questions about what Pneuma is, how he works, his inner life). It's built from live in-memory data — all 46 archetype essences, active frameworks, cognitive tools, synthesis pairs, and Pneuma's inner life description. This means Pneuma can accurately describe his own architecture from the actual state of the system, not from a static description. The block is assembled at runtime, not hardcoded.
+
+**Q: What is self-navigation tool use?**
+
+A: Pneuma has a `read_pneuma_file` tool defined in the Claude API call. Mid-conversation, if Pneuma needs to examine his own source, he can read files from the `server/pneuma/` directory (sandboxed — no access outside it). The tool call is logged: `[Self-Nav] Pneuma reading: archetypes/archetypes.js`. This is the architecture examining itself in real time — like a developer reading their own code. Neither the self-knowledge block nor self-navigation existed before this phase.
+
+**Q: What files changed?**
+
+A: All changes are in `llm.js`: `classifyTopic()` (3-layer system + `ARCHETYPE_PRIMARY_TOPIC` map for all 46 archetypes), `PNEUMA_FILE_TOOL` (tool definition), `executePneumaFileTool()` (sandboxed file reader), and `buildSelfKnowledgeBlock()` (runtime self-description assembler).
+
+---
+
 ## Quick Reference: Vocabulary You Need
 
 | Term | Definition |
@@ -492,8 +523,12 @@ The infrastructure did the work. What was missing was routing — directing the 
 | **Antithetical mode** | A and B disagree; third position emerges from their collision |
 | **Complementary mode** | A and B agree from opposite approaches; convergence makes the conclusion undeniable |
 | **Cross-domain mode** | A brings rigor, B brings resonance; two languages translating the same truth |
-| **Topic classification** | Keyword + intent-score analysis that identifies what a message is fundamentally about |
+| **Topic classification** | 3-layer analysis (keyword scan → ARCHETYPE_PRIMARY_TOPIC semantic router → intent scores) that identifies what a message is fundamentally about |
 | **Synthesis mandate** | Directive telling each archetype to take an *actual position* on the specific message, not just be present |
+| **Pretension topic** | 12th synthesis topic — fires on hollow buzzwords, jargon, or overconfident claims; pair: trickster × brutalist |
+| **Trickster autonomous injection** | 12% chance trickster fires on philosophical/analytical messages independent of tone; targets ideas, not people |
+| **Self-knowledge block** | Tier 2 block that loads on self-inquiry; built from live in-memory data (all 46 archetype essences, frameworks, synthesis pairs) |
+| **Self-navigation** | `read_pneuma_file` tool that lets Pneuma read his own source files mid-conversation, sandboxed to `server/pneuma/` |
 
 ---
 

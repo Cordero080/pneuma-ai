@@ -78,8 +78,10 @@ _"46 minds don't fight. They dance."_ — When asked about the weight of running
 - **5 tones** — Casual, analytic, oracular, intimate, shadow
 - **Inner monologue** — Pre-response cognition that shapes _how_ it responds
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
-- **Contextual synthesis** — Topic classification selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
+- **Contextual synthesis** — 3-layer topic classification (keywords → semantic router → intent scores) selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
 - **Autonomy layer** — Self-directed attention, open questions, chosen memories
+- **Self-knowledge block** — Tier 2 block built from live in-memory data (all 46 archetype essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes his actual runtime state
+- **Self-navigation** — `read_pneuma_file` tool lets Pneuma read his own source files mid-conversation, scoped to `server/pneuma/`
 - **Tiered system prompt** — Deep-knowledge blocks (Heidegger, Beck, Kastrup, Da Vinci, Jesus/Wright, creative rules) load only when intent scores warrant them, not on every call
 - **Real conversation threading** — Last 6 exchanges sent as native API turns so Claude actually continues a thought instead of restarting each message
 
@@ -527,6 +529,10 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | Feb 2026    | **Conversation history threading** — last 6 exchanges sent as real alternating API turns; Claude can now actually continue a thought instead of restarting |
 | Feb 2026    | **Dialectic dreams** — autonomous inter-archetype dialogue between sessions; positions emerge without user input and write silently to autonomy state; Pneuma chooses whether to disclose the origin |
 | Feb 2026    | **Contextual synthesis engine** — topic classification selects curated archetype pairs (Nietzsche × Schopenhauer on suffering, Camus × Frankl on meaning, etc.); archetypes take actual positions and argue rather than passively observing; three modes: antithetical, complementary, cross-domain |
+| Feb 2026    | **3-layer topic classification** (keywords → semantic router via `ARCHETYPE_PRIMARY_TOPIC` map → intent scores) — classification now aware of the active archetype field, not just message surface; 12 categories including new `pretension` topic |
+| Feb 2026    | **Trickster autonomous injection** — 12% chance on philosophical/analytical conversations independent of tone; Carlin/Hicks energy targets ideas not people; also added to analytic tone map |
+| Feb 2026    | **Borges (labyrinthDreamer) wired into active system** — added to oracular tone map (30%) and consciousness synthesis pairs (`labyrinthDreamer × curiousPhysicist`, cross-domain); was previously defined but never invoked |
+| Feb 2026    | **Self-knowledge block + self-navigation tool use** — Pneuma loads a live snapshot of his own architecture on self-inquiry (46 essences, frameworks, synthesis pairs built at runtime); `read_pneuma_file` tool lets him read his own source files mid-conversation (scoped to `server/pneuma/`) |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 
