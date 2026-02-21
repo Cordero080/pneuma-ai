@@ -120,12 +120,11 @@ function saveMomentum() {
  * Boost archetypes that were active in a response
  * Called after each Pneuma response
  * @param {string[]} activeArchetypes - Archetypes used in this response
- * @param {number} userEngagement - How much user engaged (0-1)
+ * @param {number} userEngagement - How much user engaged (0-1) 
  */
 export function boostActiveArchetypes(activeArchetypes, userEngagement = 0.5) {
   const state = loadMomentum();
-  const boostAmount = 0.02 * (1 + userEngagement); // 0.02 to 0.04 per activation
-
+  const boostAmount = 0.02 * (1 + userEngagement); // 0.02 to 0.04 per activation means strong engagement can double the boost
   for (const archetype of activeArchetypes) {
     if (state.archetypes[archetype] !== undefined) {
       // Boost the active archetype

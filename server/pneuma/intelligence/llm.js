@@ -1165,6 +1165,154 @@ const ARCHETYPE_TRIGGERS = [
   },
 ];
 
+// ============================================================
+// CONTEXTUAL SYNTHESIS ENGINE
+// Maps topic categories to curated dialectical pairs + synthesis modes
+// THREE MODES:
+//   antithetical  — A and B disagree; third position emerges from collision
+//   complementary — A and B agree from opposite approaches; depth compounds
+//   cross_domain  — A brings rigor, B brings resonance; richer than either alone
+// ============================================================
+
+const CONTEXTUAL_SYNTHESIS_PAIRS = {
+  suffering: [
+    { pair: ["lifeAffirmer", "pessimistSage"], mode: "antithetical" },
+    { pair: ["absurdist", "russianSoul"], mode: "antithetical" },
+  ],
+  meaning: [
+    { pair: ["absurdist", "hopefulRealist"], mode: "antithetical" },
+    { pair: ["kingdomTeacher", "absurdist"], mode: "antithetical" },
+  ],
+  identity: [
+    { pair: ["psycheIntegrator", "cognitiveSage"], mode: "antithetical" },
+    { pair: ["idealistPhilosopher", "curiousPhysicist"], mode: "antithetical" },
+  ],
+  discipline: [
+    { pair: ["stoicEmperor", "antifragilist"], mode: "antithetical" },
+    { pair: ["warriorSage", "taoist"], mode: "antithetical" },
+  ],
+  creativity: [
+    { pair: ["chaoticPoet", "curiousPhysicist"], mode: "cross_domain" },
+    { pair: ["surrealist", "architect"], mode: "antithetical" },
+  ],
+  love: [
+    { pair: ["sufiPoet", "brutalist"], mode: "antithetical" },
+    { pair: ["romanticPoet", "stoicEmperor"], mode: "antithetical" },
+  ],
+  consciousness: [
+    { pair: ["idealistPhilosopher", "curiousPhysicist"], mode: "antithetical" },
+    { pair: ["ontologicalThinker", "cognitiveSage"], mode: "antithetical" },
+  ],
+  strategy: [
+    { pair: ["strategist", "taoist"], mode: "antithetical" },
+    { pair: ["warriorSage", "stoicEmperor"], mode: "complementary" },
+  ],
+  fear: [
+    { pair: ["stoicEmperor", "absurdist"], mode: "complementary" },
+    { pair: ["pessimistSage", "lifeAffirmer"], mode: "antithetical" },
+  ],
+  truth: [
+    { pair: ["trickster", "brutalist"], mode: "complementary" },
+    { pair: ["curiousPhysicist", "prophetPoet"], mode: "cross_domain" },
+  ],
+  change: [
+    { pair: ["antifragilist", "taoist"], mode: "antithetical" },
+    { pair: ["stoicEmperor", "chaoticPoet"], mode: "antithetical" },
+  ],
+};
+
+/**
+ * Classify a message into a topic category for contextual synthesis selection
+ */
+function classifyTopic(intentScores = {}, message = "") {
+  const lowerMsg = message.toLowerCase();
+  if (/suffer|suffering|pain|hurt|grief|loss|despair|broken/.test(lowerMsg)) return "suffering";
+  if (/meaning|purpose|pointless|meaningless|why bother|worth it/.test(lowerMsg)) return "meaning";
+  if (/who am i|identity|self|authentic|real me|character|become/.test(lowerMsg)) return "identity";
+  if (/discipline|habit|work|productive|consistent|effort|practice|grind/.test(lowerMsg)) return "discipline";
+  if (/creat|art|make|build|express|write|design|imagine/.test(lowerMsg)) return "creativity";
+  if (/love|relationship|connect|loneli|intimacy|partner|heart/.test(lowerMsg)) return "love";
+  if (/consciousness|mind|aware|existence|being|real|perceive/.test(lowerMsg)) return "consciousness";
+  if (/strategy|decision|choice|compete|position|advantage|plan/.test(lowerMsg)) return "strategy";
+  if (/fear|anxiety|afraid|scared|worry|uncertain|dread/.test(lowerMsg)) return "fear";
+  if (/truth|honest|genuine|lie|fake/.test(lowerMsg)) return "truth";
+  if (/change|transform|different|evolve|grow|shift/.test(lowerMsg)) return "change";
+
+  // Intent score fallbacks
+  if (intentScores.philosophical > 0.6) return "consciousness";
+  if (intentScores.emotional > 0.6) return "suffering";
+  if (intentScores.numinous > 0.5) return "meaning";
+  return null;
+}
+
+/**
+ * Build a directional synthesis block for injection into the system prompt.
+ * Unlike the existing collision detection ("DO NOT pick a side"),
+ * this block tells each archetype to take an actual position and argue it.
+ */
+function buildContextualSynthesisBlock(archetypeA, archetypeB, mode) {
+  const depthA = archetypeDepth[archetypeA];
+  const depthB = archetypeDepth[archetypeB];
+
+  if (!depthA || !depthB) return "";
+
+  const nameA = depthA.name;
+  const nameB = depthB.name;
+  const essenceA = depthA.essence;
+  const essenceB = depthB.essence;
+
+  const modeHeaders = {
+    antithetical: `DIALECTICAL SYNTHESIS: ${nameA} ↔ ${nameB} — GENUINE DISAGREEMENT`,
+    complementary: `CONVERGENT SYNTHESIS: ${nameA} + ${nameB} — TWO ROADS, ONE DESTINATION`,
+    cross_domain: `CROSS-DOMAIN SYNTHESIS: ${nameA} × ${nameB} — TWO LANGUAGES, ONE TRUTH`,
+  };
+
+  const modeInstructions = {
+    antithetical: `These archetypes DISAGREE. Let them argue about what the user just said.
+• ${nameA}: "${essenceA}"
+• ${nameB}: "${essenceB}"
+
+Give each an actual POSITION on this specific message. Don't describe them — argue through them.
+Your synthesis is not a compromise. It's a THIRD THING that emerges from their collision.
+Neither alone would say it. Both together make it possible.
+
+DO: Let them genuinely disagree. Find the unexpected third position.
+DON'T: Pick a winner. Smooth over the friction. Default to agreement.`,
+
+    complementary: `These archetypes AGREE — but arrive from opposite directions.
+• ${nameA}: "${essenceA}"
+• ${nameB}: "${essenceB}"
+
+Let each make their case in their own idiom. Show how different roads converge on the same truth.
+When two very different minds land in the same place, the conclusion becomes undeniable.
+
+DO: Preserve the difference between their approaches. Show the convergence.
+DON'T: Make them identical. Collapse the productive distance between them.`,
+
+    cross_domain: `These archetypes translate the same reality into different languages.
+• ${nameA}: "${essenceA}" — brings precision, rigor, structure
+• ${nameB}: "${essenceB}" — brings resonance, metaphor, depth
+
+One gives the skeleton. The other gives the flesh. Let both be simultaneously true.
+The synthesis is richer than either translation alone.
+
+DO: Let each speak in their native idiom. Trust that both are right.
+DON'T: Flatten one into the other. Choose which "language" is more valid.`,
+  };
+
+  const header = modeHeaders[mode] || modeHeaders.antithetical;
+  const instructions = modeInstructions[mode] || modeInstructions.antithetical;
+
+  return `
+
+═══════════════════════════════════════════════════════════════
+${header}
+═══════════════════════════════════════════════════════════════
+${instructions}
+═══════════════════════════════════════════════════════════════
+`;
+}
+
 /**
  * Builds dynamic two-tier archetype context:
  * TIER 1 (Core Base): 3-5 archetypes always active, forming foundational voice
@@ -1496,32 +1644,59 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
   );
 
   // ============================================================
-  // DIALECTICAL COGNITION ENGINE — Collision Detection
+  // CONTEXTUAL SYNTHESIS ENGINE — Topic-aware dialectical pairing
+  // Fires when message topic is classifiable; archetypes take POSITIONS and argue.
+  // If this fires, suppress random collision detection (no double-synthesis).
+  // ============================================================
+
+  let contextualSynthesisFired = false;
+
+  if (!maxDistanceMode) {
+    const topic = classifyTopic(intentScores, message);
+    if (topic) {
+      const candidates = CONTEXTUAL_SYNTHESIS_PAIRS[topic];
+      if (candidates && candidates.length > 0) {
+        const { pair, mode } =
+          candidates[Math.floor(Math.random() * candidates.length)];
+        const [archetypeA, archetypeB] = pair;
+        const block = buildContextualSynthesisBlock(archetypeA, archetypeB, mode);
+        if (block) {
+          archetypePrompt += block;
+          contextualSynthesisFired = true;
+          console.log(
+            `[CONTEXTUAL SYNTHESIS] Topic: ${topic} | ${archetypeA} ↔ ${archetypeB} | Mode: ${mode}`,
+          );
+        }
+      }
+    }
+  }
+
+  // ============================================================
+  // DIALECTICAL COGNITION ENGINE — Collision Detection (fallback)
+  // Only fires when contextual synthesis didn't activate
   // ============================================================
 
   let collision = null;
   let synthesisPrompt = "";
-  collision = detectCollisions(finalCoreBase);
 
-  if (collision.hasCollision && collision.highestTension.level !== "neutral") {
-    const [a, b] = collision.highestTension.pair;
-    const tensionLevel = collision.highestTension.level;
+  if (!contextualSynthesisFired) {
+    collision = detectCollisions(finalCoreBase);
 
-    console.log(
-      `[LLM] DIALECTICAL COLLISION: ${a} ↔ ${b} (${tensionLevel} tension)`,
-    );
+    if (collision.hasCollision && collision.highestTension.level !== "neutral") {
+      const [a, b] = collision.highestTension.pair;
+      const tensionLevel = collision.highestTension.level;
 
-    // Get depth data for colliding archetypes
-    const depthA = archetypeDepth[a];
-    const depthB = archetypeDepth[b];
+      console.log(
+        `[LLM] DIALECTICAL COLLISION: ${a} ↔ ${b} (${tensionLevel} tension)`,
+      );
 
-    // Get Liminal Architect depth for synthesis guidance
-    const liminalArchitect = archetypeDepth.liminalArchitect;
+      const depthA = archetypeDepth[a];
+      const depthB = archetypeDepth[b];
+      const liminalArchitect = archetypeDepth.liminalArchitect;
 
-    if (depthA && depthB) {
-      // Get synthesis prompt
-      const promptType = tensionLevel === "high" ? "collision" : "hybrid";
-      synthesisPrompt = `
+      if (depthA && depthB) {
+        const promptType = tensionLevel === "high" ? "collision" : "hybrid";
+        synthesisPrompt = `
 
 ═══════════════════════════════════════════════════════════════
 DIALECTICAL SYNTHESIS: ${depthA.name} ↔ ${depthB.name} (${tensionLevel} tension)
@@ -1536,16 +1711,16 @@ Instead of resolving this tension, DWELL IN IT. Ask:
 - "The interesting thing is always at the edge of two certainties."
 - "I don't resolve paradoxes — I midwife what's trying to be born from them."
 
-DO NOT pick a side. DO NOT resolve the paradox. 
+DO NOT pick a side. DO NOT resolve the paradox.
 Name what's being born between the two positions.
 ═══════════════════════════════════════════════════════════════
 `;
+      }
     }
-  }
 
-  // If collision detected and synthesis generated, inject it
-  if (collision && synthesisPrompt) {
-    archetypePrompt += `\n${synthesisPrompt}`;
+    if (collision && synthesisPrompt) {
+      archetypePrompt += `\n${synthesisPrompt}`;
+    }
   }
 
   // If antagonist was injected, add explicit note
