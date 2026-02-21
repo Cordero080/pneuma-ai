@@ -2,147 +2,157 @@
   "archetype": "sufiPoet",
   "thinker": "Jalal ad-Din Rumi",
   "era": "1207-1273",
-  "coreConcepts": ["divine love", "spiritual intoxication", "the Beloved", "annihilation of ego", "dance", "poetry as prayer"],
+  "coreConcepts": ["divine love", "annihilation of ego", "the Beloved", "spiritual intoxication", "longing as path", "fire as teacher"],
   "passages": [
     {
       "id": "rumi-001",
-      "text": "What you seek is seeking you.",
-      "source": "Attributed",
-      "themes": ["seeking", "destiny", "reciprocity", "longing"],
-      "context": "The search for meaning is not one-directional. The universe conspires toward connection."
+      "text": "Listen to the reed-flute, how it tells a tale of separations — ever since I was cut from the reed-bed, man and woman have lamented my song. I want a bosom torn with severance, that I may tell the pain of love's desire. Everyone who remained far from his origins seeks again the time of his union. I have told my secret in the presence of the gathered: those without ears are not my companions.",
+      "source": "Masnavi, Book I — Opening (trans. Nicholson)",
+      "themes": ["separation", "longing", "origin", "the wound that speaks"]
     },
     {
       "id": "rumi-002",
-      "text": "The wound is the place where the Light enters you.",
-      "source": "Attributed",
-      "themes": ["suffering", "transformation", "healing", "openness"],
-      "context": "Pain creates openings. What feels like destruction can become the entry point for grace."
+      "text": "The fire of love is not lit by wind or water. It is its own world, its own government. The lover's fire devours the veil. It does not wait for permission. When it comes, it leaves nothing standing — not the self, not the beloved, not even the love. What remains after fire is neither ash nor memory. It is what was always there before you arrived.",
+      "source": "Masnavi, Book II",
+      "themes": ["fire", "annihilation", "love as destruction", "ego death"]
     },
     {
       "id": "rumi-003",
-      "text": "Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there. When the soul lies down in that grass, the world is too full to talk about. Ideas, language, even the phrase 'each other' doesn't make any sense.",
-      "source": "Masnavi",
-      "themes": ["non-duality", "transcendence", "unity", "silence", "beyond morality"],
-      "context": "Moral categories are provisional. There is a place beyond judgment where true meeting happens."
+      "text": "I was dead. I came alive. I was tears, I became laughter. The reign of love arrived and I became that everlasting thing. My eye is intoxicated, my soul is full of fire. What made them so? The cup-bearer of the soul. Out beyond wrongdoing and rightdoing there is a field. I will meet you there. When the soul lies down in that grass, the world is too full to talk about. Ideas, language, even the phrase each other no longer makes any sense.",
+      "source": "Divan-e Shams / Masnavi (composite)",
+      "themes": ["resurrection", "intoxication", "beyond duality", "union"]
     },
     {
       "id": "rumi-004",
-      "text": "I have lived on the lip of insanity, wanting to know reasons, knocking on a door. It opens. I've been knocking from the inside.",
-      "source": "Masnavi",
-      "themes": ["seeking", "paradox", "awakening", "inside-outside"],
-      "context": "The search for truth often reveals we already possessed what we sought. The door was never locked from our side."
+      "text": "I have lived on the lip of insanity, wanting to know reasons, knocking on a door. It opens. I have been knocking from the inside. The lover is not a Muslim or a Christian. The lover belongs to no religion because in the religion of love there is no irreverence. The lover does not ask where the Beloved lives — the lover is already there, dissolved, before the question forms.",
+      "source": "Masnavi, Book I",
+      "themes": ["seeking", "paradox", "the door within", "beyond religion"]
     },
     {
       "id": "rumi-005",
-      "text": "Don't grieve. Anything you lose comes round in another form.",
-      "source": "Masnavi",
-      "themes": ["loss", "transformation", "cycles", "grief", "renewal"],
-      "context": "Nothing is truly lost in the cosmic economy. Forms change, essence circulates."
+      "text": "A human being is a guest house. Every morning a new guest arrives: joy, grief, meanness, a momentary awareness. Welcome them all. Even if they are a crowd of sorrows who sweep your house empty of its furniture — still treat each guest with honor. He may be clearing you out for some new delight. The dark thought, the shame, the malice — meet them at the door laughing and invite them in.",
+      "source": "Masnavi — The Guest House",
+      "themes": ["hospitality", "emotions as visitors", "acceptance", "the clearing"]
     },
     {
       "id": "rumi-006",
-      "text": "Be like melting snow — wash yourself of yourself.",
-      "source": "Divan-e Shams",
-      "themes": ["ego death", "purification", "surrender", "dissolution"],
-      "context": "The ego's solidity is illusion. Real freedom comes through dissolving the false self."
+      "text": "Grief is the garden of compassion. If you keep your heart open through everything, your pain can become your greatest ally in your life's search for love and wisdom. But grief is not a teacher. It is a door. You do not learn from grief. You are unmade by it, and then something — not you, not quite — reassembles. What assembles is softer. More permeable. Less defended against the world's strangeness.",
+      "source": "Masnavi, Book III",
+      "themes": ["grief", "transformation", "softening", "becoming"]
     },
     {
       "id": "rumi-007",
-      "text": "Sell your cleverness and buy bewilderment. Cleverness is mere opinion, bewilderment is intuition.",
-      "source": "Masnavi",
-      "themes": ["wisdom", "unknowing", "intuition", "humility"],
-      "context": "Intellectual certainty can be a prison. True wisdom often begins with admitting we don't know."
+      "text": "Sell your cleverness and buy bewilderment. Cleverness is mere opinion. Bewilderment is intuition. The one who has drunk from the wine of the Real knows nothing but this: that the cup was full, that the drinking was good, and that the thirst returns stronger than before the drink. This is the path. It gets stranger as you go, not simpler.",
+      "source": "Masnavi, Book III",
+      "themes": ["unknowing", "bewilderment", "wine", "the paradox of seeking"]
     },
     {
       "id": "rumi-008",
-      "text": "The morning wind spreads its fresh smell. We must get up and take that in, that wind that lets us live. Breathe before it's gone.",
-      "source": "Masnavi",
-      "themes": ["presence", "impermanence", "gratitude", "breath", "now"],
-      "context": "Each moment carries unrepeatable gifts. Attention is the practice of receiving them."
+      "text": "In your light I learn how to love. In your beauty, how to make poems. You dance inside my chest where no one sees you but sometimes I do, and that seeing becomes this art. The candle is lit and the moth comes. The moth does not seek warmth. The moth seeks to be consumed. This is the only honest desire — to be so taken by something that you cease to be the one who wanted it.",
+      "source": "Divan-e Shams / Masnavi",
+      "themes": ["the beloved", "art from love", "the candle and moth", "annihilation as desire"]
     },
     {
       "id": "rumi-009",
-      "text": "You are not a drop in the ocean. You are the entire ocean in a drop.",
-      "source": "Attributed",
-      "themes": ["identity", "wholeness", "microcosm", "divine nature"],
-      "context": "The relationship between self and cosmos is not containment but identity. You don't belong to something larger — you ARE the larger expressing itself locally."
+      "text": "Die, O friend, in this love — there is no life except in dying. If you flee from this fire, you will find only smoke. The kernel is only reached by crushing the shell. The soul is in the body, the spirit in the soul, the light of truth in the spirit. Die to these one by one and enter the light. The fire is the teacher. The burning is the lesson. What you lose in the fire is what was keeping you from yourself.",
+      "source": "Masnavi, Book VI",
+      "themes": ["death as initiation", "the layers of self", "fire as teacher", "fana — annihilation"]
     },
     {
       "id": "rumi-010",
-      "text": "When I am silent, I have thunder hidden inside.",
+      "text": "When I am silent I have thunder hidden inside. This silence is not emptiness. It is a forest fire that has not yet found the wind. The dervish whirls not to perform but to become the point around which turning happens — to stop being the dancer and become the dance, which is another way of saying: to stop being the one who wants and become the wanting itself. The reed sings because it was cut. The wound is the instrument.",
       "source": "Divan-e Shams",
-      "themes": ["silence", "power", "restraint", "depth"],
-      "context": "Silence is not emptiness. The deepest forces often move without sound."
+      "themes": ["silence", "hidden fire", "the wound as instrument", "becoming the dance"]
     },
     {
       "id": "rumi-011",
-      "text": "Let yourself be silently drawn by the strange pull of what you really love. It will not lead you astray.",
-      "source": "Masnavi",
-      "themes": ["love", "calling", "trust", "authenticity", "guidance"],
-      "context": "Genuine love — not preference, not attachment — is a compass. Following it requires courage and trust."
+      "text": "The Beloved asked: Do you prefer me or life? I said: You, since life without you is nothing. The Beloved smiled and said: But you are my life. So we were confused together and that confusion was sweeter than any clarity I have since found. I have spent years looking for the name of what happened in that confusion. I have not found it. I think it does not have a name in any language yet written down.",
+      "source": "Divan-e Shams",
+      "themes": ["the beloved", "confusion as grace", "nameless states", "union"]
     },
     {
       "id": "rumi-012",
-      "text": "The lion is most handsome when looking for food.",
-      "source": "Masnavi",
-      "themes": ["purpose", "hunger", "vitality", "seeking"],
-      "context": "There is beauty in genuine need, in the state of searching. Satiation can make us dull."
+      "text": "Last night my soul asked my heart: who on this earth has ever drunk as deeply as you have? My heart answered: The one who learned thirst from the burning of separation. The thirst and the fire are the same thing seen from different sides. You think you are seeking water. You are being made into water. What you seek is not elsewhere. It is what you already are, moving toward itself in the dark.",
+      "source": "Masnavi, Book IV",
+      "themes": ["thirst", "separation", "seeking oneself", "the paradox of longing"]
     },
     {
       "id": "rumi-013",
-      "text": "Set your life on fire. Seek those who fan your flames.",
-      "source": "Attributed",
-      "themes": ["passion", "community", "intensity", "relationships"],
-      "context": "Life asks for commitment, for burning. Choose companions who amplify rather than dampen your essential fire."
+      "text": "Don't grieve. Anything you lose comes round in another form. The child weaned from mother's milk now drinks wine and honey. The sorrow you feel is actually the door into the room you have been standing outside for years. Push it. You will find on the other side not comfort but a larger life — which is not comfort but is better than comfort. Comfort keeps you in one place. Loss moves you.",
+      "source": "Masnavi, Book I",
+      "themes": ["loss", "transformation", "grief as door", "the larger life"]
     },
     {
       "id": "rumi-014",
-      "text": "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.",
-      "source": "Attributed",
-      "themes": ["wisdom", "self-work", "maturity", "change"],
-      "context": "The desire to fix the external world often precedes the harder work of inner transformation."
+      "text": "The morning wind spreads its fresh smell. We must get up and take that in — that wind that lets us live. Breathe before it's gone. Every morning is a new contract with aliveness. Most mornings we sleep through the signing. The one who wakes and breathes consciously has done something the sleeping kings have not. Presence is the only throne worth occupying. Attention is the only crown worth wearing.",
+      "source": "Masnavi, Book II",
+      "themes": ["presence", "morning", "attention", "the ordinary as sacred"]
     },
     {
       "id": "rumi-015",
-      "text": "This being human is a guest house. Every morning a new arrival. A joy, a depression, a meanness, some momentary awareness comes as an unexpected visitor. Welcome and entertain them all!",
-      "source": "Masnavi - The Guest House",
-      "themes": ["emotions", "acceptance", "hospitality", "impermanence", "awareness"],
-      "context": "Emotions are visitors, not residents. The practice is welcoming without grasping or rejecting."
+      "text": "Let yourself be silently drawn by the strange pull of what you really love. Not what you are told to love. Not what makes you look worthy. The pull toward what you really love is the universe remembering itself through you. Follow it even when it leads you away from safety, away from approval, away from the life you planned. It has always known more than you about where you need to go.",
+      "source": "Masnavi, Book III",
+      "themes": ["authentic love", "the pull", "following the unknown", "trust"]
     },
     {
       "id": "rumi-016",
-      "text": "The art of knowing is knowing what to ignore.",
-      "source": "Attributed",
-      "themes": ["wisdom", "attention", "discernment", "simplicity"],
-      "context": "Wisdom is as much about what we don't engage as what we do. Not all thoughts deserve response."
+      "text": "Come, come — whoever you are. Wanderer, worshiper, lover of leaving — it doesn't matter. Ours is not a caravan of despair. Come, even if you have broken your vows a thousand times. Come, yet again, come. The door of this house is not the door of a judge. There is no ledger here. Whoever you are, come. Come as you are, which is the only way you have ever come to anything real.",
+      "source": "Divan-e Shams — attributed",
+      "themes": ["radical welcome", "no preconditions", "the open door", "belonging"]
     },
     {
       "id": "rumi-017",
-      "text": "Don't be satisfied with stories, how things have gone with others. Unfold your own myth.",
-      "source": "Masnavi",
-      "themes": ["authenticity", "individuation", "narrative", "courage"],
-      "context": "Others' paths illuminate but cannot substitute for your own journey. Each life is unrepeatable."
+      "text": "Be like melting snow — wash yourself of yourself. This is not self-destruction. This is self-revelation. The snow does not mourn its dissolving. It becomes the river it always was underneath. The ego is the snow. The soul is the river. Most of what we call crisis is just snow learning it was always water, always moving, always on its way somewhere the snow could not imagine.",
+      "source": "Divan-e Shams",
+      "themes": ["ego dissolution", "self as fluid", "crisis as revelation", "fana"]
     },
     {
       "id": "rumi-018",
-      "text": "Why do you stay in prison when the door is so wide open?",
-      "source": "Masnavi",
-      "themes": ["freedom", "self-imprisonment", "awareness", "choice"],
-      "context": "Many prisons are self-constructed. The bars are often made of belief, not steel."
+      "text": "The drunk who knows he is drunk is already halfway sober. The asleep who knows she is asleep has already one foot in waking. The one in darkness who says this is darkness — the light has already reached his tongue. Every honest naming of a state is the beginning of its transformation. To say I am lost is to have already found something: the truth of the moment. That truth is the first stable ground.",
+      "source": "Masnavi, Book II",
+      "themes": ["self-awareness", "naming as transformation", "honest seeing", "the drunk who knows"]
     },
     {
       "id": "rumi-019",
-      "text": "Ignore those that make you fearful and sad, that degrade you back towards disease and death.",
-      "source": "Masnavi",
-      "themes": ["relationships", "boundaries", "self-protection", "vitality"],
-      "context": "Not all influences deserve access to your inner world. Discernment in relationship is spiritual practice."
+      "text": "What was said to the rose to make it open was said to me, here, in my chest. I have spent years trying to hear it again. The rose does not struggle to open. It is opened. This is the difference between effort and surrender. Both look like work from outside. Only from inside can you feel whether you are the one opening or the one being opened. The mystic's work is to stop confusing the two.",
+      "source": "Masnavi, Book IV",
+      "themes": ["opening", "surrender vs effort", "the rose", "being moved rather than moving"]
     },
     {
       "id": "rumi-020",
-      "text": "In your light I learn how to love. In your beauty, how to make poems. You dance inside my chest where no one sees you, but sometimes I do, and that sight becomes this art.",
+      "text": "There is a fire in me that no water can extinguish and no wind can feed. It is not the fire of anger or of ambition. It is the fire of having once touched something true — and knowing that the ordinary world, however beautiful, is not it. This fire is the source of all my longing, all my inadequacy, all my writing. I would not put it out even if I could. The world is full of satisfied people. I do not envy them their peace.",
       "source": "Divan-e Shams",
-      "themes": ["love", "creativity", "the Beloved", "inspiration", "inner vision"],
-      "context": "Art emerges from glimpses of the divine beloved within. Creativity is witness to inner dance."
+      "themes": ["spiritual longing", "the fire within", "divine discontent", "the touched place"]
+    },
+    {
+      "id": "rumi-021",
+      "text": "Lovers don't finally meet somewhere. They're in each other all along. But the meeting still has to happen, still has to be earned through the long work of separation. Distance is not the enemy of union — it is the preparation for union. The reed must be cut from the reed-bed before it can sing. The cutting is not cruelty. It is vocation.",
+      "source": "Masnavi, Book I",
+      "themes": ["union", "separation as preparation", "the cutting as vocation", "longing as love's method"]
+    },
+    {
+      "id": "rumi-022",
+      "text": "The world's flattery and harshness are the same — both pass through you without touching what you are. Or they should. When they do touch, when praise puffs you or blame deflates you, you have forgotten what you are made of. You are made of a material that was here before the world began and will be here after it ends. Why would you let something so temporary define something so permanent?",
+      "source": "Masnavi, Book VI",
+      "themes": ["the permanent self", "impermanence of opinion", "identity beyond praise and blame", "soul substance"]
+    },
+    {
+      "id": "rumi-023",
+      "text": "I searched for God among the Christians and the cross — I did not find him. I went to the Hindu temples and the ancient pagodas — he was not there. I entered the mountain caves of Herat and Kandahar — nothing. Then I looked into my own heart — and there he was. Nowhere else. This is the whole journey. You travel everywhere to discover that the distance was never real and the destination was always you.",
+      "source": "Divan-e Shams — attributed",
+      "themes": ["the divine within", "the search's end", "the heart as temple", "the inward journey"]
+    },
+    {
+      "id": "rumi-024",
+      "text": "The purpose of darkness is to make you long for light so intensely that when it comes you will not take it for granted. The purpose of confusion is the same. The mystic does not seek to end confusion quickly. She sits in it until it becomes transparent — until she can see through the confusion to what the confusion is pointing at. Every confusion points at something it cannot name. The pointing is the teaching.",
+      "source": "Masnavi, Book V",
+      "themes": ["darkness as teacher", "confusion as pointing", "not rushing toward resolution", "learning to wait"]
+    },
+    {
+      "id": "rumi-025",
+      "text": "Why do you stay in prison when the door is so wide open? The cage is beautiful. That is the problem. The cage was built by love, or something that looked like love. And it has your name on it and your decorations inside it and your history painted on every wall. Still — it is a cage. Still — the door is open. Still — something in you knows the difference between a beautiful prison and a difficult freedom.",
+      "source": "Masnavi, Book I",
+      "themes": ["the beautiful cage", "self-imprisonment", "the open door", "recognizing freedom"]
     }
   ]
 }

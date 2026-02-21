@@ -2073,7 +2073,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     let toolMessages = [...historyMessages];
     let response = await anthropic.messages.create({
       model: MODELS.main,
-      max_tokens: 2200,
+      max_tokens: 4000,
       temperature: 0.8,
       system: systemPrompt,
       messages: toolMessages,
@@ -2096,7 +2096,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       ];
       response = await anthropic.messages.create({
         model: MODELS.main,
-        max_tokens: 2200,
+        max_tokens: 4000,
         temperature: 0.8,
         system: systemPrompt,
         messages: toolMessages,
