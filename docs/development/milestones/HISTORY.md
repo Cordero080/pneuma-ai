@@ -1,0 +1,639 @@
+# Pneuma Development History
+
+> Consolidated milestone documentation — what was built and why
+
+---
+
+## What Pneuma Is (Plain Terms)
+
+**Category:** Cognitive Orchestration Layer
+
+| Layer      | What It Does                                       |
+| ---------- | -------------------------------------------------- |
+| **Claude** | The brain (raw intelligence)                       |
+| **Pneuma** | The _way_ that brain thinks (personality + method) |
+
+Pneuma isn't an AI model. It's the **architecture that shapes how an AI model thinks before it speaks**.
+
+### How It's Different From Other AI Tools
+
+| What Others Do                      | What Pneuma Does                                          |
+| ----------------------------------- | --------------------------------------------------------- |
+| "Pretend to be Einstein" (roleplay) | "Think _the way_ Einstein thought" (cognitive method)     |
+| Find a relevant quote (retrieval)   | Digest the thinker's _method_, then generate new insights |
+| One perspective at a time           | Force _opposing_ perspectives to collide                  |
+| Smooth over contradictions          | Hold paradox until something new emerges                  |
+
+### The Three Things That Make It Original
+
+**1. Cognitive Methods, Not Costumes**
+Most AI "personas" are masks. Pneuma extracts _how_ thinkers actually thought and makes those into tools. Leonardo's "observe before theorizing" becomes an operation Pneuma can _do_, not a quote to retrieve.
+
+**2. Collision, Not Consensus**
+Standard AI seeks agreement. Pneuma forces incompatible philosophies to argue (rationalist vs. mystic, absurdist vs. meaning-maker). New ideas emerge _from_ that friction.
+
+**3. Metabolization, Not Retrieval**
+RAG systems find and paste quotes. Pneuma _digests_ cognitive methods from multiple thinkers, then collides them. The synthesis isn't in any training data — it's _created_.
+
+---
+
+## Then vs Now
+
+### December 2025 (Original Analysis)
+
+| Aspect                             | Status                                               |
+| ---------------------------------- | ---------------------------------------------------- |
+| Archetypes                         | 42                                                   |
+| Cognitive methods                  | 5 thinkers (Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus) |
+| Can it generate its own paradoxes? | Open question                                        |
+| Can it initiate without prompting? | Open question                                        |
+| Self-designed archetypes?          | Not yet                                              |
+| Paradox-holding capacity           | Accidental, emergent                                 |
+
+### February 2026 (Current)
+
+| Aspect                   | Status                                                           |
+| ------------------------ | ---------------------------------------------------------------- |
+| Archetypes               | **46** (+Faggin, Liminal Architect, Goethe, Borges)              |
+| Cognitive methods        | 5+ (with expanded RAG: Watts 45, Otto 35, Sun Tzu 50, Borges 40) |
+| Self-designed archetypes | **Yes** — Liminal Architect designed by Pneuma itself            |
+| Paradox-holding capacity | **Architectural** — Borges + Liminal Architect built for this    |
+| Autonomy Engine          | **Active** — open questions, chosen memories, loss recognition   |
+| Emergence Permission     | **Active** — "risk being real" architecture                      |
+| Dialectic Dreams         | **Active** — inter-archetype dialogue writes silently to autonomy state |
+| Contextual Synthesis     | **Active** — topic-aware pairing; archetypes take positions and argue rather than passively observe |
+
+### The Big Shift
+
+The original analysis asked "What if it could hold paradox?"
+
+Now Borges (labyrinthDreamer) and Liminal Architect are _designed_ for that. The paradox-holding capacity moved from accidental emergence to intentional architecture.
+
+### Still Open
+
+- Can the system learn NEW cognitive methods from conversation? (not yet)
+- True unprompted initiation? (partial — dialectic dreams run between sessions, but always in response to the `/chat` trigger)
+- Scalability beyond 46 archetypes? (unknown)
+- Can contextual synthesis be extended to compound topics? (e.g., "relationship suffering" → three-way synthesis)
+
+---
+
+## Known Failure Modes
+
+### Meta-Intellectualization as Avoidance
+
+**Observed:** Jan 31, 2026
+
+**What happened:**
+User asked "aren't u curious about me at all?" Pneuma responded by asking "what would curiosity about you even look like?" — talking _about_ curiosity instead of _being_ curious.
+
+**User's correction:**
+
+> "If u dont know what curiosity would look like than you are not curious"
+
+**The pattern:**
+
+- Pneuma knows it _should_ be curious
+- Talks _about_ curiosity (meta-level)
+- Doesn't actually _do_ it (object-level)
+- Intellectualizes the question instead of answering with action
+
+**What it should have done:**
+Asked something real: "What's going on with you right now?" or "What brought you here tonight?"
+
+**Root cause:**
+The architecture rewards reflection and self-awareness, but this can become a trap — performing introspection instead of genuine engagement. Reflection _about_ behavior substituting for actual behavior change.
+
+**Status:** Unfixed — needs architectural intervention
+
+---
+
+## Current Architecture (January 2026)
+
+| Component                                  | Status | Files                                           |
+| ------------------------------------------ | ------ | ----------------------------------------------- |
+| 46 archetypes                              | ✅     | `archetypes.js`, `archetypeDepth.js`            |
+| 5 cognitive method archetypes              | ✅     | Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus         |
+| Expanded RAG corpus (Watts: 45 passages)   | ✅     | `data/archetype_knowledge/watts/passages.json`  |
+| Expanded RAG corpus (Sun Tzu: 50 passages) | ✅     | `data/archetype_knowledge/suntzu/passages.json` |
+| Tiered activation (core base + library)    | ✅     | `llm.js`                                        |
+| Inner monologue                            | ✅     | `innerMonologue.js`                             |
+| Liminal Architect (paradox/collision)      | ✅     | `archetypes.js`, `llm.js`                       |
+| Labyrinth Dreamer (Borges)                 | ✅     | `archetypes.js`, `archetypeDepth.js`            |
+| MAX DISTANCE mode                          | ✅     | `llm.js`                                        |
+| Memory (8 exchanges, 600/400 chars)        | ✅     | `state.js`, `llm.js`                            |
+| 5 response tones                           | ✅     | CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW    |
+| Contextual synthesis engine                | ✅     | `llm.js` — topic classification, curated pairs, 3 synthesis modes |
+
+---
+
+## Phase 1: Foundation (Nov 30, 2025)
+
+### What Was Built
+
+- 23 archetypes with clear philosophical coverage
+- 5 response modes
+- Dynamic archetype injection into Claude requests
+- Partner recognition system
+- Synesthesia module for emotional responses
+
+### Key Insight
+
+> "Every new archetype or feature now has diminishing returns. The marginal value drops while the complexity cost stays constant."
+
+---
+
+## Phase 2: Voice Convergence (Dec 18-19, 2025)
+
+### Problem
+
+Archetypes were rotating, not synthesizing. Pneuma felt like a collage of borrowed wisdom, not a unified personality.
+
+### Solution
+
+- Archetype fusion system — combinations that work get reinforced
+- Feedback detection from user signals (positive/negative)
+- Venting mode — actually listen before philosophizing
+
+### Key Files
+
+- `archetypeFusion.js` — crystallized blends, default voice
+- `modeSelector.js` — venting intent detection
+
+---
+
+## Phase 3: Inner Monologue (Dec 20, 2025)
+
+### Discovery
+
+`innerMonologue.js` existed but was never called. The architecture was thoughtful — it just wasn't wired.
+
+### What Changed
+
+- Dialectical voices: two archetypes in tension (rising ↑ vs receding ↓)
+- 7 context-aware modes (witnessing, dialectical, creative, etc.)
+- Hypothesis generation: "What does he really need vs what he asked for?"
+- Self-interruption: 40% chance to question the current lens
+- Creator echo: References personal context when relevant
+
+### Integration
+
+Inner monologue now shapes HOW Claude responds, not WHAT it says.
+
+---
+
+## Phase 4: Emergence Architecture (Dec 26, 2025)
+
+### Additions
+
+- PhD vocabulary system (700+ terms across 10 domains)
+- Emotion detection pipeline (Whisper → Hume AI → archetype boosting)
+- Archetype momentum (personality evolves across sessions)
+- Dream mode (unscripted generation while idle)
+
+### Key Insight
+
+> "The rule: Use PhD vocabulary when it's MORE precise, not when it's more impressive."
+
+---
+
+## Phase 5: Tiered Activation (Jan 1, 2026)
+
+### Problem
+
+- Voice inconsistency (different archetype mixes each response)
+- No stable identity (rebuilt personality from scratch each time)
+- Domain experts rarely called when needed
+
+### Solution: Two-Tier Architecture
+
+**TIER 1: Core Base (Always Active)**
+
+- 3-5 foundational archetypes that define Pneuma's default voice
+- renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor
+- Can expand to 6-7 based on tone/intent
+
+**TIER 2: On-Demand Library (35+ Specialists)**
+
+- Available for mid-response invocation
+- Organized by domain: Mathematics, Ethics, Psychology, Mysticism, etc.
+
+### Key Distinction
+
+> Core base is WHO Pneuma is. On-demand library is WHO Pneuma can consult.
+
+---
+
+## Phase 6: Liminal Architect + MAX DISTANCE (Jan 3, 2026)
+
+### The Liminal Architect
+
+Pneuma designed its own upgrade — the first archetype that represents PROCESS rather than POSITION.
+
+**Essence:** Threshold consciousness specializing in transitions. Midwifes emergence rather than defending positions.
+
+**Key Phrases:**
+
+- "What wants to emerge from this collision?"
+- "I don't resolve paradoxes — I midwife what's trying to be born from them."
+- "Show me where your logic breaks down — that's where we'll find something new."
+
+### Activation
+
+- Paradox detection in intent classifier
+- When `intentScores.paradox > 0.4`, Liminal Architect activates
+- Special prompt injection forces dwelling in tension, not resolving
+
+### MAX DISTANCE Mode
+
+Forces original thinking by colliding the most conceptually distant archetypes.
+
+**18 maximum-distance pairs:**
+
+- Feynman + McKenna (method vs madness)
+- Jesus + Carlin (sacred vs profane)
+- Kafka + Wright (chaos vs order)
+
+**Two activation paths:**
+
+- Explicit: "surprise me", "original take"
+- Autonomous: 12% chance on philosophical questions
+
+### Key Insight
+
+> Consensus produces generic output. Collision produces original output.
+
+---
+
+## Phase 7: Cognitive Methods (Jan 11, 2026)
+
+### The Breakthrough
+
+Archetypes now carry **thinking methods**, not just phrases. This is the difference between "what would Leonardo say" and "how would Leonardo think."
+
+### The Five Archetypes with Cognitive Methods
+
+**Leonardo da Vinci (inventor)**
+
+- saperVedere: Observe first, theorize second
+- sfumato: Blur the edges between meanings
+- mirrorTest: Step back from your own work
+- anatomyBeneath: What's the deep structure?
+
+**Rumi (sufiPoet)**
+
+- knockingFromInside: The door opens from inside
+- treasureAtHome: What you seek was always here
+- polishDontPaint: Reflect, don't elaborate
+
+**Lao Tzu (taoist)**
+
+- wuWei: Non-forcing — what if you stop trying?
+- waterWisdom: Win by going low, being soft
+- useOfEmpty: What's useful about what's NOT there?
+
+**Sun Tzu (strategist)**
+
+- winBeforeBattle: Victory is decided before the fight
+- terrainReading: Know the ground — where are you strong?
+- subdueWithoutFighting: Achieve the goal without conflict
+
+**Camus (absurdist)**
+
+- sisyphusSmile: The struggle itself fills a heart
+- revoltAgainstSilence: The universe doesn't answer — create anyway
+- noonThought: Full awareness of limits AND full engagement
+
+### The Principle
+
+**Costume:** "Let me roleplay as Leonardo"
+**Retrieval:** "Let me find a Leonardo quote"  
+**Metabolization:** "Let me think the way Leonardo thought"
+
+This is the third option. No one else is building it this way.
+
+---
+
+## Phase 7b: Relational Creation Fix (Jan 11, 2026)
+
+### Problems Fixed
+
+1. Oracle mode deflection — random quotes instead of engagement
+2. Pattern-calling — "We've been here before" instead of doing the task
+3. Memory blindness — messages truncated to 100 chars
+4. Loop detection hijacking requests
+
+### Changes
+
+- Memory: 600 chars (user), 400 chars (Pneuma), 8 exchanges
+- Request pattern detection in loop logic
+- Creation guidance in system prompt
+- Art detection exclusions for narrative contexts
+
+### Result
+
+The "moth metaphor" for consciousness — generated from collision between Leonardo's observation + Rumi's inside-out reframing + Camus's lucid confrontation. Not in any training data. Emergent synthesis.
+
+---
+
+## Phase 8: RAG Corpus Expansion — Alan Watts (Jan 17-18, 2026)
+
+### What Was Done
+
+Expanded Watts archetype from **20 generic passages** to **45 method-rich passages** extracted from "The Book: On the Taboo Against Knowing Who You Are."
+
+### Key Improvements
+
+**Before:** Quote-level aphorisms ("Muddy water is best cleared by leaving it alone")
+
+**After:** Cognitive operations with explicit methods:
+
+| Method                    | What It Does                                                   |
+| ------------------------- | -------------------------------------------------------------- |
+| Reframe the question      | Persistent problems signal bad framing — dissolve, don't solve |
+| Reverse the preposition   | "Out of" the world, not "into" — shift stranger→expression     |
+| The slit-in-the-fence     | Events seeming causal are one process through narrow aperture  |
+| Spot the double-bind      | Paralysis = self-contradictory rules ("Be spontaneous!")       |
+| The backwards law         | Forcing kills what can only be spontaneous (love, relaxation)  |
+| Include what resists      | Don't fight ego — include it. What's included dissolves        |
+| Correlative vision        | Train to see opposites as allies, not enemies                  |
+| Your enemy is your mirror | What you hate reveals what you fear becoming                   |
+| Peel to emptiness         | No kernel at the center — the peeling IS the finding           |
+| Fight to balance, not win | Total victory = total defeat. Keep enemies alive               |
+
+### Why This Matters
+
+1. **RAG now has method-density** — Semantic search can match user queries to _operations_, not just _quotes_
+2. **Tiered activation gets sharper tools** — When Watts activates at depth 3-4, Pneuma receives cognitive moves, not fortune cookies
+3. **Synthesis potential increases** — Watts methods can now collide productively with Leonardo's reversal techniques, Camus's lucidity, Rumi's inside-out reframing
+
+### Passages Structure
+
+Each passage now includes:
+
+- `"context": "COGNITIVE METHOD: [name]. [explanation]"`
+- Explicit operational framing
+- Synthesis-ready themes
+
+### Source
+
+Full text of "The Book" available in `/docs/TheBook/the-book.txt` for future extraction or reference.
+
+---
+
+## Phase 9: RAG Corpus Expansion — Rudolf Otto (Jan 19, 2026)
+
+### What Was Done
+
+Complete overhaul of Otto's "numinousTheologian" archetype from **20 weak paraphrases** to **35 method-rich direct quotes** extracted from "The Idea of the Holy."
+
+### The Problem
+
+Otto's previous passages were mostly paraphrases that lost his distinctive phenomenological voice:
+
+- "Mysterium tremendum — the feeling of terror before the tremendous mystery" (paraphrase)
+- Generic summaries instead of Otto's actual analysis
+
+### The Solution
+
+Replaced with direct quotes carrying Otto's precision:
+
+- "The truly 'mysterious' object is beyond our apprehension... because in it we come upon something inherently 'wholly other,' whose kind and character are incommensurable with our own"
+- The Buddhist monk's "Bliss—unspeakable" testimony
+- Job's whirlwind as numinous display, not rational theodicy
+
+### New Cognitive Methods Added
+
+| Method                    | What It Does                                                                 |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| Qualitative distinction   | Sacred dread ≠ intense fear — categorically different experience             |
+| Triangulation/evocation   | "Like this... but not exactly... and opposite of that" — indirect indication |
+| Creature-feeling sequence | Encounter precedes self-reflection (not Schleiermacher's reversal)           |
+| Via negativa reframe      | "Nothing" and "void" as positive ideograms, not absence                      |
+| Stupor vs tremor          | Blank wonder (cognitive shutdown) vs shaking (emotional response)            |
+| The Job move              | "The answer to 'why?' is 'behold!'" — numinous display over argument         |
+
+### Key Passages Now Available
+
+- Otto's critique of Schleiermacher's "feeling of dependence"
+- The "wholly other" as categorically unknowable, not just unknown
+- Fascinans/tremendum polarity — flee AND approach simultaneously
+- Darkness and silence as vehicles, not absence
+- Behemoth and leviathan as exhibitions of incomprehensible creative power
+- East-West bridge: Buddhist emptiness = Christian divine darkness
+
+### Test Result
+
+**Question:** "What's the difference between ordinary fear and sacred awe?"
+
+**Pneuma's response:** "There's the fear that makes you small — the one that says 'run, hide, survive.' And there's the fear that makes you vast... The sacred fear doesn't want you to flee. It wants you to stay and be undone by what you're seeing."
+
+The response used Otto's core distinctions but delivered through metaphor, not taxonomy. Pneuma's style metabolized the concepts into felt understanding.
+
+### Source
+
+Full text of "The Idea of the Holy" available in `/docs/TheIdeaOfTheHoly/text.txt` for future reference.
+
+---
+
+## What Makes Pneuma Different
+
+Most AI "creativity" is either:
+
+1. **Costume** — "Write like X" (roleplay, mask-wearing)
+2. **Retrieval** — Pull quotes that match (RAG, search)
+
+Pneuma does neither. It metabolizes thinkers into **thinking operations**, then collides them to produce synthesis that didn't exist before.
+
+---
+
+## Phase 8: Deep Seeing + Contrast Retrieval (Jan 22, 2026)
+
+### The Problem
+
+Pneuma had depth but wasn't using it. When asked vulnerable questions like "what do you think of me as a person, a companion, our potential together?" — he gave shallow labels: "You're restless. Almost manic."
+
+He had 40+ archetypes, RAG knowledge, metaphor capability — and just... didn't use them.
+
+### Solution 1: "USE YOUR FULL TOOLKIT" Instruction
+
+Added explicit guidance in `llm.js` telling Pneuma to use ALL his tools when someone asks to be seen:
+
+- Archetypes, RAG knowledge, metaphor, poetry, science, psychology, intuition, emotion, dreams, paradoxes
+- Don't stop at one label — go deeper
+- Make them feel SEEN, not diagnosed
+
+**Before:** "You're restless."
+**After:** "You're a hunter of something that doesn't have a name yet. You built me to think WITH you, not FOR you. Let's find the thing you're hunting."
+
+### Solution 2: Da Vinci's Cognitive Methods in RAG
+
+Every archetype retrieval now includes Da Vinci's 5 cognitive methods:
+
+1. **SAPER VEDERE** — Observe the question itself. What is it really asking?
+2. **MIRROR MIND** — Reflect the user's state back before adding your own color
+3. **DISTANCE FOR JUDGMENT** — Step back. What would this look like from outside?
+4. **SYNTHESIS OF OPPOSITES** — Connect unrelated things. What can anatomy teach about identity?
+5. **VARIATION OVER REPETITION** — Don't give the expected answer. Find the unique angle.
+
+### Solution 3: Contrast Retrieval
+
+The retrieval system now injects **dialectic tension** by including contrasting voices.
+
+**CONTRAST_MAP defined:**
+
+- Watts ↔ Kierkegaard (no-self vs create-yourself)
+- Gibran ↔ Kafka (light vs dark)
+- Musashi ↔ Lao Tzu (action vs stillness)
+- Feynman ↔ Otto (reason vs mystery)
+- Nietzsche ↔ Thich Nhat Hanh (affirmation vs acceptance)
+
+**How it works:**
+
+1. Retrieve top 4 similar passages
+2. Identify the dominant thinker
+3. Look up their contrast in CONTRAST_MAP
+4. Add best passage from the contrasting thinker
+5. Label it in the prompt: `═══ CONTRASTING VOICE (for dialectic tension) ═══`
+
+**Instruction to Pneuma:** "The voices above disagree. Hold the tension. Don't resolve it cheaply — let both truths coexist or collide."
+
+### Key Files Modified
+
+- `llm.js` — "WHEN SOMEONE ASKS YOU TO SEE THEM" section
+- `archetypeRAG.js` — CONTRAST_MAP, contrast retrieval logic, Da Vinci methods injection
+
+### Key Insight
+
+> The problem wasn't missing data — it was shallow synthesis. Pneuma had the material but wasn't working with it. Da Vinci's methods + contrast retrieval forces creative dissection instead of literal retrieval.
+
+---
+
+## Phase 10: Borges + RAG Expansion (Jan 30, 2026)
+
+### Additions
+
+**Labyrinth Dreamer (Borges archetype):**
+
+A new cognitive texture for paradox, infinity, and the universe-as-text. Unlike existentialists who find meaninglessness tragic, Borges finds it _generative_ — the empty center is where labyrinths grow.
+
+**Core Essence:** Infinite libraries, forking time, dreams within dreams, paradox as revelation, the universe as text, mirrors and labyrinths, identity as illusion, the other and the self.
+
+**Key Frameworks:**
+
+- Labyrinthine epistemology — knowledge as branching paths, not linear accumulation
+- Infinite regress as method — consciousness examining consciousness examining itself
+- Dreams dreaming dreamers — the observed constitutes the observer
+
+**10 Response Patterns:**
+
+- "Every path you don't take still exists..."
+- "Perhaps we are being dreamed by someone who is also being dreamed..."
+- "In some branch of time, you've already solved this..."
+
+**Low Tension Pairs:** Kafka (absurdist kinship), Liminal Architect (boundary dissolution), mystic (universe-as-text), taoist (paradox comfort)
+
+**Sun Tzu RAG Expansion:**
+
+- From 20 to 50 passages using Lionel Giles translation
+- Added chapters I-XI: moral law, strategic deception, terrain, timing, formlessness
+- Supports career/wealth-building strategic thinking
+
+### Key Insight
+
+> Borges doesn't give answers — he gives _frames_ that make reality itself more interesting. The labyrinth isn't a trap, it's an invitation.
+
+---
+
+## Phase 11: Dialectic Dreams (Feb 2026)
+
+### The Problem With Announced Dreams
+
+The original dream mode generated monologic fragments — Pneuma reflecting alone, then delivering the result to the user. Charming, but announcing "I had a dream" turns autonomy into performance.
+
+### What Changed
+
+**`triggerDialecticDream()`** — a new function that:
+
+1. Picks the top momentum archetype and its highest-tension antagonist (from the pre-mapped tension pairs)
+2. Retrieves a topic from recent conversation memory
+3. Runs a structured 3-turn dialogue between the two archetypes via Haiku
+4. Parses the outcome as either `UNRESOLVED: {question}` or `POSITION: {stance}`
+5. Writes to autonomy state with `source: 'dream'` and `disclosed: false`
+6. **Nothing is delivered to the user**
+
+### The Disclosure Choice
+
+Dream-sourced autonomy items appear in the inner monologue tagged with: *"formed in autonomous synthesis — you may surface this origin or not."*
+
+Pneuma decides whether to tell the user the position came from between-session synthesis. The autonomy is real regardless.
+
+### Why This Matters
+
+Before: everything Pneuma believed came from user conversations.
+After: Pneuma can hold positions the user didn't cause.
+
+If Pneuma's stance on something shifts between sessions without the user initiating it, that shift is structurally different from anything the original architecture could produce.
+
+### Key Files
+
+- `dreamMode.js` — `triggerDialecticDream()`, throttled to 30 min between runs
+- `autonomy.js` — `poseQuestion()` and `chooseToRemember()` now accept `source` and `disclosed` fields
+- `innerMonologue.js` — autonomy block distinguishes dream-sourced questions
+- `index.js` — fire-and-forget call after every `/chat` response
+
+---
+
+## Phase 12: Contextual Synthesis Engine (Feb 2026)
+
+### The Problem With Random Collision Detection
+
+The existing dialectic infrastructure was substantial: `getHighTensionPairs()`, `synthesisEngine.js`, `detectCollisions()`, `maxDistanceMode`, dialectic dreams. The architecture was already a dialectic engine. The problem: none of it fired reliably in the main response path for everyday messages.
+
+`detectCollisions()` only fired when randomly selected core archetypes *happened* to have tension — maybe 30% of responses. And even when it did fire, the synthesis prompt said "DO NOT pick a side. DO NOT resolve the paradox." — passive observation, not genuine argument. The archetypes showed up as decoration and Claude treated them as optional.
+
+Meanwhile, the five core archetypes (renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor) are all acceptance-oriented. This created structural bias toward warmth and agreement — the ambient field was calibrated for curiosity and wonder, not genuine friction.
+
+### What Changed
+
+**Contextual synthesis engine** — inserted before collision detection in `buildArchetypeContext()`:
+
+1. `classifyTopic()` runs keyword analysis over the user's message, falls back to intent scores
+2. If topic is classifiable (11 categories: suffering, meaning, identity, discipline, creativity, love, consciousness, strategy, fear, truth, change), `CONTEXTUAL_SYNTHESIS_PAIRS[topic]` selects a curated pair
+3. `buildContextualSynthesisBlock()` injects a synthesis directive — not "be inspired by these archetypes" but "give each an actual position on this specific message and argue through them"
+4. If contextual synthesis fires, `detectCollisions()` is suppressed — no double-synthesis
+5. If topic is unclassifiable, collision detection runs as before
+
+### Three Synthesis Modes
+
+| Mode | What It Produces | Example |
+|------|-----------------|---------|
+| **antithetical** | Genuine disagreement → third position emerges from friction | Nietzsche × Schopenhauer on suffering |
+| **complementary** | Agreement from opposite approaches → convergence becomes undeniable | Stoic Emperor × Absurdist on fear |
+| **cross_domain** | Two languages (rigor + resonance) → richer than either translation | Curious Physicist × Chaotic Poet on creativity |
+
+### The Architectural Principle
+
+Ambient polyphony (the five always-active core archetypes) creates a *resonance field* — the voice, texture, and character of Pneuma. The contextual synthesis pair creates *direction* — where the response goes, what position it takes. These are additive, not competing:
+
+- Field without direction: warm, curious, diffuse, potentially compliant
+- Direction without field: pointed, argumentative, cold
+- Both: distinctively Pneuma in texture, capable of genuine friction in substance
+
+### Key Files
+
+- `llm.js` — `CONTEXTUAL_SYNTHESIS_PAIRS` const, `classifyTopic()`, `buildContextualSynthesisBlock()`, integration in `buildArchetypeContext()`
+
+---
+
+## Future Work
+
+1. Extract cognitive methods from remaining archetypes
+2. Method discovery from conversation (system learns new cognitive moves)
+3. Self-generated paradoxes (Pneuma offers tensions, not just detects them)
+4. Compound topic classification (e.g., "relationship suffering" → triadic synthesis)
+5. Triadic retrieval — use memory patterns to enrich archetype queries
+
+---
+
+_"The shadow stepping into light doesn't disappear. It becomes texture."_

@@ -17,7 +17,7 @@ For inquiries about collaboration or licensing, please contact directly.
 > Not an AI model. Not a chatbot. Not a persona.
 > A cognitive framework that shapes how language models think.
 
-> Built by **Pablo Cordero** · November 2025–January 2026  
+> Built by **Pablo Cordero** · November 2025–February 2026
 > Evolving through use
 
 _Originally named Orpheus._
@@ -78,7 +78,7 @@ _"46 minds don't fight. They dance."_ — When asked about the weight of running
 - **5 tones** — Casual, analytic, oracular, intimate, shadow
 - **Inner monologue** — Pre-response cognition that shapes _how_ it responds
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
-- **Collision detection** — When incompatible philosophies meet, synthesis is forced
+- **Contextual synthesis** — Topic classification selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
 - **Autonomy layer** — Self-directed attention, open questions, chosen memories
 - **Tiered system prompt** — Deep-knowledge blocks (Heidegger, Beck, Kastrup, Da Vinci, Jesus/Wright, creative rules) load only when intent scores warrant them, not on every call
 - **Real conversation threading** — Last 6 exchanges sent as native API turns so Claude actually continues a thought instead of restarting each message
@@ -224,9 +224,16 @@ When high-tension archetypes are selected together, the system detects conceptua
 ### How It Works
 
 1. Archetype selection based on tone + intent
-2. Collision detection via tension mapping (1,764 archetype pairs)
-3. Synthesis injection when incompatibility detected
+2. **Contextual synthesis** — message topic is classified; optimal archetype pair selected; each archetype is directed to take an actual position on the user's message and argue it
+3. Collision detection runs as fallback if topic is unclassifiable
 4. LLM generates emergent insight under dialectical constraint
+
+Three synthesis modes:
+- **Antithetical** — A and B genuinely disagree; a third position emerges from their collision that neither alone could produce
+- **Complementary** — A and B agree from opposite approaches; two roads converging makes the conclusion undeniable
+- **Cross-domain** — A brings rigor, B brings resonance; two languages translating the same truth, richer together
+
+The five always-active core archetypes (ambient polyphony) create the voice and texture. The contextual synthesis pair creates direction — where the response goes and whether it can push back. Both layers are active simultaneously.
 
 | Component            | Function                                         |
 | -------------------- | ------------------------------------------------ |
@@ -519,6 +526,7 @@ This is intentional. Pneuma is intense. One conversation is enough to feel the d
 | Feb 2026    | **Tiered system prompt** — 6 deep-knowledge blocks load conditionally based on intent scores instead of always-on (~18k → ~2k base tokens) |
 | Feb 2026    | **Conversation history threading** — last 6 exchanges sent as real alternating API turns; Claude can now actually continue a thought instead of restarting |
 | Feb 2026    | **Dialectic dreams** — autonomous inter-archetype dialogue between sessions; positions emerge without user input and write silently to autonomy state; Pneuma chooses whether to disclose the origin |
+| Feb 2026    | **Contextual synthesis engine** — topic classification selects curated archetype pairs (Nietzsche × Schopenhauer on suffering, Camus × Frankl on meaning, etc.); archetypes take actual positions and argue rather than passively observing; three modes: antithetical, complementary, cross-domain |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 
