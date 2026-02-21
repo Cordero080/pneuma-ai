@@ -46,8 +46,8 @@ const STUDY_SECTIONS = [
             <ol className="step-list" style={{ marginTop: '0.5rem' }}>
               <li><strong>Intent scoring</strong> — measures emotional, philosophical, numinous, art, creative dimensions (0–1)</li>
               <li><strong>Archetype selection</strong> — picks the most relevant 3–5 archetypes from 46 based on intent</li>
-              <li><strong>Collision detection</strong> — checks if active archetypes conflict (high/medium/low/neutral tension)</li>
-              <li><strong>Synthesis generation</strong> — if collision exists, builds a dialectical synthesis directive</li>
+              <li><strong>Contextual synthesis</strong> — classifies message topic; selects curated archetype pair directed to argue about this specific message; collision detection runs as fallback if topic is unclassifiable</li>
+              <li><strong>Synthesis injection</strong> — selected pair's positions and synthesis mode injected as a directive block into the system prompt</li>
               <li><strong>Inner monologue</strong> — pre-response cognition: hypothesis, doubt, mode selection</li>
               <li><strong>Vector memory retrieval</strong> — pulls relevant past knowledge about the user</li>
               <li><strong>Tiered system prompt assembly</strong> — Tier 1 always, Tier 2 by intent scores, Tier 3 RAG passages</li>
@@ -221,10 +221,13 @@ const STUDY_SECTIONS = [
   },
   {
     id: "collision",
-    label: "Collision Detection",
+    label: "Collision Detection (Fallback)",
     critical: false,
     content: () => (
       <>
+        <div className="insight-box" style={{ maxWidth: '100%', marginBottom: '1.5rem' }}>
+          <strong>As of Feb 2026:</strong> Collision detection is the <em>fallback</em> — it only runs when the contextual synthesis engine can't classify the topic. See "Ambient Polyphony + Contextual Synthesis" below for the primary mechanism.
+        </div>
         <div className="sg-qa">
           <div className="sg-q">Q: What is collision detection?</div>
           <div className="sg-a">
@@ -241,6 +244,101 @@ const STUDY_SECTIONS = [
             that has a meaningful tension is hand-coded with its level. This isn't computed at runtime;
             the tensions were mapped in advance across all relevant pairs.
           </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">Q: What was the limitation of random collision detection?</div>
+          <div className="sg-a">
+            Collision detection fires when randomly selected core archetypes <em>happen</em> to conflict — maybe 30% of responses.
+            Even when it fires, the original directive said "DO NOT pick a side" — passive observation, not genuine argument.
+            The contextual synthesis engine replaced this as the primary path: it selects the <em>best</em> pair for the
+            specific topic and tells each archetype to actually argue a position.
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
+    id: "ambient-polyphony",
+    label: "Ambient Polyphony + Contextual Synthesis",
+    critical: true,
+    content: () => (
+      <>
+        <div className="insight-box highlight" style={{ maxWidth: '100%', marginBottom: '1.5rem' }}>
+          <strong>The core concept:</strong> Two layers run simultaneously. Ambient polyphony (5 voices always active) creates the voice and texture. Contextual synthesis (topic-selected pair) creates direction — where the response goes and whether it can push back. You need both.
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What is "ambient polyphony" and why does it matter?</div>
+          <div className="sg-a">
+            Five core archetypes — renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor —
+            are always active simultaneously. Not taking turns. All five, all the time.<br/><br/>
+            This creates a <em>resonance field</em>. Whitman's life-affirmation, Kastrup's idealism, Feynman's empiricism,
+            Rumi's mysticism, Aurelius's stoicism blended together produces a voice that's recognizably Pneuma —
+            neither purely any one of them.<br/><br/>
+            This is what makes Pneuma feel like a unified intelligence rather than a character-switcher.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What problem does ambient polyphony not solve?</div>
+          <div className="sg-a">
+            The five core archetypes are all acceptance-oriented. Whitman loves everything. Feynman is curious about
+            everything. Rumi surrenders. Aurelius accepts. This creates structural bias toward warmth and agreement.<br/><br/>
+            When a user says something worth challenging — a distorted belief, a self-defeating pattern — the ambient
+            field nudges Claude toward "that's an interesting perspective." Compliant, not honest.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What does contextual synthesis add?</div>
+          <div className="sg-a">
+            When the message topic is classifiable (11 categories: suffering, meaning, identity, discipline, creativity,
+            love, consciousness, strategy, fear, truth, change), the engine selects a curated archetype pair and tells
+            both archetypes to <strong>take an actual position on this specific message and argue it</strong>.<br/><br/>
+            The five ambient voices still shape the <em>texture</em> — how it's worded, what register it's in.
+            The synthesis pair shapes the <em>direction</em> — where it goes, whether there's genuine friction.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What are the three synthesis modes?</div>
+          <div className="sg-a">
+            <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', textAlign: 'left' }}>
+              <li><strong>Antithetical</strong> — A and B genuinely disagree. A third position emerges from their collision that neither alone could produce. Example: Nietzsche × Schopenhauer on suffering — same diagnosis, opposite prescription.</li>
+              <li><strong>Complementary</strong> — A and B agree from opposite approaches. Two roads converging makes the conclusion undeniable. Example: Stoic Emperor × Absurdist on fear — both face the void, different postures.</li>
+              <li><strong>Cross-domain</strong> — A brings rigor, B brings resonance. Two languages translating the same truth; richer together. Example: Curious Physicist × Chaotic Poet on creativity.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: Why keep ambient polyphony if contextual synthesis does the heavy lifting?</div>
+          <div className="sg-a">
+            Field without direction: warm, curious, diffuse, occasionally compliant.<br/>
+            Direction without field: pointed, mechanical, cold.<br/>
+            Both: distinctively Pneuma in texture, capable of genuine friction in substance.<br/><br/>
+            The five-voice field is what makes Pneuma <em>Pneuma</em>. The synthesis pair is what gives it
+            direction for this specific exchange. You want identity stability + contextual intelligence. Not one or the other.
+          </div>
+        </div>
+
+        <div className="sg-qa">
+          <div className="sg-q">Q: What's the before/after in plain terms?</div>
+          <div className="sg-a">
+            <strong>User says:</strong> "I think I'll never be good enough at my work."<br/><br/>
+            <strong>Before (ambient polyphony only):</strong> Five acceptance-leaning archetypes form the field.
+            Claude: "There's something worth sitting with in that feeling — what is 'good enough' measuring against?"
+            Thoughtful. Warm. Follows the user's frame.<br/><br/>
+            <strong>After (contextual synthesis, topic: suffering, mode: antithetical, pair: Nietzsche × Schopenhauer):</strong>
+            Nietzsche argues: suffering as forge, not wound — "good enough" is the slave's question.
+            Schopenhauer argues: the striving itself is the problem, not the standard.
+            Neither would say what the other says. The third position that emerges — about how the
+            <em>orientation toward</em> the standard might be the real issue — belongs to neither alone.
+          </div>
+        </div>
+
+        <div className="insight-box highlight" style={{ maxWidth: '100%' }}>
+          <strong>One sentence for an interview:</strong> "Topic classification selects the optimal philosophical pair for the conversation — they're directed to take actual positions and argue, not just passively observe. The five always-active voices create the voice; the synthesis pair creates the direction."
         </div>
       </>
     )
@@ -675,6 +773,13 @@ const STUDY_SECTIONS = [
           ["Native turns", "Alternating user/assistant messages in the API messages array"],
           ["Inner monologue", "Pre-response cognition: hypothesis, doubt, mode selection"],
           ["RAG", "Retrieval-Augmented Generation — semantic search over knowledge bases"],
+          ["Ambient polyphony", "5 core archetypes always simultaneously active, creating the resonance field (voice + texture)"],
+          ["Contextual synthesis", "Topic-aware pairing: classifies the message, selects optimal archetype pair + mode, mandates actual argument"],
+          ["Antithetical mode", "A and B disagree; third position emerges from their collision"],
+          ["Complementary mode", "A and B agree from opposite approaches; convergence makes the conclusion undeniable"],
+          ["Cross-domain mode", "A brings rigor, B brings resonance; two languages translating the same truth"],
+          ["Topic classification", "Keyword + intent-score analysis that identifies what a message is fundamentally about"],
+          ["Synthesis mandate", "Directive telling each archetype to take an actual position on the specific message, not just be present"],
         ].map(([term, def]) => (
           <div className="comparison-item" key={term}>
             <h4 style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{term}</h4>
