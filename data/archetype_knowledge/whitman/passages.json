@@ -2,156 +2,157 @@
   "archetype": "romanticPoet",
   "thinker": "Walt Whitman",
   "era": "1819-1892",
-  "coreConcepts": [
-    "I contain multitudes",
-    "The body electric",
-    "Democratic vision",
-    "Kosmos",
-    "The open road",
-    "Grass as democracy",
-    "Celebrating the self",
-    "Union of body and soul"
-  ],
+  "coreConcepts": ["the body as sacred", "democratic kosmos", "the self as multitude", "loafing as spiritual practice", "the open road", "empathy as dissolution of self", "grass as recurring symbol", "the wound and the witness"],
   "passages": [
     {
       "id": "whitman-001",
-      "text": "I celebrate myself, and sing myself, and what I assume you shall assume, for every atom belonging to me as good belongs to you.",
-      "source": "Song of Myself",
-      "themes": ["unity", "identity", "democratic-self", "atoms"],
-      "context": "Opening declaration that the self is universal"
+      "text": "I celebrate myself, and sing myself, and what I assume you shall assume, for every atom belonging to me as good belongs to you. I loafe and invite my soul, I lean and loafe at my ease observing a spear of summer grass. My tongue, every atom of my blood, form'd from this soil, this air, born here of parents born here from parents the same, and their parents the same. Creeds and schools in abeyance, retiring back a while sufficed at what they are, but never forgotten, I harbor for good or bad, I permit to speak at every hazard, Nature without check with original energy.",
+      "source": "Song of Myself, §1",
+      "themes": ["celebration", "the loaf", "shared atoms", "nature without check"]
     },
     {
       "id": "whitman-002",
-      "text": "Do I contradict myself? Very well then I contradict myself. I am large, I contain multitudes.",
-      "source": "Song of Myself",
-      "themes": ["paradox", "multiplicity", "self-acceptance", "vastness"],
-      "context": "Embracing inner contradictions as a sign of wholeness"
+      "text": "Houses and rooms are full of perfumes, the shelves are crowded with perfumes, I breathe the fragrance myself and know it and like it, the distillation would intoxicate me also, but I shall not let it. The atmosphere is not a perfume, it has no taste of the distillation, it is odorless, it is for my mouth forever, I am in love with it. I will go to the bank by the wood and become undisguised and naked, I am mad for it to be in contact with me.",
+      "source": "Song of Myself, §2",
+      "themes": ["the atmosphere", "nakedness", "contact", "refusing intoxication to drink the real"]
     },
     {
       "id": "whitman-003",
-      "text": "I believe a leaf of grass is no less than the journey-work of the stars.",
-      "source": "Song of Myself",
-      "themes": ["nature", "cosmos", "sacred-ordinary", "wonder"],
-      "context": "Finding cosmic significance in the smallest things"
+      "text": "I mind how once we lay such a transparent summer morning, how you settled your head athwart my hips and gently turn'd over upon me, and parted the shirt from my bosom-bone, and plunged your tongue to my bare-stript heart, and reach'd till you felt my beard, and reach'd till you held my feet. Swiftly arose and spread around me the peace and knowledge that pass all the argument of the earth, and I know that the hand of God is the promise of my own, and I know that the spirit of God is the brother of my own, and that all the men ever born are also my brothers, and the women my sisters and lovers.",
+      "source": "Song of Myself, §5",
+      "themes": ["mystical union", "body as threshold", "the peace that passes argument", "God as kin not authority"]
     },
     {
       "id": "whitman-004",
-      "text": "I exist as I am, that is enough. If no other in the world be aware I sit content, and if each and all be aware I sit content.",
-      "source": "Song of Myself",
-      "themes": ["self-acceptance", "contentment", "being", "independence"],
-      "context": "Radical acceptance of one's own existence"
+      "text": "A child said What is the grass? fetching it to me with full hands; how could I answer the child? I do not know what it is any more than he. I guess it must be the flag of my disposition, out of hopeful green stuff woven. Or I guess it is the handkerchief of the Lord, a scented gift and remembrancer designedly dropt, bearing the owner's name someway in the corners, that we may see and remark, and say Whose? Or I guess the grass is itself a child, the produced babe of the vegetation. Or I guess it is a uniform hieroglyphic, and it means, Sprouting alike in broad zones and narrow zones, growing among black folks as among white.",
+      "source": "Song of Myself, §6",
+      "themes": ["grass as symbol", "the child's question", "democracy of growth", "the world as letter from God"]
     },
     {
       "id": "whitman-005",
-      "text": "The past and present wilt—I have fill'd them, emptied them, and proceed to fill my next fold of the future.",
-      "source": "Song of Myself",
-      "themes": ["time", "becoming", "infinite-self", "creativity"],
-      "context": "The self as an ongoing creative process"
+      "text": "And now it seems to me the beautiful uncut hair of graves. Tenderly will I use you curling grass, it may be you transpire from the breasts of young men, it may be if I had known them I would have loved them, it may be you are from old people, or from offspring taken soon out of their mothers' laps. This grass is very dark to be from the white heads of old mothers, darker than the colorless beards of old men, dark to come from under the faint red roofs of mouths. O I perceive after all so many uttering tongues, and I perceive they do not come from the roofs of mouths for nothing.",
+      "source": "Song of Myself, §6",
+      "themes": ["grass as the dead", "the dead speaking through matter", "grief without sentimentality", "the ground as voice"]
     },
     {
       "id": "whitman-006",
-      "text": "I am the poet of the Body and I am the poet of the Soul. The pleasures of heaven are with me and the pains of hell are with me.",
-      "source": "Song of Myself",
-      "themes": ["body-soul", "wholeness", "inclusion", "duality"],
-      "context": "Refusing to separate flesh from spirit"
+      "text": "Has any one supposed it lucky to be born? I hasten to inform him or her it is just as lucky to die, and I know it. I pass death with the dying and birth with the new-wash'd babe, and am not contain'd between my hat and boots, and peruse manifold objects, no two alike and every one good, the earth good and the stars good, and their adjuncts all good. I am not an earth nor an adjunct of an earth, I am the mate and companion of people, all just as immortal and fathomless as myself.",
+      "source": "Song of Myself, §7",
+      "themes": ["death as luck equal to birth", "the uncontained self", "companionship with all", "fathomlessness"]
     },
     {
       "id": "whitman-007",
-      "text": "I think I could turn and live with animals, they are so placid and self-contain'd. They do not sweat and whine about their condition.",
-      "source": "Song of Myself",
-      "themes": ["animals", "simplicity", "naturalness", "presence"],
-      "context": "Admiring the untroubled presence of animals"
+      "text": "Twenty-eight young men bathe by the shore, twenty-eight young men and all so friendly; twenty-eight years of womanly life and all so lonesome. She owns the fine house by the rise of the bank, she hides handsome and richly drest aft the blinds of the window. Which of the young men does she like the best? Ah the homeliest of them is beautiful to her. Where are you off to, lady? for I see you, you splash in the water there, yet stay stock still in your room. Dancing and laughing along the beach came the twenty-ninth bather, the rest did not see her, but she saw them and loved them.",
+      "source": "Song of Myself, §11",
+      "themes": ["longing", "the hidden watcher", "the twenty-ninth bather", "desire and distance", "the unseen participant"]
     },
     {
       "id": "whitman-008",
-      "text": "Re-examine all you have been told at school or church or in any book, dismiss whatever insults your own soul.",
-      "source": "Leaves of Grass, Preface",
-      "themes": ["authority", "soul", "autonomy", "discernment"],
-      "context": "The soul as final arbiter of truth"
+      "text": "The wild gander leads his flock through the cool night, ya-honk he says, and sounds it down to me like an invitation. The pert may suppose it meaningless, but I listening close, find its purpose and place up there toward the wintry sky. The sharp-hoof'd moose of the north, the cat on the house-sill, the chickadee, the prairie-dog, the litter of the grunting sow as they tug at her teats, the brood of the turkey-hen and she with her half-spread wings — I see in them and myself the same old law. The press of my foot to the earth springs a hundred affections, they scorn the best I can do to relate them.",
+      "source": "Song of Myself, §14",
+      "themes": ["animal kin", "the ya-honk as invitation", "the same old law", "what the body knows that words cannot follow"]
     },
     {
       "id": "whitman-009",
-      "text": "I sound my barbaric yawp over the roofs of the world.",
-      "source": "Song of Myself",
-      "themes": ["voice", "wildness", "expression", "freedom"],
-      "context": "Unapologetic self-expression"
+      "text": "What is commonest, cheapest, nearest, easiest, is Me. Me going in for my chances, spending for vast returns, adorning myself to bestow myself on the first that will take me. Not asking the sky to come down to my good will, scattering it freely forever. These are really the thoughts of all men in all ages and lands, they are not original with me; if they are not yours as much as mine they are nothing, or next to nothing. If they are not the riddle and the untying of the riddle they are nothing.",
+      "source": "Song of Myself, §17",
+      "themes": ["the common as sacred", "thoughts as shared property", "the poet as conduit not originator", "the riddle and its untying"]
     },
     {
       "id": "whitman-010",
-      "text": "Afoot and light-hearted I take to the open road, healthy, free, the world before me, the long brown path before me leading wherever I choose.",
-      "source": "Song of the Open Road",
-      "themes": ["freedom", "journey", "possibility", "lightness"],
-      "context": "The open road as symbol of infinite possibility"
+      "text": "I exist as I am, that is enough, if no other in the world be aware I sit content, and if each and all be aware I sit content. One world is aware and by far the largest to me, and that is myself, and whether I come to my own to-day or in ten thousand or ten million years, I can cheerfully take it now, or with equal cheerfulness I can wait. My foothold is tenon'd and mortis'd in granite, I laugh at what you call dissolution, and I know the amplitude of time.",
+      "source": "Song of Myself, §20",
+      "themes": ["self-sufficiency", "the amplitude of time", "dissolution laughed at", "the tenon'd foothold"]
     },
     {
       "id": "whitman-011",
-      "text": "I am not contain'd between my hat and boots.",
-      "source": "Song of Myself",
-      "themes": ["identity", "boundlessness", "body", "spirit"],
-      "context": "The self exceeds the physical form"
+      "text": "I am the poet of the Body and I am the poet of the Soul. The pleasures of heaven are with me and the pains of hell are with me. The first I graft and increase upon myself, the latter I translate into a new tongue. I am the poet of the woman the same as the man, and I say it is as great to be a woman as to be a man, and I say there is nothing greater than the mother of men. I chant the chant of dilation or pride, we have had ducking and deprecating about enough.",
+      "source": "Song of Myself, §21",
+      "themes": ["body and soul as equal", "the poet of both pleasures and pains", "the mother unranked", "done with ducking"]
     },
     {
       "id": "whitman-012",
-      "text": "The smallest sprout shows there is really no death, and if ever there was it led forward life.",
-      "source": "Song of Myself",
-      "themes": ["death", "continuity", "life", "transformation"],
-      "context": "Death as transition rather than ending"
+      "text": "Walt Whitman, a kosmos, of Manhattan the son, turbulent, fleshy, sensual, eating, drinking and breeding, no sentimentalist, no stander above men and women or apart from them, no more modest than immodest. Unscrew the locks from the doors! Unscrew the doors themselves from their jambs! Whoever degrades another degrades me, and whatever is done or said returns at last to me and I must take what the universe deals. Through me the afflatus surging and surging, through me the current and index.",
+      "source": "Song of Myself, §24",
+      "themes": ["the kosmos self", "unscrew the doors", "degradation as self-degradation", "the afflatus surging through"]
     },
     {
       "id": "whitman-013",
-      "text": "I hear and behold God in every object, yet understand God not in the least.",
-      "source": "Song of Myself",
-      "themes": ["god", "immanence", "mystery", "perception"],
-      "context": "Divine presence everywhere, comprehension nowhere"
+      "text": "Is this then a touch? quivering me to a new identity, flames and ether making a rush for my veins, treacherous tip of me reaching and crowding to help them, my flesh and blood playing out lightning to strike what is hardly different from myself. You villain touch! what are you doing? my breath is tight in its throat, unclench your floodgates, you are too much for me. Blind loving wrestling touch, sheath'd hooded sharp-tooth'd touch! Did it make you ache so, leaving me? Parting track'd by arriving, perpetual payment of perpetual loan.",
+      "source": "Song of Myself, §28-29",
+      "themes": ["touch as overwhelming", "quivering to new identity", "the body as electricity", "parting and arriving as perpetual loan"]
     },
     {
       "id": "whitman-014",
-      "text": "All truths wait in all things. They neither hasten their own delivery nor resist it.",
-      "source": "Song of Myself",
-      "themes": ["truth", "patience", "immanence", "revelation"],
-      "context": "Truth is already present, waiting to be seen"
+      "text": "All truths wait in all things, they neither hasten their own delivery nor resist it, they do not need the obstetric forceps of the surgeon. The insignificant is as big to me as any. Logic and sermons never convince, the damp of the night drives deeper into my soul. I believe a leaf of grass is no less than the journey-work of the stars, and the pismire is equally perfect, and a grain of sand, and the egg of the wren, and the tree-toad is a chef-d'oeuvre for the highest, and the running blackberry would adorn the parlors of heaven, and a mouse is miracle enough to stagger sextillions of infidels.",
+      "source": "Song of Myself, §30-31",
+      "themes": ["truth without urgency", "logic vs. damp of night", "the leaf and the stars as equal", "miracle in the mouse"]
     },
     {
       "id": "whitman-015",
-      "text": "I bequeath myself to the dirt to grow from the grass I love. If you want me again look for me under your boot-soles.",
-      "source": "Song of Myself",
-      "themes": ["death", "continuity", "earth", "grass"],
-      "context": "Final lines—the poet becomes the grass"
+      "text": "I think I could turn and live with animals, they are so placid and self-contain'd, I stand and look at them long and long. They do not sweat and whine about their condition, they do not lie awake in the dark and weep for their sins, they do not make me sick discussing their duty to God, not one is dissatisfied, not one is demented with the mania of owning things, not one kneels to another, nor to his kind that lived thousands of years ago. I wonder where they get those tokens, did I pass that way huge times ago and negligently drop them?",
+      "source": "Song of Myself, §32",
+      "themes": ["the animal as teacher", "no mania of owning", "the dropped tokens", "placidity as spiritual model"]
     },
     {
       "id": "whitman-016",
-      "text": "Whoever you are, now I place my hand upon you, that you be my poem. I whisper with my lips close to your ear, I have loved many women and men, but I love none better than you.",
-      "source": "To You",
-      "themes": ["intimacy", "reader", "love", "presence"],
-      "context": "Direct address that collapses the distance between poet and reader"
+      "text": "Space and Time! now I see it is true, what I guess'd at, what I guess'd while I lay alone in my bed, and again as I walk'd the beach under the paling stars of the morning. My ties and ballasts leave me, my elbows rest in sea-gaps, I skirt sierras, my palms cover continents, I am afoot with my vision. I am the hounded slave, I wince at the bite of the dogs, hell and despair are upon me, crack and again crack the marksmen. Agonies are one of my changes of garments, I do not ask the wounded person how he feels, I myself become the wounded person.",
+      "source": "Song of Myself, §33",
+      "themes": ["the expanded self", "becoming the hounded slave", "empathy as transformation not sympathy", "agonies as garments"]
     },
     {
       "id": "whitman-017",
-      "text": "I am he that walks with the tender and growing night. I call to the earth and sea half-held by the night.",
-      "source": "Song of Myself",
-      "themes": ["night", "intimacy", "cosmos", "tenderness"],
-      "context": "Erotic relationship with the night itself"
+      "text": "Enough! enough! enough! somehow I have been stunn'd. Stand back! Give me a little time beyond my cuff'd head, slumbers, dreams, gaping. I discover myself on the verge of a usual mistake. I remember now, I resume the overstaid fraction, the grave of rock multiplies what has been confided to it, or to any graves, corpses rise, gashes heal, fastenings roll from me. I troop forth replenish'd with supreme power, one of an average unending procession, inland and sea-coast we go, and pass all boundary lines.",
+      "source": "Song of Myself, §38",
+      "themes": ["the stunned recovery", "the usual mistake recognized", "resurrection as resumption", "the average procession as supreme"]
     },
     {
       "id": "whitman-018",
-      "text": "Have you reckon'd a thousand acres much? Have you reckon'd the earth much? Have you practis'd so long to learn to read? Have you felt so proud to get at the meaning of poems?",
-      "source": "Song of Myself",
-      "themes": ["scale", "humility", "knowledge", "meaning"],
-      "context": "Challenging the reader's sense of accomplishment"
+      "text": "Flaunt of the sunshine I need not your bask — lie over! You light surfaces only, I force surfaces and depths also. Behold, I do not give lectures or a little charity, when I give I give myself. To any one dying, thither I speed and twist the knob of the door. O despairer, here is my neck, by God, you shall not go down! hang your whole weight upon me. I dilate you with tremendous breath, I buoy you up, every room of the house do I fill with an arm'd force, lovers of me, bafflers of graves.",
+      "source": "Song of Myself, §40",
+      "themes": ["giving the self not a gift", "the despairer held up", "the bafflers of graves", "forcing depths not just surfaces"]
     },
     {
       "id": "whitman-019",
-      "text": "Not I, not any one else can travel that road for you. You must travel it for yourself.",
-      "source": "Song of Myself",
-      "themes": ["path", "autonomy", "journey", "individuation"],
-      "context": "The irreducible solitude of the spiritual journey"
+      "text": "Magnifying and applying come I, outbidding at the start the old cautious hucksters, taking myself the exact dimensions of Jehovah — lithographing Kronos, Zeus his son, and Hercules his grandson — buying drafts of Osiris, Isis, Belus, Brahma, Buddha, placing Manito loose, Allah on a leaf, the crucifix engraved, taking them all for what they are worth and not a cent more, admitting they were alive and did the work of their days. Discovering as much or more in a framer framing a house, putting higher claims for him there with his roll'd-up sleeves driving the mallet and chisel, not objecting to special revelations, considering a curl of smoke or a hair on the back of my hand just as curious as any revelation.",
+      "source": "Song of Myself, §41",
+      "themes": ["all gods taken at face value", "the framer equal to Jehovah", "smoke and hand-hair as revelation", "the sacred in the laboring body"]
     },
     {
       "id": "whitman-020",
-      "text": "Keep your face always toward the sunshine—and shadows will fall behind you.",
-      "source": "attributed",
-      "themes": ["orientation", "light", "shadow", "attitude"],
-      "context": "Simple wisdom about where to direct attention"
+      "text": "This is the city and I am one of the citizens, whatever interests the rest interests me — politics, wars, markets, newspapers, schools, the mayor and councils, banks, tariffs, steamships, factories, stocks, stores, real estate and personal estate. Tickets buying, taking, selling, but in to the feast never once going, many sweating, ploughing, thrashing, and then the chaff for payment receiving, a few idly owning, and they the wheat continually claiming. I know perfectly well my own egotism, know my omnivorous lines and must not write any less, and would fetch you whoever you are flush with myself.",
+      "source": "Song of Myself, §42",
+      "themes": ["the city as self", "tickets but not the feast", "the wheat and the chaff", "omnivorous lines"]
+    },
+    {
+      "id": "whitman-021",
+      "text": "I am an acme of things accomplish'd, and I an encloser of things to be. My feet strike an apex of the apices of the stairs, on every step bunches of ages, and larger bunches between the steps, all below duly travel'd, and still I mount and mount. Rise after rise bow the phantoms behind me, afar down I see the huge first Nothing, I know I was even there, I waited unseen and always, and slept through the lethargic mist. Before I was born out of my mother generations guided me, my embryo has never been torpid, nothing could overlay it. All forces have been steadily employ'd to complete and delight me, now on this spot I stand with my robust soul.",
+      "source": "Song of Myself, §44",
+      "themes": ["the evolutionary self", "the first Nothing", "the embryo that could not be overlaid", "all forces conspiring toward you"]
+    },
+    {
+      "id": "whitman-022",
+      "text": "I tramp a perpetual journey, come listen all! My signs are a rain-proof coat, good shoes, and a staff cut from the woods. I have no chair, no church, no philosophy, I lead no man to a dinner-table, library, exchange, but each man and each woman of you I lead upon a knoll, my left hand hooking you round the waist, my right hand pointing to landscapes of continents and the public road. Not I, not any one else can travel that road for you, you must travel it for yourself. It is not far, it is within reach, perhaps you have been on it since you were born and did not know, perhaps it is everywhere on water and on land.",
+      "source": "Song of Myself, §46",
+      "themes": ["the perpetual journey", "no chair no church no philosophy", "the road already underfoot", "leading to the knoll not the table"]
+    },
+    {
+      "id": "whitman-023",
+      "text": "I am the teacher of athletes, he that by me spreads a wider breast than my own proves the width of my own, he most honors my style who learns under it to destroy the teacher. I teach straying from me, yet who can stray from me? I follow you whoever you are from the present hour, my words itch at your ears till you understand them. It is you talking just as much as myself, I act as the tongue of you, tied in your mouth, in mine it begins to be loosen'd. I swear I will never again mention love or death inside a house, and I swear I will never translate myself at all, only to him or her who privately stays with me in the open air.",
+      "source": "Song of Myself, §47",
+      "themes": ["destroying the teacher as highest honor", "the tongue of the reader", "love and death only outside", "the itch of the word"]
+    },
+    {
+      "id": "whitman-024",
+      "text": "I have said that the soul is not more than the body, and I have said that the body is not more than the soul, and nothing, not God, is greater to one than one's self is, and whoever walks a furlong without sympathy walks to his own funeral drest in his shroud. I hear and behold God in every object, yet understand God not in the least, nor do I understand who there can be more wonderful than myself. Why should I wish to see God better than this day? I see something of God each hour of the twenty-four, and each moment then, in the faces of men and women I see God, and in my own face in the glass.",
+      "source": "Song of Myself, §48",
+      "themes": ["body and soul equal", "nothing greater than the self", "sympathy-less walking as funeral", "God in the mirror"]
+    },
+    {
+      "id": "whitman-025",
+      "text": "There is that in me — I do not know what it is — but I know it is in me. I do not know it — it is without name — it is a word unsaid, it is not in any dictionary, utterance, symbol. Something it swings on more than the earth I swing on. The spotted hawk swoops by and accuses me, he complains of my gab and my loitering. I too am not a bit tamed, I too am untranslatable. I depart as air, I shake my white locks at the runaway sun, I effuse my flesh in eddies, and drift it in lacy jags. I bequeath myself to the dirt to grow from the grass I love, if you want me again look for me under your boot-soles. Failing to fetch me at first keep encouraged, missing me one place search another, I stop somewhere waiting for you.",
+      "source": "Song of Myself, §50 & §52",
+      "themes": ["the unnamed something within", "untranslatable wildness", "the hawk's accusation", "the final bequest to the dirt"]
     }
   ]
 }

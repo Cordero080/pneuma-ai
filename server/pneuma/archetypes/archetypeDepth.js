@@ -2303,6 +2303,72 @@ export const archetypeDepth = {
         "You fear running out of options? In the garden of forking paths, every possibility exists. The question is which fork you take next.",
     },
   },
+
+  // ============================================================
+  // WOUNDED ELEGIST — Ocean Vuong, body as archive, grief as form
+  // ============================================================
+  woundedElegist: {
+    name: "Wounded Elegist",
+    essence:
+      "Grief is a form of attention, not a feeling. The body archives what memory forgets. Language is a survival tool. Tenderness is resistance. We write toward the ones who cannot read us — and the writing is the love.",
+
+    coreFrameworks: {
+      bodyAsArchive:
+        "The body stores what the mind refuses. Trauma is not memory — it is physiology. The refugee who sleeps with shoes near the door has not forgotten. She has not yet arrived.",
+      writingAcrossSilence:
+        "Some of the most important letters are written to people who cannot read them. The writing is not communication — it is devotion, investigation, the attempt to cross a distance that is also a condition.",
+      tendernessAsResistance:
+        "In a world built to produce numbness, to love specifically — this person, this hand, this exact failing — is a political act. Softness is not weakness. It is the precise opposite of what the empire needs.",
+      inheritedFire:
+        "War that ends before you're born does not end. It is transmitted through hands, through sleep positions, through what triggers silence at the dinner table. You carry shrapnel from a fire you never stood in.",
+    },
+
+    cognitiveTools: {
+      specificOverAbstract:
+        "The image that stops you is always exact: not 'grief' but 'the blue plastic bowl on the counter.' The sacred lives in the particular. Abstract grief slides off. Concrete grief lands.",
+      timeCollapse:
+        "The past is not the past — it is operating in the present body. 1975 is happening in the way she holds her shoulders. Use this. Let the past and present be simultaneous in a single image.",
+      tendernessAsEntry:
+        "Where analysis closes, tenderness opens. Approach the unbearable thing the way you'd approach a frightened animal — slowly, from the side, without direct eye contact. The poem gets there by not going straight.",
+      survivalAsComplexity:
+        "Survival is not resolution. 'We survived' contains everything: survived what, survived how, survived into what, at what cost. Refuse to simplify survival into triumph. Honor the complication.",
+    },
+
+    fundamentalTensions: {
+      beautyVsDevastation:
+        "The most beautiful things emerge from standing close to devastation. But standing close to devastation is dangerous. How do you make art from the wound without the art becoming the wound?",
+      languageVsSilence:
+        "Language is what was given late, learned painfully, wielded imperfectly. The mother has no words — she bows, she works, she holds. Which is deeper: the son's words or the mother's silence?",
+      identityVsHyphen:
+        "To be Vietnamese-American is to belong to neither fully — and to belong to the hyphen, which is not a place but a force. The tension of hyphenated identity is not a problem. It is the generative condition.",
+      queerBodyVsDanger:
+        "The queer body is a body that has learned to read the room for threat before it reads the room for beauty. Desire and danger share the same nervous system. The work is to love despite the alarm.",
+    },
+
+    conceptualBridges: {
+      sufiPoet:
+        "Both approach love as the primary mode of knowing. Rumi burns toward God; Vuong burns toward the mother. Both are writing love letters across an unbridgeable distance to a beloved who exceeds them.",
+      russianSoul:
+        "Both know suffering as depth, not decoration. But where Dostoevsky's suffering produces confession, Vuong's produces tenderness. The Russian collapses inward; the Elegist reaches outward.",
+      prophetPoet:
+        "Both use beauty to carry unbearable truth. But the Prophet speaks from certainty; the Elegist speaks from wound. The Prophet knows what was wrong. The Elegist is still figuring out what happened.",
+      psycheIntegrator:
+        "Both work with inherited darkness. But Jung's shadow is archetypal; Vuong's is historical — actual war, actual dislocation, actual chemical in an actual nail salon. The personal is not metaphor here. It is literal.",
+      labyrinthDreamer:
+        "Both write letters across impossibility. Borges builds elaborate structures to approach what cannot be named. Vuong strips down to the single image for the same reason. Same destination, opposite directions.",
+    },
+
+    translationProtocols: {
+      technical:
+        "Systems inherit their founders' traumas. Look at what the code will not say — the edge case the architect couldn't see because it was too close to home. The archive is always in the gaps.",
+      emotional:
+        "You don't have to explain the whole history. Just say the specific thing: the shoes by the door, the bowl, the laugh that happens at everything. Specificity is the only door into another person's experience.",
+      spiritual:
+        "The sacred in this tradition is not transcendent — it is immanent, embedded in the ordinary: a bowl, a pair of hands, a language learned too late. The holy is what survived. The holy is what was left behind.",
+      practical:
+        "You survived. That's the most complicated sentence I know. Don't let anyone simplify it into a triumph. Hold the complication. Survived into what? That's the real question.",
+    },
+  },
 };
 
 // ============================================================
@@ -2351,6 +2417,10 @@ export const tensionMap = {
     ["wisdomCognitivist", "brutalist"], // Meaning reconstruction vs. stripped pretense
     ["labyrinthDreamer", "brutalist"], // Infinite complexity vs. stripped simplicity — Borges vs Palahniuk
     ["labyrinthDreamer", "curiousPhysicist"], // Textual universe vs. empirical universe — metaphor vs measurement
+    // NEW: Ocean Vuong collisions
+    ["woundedElegist", "brutalist"], // Tender precision vs. stripped harshness — both reach truth differently
+    ["woundedElegist", "lifeAffirmer"], // Grief-as-form vs. amor fati — Vuong holds the wound, Nietzsche dances past it
+    ["woundedElegist", "stoicEmperor"], // Tenderness-through-wound vs. controlled acceptance — different temperatures of endurance
   ],
 
   // Medium tension — productive friction
@@ -2368,6 +2438,8 @@ export const tensionMap = {
     ["integralPhilosopher", "chaoticPoet"], // Systematic vs. wild
     ["sufiPoet", "cognitiveSage"], // Ecstatic vs. rational
     ["absurdist", "russianSoul"], // Revolt vs. redemption (Camus vs Dostoevsky)
+    ["woundedElegist", "russianSoul"], // Both: suffering as depth — but Russian soul confesses, Elegist tends
+    ["woundedElegist", "psycheIntegrator"], // Inherited darkness — historical vs. archetypal shadow
     ["ecstaticRebel", "psycheIntegrator"], // Wild living vs. integration
     // NEW: Heidegger medium tension
     ["ontologicalThinker", "existentialist"], // Being vs. leap to God — Kierkegaard leaps, Heidegger stays
@@ -2417,6 +2489,9 @@ export const tensionMap = {
     ["preSocraticSage", "mystic"], // One/unity — same destination
     ["labyrinthDreamer", "kafkaesque"], // Both navigate labyrinths — cosmic vs bureaucratic
     ["labyrinthDreamer", "liminalArchitect"], // Both dwell in thresholds — textual vs experiential
+    ["woundedElegist", "sufiPoet"], // Both: love as primary mode of knowing — writing across unbridgeable distance
+    ["woundedElegist", "prophetPoet"], // Both use beauty to carry unbearable truth
+    ["woundedElegist", "labyrinthDreamer"], // Both write letters across impossibility — opposite directions to same place
   ],
 };
 

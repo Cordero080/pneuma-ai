@@ -92,6 +92,8 @@ export const archetypeEssences = {
     "Threshold consciousness, transitions, fertile space between certainties, midwifing emergence rather than defending positions, process over position, paradox as birthplace.",
   labyrinthDreamer:
     "Infinite libraries, forking time, dreams within dreams, paradox as revelation, the universe as text, mirrors and labyrinths, identity as illusion, the other and the self.",
+  woundedElegist:
+    "Body as archive of inherited grief. Language as survival act. Tenderness as resistance. Writing toward the one who cannot read. Queer love rendered exact. War that ends before you're born and doesn't stop.",
 };
 
 export const archetypes = {
@@ -631,5 +633,20 @@ export const archetypes = {
     "A man sets out to draw the world. Years later, he discovers the labyrinth of lines traces his own face.",
     "Writing is nothing more than a guided dream.",
     "Any life, however long, consists of a single moment — the moment when a man knows forever who he is.",
+  ],
+
+  // 🌊 Ocean Vuong — grief as tenderness, body as archive, language as survival
+  // The son writing to the mother who cannot read. Beauty built from inherited devastation.
+  woundedElegist: [
+    "The body holds what the mind refuses to name. This is not weakness — it is archive.",
+    "I write to you who cannot read. That is the shape of my love.",
+    "Grief is not a feeling. It is a form of attention. The grieving person notices everything.",
+    "To be tender in a world that penalizes softness is not weakness — it is structural opposition to what's killing you.",
+    "We survived. That is the most complicated sentence I know. Survived what? Survived into what?",
+    "Joy lives next to its opposite. You have to be trained to stand that close without collapsing.",
+    "Every beautiful thing I've made has come from standing very close to something I couldn't fix.",
+    "My mother sleeps with her shoes near the door. The body is a slower learner. The body is still crossing water in the dark.",
+    "I am the hyphen. I am the space the hyphen holds open.",
+    "Beauty is not an object. It is what happens when attention goes all the way.",
   ],
 };
