@@ -104,6 +104,13 @@ What's harder to replicate with simple prompting: collision detection (1,764 ten
 
 ---
 
+## What This Project Demonstrates
+
+- Architecture for multi-perspective reasoning layers
+- Conflict-based prompt routing between cognitive frameworks
+- Behavioral drift observation under sustained use
+- Failure mode documentation and analysis
+
 ## What It Does Well
 
 - **Has positions.** Not sycophantic agreement.
