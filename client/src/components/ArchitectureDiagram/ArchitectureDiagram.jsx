@@ -12,14 +12,16 @@ import {
 } from './ArchitectureModals';
 
 import {
-  TensionMapModal,
+  ContextualSynthesisModal,
   DepthExtractionModal,
+  InnerMonologueModal,
   SynthesisModal,
   ArchetypeRAGModal,
   SystemPromptModal,
   ClaudeApiModal,
   ResponsePipelineModal,
   FinalAssemblyModal,
+  PostResponseModal,
   OutputModal
 } from './ArchitectureModals2';
 
@@ -265,23 +267,26 @@ function ArchitectureDiagram({ onBack }) {
             style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }} 
           />
 
-          {/* STEP 6: TENSION CHECK */}
-          <div 
+          {/* STEP 6: CONTEXTUAL SYNTHESIS ENGINE */}
+          <div
             className="arch-node archetype"
             data-layer="Archetype"
-            onClick={(e) => handleNodeClick('step6', 'Tension Map Check', e)}
+            onClick={(e) => handleNodeClick('step6', 'Contextual Synthesis Engine', e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">6</span>
-              TENSION MAP CHECK
+              CONTEXTUAL SYNTHESIS ENGINE
             </div>
-            <div className="arch-node-file">archetypes/archetypeDepth.js + intelligence/synthesisEngine.js</div>
+            <div className="arch-node-file">intelligence/synthesisEngine.js</div>
             <div className="arch-node-desc">
-              Checks if selected archetypes are in productive conflict. 1,764 pairs rated: high / medium / low / neutral.
+              3-layer topic classification selects a curated archetype pair for the domain.
+              Collision detection runs as fallback when topic is ambiguous.
             </div>
             <div className="arch-node-tags">
-              <span className="arch-tag">detectCollisions()</span>
-              <span className="arch-tag">getTensionLevel(a, b)</span>
+              <span className="arch-tag">Keyword scan → topic</span>
+              <span className="arch-tag">ARCHETYPE_PRIMARY_TOPIC map</span>
+              <span className="arch-tag">Intent score fallback</span>
+              <span className="arch-tag">12 domains, 3 synthesis modes</span>
             </div>
           </div>
 
@@ -309,9 +314,39 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(255,100,0,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }}
+          />
+
+          {/* INNER MONOLOGUE — pre-response cognition */}
+          <div
+            className="arch-node archetype"
+            data-layer="Archetype"
+            onClick={(e) => handleNodeClick('im', 'Inner Monologue', e)}
+          >
+            <div className="arch-node-title">
+              <span className="arch-step-number">↻</span>
+              INNER MONOLOGUE
+            </div>
+            <div className="arch-node-file">behavior/innerMonologue.js</div>
+            <div className="arch-node-desc">
+              Pre-response cognition block: rising/receding voice, hypothesis about what you're
+              really asking, self-interruption if drift detected, dream echo, open questions.
+              You never see this — Claude does.
+            </div>
+            <div className="arch-node-tags">
+              <span className="arch-tag">Rising voice</span>
+              <span className="arch-tag">Hypothesis</span>
+              <span className="arch-tag">Self-interruption</span>
+              <span className="arch-tag">Dream echo</span>
+              <span className="arch-tag">Mode selection</span>
+            </div>
+          </div>
+
+          <div
+            className="arch-connector"
+            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(255,100,0,0.4)' }}
           />
 
           {/* STEP 8: SYNTHESIS */}
@@ -480,7 +515,7 @@ function ArchitectureDiagram({ onBack }) {
           />
 
           {/* OUTPUT */}
-          <div 
+          <div
             className="arch-node input"
             data-layer="Output"
             onClick={(e) => handleNodeClick('output', 'Pneuma Response', e)}
@@ -491,6 +526,34 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="arch-node-desc">
               The collision product emerges — content shaped by dialectical synthesis
+            </div>
+          </div>
+
+          <div
+            className="arch-connector"
+            style={{ '--from-color': 'rgba(255,255,255,0.2)', '--to-color': 'rgba(255,150,0,0.3)' }}
+          />
+
+          {/* POST-RESPONSE BACKGROUND SYSTEMS */}
+          <div
+            className="arch-node"
+            data-layer="Memory"
+            onClick={(e) => handleNodeClick('post-response', 'Background Systems', e)}
+            style={{ borderColor: 'rgba(255,150,0,0.5)', background: 'rgba(255,150,0,0.06)' }}
+          >
+            <div className="arch-node-title">
+              <span className="arch-step-number">⟳</span>
+              BACKGROUND SYSTEMS (post-response)
+            </div>
+            <div className="arch-node-file">vectorMemory.js + autonomy.js + dreamMode.js</div>
+            <div className="arch-node-desc">
+              Three async processes fire after every response — without blocking it.
+              Memory is embedded. Autonomy state may update. Dialectic dream may trigger.
+            </div>
+            <div className="arch-node-tags">
+              <span className="arch-tag">Vector embedding stored</span>
+              <span className="arch-tag">Autonomy annotation</span>
+              <span className="arch-tag">Dialectic dream (30min throttle)</span>
             </div>
           </div>
 
@@ -520,12 +583,28 @@ function ArchitectureDiagram({ onBack }) {
           </div>
           <div className="arch-side-panel arch-memory-panel">
             <h3><span className="panel-icon"><BrainIcon /></span> MEMORY SYSTEMS</h3>
-            <ul>
-              <li>vectorMemory.js — Semantic similarity</li>
-              <li>longTermMemory.js — Cross-session</li>
-              <li>conversationHistory.js — Persistence</li>
-              <li>archetypeRAG.js — Knowledge retrieval</li>
-            </ul>
+            <div className="process-distinction">
+              <div className="process-item">
+                <span className="process-label">① VECTOR MEMORY</span>
+                <span className="process-file">vectorMemory.js</span>
+                <p>Semantic memory via OpenAI embeddings. Stores each conversation turn as a vector. On every message, similar past exchanges surface as context — retrieval by meaning, not keyword.</p>
+              </div>
+              <div className="process-item">
+                <span className="process-label">② LONG-TERM MEMORY</span>
+                <span className="process-file">longTermMemory.js</span>
+                <p>Structured user model — recurring topics with sentiment weight, struggles with resolution status, significant moments, emotional state handoffs between sessions.</p>
+              </div>
+              <div className="process-item">
+                <span className="process-label">③ AUTONOMY LAYER</span>
+                <span className="process-file">autonomy.js</span>
+                <p>Agent-directed memory. The system decides what to keep and annotates <em>why</em>. Tracks open questions, chosen memories with reasoning, discovered errors, defended preferences.</p>
+              </div>
+              <div className="process-item">
+                <span className="process-label">④ DIALECTIC DREAMS</span>
+                <span className="process-file">dreamMode.js</span>
+                <p>Background inter-archetype dialogue. Fires no-await after each response (throttled 30 min). Conclusions write to autonomy state with isDreamSourced flag.</p>
+              </div>
+            </div>
           </div>
           <div className="arch-side-panel arch-archetype-panel">
             <h3><span className="panel-icon"><EyeIcon /></span> 46 ARCHETYPES (Sample)</h3>
@@ -586,8 +665,9 @@ function ArchitectureDiagram({ onBack }) {
       <IntentDetectionModal isOpen={!!openModals.step3} onClose={() => closeModal('step3')} anchorEl={openModals.step3} />
       <ToneSelectionModal isOpen={!!openModals.step4} onClose={() => closeModal('step4')} anchorEl={openModals.step4} />
       <ArchetypeSelectionModal isOpen={!!openModals.step5} onClose={() => closeModal('step5')} anchorEl={openModals.step5} />
-      <TensionMapModal isOpen={!!openModals.step6} onClose={() => closeModal('step6')} anchorEl={openModals.step6} />
+      <ContextualSynthesisModal isOpen={!!openModals.step6} onClose={() => closeModal('step6')} anchorEl={openModals.step6} />
       <DepthExtractionModal isOpen={!!openModals.step7} onClose={() => closeModal('step7')} anchorEl={openModals.step7} />
+      <InnerMonologueModal isOpen={!!openModals.im} onClose={() => closeModal('im')} anchorEl={openModals.im} />
       <SynthesisModal isOpen={!!openModals.step8} onClose={() => closeModal('step8')} anchorEl={openModals.step8} />
       <ArchetypeRAGModal isOpen={!!openModals.step9} onClose={() => closeModal('step9')} anchorEl={openModals.step9} />
       <SystemPromptModal isOpen={!!openModals.step10} onClose={() => closeModal('step10')} anchorEl={openModals.step10} />
@@ -595,6 +675,7 @@ function ArchitectureDiagram({ onBack }) {
       <ResponsePipelineModal isOpen={!!openModals.step12} onClose={() => closeModal('step12')} anchorEl={openModals.step12} />
       <FinalAssemblyModal isOpen={!!openModals.step13} onClose={() => closeModal('step13')} anchorEl={openModals.step13} />
       <OutputModal isOpen={!!openModals.output} onClose={() => closeModal('output')} anchorEl={openModals.output} />
+      <PostResponseModal isOpen={!!openModals['post-response']} onClose={() => closeModal('post-response')} anchorEl={openModals['post-response']} />
     </div>
   );
 }

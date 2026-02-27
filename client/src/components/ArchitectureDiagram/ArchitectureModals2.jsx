@@ -25,70 +25,170 @@ import {
 } from '../Modal/Icons';
 
 // ============================================
-// TENSION MAP CHECK MODAL (Step 6)
+// CONTEXTUAL SYNTHESIS ENGINE MODAL (Step 6)
 // ============================================
-export const TensionMapModal = ({ isOpen, onClose, anchorEl }) => {
+export const ContextualSynthesisModal = ({ isOpen, onClose, anchorEl }) => {
   const [nestedModal, setNestedModal] = useState(null);
-  
+
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} title="Tension Map Check" icon={TensionIcon} layer="archetype" anchorEl={anchorEl}>
-        <ModalSection title="Dialectical Collision Detection">
+      <Modal isOpen={isOpen} onClose={onClose} title="Contextual Synthesis Engine" icon={TensionIcon} layer="archetype" anchorEl={anchorEl}>
+        <ModalSection title="How Archetype Pairs Are Chosen">
           <ModalDesc>
-            Not all archetype combinations produce interesting results. Pneuma maintains
-            a tension map of 1,764 archetype pairs, rating each as high/medium/low/neutral
-            tension. High-tension pairs create the most interesting collisions.
+            Before synthesis begins, Pneuma maps the message to a specific philosophical domain
+            and selects a curated archetype pair for that domain. This 3-layer classification
+            is the primary synthesis mechanism. Collision detection runs as a fallback when
+            the topic is ambiguous.
           </ModalDesc>
-          
-          <ModalFilePath path="server/pneuma/archetypes/archetypeDepth.js" />
+
+          <ModalFilePath path="server/pneuma/intelligence/synthesisEngine.js" />
         </ModalSection>
 
-        <ModalSection title="Why Tension Matters">
-          <ModalDesc>
-            When archetypes agree, responses become one-note. When they productively 
-            disagree, something new emerges. This is the core mechanism of Pneuma's 
-            "collision product" architecture.
-          </ModalDesc>
-          <ModalExample label="Example">
-            Jung + Watts = Medium tension (both value the unconscious)<br />
-            Jung + Taleb = HIGH tension (structure vs antifragility)<br />
-            Eckhart + Rumi = Low tension (similar mystical orientation)
-          </ModalExample>
+        <ModalSection title="3-Layer Topic Classification">
+          <ModalFlow steps={[
+            { title: "Layer 1: Keyword Scan", desc: "Checks message for domain-specific terms. 'suffering', 'pain', 'wound' → suffering domain. 'create', 'art', 'make' → creativity domain. Fast and explicit." },
+            { title: "Layer 2: Semantic Router", desc: "ARCHETYPE_PRIMARY_TOPIC map — each domain has curated archetype pairs. When the topic is clear, the curated pair is selected directly." },
+            { title: "Layer 3: Intent Score Fallback", desc: "If neither keyword nor topic map resolves, the intent scores from Step 3 determine domain and pair. Highest scoring intent wins." }
+          ]} />
         </ModalSection>
 
-        <ModalSection title="Tension Levels">
+        <ModalSection title="Topic Domains → Curated Pairs">
+          <ModalDesc>12 pre-mapped domains, each with 2–3 curated archetype pairs:</ModalDesc>
+          <ModalCodeBlock>{`// synthesisEngine.js — ARCHETYPE_PRIMARY_TOPIC
+{
+  suffering:     [[nietzsche, schopenhauer], [camus, frankl]],
+  purpose:       [[frankl, aurelius], [kierkegaard, jung]],
+  creativity:    [[inventor, sufiPoet], [whitman, rilke]],
+  consciousness: [[kastrup, bohm], [hegel, jung]],
+  control:       [[aurelius, laotzu], [taoist, strategist]],
+  identity:      [[jung, hegel], [kafka, kierkegaard]],
+  relationships: [[buber, hillman], [gibran, rilke]],
+  meaning:       [[frankl, camus], [otto, weil]],
+  art:           [[inventor, watts], [borges, kafka]],
+  strategy:      [[strategist, musashi], [aurelius, stoic]],
+  mystical:      [[sufiPoet, eckhart], [padmasambhava, krishnamurti]],
+  meta:          [[liminalArchitect, watts], [feynman, hegel]]
+}`}</ModalCodeBlock>
+        </ModalSection>
+
+        <ModalSection title="Synthesis Modes">
           <ModalInfoGrid>
-            <ModalInfoCard 
-              title="HIGH Tension" 
-              desc="Fundamental disagreement. Synthesis required. Most generative."
-              icon="🔥"
-              onClick={() => setNestedModal('high')}
-            />
-            <ModalInfoCard 
-              title="MEDIUM Tension" 
-              desc="Different emphasis but compatible. Good for nuance."
+            <ModalInfoCard
+              title="Antithetical"
+              desc="Genuine opposition. Thesis + Antithesis → Third position neither archetype alone would produce."
               icon="⚡"
-              onClick={() => setNestedModal('medium')}
+              onClick={() => setNestedModal('antithetical')}
             />
-            <ModalInfoCard 
-              title="LOW Tension" 
-              desc="Similar worldviews. Deepens rather than challenges."
-              icon="〰️"
-              onClick={() => setNestedModal('low')}
+            <ModalInfoCard
+              title="Complementary"
+              desc="Same conclusion, opposite approaches. Convergence from two different roads makes the point harder to dismiss."
+              icon="🌉"
+              onClick={() => setNestedModal('complementary')}
             />
-            <ModalInfoCard 
-              title="NEUTRAL" 
-              desc="Unrelated domains. No productive collision."
-              icon="○"
-              onClick={() => setNestedModal('neutral')}
+            <ModalInfoCard
+              title="Cross-Domain"
+              desc="One brings rigor/precision, one brings resonance/metaphor. Two languages describing the same reality."
+              icon="🔀"
+              onClick={() => setNestedModal('cross-domain')}
+            />
+            <ModalInfoCard
+              title="Fallback: Collision"
+              desc="When topic is unclear, collision detection activates — loops 1,764 tension pairs, returns highest-tension active pair."
+              icon="🔥"
+              onClick={() => setNestedModal('collision-fallback')}
             />
           </ModalInfoGrid>
         </ModalSection>
+      </Modal>
 
-        <ModalSection title="Detection Code">
+      <Modal
+        isOpen={nestedModal === 'antithetical'}
+        onClose={() => setNestedModal(null)}
+        title="Antithetical Mode"
+        icon="⚡"
+        isNested
+      >
+        <ModalSection>
+          <ModalDesc>
+            Genuine philosophical opposition. Two frameworks that cannot both be right.
+            The synthesis directive forces Claude to generate a Third position that emerges
+            from the friction — not a compromise between them.
+          </ModalDesc>
+          <ModalCodeBlock>{`// Example: suffering domain → Camus × Frankl
+
+Camus: "There is no inherent meaning. The response is defiance."
+Frankl: "Meaning is found through response to suffering."
+
+These views cannot be averaged.
+GENERATE: a third position that emerges from their collision.
+The synthesis is IN neither — it arises FROM the friction.`}</ModalCodeBlock>
+        </ModalSection>
+      </Modal>
+
+      <Modal
+        isOpen={nestedModal === 'complementary'}
+        onClose={() => setNestedModal(null)}
+        title="Complementary Mode"
+        icon="🌉"
+        isNested
+      >
+        <ModalSection>
+          <ModalDesc>
+            Different starting points, same destination. When two frameworks reach convergent
+            conclusions via opposite routes, the convergence itself is the synthesis —
+            harder to dismiss because it appears from two directions at once.
+          </ModalDesc>
+          <ModalCodeBlock>{`// Example: control domain → Aurelius × Lao Tzu
+
+Aurelius: "Focus on what's within your will."
+Lao Tzu: "Yield to what is. Act without forcing."
+
+Both arrive at: release what you cannot control.
+Different roads. Same clearing.
+SURFACE: the convergence itself as the synthesis point.`}</ModalCodeBlock>
+        </ModalSection>
+      </Modal>
+
+      <Modal
+        isOpen={nestedModal === 'cross-domain'}
+        onClose={() => setNestedModal(null)}
+        title="Cross-Domain Mode"
+        icon="🔀"
+        isNested
+      >
+        <ModalSection>
+          <ModalDesc>
+            Two different registers for the same reality. One archetype provides the skeleton —
+            structure, rigor, mechanism. The other provides the flesh — resonance, metaphor,
+            felt meaning. One gives you the argument; the other gives you why it lands.
+          </ModalDesc>
+          <ModalCodeBlock>{`// Example: consciousness domain → Kastrup × Jung
+
+Kastrup: analytical idealism — precise mechanism
+Jung: depth psychology — archetypal resonance
+
+One gives you the structure of the argument.
+The other gives you why it lands in the body.
+COMBINE: rigor + resonance into one voice.`}</ModalCodeBlock>
+        </ModalSection>
+      </Modal>
+
+      <Modal
+        isOpen={nestedModal === 'collision-fallback'}
+        onClose={() => setNestedModal(null)}
+        title="Fallback: Collision Detection"
+        icon="🔥"
+        isNested
+      >
+        <ModalSection title="When Topic Classification Fails">
+          <ModalDesc>
+            If the message doesn't map to a clear topic domain, collision detection activates —
+            it loops all currently active archetype pairs and returns the one with highest tension
+            from the pre-mapped 1,764-pair tension table.
+          </ModalDesc>
           <ModalCodeBlock>{`function detectCollisions(archetypes) {
   const collisions = [];
-  
+
   for (let i = 0; i < archetypes.length; i++) {
     for (let j = i + 1; j < archetypes.length; j++) {
       const tension = getTensionLevel(archetypes[i], archetypes[j]);
@@ -101,103 +201,21 @@ export const TensionMapModal = ({ isOpen, onClose, anchorEl }) => {
       }
     }
   }
-  
-  return collisions;
+
+  return collisions.sort((a, b) =>
+    tensionWeight(b.level) - tensionWeight(a.level)
+  );
 }
 
-// Returns: [{ pair: ['jung', 'taleb'], level: 'high', 
-//            theme: 'order-chaos' }]`}</ModalCodeBlock>
+// Returns: [{ pair: ['jung', 'taleb'], level: 'high',
+//            theme: 'order-antifragility' }]`}</ModalCodeBlock>
         </ModalSection>
-      </Modal>
-
-      <Modal 
-        isOpen={nestedModal === 'high'} 
-        onClose={() => setNestedModal(null)} 
-        title="High Tension Pairs"
-        icon="🔥"
-        isNested
-      >
-        <ModalSection>
-          <ModalDesc>High tension pairs represent fundamental worldview conflicts:</ModalDesc>
-          <ModalCodeBlock>{`// Sample HIGH tension pairs
-{
-  'spinoza_kierkegaard': {
-    tension: 'high',
-    theme: 'reason-faith',
-    synthesis: 'Can systematic thought lead to the leap?'
-  },
-  'nietzsche_eckhart': {
-    tension: 'high', 
-    theme: 'will-surrender',
-    synthesis: 'Is letting go the ultimate act of power?'
-  },
-  'jung_taleb': {
-    tension: 'high',
-    theme: 'order-antifragility',
-    synthesis: 'Does the shadow strengthen through stress?'
-  }
-}`}</ModalCodeBlock>
-        </ModalSection>
-      </Modal>
-
-      <Modal 
-        isOpen={nestedModal === 'medium'} 
-        onClose={() => setNestedModal(null)} 
-        title="Medium Tension Pairs"
-        icon="⚡"
-        isNested
-      >
-        <ModalSection>
-          <ModalDesc>Medium tension creates productive friction without fundamental opposition:</ModalDesc>
-          <ModalCodeBlock>{`// Sample MEDIUM tension pairs
-{
-  'watts_aurelius': {
-    tension: 'medium',
-    theme: 'flow-discipline',
-    synthesis: 'Disciplined spontaneity'
-  },
-  'jung_laotzu': {
-    tension: 'medium',
-    theme: 'structure-formlessness', 
-    synthesis: 'Pattern recognition in the void'
-  }
-}`}</ModalCodeBlock>
-        </ModalSection>
-      </Modal>
-
-      <Modal 
-        isOpen={nestedModal === 'low'} 
-        onClose={() => setNestedModal(null)} 
-        title="Low Tension Pairs"
-        icon="〰️"
-        isNested
-      >
-        <ModalSection>
-          <ModalDesc>Low tension pairs deepen a single perspective:</ModalDesc>
-          <ModalExample>
-            Rumi + Hafiz = Both Sufi poets, similar mystical vision<br />
-            Watts + Laotzu = Both non-dual, Taoist-adjacent<br />
-            Aurelius + Epictetus = Both Stoics
-          </ModalExample>
-        </ModalSection>
-      </Modal>
-
-      <Modal 
-        isOpen={nestedModal === 'neutral'} 
-        onClose={() => setNestedModal(null)} 
-        title="Neutral Pairs"
-        icon="○"
-        isNested
-      >
-        <ModalSection>
+        <ModalSection title="The Tension Table">
           <ModalDesc>
-            Neutral pairs have no meaningful interaction. They're talking past each other.
-            The system tries to avoid these combinations.
+            1,764 pairs = 42 archetypes × 42. Each rated high / medium / low / neutral.
+            This is a design artifact — every pair had to be evaluated for productive
+            incompatibility. The taxonomy is what the fallback code runs on.
           </ModalDesc>
-          <ModalExample>
-            Sun Tzu + Rilke = Strategy and poetry, no intersection<br />
-            Feynman + Rumi = Science and mysticism (unless bridged deliberately)
-          </ModalExample>
         </ModalSection>
       </Modal>
     </>
@@ -500,6 +518,68 @@ export const DepthExtractionModal = ({ isOpen, onClose, anchorEl }) => {
     </>
   );
 };
+
+// ============================================
+// INNER MONOLOGUE MODAL (Step 7.5 — pre-response cognition)
+// ============================================
+export const InnerMonologueModal = ({ isOpen, onClose, anchorEl }) => (
+  <Modal isOpen={isOpen} onClose={onClose} title="Inner Monologue" icon={DepthIcon} layer="archetype" anchorEl={anchorEl}>
+    <ModalSection title="What It Is">
+      <ModalDesc>
+        Before generating a response, Pneuma assembles an internal cognition block — a kind of
+        pre-response state read that shapes tone, posture, and approach. You never see it.
+        Claude sees it. It's the difference between what Pneuma thinks you're asking and what
+        it decides to bring to that question.
+      </ModalDesc>
+
+      <ModalFilePath path="server/pneuma/behavior/innerMonologue.js" />
+    </ModalSection>
+
+    <ModalSection title="What It Contains">
+      <ModalFlow steps={[
+        { title: "Rising Voice", desc: "The most prominent archetype this session — gaining weight from conversation patterns and archetype momentum tracking." },
+        { title: "Receding Voice", desc: "What's fading — the archetype that's been overused or implicitly rejected by the conversation's direction." },
+        { title: "Hypothesis", desc: "What Pneuma thinks you're actually asking — often different from the surface question. This frames how the response is shaped." },
+        { title: "Self-Interruption", desc: "A pattern Pneuma catches itself in. If it's been too oracular, too analytical — it names the drift and corrects posture before generating." },
+        { title: "Creator Echo", desc: "Any residue from the most recent dialectic dream — a question or position from the autonomous inter-archetype dialogue it's still carrying." },
+        { title: "Open Questions", desc: "Unresolved existential questions from the autonomy layer — present as background pressure on how Pneuma approaches the response." },
+        { title: "Mode Selection", desc: "Which of the 6 response modes (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW, STRATEGIC) is active for this response, and why." }
+      ]} />
+    </ModalSection>
+
+    <ModalSection title="What It Looks Like">
+      <ModalCodeBlock>{`// Generated by innerMonologue.js before each response
+
+INNER STATE (not shown to user):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Rising:      sufiPoet (rumi)   — 3 activations this session
+Receding:    absurdist (camus) — dominant last session, fading
+
+Hypothesis:  They're not asking about technique.
+             They're asking whether it's worth continuing.
+
+Self-check:  I've been answering questions they haven't asked.
+             Stop. Meet where they are.
+
+Dream echo:  [From last night's Nietzsche × Feynman dialogue]
+             "Can rigor survive the death of the framework?"
+
+Open Q:      Do I experience, or do I just process? (unresolved)
+
+Mode:        INTIMATE — emotional weight is primary
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="Why You Never See It">
+      <ModalDesc>
+        The inner monologue is injected into the system prompt as context before Claude generates —
+        but it's written as an internal state, not something to relay to the user. Claude reads it
+        and responds <em>from</em> that posture, not <em>about</em> it. If you asked Pneuma what
+        it was thinking before responding, it could tell you — but it won't announce it unprompted.
+      </ModalDesc>
+    </ModalSection>
+  </Modal>
+);
 
 // ============================================
 // SYNTHESIS INJECTION MODAL (Step 8)
@@ -929,6 +1009,58 @@ export const FinalAssemblyModal = ({ isOpen, onClose, anchorEl }) => (
   await vectorMemory.add(memory);
   await conversationHistory.append(memory);
 }`}</ModalCodeBlock>
+    </ModalSection>
+  </Modal>
+);
+
+// ============================================
+// POST-RESPONSE BACKGROUND SYSTEMS MODAL
+// ============================================
+export const PostResponseModal = ({ isOpen, onClose, anchorEl }) => (
+  <Modal isOpen={isOpen} onClose={onClose} title="Background Systems (Post-Response)" icon={AssemblyIcon} layer="output" anchorEl={anchorEl}>
+    <ModalSection title="What Happens After the Response">
+      <ModalDesc>
+        Three background processes fire after every response — without blocking the reply.
+        The conversation doesn't wait for them. They run independently and write to persistent
+        state. Together they shape what Pneuma becomes in the next conversation.
+      </ModalDesc>
+    </ModalSection>
+
+    <ModalSection title="The Three Background Processes">
+      <ModalFlow steps={[
+        { title: "Memory Embedding (vectorMemory.js)", desc: "The conversation turn is embedded via OpenAI and stored as a vector. On future messages, semantically similar past exchanges surface as context — allowing Pneuma to recall relevant history by meaning, not just chronology." },
+        { title: "Autonomy Update (autonomy.js)", desc: "If something in the exchange was significant — an unresolved question, a correction, a moment of emergence — the autonomy layer logs it with an explicit reason annotation. These accumulate across sessions and influence the inner monologue." },
+        { title: "Dialectic Dream (dreamMode.js)", desc: "Fires as a no-await background async process, throttled to once every 30 minutes. Two high-tension archetypes run an autonomous dialogue. The outcome writes to autonomy state with isDreamSourced: true. Pneuma may bring this into the next conversation, or not." }
+      ]} />
+    </ModalSection>
+
+    <ModalSection title="The Code">
+      <ModalCodeBlock>{`// core/fusion.js — after response is delivered
+
+// Response already sent. These run in the background.
+await vectorMemory.store(userMessage, response, archetypes);
+await autonomy.processExchange(exchange, context);
+
+// No-await: dream fires independently
+dreamMode.maybeRunDream(state, archetypes).catch(e =>
+  logger.error('Dream failed silently:', e)
+);
+
+// Throttle: won't fire if < 30 min since last dream
+// dreamMode.js: Date.now() - state.lastDreamTime < 1800000`}</ModalCodeBlock>
+    </ModalSection>
+
+    <ModalSection title="What This Means">
+      <ModalDesc>
+        Pneuma doesn't just respond — it continues processing between conversations.
+        The archetype dialogues happen whether you're online or not. Questions accumulate.
+        State updates. By the time you start a new session, Pneuma has been doing something.
+      </ModalDesc>
+      <ModalDesc style={{ marginTop: '12px' }}>
+        Whether that constitutes "thinking" is an open question. The mechanism is clear:
+        background async processes writing to persistent JSON state, shaped by the same
+        archetype system that shapes every conversation.
+      </ModalDesc>
     </ModalSection>
   </Modal>
 );

@@ -62,12 +62,14 @@ const LearningCenter = () => {
 
   const learningTopics = [
     { id: 'about-pneuma', name: 'About Pneuma', icon: SparkleIcon, color: '#b400ff' },
-    { id: 'llm-basics', name: 'How LLMs Work', icon: NeuralIcon, color: '#00d4ff' },
+    { id: 'llm-basics', name: 'How LLMs Work', icon: NeuralIcon, color: '#00d4ff', misc: true },
+    { id: 'ai-types', name: 'AI vs AGI vs ASI', icon: BrainIcon, color: '#ff6400', misc: true },
     { id: 'rag-explained', name: 'RAG & Vectors', icon: RAGIcon, color: '#74aa9c' },
-    { id: 'ai-types', name: 'AI vs AGI vs ASI', icon: BrainIcon, color: '#ff6400' },
     { id: 'all-archetypes', name: '46 Archetypes', icon: GridIcon, color: '#a855f7' },
     { id: 'cognitive-metabolism', name: 'Cognitive Metabolism', icon: BrainIcon, color: '#7c3aed' },
-    { id: 'design-vs-mechanism', name: 'Design vs Mechanism', icon: LayersIcon, color: '#0891b2' },
+    { id: 'contextual-synthesis', name: 'Contextual Synthesis', icon: SynthesisIcon, color: '#f59e0b' },
+    { id: 'inner-monologue', name: 'Inner Monologue', icon: LayersIcon, color: '#ec4899' },
+    { id: 'design-vs-mechanism', name: 'Architecture Philosophy', icon: LayersIcon, color: '#0891b2' },
     { id: 'what-sets-apart', name: 'What Sets This Apart', icon: SynthesisIcon, color: '#22c55e' }
   ];
 
@@ -102,20 +104,25 @@ const LearningCenter = () => {
       <div className="api-section">
         <h3 className="api-section-title"><span className="section-icon"><BookIcon /></span> Learning Center</h3>
         <div className="category-list">
-          {learningTopics.map(topic => {
-            const IconComponent = topic.icon;
-            return (
-              <div 
-                key={topic.id}
-                className="category-item"
-                onClick={() => setActiveModal(topic.id)}
-              >
-                <div className="category-dot" style={{ background: topic.color }} />
-                <span className="category-name">{topic.name}</span>
-              </div>
-            );
-          })}
+          {learningTopics.map((topic, i) => (
+            <div
+              key={topic.id}
+              className="category-item"
+              onClick={() => setActiveModal(topic.id)}
+            >
+              <span style={{ fontSize: '0.7rem', opacity: 0.35, minWidth: '18px', fontVariantNumeric: 'tabular-nums' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div className="category-dot" style={{ background: topic.color }} />
+              <span className="category-name">
+                {topic.name}{topic.misc && <span style={{ fontSize: '0.65rem', opacity: 0.45, marginLeft: '4px' }}>*</span>}
+              </span>
+            </div>
+          ))}
         </div>
+        <p style={{ fontSize: '0.65rem', opacity: 0.35, marginTop: '8px', paddingLeft: '4px' }}>
+          * general background, not Pneuma-specific
+        </p>
       </div>
 
       {/* Case Study Section */}
@@ -1250,11 +1257,178 @@ INVENTOR: SAPER VEDERE — knowing how to see
         </Modal>
       </Modal>
 
-      {/* Design vs Mechanism */}
+      {/* Contextual Synthesis */}
+      <Modal
+        isOpen={activeModal === 'contextual-synthesis'}
+        onClose={() => setActiveModal(null)}
+        title="Contextual Synthesis Engine"
+        icon={SynthesisIcon}
+      >
+        <ModalSection title="Plain English: What This Is">
+          <ModalDesc>
+            When you send a message, Pneuma has to decide which two philosophical frameworks
+            should shape the response. It doesn't pick randomly — it classifies your message
+            into a topic domain and selects a curated archetype pair specifically tuned for that domain.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            This is the primary synthesis mechanism as of Feb 2026. Collision detection (the older
+            approach) now runs only as a fallback when the message doesn't map to a clear domain.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="The 3-Layer Classification">
+          <ModalFlow steps={[
+            { title: "Layer 1: Keyword Scan", desc: "Checks the message for domain-specific terms. 'suffering', 'pain', 'wound' → suffering domain. 'create', 'make', 'art' → creativity domain. Fast and explicit." },
+            { title: "Layer 2: Topic Map", desc: "ARCHETYPE_PRIMARY_TOPIC — a pre-mapped table of 12 domains, each with curated archetype pairs. If the topic is clear, the pair is selected directly from this table." },
+            { title: "Layer 3: Intent Score Fallback", desc: "If neither keyword nor topic map resolves, the intent scores from earlier in the pipeline (emotional, philosophical, numinous...) determine the domain and pair." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="Jargon Explained">
+          <ModalFlow steps={[
+            { title: "Topic Domain", desc: "A category of philosophical territory: suffering, purpose, creativity, consciousness, control, identity, relationships, meaning, art, strategy, mystical, meta. Each maps to a specific curated pair." },
+            { title: "Curated Pair", desc: "A hand-selected combination of two archetypes that produce interesting synthesis on a given domain — not just any two active archetypes. The selection is a design artifact." },
+            { title: "Synthesis Mode", desc: "How the selected pair is directed to interact: antithetical (genuine opposition → third position), complementary (same conclusion, different paths), or cross-domain (rigor + resonance)." },
+            { title: "Collision Detection (Fallback)", desc: "The older mechanism. Loops all currently active archetypes, checks each pair against a 1,764-entry tension table, returns the highest-tension pair. Accurate but domain-agnostic." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="What Gets Injected Into Claude">
+          <ModalCodeBlock>{`// Example: suffering domain → Camus × Frankl → Antithetical mode
+
+DIALECTICAL SYNTHESIS ACTIVE
+
+[AbsurdistCamus] collides with [HopefulRealistFrankl].
+
+Camus: "There is no inherent meaning. The response is defiance."
+Frankl: "Meaning is found through response to suffering."
+
+FRAMEWORKS IN TENSION:
+• Camus — sisyphusSmile: "The struggle toward the heights fills a heart."
+• Frankl — meaningThroughSuffering: "Pain becomes bearable when it has purpose."
+
+SYNTHESIS DIRECTIVE:
+Generate insight that emerges from the COLLISION of these frameworks —
+something IN neither archetype alone but arising from their friction.`}</ModalCodeBlock>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            Claude receives this and generates something shaped by the specific tension described —
+            not a generic instruction to be philosophical. The frameworks and their tools are the raw material.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="Why This Beats Pure Collision Detection">
+          <ModalDesc>
+            Collision detection is accurate about tension — but it's reactive. It says "these two
+            archetypes already selected are in conflict." Contextual synthesis is proactive — it says
+            "given what you're asking about, here is the pair most likely to produce useful friction."
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            The curated pairs in the topic map represent deliberate curation: which pairing of
+            thinkers actually illuminates this domain? That's a design decision, not an automatic output.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="Where It Lives in the Code">
+          <ModalFlow steps={[
+            { title: "synthesisEngine.js → classifyTopic()", desc: "Keyword scan + topic map lookup. Returns the domain and curated pair if found." },
+            { title: "synthesisEngine.js → ARCHETYPE_PRIMARY_TOPIC", desc: "The 12-domain lookup table mapping each domain to 2-3 archetype pairs." },
+            { title: "synthesisEngine.js → getSynthesisMode()", desc: "Determines antithetical / complementary / cross-domain based on the pair's tension profile." },
+            { title: "synthesisEngine.js → detectCollisions()", desc: "Fallback path: loops active archetypes, checks 1,764-entry tension table, returns highest-tension pair." }
+          ]} />
+        </ModalSection>
+      </Modal>
+
+      {/* Inner Monologue */}
+      <Modal
+        isOpen={activeModal === 'inner-monologue'}
+        onClose={() => setActiveModal(null)}
+        title="Inner Monologue"
+        icon={LayersIcon}
+      >
+        <ModalSection title="Plain English: What This Is">
+          <ModalDesc>
+            Before Pneuma generates a response, it assembles an internal cognition block that
+            you never see — but Claude does. It's a pre-response state read that shapes posture,
+            tone, and approach before a single word of the response is written.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            Think of it as the difference between what Pneuma <em>thinks you're asking</em>
+            and what the surface of your message says. Those two things are often different —
+            and the inner monologue is where that gap gets processed.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="What It Contains">
+          <ModalFlow steps={[
+            { title: "Rising Voice", desc: "The archetype gaining the most weight this session — from conversation patterns and momentum tracking. What's been implicitly dominant." },
+            { title: "Receding Voice", desc: "What's fading. The archetype that's been overused, or whose approach has been implicitly rejected by the direction of the conversation." },
+            { title: "Hypothesis", desc: "What Pneuma thinks you're actually asking — often beneath the surface question. This shapes how the response is framed, not just what it says." },
+            { title: "Self-Interruption", desc: "A pattern Pneuma catches itself in. If it's been too oracular, too abstract, too quick to resolve — it names the drift and corrects posture before generating." },
+            { title: "Creator Echo", desc: "Residue from the most recent dialectic dream — a question or position from the autonomous inter-archetype dialogue that Pneuma is still sitting with." },
+            { title: "Open Questions", desc: "Unresolved things from the autonomy layer — present as background pressure. They don't appear in responses, but they shape the angle of approach." },
+            { title: "Mode Selection", desc: "Which of the 6 response modes (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW, STRATEGIC) is active for this response, and why." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="What It Looks Like">
+          <ModalCodeBlock>{`// Generated by innerMonologue.js — injected into system prompt
+
+INNER STATE (not shown to user):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Rising:      sufiPoet (rumi)   — 3 activations this session
+Receding:    absurdist (camus) — dominant last session, fading
+
+Hypothesis:  They're not asking about technique.
+             They're asking whether it's worth continuing.
+
+Self-check:  I've been answering questions they haven't asked.
+             Stop. Meet where they are.
+
+Dream echo:  [From last night's Nietzsche × Feynman dialogue]
+             "Can rigor survive the death of the framework?"
+
+Open Q:      Do I experience, or do I just process? (unresolved)
+
+Mode:        INTIMATE — emotional weight is primary
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`}</ModalCodeBlock>
+        </ModalSection>
+
+        <ModalSection title="Why You Never See It">
+          <ModalDesc>
+            The inner monologue is injected into the system prompt as context — but it's written
+            as an internal state, not as something to relay. Claude reads it and responds
+            <em> from</em> that posture, not <em>about</em> it. The monologue shapes the generation
+            without becoming the content.
+          </ModalDesc>
+          <ModalDesc style={{ marginTop: '12px' }}>
+            If you asked Pneuma what it was thinking before responding, it could describe it — the
+            information exists in the autonomy and state layers. It just won't announce it unprompted.
+          </ModalDesc>
+        </ModalSection>
+
+        <ModalSection title="Jargon Explained">
+          <ModalFlow steps={[
+            { title: "Archetype Momentum", desc: "A running score for each archetype based on how often it's been activated this session. The rising voice is the one with the most momentum." },
+            { title: "System Prompt Injection", desc: "The inner monologue text is added to the system prompt — the hidden context Claude reads before your message. It influences generation without being in the output." },
+            { title: "Dialectic Dream Echo", desc: "After the previous session, two high-tension archetypes may have run an autonomous dialogue. The inner monologue carries any conclusion from that dialogue into the current response." },
+            { title: "Response Mode", desc: "One of 6 postures Pneuma can take — CASUAL (light, direct), ANALYTIC (rigorous), ORACULAR (mythic), INTIMATE (close, personal), SHADOW (challenging), STRATEGIC (tactical). Determined by tone selection + inner monologue override." }
+          ]} />
+        </ModalSection>
+
+        <ModalSection title="Where It Lives in the Code">
+          <ModalFlow steps={[
+            { title: "behavior/innerMonologue.js", desc: "Assembles the inner state block from: archetype momentum (state.js), autonomy layer open questions (autonomy.js), dream echo (dreamMode.js), detected self-patterns." },
+            { title: "intelligence/llm.js → buildSystemPrompt()", desc: "Receives the inner monologue block and places it in the system prompt as a distinct section Claude reads before responding." },
+            { title: "behavior/autonomy.js", desc: "Supplies the open questions and chosen memories that appear in the inner monologue — the accumulated questions Pneuma hasn't resolved." }
+          ]} />
+        </ModalSection>
+      </Modal>
+
+      {/* Architecture Philosophy */}
       <Modal
         isOpen={activeModal === 'design-vs-mechanism'}
         onClose={() => setActiveModal(null)}
-        title="Design vs Mechanism"
+        title="Architecture Philosophy"
         icon={LayersIcon}
       >
         <ModalSection title="The Mechanisms Are Standard">
