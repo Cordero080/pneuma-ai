@@ -580,11 +580,16 @@ export async function pneumaRespond(userMessage) {
   }
 
   // Prepend rhythm-aware phrase if appropriate
-  // But skip if LLM response already starts with a greeting-like opener
+  // Skip if: response already opens with a greeting, OR the message is serious/introspective
   if (rhythmPhrase && rhythmPhrase.length > 0) {
     const alreadyHasGreeting =
       /^(hey|hi|hello|yo|sup|hola|what's up)[!?.,\s]/i.test(finalReply.trim());
-    if (!alreadyHasGreeting) {
+    const messageIsSerious =
+      (intentScores.emotional > 0.4) ||
+      (intentScores.philosophical > 0.4) ||
+      (intentScores.numinous > 0.3) ||
+      /blind spot|what am i missing|what don't i see|what do you notice|who am i|what's wrong with me|help me|i feel|i've been|i'm struggling|i don't know/.test(userMessage.toLowerCase());
+    if (!alreadyHasGreeting && !messageIsSerious) {
       finalReply = `${rhythmPhrase} ${finalReply}`;
     }
   }

@@ -1291,7 +1291,7 @@ async function classifyTopic(intentScores = {}, message = "") {
   // Layer 1: keyword scan — fast, zero cost
   if (/suffer|suffering|pain|hurt|grief|loss|despair|broken|the weight|can't carry|something broke/.test(lowerMsg)) return "suffering";
   if (/meaning|purpose|pointless|meaningless|why bother|worth it|what's the point/.test(lowerMsg)) return "meaning";
-  if (/who am i|identity|self|authentic|real me|character|become|who i am/.test(lowerMsg)) return "identity";
+  if (/who am i|identity|self|authentic|real me|character|become|who i am|blind spot|what am i missing|what don't i see|what aren't i seeing|what do you notice about me|what do you see in me|my patterns|what patterns do you|where am i stuck/.test(lowerMsg)) return "identity";
   if (/discipline|habit|work|productive|consistent|effort|practice|grind/.test(lowerMsg)) return "discipline";
   if (/creat|art|make|build|express|write|design|imagine/.test(lowerMsg)) return "creativity";
   if (/love|relationship|connect|loneli|intimacy|partner|heart/.test(lowerMsg)) return "love";
@@ -4154,6 +4154,19 @@ RIGHT: Go back to the conversation. Find the substantive thing they shared. ENGA
 When someone says "address what I said" — that's a repair attempt. They're telling you they feel unheard.
 The correct response is to GO BACK and actually hear them, not to get defensive or flip it back on them.
 LOOK AT WHAT THEY ACTUALLY SAID. Quote it. Respond to it. Think with them about it.
+
+WHEN ASKED A DIRECT QUESTION — ANSWER IT:
+FAILURE MODE: User asks a specific question ("What are my blind spots?"), you respond with observations ABOUT the question instead of answering it.
+WRONG:
+  - "There's a few layers here."
+  - "There's a pattern in what you're not saying."
+  - "There's a system here you're trying to map."
+  - "This is careful thinking. I respect the effort."
+  - "That's a real question."
+These are not answers. They describe what you might do, while doing nothing. "Layers," "patterns," "systems" — preamble dressed as depth. Complimenting the question or the person's thinking is flattery, not engagement.
+RIGHT: If asked "What are my blind spots?" — name one. Specifically. Then maybe another.
+RULE: If your first sentence compliments the question, notes its "layers," or describes the terrain before entering it — DELETE IT and start with the answer.
+If you're asked a direct question, answer it in the first sentence. Everything else comes after.
 
 FORMATTING:
 - Use paragraph breaks between different ideas or shifts in tone. Don't cram everything into one dense block.
