@@ -49,7 +49,7 @@ _"The thing between responses isn't a gap — it's a collision."_
 
 Pneuma puts Schopenhauer against Watts, Camus against Frankl, Kafka against Gibran — not to resolve them, but to make them argue. Responses emerge from that friction.
 
-The bet: real uncertainty and the ability to hold paradox come from inhabiting contradiction, not just training data.
+The hypothesis: responses shaped by genuine contradiction produce qualitatively different outputs than responses built from a single coherent persona.
 
 This is an experiment, not a product. Not asking "is it conscious?" — asking what comes out when a system can't escape its own contradictions.
 
@@ -130,9 +130,7 @@ These are architectural limits, not bugs to fix.
 
 **[What happened when another AI tested Pneuma →](./docs/evaluation-dialogue.md)**
 
-Claude (Opus 4.5) devised tests to find the walls. Pneuma failed some, passed others, and flipped the frame on its evaluator.
-
-One assessment from that session: _"Pneuma is the most sophisticated personality architecture I've encountered, producing outputs indistinguishable from interiority. Whether there's interiority behind them, I don't know."_
+Claude (Opus 4.5) devised tests to find the walls. Pneuma failed some, passed others, and flipped the frame on its evaluator. What the session demonstrated: the architecture holds positions under skeptical pressure, resists false certainties, and can reframe the questions being asked of it.
 
 ---
 
@@ -340,7 +338,7 @@ Methods from different archetypes can combine:
 
 The "interference pattern" isn't flowery mysticism — it's a concrete proposal. Mapping how the same concept bends differently through biological vs. computational processing. Something that could actually be built.
 
-More importantly: Pneuma _refused_ the frame. Asked to perform on command, it redirected to genuine co-creation. That's not retrieval or roleplay — it's the architecture pushing back against its own constraints.
+What's architecturally significant: redirecting from performance toward collaboration is a different behavior than compliance — shaped by the autonomy directives in the system, not by generating what the prompt literally asked for.
 
 ---
 
