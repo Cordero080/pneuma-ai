@@ -1,13 +1,15 @@
 // ------------------------------------------------------------
-// PNEUMA V2 — LONG-TERM MEMORY
+// PNEUMA  — LONG-TERM MEMORY --layer 3
 // Remembers Pablo across sessions, conversations, time
 // ------------------------------------------------------------
 
 import fs from "fs";
 import { LONG_TERM_MEMORY_FILE } from "../../config/paths.js";
+import { getDB } from "../../db.js";
 
-// Use centralized path config
 const memoryPath = LONG_TERM_MEMORY_FILE;
+const COLLECTION = "longTermMemory";
+const DOC_ID = "pablo";
 
 // ============================================================
 // MEMORY STRUCTURE
@@ -70,24 +72,47 @@ const defaultMemory = {
 // LOAD / SAVE
 // ============================================================
 
-export function loadMemory() {
+export async function loadMemory() {
   try {
+    const db = await getDB();
+    const doc = await db.collection(COLLECTION).findOne({ _id: DOC_ID });
+    if (doc) {
+      const { _id, ...memory } = doc;
+      return { ...defaultMemory, ...memory };
+    }
+    // First run: seed from existing JSON file so no data is lost
     if (fs.existsSync(memoryPath)) {
       const raw = fs.readFileSync(memoryPath, "utf8");
-      const loaded = JSON.parse(raw);
-      return { ...defaultMemory, ...loaded };
+      const existing = JSON.parse(raw);
+      await db.collection(COLLECTION).insertOne({ _id: DOC_ID, ...existing });
+      console.log("[Memory] Migrated long-term memory from JSON to MongoDB");
+      return { ...defaultMemory, ...existing };
     }
   } catch (err) {
-    console.warn("[Memory] Failed to load, using default:", err.message);
+    console.warn("[Memory] MongoDB load failed, falling back to file:", err.message);
+    if (fs.existsSync(memoryPath)) {
+      const raw = fs.readFileSync(memoryPath, "utf8");
+      return { ...defaultMemory, ...JSON.parse(raw) };
+    }
   }
   return { ...defaultMemory };
 }
 
-export function saveMemory(memory) {
+export async function saveMemory(memory) {
   try {
-    fs.writeFileSync(memoryPath, JSON.stringify(memory, null, 2), "utf8");
+    const db = await getDB();
+    await db.collection(COLLECTION).replaceOne(
+      { _id: DOC_ID },
+      { _id: DOC_ID, ...memory },
+      { upsert: true }
+    );
   } catch (err) {
-    console.error("[Memory] Failed to save:", err.message);
+    console.error("[Memory] MongoDB save failed, falling back to file:", err.message);
+    try {
+      fs.writeFileSync(memoryPath, JSON.stringify(memory, null, 2), "utf8");
+    } catch (fileErr) {
+      console.error("[Memory] File fallback also failed:", fileErr.message);
+    }
   }
 }
 

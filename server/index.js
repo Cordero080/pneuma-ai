@@ -15,6 +15,7 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import { pneumaRespond } from "./pneuma/core/fusion.js";
+import { connectDB } from "./db.js";
 import { textToSpeech } from "./pneuma/services/tts.js";
 import { initializeArchetypeEmbeddings } from "./pneuma/intelligence/semanticRouter.js";
 import { initializeArchetypeRAG } from "./pneuma/intelligence/archetypeRAG.js";
@@ -364,6 +365,8 @@ app.get("/momentum", (req, res) => {
 // -------------------------- START SERVER ----------------------------
 app.listen(PORT, async () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  // Connect to MongoDB
+  await connectDB();
   // Initialize Semantic Router (load embeddings)
   await initializeArchetypeEmbeddings();
   // Initialize Archetype RAG (deep knowledge retrieval)

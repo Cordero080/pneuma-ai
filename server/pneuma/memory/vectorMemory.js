@@ -1,66 +1,50 @@
 // ============================================================
 // PNEUMA — VECTOR MEMORY SYSTEM
-// Purpose: Long-term semantic memory using ChromaDB + OpenAI Embeddings
+// Purpose: Semantic memory using MongoDB + OpenAI Embeddings
 // Input: User messages, Pneuma responses
 // Output: Relevant past context based on semantic similarity
 // ============================================================
 
 import { OpenAI } from "openai";
-import { ChromaClient } from "chromadb";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-// Initialize OpenAI for embeddings
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-// Initialize ChromaDB client (expects local server running or embedded)
-// For Node.js, we might need to run the chroma docker container or use a simpler local vector store if docker isn't an option.
-// Since we want to keep it simple and local without Docker for now,
-// we will use a lightweight in-memory vector store pattern if Chroma isn't running,
-// BUT for this implementation, we'll assume we want to use the 'chromadb' package we just installed.
-// NOTE: The JS 'chromadb' package is a CLIENT. It needs a Chroma server running.
-// If you don't have Docker, we should switch to a pure-JS local vector store like 'vector-storage' or 'hnswlib-node'.
-//
-// LET'S PIVOT TO A PURE JS SOLUTION TO AVOID DOCKER REQUIREMENT:
-// We will use a simple JSON-based vector store for now to get started immediately without infrastructure.
-// It's not as scalable as Chroma, but it works for a single user perfectly.
-
 import fs from "fs";
-import {
-  VECTOR_MEMORY_FILE,
-  DATA_DIR,
-  ensureDataDirectory,
-} from "../../config/paths.js";
+import { VECTOR_MEMORY_FILE, ensureDataDirectory } from "../../config/paths.js";
+import { getDB } from "../../db.js";
 
-// Use centralized path config
-const MEMORY_FILE = VECTOR_MEMORY_FILE;
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const COLLECTION = "vectorMemory";
 
-// Ensure data directory exists
 ensureDataDirectory();
 
-// Load memory from disk
-let memoryStore = [];
-if (fs.existsSync(MEMORY_FILE)) {
+// One-time migration: seed from existing JSON file if collection is empty
+async function migrateFromJSON() {
   try {
-    memoryStore = JSON.parse(fs.readFileSync(MEMORY_FILE, "utf8"));
-  } catch (e) {
-    console.error("Failed to load vector memory:", e);
-    memoryStore = [];
+    const db = await getDB();
+    const count = await db.collection(COLLECTION).countDocuments();
+    if (count > 0) return; // Already migrated
+
+    if (!fs.existsSync(VECTOR_MEMORY_FILE)) return;
+
+    const existing = JSON.parse(fs.readFileSync(VECTOR_MEMORY_FILE, "utf8"));
+    if (!existing.length) return;
+
+    await db.collection(COLLECTION).insertMany(existing);
+    console.log(
+      `[VectorMemory] Migrated ${existing.length} memories from JSON to MongoDB`
+    );
+  } catch (err) {
+    console.warn("[VectorMemory] Migration skipped:", err.message);
   }
 }
 
+migrateFromJSON();
+
 /**
  * Generates an embedding vector for a given text using OpenAI.
- * @param {string} text
- * @returns {Promise<number[]>}
  */
 export async function getEmbedding(text) {
   try {
     const response = await openai.embeddings.create({
-      model: "text-embedding-3-small", // Cheap, fast, good enough
+      model: "text-embedding-3-small",
       input: text,
     });
     return response.data[0].embedding;
@@ -71,10 +55,7 @@ export async function getEmbedding(text) {
 }
 
 /**
- * Calculates cosine similarity between two vectors.
- * @param {number[]} vecA
- * @param {number[]} vecB
- * @returns {number} - Similarity score (-1 to 1)
+ * Cosine similarity — kept for brute-force fallback before index is created.
  */
 export function cosineSimilarity(vecA, vecB) {
   const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
@@ -84,72 +65,113 @@ export function cosineSimilarity(vecA, vecB) {
 }
 
 /**
- * Saves a memory to the vector store.
- 
+ * Saves a memory to MongoDB.
  */
 export async function saveMemory(text, metadata = {}) {
-  if (!text || text.length < 10) return; // Skip short noise
+  if (!text || text.length < 10) return;
 
   const embedding = await getEmbedding(text);
   if (!embedding) return;
 
-  const memory = {
-    id: Date.now().toString(),
-    text,
-    embedding,
-    metadata: {
-      ...metadata,
-      timestamp: Date.now(),
-    },
-  };
-
-  memoryStore.push(memory);
-
-  // Persist to disk (simple append-like behavior for now)
-  fs.writeFileSync(MEMORY_FILE, JSON.stringify(memoryStore, null, 2));
-  console.log(`[Memory] Saved: "${text.substring(0, 30)}..."`);
+  try {
+    const db = await getDB();
+    await db.collection(COLLECTION).insertOne({
+      id: Date.now().toString(),
+      text,
+      embedding,
+      metadata: { ...metadata, timestamp: Date.now() },
+    });
+    console.log(`[VectorMemory] Saved: "${text.substring(0, 30)}..."`);
+  } catch (err) {
+    console.error("[VectorMemory] Save failed:", err.message);
+  }
 }
 
 /**
- * Retrieves relevant memories for a given query.
- 
+ * Retrieves relevant memories using Atlas Vector Search.
+ * Falls back to brute-force cosine similarity until the index is created.
  */
 export async function retrieveMemories(query, limit = 5) {
   const queryEmbedding = await getEmbedding(query);
   if (!queryEmbedding) return [];
 
-  // Calculate similarity for all memories
-  const scoredMemories = memoryStore.map((mem) => ({
-    ...mem,
-    score: cosineSimilarity(queryEmbedding, mem.embedding),
-  }));
+  try {
+    const db = await getDB();
 
-  // Sort by score (descending) and filter by threshold
-  const relevant = scoredMemories
-    .filter((mem) => mem.score > 0.35) // Lowered threshold for broader recall
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit);
+    const results = await db
+      .collection(COLLECTION)
+      .aggregate([
+        {
+          $vectorSearch: {
+            index: "vectorIndex",
+            path: "embedding",
+            queryVector: queryEmbedding,
+            numCandidates: limit * 10,
+            limit,
+          },
+        },
+        {
+          $project: {
+            text: 1,
+            metadata: 1,
+            score: { $meta: "vectorSearchScore" },
+          },
+        },
+      ])
+      .toArray();
 
-  return relevant.map((r) => ({
-    text: r.text,
-    score: r.score,
-    timestamp: r.metadata.timestamp,
-  }));
+    return results
+      .filter((r) => r.score > 0.35)
+      .map((r) => ({
+        text: r.text,
+        score: r.score,
+        timestamp: r.metadata?.timestamp,
+      }));
+  } catch (err) {
+    // Index not created yet in Atlas UI — brute-force fallback
+    console.warn(
+      "[VectorMemory] Vector index not ready, using brute-force fallback"
+    );
+    return await bruteForceRetrieve(queryEmbedding, limit);
+  }
 }
 
 /**
- * Checks the health of the memory system.
- * Returns stats and a warning if it's time to upgrade to a DB.
+ * Brute-force fallback: fetches all docs and computes cosine in JS.
+ * Used until Atlas vector index is created.
  */
-export function getMemoryStats() {
-  const count = memoryStore.length;
-  // Threshold: 500 memories is a good point to start thinking about a DB
-  // (JSON parsing gets slower, file gets bigger)
-  const threshold = 500;
+async function bruteForceRetrieve(queryEmbedding, limit) {
+  try {
+    const db = await getDB();
+    const docs = await db
+      .collection(COLLECTION)
+      .find({}, { projection: { text: 1, embedding: 1, metadata: 1 } })
+      .toArray();
 
-  return {
-    count,
-    threshold,
-    isOverloaded: count > threshold,
-  };
+    return docs
+      .map((doc) => ({
+        text: doc.text,
+        score: cosineSimilarity(queryEmbedding, doc.embedding),
+        timestamp: doc.metadata?.timestamp,
+      }))
+      .filter((r) => r.score > 0.35)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit);
+  } catch (err) {
+    console.error("[VectorMemory] Brute-force fallback failed:", err.message);
+    return [];
+  }
+}
+
+/**
+ * Returns memory count from MongoDB.
+ */
+export async function getMemoryStats() {
+  try {
+    const db = await getDB();
+    const count = await db.collection(COLLECTION).countDocuments();
+    return { count, threshold: 500, isOverloaded: count > 500 };
+  } catch {
+    return { count: 0, threshold: 500, isOverloaded: false };
+  }
 }
