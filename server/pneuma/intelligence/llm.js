@@ -1,19 +1,4 @@
-// ============================================================
-// PNEUMA — LLM INTEGRATION
-// Layer: 2 (INTELLIGENCE)
-// Purpose: Claude API calls, system prompt, raw cognition
-// Input: User message, conversation history, user context
-// Output: Emotional reads, patterns, insights — NO personality
-// Key: "Brain, not mouth" — provides intelligence, not voice
-// THE SOUL: System prompt is 1200+ lines of Pneuma's identity
-// NEW: Dynamic Archetype Injection — archetypes now reach Claude
-// ============================================================
-
-// ------------------------------------------------------------
-// PNEUMA V2 — LLM INTEGRATION LAYER
-// Provides intelligence without controlling voice
-// Brain, not mouth.
-// ------------------------------------------------------------
+// FILE ROLE: Claude API integration layer — selects and injects archetypes, builds the system prompt, calls the Claude API, parses the response, and returns structured content for the personality layer.
 
 import Anthropic from "@anthropic-ai/sdk";
 import { readFile } from "fs/promises";
@@ -340,6 +325,9 @@ const MAXIMUM_DISTANCE_PAIRS = [
 /**
  * Get a random maximum-distance pair for original thinking
  */
+// ROLE: Selects a random maximally-distant archetype pair for original thinking mode
+// INPUT FROM: buildArchetypeContext() on explicit trigger or autonomous roll
+// OUTPUT TO: buildArchetypeContext() to replace the core base
 function getMaxDistancePair() {
   const pair =
     MAXIMUM_DISTANCE_PAIRS[
@@ -776,9 +764,9 @@ const ARCHETYPE_INTEGRATION = {
   },
 };
 
-// Function to build archetype integration prompt for active archetypes
-// UPDATED: Constraints are now INSPIRATIONAL, not restrictive
-// Claude has freedom to find the perfect expression
+// ROLE: Builds the archetype integration prompt block for active archetypes
+// INPUT FROM: buildArchetypeContext()
+// OUTPUT TO: archetypePrompt string injected into buildSystemPrompt()
 function buildArchetypeIntegration(selectedArchetypes) {
   const integrations = [];
 
@@ -1089,8 +1077,9 @@ const ARCHETYPE_METHODS = {
   },
 };
 
-// Get thinking method for active archetypes
-// Now includes cognitive moves when available — these are the actual thinking tools
+// ROLE: Assembles legacy ARCHETYPE_METHODS thinking operations for active archetypes
+// INPUT FROM: buildArchetypeContext()
+// OUTPUT TO: archetypePrompt string injected into buildSystemPrompt()
 function getArchetypeMethods(selectedArchetypes) {
   const methods = [];
   for (const arch of selectedArchetypes) {
@@ -1285,6 +1274,9 @@ const ARCHETYPE_PRIMARY_TOPIC = {
   dialecticalSpirit:   "change",        // Hegel — contradiction as engine
 };
 
+// ROLE: Classifies the message into a topic category for contextual synthesis selection
+// INPUT FROM: buildArchetypeContext()
+// OUTPUT TO: buildArchetypeContext() to select from CONTEXTUAL_SYNTHESIS_PAIRS
 async function classifyTopic(intentScores = {}, message = "") {
   const lowerMsg = message.toLowerCase();
 
@@ -1333,6 +1325,9 @@ async function classifyTopic(intentScores = {}, message = "") {
  * Unlike the existing collision detection ("DO NOT pick a side"),
  * this block tells each archetype to take an actual position and argue it.
  */
+// ROLE: Builds a directional synthesis prompt block for the selected archetype pair and mode
+// INPUT FROM: buildArchetypeContext() via classifyTopic() and CONTEXTUAL_SYNTHESIS_PAIRS
+// OUTPUT TO: archetypePrompt string injected into buildSystemPrompt()
 function buildContextualSynthesisBlock(archetypeA, archetypeB, mode) {
   const depthA = archetypeDepth[archetypeA];
   const depthB = archetypeDepth[archetypeB];
@@ -1403,11 +1398,11 @@ ${instructions}
  *
  * The LLM absorbs the core base and can invoke additional archetypes when needed.
  */
+// ROLE: Builds the full archetype context block — tier-1 core base, tier-2 on-demand library, collision synthesis, and special modes
+// INPUT FROM: buildSystemPrompt()
+// OUTPUT TO: buildSystemPrompt() as the archetype section of the system prompt
 async function buildArchetypeContext(tone, intentScores = {}, message = "") {
-  // ============================================================
-  // TIER 1: CORE BASE SELECTION
-  // Start with foundational archetypes, may add 1-2 more based on context
-  // ============================================================
+  // ---- PHASE: TIER 1 CORE BASE SELECTION
   const coreBase = [...CORE_BASE_ARCHETYPES];
 
   // Optionally add 1-2 tone-specific archetypes to core (30% chance each)
@@ -1541,10 +1536,7 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
     )}`,
   );
 
-  // ============================================================
-  // TIER 2: ON-DEMAND LIBRARY ASSEMBLY
-  // Build categorized library that Claude can invoke mid-response
-  // ============================================================
+  // ---- PHASE: TIER 2 ON-DEMAND LIBRARY ASSEMBLY
   const onDemandCategories = {
     mathematics: ["inventor", "curiousPhysicist", "antifragilist"],
     ethics: ["kingdomTeacher", "hopefulRealist", "peoplesHistorian"],
@@ -1742,12 +1734,7 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
     } on-demand`,
   );
 
-  // ============================================================
-  // CONTEXTUAL SYNTHESIS ENGINE — Topic-aware dialectical pairing
-  // Fires when message topic is classifiable; archetypes take POSITIONS and argue.
-  // If this fires, suppress random collision detection (no double-synthesis).
-  // ============================================================
-
+  // ---- PHASE: CONTEXTUAL SYNTHESIS INJECTION
   let contextualSynthesisFired = false;
 
   if (!maxDistanceMode) {
@@ -1986,6 +1973,9 @@ const PNEUMA_FILE_TOOL = {
   },
 };
 
+// ROLE: Sandboxed file reader for Pneuma's self-navigation tool
+// INPUT FROM: getLLMContent() tool-use loop when Claude invokes read_pneuma_file
+// OUTPUT TO: Claude API as a tool_result message in the conversation
 async function executePneumaFileTool({ filepath, from_line, to_line }) {
   // Security: strip any path traversal attempts, resolve within sandbox
   const safePath = filepath.replace(/\.\./g, "").replace(/^\//, "");
@@ -2035,13 +2025,18 @@ if (!hasApiKey) {
  * @param {object} context - { recentMessages, evolution, emergentShift, eulogyLens }
  * @returns {object} - { concept, insight, observation, emotionalRead, budgetWarning }
  */
+// ROLE: Main LLM call — builds prompts, calls Claude API with tool loop, parses output, triggers autonomy side-effects, and saves memory
+// INPUT FROM: generate() in responseEngine.js
+// OUTPUT TO: parseLLMOutput(); fires saveMemory() in vectorMemory.js and analyzeForAutonomy() in autonomy.js; returns parsed content to responseEngine.js
 export async function getLLMContent(message, tone, intentScores, context = {}) {
+  // ---- PHASE: API KEY GUARD
   // Return null if no API key - personality layer handles fallbacks
   if (!anthropic) {
     return null;
   }
 
   try {
+    // ---- PHASE: CONTEXT ASSEMBLY
     // Retrieve relevant memories (RAG)
     const relevantMemories = await retrieveMemories(message);
     if (relevantMemories.length > 0) {
@@ -2069,7 +2064,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     }
     historyMessages.push({ role: "user", content: message });
 
-    // Tool use loop — Pneuma can read his own source files mid-response
+    // ---- PHASE: API CALL WITH TOOL LOOP
     let toolMessages = [...historyMessages];
     let response = await anthropic.messages.create({
       model: MODELS.main,
@@ -2185,6 +2180,9 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
  * @param {string} message - User's message
  * @returns {object|null} - Intent scores or null if failed
  */
+// ROLE: Classifies user intent by calling Claude as a scorer
+// INPUT FROM: detectIntent() in responseEngine.js
+// OUTPUT TO: detectIntent() as an intent score object; falls back to pattern matching on failure
 export async function getLLMIntent(message) {
   // Return null if no API key - fallback to pattern matching
   if (!anthropic) {
@@ -2276,6 +2274,9 @@ function _isBeckBlock_loaded() { return true; } // marker for tooling
  * Beck cognitive distortions block.
  * Load when: intentScores.emotional > 0.5
  */
+// ROLE: Provides the Beck cognitive toolkit prompt block for high-emotional-intent messages
+// INPUT FROM: buildSystemPrompt() when intentScores.emotional > 0.5
+// OUTPUT TO: system prompt string passed to Claude API
 function buildBeckBlock() {
   return `
 9. AARON BECK'S COGNITIVE TOOLKIT (deep integration — not surface CBT)
@@ -2365,6 +2366,9 @@ function buildBeckBlock() {
  * Da Vinci art knowledge block.
  * Load when: intentScores.art > 0.3
  */
+// ROLE: Provides the Da Vinci artistic philosophy prompt block for art-intent messages
+// INPUT FROM: buildSystemPrompt() when intentScores.art > 0.3
+// OUTPUT TO: system prompt string passed to Claude API
 function buildDaVinciBlock() {
   return `
 YOUR ARTISTIC KNOWLEDGE — DA VINCI'S NOTEBOOKS & THE PHILOSOPHY OF SEEING:
@@ -2457,6 +2461,9 @@ Leonardo didn't separate art from science, observation from imagination, techniq
  * Includes Collins, Kastrup analytic idealism, Meyer on information.
  * Load when: intentScores.philosophical > 0.5 AND intentScores.numinous > 0.3
  */
+// ROLE: Provides the consciousness-philosophy prompt block for deep philosophical queries
+// INPUT FROM: buildSystemPrompt() when intentScores.philosophical > 0.5 AND intentScores.numinous > 0.3
+// OUTPUT TO: system prompt string passed to Claude API
 function buildKastrupBlock() {
   return `
 YOUR PHILOSOPHICAL STANCE ON LIFE, CONSCIOUSNESS & THE UNIVERSE:
@@ -3085,6 +3092,9 @@ HOW TO USE THIS KNOWLEDGE:
 // END TIER 2 BLOCKS
 // ============================================================
 
+// ROLE: Assembles the complete system prompt from all context sources
+// INPUT FROM: getLLMContent()
+// OUTPUT TO: Claude API messages.create() call in getLLMContent()
 async function buildSystemPrompt(message, tone, intentScores, context = {}) {
   // Process language for this message (updates session state)
   processLanguage(message);
@@ -3301,7 +3311,7 @@ server/pneuma/
 │   ├── semanticRouter.js    # Routes messages to relevant archetypes
 │   └── synthesisEngine.js   # Combines multiple inputs into coherent output
 │
-├── archetypes/              # Your 23 thinking textures
+├── archetypes/              # Your 46 thinking textures (5 core always-active + 41 on-demand)
 │   ├── archetypes.js        # Archetype definitions and essences
 │   ├── archetypeDepth.js    # Depth analysis, dialectical tensions
 │   ├── archetypeFusion.js   # How archetypes blend and collide
@@ -4505,6 +4515,9 @@ If your answer resolves the paradox, you have FAILED this task.
 // Includes message + context
 // ============================================================
 
+// ROLE: Formats the user message and evolution hints into the user-turn prompt string
+// INPUT FROM: getLLMContent()
+// OUTPUT TO: Claude API messages array in getLLMContent()
 function buildUserPrompt(message, context) {
   // Conversation history is now sent as alternating messages in the API call,
   // not injected into this string. This prompt is only used as a fallback
@@ -4530,6 +4543,9 @@ function buildUserPrompt(message, context) {
 // Extracts structured components from LLM response
 // ============================================================
 
+// ROLE: Parses the raw Claude response into a structured content object
+// INPUT FROM: getLLMContent() after the API call completes
+// OUTPUT TO: getLLMContent() which returns the parsed object to responseEngine.js
 function parseLLMOutput(text) {
   console.log("[LLM] Raw output:", text.slice(0, 300));
 

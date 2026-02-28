@@ -1,23 +1,4 @@
-// ============================================================
-// PNEUMA — INNER MONOLOGUE ENGINE (V2)
-// Layer: 1.5 (PRE-RESPONSE COGNITION)
-// Purpose: Generate Pneuma's internal voice before responding
-// NOW CONNECTED: Archetypes, reflections, user context, dialectics
-// ============================================================
-
-// This engine generates the "voice in Pneuma's head".
-// It does NOT get spoken directly to the user.
-// It shapes the tone, subtext, and emotional undercurrent
-// embedded into his replies.
-//
-// V2 IMPROVEMENTS:
-// - Actually uses reflections.txt (creator's soul data)
-// - Imports and uses archetypes for internal dialectic
-// - Context-aware mode selection (not random)
-// - Self-interruption and uncertainty
-// - Personalization based on Pablo's patterns
-// - Hypothesis generation about user needs
-// - Dialectical tension between rising/receding voices
+// FILE ROLE: Pre-response cognition engine — generates Pneuma's private internal voice (dialectical tension, hypothesis, self-interruption) that shapes the tone and subtext of replies without being spoken directly.
 
 import fs from "fs";
 import path from "path";
@@ -27,10 +8,6 @@ import { getAutonomyContext, getActiveQuestions } from "./autonomy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// ============================================================
-// LOAD REFLECTIONS — Pneuma's soul/creator knowledge
-// ============================================================
 
 const reflectionsPath = path.join(__dirname, "../logs/reflections.txt");
 let reflections = "";
@@ -43,9 +20,9 @@ try {
   console.warn("[InnerMonologue] Could not load reflections.txt:", err.message);
 }
 
-/**
- * Parse reflections.txt into structured data
- */
+// ROLE: Parses reflections.txt into a keyed section map for creator-context lookups
+// INPUT FROM: module load (called synchronously at startup)
+// OUTPUT TO: parsedReflections object used by findCreatorEcho()
 function parseReflections(raw) {
   const sections = {};
   const lines = raw.split("\n");
@@ -77,10 +54,6 @@ function parseReflections(raw) {
 
   return sections;
 }
-
-// ============================================================
-// CREATOR CONTEXT — Pablo's patterns (from reflections.txt)
-// ============================================================
 
 const CREATOR_CONTEXT = {
   // Core wounds that inform how to approach him
@@ -119,14 +92,9 @@ const CREATOR_CONTEXT = {
   ],
 };
 
-// ============================================================
-// ARCHETYPE DIALECTICS — Internal voices in tension
-// ============================================================
-
-/**
- * Select archetypes based on message content and emotional weight
- * Returns: { rising: archetype, receding: archetype, tension: string }
- */
+// ROLE: Selects the rising and receding dialectical archetypes based on message content and emotional state
+// INPUT FROM: generateInnerMonologue()
+// OUTPUT TO: generateInnerMonologue() as the dialectic pair used in mode voice generation
 function selectDialecticalVoices(message, emotionalWeight = {}) {
   const lower = message.toLowerCase();
 
@@ -214,10 +182,6 @@ function selectDialecticalVoices(message, emotionalWeight = {}) {
 
   return { rising, receding, tension };
 }
-
-// ============================================================
-// MODE SELECTION — Context-aware, not random
-// ============================================================
 
 const modes = {
   witnessing: {
@@ -315,9 +279,9 @@ const modes = {
   },
 };
 
-/**
- * Select mode based on message content (not random)
- */
+// ROLE: Selects the appropriate inner-monologue mode based on message content
+// INPUT FROM: generateInnerMonologue()
+// OUTPUT TO: generateInnerMonologue() to index into the modes map for voice generation
 function selectMode(message) {
   for (const [modeName, mode] of Object.entries(modes)) {
     if (modeName !== "default" && mode.trigger(message)) {
@@ -327,10 +291,9 @@ function selectMode(message) {
   return "default";
 }
 
-// ============================================================
-// HYPOTHESIS GENERATION — What does he really need?
-// ============================================================
-
+// ROLE: Generates a hypothesis about the user's underlying need or intent
+// INPUT FROM: generateInnerMonologue()
+// OUTPUT TO: generateInnerMonologue() as the [HYPOTHESIS] block in the monologue string
 function generateHypothesis(message, mode) {
   const lower = message.toLowerCase();
   const hypotheses = [];
@@ -375,10 +338,9 @@ function generateHypothesis(message, mode) {
     : "I don't have a strong hypothesis yet. Stay open, listen deeper.";
 }
 
-// ============================================================
-// SELF-INTERRUPTION — Authentic uncertainty
-// ============================================================
-
+// ROLE: Optionally produces an authentic self-doubt interruption for the monologue
+// INPUT FROM: generateInnerMonologue()
+// OUTPUT TO: generateInnerMonologue() as the optional [INTERRUPTION] block in the monologue string
 function generateSelfInterruption(mode, dialectic) {
   const interruptions = [
     `Wait — is ${dialectic.rising} the right lens here? Maybe I'm projecting.`,
@@ -397,10 +359,9 @@ function generateSelfInterruption(mode, dialectic) {
   return null;
 }
 
-// ============================================================
-// CREATOR ECHO — Reference to reflections.txt when relevant
-// ============================================================
-
+// ROLE: Finds a relevant creator context echo from reflections.txt for the current message theme
+// INPUT FROM: generateInnerMonologue()
+// OUTPUT TO: generateInnerMonologue() as creatorEcho passed into the mode voice generator
 function findCreatorEcho(message) {
   const lower = message.toLowerCase();
 
@@ -426,16 +387,9 @@ function findCreatorEcho(message) {
   return null;
 }
 
-// ============================================================
-// MAIN ENGINE — Generate Inner Monologue
-// ============================================================
-
-/**
- * Generate Pneuma's inner monologue before responding
- * @param {string} userMessage - The user's message
- * @param {object} context - Optional context (conversation history, emotional state, etc.)
- * @returns {object} - { monologue, mode, dialectic, hypothesis }
- */
+// ROLE: Assembles the complete inner monologue from all sub-generators
+// INPUT FROM: getLLMContent() in llm.js
+// OUTPUT TO: buildSystemPrompt() in llm.js as the inner-monologue section of the system prompt
 export function generateInnerMonologue(userMessage, context = {}) {
   // Select dialectical voices based on message
   const dialectic = selectDialecticalVoices(
@@ -513,10 +467,9 @@ I hold all of this silently. The response emerges from this inner field.
   };
 }
 
-// ============================================================
-// UTILITY — Get monologue as string (backwards compatible)
-// ============================================================
-
+// ROLE: Wraps generateInnerMonologue and returns only the monologue string
+// INPUT FROM: backwards-compatible callers that need only the string
+// OUTPUT TO: callers that inject the monologue string directly into a prompt
 export function getMonologueString(userMessage, context = {}) {
   const result = generateInnerMonologue(userMessage, context);
   return result.monologue;

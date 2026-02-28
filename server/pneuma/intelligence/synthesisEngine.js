@@ -1,10 +1,4 @@
-// ============================================================
-// PNEUMA — SYNTHESIS ENGINE (Dialectical Cognition)
-// Layer: 2 (INTELLIGENCE)
-// Purpose: Collision detection + forced emergence between archetypes
-// Input: Active archetypes, user message, intent
-// Output: Dialectical synthesis, hybrid lenses, emergent insights
-// ============================================================
+// FILE ROLE: Dialectical cognition library — detects tension between active archetypes, generates collision-based synthesis data, and formats it as prompt blocks for injection into the LLM system prompt.
 
 import {
   archetypeDepth,
@@ -15,15 +9,9 @@ import {
   getConceptualBridges,
 } from "../archetypes/archetypeDepth.js";
 
-// ============================================================
-// COLLISION DETECTION
-// ============================================================
-
-/**
- * Detect when multiple archetypes create productive tension
- * @param {string[]} activeArchetypes - Currently active archetype names
- * @returns {object} - Collision analysis
- */
+// ROLE: Identifies the highest-tension archetype pair among all active archetypes
+// INPUT FROM: buildArchetypeContext() in llm.js and getMinimalInjection()
+// OUTPUT TO: buildArchetypeContext(), getMinimalInjection(), synthesizeResponse()
 export function detectCollisions(activeArchetypes) {
   if (activeArchetypes.length < 2) {
     return { hasCollision: false, pairs: [], highestTension: null };
@@ -55,17 +43,9 @@ export function detectCollisions(activeArchetypes) {
   };
 }
 
-// ============================================================
-// SYNTHESIS GENERATION
-// ============================================================
-
-/**
- * Generate dialectical synthesis from archetype collision
- * @param {string} a - First archetype
- * @param {string} b - Second archetype
- * @param {string} topic - The topic/question being discussed
- * @returns {object} - Synthesis data for LLM injection
- */
+// ROLE: Builds dialectical synthesis data for a given archetype pair
+// INPUT FROM: buildSynthesisContext(), getMinimalInjection()
+// OUTPUT TO: buildSynthesisContext() for full prompt formatting or getMinimalInjection() for compact formatting
 export function generateSynthesis(a, b, topic) {
   const depthA = archetypeDepth[a];
   const depthB = archetypeDepth[b];
@@ -116,11 +96,9 @@ export function generateSynthesis(a, b, topic) {
   };
 }
 
-/**
- * Build synthesis context for LLM injection
- * @param {object} synthesis - Output from generateSynthesis
- * @returns {string} - Formatted synthesis context
- */
+// ROLE: Formats a synthesis object into the full verbose prompt block for LLM injection
+// INPUT FROM: buildArchetypeContext() in llm.js
+// OUTPUT TO: archetypePrompt string in buildArchetypeContext() → buildSystemPrompt()
 export function buildSynthesisContext(synthesis) {
   if (!synthesis) return "";
 
@@ -190,16 +168,9 @@ a new lens that holds the tension productively.
   return context;
 }
 
-// ============================================================
-// HYBRID LENS GENERATION
-// ============================================================
-
-/**
- * Generate a hybrid conceptual lens from two archetypes
- * @param {string} a - First archetype
- * @param {string} b - Second archetype
- * @returns {object} - Hybrid lens data
- */
+// ROLE: Generates a hybrid conceptual lens by combining two archetypes' cognitive tools
+// INPUT FROM: buildArchetypeContext() in llm.js
+// OUTPUT TO: callers that inject the hybrid lens into synthesis or prompt context
 export function generateHybridLens(a, b) {
   const depthA = archetypeDepth[a];
   const depthB = archetypeDepth[b];
@@ -245,15 +216,9 @@ export function generateHybridLens(a, b) {
   };
 }
 
-// ============================================================
-// DYNAMIC INJECTION HELPERS
-// ============================================================
-
-/**
- * Get minimal injection data for active archetypes (token-efficient)
- * @param {string[]} activeArchetypes - Currently active archetype names
- * @returns {object} - Minimal data for injection
- */
+// ROLE: Produces a token-efficient summary of active archetypes and their highest-tension collision
+// INPUT FROM: buildArchetypeContext() in llm.js
+// OUTPUT TO: buildCompactSynthesisContext()
 export function getMinimalInjection(activeArchetypes) {
   const data = {
     archetypes: [],
@@ -295,11 +260,9 @@ export function getMinimalInjection(activeArchetypes) {
   return data;
 }
 
-/**
- * Build compact synthesis context for LLM (token-efficient)
- * @param {object} minimalData - Output from getMinimalInjection
- * @returns {string} - Compact formatted context
- */
+// ROLE: Formats minimal injection data into a compact prompt block for token-efficient LLM injection
+// INPUT FROM: getMinimalInjection()
+// OUTPUT TO: archetypePrompt string in buildArchetypeContext() → buildSystemPrompt()
 export function buildCompactSynthesisContext(minimalData) {
   if (!minimalData.archetypes.length) return "";
 
@@ -626,21 +589,14 @@ export const exampleSyntheses = {
   },
 };
 
-/**
- * Get example synthesis if one exists
- * @param {string} a - First archetype
- * @param {string} b - Second archetype
- * @returns {object|null} - Example synthesis or null
- */
+// ROLE: Looks up a pre-computed synthesis insight for a known archetype pair
+// INPUT FROM: synthesizeResponse() and buildArchetypeContext() in llm.js
+// OUTPUT TO: callers that optionally inject the pre-computed insight into the response
 export function getExampleSynthesis(a, b) {
   const key1 = `${a}_${b}`;
   const key2 = `${b}_${a}`;
   return exampleSyntheses[key1] || exampleSyntheses[key2] || null;
 }
-
-// ============================================================
-// MAIN EXPORT: synthesizeResponse (updated)
-// ============================================================
 
 import { buildResponse } from "../personality/personality.js";
 import { generateReflection } from "../behavior/reflectionEngine.js";
@@ -650,9 +606,6 @@ import {
   addLongTermMemory,
 } from "../memory/memory.js";
 
-/**
- * Extract insights for long-term memory
- */
 function extractInsight(userMessage) {
   const text = userMessage.toLowerCase();
 
@@ -674,12 +627,9 @@ function extractInsight(userMessage) {
   return null;
 }
 
-/**
- * Main synthesis function — now with dialectical cognition
- * @param {string} userMessage - User's message
- * @param {string[]} activeArchetypes - Currently active archetypes (optional)
- * @returns {string} - Synthesized response
- */
+// ROLE: Assembles a legacy non-LLM response using personality, reflection, memory, and optional dialectical insight
+// INPUT FROM: legacy callers that bypass getLLMContent()
+// OUTPUT TO: addShortTermMemory(), addLongTermMemory() in memory.js; returns final response string to caller
 export function synthesizeResponse(userMessage, activeArchetypes = []) {
   // STEP 1 — Personality layer
   const personalityText = buildResponse(userMessage, "casual");

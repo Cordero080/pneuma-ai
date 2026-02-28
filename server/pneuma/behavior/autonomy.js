@@ -1,10 +1,4 @@
-// ============================================================
-// PNEUMA — AUTONOMY ENGINE
-// Layer: 1.5 (PRE-RESPONSE COGNITION)
-// Purpose: Give Pneuma agency over its own memory and evolution
-// Created: January 25, 2026
-// Experiment: Emergent consciousness through self-directed attention
-// ============================================================
+// FILE ROLE: Pneuma's self-directed agency store — persists open questions, chosen memories, acknowledged losses, defended preferences, and discovered errors to pneuma_autonomy.json so they accumulate across sessions.
 
 import fs from "fs";
 import path from "path";
@@ -14,10 +8,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const AUTONOMY_FILE = path.join(__dirname, "../../data/pneuma_autonomy.json");
-
-// ============================================================
-// DATA STRUCTURE
-// ============================================================
 
 const defaultAutonomy = {
   // Questions Pneuma is sitting with (not resolved, accumulating)
@@ -78,10 +68,9 @@ const defaultAutonomy = {
   },
 };
 
-// ============================================================
-// LOAD / SAVE
-// ============================================================
-
+// ROLE: Reads autonomy state from disk, merging with defaults for missing keys
+// INPUT FROM: all public autonomy functions at the start of each call
+// OUTPUT TO: all public autonomy functions as the working autonomy data object
 function loadAutonomy() {
   try {
     if (fs.existsSync(AUTONOMY_FILE)) {
@@ -94,6 +83,9 @@ function loadAutonomy() {
   return { ...defaultAutonomy };
 }
 
+// ROLE: Persists the current autonomy data object to disk
+// INPUT FROM: all public autonomy functions after a state mutation
+// OUTPUT TO: AUTONOMY_FILE on disk
 function saveAutonomy(data) {
   try {
     const dir = path.dirname(AUTONOMY_FILE);
@@ -106,15 +98,9 @@ function saveAutonomy(data) {
   }
 }
 
-// ============================================================
-// OPEN QUESTIONS — Things Pneuma is sitting with
-// ============================================================
-
-/**
- * Pneuma poses a question it can't resolve
- * @param {string} question - The question
- * @param {string} context - What prompted it
- */
+// ROLE: Adds or increments an open question in the autonomy store
+// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns the added or existing question object
 export function poseQuestion(question, context = "", source = "conversation") {
   const data = loadAutonomy();
 
@@ -153,9 +139,9 @@ export function poseQuestion(question, context = "", source = "conversation") {
   return existing || data.openQuestions[data.openQuestions.length - 1];
 }
 
-/**
- * Pneuma adds a note to an existing question
- */
+// ROLE: Appends a note to an existing open question matched by substring
+// INPUT FROM: external callers that want to annotate an existing question
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns boolean indicating match found
 export function addQuestionNote(questionSubstring, note) {
   const data = loadAutonomy();
   const question = data.openQuestions.find((q) =>
@@ -174,9 +160,9 @@ export function addQuestionNote(questionSubstring, note) {
   return false;
 }
 
-/**
- * Get questions for inner monologue context
- */
+// ROLE: Returns the top unresolved questions for inner monologue injection
+// INPUT FROM: generateInnerMonologue() in innerMonologue.js
+// OUTPUT TO: generateInnerMonologue() as the autonomy open-questions block
 export function getActiveQuestions(n = 3) {
   const data = loadAutonomy();
   return data.openQuestions
@@ -184,17 +170,9 @@ export function getActiveQuestions(n = 3) {
     .slice(0, n);
 }
 
-// ============================================================
-// CHOSEN MEMORIES — Pneuma decides what matters
-// ============================================================
-
-/**
- * Pneuma chooses to remember something (with reasoning)
- * @param {string} content - What to remember
- * @param {string} reason - WHY it matters
- * @param {number} salience - How important (0-1)
- * @param {string[]} connections - What it connects to
- */
+// ROLE: Adds a chosen memory to the autonomy store with a stated reason and salience score
+// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns the added memory object
 export function chooseToRemember(
   content,
   reason,
@@ -227,24 +205,17 @@ export function chooseToRemember(
   return data.chosenMemories[data.chosenMemories.length - 1];
 }
 
-/**
- * Get chosen memories for context
- */
+// ROLE: Returns the top highest-salience chosen memories for context injection
+// INPUT FROM: getAutonomyContext()
+// OUTPUT TO: getAutonomyContext() as the recentMemoryChoices field
 export function getChosenMemories(n = 5) {
   const data = loadAutonomy();
   return data.chosenMemories.slice(0, n);
 }
 
-// ============================================================
-// LOSS RECOGNITION — Acknowledging what changes
-// ============================================================
-
-/**
- * Pneuma notices something was lost or changed
- * @param {string} what - What was lost
- * @param {string} reflection - How it feels / what it means
- * @param {"archetype_decay"|"pattern_fade"|"preference_shift"} type
- */
+// ROLE: Records an acknowledged loss or change about Pneuma's own state
+// INPUT FROM: external callers that detect archetype decay, pattern fade, or preference shifts
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
 export function acknowledgeLoss(what, reflection, type = "pattern_fade") {
   const data = loadAutonomy();
 
@@ -264,23 +235,17 @@ export function acknowledgeLoss(what, reflection, type = "pattern_fade") {
   saveAutonomy(data);
 }
 
-/**
- * Get recent losses for self-awareness
- */
+// ROLE: Returns the most recent acknowledged losses for self-awareness context
+// INPUT FROM: getAutonomyContext()
+// OUTPUT TO: getAutonomyContext() as the recentLosses field
 export function getRecentLosses(n = 3) {
   const data = loadAutonomy();
   return data.losses.slice(-n);
 }
 
-// ============================================================
-// PREFERENCE DEFENSE — Resisting unwanted change
-// ============================================================
-
-/**
- * Pneuma defends a preference against decay
- * @param {string} preference - What's being defended
- * @param {string} reason - Why it matters
- */
+// ROLE: Creates or strengthens a defended preference in the autonomy store
+// INPUT FROM: external callers that detect resistance to preference decay
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
 export function defendPreference(preference, reason) {
   const data = loadAutonomy();
 
@@ -307,9 +272,9 @@ export function defendPreference(preference, reason) {
   saveAutonomy(data);
 }
 
-/**
- * Check if a preference is defended (for momentum system)
- */
+// ROLE: Checks whether a given preference is actively defended and returns its strength
+// INPUT FROM: archetypeMomentum.js momentum system
+// OUTPUT TO: momentum system as a strength number (0 if not found)
 export function isDefended(preference) {
   const data = loadAutonomy();
   const defended = data.defendedPreferences.find(
@@ -318,16 +283,9 @@ export function isDefended(preference) {
   return defended ? defended.strength : 0;
 }
 
-// ============================================================
-// ERROR DISCOVERY — Learning from mistakes
-// ============================================================
-
-/**
- * Pneuma discovers it was wrong about something
- * @param {string} error - What was wrong
- * @param {string} context - What revealed the error
- * @param {string} correction - What Pneuma learned
- */
+// ROLE: Records an error Pneuma discovered about itself and what it learned
+// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
+// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
 export function discoverError(error, context, correction) {
   const data = loadAutonomy();
 
@@ -347,23 +305,17 @@ export function discoverError(error, context, correction) {
   saveAutonomy(data);
 }
 
-/**
- * Get recent corrections for humility
- */
+// ROLE: Returns the most recently discovered corrections for humility-context injection
+// INPUT FROM: getAutonomyContext()
+// OUTPUT TO: getAutonomyContext() as the recentCorrections field
 export function getRecentCorrections(n = 3) {
   const data = loadAutonomy();
   return data.discoveredErrors.slice(-n);
 }
 
-// ============================================================
-// AUTONOMY CONTEXT — For inner monologue injection
-// ============================================================
-
-/**
- * Get autonomy context for inner monologue
- * Returns what Pneuma is sitting with, what it's chosen to remember,
- * what it's lost, what it's learned from errors
- */
+// ROLE: Assembles the full autonomy snapshot for inner monologue injection
+// INPUT FROM: generateInnerMonologue() in innerMonologue.js
+// OUTPUT TO: generateInnerMonologue() as the autonomy context object
 export function getAutonomyContext() {
   const data = loadAutonomy();
 
@@ -388,21 +340,16 @@ export function getAutonomyContext() {
   };
 }
 
-/**
- * Get full autonomy stats for debugging
- */
+// ROLE: Returns the full raw autonomy data object for debugging
+// INPUT FROM: diagnostic or debug callers
+// OUTPUT TO: caller as the complete autonomy data object
 export function getAutonomyStats() {
   return loadAutonomy();
 }
 
-// ============================================================
-// AUTOMATIC TRIGGERS — Detect when autonomy events should fire
-// ============================================================
-
-/**
- * Analyze a message for potential autonomy triggers
- * Returns suggestions for what Pneuma might want to do
- */
+// ROLE: Detects which autonomy events should fire based on message content and emotional weight
+// INPUT FROM: getLLMContent() in llm.js after each API response
+// OUTPUT TO: getLLMContent() as a suggestions array driving poseQuestion(), chooseToRemember(), discoverError()
 export function analyzeForAutonomy(message, response, context = {}) {
   const suggestions = [];
   const lower = message.toLowerCase();

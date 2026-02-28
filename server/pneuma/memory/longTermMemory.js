@@ -1,7 +1,4 @@
-// ------------------------------------------------------------
-// PNEUMA  — LONG-TERM MEMORY --layer 3
-// Remembers Pablo across sessions, conversations, time
-// ------------------------------------------------------------
+// FILE ROLE: Structured cross-session memory store — tracks user facts, recurring topics, struggles, interests, significant moments, session emotional state, and phrase blacklist in MongoDB with a JSON file fallback.
 
 import fs from "fs";
 import { LONG_TERM_MEMORY_FILE } from "../../config/paths.js";
@@ -10,10 +7,6 @@ import { getDB } from "../../db.js";
 const memoryPath = LONG_TERM_MEMORY_FILE;
 const COLLECTION = "longTermMemory";
 const DOC_ID = "pablo";
-
-// ============================================================
-// MEMORY STRUCTURE
-// ============================================================
 
 const defaultMemory = {
   // Core facts about the user
@@ -68,10 +61,9 @@ const defaultMemory = {
   },
 };
 
-// ============================================================
-// LOAD / SAVE
-// ============================================================
-
+// ROLE: Reads long-term memory from MongoDB, migrating from JSON on first run, with file fallback on DB failure
+// INPUT FROM: pneumaRespond() in fusion.js
+// OUTPUT TO: pneumaRespond() as the working memory object
 export async function loadMemory() {
   try {
     const db = await getDB();
@@ -98,6 +90,9 @@ export async function loadMemory() {
   return { ...defaultMemory };
 }
 
+// ROLE: Persists the full memory object to MongoDB with JSON file fallback on failure
+// INPUT FROM: pneumaRespond() in fusion.js after updateMemory()
+// OUTPUT TO: MongoDB longTermMemory collection via replaceOne() upsert
 export async function saveMemory(memory) {
   try {
     const db = await getDB();
@@ -116,11 +111,9 @@ export async function saveMemory(memory) {
   }
 }
 
-// ============================================================
-// MEMORY EXTRACTION
-// Analyze a message for memorable content
-// ============================================================
-
+// ROLE: Extracts personal facts, struggles, interests, and topics from a message for long-term storage
+// INPUT FROM: updateMemory()
+// OUTPUT TO: updateMemory() as the extractions object driving memory mutations
 export function extractMemorableContent(message, response, intentScores) {
   const extractions = {
     possibleFact: null,
@@ -226,11 +219,9 @@ export function extractMemorableContent(message, response, intentScores) {
   return extractions;
 }
 
-// ============================================================
-// UPDATE MEMORY
-// Process extractions and update long-term memory
-// ============================================================
-
+// ROLE: Applies extracted content to the memory object — updating struggles, interests, topics, moments, and stats
+// INPUT FROM: pneumaRespond() in fusion.js after each exchange
+// OUTPUT TO: pneumaRespond() as the mutated memory object passed to saveMemory()
 export function updateMemory(memory, message, response, intentScores) {
   const extractions = extractMemorableContent(message, response, intentScores);
   const now = new Date().toISOString();
@@ -333,11 +324,9 @@ export function updateMemory(memory, message, response, intentScores) {
   return memory;
 }
 
-// ============================================================
-// MEMORY RETRIEVAL
-// Get relevant memories for current context
-// ============================================================
-
+// ROLE: Matches stored struggles, interests, topics, and emotional state to the current message
+// INPUT FROM: pneumaRespond() in fusion.js
+// OUTPUT TO: pneumaRespond() as the relevantMemories object passed to getMemoryAwarePhrases()
 export function getRelevantMemories(memory, message, intentScores) {
   const lower = message.toLowerCase();
   const relevant = {
@@ -410,11 +399,9 @@ export function getRelevantMemories(memory, message, intentScores) {
   return relevant;
 }
 
-// ============================================================
-// MEMORY-AWARE PHRASES
-// Things Pneuma can say that show memory
-// ============================================================
-
+// ROLE: Converts relevant memory data into natural-language phrases Pneuma can prepend to show memory continuity
+// INPUT FROM: pneumaRespond() in fusion.js via getRelevantMemories()
+// OUTPUT TO: pneumaRespond() as the memoryPhrases array for optional context injection
 export function getMemoryAwarePhrases(relevant) {
   const phrases = [];
 
@@ -459,11 +446,9 @@ export function getMemoryAwarePhrases(relevant) {
   return phrases;
 }
 
-// ============================================================
-// SESSION EMOTIONAL HANDOFF
-// Track emotional state at session boundaries
-// ============================================================
-
+// ROLE: Classifies the session's final mood and detects unresolved threads, then writes the sessionEmotionalState snapshot
+// INPUT FROM: session-end callers (timeout or explicit end signal)
+// OUTPUT TO: caller as the mutated memory object; persisted via saveMemory()
 export function updateSessionEnd(memory, intentScores, lastMessage) {
   const now = new Date().toISOString();
 
@@ -500,6 +485,9 @@ export function updateSessionEnd(memory, intentScores, lastMessage) {
   return memory;
 }
 
+// ROLE: Returns a handoff phrase if the previous session's mood warrants acknowledging it at session start
+// INPUT FROM: pneumaRespond() in fusion.js at the start of a new session
+// OUTPUT TO: pneumaRespond() as an optional opening phrase string, or null
 export function getSessionHandoffPhrase(memory) {
   const state = memory.sessionEmotionalState;
   if (!state || !state.timestamp) return null;
@@ -523,11 +511,9 @@ export function getSessionHandoffPhrase(memory) {
   return null;
 }
 
-// ============================================================
-// PHRASE BLACKLIST
-// Things Pneuma should never say
-// ============================================================
-
+// ROLE: Adds a phrase to the blacklist if not already present, enforcing a 50-item cap
+// INPUT FROM: pneumaRespond() in fusion.js when detectBlacklistRequest() returns a match
+// OUTPUT TO: caller as the mutated memory object; persisted via saveMemory()
 export function addToBlacklist(memory, phrase, reason = null) {
   const now = new Date().toISOString();
   const lower = phrase.toLowerCase().trim();
@@ -549,6 +535,9 @@ export function addToBlacklist(memory, phrase, reason = null) {
   return memory;
 }
 
+// ROLE: Checks whether any blacklisted phrase appears in a response string
+// INPUT FROM: pneumaRespond() in fusion.js as a gate before filterBlacklistedContent()
+// OUTPUT TO: pneumaRespond() as a boolean controlling whether filtering runs
 export function isBlacklisted(memory, text) {
   if (!text || !memory.phraseBlacklist?.length) return false;
 
@@ -561,6 +550,9 @@ export function isBlacklisted(memory, text) {
   return false;
 }
 
+// ROLE: Strips all blacklisted phrases from the response string before it reaches the user
+// INPUT FROM: pneumaRespond() in fusion.js when isBlacklisted() returns true
+// OUTPUT TO: pneumaRespond() as the cleaned response string
 export function filterBlacklistedContent(memory, response) {
   if (!response || !memory.phraseBlacklist?.length) return response;
 
@@ -580,6 +572,9 @@ export function filterBlacklistedContent(memory, response) {
   return filtered;
 }
 
+// ROLE: Detects whether the message is a request to blacklist a phrase and extracts it
+// INPUT FROM: pneumaRespond() in fusion.js on each incoming message
+// OUTPUT TO: pneumaRespond() as a phrase string to pass to addToBlacklist(), or null
 export function detectBlacklistRequest(message) {
   const patterns = [
     /never say ['"]?([^'"]+)['"]? again/i,
@@ -603,11 +598,9 @@ export function detectBlacklistRequest(message) {
   return null;
 }
 
-// ============================================================
-// TOPIC WEIGHT SCORING
-// Heavy topics matter more than casual ones
-// ============================================================
-
+// ROLE: Computes a weighted importance score for a topic using mention count, sentiment, struggle linkage, and recency
+// INPUT FROM: getWeightedTopics()
+// OUTPUT TO: getWeightedTopics() as the numeric weight for sorting
 export function getTopicWeight(topic, memory) {
   // Base weight is the mention count
   const recurring = memory.recurringTopics.find(
@@ -640,6 +633,9 @@ export function getTopicWeight(topic, memory) {
   return weight;
 }
 
+// ROLE: Returns the top recurring topics sorted by composite importance score
+// INPUT FROM: external callers requesting prioritized topic data
+// OUTPUT TO: caller as a sorted array of topic objects with a weight field
 export function getWeightedTopics(memory, limit = 5) {
   const weighted = memory.recurringTopics.map((t) => ({
     ...t,
@@ -652,19 +648,9 @@ export function getWeightedTopics(memory, limit = 5) {
   return weighted.slice(0, limit);
 }
 
-// ============================================================
-// SESSION DISTILLATION
-// Extract meaning from conversations, forget the words
-// "The river is shaped by stones but doesn't remember each one"
-// ============================================================
-
-/**
- * Distill a completed conversation into patterns and insights
- * This is called when a session ends (30+ min timeout or explicit end)
- * @param {object} memory - Long-term memory object
- * @param {object} conversation - Conversation object with exchanges, topics, mood
- * @returns {object} - Updated memory
- */
+// ROLE: Distills a completed conversation into a compressed summary, updated topic counts, and detected behavioral patterns
+// INPUT FROM: session-end callers (timeout or explicit end signal)
+// OUTPUT TO: caller as the mutated memory object; persisted via saveMemory()
 export function distillConversation(memory, conversation) {
   if (
     !conversation ||
@@ -776,9 +762,9 @@ export function distillConversation(memory, conversation) {
   return memory;
 }
 
-/**
- * Add or reinforce a pattern observation
- */
+// ROLE: Adds a new behavioral pattern or increases confidence on an existing one, pruning entries below threshold
+// INPUT FROM: distillConversation() when a pattern trigger fires
+// OUTPUT TO: distillConversation() as the mutated memory.patterns array
 function addPattern(memory, patternId, observation) {
   memory.patterns = memory.patterns || [];
   const existing = memory.patterns.find((p) => p.id === patternId);
@@ -802,11 +788,9 @@ function addPattern(memory, patternId, observation) {
   memory.patterns = memory.patterns.filter((p) => (p.confidence || 0) > 0.3);
 }
 
-/**
- * Get patterns relevant to current moment
- * @param {object} memory
- * @returns {Array} - Relevant pattern observations
- */
+// ROLE: Returns high-confidence behavioral pattern observations for context injection
+// INPUT FROM: pneumaRespond() in fusion.js
+// OUTPUT TO: pneumaRespond() as an array of observation strings
 export function getActivePatterns(memory) {
   if (!memory.patterns || memory.patterns.length === 0) return [];
 
@@ -815,10 +799,6 @@ export function getActivePatterns(memory) {
     .filter((p) => (p.confidence || 0) > 0.6)
     .map((p) => p.observation);
 }
-
-// ============================================================
-// EXPORTS
-// ============================================================
 
 export default {
   loadMemory,

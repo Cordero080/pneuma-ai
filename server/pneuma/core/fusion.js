@@ -1,17 +1,4 @@
-// ============================================================
-// PNEUMA — FUSION ENGINE (MAIN ORCHESTRATOR)
-// Layer: 4 (ORCHESTRATION)
-// Purpose: The conductor — calls all other systems
-// Input: User message from index.js
-// Output: Final Pneuma response
-// Flow: Message → Rhythm → LLM → Mode → Personality → Response
-// This is where everything comes together
-// ============================================================
-
-// ------------------------------------------------------------
-// PNEUMA V2 — FUSION ENGINE
-// Main orchestrator: diagnostics, upgrades, conversation
-// ------------------------------------------------------------
+// FILE ROLE: Master orchestrator — receives every user message, evaluates all behavioral modes and guards, delegates to the response pipeline, and assembles the final reply with memory and state updates.
 
 import {
   loadState,
@@ -65,10 +52,9 @@ import {
 } from "../memory/conversationHistory.js";
 import { getFusionStats } from "../archetypes/archetypeFusion.js";
 
-// ============================================================
-// DIAGNOSTIC MODE COMMANDS
-// ============================================================
-
+// ROLE: Guard — detects diagnostic mode trigger phrase
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: setDiagnosticMode(), generateDiagnosticOutput()
 function wantsEnterDiagnostics(message) {
   const lower = message.toLowerCase().trim();
   return (
@@ -78,11 +64,9 @@ function wantsEnterDiagnostics(message) {
   );
 }
 
-// ============================================================
-// DIRECT MODE COMMANDS
-// "Drop the quotes" / "Talk direct" / "No quotes"
-// ============================================================
-
+// ROLE: Guard — detects request to suppress archetype quote injection
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: setDirectMode(true)
 function wantsDirectMode(message) {
   const lower = message.toLowerCase().trim();
   return (
@@ -98,6 +82,9 @@ function wantsDirectMode(message) {
   );
 }
 
+// ROLE: Guard — detects request to restore archetype quote injection
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: setDirectMode(false)
 function wantsExitDirectMode(message) {
   const lower = message.toLowerCase().trim();
   // Only match explicit commands, not phrases like "what would be your..."
@@ -110,11 +97,9 @@ function wantsExitDirectMode(message) {
   );
 }
 
-// ============================================================
-// CONTINUATION COMMANDS
-// "Finish" / "Continue" / "Go on"
-// ============================================================
-
+// ROLE: Guard — detects request to continue a previously cut-off response
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: early-return continuation path in pneumaRespond()
 function wantsContinuation(message) {
   const lower = message.toLowerCase().trim();
   return (
@@ -128,6 +113,9 @@ function wantsContinuation(message) {
   );
 }
 
+// ROLE: Guard — detects request to exit diagnostic mode
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: setDiagnosticMode(false)
 function wantsExitDiagnostics(message) {
   const lower = message.toLowerCase().trim();
   return /^(pneuma,?\s*)?(exit|leave|end)\s+diagnostic(s)?( mode)?[.!?]?\s*$/i.test(
@@ -135,10 +123,9 @@ function wantsExitDiagnostics(message) {
   );
 }
 
-// ============================================================
-// DIAGNOSTIC OUTPUT
-// ============================================================
-
+// ROLE: Assembles and formats the internal state snapshot for diagnostic output
+// INPUT FROM: pneumaRespond() when diagnostic mode is active
+// OUTPUT TO: pneumaRespond() as the reply string returned to the frontend
 function generateDiagnosticOutput(state, intentScores) {
   const fusionStats = getFusionStats();
 
@@ -168,15 +155,17 @@ function generateDiagnosticOutput(state, intentScores) {
   return "```json\n" + JSON.stringify(diagnosticData, null, 2) + "\n```";
 }
 
-// ============================================================
-// UPGRADE HANDLING
-// ============================================================
-
+// ROLE: Guard — detects weight-upgrade directives in the message
+// INPUT FROM: pneumaRespond()
+// OUTPUT TO: parseUpgrades(), applyUpgrades()
 function wantsUpgrade(message) {
   const lower = message.toLowerCase();
   return lower.includes("upgrade") && lower.includes(":");
 }
 
+// ROLE: Parses weight key-value pairs out of an upgrade command string
+// INPUT FROM: pneumaRespond() via wantsUpgrade() gate
+// OUTPUT TO: applyUpgrades()
 function parseUpgrades(message) {
   const upgrades = {};
   const patterns = [
@@ -199,6 +188,9 @@ function parseUpgrades(message) {
   return upgrades;
 }
 
+// ROLE: Applies parsed weight upgrades to state and persists them to disk
+// INPUT FROM: pneumaRespond() via parseUpgrades()
+// OUTPUT TO: saveState() in state.js
 function applyUpgrades(upgrades, state) {
   for (const [key, value] of Object.entries(upgrades)) {
     if (typeof value === "number" && !isNaN(value)) {
@@ -209,12 +201,11 @@ function applyUpgrades(upgrades, state) {
   return true;
 }
 
-// ============================================================
-// MAIN ORCHESTRATION — pneumaRespond()
-// Now async to support LLM integration
-// ============================================================
-
+// ROLE: Main entry point — orchestrates all guards, behavioral signals, and response generation for every user message
+// INPUT FROM: POST /chat and POST /voice in index.js
+// OUTPUT TO: generate() in responseEngine.js; returns { reply, monologue, mode, rhythm } to index.js
 export async function pneumaRespond(userMessage) {
+  // ---- PHASE: SESSION INIT
   // Start or continue session FIRST — this ensures old conversation data
   // is finalized if this is a new session, preventing stale context
   startOrContinueSession();
@@ -225,9 +216,7 @@ export async function pneumaRespond(userMessage) {
   // Load state
   let state = loadState();
 
-  // ========================================
-  // DIAGNOSTIC MODE
-  // ========================================
+  // ---- PHASE: SPECIAL MODE GUARDS
 
   if (wantsEnterDiagnostics(userMessage)) {
     setDiagnosticMode(true);
@@ -260,10 +249,6 @@ export async function pneumaRespond(userMessage) {
     };
   }
 
-  // ========================================
-  // UPGRADE HANDLING
-  // ========================================
-
   if (wantsUpgrade(userMessage)) {
     const upgrades = parseUpgrades(userMessage);
     if (Object.keys(upgrades).length > 0) {
@@ -276,11 +261,6 @@ export async function pneumaRespond(userMessage) {
       };
     }
   }
-
-  // ========================================
-  // DIRECT MODE — "Drop the quotes"
-  // Suppresses archetype quote injection
-  // ========================================
 
   if (wantsDirectMode(userMessage)) {
     setDirectMode(true);
@@ -304,18 +284,11 @@ export async function pneumaRespond(userMessage) {
     };
   }
 
-  // ========================================
-  // NORMAL CONVERSATION FLOW
-  // ========================================
+  // ---- PHASE: CONTEXT LOADING
 
   // Get context FIRST — needed for continuation handling
   const threadMemory = getThreadMemory(state);
   const identity = getIdentity(state);
-
-  // ========================================
-  // CONTINUATION HANDLING — "Finish"
-  // When Pneuma got cut off mid-thought
-  // ========================================
 
   if (wantsContinuation(userMessage)) {
     console.log("[Pneuma V2] Continuation requested");
@@ -334,16 +307,12 @@ export async function pneumaRespond(userMessage) {
   }
 
   // Load long-term memory
-  let longTermMem = loadMemory();
+  let longTermMem = await loadMemory();
 
-  // ========================================
-  // PHRASE BLACKLIST CHECK
-  // Handle "never say X again" requests
-  // ========================================
   const blacklistPhrase = detectBlacklistRequest(userMessage);
   if (blacklistPhrase) {
     longTermMem = addToBlacklist(longTermMem, blacklistPhrase);
-    saveMemory(longTermMem);
+    await saveMemory(longTermMem);
     console.log(`[Pneuma V2] Blacklisted phrase: "${blacklistPhrase}"`);
     return {
       reply: `Got it. I won't say "${blacklistPhrase}" again.`,
@@ -355,10 +324,6 @@ export async function pneumaRespond(userMessage) {
   // Detect intent
   const intentScores = detectIntent(userMessage);
 
-  // ========================================
-  // SESSION EMOTIONAL HANDOFF
-  // Check if this is start of a new session
-  // ========================================
   let sessionHandoffPhrase = null;
   const isNewSession =
     !threadMemory?.recentMessages?.length ||
@@ -373,10 +338,7 @@ export async function pneumaRespond(userMessage) {
     }
   }
 
-  // ========================================
-  // RHYTHM INTELLIGENCE
-  // Analyze temporal patterns and energy
-  // ========================================
+  // ---- PHASE: BEHAVIORAL SIGNALS
   const rhythm = analyzeRhythm(threadMemory, userMessage);
   const rhythmModifiers = getRhythmModifiers(rhythm);
   const rhythmPhrase = getRhythmAwarePhrases(rhythm);
@@ -385,10 +347,6 @@ export async function pneumaRespond(userMessage) {
     `[Pneuma V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`
   );
 
-  // ========================================
-  // LONG-TERM MEMORY
-  // Get relevant memories for context
-  // ========================================
   const relevantMemories = getRelevantMemories(
     longTermMem,
     userMessage,
@@ -396,10 +354,6 @@ export async function pneumaRespond(userMessage) {
   );
   const memoryPhrases = getMemoryAwarePhrases(relevantMemories);
 
-  // ========================================
-  // PUSHBACK / DISAGREEMENT CHECK
-  // Sometimes Pneuma needs to call you out
-  // ========================================
   const pushbackAnalysis = analyzePushback(
     userMessage,
     threadMemory,
@@ -421,7 +375,7 @@ export async function pneumaRespond(userMessage) {
       pushbackReply,
       intentScores
     );
-    saveMemory(longTermMem);
+    await saveMemory(longTermMem);
 
     state = evolve(state, userMessage, intentScores);
     state = updateThreadMemory(
@@ -441,16 +395,8 @@ export async function pneumaRespond(userMessage) {
     };
   }
 
-  // ========================================
-  // UNCERTAINTY DETECTION
-  // Know when to admit not-knowing
-  // ========================================
   const uncertainty = analyzeUncertainty(userMessage, intentScores);
 
-  // ========================================
-  // PERSPECTIVE SHIFT DETECTION
-  // Check if user said something that should make Pneuma reconsider
-  // ========================================
   const perspectiveShift = detectPerspectiveShift(userMessage, {
     recentMessages: threadMemory?.recentMessages || [],
   });
@@ -465,10 +411,6 @@ export async function pneumaRespond(userMessage) {
     );
   }
 
-  // ========================================
-  // QUIET MODE CHECK
-  // Sometimes presence beats words
-  // ========================================
   const quietCheck = shouldBeQuiet(userMessage, intentScores, rhythm);
 
   if (quietCheck.quiet) {
@@ -494,10 +436,6 @@ export async function pneumaRespond(userMessage) {
     };
   }
 
-  // ========================================
-  // UNCERTAINTY OVERRIDE
-  // For genuinely unanswerable questions
-  // ========================================
   if (uncertainty.shouldAdmitUncertainty && uncertainty.score > 0.6) {
     const uncertainReply = getUncertaintyResponse(uncertainty, userMessage);
     console.log(
@@ -522,12 +460,7 @@ export async function pneumaRespond(userMessage) {
     };
   }
 
-  // ========================================
-  // NORMAL RESPONSE GENERATION
-  // ========================================
-
-  // Generate response through 4-layer pipeline (now async with LLM)
-  // Pass rhythm and uncertainty context for tone adjustment
+  // ---- PHASE: RESPONSE GENERATION
   const { reply, tone, stateUpdate, _meta } = await generate(
     userMessage,
     state,
@@ -549,6 +482,7 @@ export async function pneumaRespond(userMessage) {
     state = { ...state, vectors: stateUpdate.vectors };
   }
 
+  // ---- PHASE: REPLY ASSEMBLY
   // Build final reply with memory and rhythm awareness
   let finalReply = reply;
 
@@ -594,6 +528,7 @@ export async function pneumaRespond(userMessage) {
     }
   }
 
+  // ---- PHASE: STATE PERSISTENCE
   // Evolve state based on interaction
   state = evolve(state, userMessage, intentScores);
 

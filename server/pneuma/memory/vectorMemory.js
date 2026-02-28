@@ -1,9 +1,4 @@
-// ============================================================
-// PNEUMA — VECTOR MEMORY SYSTEM
-// Purpose: Semantic memory using MongoDB + OpenAI Embeddings
-// Input: User messages, Pneuma responses
-// Output: Relevant past context based on semantic similarity
-// ============================================================
+// FILE ROLE: Semantic long-term memory — embeds text interactions via OpenAI and stores or retrieves them from MongoDB Atlas using vector search, enabling Pneuma to surface thematically relevant past exchanges.
 
 import { OpenAI } from "openai";
 import fs from "fs";
@@ -15,7 +10,9 @@ const COLLECTION = "vectorMemory";
 
 ensureDataDirectory();
 
-// One-time migration: seed from existing JSON file if collection is empty
+// ROLE: One-time migration of legacy JSON vector memories into MongoDB
+// INPUT FROM: module load (called once at startup)
+// OUTPUT TO: MongoDB vectorMemory collection via insertMany()
 async function migrateFromJSON() {
   try {
     const db = await getDB();
@@ -38,9 +35,9 @@ async function migrateFromJSON() {
 
 migrateFromJSON();
 
-/**
- * Generates an embedding vector for a given text using OpenAI.
- */
+// ROLE: Converts text into an embedding vector for semantic search
+// INPUT FROM: saveMemory(), retrieveMemories()
+// OUTPUT TO: MongoDB insertOne() or $vectorSearch aggregation
 export async function getEmbedding(text) {
   try {
     const response = await openai.embeddings.create({
@@ -54,9 +51,9 @@ export async function getEmbedding(text) {
   }
 }
 
-/**
- * Cosine similarity — kept for brute-force fallback before index is created.
- */
+// ROLE: Computes cosine similarity between two embedding vectors for brute-force fallback
+// INPUT FROM: bruteForceRetrieve()
+// OUTPUT TO: bruteForceRetrieve() as the similarity score for ranking
 export function cosineSimilarity(vecA, vecB) {
   const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
   const magnitudeA = Math.sqrt(vecA.reduce((sum, a) => sum + a * a, 0));
@@ -64,9 +61,9 @@ export function cosineSimilarity(vecA, vecB) {
   return dotProduct / (magnitudeA * magnitudeB);
 }
 
-/**
- * Saves a memory to MongoDB.
- */
+// ROLE: Embeds a text string and saves it with metadata to MongoDB
+// INPUT FROM: getLLMContent() in llm.js (fire-and-forget after each response)
+// OUTPUT TO: MongoDB vectorMemory collection via insertOne()
 export async function saveMemory(text, metadata = {}) {
   if (!text || text.length < 10) return;
 
@@ -87,10 +84,9 @@ export async function saveMemory(text, metadata = {}) {
   }
 }
 
-/**
- * Retrieves relevant memories using Atlas Vector Search.
- * Falls back to brute-force cosine similarity until the index is created.
- */
+// ROLE: Retrieves the top semantically similar memories for a query
+// INPUT FROM: getLLMContent() in llm.js for RAG context injection
+// OUTPUT TO: getLLMContent() as context.relevantMemories; falls back to bruteForceRetrieve()
 export async function retrieveMemories(query, limit = 5) {
   const queryEmbedding = await getEmbedding(query);
   if (!queryEmbedding) return [];
@@ -136,10 +132,9 @@ export async function retrieveMemories(query, limit = 5) {
   }
 }
 
-/**
- * Brute-force fallback: fetches all docs and computes cosine in JS.
- * Used until Atlas vector index is created.
- */
+// ROLE: Brute-force fallback — fetches all documents and ranks by cosine similarity
+// INPUT FROM: retrieveMemories() when Atlas vector index is unavailable
+// OUTPUT TO: retrieveMemories() as the fallback results array
 async function bruteForceRetrieve(queryEmbedding, limit) {
   try {
     const db = await getDB();
@@ -163,9 +158,9 @@ async function bruteForceRetrieve(queryEmbedding, limit) {
   }
 }
 
-/**
- * Returns memory count from MongoDB.
- */
+// ROLE: Returns the total document count and overload status from the vectorMemory collection
+// INPUT FROM: getLLMContent() in llm.js for context-window planning
+// OUTPUT TO: caller as { count, threshold, isOverloaded }
 export async function getMemoryStats() {
   try {
     const db = await getDB();

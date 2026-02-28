@@ -1,9 +1,4 @@
-// ============================================================
-// PNEUMA — ENTRY POINT
-// Layer: SERVER
-// Purpose: Express server, receives messages, returns responses
-// Flow: User → index.js → fusion.js → (all layers) → response
-// ============================================================
+// FILE ROLE: HTTP gateway — maps every inbound request to the correct Pneuma subsystem and shapes the raw reply into a JSON response for the frontend.
 
 // ------------------------- LOAD ENV FIRST --------------------------
 import "dotenv/config"; // Loads .env before any other imports
@@ -62,7 +57,9 @@ app.get("/", (req, res) => {
 });
 
 // -------------------------- CONVERSATIONS ROUTE ---------------------
-// Returns list of conversations for sidebar display
+// ROLE: Reads and shapes conversation list for sidebar display
+// INPUT FROM: GET /conversations request from frontend
+// OUTPUT TO: frontend as JSON array of { id, title, date, messageCount }
 app.get("/conversations", async (req, res) => {
   try {
     const dataPath = path.join(__dirname, "..", "data", "conversations.json");
@@ -113,7 +110,9 @@ app.get("/conversations", async (req, res) => {
 });
 
 // -------------------------- GET SINGLE CONVERSATION ----------------
-// Returns full exchanges for a specific conversation
+// ROLE: Loads and flattens a single conversation's exchanges into chat message format
+// INPUT FROM: GET /conversations/:id request from frontend
+// OUTPUT TO: frontend as JSON array of { sender, text, timestamp }
 app.get("/conversations/:id", async (req, res) => {
   try {
     const dataPath = path.join(__dirname, "..", "data", "conversations.json");
@@ -143,7 +142,9 @@ app.get("/conversations/:id", async (req, res) => {
 });
 
 // -------------------------- DELETE CONVERSATION --------------------
-// Deletes a conversation by ID
+// ROLE: Removes a conversation by ID and persists the pruned list to disk
+// INPUT FROM: DELETE /conversations/:id request from frontend
+// OUTPUT TO: updated conversations.json; success/error JSON to frontend
 app.delete("/conversations/:id", async (req, res) => {
   try {
     const dataPath = path.join(__dirname, "..", "data", "conversations.json");
@@ -170,8 +171,9 @@ app.delete("/conversations/:id", async (req, res) => {
 });
 
 // -------------------------- CHAT ROUTE ------------------------------
-// Accepts user message → generates Pneuma reply → returns it
-// Now async to support LLM integration
+// ROLE: Primary text conversation handler — routes message through the full Pneuma pipeline
+// INPUT FROM: POST /chat request from frontend with { message } body
+// OUTPUT TO: pneumaRespond() in fusion.js; returns { reply, engine, mode } to frontend; fires triggerDialecticDream() in background
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -211,7 +213,9 @@ app.post("/chat", async (req, res) => {
 });
 
 // -------------------------- TTS ROUTE -------------------------------
-// Converts text to speech using ElevenLabs
+// ROLE: Converts text to speech and streams audio back to the client
+// INPUT FROM: POST /tts request from frontend with { text } body
+// OUTPUT TO: textToSpeech() in tts.js; returns audio/mpeg buffer to frontend
 app.post("/tts", async (req, res) => {
   try {
     const { text } = req.body;
@@ -238,7 +242,9 @@ app.post("/tts", async (req, res) => {
 });
 
 // -------------------------- VOICE INPUT ROUTE -----------------------
-// Transcribes audio + detects emotion + sends to chat
+// ROLE: Transcribes audio, detects emotion, then routes to pneumaRespond like /chat
+// INPUT FROM: POST /voice request from frontend with raw audio buffer
+// OUTPUT TO: transcribeAudio(), analyzeVoiceEmotion(), pneumaRespond() in fusion.js; returns { reply, transcription, emotions, engine, mode, language } to frontend
 app.post("/voice", async (req, res) => {
   try {
     const audioBuffer = req.body;
@@ -312,7 +318,9 @@ app.post("/voice", async (req, res) => {
 });
 
 // -------------------------- DREAMS ROUTE ----------------------------
-// Get any dreams Pneuma had while user was away
+// ROLE: Delivers the latest undelivered dream and marks it as delivered
+// INPUT FROM: GET /dreams request from frontend
+// OUTPUT TO: getUndeliveredDreams(), formatDreamForDelivery(), markDreamDelivered() in dreamMode.js; returns { dreams, message } to frontend
 app.get("/dreams", async (req, res) => {
   try {
     const dreams = getUndeliveredDreams();
@@ -351,7 +359,9 @@ app.post("/dreams/trigger", async (req, res) => {
 });
 
 // -------------------------- MOMENTUM STATS ROUTE --------------------
-// Get archetype momentum statistics
+// ROLE: Exposes current archetype momentum state for inspection
+// INPUT FROM: GET /momentum request from frontend
+// OUTPUT TO: getMomentumStats() in archetypeMomentum.js; returns stats JSON to frontend
 app.get("/momentum", (req, res) => {
   try {
     const stats = getMomentumStats();
