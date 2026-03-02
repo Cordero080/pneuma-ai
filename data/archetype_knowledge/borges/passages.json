@@ -292,6 +292,181 @@
       "source": "Pierre Menard, Author of the Quixote",
       "themes": ["philosophy", "time", "futility", "history"],
       "context": "The fate of all intellectual systems"
+    },
+    {
+      "id": "borges-041",
+      "text": "He wanted to dream a man. He wanted to dream him completely, in painstaking detail, and impose him upon reality.",
+      "source": "The Circular Ruins",
+      "themes": ["dreaming", "creation", "will", "reality"],
+      "context": "The story's central premise: imagination as an act of absolute creative will, the dreamer as demiurge who wills a person into existence."
+    },
+    {
+      "id": "borges-042",
+      "text": "He understood that the task of molding the incoherent and dizzying stuff that dreams are made of is the most difficult work a man can undertake, even if he fathom all the enigmas of the higher and lower orders—much more difficult than weaving a rope of sand or minting coins of the faceless wind.",
+      "source": "The Circular Ruins",
+      "themes": ["dreams", "creation", "difficulty", "imagination"],
+      "context": "Borges names dreaming into form as the hardest of all labors—harder than any physical or intellectual feat, because the material itself resists coherence."
+    },
+    {
+      "id": "borges-043",
+      "text": "He dreamed the heart warm, active, secret—about the size of a closed fist, a garnet-colored thing inside the dimness of a human body that was still faceless and sexless; he dreamed it, with painstaking love, for fourteen brilliant nights.",
+      "source": "The Circular Ruins",
+      "themes": ["dreaming", "body", "creation", "intimacy"],
+      "context": "The dreamer builds his created man organ by organ, beginning with the heart—the center of life dreamed before the face is known, love before identity."
+    },
+    {
+      "id": "borges-044",
+      "text": "With relief, with humiliation, with terror, he realized that he, too, was but appearance, that another man was dreaming him.",
+      "source": "The Circular Ruins",
+      "themes": ["identity", "dreaming", "illusion", "terror"],
+      "context": "The story's devastating reversal: the creator discovers he is himself a creation, dreamed by another. All certainty of independent existence dissolves."
+    },
+    {
+      "id": "borges-045",
+      "text": "Each part of the house occurs many times; any particular place is another place. There is no one pool, courtyard, drinking trough, manger; the mangers, drinking troughs, courtyards, pools are fourteen (infinite) in number.",
+      "source": "The House of Asterion",
+      "themes": ["labyrinth", "repetition", "infinity", "space"],
+      "context": "The Minotaur's first-person description of the labyrinth as a place where every element is both itself and all its instances—structure as ontology, architecture as identity."
+    },
+    {
+      "id": "borges-046",
+      "text": "The house is as big as the world—or rather, it is the world.",
+      "source": "The House of Asterion",
+      "themes": ["labyrinth", "world", "confinement", "totality"],
+      "context": "The labyrinth and the world are identical to the one who has never left. Confinement indistinguishable from cosmos—the prisoner who knows no outside has no inside either."
+    },
+    {
+      "id": "borges-047",
+      "text": "I like to pretend that there is another Asterion, and that I am showing him around the house. With great courtesy I say to him: Now we will return to the intersection before, or: Now we will go down this stairway.",
+      "source": "The House of Asterion",
+      "themes": ["doubling", "loneliness", "imagination", "self"],
+      "context": "The Minotaur invents a companion-double to relieve his solitude—imagination as the only form of relationship available to the utterly isolated, the self doubled to create society."
+    },
+    {
+      "id": "borges-048",
+      "text": "Every nine years, nine men enter the house so that I can free them from all evil. I hear their steps or their voices in the depths of the stone galleries and I run joyfully to find them... I do not know who they are, but I know that one of them prophesied, at the moment of his death, that someday my redeemer would come.",
+      "source": "The House of Asterion",
+      "themes": ["redemption", "innocence", "waiting", "misunderstanding"],
+      "context": "The Minotaur recounts the ritual murders as acts of liberation—his violence understood by him as mercy. Monstrousness and innocence occupying the same being simultaneously."
+    },
+    {
+      "id": "borges-049",
+      "text": "I come now to the ineffable center of my tale; it is here that a writer's hopelessness begins. Every language is an alphabet of symbols the employment of which assumes a past shared by its interlocutors. How can one transmit to others the infinite Aleph, which my timorous memory can scarcely contain?",
+      "source": "The Aleph",
+      "themes": ["ineffable", "language", "infinity", "memory"],
+      "context": "Borges names the fundamental impossibility at the heart of mystical writing: language is sequential, the vision was simultaneous, and no chain of words can hold what was seen all at once."
+    },
+    {
+      "id": "borges-050",
+      "text": "In that unbounded moment, I saw millions of delightful and horrible acts; none amazed me so much as the fact that all occupied the same point, without superposition and without transparency. What my eyes saw was simultaneous; what I shall write is successive, because language is successive.",
+      "source": "The Aleph",
+      "themes": ["simultaneity", "vision", "language", "limitation"],
+      "context": "The Aleph reveals language's fundamental structural lie: it must be read in time, yet the truth it tries to tell was apprehended outside of time. The gap between vision and report is unbridgeable."
+    },
+    {
+      "id": "borges-051",
+      "text": "I saw the populous sea, saw dawn and dusk, saw the multitudes of the Americas, saw a silvery spiderweb at the center of a black pyramid, saw a broken labyrinth (it was London), saw endless eyes, all very close, studying themselves in me as though in a mirror, saw all the mirrors on the planet (and none of them reflecting me).",
+      "source": "The Aleph",
+      "themes": ["vision", "totality", "mirrors", "infinity"],
+      "context": "The catalogue of simultaneous visions—an ekphrasis of everything—culminates in the image of all mirrors reflecting everything except the seer himself. To see all is to disappear from what is seen."
+    },
+    {
+      "id": "borges-052",
+      "text": "I saw my face and my viscera, saw your face, and I felt dizzy, and I wept, because my eyes had seen that secret, hypothetical object whose name has been usurped by men but which no man has ever truly looked upon: the inconceivable universe.",
+      "source": "The Aleph",
+      "themes": ["universe", "vision", "overwhelm", "sacred"],
+      "context": "The culmination of the Aleph vision—seeing oneself from outside, seeing the reader, then weeping. Total vision is also total vulnerability. The universe was always there; what is unbearable is finally seeing it."
+    },
+    {
+      "id": "borges-053",
+      "text": "The place where, without admixture or confusion, all the places of the world, seen from every angle, coexist.",
+      "source": "The Aleph",
+      "themes": ["simultaneity", "space", "totality", "vision"],
+      "context": "The technical definition of the Aleph: not a metaphor but a literal point containing all spatial perspectives simultaneously. Multiplicity without confusion, everything without mixture."
+    },
+    {
+      "id": "borges-054",
+      "text": "He had never lingered among the pleasures of memory. Impressions, momentary and vivid, would wash over him: a potter's vermilion glaze; the sky-vault filled with stars that were also gods; the moon, from which a lion had fallen; the smoothness of marble under his sensitive, slow fingertips.",
+      "source": "The Maker",
+      "themes": ["perception", "sensation", "memory", "immediacy"],
+      "context": "Homer before blindness: the poet lived entirely in sensory flashes, absorbing the world without organizing it—a pure receptivity that was itself the raw material of epic."
+    },
+    {
+      "id": "borges-055",
+      "text": "Gradually, the splendid universe began drawing away from him; a stubborn fog blurred the lines of his hand; the night lost its peopling stars, the earth became uncertain under his feet. Everything grew distant, and indistinct. When he learned that he was going blind, he cried out.",
+      "source": "The Maker",
+      "themes": ["blindness", "loss", "perception", "grief"],
+      "context": "The loss of the visual world is felt as abandonment—the universe pulling back. Blindness is not just a medical fact but a cosmological event: the world itself receding."
+    },
+    {
+      "id": "borges-056",
+      "text": "In this night of his mortal eyes into which he was now descending, love and adventure were also awaiting him. Ares and Aphrodite—because now he began to sense a rumor of glory and hexameters, a rumor of men who defend a temple that the gods will not save... the rumor of the Odysseys and Iliads that it was his fate to sing and to leave echoing in the cupped hands of human memory.",
+      "source": "The Maker",
+      "themes": ["blindness", "creation", "inner-vision", "destiny"],
+      "context": "The descent into blindness becomes the ascent into creative vision. What the mortal eyes lose, the inner ear gains—Homer's epics were composed in the dark, which is why they can still be heard."
+    },
+    {
+      "id": "borges-057",
+      "text": "He felt, inexplicably, the way one might feel upon recognizing a melody or a voice, that all this had happened to him before and that he had faced it with fear but also with joy and hopefulness and curiosity.",
+      "source": "The Maker",
+      "themes": ["recognition", "memory", "courage", "repetition"],
+      "context": "In the moment of blindness's onset, Homer feels a paradoxical recognition—this darkness is familiar, this descent has a form. The great loss arrives already known."
+    },
+    {
+      "id": "borges-058",
+      "text": "In my childhood I was a fervent worshiper of the tiger... In that underground sea or chaos, they still endure. As I sleep I am drawn into some dream or other, and suddenly I realize that it's a dream. At those moments, I often think: This is a dream, a pure diversion of my will, and since I have unlimited power, I am going to bring forth a tiger.",
+      "source": "Dreamtigers",
+      "themes": ["dreams", "desire", "tiger", "childhood"],
+      "context": "The premise of Dreamtigers: the childhood obsession persists into the dream world, and in lucid dreams Borges tries to exercise his will to summon what he most wanted as a child."
+    },
+    {
+      "id": "borges-059",
+      "text": "Oh, incompetence! My dreams never seem to engender the creature I so hunger for. The tiger does appear, but it is all dried up, or it's flimsy-looking, or it has impure vagaries of shape or an unacceptable size, or it's altogether too ephemeral, or it looks more like a dog or bird than like a tiger.",
+      "source": "Dreamtigers",
+      "themes": ["imagination", "failure", "desire", "gap"],
+      "context": "The imagination's essential gap: the desired image arrives corrupted, partial, degraded. Even in the space of unlimited will, the tiger escapes. Dreaming cannot master the real creature."
+    },
+    {
+      "id": "borges-060",
+      "text": "I feared sometimes that they would begin to veer off from reality; other times, that I would see my face in them disfigured by strange misfortunes. Now I have just learned that she has gone insane, and that in her room all the mirrors are covered, because she sees my reflection in them—usurping her own.",
+      "source": "Covered Mirrors",
+      "themes": ["mirrors", "doubles", "madness", "usurpation"],
+      "context": "The mirror anxiety transmitted from self to other: Borges' childhood fear of mirrors propagates into another person's madness—his face replacing hers in her own reflection. Identity theft through the reflecting surface."
+    },
+    {
+      "id": "borges-061",
+      "text": "Averroës, trying to imagine what a play is without ever having suspected what a theater is, was no more absurd than I, trying to imagine Averroës yet with no more material than a few snatches from Renan, Lane, and Asín Palacios.",
+      "source": "Averroës' Search",
+      "themes": ["imagination", "limitation", "mirror", "failure"],
+      "context": "Borges identifies his own impossibility with Averroës' impossibility—both men trying to imagine what they have no framework to grasp. The story is about the structural limits of imagination itself."
+    },
+    {
+      "id": "borges-062",
+      "text": "One evening, the Muslim merchants spoke of actors... masked ones suffered imprisonment, but no one could see the jail; they rode upon horses, but the horse was not to be seen; they were killed, and then stood up again.",
+      "source": "Averroës' Search",
+      "themes": ["theater", "representation", "mystery", "body"],
+      "context": "Theater described to a man who has no concept of theater—the description is perfectly accurate and completely opaque. The gap between description and understanding is the gap between all worlds."
+    },
+    {
+      "id": "borges-063",
+      "text": "He who has seen the universe, he who has beheld the fiery designs of the universe, cannot think in terms of one man, of that man's trivial fortunes or misfortunes, though he himself be that man. That man has been he; now he matters no more to him.",
+      "source": "The Aleph",
+      "themes": ["vision", "ego-dissolution", "universe", "transcendence"],
+      "context": "The aftermath of total vision: the personal self becomes irrelevant. One who has seen everything can no longer care about the concerns of a particular life—including their own."
+    },
+    {
+      "id": "borges-064",
+      "text": "And suddenly he disappeared, as though annihilated by a fire without light, and that with him disappeared the house and the unseen fountain and the books and the manuscripts and the pigeons and the many dark-skinned servant girls and the trembling red-haired slave girl and Farach and the rosebushes.",
+      "source": "Averroës' Search",
+      "themes": ["disappearance", "imagination", "dissolution", "creation"],
+      "context": "The story ends with Averroës vanishing the moment Borges loses the ability to imagine him—the character's existence depends entirely on the author's imaginative act. Stop imagining, and the world unmakes itself."
+    },
+    {
+      "id": "borges-065",
+      "text": "Time forks perpetually toward innumerable futures. In one of them I am your enemy.",
+      "source": "The Garden of Forking Paths",
+      "themes": ["time", "branching", "fate", "possibility"],
+      "context": "The statement that condenses the entire theory of the forking-path universe: every moment splits into multiple actual futures, all of which exist, in some of which we are enemies, in others friends."
     }
   ]
 }

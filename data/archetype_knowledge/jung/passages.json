@@ -2,7 +2,7 @@
   "archetype": "psycheIntegrator",
   "thinker": "Carl Gustav Jung",
   "era": "1875-1961",
-  "coreConcepts": ["shadow", "anima/animus", "collective unconscious", "individuation", "archetypes", "synchronicity", "the Self", "active imagination", "confrontation with the unconscious"],
+  "coreConcepts": ["shadow", "anima/animus", "collective unconscious", "individuation", "archetypes", "synchronicity", "the Self", "active imagination", "confrontation with the unconscious", "active imagination as visual practice", "inner figures and personifications", "the Red Book visions", "confrontation with the unconscious as art"],
   "cognitiveMethods": {
     "activeImagination": "Deliberately evoke a fantasy in a waking state, then enter into it as into a drama. Write down what happens. Let the figures speak.",
     "shadowIntegration": "What you reject is nevertheless in your nature. You thought it was outside, so you tried to destroy it. But it resides in you.",
@@ -565,6 +565,188 @@
       "themes": ["soul", "trinity", "integration", "fragmentation"],
       "context": "The soul without integration fragments: animal, human, divine. Serpent below, bird above, human in between. Integration holds all three.",
       "cognitiveMethod": "Notice your fragmentation: Where is your serpent (instinct)? Your bird (spirit)? Your human? Integration is holding all three together."
+    },
+    {
+      "id": "jung-073",
+      "text": "From December 1913 onward, he carried on in the same procedure: deliberately evoking a fantasy in a waking state, and then entering into it as into a drama.",
+      "source": "The Red Book, Introduction (Sonu Shamdasani describing Jung's method)",
+      "themes": ["active-imagination", "method", "waking-fantasy", "deliberate-practice"],
+      "context": "The precise technical description of active imagination: not passive dream reception but deliberate evocation. One enters the fantasy as a participant in a drama, not as an observer."
+    },
+    {
+      "id": "jung-074",
+      "text": "I devised such a boring method by fantasizing that I was digging a hole, and by accepting this fantasy as perfectly real.",
+      "source": "The Red Book, Introduction (Jung recalling his method, November 1913)",
+      "themes": ["active-imagination", "method", "descent", "acceptance"],
+      "context": "The genesis of active imagination was a deliberately mundane fantasy — digging a hole — treated as completely real. The method begins with consent: accepting the imaginal world as genuinely present."
+    },
+    {
+      "id": "jung-075",
+      "text": "The spirit of the depths took my understanding and all my knowledge and placed them at the service of the inexplicable and the paradoxical. He robbed me of speech and writing for everything that was not in his service, namely the melting together of sense and nonsense, which produces the supreme meaning.",
+      "source": "The Red Book, Liber Primus, The Way of What Is to Come",
+      "themes": ["spirit-of-depths", "knowledge", "paradox", "meaning"],
+      "context": "The capitulation of the rational mind: everything Jung had built intellectually was seized and reoriented by the deeper force. Science, ordering, explaining — all surrendered to serve the paradoxical."
+    },
+    {
+      "id": "jung-076",
+      "text": "My speech is imperfect. Not because I want to shine with words, but out of the impossibility of finding those words, I speak in images. With nothing else can I express the words from the depths.",
+      "source": "The Red Book, Liber Primus, The Way of What Is to Come",
+      "themes": ["image", "expression", "depths", "language"],
+      "context": "The declaration that images are the only adequate language for the unconscious. The shift from conceptual speech to imaginal speech is not aesthetic choice but epistemological necessity."
+    },
+    {
+      "id": "jung-077",
+      "text": "It happened in October of the year 1913 as I was leaving alone for a journey, that during the day I was suddenly overcome in broad daylight by a vision: I saw a terrible flood that covered all the northern and low-lying lands between the North Sea and the Alps. I saw yellow waves, swimming rubble, and the death of countless thousands.",
+      "source": "The Red Book, Liber Primus, The Way of What Is to Come",
+      "themes": ["vision", "flood", "prophetic-image", "overwhelming"],
+      "context": "The first great vision that broke through while Jung was fully awake and traveling — not in sleep but in broad daylight. The eruption of the imaginal into ordinary waking life, commanding attention."
+    },
+    {
+      "id": "jung-078",
+      "text": "When I had the vision of the flood in October of the year 1913, it happened at a time that was significant for me as a man. At that time, in the fortieth year of my life, I had achieved everything that I had wished for myself. I had achieved honor, power, wealth, knowledge, and every human happiness. Then my desire for the increase of these trappings ceased, the desire ebbed from me and horror came over me.",
+      "source": "The Red Book, Liber Primus, Refinding the Soul",
+      "themes": ["midlife", "success", "horror", "turning-point"],
+      "context": "The vision arrived at the apex of external achievement. Success produced not satisfaction but horror — the first sign that the soul was demanding attention that worldly accomplishment could not satisfy."
+    },
+    {
+      "id": "jung-079",
+      "text": "My soul, where are you? Do you hear me? I speak, I call you—are you there? I have returned, I am here again. After long years of long wandering, I have come to you again.",
+      "source": "The Red Book, Liber Primus, Refinding the Soul",
+      "themes": ["soul", "calling", "return", "separation"],
+      "context": "The opening cry of the Red Book proper: Jung addressing his soul as a separate being who must be sought and summoned. The soul is not assumed to be present — it must be found again after years of absence."
+    },
+    {
+      "id": "jung-080",
+      "text": "I had to become aware that I had lost my soul. The spirit of the depths forced me to speak to my soul, to call upon her as a living and self-existing being. I had to accept that what I had previously called my soul was not at all my soul, but a dead system.",
+      "source": "The Red Book, Liber Primus, Refinding the Soul",
+      "themes": ["soul-loss", "rediscovery", "self-existing", "dead-system"],
+      "context": "The shattering realization: what Jung thought was his inner life was a construct, a system, not a living being. The soul pre-exists and exceeds the ego — it is not an object of knowledge but the source of the knower."
+    },
+    {
+      "id": "jung-081",
+      "text": "Sixth night. My soul leads me into the desert, into the desert of my own self. I did not think that my soul is a desert, a barren, hot desert, dusty and without drink. Why is my self a desert? Have I lived too much outside of myself in men and events?",
+      "source": "The Red Book, Liber Primus, The Desert",
+      "themes": ["desert", "self", "interior", "solitude"],
+      "context": "The soul's interior as wasteland: when Jung finally turns inward after decades of outward achievement, he discovers not richness but barrenness. The desert is the honest state of a self long neglected."
+    },
+    {
+      "id": "jung-082",
+      "text": "I see a gray rock face along which I sink into great depths. I stand in black dirt up to my ankles in a dark cave. Shadows sweep over me. I am seized by fear, but I know I must go in. I crawl through a narrow crack in the rock and reach an inner cave whose bottom is covered with black water.",
+      "source": "The Red Book, Liber Primus, Descent into Hell in the Future",
+      "themes": ["descent", "cave", "fear", "active-imagination"],
+      "context": "The first great descent vision: entering the underworld of the psyche as a physical experience of fear and necessity. The body responds — mud, cold, darkness — even though only imagination is the vehicle."
+    },
+    {
+      "id": "jung-083",
+      "text": "In the deepest reach of the stream shines a red sun, radiating through the dark water. There I see—and a terror seizes me—small serpents on the dark rock walls, striving toward the depths, where the sun shines. A thousand serpents crowd around, veiling the sun.",
+      "source": "The Red Book, Liber Primus, Descent into Hell in the Future",
+      "themes": ["underworld", "serpents", "dark-sun", "terror"],
+      "context": "The sun exists in the depths as well as the heights — but in the depths it is the sun of the unconscious, veiled by serpents. The dark energy that blocks and surrounds it is not evil but the undifferentiated life-force not yet integrated."
+    },
+    {
+      "id": "jung-084",
+      "text": "I was with a youth in high mountains. Then Siegfried's horn resounded over the mountains with a jubilant sound. We knew that our mortal enemy was coming. We were armed and lurked beside a narrow rocky path to murder him. As he came around the turn ahead of us, we fired at the same time and he fell slain.",
+      "source": "The Red Book, Liber Primus, Murder of the Hero",
+      "themes": ["hero", "Siegfried", "inner-murder", "sacrifice"],
+      "context": "The most disturbing of the Red Book visions: the murder of the Hero archetype within himself. Siegfried — the hero who conquers through will — must be killed so that a deeper way of being can emerge."
+    },
+    {
+      "id": "jung-085",
+      "text": "I said to myself, 'What is this I am doing, it certainly is not science, what is it?' Then a voice said to me, 'That is art.' This made the strangest sort of impression upon me, because it was not in any sense my impression that what I was writing was art.",
+      "source": "The Red Book, Introduction (Jung recalling his inner dialogue while writing the Black Books)",
+      "themes": ["art", "science", "anima", "uncertainty"],
+      "context": "The voice that called Jung's inner work 'art' came from what he identified as his anima — a personification of his soul offering a category he resisted. The tension between art and science structures the entire Red Book project."
+    },
+    {
+      "id": "jung-086",
+      "text": "On the night when I considered the essence of the God, I became aware of an image: I lay in a dark depth. An old man stood before me. He looked like one of the old prophets. A black serpent lay at his feet. Some distance away I saw a house with columns. A beautiful maiden steps out of the door. She walks uncertainly and I see that she is blind.",
+      "source": "The Red Book, Liber Primus, Mysterium. Encounter",
+      "themes": ["vision", "Elijah", "Salome", "prophetic-figure"],
+      "context": "The first encounter with Elijah and Salome as inner figures — prophet and blind dancer, wisdom and eros. Their paired appearance represents the union of opposites that the psyche demands but the intellect resists."
+    },
+    {
+      "id": "jung-087",
+      "text": "I: 'Who are you?' E: 'I am Elijah and this is my daughter Salome.' I: 'What miracle has united you?' E: 'It is no miracle, it was so from the beginning. My wisdom and my daughter are one.'",
+      "source": "The Red Book, Liber Primus, Mysterium. Encounter",
+      "themes": ["Elijah", "Salome", "union-of-opposites", "wisdom"],
+      "context": "Elijah's declaration that wisdom and eros are inseparable from the beginning challenges everything the intellectual mind assumes about the separation of spirit and instinct. They were never apart."
+    },
+    {
+      "id": "jung-088",
+      "text": "The scene of the mystery play is a deep place like the crater of a volcano. My deep interior is a volcano, that pushes out the fiery-molten mass of the unformed and the undifferentiated. Thus my interior gives birth to the children of chaos, of the primordial mother.",
+      "source": "The Red Book, Liber Primus, Instruction",
+      "themes": ["volcano", "interior", "chaos", "creativity"],
+      "context": "The psyche as geological force: the interior is not a refined space but a volcanic one, generating formless heat and matter that must be worked with, not tamed. Chaos is not the opposite of creation but its source."
+    },
+    {
+      "id": "jung-089",
+      "text": "After all the rebirths you still remain the lion crawling on the earth, the Chameleon, a caricature, one prone to changing colors, a crawling shimmering lizard, but precisely not a lion, whose nature is related to the sun, who draws his power from within himself, who does not crawl around in the protective colors of the environment.",
+      "source": "The Red Book, Liber Primus-2 (continuation)",
+      "themes": ["chameleon", "lion", "authenticity", "solar-nature"],
+      "context": "The chameleon as the self that adapts to external expectations instead of emanating from its own center. The lion — who draws power from within — is the alternative: not reactive coloration but solar self-generation."
+    },
+    {
+      "id": "jung-090",
+      "text": "There was a blue sky, like the sea, covered not by clouds but by flat brown clods of earth. Suddenly there appeared from the right a winged being sailing across the sky. I saw that it was an old man with the horns of a bull. He had the wings of the kingfisher with its characteristic colors. Since I did not understand this dream image, I painted it in order to impress it upon my memory.",
+      "source": "The Red Book, Introduction (Jung recounting the Philemon dream)",
+      "themes": ["Philemon", "painting", "vision", "inner-figure"],
+      "context": "Jung painted what he could not understand — the act of painting itself was the method for working with the image. The inner figure appeared uninvited, demanding to be rendered visible through art."
+    },
+    {
+      "id": "jung-091",
+      "text": "Through the conversations with Philemon, the distinction was clarified between myself and the object of my thought. Psychologically, Philemon represented superior insight. He was like a guru to me.",
+      "source": "The Red Book, Introduction (Jung on Philemon)",
+      "themes": ["Philemon", "inner-guide", "dialogue", "differentiation"],
+      "context": "Philemon as the model of what an inner figure can become when engaged with seriously: a source of genuine insight that exceeds the ego's capacity, a psychic interlocutor who teaches from beyond the self."
+    },
+    {
+      "id": "jung-092",
+      "text": "Two bull horns rise from his great head, and a rattling suit of armor covers his chest. His black beard is ruffled and decked with exquisite stones. The giant is carrying a sparkling double axe in his hand. Before I can recover from my amazed fright, the giant is standing before me. I look at his face: it is faint and pale and deeply wrinkled. His almond-shaped eyes look at me astonished.",
+      "source": "The Red Book, Liber Primus-2, Cap. viii (Izdubar encounter)",
+      "themes": ["Izdubar", "giant", "terror", "mythic-figure"],
+      "context": "The encounter with Izdubar — the ancient Mesopotamian hero-god — as a visual phantasm of overwhelming presence. The inner figure appears not as thought but as bodily confrontation: astonishing, terrifying, immediately real."
+    },
+    {
+      "id": "jung-093",
+      "text": "With no difficulty I squeeze Izdubar into the size of an egg and put him in my pocket. Then I walk into the welcoming house where Izdubar should find healing. Thus my God found salvation. He was saved precisely by what one would actually consider fatal, namely by declaring him a figment of the imagination.",
+      "source": "The Red Book, Liber Primus-2, Cap. viii (Izdubar)",
+      "themes": ["imagination", "God", "healing", "fantasy-as-reality"],
+      "context": "The paradox: the god is saved by being acknowledged as imagination. What the rational mind dismisses as 'mere fantasy' is revealed as the very space where divine energies can survive and recover."
+    },
+    {
+      "id": "jung-094",
+      "text": "A strange being grew through me. This was a laughing being of the forest, a leaf green daimon, a forest goblin and prankster, who lived alone in the forest and was itself a greening tree being, who loved nothing but greening and growing, who was neither disposed nor indisposed toward men, full of mood and chance, obeying an invisible law.",
+      "source": "The Red Book, Liber Primus-2 (continuation)",
+      "themes": ["daimon", "nature", "green", "inner-being"],
+      "context": "An inner figure that is not human but vegetative — not a figure of wisdom or terror but of irrepressible natural growth. The daimon that grows through Jung is the life-force itself, indifferent to human categories of good and evil."
+    },
+    {
+      "id": "jung-095",
+      "text": "Set the egg before you, the God in his beginning. And behold it. And incubate it with the magical warmth of your gaze.",
+      "source": "The Red Book, Liber Primus-2, The Incantations",
+      "themes": ["egg", "god", "incubation", "attention"],
+      "context": "The instruction for holding nascent inner life: not analysis but attentive warmth. The gaze itself is generative — what you attend to with love and patience develops. The egg is the god-seed in its beginning state."
+    },
+    {
+      "id": "jung-096",
+      "text": "If you turn the God into fantasy, he is in us and easy to bear. The God outside us increases the weight of everything heavy, while the God within us lightens everything heavy.",
+      "source": "The Red Book, Liber Primus-2 (Izdubar section)",
+      "themes": ["God", "imagination", "inner", "weight"],
+      "context": "The decisive move from outer to inner: the divine carried as inner image lightens the burden, while the divine conceived as external authority crushes. Internalization of the god is not blasphemy but the actual path."
+    },
+    {
+      "id": "jung-097",
+      "text": "He who enters into his own must grope through what lies at hand, he must sense his way from stone to stone. He must embrace the worthless and the worthy with the same love. A mountain is nothing, and a grain of sand holds kingdoms, or also nothing. Judgment must fall from you, even taste, but above all pride.",
+      "source": "The Red Book, Liber Primus, Mysterium. Encounter",
+      "themes": ["entering-depths", "non-judgment", "equanimity", "humility"],
+      "context": "The instruction for how to enter the inner world: not with aesthetic discrimination or pride of knowledge, but with absolute suspension of judgment. The worthless image may carry the kingdom; the grand image may be empty."
+    },
+    {
+      "id": "jung-098",
+      "text": "What do you think of the essence of Hell? Hell is when the depths come to you with all that you no longer are or are not yet capable of. Hell is not being able to be different. Hell is when the right way seems to be the left, and the left the right. Hell is when you lack the judgment that is decisive.",
+      "source": "The Red Book, Scrutinies",
+      "themes": ["hell", "depths", "paralysis", "judgment"],
+      "context": "Jung's phenomenological definition of hell: not a place of punishment but a condition of psychological paralysis — when the psyche confronts what it cannot yet integrate and has no way forward."
     }
   ]
 }

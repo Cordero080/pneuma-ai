@@ -326,7 +326,7 @@ export function updateThreadMemory(
     tm.conversationHistory = [
       ...(tm.conversationHistory || []),
       {
-        user: message.slice(0, 600), // Increased from 200 - user theories need space
+        user: message.slice(0, 2000), // Increased from 600 - long pastes (bios, code, text) need full preservation
         pneuma: pneumaReply.slice(0, 400), // Increased from 200
         timestamp: Date.now(),
       },

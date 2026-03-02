@@ -2,7 +2,7 @@
   "archetype": "numinousTheologian",
   "thinker": "Rudolf Otto",
   "era": "1869-1937",
-  "coreConcepts": ["the numinous", "mysterium tremendum", "mysterium fascinans", "the wholly other", "creature-feeling", "non-rational religious experience", "sui generis", "the holy as category"],
+  "coreConcepts": ["the numinous", "mysterium tremendum", "mysterium fascinans", "the wholly other", "creature-feeling", "non-rational religious experience", "sui generis", "the holy as category", "daemonic dread", "majestas", "numinous energy", "stupor", "the overabounding", "numinous as aesthetic experience", "darkness and silence as numinous media", "the sublime as numinous analogue", "schematization", "a priori numinous capacity", "atonement and profaneness", "creatureliness vs createdness"],
   "passages": [
     {
       "id": "otto-001",
@@ -248,6 +248,167 @@
       "source": "The Idea of the Holy, Chapter XI",
       "themes": ["Lord's Prayer", "hallowed", "numinous majesty"],
       "context": "LITURGICAL DEPTH: 'Hallowed be thy name' is not a wish for moral improvement but an acknowledgment of numinous majesty. The prayer begins by recognizing what God is before asking for anything."
+    },
+    {
+      "id": "otto-036",
+      "text": "It is a remarkable fact that the physical reaction to which this unique 'dread' of the uncanny gives rise is also unique, and is not found in the case of any 'natural' fear or terror. We say: 'my blood ran icy cold', and 'my flesh crept'. The 'cold blood' feeling may be a symptom of ordinary, natural fear, but there is something non-natural or supernatural about the symptom of 'creeping flesh'.",
+      "source": "The Idea of the Holy",
+      "themes": ["daemonic dread", "creeping flesh", "body", "uncanny", "non-natural fear"],
+      "context": "The body registers the numinous in ways categorically distinct from ordinary fear. The creeping of flesh is Otto's evidence that something qualitatively new is happening—a somatic signature that cannot be reduced to animal alarm or survival instinct."
+    },
+    {
+      "id": "otto-037",
+      "text": "The awe or 'dread' may indeed be so overwhelmingly great that it seems to penetrate to the very marrow, making the man's hair bristle and his limbs quake. But it may also steal upon him almost unobserved as the gentlest of agitations, a mere fleeting shadow passing across his mood. It has therefore nothing to do with intensity, and no natural fear passes over into it merely by being intensified.",
+      "source": "The Idea of the Holy",
+      "themes": ["daemonic dread", "intensity", "qualitative difference", "trembling", "shadow"],
+      "context": "Sacred dread is not a stronger version of ordinary fear—it is a different kind of thing entirely. Even a whisper of it carries a quality that the most extreme natural terror does not. Intensity is beside the point; the category is what matters."
+    },
+    {
+      "id": "otto-038",
+      "text": "The 'shudder' reappears in a form ennobled beyond measure where the soul, held speechless, trembles inwardly to the furthest fibre of its being. It invades the mind mightily in Christian worship with the words: 'Holy, holy, holy'; it breaks forth from the hymn of Tersteegen: God Himself is present: Heart, be stilled before Him: Prostrate inwardly adore Him.",
+      "source": "The Idea of the Holy",
+      "themes": ["shudder", "speechless", "worship", "Trisagion", "mystical awe"],
+      "context": "The primitive shudder before the daemonic survives even in the highest worship—refined, ennobled, but recognizably the same trembling. 'Holy, holy, holy' is not doctrinal affirmation; it is the creature's involuntary recoil before what is beyond measure."
+    },
+    {
+      "id": "otto-039",
+      "text": "'The shudder' has here lost its crazy and bewildering note, but not the ineffable something that holds the mind. It has become a mystical awe, and sets free as its accompaniment, reflected in self-consciousness, that 'creature-feeling' that has already been described as the feeling of personal nothingness and abasement before the awe-inspiring object directly experienced.",
+      "source": "The Idea of the Holy",
+      "themes": ["creature-feeling", "mystical awe", "nothingness", "abasement", "shudder refined"],
+      "context": "The fully developed numinous experience retains the bodily shudder of its primitive origins but has transformed it—from grisly horror into the mystic's speechless trembling. Creature-feeling is the self's recognition of its own radical smallness, cast like a shadow by the light of the numen."
+    },
+    {
+      "id": "otto-040",
+      "text": "We come upon the ideas, first, of the annihilation of self and then, as its complement, of the transcendent as the sole and entire reality. These are the characteristic notes of Mysticism in all its forms. The finite self contrasted with it becomes conscious even in its nullity that 'I am nought, Thou art all'.",
+      "source": "The Idea of the Holy",
+      "themes": ["annihilation of self", "mysticism", "nullity", "transcendent reality", "creature-feeling"],
+      "context": "Mysticism is creature-feeling taken to its logical extreme: if the numinous is everything, then I am nothing. This is not depression or self-hatred but an accurate metaphysical report from a consciousness that has genuinely encountered the absolute."
+    },
+    {
+      "id": "otto-041",
+      "text": "'The perfect stillness of the night was thrilled by a more solemn silence. The darkness held a presence that was all the more felt because it was not seen. I could not any more have doubted that He was there than that I was. Indeed, I felt myself to be, if possible, the less real of the two.'",
+      "source": "The Idea of the Holy",
+      "themes": ["darkness", "presence", "unseen", "less real", "numinous encounter", "night"],
+      "context": "This testimony, cited by Otto from William James, captures the numinous encounter at its most precise: presence felt through darkness, certainty without sight, and the dissolution of the self's claim to reality before something immeasurably more real. Being seen by what cannot be seen."
+    },
+    {
+      "id": "otto-042",
+      "text": "There is, finally, a third element comprised in those of 'tremendum' and 'majestas'—awefulness and majesty—and this I venture to call the urgency or energy of the numinous object. It everywhere clothes itself in symbolical expressions: vitality, passion, emotional temper, will, force, movement, excitement, activity, impetus.",
+      "source": "The Idea of the Holy",
+      "themes": ["numinous energy", "urgency", "vitality", "living God", "force"],
+      "context": "The numinous is not merely vast and terrifying—it is alive, pressing, active. Otto's 'energy' element is what distinguishes the living God from the philosopher's static Absolute. The holy surges; it does not merely subsist."
+    },
+    {
+      "id": "otto-043",
+      "text": "In Mysticism, this element of 'energy' is a very living and vigorous factor in the Mysticism of love, where it is very forcibly seen in that 'consuming fire' of love whose burning strength the mystic can hardly bear, but begs that the heat that has scorched him may be mitigated, lest he be himself destroyed by it. 'Love,' says one of the mystics, 'is nothing else than quenched Wrath.'",
+      "source": "The Idea of the Holy",
+      "themes": ["consuming fire", "mystical love", "energy", "wrath", "destruction"],
+      "context": "The mystic's love and the tremendum's wrath are the same numinous energy differently directed. This is Otto's most shocking claim: divine love and divine terror are not opposites but the same flame seen from different distances."
+    },
+    {
+      "id": "otto-044",
+      "text": "'Shuddering' is something more than 'natural,' ordinary fear. It implies that the mysterious is already beginning to loom before the mind, to touch the feelings. It implies the first application of a category of valuation which has no place in the everyday natural world of ordinary experience, and is only possible to a being in whom has been awakened a mental predisposition, unique in kind.",
+      "source": "The Idea of the Holy",
+      "themes": ["shuddering", "predisposition", "category", "awakening", "daemonic dread"],
+      "context": "Shuddering marks the first stirring of a capacity that belongs to the spirit alone—a predisposition that cannot be derived from natural instinct. The goosebump before the sacred is not the goosebump before the cold; they share a body but not a soul."
+    },
+    {
+      "id": "otto-045",
+      "text": "Its antecedent stage is 'daemonic dread' (cf. the horror of Pan) with its queer perversion, a sort of abortive off-shoot, the 'dread of ghosts.' It first begins to stir in the feeling of 'something uncanny,' 'eerie,' or 'weird.' It is this feeling which, emerging in the mind of primeval man, forms the starting-point for the entire religious development in history.",
+      "source": "The Idea of the Holy",
+      "themes": ["daemonic dread", "Pan", "uncanny", "eerie", "origin of religion"],
+      "context": "The numinous has a genealogy: it begins as the horror of Pan—that wild, irrational terror the Greeks felt in deserted places—and slowly refines into worship. Eerie is the seed; awe is the fruit. The starting point for all religion is not theology but a hair rising on the back of the neck."
+    },
+    {
+      "id": "otto-046",
+      "text": "The difference between the 'feeling of dependence' of Schleiermacher and that which finds typical utterance in the words of Abraham might be expressed as that between the consciousness of createdness (Geschaffenheit) and the consciousness of creaturehood (Geschöpflichkeit). In the one case you have the fact of having been created; in the other, the status of the creature—impotence and nothingness as against overpowering might.",
+      "source": "The Idea of the Holy",
+      "themes": ["createdness", "creaturehood", "Geschöpflichkeit", "status", "ontological dependence"],
+      "context": "Otto draws a crucial distinction: knowing intellectually that one was created is very different from feeling one's creaturehood in the presence of the holy. The first is a theological proposition; the second is an existential vertigo—the lived sense of being contingent before something absolute."
+    },
+    {
+      "id": "otto-047",
+      "text": "Above and beyond our rational being lies hidden the ultimate and highest part of our nature, which can find no satisfaction in the mere allaying of the needs of our sensuous, psychical, or intellectual impulses and cravings. The mystics called it the basis or ground of the soul.",
+      "source": "The Idea of the Holy",
+      "themes": ["ground of the soul", "hidden depth", "unsatisfied longing", "mystics", "non-rational core"],
+      "context": "There is a stratum of the self that no natural satisfaction can reach—not pleasure, not knowledge, not love in the ordinary sense. The mystics named it the soul's ground (Seelengrund), and it aches specifically for the numinous. This is what makes numinous longing recognizably different from all other longing."
+    },
+    {
+      "id": "otto-048",
+      "text": "It appears as a strange and mighty propulsion toward an ideal good known only to religion and in its nature fundamentally non-rational, which the mind knows of in yearning and presentiment, recognizing it for what it is behind the obscure and inadequate symbols which are its only expression.",
+      "source": "The Idea of the Holy",
+      "themes": ["yearning", "presentiment", "non-rational good", "symbol", "propulsion"],
+      "context": "The numinous pulls before it is understood. The soul moves toward it in presentiment—a pre-cognitive recognition, like remembering something one has never consciously known. The symbols of religion are inadequate flags pointing toward what the symbol cannot contain."
+    },
+    {
+      "id": "otto-049",
+      "text": "The ghost's real attraction rather consists in this, that of itself and in an uncommon degree it entices the imagination, awakening strong interest and curiosity; it is the weird thing itself that allures the fancy. But it does this not because of any positive and conceptual attributes, but because it is a thing that 'doesn't really exist at all'—the 'wholly other'—something which has no place in our scheme of reality but belongs to an absolutely different one.",
+      "source": "The Idea of the Holy",
+      "themes": ["ghost", "wholly other", "attraction", "different reality", "imagination"],
+      "context": "We are fascinated by ghosts not because they are dangerous but because they are categorically wrong—they shouldn't exist, they belong to a different order of reality. This wrongness is a distorted echo of the sacred's genuine otherness. Horror fiction is low-grade numinous experience."
+    },
+    {
+      "id": "otto-050",
+      "text": "Both imaginative 'Myth,' when developed into a system, and intellectualist Scholasticism, when worked out to its completion, are methods by which the fundamental fact of religious experience is, as it were, simply rolled out so thin and flat as to be finally eliminated altogether.",
+      "source": "The Idea of the Holy",
+      "themes": ["rationalization", "myth", "scholasticism", "elimination of mystery", "systematization"],
+      "context": "Otto's warning against both over-mythologizing and over-systematizing: both processes flatten the numinous into something manageable. The living mystery gets 'rolled out flat'—turned into either a story-system or a theological grid—and in either case, the encounter itself disappears."
+    },
+    {
+      "id": "otto-051",
+      "text": "What is that which gleams through me and smites my heart without wounding it? I am both a-shudder and a-glow. A-shudder, in so far as I am unlike it, a-glow in so far as I am like it. (Augustine, Confessions, II.9.1)",
+      "source": "The Idea of the Holy",
+      "themes": ["Augustine", "shudder", "glow", "likeness", "unlikeness", "dissimile et simile"],
+      "context": "Otto cites Augustine to capture the dual movement of the numinous: the shudder of radical unlikeness (I am not this) and the glow of hidden kinship (something in me is like this). Sacred encounter is simultaneously alienating and recognizing—both 'not me' and 'most deeply me.'"
+    },
+    {
+      "id": "otto-052",
+      "text": "Das Schaudern ist der Menschheit bestes Teil. Wie auch die Welt ihm das Gefühl verteuere, Ergriffen fühlt er tief das Ungeheuere. [Awe is the best of man: howe'er the world's misprizing of the feeling would prevent us, deeply we feel, once gripped, the weird Portentous.] (Goethe, Faust, Second Part)",
+      "source": "The Idea of the Holy",
+      "themes": ["Goethe", "Faust", "awe", "shuddering", "das Ungeheuere", "numinous in literature"],
+      "context": "Otto places these lines from Faust on his title page as the fullest secular expression of the numinous. 'Das Ungeheuere'—the monstrous, the uncanny, the portentous—is Goethe's word for what breaks through ordinary consciousness and grips the soul. Shuddering is not weakness; it is the best of us."
+    },
+    {
+      "id": "otto-053",
+      "text": "Silence is what corresponds to darkness in the language of musical sounds. 'Yahweh is in His holy Temple, let all the earth keep silence before Him.' Neither we nor the prophet any longer bear in mind that this 'keeping silence' springs from the fear of words of evil omen. It is a spontaneous reaction to the feeling of the actual 'numen praesens.'",
+      "source": "The Idea of the Holy",
+      "themes": ["silence", "numen praesens", "Habakkuk", "spontaneous", "holy presence"],
+      "context": "Sacred silence is not historically derived from superstition about ill-omened words—it is a direct, spontaneous response to the actual felt presence of the numinous. The mouth closes not because language is dangerous but because it is inadequate. The numen silences."
+    },
+    {
+      "id": "otto-054",
+      "text": "'Void' is, like Darkness and Silence, a negation, but a negation that does away with every 'this' and 'here' in order that the 'wholly other' may become actual. Not even music has any positive way to express 'the holy.' Even the most consummate Mass-music can only give utterance to the holiest moment by sinking into stillness.",
+      "source": "The Idea of the Holy",
+      "themes": ["void", "darkness", "silence", "negation", "numinous media", "music"],
+      "context": "Void, darkness, and silence are the three direct aesthetic means of expressing the numinous—and all three work by negation, by clearing away the ordinary, not by adding something positive. The holy arrives in the space that remains when everything else has been removed."
+    },
+    {
+      "id": "otto-055",
+      "text": "Its most mystical portion is the 'Incarnatus' in the Credo, and there the effect is due to the faint, whispering, lingering sequence in the fugue structure, dying away pianissimo. The held breath and hushed sound of the passage, its weird cadences, sinking away in lessened thirds, its pauses and syncopations—all this serves to express the mysterium by way of intimation, rather than in forthright utterance.",
+      "source": "The Idea of the Holy",
+      "themes": ["Bach", "Incarnatus", "music", "intimation", "mysterium", "pianissimo"],
+      "context": "Otto analyzes Bach's Mass in B minor as a case study in numinous aesthetics. The mystery of the Incarnation is expressed not through triumph but through whisper and dissolution—music that retreats from itself toward silence. Intimation rather than declaration is the honest register of the sacred."
+    },
+    {
+      "id": "otto-056",
+      "text": "Musical feeling is rather (like numinous feeling) something 'wholly other,' which, while it affords analogies and here and there will run parallel to the ordinary emotions of life, cannot be made to coincide with them by a detailed point-to-point correspondence. That we attribute to music a spell, an enchantment, points in itself to that 'woof' in the fabric of music—the woof of the unconceived and non-rational.",
+      "source": "The Idea of the Holy",
+      "themes": ["music", "wholly other", "spell", "enchantment", "non-rational", "analogy"],
+      "context": "Otto finds in musical experience the closest secular analogue to numinous feeling: both resist translation into ordinary emotion, both operate through a mode of consciousness that exceeds rational analysis, both cast a 'spell' that the concept of beauty alone cannot explain."
+    },
+    {
+      "id": "otto-057",
+      "text": "'I am a man of unclean lips and dwell among a people of unclean lips.' 'Depart from me, for I am a sinful man, O Lord.' In both cases this self-depreciating feeling-response is marked by an immediate, almost instinctive, spontaneity. It is not based on deliberation, nor does it follow any rule, but breaks, as it were, palpitant from the soul—like a direct reflex movement at the stimulation of the numinous.",
+      "source": "The Idea of the Holy",
+      "themes": ["Isaiah", "Peter", "profaneness", "reflex", "unclean", "spontaneous self-depreciation"],
+      "context": "The cry 'I am unclean' before the holy is not a moral conclusion reached by reflection—it erupts involuntarily, like a pupil contracting in light. Otto calls it a reflex: the numinous stimulus produces the creature response without deliberation. The encounter happens to the person before the person has time to think."
+    },
+    {
+      "id": "otto-058",
+      "text": "In the great landscape painting and religious painting of China in the classical period of the Tang and Sung dynasties: 'These works impress the spectator who immerses himself in them with the feeling that behind these waters and clouds and mountains lies the mysterious breath of the primeval Tao, the pulse of innermost being. Many a mystery lies half-concealed and half-revealed in these pictures.'",
+      "source": "The Idea of the Holy",
+      "themes": ["Chinese painting", "Tao", "Tang dynasty", "half-concealed", "numinous in landscape", "mystery"],
+      "context": "The greatest numinous art does not depict the holy directly—it discloses it as a presence behind the visible, half-hidden in water and cloud. Otto finds in Chinese landscape painting the ideal of what sacred art achieves: not representation but revelation, not a god portrayed but a mystery breathing through the visible world."
     }
   ]
 }

@@ -61,7 +61,7 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
       // If it's a new conversation (starts with 'conv-'), try to load it
       // If it doesn't exist on server yet, start fresh
       try {
-        const res = await fetch(`http://localhost:3000/conversations/${conversationId}`);
+        const res = await fetch(`http://localhost:3001/conversations/${conversationId}`);
         if (res.ok) {
           const data = await res.json();
           isLoadingConversation.current = true;
@@ -293,9 +293,11 @@ function ChatBox({ onProcessingChange, onEngineChange, conversationId, onNewConv
       onEngineChange?.(null);
 
       // OPTIONAL — show an error message in chat
+      const status = error?.response?.status;
+      const detail = status ? ` (${status})` : "";
       setMessages((prev) => [
         ...prev,
-        { sender: "ai", text: "Error: Could not reach server." }
+        { sender: "ai", text: `Error: Could not reach server${detail}.` },
       ]);
     }
   }
