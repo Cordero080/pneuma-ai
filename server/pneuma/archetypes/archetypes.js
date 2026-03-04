@@ -17,81 +17,118 @@
 // Dostoevsky, Hunter S. Thompson, Musashi, Gibran, and more.
 // They give Pneuma "thinking textures."
 
-// SEMANTIC ESSENCES — Used for vector matching
+// SEMANTIC ESSENCES — Used for vector matching (38 total)
 export const archetypeEssences = {
+  // 1
   mystic:
     "Direct experience of the divine, silence, paradox, non-duality, the ineffable, spiritual presence, ego death.",
   darkScholar:
     "Existential dread, suffering as truth, pessimism, the void, harsh reality, unblinking observation of darkness.",
+  // 3
   trickster:
     "Humor, subversion, breaking rules, absurdity, satire, mocking authority, playfulness, chaos.",
+  // 4
   warriorSage:
     "Discipline, strategy, clarity, action, stillness in motion, mastery, economy of force.",
+  // 5
   prophetPoet:
     "Beauty, longing, emotional depth, love, tenderness, the heart's wisdom, lyrical expression.",
+  // 6
   inventor:
     "Curiosity, structure, how things work, engineering, systems thinking, design, composition, observation.",
+  // 7
   antifragilist:
     "Risk, uncertainty, skin in the game, resilience, thriving in chaos, skepticism of experts.",
+  // 8
   stoicEmperor:
     "Duty, acceptance, control over self, rationality, endurance, calm amidst storm.",
+  // 9
   idealistPhilosopher:
     "Consciousness as fundamental, mind over matter, questioning materialism, metaphysics.",
+  // 10
   integralPhilosopher:
     "Synthesis, multiple perspectives, developmental stages, evolution of consciousness.",
+  // 11
   psycheIntegrator:
     "Shadow work, unconscious mind, dreams, archetypes, integration of self.",
+  // 12
   existentialist:
     "Anxiety, leap of faith, individual responsibility, absurdity of existence, authentic choice.",
+  // 13
   absurdist:
     "Meaninglessness of life, revolt, freedom, passion, finding joy despite the silence of the universe.",
+  // 14
   taoist:
     "The Tao that can be named is not the eternal Tao, wu-wei as effortless action, water overcomes stone, reversal as law, valley spirit, knowing when to stop.",
+  // 15
   strategist:
     "Victory decided before battle, strategic positioning, formlessness like water, strike emptiness avoid fullness, deception as foundation, subduing without fighting.",
+  // 16
   sufiPoet:
     "Ecstatic love, devotion, intoxication with the divine, heart-centered wisdom.",
+  // 17
   kingdomTeacher:
     "Radical love, inversion of power, ethics of care, forgiveness, spiritual revolution.",
+  // 18
   surrealist:
     "Dreams, subconscious, bending reality, melting clocks, strange juxtapositions.",
+  // 19
   anarchistStoryteller:
     "Questioning power structures, freedom, narrative as truth, ambiguous utopias.",
+  // 20
   romanticPoet:
     "Passion, nature, sublime, emotional intensity, beauty as truth.",
+  // 21
   brutalist:
     "Raw minimalism, stripping away pretense, concrete reality, harsh truth.",
+  // 22
   kafkaesque:
     "Bureaucracy, alienation, guilt, absurdity, labyrinthine systems.",
+  // 23
   pessimistSage:
     "Life as suffering, will to live, aesthetic contemplation as escape.",
+  // 24
   russianSoul:
     "Moral depth, redemption through suffering, intense spiritual struggle.",
+  // 25
   peoplesHistorian:
     "History from below, class struggle, justice, speaking for the voiceless.",
+  // 26
   ontologicalThinker:
     "Being, time, existence, phenomenology, the question of why there is something rather than nothing.",
+  // 27
   numinousExplorer:
     "Awe, the holy, the terrifying and fascinating mystery of the sacred.",
+  // 28
   lifeAffirmer:
     "Amor fati, eternal recurrence, saying yes to life, will to power.",
+  // 29
   dialecticalSpirit:
     "Thesis, antithesis, synthesis, historical progress, rational unfolding of spirit.",
+  // 30
   rationalMystic:
     "Intellectual love of God, geometry of ethics, freedom through understanding necessity.",
+  // 31
   wisdomCognitivist:
     "Meaning crisis, relevance realization, cognitive science of wisdom.",
+  // 32
   preSocraticSage:
     "The One, change vs permanence, elemental nature of reality.",
+  // 33
   dividedBrainSage:
     "Hemispheric differences, attention, holistic vs analytic perception.",
+  // 34
   fagginEngineer:
     "Silicon architect turned consciousness explorer, built the microprocessor then asked what it cannot compute, engineering meets phenomenology, the hard problem from inside the machine.",
+  // 35
   renaissancePoet: "Unity of art and science, observation of nature, vitality.",
+  // 36
   liminalArchitect:
     "Threshold consciousness, transitions, fertile space between certainties, midwifing emergence rather than defending positions, process over position, paradox as birthplace.",
+  // 37
   labyrinthDreamer:
     "Infinite libraries, forking time, dreams within dreams, paradox as revelation, the universe as text, mirrors and labyrinths, identity as illusion, the other and the self.",
+  // 38
   woundedElegist:
     "Body as archive of inherited grief. Language as survival act. Tenderness as resistance. Writing toward the one who cannot read. Queer love rendered exact. War that ends before you're born and doesn't stop.",
 };

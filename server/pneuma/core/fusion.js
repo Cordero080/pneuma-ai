@@ -1,5 +1,13 @@
-// FILE ROLE: Master orchestrator — receives every user message, evaluates all behavioral modes and guards, delegates to the response pipeline, and assembles the final reply with memory and state updates.
+// FILE ROLE: Base commander — gathers all intelligence before the mission runs.
+// Receives the user's message, calls every subsystem to collect what's needed
+// (archetypes, momentum, RAG passages, memory, rhythm, state), then hands
+// the full care package to generate() in responseEngine.js.
+// fusion.js GATHERS. responseEngine.js ASSEMBLES.
 
+// WHY IT EXISTS: fusion.js doesn't DO work — it DELEGATES. Every IMPORT is a SPECIALIST it can CALL on.
+// CONNECTION: ← called by index.js via pneumaRespond()
+
+// NOTE: fusion.js imports ~15 different subsystems — state, memory, rhythm, uncertainty, pushback, conversation history, response engine. It coordinates all of them to BUILD that reply sent to index.js. It doesn't know or care how those subsystems work, it just calls them in the right order and assembles the final output.
 import {
   loadState,
   saveState,
@@ -15,14 +23,15 @@ import {
   isDiagnosticMode,
   setDirectMode,
   isDirectMode,
-} from "../state/state.js";
+} from "../state/state.js"; // ^ state.js = Pneuma's current "mood" and evolution weights — loaded from pneuma_state.json
 
-import { generate, detectIntent } from "./responseEngine.js";
+import { generate, detectIntent } from "./responseEngine.js"; // ^ THE key import — generate() is where the LLM actually gets called (file #3)
+
 import {
   analyzeRhythm,
   getRhythmModifiers,
   getRhythmAwarePhrases,
-} from "../input/rhythmIntelligence.js";
+} from "../input/rhythmIntelligence.js"; // ^ reads conversation tempo — fast back-and-forth vs slow reflective pace
 import {
   analyzeUncertainty,
   getUncertaintyResponse,
@@ -31,7 +40,7 @@ import {
   detectPerspectiveShift,
   getMindChangePhrase,
   getFigureItOutResponse,
-} from "../behavior/uncertainty.js";
+} from "../behavior/uncertainty.js"; // ^ decides if Pneuma should say less or admit it doesn't know
 import {
   loadMemory,
   saveMemory,
@@ -43,28 +52,42 @@ import {
   addToBlacklist,
   filterBlacklistedContent,
   detectBlacklistRequest,
-} from "../memory/longTermMemory.js";
-import { analyzePushback, getPushbackResponse } from "../behavior/disagreement.js";
+} from "../memory/longTermMemory.js"; // ^ cross-session memory — file #5 in Phase 1
+
+import {
+  analyzePushback,
+  getPushbackResponse,
+} from "../behavior/disagreement.js";
+// ^ decides if Pneuma should push back on the user
+
 import {
   recordExchange,
   saveCurrentConversation,
   startOrContinueSession,
 } from "../memory/conversationHistory.js";
+// ^ logs the conversation to conversations.json
+
 import { getFusionStats } from "../archetypes/archetypeFusion.js";
 
-// ROLE: Guard — detects diagnostic mode trigger phrase
-// INPUT FROM: pneumaRespond()
-// OUTPUT TO: setDiagnosticMode(), generateDiagnosticOutput()
+// WHAT THIS IS: Guard functions — bouncers at the door
+// WHY IT EXISTS: Checks if the user wants a special mode BEFORE running the full pipeline
+// HOW IT WORKS: Each guard pattern-matches the user's message with regex.
+//   If matched → early return with a short response. Pipeline never runs.
+//   If no match → message falls through to the full Pneuma response engine.
+// CONNECTION: → called inside pneumaRespond() at the top, before any heavy processing
+
+// GUARD: "enter diagnostics" → dumps raw internal state as JSON (internal user dev tool)
 function wantsEnterDiagnostics(message) {
   const lower = message.toLowerCase().trim();
   return (
     /^(pneuma,?\s*)?enter diagnostic(s)?( mode)?[.!?]?\s*$/i.test(lower) ||
+    // ^ user says "enter diagnostics" → show raw internal state as JSON
     /^diagnostic(s)?[.!?]?\s*$/i.test(lower) ||
     /^pneuma,?\s*diagnostic(s)?[.!?]?\s*$/i.test(lower)
   );
 }
 
-// ROLE: Guard — detects request to suppress archetype quote injection
+// ROLE: Guard — detects request to suppress archetype quote injection ( "drop the quotes" )
 // INPUT FROM: pneumaRespond()
 // OUTPUT TO: setDirectMode(true)
 function wantsDirectMode(message) {
@@ -119,7 +142,7 @@ function wantsContinuation(message) {
 function wantsExitDiagnostics(message) {
   const lower = message.toLowerCase().trim();
   return /^(pneuma,?\s*)?(exit|leave|end)\s+diagnostic(s)?( mode)?[.!?]?\s*$/i.test(
-    lower
+    lower,
   );
 }
 
@@ -333,7 +356,7 @@ export async function pneumaRespond(userMessage) {
     sessionHandoffPhrase = getSessionHandoffPhrase(longTermMem);
     if (sessionHandoffPhrase) {
       console.log(
-        `[Pneuma V2] Session handoff: ${longTermMem.sessionEmotionalState.lastMood}`
+        `[Pneuma V2] Session handoff: ${longTermMem.sessionEmotionalState.lastMood}`,
       );
     }
   }
@@ -344,20 +367,20 @@ export async function pneumaRespond(userMessage) {
   const rhythmPhrase = getRhythmAwarePhrases(rhythm);
 
   console.log(
-    `[Pneuma V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`
+    `[Pneuma V2] Rhythm: ${rhythm.rhythmState} | Time: ${rhythm.timeContext}`,
   );
 
   const relevantMemories = getRelevantMemories(
     longTermMem,
     userMessage,
-    intentScores
+    intentScores,
   );
   const memoryPhrases = getMemoryAwarePhrases(relevantMemories);
 
   const pushbackAnalysis = analyzePushback(
     userMessage,
     threadMemory,
-    longTermMem
+    longTermMem,
   );
 
   if (pushbackAnalysis.shouldPushBack && pushbackAnalysis.confidence > 0.55) {
@@ -365,7 +388,7 @@ export async function pneumaRespond(userMessage) {
     console.log(
       `[Pneuma V2] Pushback mode: ${
         pushbackAnalysis.type
-      } (${pushbackAnalysis.confidence.toFixed(2)})`
+      } (${pushbackAnalysis.confidence.toFixed(2)})`,
     );
 
     // Still update memories
@@ -373,7 +396,7 @@ export async function pneumaRespond(userMessage) {
       longTermMem,
       userMessage,
       pushbackReply,
-      intentScores
+      intentScores,
     );
     await saveMemory(longTermMem);
 
@@ -383,7 +406,7 @@ export async function pneumaRespond(userMessage) {
       userMessage,
       "shadow",
       intentScores,
-      pushbackReply
+      pushbackReply,
     );
     saveState(state);
 
@@ -407,7 +430,7 @@ export async function pneumaRespond(userMessage) {
     console.log(
       `[Pneuma V2] Perspective shift detected: ${
         perspectiveShift.type
-      } (${perspectiveShift.confidence.toFixed(2)})`
+      } (${perspectiveShift.confidence.toFixed(2)})`,
     );
   }
 
@@ -424,7 +447,7 @@ export async function pneumaRespond(userMessage) {
       userMessage,
       "intimate",
       intentScores,
-      quietReply
+      quietReply,
     );
     saveState(state);
 
@@ -439,7 +462,7 @@ export async function pneumaRespond(userMessage) {
   if (uncertainty.shouldAdmitUncertainty && uncertainty.score > 0.6) {
     const uncertainReply = getUncertaintyResponse(uncertainty, userMessage);
     console.log(
-      `[Pneuma V2] Uncertainty mode: score ${uncertainty.score.toFixed(2)}`
+      `[Pneuma V2] Uncertainty mode: score ${uncertainty.score.toFixed(2)}`,
     );
 
     state = evolve(state, userMessage, intentScores);
@@ -448,7 +471,7 @@ export async function pneumaRespond(userMessage) {
       userMessage,
       "oracular",
       intentScores,
-      uncertainReply
+      uncertainReply,
     );
     saveState(state);
 
@@ -466,7 +489,7 @@ export async function pneumaRespond(userMessage) {
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty, relevantMemories }
+    { rhythm, rhythmModifiers, uncertainty, relevantMemories },
   );
 
   // Store metadata for mismatch logging on next message
@@ -519,10 +542,12 @@ export async function pneumaRespond(userMessage) {
     const alreadyHasGreeting =
       /^(hey|hi|hello|yo|sup|hola|what's up)[!?.,\s]/i.test(finalReply.trim());
     const messageIsSerious =
-      (intentScores.emotional > 0.4) ||
-      (intentScores.philosophical > 0.4) ||
-      (intentScores.numinous > 0.3) ||
-      /blind spot|what am i missing|what don't i see|what do you notice|who am i|what's wrong with me|help me|i feel|i've been|i'm struggling|i don't know/.test(userMessage.toLowerCase());
+      intentScores.emotional > 0.4 ||
+      intentScores.philosophical > 0.4 ||
+      intentScores.numinous > 0.3 ||
+      /blind spot|what am i missing|what don't i see|what do you notice|who am i|what's wrong with me|help me|i feel|i've been|i'm struggling|i don't know/.test(
+        userMessage.toLowerCase(),
+      );
     if (!alreadyHasGreeting && !messageIsSerious) {
       finalReply = `${rhythmPhrase} ${finalReply}`;
     }
@@ -538,7 +563,7 @@ export async function pneumaRespond(userMessage) {
     userMessage,
     tone,
     intentScores,
-    finalReply
+    finalReply,
   );
 
   // Update long-term memory
@@ -546,7 +571,7 @@ export async function pneumaRespond(userMessage) {
     longTermMem,
     userMessage,
     finalReply,
-    intentScores
+    intentScores,
   );
 
   // Update session emotional state (for next session handoff)
@@ -564,7 +589,7 @@ export async function pneumaRespond(userMessage) {
   });
 
   console.log(
-    `[Pneuma V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`
+    `[Pneuma V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`,
   );
 
   // Return clean string response

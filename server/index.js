@@ -1,5 +1,8 @@
 // FILE ROLE: HTTP gateway — maps every inbound request to the correct Pneuma subsystem and shapes the raw reply into a JSON response for the frontend.
 
+//index.js is the front door that receives every request, routes it to the right subsystem, and shapes the response for the frontend. It doesn't think — it dispatches.
+
+// NOTE: index.js imports one thing that matters: pneumaRespond. It sends a message in, gets a reply back. It doesn't know or care how that reply was made.
 // ------------------------- LOAD ENV FIRST --------------------------
 import "dotenv/config"; // Loads .env before any other imports
 
@@ -35,13 +38,18 @@ import {
 } from "./pneuma/behavior/dreamMode.js";
 // ^ Your Pneuma fusion engine + TTS + Voice + Emotion + Dreams
 
+// import.meta.url = "file:///Users/pablo/pneuma/server/index.js" ("file://" prefix gets chopped off by fileURLToPath)
+// ^ raw URL format — not usable as a folder path yet
+
 // ES Module __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);
+// ^ converts to: "/Users/pablo/pneuma/server/index.js"
 const __dirname = path.dirname(__filename);
+// ^ chops off the filename, gives you: "/Users/pablo/pneuma/server
 
 // ------------------------- APP CONFIG -------------------------------
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors()); // allow frontend → backend communication
 app.use(express.json({ limit: "10mb" })); // parse JSON request bodies with larger limit
@@ -242,6 +250,9 @@ app.post("/tts", async (req, res) => {
 });
 
 // -------------------------- VOICE INPUT ROUTE -----------------------
+// NOTE: Voice route is fully implemented but not yet active in production.
+// Requires Whisper (OpenAI) + Hume AI API keys to enable.
+// Architecture is complete — enable when ready, no rewrite needed.
 // ROLE: Transcribes audio, detects emotion, then routes to pneumaRespond like /chat
 // INPUT FROM: POST /voice request from frontend with raw audio buffer
 // OUTPUT TO: transcribeAudio(), analyzeVoiceEmotion(), pneumaRespond() in fusion.js; returns { reply, transcription, emotions, engine, mode, language } to frontend

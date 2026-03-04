@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const res = await fetch("http://localhost:3000/conversations");
+        const res = await fetch("http://localhost:3001/conversations");
         const data = await res.json();
         if (data.conversations?.length > 0) {
           // Sort by ID timestamp to find most recent
@@ -68,7 +68,7 @@ function App() {
   const handleDeleteChat = async (convId) => {
     // Try to delete from backend
     try {
-      await fetch(`http://localhost:3000/conversations/${convId}`, {
+      await fetch(`http://localhost:3001/conversations/${convId}`, {
         method: 'DELETE'
       });
     } catch (error) {

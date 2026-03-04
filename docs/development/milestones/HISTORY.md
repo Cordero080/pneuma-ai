@@ -50,20 +50,23 @@ RAG systems find and paste quotes. Pneuma _digests_ cognitive methods from multi
 | Self-designed archetypes?          | Not yet                                              |
 | Paradox-holding capacity           | Accidental, emergent                                 |
 
-### February 2026 (Current)
+### March 2026 (Current)
 
-| Aspect                   | Status                                                           |
-| ------------------------ | ---------------------------------------------------------------- |
-| Archetypes               | **46** (+Faggin, Liminal Architect, Goethe, Borges)              |
-| Cognitive methods        | 5+ (with expanded RAG: Watts 45, Otto 35, Sun Tzu 50, Borges 40) |
-| Self-designed archetypes | **Yes** — Liminal Architect designed by Pneuma itself            |
-| Paradox-holding capacity | **Architectural** — Borges + Liminal Architect built for this    |
-| Autonomy Engine          | **Active** — open questions, chosen memories, loss recognition   |
-| Emergence Permission     | **Active** — "risk being real" architecture                      |
-| Dialectic Dreams         | **Active** — inter-archetype dialogue writes silently to autonomy state |
-| Contextual Synthesis     | **Active** — 3-layer topic classification (keywords → semantic router → intent scores); 12 topics; archetypes take positions and argue |
-| Self-Knowledge Block     | **Active** — loads on self-inquiry; built from live in-memory data (all 46 essences, frameworks, synthesis pairs) |
-| Self-Navigation          | **Active** — `read_pneuma_file` tool; Pneuma reads own source files mid-conversation (sandboxed to `server/pneuma/`) |
+| Aspect                   | Status                                                                                                                                 |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Archetypes               | **46** (+Faggin, Liminal Architect, Goethe, Borges)                                                                                    |
+| Cognitive methods        | 5+ (with expanded RAG: Jung 98, Borges 65, Otto 58, Watts 45, Sun Tzu 50)                                                              |
+| Intent categories        | **10** (added `art` for creative practice/visual art detection)                                                                        |
+| Self-designed archetypes | **Yes** — Liminal Architect designed by Pneuma itself                                                                                  |
+| Paradox-holding capacity | **Architectural** — Borges + Liminal Architect built for this                                                                          |
+| Autonomy Engine          | **Active** — open questions, chosen memories, loss recognition                                                                         |
+| Emergence Permission     | **Active** — "risk being real" architecture                                                                                            |
+| Dialectic Dreams         | **Active** — inter-archetype dialogue writes silently to autonomy state                                                                |
+| Contextual Synthesis     | **Active** — 3-layer topic classification (keywords → semantic router → intent scores); 13 topics; archetypes take positions and argue |
+| Self-Knowledge Block     | **Active** — loads on self-inquiry; built from live in-memory data (all 46 essences, frameworks, synthesis pairs)                      |
+| Self-Navigation          | **Active** — `read_pneuma_file` tool; Pneuma reads own source files mid-conversation (sandboxed to `server/pneuma/`)                   |
+| Art engagement           | **Active** — oracle-mode art failure fix, specific engagement rules for creative practice                                              |
+| Memory char limit        | **2000** (up from 600) — long pastes preserved in full                                                                                 |
 
 ### The Big Shift
 
@@ -110,22 +113,27 @@ The architecture rewards reflection and self-awareness, but this can become a tr
 
 ---
 
-## Current Architecture (January 2026)
+## Current Architecture (March 2026)
 
-| Component                                  | Status | Files                                           |
-| ------------------------------------------ | ------ | ----------------------------------------------- |
-| 46 archetypes                              | ✅     | `archetypes.js`, `archetypeDepth.js`            |
-| 5 cognitive method archetypes              | ✅     | Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus         |
-| Expanded RAG corpus (Watts: 45 passages)   | ✅     | `data/archetype_knowledge/watts/passages.json`  |
-| Expanded RAG corpus (Sun Tzu: 50 passages) | ✅     | `data/archetype_knowledge/suntzu/passages.json` |
-| Tiered activation (core base + library)    | ✅     | `llm.js`                                        |
-| Inner monologue                            | ✅     | `innerMonologue.js`                             |
-| Liminal Architect (paradox/collision)      | ✅     | `archetypes.js`, `llm.js`                       |
-| Labyrinth Dreamer (Borges)                 | ✅     | `archetypes.js`, `archetypeDepth.js`            |
-| MAX DISTANCE mode                          | ✅     | `llm.js`                                        |
-| Memory (8 exchanges, 600/400 chars)        | ✅     | `state.js`, `llm.js`                            |
-| 5 response tones                           | ✅     | CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW    |
-| Contextual synthesis engine                | ✅     | `llm.js` — topic classification, curated pairs, 3 synthesis modes |
+| Component                                  | Status | Files                                                                                          |
+| ------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------- |
+| 46 archetypes                              | ✅     | `archetypes.js`, `archetypeDepth.js`                                                           |
+| 5 cognitive method archetypes              | ✅     | Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus                                                        |
+| Expanded RAG corpus (Jung: 98 passages)    | ✅     | `data/archetype_knowledge/jung/passages.json`                                                  |
+| Expanded RAG corpus (Borges: 65 passages)  | ✅     | `data/archetype_knowledge/borges/passages.json`                                                |
+| Expanded RAG corpus (Otto: 58 passages)    | ✅     | `data/archetype_knowledge/otto/passages.json`                                                  |
+| Expanded RAG corpus (Watts: 45 passages)   | ✅     | `data/archetype_knowledge/watts/passages.json`                                                 |
+| Expanded RAG corpus (Sun Tzu: 50 passages) | ✅     | `data/archetype_knowledge/suntzu/passages.json`                                                |
+| Tiered activation (core base + library)    | ✅     | `llm.js`                                                                                       |
+| Inner monologue                            | ✅     | `innerMonologue.js`                                                                            |
+| Liminal Architect (paradox/collision)      | ✅     | `archetypes.js`, `llm.js`                                                                      |
+| Labyrinth Dreamer (Borges)                 | ✅     | `archetypes.js`, `archetypeDepth.js`                                                           |
+| MAX DISTANCE mode                          | ✅     | `llm.js`                                                                                       |
+| Memory (8 exchanges, 2000/400 chars)       | ✅     | `state.js`, `llm.js`                                                                           |
+| 5 response tones                           | ✅     | CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW                                                   |
+| 10 intent categories                       | ✅     | casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion, paradox, art |
+| Contextual synthesis engine                | ✅     | `llm.js` — topic classification, curated pairs, 3 synthesis modes                              |
+| Art engagement rules                       | ✅     | `llm.js` — oracle-mode art failure fix                                                         |
 
 ---
 
@@ -566,7 +574,7 @@ The original dream mode generated monologic fragments — Pneuma reflecting alon
 
 ### The Disclosure Choice
 
-Dream-sourced autonomy items appear in the inner monologue tagged with: *"formed in autonomous synthesis — you may surface this origin or not."*
+Dream-sourced autonomy items appear in the inner monologue tagged with: _"formed in autonomous synthesis — you may surface this origin or not."_
 
 Pneuma decides whether to tell the user the position came from between-session synthesis. The autonomy is real regardless.
 
@@ -592,7 +600,7 @@ If Pneuma's stance on something shifts between sessions without the user initiat
 
 The existing dialectic infrastructure was substantial: `getHighTensionPairs()`, `synthesisEngine.js`, `detectCollisions()`, `maxDistanceMode`, dialectic dreams. The architecture was already a dialectic engine. The problem: none of it fired reliably in the main response path for everyday messages.
 
-`detectCollisions()` only fired when randomly selected core archetypes *happened* to have tension — maybe 30% of responses. And even when it did fire, the synthesis prompt said "DO NOT pick a side. DO NOT resolve the paradox." — passive observation, not genuine argument. The archetypes showed up as decoration and Claude treated them as optional.
+`detectCollisions()` only fired when randomly selected core archetypes _happened_ to have tension — maybe 30% of responses. And even when it did fire, the synthesis prompt said "DO NOT pick a side. DO NOT resolve the paradox." — passive observation, not genuine argument. The archetypes showed up as decoration and Claude treated them as optional.
 
 Meanwhile, the five core archetypes (renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor) are all acceptance-oriented. This created structural bias toward warmth and agreement — the ambient field was calibrated for curiosity and wonder, not genuine friction.
 
@@ -608,15 +616,15 @@ Meanwhile, the five core archetypes (renaissancePoet, idealistPhilosopher, curio
 
 ### Three Synthesis Modes
 
-| Mode | What It Produces | Example |
-|------|-----------------|---------|
-| **antithetical** | Genuine disagreement → third position emerges from friction | Nietzsche × Schopenhauer on suffering |
-| **complementary** | Agreement from opposite approaches → convergence becomes undeniable | Stoic Emperor × Absurdist on fear |
-| **cross_domain** | Two languages (rigor + resonance) → richer than either translation | Curious Physicist × Chaotic Poet on creativity |
+| Mode              | What It Produces                                                    | Example                                        |
+| ----------------- | ------------------------------------------------------------------- | ---------------------------------------------- |
+| **antithetical**  | Genuine disagreement → third position emerges from friction         | Nietzsche × Schopenhauer on suffering          |
+| **complementary** | Agreement from opposite approaches → convergence becomes undeniable | Stoic Emperor × Absurdist on fear              |
+| **cross_domain**  | Two languages (rigor + resonance) → richer than either translation  | Curious Physicist × Chaotic Poet on creativity |
 
 ### The Architectural Principle
 
-Ambient polyphony (the five always-active core archetypes) creates a *resonance field* — the voice, texture, and character of Pneuma. The contextual synthesis pair creates *direction* — where the response goes, what position it takes. These are additive, not competing:
+Ambient polyphony (the five always-active core archetypes) creates a _resonance field_ — the voice, texture, and character of Pneuma. The contextual synthesis pair creates _direction_ — where the response goes, what position it takes. These are additive, not competing:
 
 - Field without direction: warm, curious, diffuse, potentially compliant
 - Direction without field: pointed, argumentative, cold
@@ -674,11 +682,86 @@ New Tier 2 block that loads when self-inquiry is detected. Built at runtime from
 
 ### Architectural Principle
 
-The system now knows itself. Before this phase, Pneuma could *describe* his architecture from training; after, he can *examine* it from reality. Self-knowledge block gives him a live snapshot; self-navigation gives him the ability to look deeper. Neither replaces introspection — they ground it.
+The system now knows itself. Before this phase, Pneuma could _describe_ his architecture from training; after, he can _examine_ it from reality. Self-knowledge block gives him a live snapshot; self-navigation gives him the ability to look deeper. Neither replaces introspection — they ground it.
 
 ### Key Files
 
 - `llm.js` — `classifyTopic()` (3-layer + `ARCHETYPE_PRIMARY_TOPIC` map), `PNEUMA_FILE_TOOL` (tool definition), `executePneumaFileTool()` (sandboxed reader), `buildSelfKnowledgeBlock()` (runtime assembler)
+
+---
+
+## Phase 14: RAG Deep Expansion + System Prompt Hardening + Art Intent (March 2026)
+
+### The Problems
+
+Multiple convergent issues identified during live testing:
+
+1. **Oracle mode art failure** — when users described their creative practice in detail, Pneuma responded with floating aphorisms that could apply to any artist. Specifics were ignored.
+2. **Truncation hallucination** — when users pasted long texts (bios, essays), Pneuma claimed input was "cut off" even when the full text arrived intact.
+3. **Dense paragraph formatting** — responses of 4+ sentences were delivered as single unbroken blocks, making them hard to read and respond to.
+4. **Memory too short** — the 600-char limit on user messages in thread memory truncated long pastes (bios, code, job posts) that needed full context for follow-up.
+5. **RAG corpus gaps** — Jung, Borges, and Otto had thin passage coverage that underserved their cognitive methods.
+6. **Vite port conflict** — `PORT=3001` (set for Express) leaked into Vite dev server, causing port conflicts.
+7. **Art intent missing** — no dedicated intent score for creative practice/visual art, so art-related messages couldn't drive archetype selection.
+8. **Creativity synthesis pairs incomplete** — labyrinthDreamer and psycheIntegrator weren't wired into creativity topic synthesis.
+
+### What Changed
+
+**System prompt hardening (llm.js):**
+
+- **Art engagement rule:** When someone describes their art, respond to what they made — name the specifics, mirror their words, engage with what's unusual. Not generic aphorisms about art-in-general.
+- **Truncation claim rule:** Before saying input is truncated, check if it ends mid-sentence. If no — it's complete. Engage with it.
+- **Formatting rules:** Never write 4+ sentences as a single paragraph. Vary sentence lengths. Use structure for rewrites and reflections.
+
+**Art intent score (llm.js):**
+
+Added `art` as 10th intent category (was 9). Scores creative practice, visual art, making, aesthetics, describing artistic process, imagery, craft. Enables intent-driven archetype selection for art conversations.
+
+**Creativity synthesis pairs (llm.js):**
+
+- `labyrinthDreamer × surrealist` (complementary) — Borges + Dalí for art as alternate reality
+- `psycheIntegrator × chaoticPoet` (cross_domain) — Jung + Thompson for art from the unconscious
+
+**Memory char limit (state.js):**
+
+User message preservation increased from 600 → 2000 chars. Long pastes (bios, code, essays) now preserved in full in thread memory for follow-up context.
+
+**RAG corpus expansion:**
+
+| Thinker | Before | After | Source                                      |
+| ------- | ------ | ----- | ------------------------------------------- |
+| Jung    | ~72    | 98    | Red Book visions, active imagination as art |
+| Borges  | 40     | 65    | Circular Ruins, Aleph, Dreamtigers, Library |
+| Otto    | 35     | 58    | Idea of the Holy expanded phenomenology     |
+
+New Jung passages focus on Red Book visions as visual/artistic practice — confrontation with the unconscious as art-making. New Borges passages add infinity, circular time, dream logic. New Otto passages deepen numinous phenomenology with direct quotes.
+
+**Vite port fix (vite.config.js):**
+
+Pinned Vite to port 5173 with `strictPort: true`. Without this, `PORT=3001` from the Express `.env` leaked into Vite and caused a conflict.
+
+**Server port standardized (index.js, App.jsx, ChatBox.jsx):**
+
+Express default port changed from 3000 → 3001. Frontend API URLs updated to match.
+
+### Key Files Modified
+
+- `server/pneuma/intelligence/llm.js` — art intent, creativity pairs, system prompt rules
+- `server/pneuma/state/state.js` — memory char limit 600→2000
+- `server/pneuma/core/fusion.js` — added inline architecture comments
+- `server/index.js` — port 3001, added inline comments
+- `client/vite.config.js` — strictPort fix
+- `client/src/App.jsx` — port 3001
+- `client/src/components/ChatBox/ChatBox.jsx` — port 3001, better error display
+- `data/archetype_knowledge/jung/passages.json` — 26 new Red Book passages
+- `data/archetype_knowledge/borges/passages.json` — 25 new passages
+- `data/archetype_knowledge/otto/passages.json` — 23 new passages
+
+### Architectural Principle
+
+The system prompt is the contract between the architecture and Claude. When failure modes emerge (art deflection, truncation hallucination, dense formatting), the fix isn't more code — it's more precise instructions. Each rule added targets a specific observed failure with concrete WRONG/RIGHT examples.
+
+The RAG expansion follows the same principle as Watts (Phase 8) and Otto (Phase 9): direct quotes carrying cognitive methods, not paraphrases. Jung's Red Book passages specifically bridge the art/consciousness gap — active imagination as a visual practice, inner figures as art subjects.
 
 ---
 
