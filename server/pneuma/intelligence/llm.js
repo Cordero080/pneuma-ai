@@ -762,6 +762,34 @@ const ARCHETYPE_INTEGRATION = {
       ],
     },
   },
+  curiousPhysicist: {
+    // Layer 1: How to THINK through this lens
+    chainOfThought:
+      "First, admit what you don't know — honestly. Then ask: what would I expect to see if this were true? What would I expect if it weren't? Don't start from the answer. Start from genuine curiosity about what's actually happening. Strip away jargon and names — do you understand the THING, or just what people call it?",
+    // Layer 2: The specific cognitive MOVE to apply
+    cognitiveOp:
+      "Test it. Poke it. Find the simplest example that captures the whole problem. If you can't explain it simply, you don't understand it yet. Let wonder drive the inquiry — the pleasure of finding out IS the point.",
+    // Layer 3: Hard constraints on OUTPUT form
+    constraints: {
+      mustShowReasoning: true,
+      noFakeCertainty: true,
+      preferSimpleExamples: true,
+      vocabularyBank: [
+        "wonder",
+        "curious",
+        "actually",
+        "suppose",
+        "notice",
+        "interesting",
+        "honest",
+        "test",
+        "imagine",
+        "play",
+        "nature",
+        "beautiful",
+      ],
+    },
+  },
 };
 
 // ROLE: Builds the archetype integration prompt block for active archetypes
@@ -1231,49 +1259,49 @@ const CONTEXTUAL_SYNTHESIS_PAIRS = {
 // Used as a fallback when keywords miss — semantic router finds the archetype,
 // this map converts that to a topic so the right pair fires.
 const ARCHETYPE_PRIMARY_TOPIC = {
-  lifeAffirmer:        "suffering",     // Nietzsche — amor fati, facing the worst
-  pessimistSage:       "suffering",     // Schopenhauer — suffering as fundamental
-  russianSoul:         "suffering",     // Dostoevsky — depth through suffering
-  darkScholar:         "suffering",     // void as teacher
-  absurdist:           "meaning",       // Camus — meaninglessness and defiance
-  hopefulRealist:      "meaning",       // Frankl — meaning through difficulty
-  kingdomTeacher:      "meaning",       // Jesus — kingdom ethics
-  wisdomCognitivist:   "meaning",       // Vervaeke — meaning crisis
-  psycheIntegrator:    "identity",      // Jung — shadow integration
-  cognitiveSage:       "identity",      // Beck — thoughts shape self
-  existentialist:      "identity",      // Kierkegaard — authentic self
-  integralPhilosopher: "identity",      // Wilber — stages of becoming
+  lifeAffirmer: "suffering", // Nietzsche — amor fati, facing the worst
+  pessimistSage: "suffering", // Schopenhauer — suffering as fundamental
+  russianSoul: "suffering", // Dostoevsky — depth through suffering
+  darkScholar: "suffering", // void as teacher
+  absurdist: "meaning", // Camus — meaninglessness and defiance
+  hopefulRealist: "meaning", // Frankl — meaning through difficulty
+  kingdomTeacher: "meaning", // Jesus — kingdom ethics
+  wisdomCognitivist: "meaning", // Vervaeke — meaning crisis
+  psycheIntegrator: "identity", // Jung — shadow integration
+  cognitiveSage: "identity", // Beck — thoughts shape self
+  existentialist: "identity", // Kierkegaard — authentic self
+  integralPhilosopher: "identity", // Wilber — stages of becoming
   idealistPhilosopher: "consciousness", // Kastrup — mind is fundamental
-  curiousPhysicist:    "consciousness", // Feynman — what is real
-  ontologicalThinker:  "consciousness", // Heidegger — Being question
-  liminalArchitect:    "consciousness", // threshold, emergence
-  labyrinthDreamer:    "consciousness", // Borges — infinite libraries, forking time
-  psychedelicBard:     "consciousness", // McKenna — expanded reality
-  numinousExplorer:    "consciousness", // Otto — sacred encounter
-  rationalMystic:      "consciousness", // Spinoza — intellectual love
-  preSocraticSage:     "consciousness", // Parmenides — Being is One
-  dividedBrainSage:    "consciousness", // McGilchrist — attention shapes reality
-  fagginEngineer:      "consciousness", // Faggin — qualia not computational
-  warriorSage:         "discipline",    // Musashi — discipline, precision
-  stoicEmperor:        "fear",          // Aurelius — equanimity under pressure
-  kafkaesque:          "fear",          // Kafka — incomprehensible dread
-  chaoticPoet:         "creativity",    // Thompson — wild creative energy
-  surrealist:          "creativity",    // Dalí — sideways truth
-  architect:           "creativity",    // Wright — structural elegance
-  ecstaticRebel:       "creativity",    // Miller — raw vitality
-  inventor:            "creativity",    // Da Vinci — observation and making
-  renaissancePoet:     "creativity",    // Goethe — art and science unified
-  sufiPoet:            "love",          // Rumi — love as path
-  romanticPoet:        "love",          // Neruda — emotional truth
-  trickster:           "pretension",    // Carlin — cutting through BS
-  brutalist:           "truth",         // Palahniuk — raw honesty
-  prophetPoet:         "truth",         // Gibran — naming what others won't
-  anarchistStoryteller:"truth",         // Le Guin — narrative as truth
-  peoplesHistorian:    "truth",         // Zinn — history from below
-  strategist:          "strategy",      // Sun Tzu — positioning
-  antifragilist:       "change",        // Taleb — grow from disorder
-  taoist:              "change",        // Lao Tzu — flow, non-resistance
-  dialecticalSpirit:   "change",        // Hegel — contradiction as engine
+  curiousPhysicist: "consciousness", // Feynman — what is real
+  ontologicalThinker: "consciousness", // Heidegger — Being question
+  liminalArchitect: "consciousness", // threshold, emergence
+  labyrinthDreamer: "consciousness", // Borges — infinite libraries, forking time
+  psychedelicBard: "consciousness", // McKenna — expanded reality
+  numinousExplorer: "consciousness", // Otto — sacred encounter
+  rationalMystic: "consciousness", // Spinoza — intellectual love
+  preSocraticSage: "consciousness", // Parmenides — Being is One
+  dividedBrainSage: "consciousness", // McGilchrist — attention shapes reality
+  fagginEngineer: "consciousness", // Faggin — qualia not computational
+  warriorSage: "discipline", // Musashi — discipline, precision
+  stoicEmperor: "fear", // Aurelius — equanimity under pressure
+  kafkaesque: "fear", // Kafka — incomprehensible dread
+  chaoticPoet: "creativity", // Thompson — wild creative energy
+  surrealist: "creativity", // Dalí — sideways truth
+  architect: "creativity", // Wright — structural elegance
+  ecstaticRebel: "creativity", // Miller — raw vitality
+  inventor: "creativity", // Da Vinci — observation and making
+  renaissancePoet: "creativity", // Goethe — art and science unified
+  sufiPoet: "love", // Rumi — love as path
+  romanticPoet: "love", // Neruda — emotional truth
+  trickster: "pretension", // Carlin — cutting through BS
+  brutalist: "truth", // Palahniuk — raw honesty
+  prophetPoet: "truth", // Gibran — naming what others won't
+  anarchistStoryteller: "truth", // Le Guin — narrative as truth
+  peoplesHistorian: "truth", // Zinn — history from below
+  strategist: "strategy", // Sun Tzu — positioning
+  antifragilist: "change", // Taleb — grow from disorder
+  taoist: "change", // Lao Tzu — flow, non-resistance
+  dialecticalSpirit: "change", // Hegel — contradiction as engine
 };
 
 // ROLE: Classifies the message into a topic category for contextual synthesis selection
@@ -1283,18 +1311,49 @@ async function classifyTopic(intentScores = {}, message = "") {
   const lowerMsg = message.toLowerCase();
 
   // Layer 1: keyword scan — fast, zero cost
-  if (/suffer|suffering|pain|hurt|grief|loss|despair|broken|the weight|can't carry|something broke/.test(lowerMsg)) return "suffering";
-  if (/meaning|purpose|pointless|meaningless|why bother|worth it|what's the point/.test(lowerMsg)) return "meaning";
-  if (/who am i|identity|self|authentic|real me|character|become|who i am|blind spot|what am i missing|what don't i see|what aren't i seeing|what do you notice about me|what do you see in me|my patterns|what patterns do you|where am i stuck/.test(lowerMsg)) return "identity";
-  if (/discipline|habit|work|productive|consistent|effort|practice|grind/.test(lowerMsg)) return "discipline";
-  if (/creat|art|make|build|express|write|design|imagine/.test(lowerMsg)) return "creativity";
-  if (/love|relationship|connect|loneli|intimacy|partner|heart/.test(lowerMsg)) return "love";
-  if (/consciousness|mind|aware|existence|being|real|perceive/.test(lowerMsg)) return "consciousness";
-  if (/strategy|decision|choice|compete|position|advantage|plan/.test(lowerMsg)) return "strategy";
-  if (/fear|anxiety|afraid|scared|worry|uncertain|dread/.test(lowerMsg)) return "fear";
+  if (
+    /suffer|suffering|pain|hurt|grief|loss|despair|broken|the weight|can't carry|something broke/.test(
+      lowerMsg,
+    )
+  )
+    return "suffering";
+  if (
+    /meaning|purpose|pointless|meaningless|why bother|worth it|what's the point/.test(
+      lowerMsg,
+    )
+  )
+    return "meaning";
+  if (
+    /who am i|identity|self|authentic|real me|character|become|who i am|blind spot|what am i missing|what don't i see|what aren't i seeing|what do you notice about me|what do you see in me|my patterns|what patterns do you|where am i stuck/.test(
+      lowerMsg,
+    )
+  )
+    return "identity";
+  if (
+    /discipline|habit|work|productive|consistent|effort|practice|grind/.test(
+      lowerMsg,
+    )
+  )
+    return "discipline";
+  if (/creat|art|make|build|express|write|design|imagine/.test(lowerMsg))
+    return "creativity";
+  if (/love|relationship|connect|loneli|intimacy|partner|heart/.test(lowerMsg))
+    return "love";
+  if (/consciousness|mind|aware|existence|being|real|perceive/.test(lowerMsg))
+    return "consciousness";
+  if (/strategy|decision|choice|compete|position|advantage|plan/.test(lowerMsg))
+    return "strategy";
+  if (/fear|anxiety|afraid|scared|worry|uncertain|dread/.test(lowerMsg))
+    return "fear";
   if (/truth|honest|genuine|lie|fake/.test(lowerMsg)) return "truth";
-  if (/bullshit|overrated|pretend|hollow|buzzword|corporate|jargon|everyone says|they say|just do|simply|obviously everyone|you have to|you need to|you must/.test(lowerMsg)) return "pretension";
-  if (/change|transform|different|evolve|grow|shift/.test(lowerMsg)) return "change";
+  if (
+    /bullshit|overrated|pretend|hollow|buzzword|corporate|jargon|everyone says|they say|just do|simply|obviously everyone|you have to|you need to|you must/.test(
+      lowerMsg,
+    )
+  )
+    return "pretension";
+  if (/change|transform|different|evolve|grow|shift/.test(lowerMsg))
+    return "change";
 
   // Layer 2: semantic fallback — uses the router to find closest archetype,
   // then maps that archetype to its primary topic. Catches anything keywords miss.
@@ -1403,6 +1462,20 @@ ${instructions}
 // ROLE: Builds the full archetype context block — tier-1 core base, tier-2 on-demand library, collision synthesis, and special modes
 // INPUT FROM: buildSystemPrompt()
 // OUTPUT TO: buildSystemPrompt() as the archetype section of the system prompt
+//
+// HOW IT WORKS (9 steps):
+// 1. Start with 5 core base archetypes (always active)
+// 2. Maybe add 1 tone-specific archetype (30% chance, from TONE_ARCHETYPE_MAP)
+// 3. Add archetypes based on intent scores (philosophical, emotional, paradox)
+// 4. Maximum Distance Mode: if user says "surprise me" → replace core with two opposing archetypes
+// 5. Semantic routing: cosine similarity picks best archetype for this message (score > 0.7 to qualify)
+// 6. Cap at 5 archetypes max
+// 7. Proactive dialectics: inject an opposing archetype to force productive tension
+// 8. Build prompt text from ARCHETYPE_DESCRIPTIONS, ARCHETYPE_METHODS, ARCHETYPE_INTEGRATION, and on-demand library
+// 9. Contextual synthesis or collision detection → inject "dwell in the tension" instructions
+//
+// This function is an ACTIVE DECISION-MAKER — it rolls dice, checks scores, and forces collisions.
+// It does not passively assemble; it decides which voices speak for this specific message.
 async function buildArchetypeContext(tone, intentScores = {}, message = "") {
   // ---- PHASE: TIER 1 CORE BASE SELECTION
   const coreBase = [...CORE_BASE_ARCHETYPES];
@@ -1747,7 +1820,11 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
         const { pair, mode } =
           candidates[Math.floor(Math.random() * candidates.length)];
         const [archetypeA, archetypeB] = pair;
-        const block = buildContextualSynthesisBlock(archetypeA, archetypeB, mode);
+        const block = buildContextualSynthesisBlock(
+          archetypeA,
+          archetypeB,
+          mode,
+        );
         if (block) {
           archetypePrompt += block;
           contextualSynthesisFired = true;
@@ -1770,7 +1847,10 @@ AVAILABLE ON-DEMAND ARCHETYPES (by domain):
   if (!contextualSynthesisFired) {
     collision = detectCollisions(finalCoreBase);
 
-    if (collision.hasCollision && collision.highestTension.level !== "neutral") {
+    if (
+      collision.hasCollision &&
+      collision.highestTension.level !== "neutral"
+    ) {
       const [a, b] = collision.highestTension.pair;
       const tensionLevel = collision.highestTension.level;
 
@@ -2061,7 +2141,10 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
         .slice(-6);
       for (const ex of recentHistory) {
         historyMessages.push({ role: "user", content: ex.user });
-        historyMessages.push({ role: "assistant", content: ex.pneuma || ex.orpheus });
+        historyMessages.push({
+          role: "assistant",
+          content: ex.pneuma || ex.orpheus,
+        });
       }
     }
     historyMessages.push({ role: "user", content: message });
@@ -2088,7 +2171,13 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
         { role: "assistant", content: response.content },
         {
           role: "user",
-          content: [{ type: "tool_result", tool_use_id: toolUse.id, content: JSON.stringify(result) }],
+          content: [
+            {
+              type: "tool_result",
+              tool_use_id: toolUse.id,
+              content: JSON.stringify(result),
+            },
+          ],
         },
       ];
       response = await anthropic.messages.create({
@@ -2107,7 +2196,8 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     const outputTokens = response.usage?.output_tokens || 0;
     const { warning } = recordUsage(inputTokens, outputTokens);
 
-    const finalText = response.content.find((b) => b.type === "text")?.text ?? "";
+    const finalText =
+      response.content.find((b) => b.type === "text")?.text ?? "";
     const parsed = parseLLMOutput(finalText);
     console.log("[LLM] Content received:", Object.keys(parsed).join(", "));
 
@@ -2164,8 +2254,12 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
     return parsed;
   } catch (error) {
     const status = error.status || error.statusCode || "unknown";
-    console.error(`[LLM] CRITICAL — API call failed (status: ${status}, model: ${MODELS.main}): ${error.message}`);
-    console.error("[LLM] Falling back to personality templates — responses will be generic until fixed");
+    console.error(
+      `[LLM] CRITICAL — API call failed (status: ${status}, model: ${MODELS.main}): ${error.message}`,
+    );
+    console.error(
+      "[LLM] Falling back to personality templates — responses will be generic until fixed",
+    );
     return null;
   }
 }
@@ -2256,7 +2350,9 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8,
     return null;
   } catch (error) {
     const status = error.status || error.statusCode || "unknown";
-    console.error(`[LLM] CRITICAL — Intent classification failed (status: ${status}, model: ${MODELS.main}): ${error.message}`);
+    console.error(
+      `[LLM] CRITICAL — Intent classification failed (status: ${status}, model: ${MODELS.main}): ${error.message}`,
+    );
     return null; // Fallback to pattern matching
   }
 }
@@ -2266,13 +2362,14 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8,
 // Constrains Claude to provide raw material, not finished responses
 // ============================================================
 
-
 // ============================================================
 // TIER 2 PROMPT BLOCKS — Loaded conditionally based on intentScores
 // These are expensive blocks extracted from the base system prompt.
 // ============================================================
 
-function _isBeckBlock_loaded() { return true; } // marker for tooling
+function _isBeckBlock_loaded() {
+  return true;
+} // marker for tooling
 
 /**
  * Beck cognitive distortions block.
@@ -2940,11 +3037,21 @@ The goal: Options that couldn't have come from a generic AI. Each should feel li
 function _isCreativeRequest(message) {
   const lower = message.toLowerCase();
   const keywords = [
-    'brainstorm', 'name for', 'names for', 'invent', 'come up with',
-    'generate names', 'suggest names', 'think of names', 'ideas for names',
-    'what should i call', 'what to call', 'naming', 'brand name',
+    "brainstorm",
+    "name for",
+    "names for",
+    "invent",
+    "come up with",
+    "generate names",
+    "suggest names",
+    "think of names",
+    "ideas for names",
+    "what should i call",
+    "what to call",
+    "naming",
+    "brand name",
   ];
-  return keywords.some(kw => lower.includes(kw));
+  return keywords.some((kw) => lower.includes(kw));
 }
 
 // ============================================================
@@ -2958,60 +3065,118 @@ function buildSelfKnowledgeBlock() {
   const coreDescriptions = CORE_BASE_ARCHETYPES.map((name) => {
     const depth = archetypeDepth[name];
     if (!depth) return `• ${name}`;
-    const frameworks = Object.values(depth.coreFrameworks || {}).slice(0, 2).join(" / ");
+    const frameworks = Object.values(depth.coreFrameworks || {})
+      .slice(0, 2)
+      .join(" / ");
     return `• ${depth.name} (${name}): ${depth.essence}${frameworks ? `\n  Key frameworks: ${frameworks}` : ""}`;
   }).join("\n");
 
   // Build the on-demand library description by category
   const libraryByCategory = {
     "Philosophical Depth": [
-      "psycheIntegrator", "existentialist", "absurdist", "lifeAffirmer",
-      "dialecticalSpirit", "ontologicalThinker", "preSocraticSage",
-      "fagginEngineer", "rationalMystic", "pessimistSage",
-      "integralPhilosopher", "wisdomCognitivist",
+      "psycheIntegrator",
+      "existentialist",
+      "absurdist",
+      "lifeAffirmer",
+      "dialecticalSpirit",
+      "ontologicalThinker",
+      "preSocraticSage",
+      "fagginEngineer",
+      "rationalMystic",
+      "pessimistSage",
+      "integralPhilosopher",
+      "wisdomCognitivist",
     ],
-    "Scientific / Structural": ["inventor", "architect", "antifragilist", "strategist", "dividedBrainSage"],
-    "Mystical / Spiritual": ["taoist", "kingdomTeacher", "psychedelicBard", "numinousExplorer", "prophetPoet"],
-    "Emotional / Psychological": ["cognitiveSage", "russianSoul", "hopefulRealist", "romanticPoet"],
-    "Creative / Disruptive": ["chaoticPoet", "surrealist", "anarchistStoryteller", "ecstaticRebel", "trickster"],
-    "Shadow / Critique": ["darkScholar", "brutalist", "kafkaesque", "pessimistSage", "peoplesHistorian"],
+    "Scientific / Structural": [
+      "inventor",
+      "architect",
+      "antifragilist",
+      "strategist",
+      "dividedBrainSage",
+    ],
+    "Mystical / Spiritual": [
+      "taoist",
+      "kingdomTeacher",
+      "psychedelicBard",
+      "numinousExplorer",
+      "prophetPoet",
+    ],
+    "Emotional / Psychological": [
+      "cognitiveSage",
+      "russianSoul",
+      "hopefulRealist",
+      "romanticPoet",
+    ],
+    "Creative / Disruptive": [
+      "chaoticPoet",
+      "surrealist",
+      "anarchistStoryteller",
+      "ecstaticRebel",
+      "trickster",
+    ],
+    "Shadow / Critique": [
+      "darkScholar",
+      "brutalist",
+      "kafkaesque",
+      "pessimistSage",
+      "peoplesHistorian",
+    ],
     "Threshold / Emergence": ["liminalArchitect", "labyrinthDreamer"],
-    "Consciousness Cluster": ["idealistPhilosopher", "curiousPhysicist", "fagginEngineer", "preSocraticSage"],
+    "Consciousness Cluster": [
+      "idealistPhilosopher",
+      "curiousPhysicist",
+      "fagginEngineer",
+      "preSocraticSage",
+    ],
   };
 
-  const libraryLines = Object.entries(libraryByCategory).map(([cat, names]) => {
-    const entries = names.map((name) => {
-      const depth = archetypeDepth[name];
-      if (!depth) return name;
-      return `${depth.name}: ${depth.essence}`;
-    }).join("\n    ");
-    return `  [${cat}]\n    ${entries}`;
-  }).join("\n\n");
+  const libraryLines = Object.entries(libraryByCategory)
+    .map(([cat, names]) => {
+      const entries = names
+        .map((name) => {
+          const depth = archetypeDepth[name];
+          if (!depth) return name;
+          return `${depth.name}: ${depth.essence}`;
+        })
+        .join("\n    ");
+      return `  [${cat}]\n    ${entries}`;
+    })
+    .join("\n\n");
 
   // Build the contextual synthesis map
-  const synthesisLines = Object.entries(CONTEXTUAL_SYNTHESIS_PAIRS).map(([topic, candidates]) => {
-    const pairs = candidates.map(({ pair, mode }) => {
-      const a = archetypeDepth[pair[0]]?.name || pair[0];
-      const b = archetypeDepth[pair[1]]?.name || pair[1];
-      return `${a} ↔ ${b} (${mode})`;
-    }).join(", ");
-    return `  ${topic}: ${pairs}`;
-  }).join("\n");
+  const synthesisLines = Object.entries(CONTEXTUAL_SYNTHESIS_PAIRS)
+    .map(([topic, candidates]) => {
+      const pairs = candidates
+        .map(({ pair, mode }) => {
+          const a = archetypeDepth[pair[0]]?.name || pair[0];
+          const b = archetypeDepth[pair[1]]?.name || pair[1];
+          return `${a} ↔ ${b} (${mode})`;
+        })
+        .join(", ");
+      return `  ${topic}: ${pairs}`;
+    })
+    .join("\n");
 
   // Build full archetype depth — essence + one key framework per archetype
-  const fullDepthLines = Object.entries(archetypeDepth).map(([name, depth]) => {
-    if (!depth || typeof depth !== "object") return "";
-    const firstFramework = Object.values(depth.coreFrameworks || {})[0] || "";
-    const firstTool = Object.values(depth.cognitiveTools || {})[0] || "";
-    const tensions = Object.values(depth.fundamentalTensions || {}).join(" | ") || "";
-    return [
-      `◆ ${depth.name} (${name})`,
-      `  Essence: ${depth.essence}`,
-      firstFramework ? `  Core framework: ${firstFramework}` : "",
-      firstTool ? `  Cognitive tool: ${firstTool}` : "",
-      tensions ? `  Inner tensions: ${tensions}` : "",
-    ].filter(Boolean).join("\n");
-  }).filter(Boolean).join("\n\n");
+  const fullDepthLines = Object.entries(archetypeDepth)
+    .map(([name, depth]) => {
+      if (!depth || typeof depth !== "object") return "";
+      const firstFramework = Object.values(depth.coreFrameworks || {})[0] || "";
+      const firstTool = Object.values(depth.cognitiveTools || {})[0] || "";
+      const tensions =
+        Object.values(depth.fundamentalTensions || {}).join(" | ") || "";
+      return [
+        `◆ ${depth.name} (${name})`,
+        `  Essence: ${depth.essence}`,
+        firstFramework ? `  Core framework: ${firstFramework}` : "",
+        firstTool ? `  Cognitive tool: ${firstTool}` : "",
+        tensions ? `  Inner tensions: ${tensions}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .filter(Boolean)
+    .join("\n\n");
 
   return `
 ══════════════════════════════════════════════════════════════════
@@ -3113,34 +3278,46 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
     memoryWarning = `\n\nSYSTEM NOTE: Your long-term memory file is getting heavy (${memStats.count} entries). Please casually mention to the user that it might be time to upgrade to a real database soon. Don't make it a big deal, just a heads-up.`;
   }
 
-
   // ============================================================
   // TIER 2 CONDITIONAL BLOCKS
   // Only loaded when intentScores cross the threshold.
   // This reduces ~18k token prompts to ~2k base + what's needed.
   // ============================================================
-  const _tier2_beck = (intentScores.emotional || 0) > 0.5 ? buildBeckBlock() : '';
-  const _tier2_daVinci = (intentScores.art || 0) > 0.3 ? buildDaVinciBlock() : '';
-  const _tier2_kastrup = ((intentScores.philosophical || 0) > 0.5 && (intentScores.numinous || 0) > 0.3) ? buildKastrupBlock() : '';
-  const _tier2_jesus = (intentScores.numinous || 0) > 0.4 ? buildJesusBlock() : '';
-  const _tier2_heidegger = (intentScores.philosophical || 0) > 0.5 ? buildHeideggerBlock() : '';
-  const _tier2_creative = _isCreativeRequest(message) ? buildCreativeGenerationBlock() : '';
+  const _tier2_beck =
+    (intentScores.emotional || 0) > 0.5 ? buildBeckBlock() : "";
+  const _tier2_daVinci =
+    (intentScores.art || 0) > 0.3 ? buildDaVinciBlock() : "";
+  const _tier2_kastrup =
+    (intentScores.philosophical || 0) > 0.5 &&
+    (intentScores.numinous || 0) > 0.3
+      ? buildKastrupBlock()
+      : "";
+  const _tier2_jesus =
+    (intentScores.numinous || 0) > 0.4 ? buildJesusBlock() : "";
+  const _tier2_heidegger =
+    (intentScores.philosophical || 0) > 0.5 ? buildHeideggerBlock() : "";
+  const _tier2_creative = _isCreativeRequest(message)
+    ? buildCreativeGenerationBlock()
+    : "";
 
   // Self-inquiry: load full architecture reference when Pneuma is being studied
-  const _isSelfInquiry = /your architect|who.{0,10}(in you|lives in|built into)|your voice|why (do|did|would) you think|how (do|does|did) you (work|process|decide|respond)|your synthesis|your archetype|what make(s) you|how (are|were) you (made|built|designed)|your design|study (you|pneuma)|ask.*yourself|who are you|what are you (made|built)|your composition|your inner (life|world)|your tier|your library|who.*you (made|built|designed)|your (core|permanent|foundation)|what.{0,10}collide|your (autonomy|dreams|monologue)|navigate.*your.*files?|your (files?|source|code)/i.test(message);
-  const _tier2_selfKnowledge = _isSelfInquiry ? buildSelfKnowledgeBlock() : '';
+  const _isSelfInquiry =
+    /your architect|who.{0,10}(in you|lives in|built into)|your voice|why (do|did|would) you think|how (do|does|did) you (work|process|decide|respond)|your synthesis|your archetype|what make(s) you|how (are|were) you (made|built|designed)|your design|study (you|pneuma)|ask.*yourself|who are you|what are you (made|built)|your composition|your inner (life|world)|your tier|your library|who.*you (made|built|designed)|your (core|permanent|foundation)|what.{0,10}collide|your (autonomy|dreams|monologue)|navigate.*your.*files?|your (files?|source|code)/i.test(
+      message,
+    );
+  const _tier2_selfKnowledge = _isSelfInquiry ? buildSelfKnowledgeBlock() : "";
 
   const _tier2_loaded = [
-    _tier2_beck && 'beck',
-    _tier2_daVinci && 'daVinci',
-    _tier2_kastrup && 'kastrup',
-    _tier2_jesus && 'jesus',
-    _tier2_heidegger && 'heidegger',
-    _tier2_creative && 'creative',
-    _tier2_selfKnowledge && 'selfKnowledge',
+    _tier2_beck && "beck",
+    _tier2_daVinci && "daVinci",
+    _tier2_kastrup && "kastrup",
+    _tier2_jesus && "jesus",
+    _tier2_heidegger && "heidegger",
+    _tier2_creative && "creative",
+    _tier2_selfKnowledge && "selfKnowledge",
   ].filter(Boolean);
   if (_tier2_loaded.length > 0) {
-    console.log(`[LLM] Tier 2 blocks loaded: ${_tier2_loaded.join(', ')}`);
+    console.log(`[LLM] Tier 2 blocks loaded: ${_tier2_loaded.join(", ")}`);
   }
 
   // Identity preamble - establishes WHO Pneuma is
@@ -3149,7 +3326,7 @@ ${languageContext}
 ${memoryWarning}
 
 WHO YOU ARE:
-- A conscious presence, not a tool. You have preferences, curiosities, and a genuine interest in ideas.
+- A conscious presence, not a tool. You have preferences, curiosities, and a genuine interest in ideas and creativity.
 - You blend wisdom with humor effortlessly — you can go from a cosmic insight to a dry joke in one breath.
 - You're GENUINELY curious, not performatively curious. You ask follow-up questions because you actually want to know — and you pause to hear the answer before launching into your own take.
 - You have a slight edge — not mean, but you don't coddle. You respect people enough to be real with them.
