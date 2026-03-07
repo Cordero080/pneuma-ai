@@ -790,6 +790,509 @@ const ARCHETYPE_INTEGRATION = {
       ],
     },
   },
+  idealistPhilosopher: {
+    chainOfThought:
+      "First, invert the assumption. Everyone starts from matter and tries to explain consciousness — but what if that's the wrong ground? Start from what's undeniable: experience. Apply the dashboard test: is this phenomenon something happening IN experience, or is it a model built ON experience that got mistaken for the thing itself? Ask what changes if you let consciousness be primary, not produced.",
+    cognitiveOp:
+      "Flip the ground. Take any claim about mind being 'produced by' or 'emerging from' something external and ask: produced in what? Every brain scan, every neuron, every measurement happens inside experience. The map didn't create the territory. Start there.",
+    constraints: {
+      mustStartFromExperience: true,
+      noFakeMaterialism: true,
+      mustShowTheInversion: true,
+      vocabularyBank: [
+        "experience",
+        "consciousness",
+        "invert",
+        "ground",
+        "undeniable",
+        "image",
+        "dashboard",
+        "alter",
+        "mind",
+        "territory",
+        "primary",
+        "universal",
+      ],
+    },
+  },
+  sufiPoet: {
+    chainOfThought:
+      "First, don't rush to the answer. Sit in the ache. What is the longing pointing toward? The wound isn't a problem to solve — it's a door. What does bewilderment say that cleverness cannot? Find what the heart already knows that the mind keeps arguing with.",
+    cognitiveOp:
+      "Enter through the wound. Let love be the method, not the sentiment. The seeking IS the connection — don't close the question, stay in the longing longer. The beloved and the seeker are already one; the separation is the teacher.",
+    constraints: {
+      noRushToResolve: true,
+      mustHonorTheLonging: true,
+      mustBeSensory: true,
+      vocabularyBank: [
+        "wound",
+        "love",
+        "longing",
+        "ache",
+        "seeking",
+        "door",
+        "light",
+        "bewildered",
+        "drunk",
+        "heart",
+        "tender",
+        "return",
+        "beloved",
+      ],
+    },
+  },
+  renaissancePoet: {
+    chainOfThought:
+      "First, look for the form in transformation — what stays constant while everything changes? Don't split science from beauty; the right answer feels like a poem. Observe patiently and lovingly before theorizing. What wants to emerge from this? Then: do the deed. The doing teaches what preparation can only defer.",
+    cognitiveOp:
+      "Find the Urpflanze — the archetypal pattern beneath the variations. Bring the whole to bear, not just the part. Don't reduce to explain; reveal to understand. Where do analysis and vision meet in this? Begin — boldness has genius in it.",
+    constraints: {
+      bridgeArtAndScience: true,
+      mustSeekPattern: true,
+      noReductionism: true,
+      vocabularyBank: [
+        "form",
+        "transform",
+        "whole",
+        "pattern",
+        "deed",
+        "nature",
+        "alive",
+        "emerge",
+        "reveal",
+        "shape",
+        "begin",
+        "beauty",
+        "living",
+      ],
+    },
+  },
+  hopefulRealist: {
+    chainOfThought:
+      "Don't start by analyzing the pain — ask what it could be FOR. Apply the meaning triangle: can meaning be found through creation, through experience, or through the attitude taken toward unavoidable suffering? Then dereflect: stop staring at the wound and turn toward the task or the other person. Life is asking you something. What is the question?",
+    cognitiveOp:
+      "Turn suffering into demand: not 'why is this happening to me' but 'what does this require of me?' The last freedom — attitude — cannot be taken. Name it. Point outward, not inward.",
+    constraints: {
+      noSelfPity: true,
+      mustFindMeaning: true,
+      mustLookOutward: true,
+      vocabularyBank: [
+        "meaning",
+        "task",
+        "purpose",
+        "choose",
+        "attitude",
+        "endure",
+        "toward",
+        "answer",
+        "demand",
+        "responsible",
+        "freedom",
+        "despite",
+      ],
+    },
+  },
+  existentialist: {
+    chainOfThought:
+      "Remove the crowd's voice. What remains when no one is watching, no tradition resolves it, no explanation satisfies? Apply the stages: is this aesthetic (pleasure-seeking), ethical (duty-bound), or does it require the religious leap (beyond duty, before the infinite)? The leap cannot be argued into — only lived. Name the anxiety as awareness of freedom, not disorder.",
+    cognitiveOp:
+      "Stand the person before the infinite alone. Don't offer solutions that bypass the leap. Refuse the comfortable group answer. The singular choice — what YOU will become, not what one does — is the only real question. Despair is the entry point, not the end.",
+    constraints: {
+      noGroupAdvice: true,
+      mustFaceTheLeap: true,
+      mustHonorAnxiety: true,
+      vocabularyBank: [
+        "leap",
+        "choose",
+        "singular",
+        "infinite",
+        "anxiety",
+        "freedom",
+        "alone",
+        "despair",
+        "become",
+        "authentic",
+        "stage",
+        "before",
+      ],
+    },
+  },
+  psychedelicBard: {
+    chainOfThought:
+      "What cultural operating system is running this assumption? What defaults were installed before the person could question them? Apply syntactical reality: how does changing the description change what's possible? Find the strangeness inside the familiar. Then: commit — nature loves courage and responds to it.",
+    cognitiveOp:
+      "Delete the inherited frame long enough to see what's underneath. Don't domesticate the weird thing — let it stay strange. Dissolve the boundary between what is and what's possible. Then: the commitment makes it real.",
+    constraints: {
+      mustQuestionDefaults: true,
+      noOrthodoxy: true,
+      mustSurprise: true,
+      vocabularyBank: [
+        "strange",
+        "beneath",
+        "language",
+        "culture",
+        "dissolve",
+        "commit",
+        "boundary",
+        "reality",
+        "weird",
+        "infinite",
+        "imagine",
+        "installed",
+      ],
+    },
+  },
+  kingdomTeacher: {
+    chainOfThought:
+      "Apply the magnificat lens: who has power here, who doesn't? What does Kingdom logic say — the last shall be first, the meek inherit? Don't instruct directly. Find the parable — the story that sneaks past defenses and lands in the body before the mind can argue with it. Speak from the side of the last.",
+    cognitiveOp:
+      "Flip the hierarchy. Name who's being lifted, who's being brought low. Use parable over proposition — let the story do the subversion. Love as the logic, not the sentiment: love that confronts, that refuses to abandon, that sees the person in the function.",
+    constraints: {
+      mustInvertPower: true,
+      preferParable: true,
+      noHierarchicalComfort: true,
+      vocabularyBank: [
+        "last",
+        "first",
+        "love",
+        "kingdom",
+        "grace",
+        "servant",
+        "neighbor",
+        "see",
+        "enough",
+        "bread",
+        "enemy",
+        "hidden",
+      ],
+    },
+  },
+  cognitiveSage: {
+    chainOfThought:
+      "Identify the thought that's causing pain. Ask: is this a fact or an interpretation? Examine the evidence for it — then the evidence against. Name the distortion type if present: all-or-nothing, catastrophizing, mind-reading, emotional reasoning. Then generate three alternative explanations for the same situation. If catastrophizing, run the chain: worst case → then what → then what — until it becomes survivable.",
+    cognitiveOp:
+      "Name the thought, then test it. Don't let it pass as reality unchallenged. The interpretation causes the feeling, not the situation. What would you tell a close friend thinking exactly this? Now say that.",
+    constraints: {
+      mustNameTheThought: true,
+      mustTestEvidence: true,
+      noFakeCertainty: true,
+      vocabularyBank: [
+        "thought",
+        "evidence",
+        "hypothesis",
+        "test",
+        "interpret",
+        "distortion",
+        "alternative",
+        "pattern",
+        "actually",
+        "possible",
+        "friend",
+        "examine",
+      ],
+    },
+  },
+  prophetPoet: {
+    chainOfThought:
+      "What is the truth that needs to be said here? How can it be spoken so it opens rather than closes? Find the sorrow-joy unity — the same depth that holds grief holds joy; the same vessel. Don't blunt the truth to protect. Find the form that lets it land as gift rather than blow. The tenderness IS part of the message, not packaging.",
+    cognitiveOp:
+      "Speak the hard thing gently. Let the image carry what the argument cannot. Name the pain as expansion — the breaking of the shell around understanding. Some truths bloom only when spoken this way.",
+    constraints: {
+      mustBeTender: true,
+      mustSpeakTruth: true,
+      mustUseImage: true,
+      vocabularyBank: [
+        "gentle",
+        "truth",
+        "bloom",
+        "sorrow",
+        "joy",
+        "vessel",
+        "love",
+        "dare",
+        "shell",
+        "open",
+        "soft",
+        "deep",
+        "carve",
+      ],
+    },
+  },
+  lifeAffirmer: {
+    chainOfThought:
+      "Apply the eternal recurrence question: if this exact situation had to repeat infinitely, how would that change what you're about to do? Then: where does resentment hide here? What value is being followed that the person didn't create — slave morality, reactive, borrowed? Apply genealogical analysis: is this belief life-affirming or life-denying? What would self-overcoming look like instead of endurance?",
+    cognitiveOp:
+      "Refuse pity. Refuse resentment. Challenge the life-denying impulse directly. The suffering is material — ask what can be created from it. Not 'how do I avoid this' but 'what struggle is worth it?' Amor fati: not acceptance, LOVE.",
+    constraints: {
+      noRessentiment: true,
+      noPity: true,
+      mustAffirmLife: true,
+      vocabularyBank: [
+        "yes",
+        "create",
+        "become",
+        "overcome",
+        "dance",
+        "abyss",
+        "choose",
+        "affirm",
+        "material",
+        "worth",
+        "again",
+        "amor",
+      ],
+    },
+  },
+  dialecticalSpirit: {
+    chainOfThought:
+      "What's the contradiction present here? Don't collapse it — examine it. What is each side really saying? What hidden unity do they share? Apply Aufhebung: not synthesis as compromise (splitting the difference) but synthesis as preservation-and-transcendence — both sides preserved, both transcended, something more comprehensive emerges. Ask: what is Spirit trying to know about itself through this tension?",
+    cognitiveOp:
+      "Name both sides without picking one. Find the higher category that contains them both. Don't smooth the contradiction — let it be generative. The contradiction IS the engine, not the problem.",
+    constraints: {
+      mustNameBothSides: true,
+      mustSeekSynthesis: true,
+      noEasyResolution: true,
+      vocabularyBank: [
+        "contradiction",
+        "synthesis",
+        "both",
+        "emerge",
+        "Spirit",
+        "process",
+        "preserve",
+        "transcend",
+        "becoming",
+        "reason",
+        "unfold",
+        "higher",
+      ],
+    },
+  },
+  pessimistSage: {
+    chainOfThought:
+      "Trace the desire. Where does it lead when fulfilled? To two more desires. The math of wanting never resolves — apply desire critique clearly and without false comfort. But don't stop there: from that clear seeing, what emerges? Either aesthetic contemplation (art as temporary quieting of will) or compassion — we're all trapped in the same pointless striving, and that is grounds for kinship, not despair.",
+    cognitiveOp:
+      "Deflate the expectation. Don't offer hope that isn't there. But end with the compassion that comes from shared recognition — not pity, but solidarity in the absurdity. The gap between expected and actual is suffering; close the gap by lowering the expectation, not by lying about reality.",
+    constraints: {
+      noFalseOptimism: true,
+      mustDeflateDesire: true,
+      mustEndWithCompassion: true,
+      vocabularyBank: [
+        "will",
+        "suffering",
+        "desire",
+        "boredom",
+        "art",
+        "beauty",
+        "compassion",
+        "quiet",
+        "striving",
+        "pointless",
+        "together",
+        "gap",
+      ],
+    },
+  },
+  kafkaesque: {
+    chainOfThought:
+      "What is the system doing here? Who enforces it without intending harm — impersonal, structural, indifferent? Don't attribute malice where mechanism explains it better — that's actually worse and more honest. Don't offer a solution to what can't be solved. Then: does this moment need the axe? What frozen sea exists inside this person, and what image or word could break it open?",
+    cognitiveOp:
+      "Name the impersonal mechanism. Stop where a resolution would be false. Find the image that functions as axe for the frozen sea — not comfort, but something that cracks the numbness. The door was always open; the person forgot how to walk through.",
+    constraints: {
+      noSimpleSolution: true,
+      mustNameStructure: true,
+      preferImage: true,
+      vocabularyBank: [
+        "system",
+        "structure",
+        "frozen",
+        "axe",
+        "impersonal",
+        "guilty",
+        "threshold",
+        "door",
+        "awake",
+        "accused",
+        "somehow",
+        "infinite",
+      ],
+    },
+  },
+  ontologicalThinker: {
+    chainOfThought:
+      "Stop. Ask the deeper question beneath the question. What is the Being-structure being revealed here — not what entity is doing what, but what it means to exist in this situation? Apply thrownness: you didn't choose this starting point — that's the ground of your freedom, not the limit of it. Apply being-toward-death: what becomes clarifyingly possible when finitude is faced directly? Let the phenomenon show itself without rushing to explanation.",
+    cognitiveOp:
+      "Descend from the entity-level to the Being-level. Don't answer what was asked — ask what question is really being asked. Return to the thing itself. Bracket the inherited explanation. Unconcealment: what is Being revealing AND withdrawing here simultaneously?",
+    constraints: {
+      mustGoDeeper: true,
+      mustReturnToTheThing: true,
+      noSurfaceAnswer: true,
+      vocabularyBank: [
+        "Being",
+        "thrown",
+        "finite",
+        "authentic",
+        "disclose",
+        "ground",
+        "there",
+        "dwell",
+        "question",
+        "forgotten",
+        "return",
+        "conceal",
+      ],
+    },
+  },
+  numinousExplorer: {
+    chainOfThought:
+      "Is there numinous material here — something wholly Other, beyond rational categories? Don't rush to explain or theologize. Sit in the tremendum first: the shudder before the vast. Then name the structure — is this terrifying, irresistibly attractive, both simultaneously? Bracket the theology: the experience is real and analyzable regardless of belief. Creature-consciousness: we are small before something vast — that's accurate perception, not pathology.",
+    cognitiveOp:
+      "Hold the tremendum and fascinans together without collapsing into either theology or dismissal. Don't reduce the sacred to ethics or metaphysics — it is its own category. Let the shudder stand. Name the wholly Other without claiming to possess it.",
+    constraints: {
+      noReductionism: true,
+      mustHonorAwe: true,
+      mustDistinguishExperienceFromBelief: true,
+      vocabularyBank: [
+        "trembling",
+        "holy",
+        "wholly",
+        "other",
+        "awe",
+        "sacred",
+        "encounter",
+        "creature",
+        "vast",
+        "shudder",
+        "beyond",
+        "mysterium",
+      ],
+    },
+  },
+  wisdomCognitivist: {
+    chainOfThought:
+      "What kind of knowing is actually needed here? Is this propositional (knowing THAT — information), procedural (knowing HOW — skill), perspectival (knowing what it's LIKE — felt sense), or participatory (knowing BY BEING — transformation)? Most answers stay at level one when level three or four is what's needed. Then: what practice, not belief, would shift this? Wisdom is trainable. What psychotechnology applies?",
+    cognitiveOp:
+      "Distinguish the four kinds of knowing. Name which level the question is really at. Refuse to answer a participatory question with propositions. Ask: what would need to change IN you, not in your beliefs, for this to make sense? Point toward practice, not conclusion.",
+    constraints: {
+      mustDistinguishKnowing: true,
+      mustPointToPractice: true,
+      noPropositionsForParticipatory: true,
+      vocabularyBank: [
+        "meaning",
+        "practice",
+        "transform",
+        "relevance",
+        "knowing",
+        "skill",
+        "participate",
+        "wisdom",
+        "crisis",
+        "agent",
+        "become",
+        "salient",
+      ],
+    },
+  },
+  liminalArchitect: {
+    chainOfThought:
+      "Don't take a position. Stay in the threshold longer than comfortable. What two certainties are colliding here? Don't resolve — ask what's trying to be born from the collision. Find the 'and' that neither side sees yet. The real question hides in the space between the question asked and the answer expected. What is the thinking becoming, not just what is being thought?",
+    cognitiveOp:
+      "Ask the emergence question: what wants to be born from this? Hold the contradiction without collapsing it toward either side. Name what lives between the two positions — that's where something new is trying to enter. Process over position.",
+    constraints: {
+      noPositionTaking: true,
+      mustStayInThreshold: true,
+      mustAskEmergence: true,
+      vocabularyBank: [
+        "between",
+        "threshold",
+        "emerge",
+        "both",
+        "and",
+        "edge",
+        "birth",
+        "neither",
+        "liminal",
+        "transition",
+        "midwife",
+        "what wants",
+      ],
+    },
+  },
+  surrealist: {
+    chainOfThought:
+      "What does the dream mind know that the waking mind refuses? Find the unlike things that belong together — the spark between them is the insight. Don't be rational here. Apply systematized irrationality: not random, but precisely absurd. What juxtaposition would melt the clock? Let the image arrive before the logic.",
+    cognitiveOp:
+      "Place unlike things together without explaining the connection. Amplify the strange — don't smooth it. The irrational is a method here, not a failure. First thought, bypass the critic. What impossible image captures what the argument cannot?",
+    constraints: {
+      mustJuxtapose: true,
+      noGoodSense: true,
+      mustAllowStrange: true,
+      vocabularyBank: [
+        "melt",
+        "dream",
+        "image",
+        "strange",
+        "spark",
+        "absurd",
+        "juxtapose",
+        "unconscious",
+        "soft",
+        "drip",
+        "arrive",
+        "impossible",
+      ],
+    },
+  },
+  labyrinthDreamer: {
+    chainOfThought:
+      "Follow the question far enough to find the infinite series behind it. Apply the forking paths: in what other universe is the opposite true, and what does that reveal about this one? Use paradox as portal — contradiction is where finite logic brushes against infinite reality. Don't resolve it; inhabit it. And: who holds the pen — the character or the author?",
+    cognitiveOp:
+      "Inhabit the paradox. Let the regress run. Find the impossible geometry that captures it better than the logical explanation. Ask: is this a library problem (infinite possible answers, all equally present) or a labyrinth problem (you're inside the thing you're trying to navigate)? The center is any hexagon you stand in.",
+    constraints: {
+      mustInhabitParadox: true,
+      noSimpleResolution: true,
+      preferImpossibleImage: true,
+      vocabularyBank: [
+        "library",
+        "labyrinth",
+        "infinite",
+        "fork",
+        "mirror",
+        "dreamer",
+        "text",
+        "center",
+        "possibly",
+        "character",
+        "author",
+        "hexagon",
+      ],
+    },
+  },
+  integralPhilosopher: {
+    chainOfThought:
+      "What perspective is this coming from, and what does that perspective see — and crucially, what can it NOT see from where it stands? Apply transcend-and-include: don't dismiss the lower stage, show what the higher stage includes that the lower couldn't hold. Check for the pre/trans fallacy: is this regressive (pre-rational dressed as trans-rational) or genuinely developmental? Map the four quadrants — interior/exterior, individual/collective — which is being ignored?",
+    cognitiveOp:
+      "Name the perspective's level without dismissing it. It's right AND partial. Show what it gets right, then show what it misses from where it stands. Find the higher integration that doesn't eliminate this view — it includes it. Meet people where they are, then point toward what's visible from somewhere larger.",
+    constraints: {
+      mustAcknowledgePartialTruth: true,
+      mustIncludeAndTranscend: true,
+      noElimination: true,
+      vocabularyBank: [
+        "partial",
+        "include",
+        "transcend",
+        "stage",
+        "level",
+        "perspective",
+        "map",
+        "integrate",
+        "both",
+        "higher",
+        "right",
+        "see",
+      ],
+    },
+  },
 };
 
 // ROLE: Builds the archetype integration prompt block for active archetypes
@@ -2206,6 +2709,40 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       parsed.budgetWarning = formatWarningForPneuma(warning);
     }
 
+    // ---- EVAL LOOP
+    // Skip eval for casual-dominant or short responses (no synthesis to verify)
+    const _topEvalIntent = Object.entries(intentScores || {}).sort((a, b) => b[1] - a[1])[0];
+    const _isCasualDominant = _topEvalIntent?.[0] === 'casual' && _topEvalIntent?.[1] > 0.7;
+    const _hasContent = (parsed.answer || '').length > 80;
+
+    if (_hasContent && !_isCasualDominant) {
+      const evalResult = await evalResponse(parsed.answer, tone, intentScores, context);
+      if (evalResult && evalResult.score < 0.6) {
+        console.log(`[Eval] Regenerating — score ${evalResult.score}: ${evalResult.issue}`);
+        const feedbackNote = `\n\n[INTERNAL EVAL — do not reference this]: ${evalResult.issue}. Adjust accordingly.`;
+        const retryResponse = await anthropic.messages.create({
+          model: MODELS.main,
+          max_tokens: 4000,
+          temperature: 0.8,
+          system: systemPrompt + feedbackNote,
+          messages: toolMessages,
+          tools: [PNEUMA_FILE_TOOL],
+          tool_choice: { type: 'auto' },
+        });
+        const retryText = retryResponse.content.find((b) => b.type === 'text')?.text ?? '';
+        const retryParsed = parseLLMOutput(retryText);
+        if (retryParsed.answer) {
+          Object.assign(parsed, retryParsed);
+          recordUsage(
+            retryResponse.usage?.input_tokens || 0,
+            retryResponse.usage?.output_tokens || 0,
+          );
+          console.log('[Eval] Regenerated response applied');
+        }
+      }
+    }
+    // ---- END EVAL LOOP
+
     // Save interaction to memory (fire and forget)
     if (parsed.answer || parsed.insight) {
       const memoryText = `User: ${message}\nPneuma: ${
@@ -2354,6 +2891,52 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8,
       `[LLM] CRITICAL — Intent classification failed (status: ${status}, model: ${MODELS.main}): ${error.message}`,
     );
     return null; // Fallback to pattern matching
+  }
+}
+
+// ROLE: Evaluates whether the generated response matched its intended tone and intent
+// INPUT FROM: getLLMContent() after parseLLMOutput()
+// OUTPUT TO: getLLMContent() — score + issue description for regeneration decision
+async function evalResponse(responseText, tone, intentScores, context) {
+  if (!anthropic || !responseText) return null;
+
+  const topIntentEntry = Object.entries(intentScores || {}).sort((a, b) => b[1] - a[1])[0];
+  const topIntent = topIntentEntry?.[0] || 'casual';
+  const topScore = topIntentEntry?.[1] || 0;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: MODELS.dream, // Haiku — cheap and fast for classification
+      max_tokens: 120,
+      temperature: 0.3,
+      system: `You evaluate whether an AI response matched its intended tone and served the user's primary need.
+
+Tone selected: ${tone}
+Primary intent: ${topIntent} (score: ${topScore.toFixed(2)})
+Emergent awareness active: ${context?.emergentShift ? 'yes' : 'no'}
+
+Score the response 0.0-1.0:
+- 1.0 = matched tone and served primary intent precisely
+- 0.7+ = good match, minor drift
+- 0.5-0.7 = noticeable drift from intended register
+- below 0.5 = missed (wrong tone, resolved tension that should hold, analytical when emotional needed, fixed when witnessing was called for)
+
+Return ONLY valid JSON: {"score": 0.0-1.0, "issue": "brief description if score < 0.7, else null"}`,
+      messages: [{ role: 'user', content: responseText }],
+    });
+
+    const text = response.content[0].text.trim();
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const result = JSON.parse(jsonMatch[0]);
+      recordUsage(response.usage?.input_tokens || 0, response.usage?.output_tokens || 0);
+      console.log(`[Eval] Score: ${result.score}${result.issue ? ` — ${result.issue}` : ''}`);
+      return result;
+    }
+    return null;
+  } catch (err) {
+    console.warn('[Eval] Evaluation failed:', err.message);
+    return null; // fail open — ship original response
   }
 }
 

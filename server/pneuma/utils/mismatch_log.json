@@ -98,12 +98,21 @@
       "selectedMode": "intimate",
       "userCorrection": "Feels like she might have been wrong, or feels like it was a dream. Here I am trying to build an AI, trying to do something of import as i deviated from art. I couldnt continue art after she died because I felt I had to change... I felt I had to make some type of direct impcat in the world, not just with art, but with my creativity. Sometimes I think shes right, edspecially when I feel this impression of greatness within me, but then it feels like delusion, maybe a dream, and then doubt sinks in",
       "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-03-05T03:23:55.148Z",
+      "originalMessage": "She kind of goes def on one ear and says shes not listening because she believes what she believes, but I was raised a christain and have gone through many [hases, she is at her infancy, she found jhesus and is in her 30's and I'm afraid she will not grow past the self-righteousness, and I'm not sure I can be with someone like this",
+      "detectedIntent": "emotional",
+      "detectedEmotion": "emotional",
+      "selectedMode": "intimate",
+      "userCorrection": "I'm honestly not sure. And I dont know why it frustrates me to this degree. Makes me feel like there is something wrong with me not believing an immacualte conception, bnot because it didnt happen, but just because I don't know if it did, but I do consider the numan, I am aware of this cosmic miracle that is going on, tnat I am in a body, I have a story, and all this gross reality manifested out of nowhere. The paradox of time, infinity, things having a beginning and an end seem like the only digestable truth that has reason inn it, but something always existing is baffling, but that is the only other option, and it has to be, because there is no other answer, so I sit in that paradox in awe, and that is what attunes me to the force I percieve in a vast corner of my consciousness",
+      "correctionType": "factual"
     }
   ],
   "stats": {
-    "totalMismatches": 11,
+    "totalMismatches": 12,
     "byType": {
-      "factual": 11
+      "factual": 12
     }
   }
 }

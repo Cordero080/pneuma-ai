@@ -6,9 +6,10 @@ import LearningCenter from '../ArchitectureDiagram/LearningCenter/LearningCenter
 function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onShowArchitecture, isArchitectureView, onBackToChat }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedIds, setSelectedIds] = useState(new Set());
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deletePopover, setDeletePopover] = useState(null); // { top, right } or null
   const lastClickedIndex = useRef(null);
   const sidebarRef = useRef(null);
+  const popoverRef = useRef(null);
 
   // Reset scroll position on resize to prevent header overflow
   useEffect(() => {
@@ -21,6 +22,18 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Close popover when clicking outside
+  useEffect(() => {
+    if (!deletePopover) return;
+    const handleClickOutside = (e) => {
+      if (popoverRef.current && !popoverRef.current.contains(e.target)) {
+        setDeletePopover(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [deletePopover]);
 
   // Sort conversations by ID (contains timestamp), most recent first
     const sortedConversations = [...conversations].sort((a, b) => {
@@ -76,7 +89,8 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
       setSelectedIds(new Set([convId]));
     }
     
-    setShowDeleteConfirm(true);
+    // Position popover near the click point (viewport coords for fixed positioning)
+    setDeletePopover({ top: e.clientY, left: e.clientX });
   };
 
   // Confirm delete
@@ -85,12 +99,12 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
       selectedIds.forEach(id => onDelete(id));
     }
     setSelectedIds(new Set());
-    setShowDeleteConfirm(false);
+    setDeletePopover(null);
   };
 
   // Cancel delete
   const cancelDelete = () => {
-    setShowDeleteConfirm(false);
+    setDeletePopover(null);
   };
 
   // Clear selection when clicking elsewhere
@@ -176,22 +190,23 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                   ))
                 )}
                 
-                {/* Delete Confirmation Modal - inline in sidebar */}
-                {showDeleteConfirm && (
-                  <div className="delete-confirm-overlay">
-                    <div className="delete-confirm-modal">
-                      <div className="delete-confirm-icon">⚠</div>
-                      <div className="delete-confirm-text">
-                        Delete {selectedIds.size === 1 ? 'this session' : `${selectedIds.size} sessions`}?
-                      </div>
-                      <div className="delete-confirm-buttons">
-                        <button className="delete-btn cancel" onClick={cancelDelete}>
-                          Cancel
-                        </button>
-                        <button className="delete-btn confirm" onClick={confirmDelete}>
-                          Delete
-                        </button>
-                      </div>
+                {/* Delete Confirmation Popover - small, positioned near click */}
+                {deletePopover && (
+                  <div
+                    ref={popoverRef}
+                    className="delete-popover"
+                    style={{ top: `${deletePopover.top}px`, left: `${deletePopover.left}px` }}
+                  >
+                    <span className="delete-popover-text">
+                      Delete {selectedIds.size === 1 ? 'session' : `${selectedIds.size} sessions`}?
+                    </span>
+                    <div className="delete-popover-buttons">
+                      <button className="delete-btn cancel" onClick={cancelDelete}>
+                        No
+                      </button>
+                      <button className="delete-btn confirm" onClick={confirmDelete}>
+                        Yes
+                      </button>
                     </div>
                   </div>
                 )}
