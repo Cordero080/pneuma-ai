@@ -235,7 +235,8 @@ const LearningCenter = () => {
             { title: "Collisions are detected", desc: "If two incompatible archetypes are both active, the system forces synthesis instead of letting one win." },
             { title: "Knowledge is retrieved", desc: "Actual passages from relevant thinkers are pulled from a vector database and placed directly in context." },
             { title: "Conversation history threads", desc: "The last 6 exchanges are sent as real alternating turns — Claude sees what it already said and can actually continue a thought." },
-            { title: "Response is shaped", desc: "Claude generates within all of this. The output goes through post-processing before reaching you." },
+            { title: "Response is evaluated", desc: "Before delivery, a fast Haiku call scores the response 0–1 against the active tone and intent. Score below 0.6: regenerates once with the evaluation feedback injected. Score 0.6+: ships. You see one response. The loop is invisible." },
+            { title: "Response is shaped", desc: "Claude's output passes through post-processing — tone consistency, personality check, continuity layer. Final output reaches you." },
             { title: "Between sessions: dialectic synthesis", desc: "After the response is sent, two high-tension archetypes run a private dialogue in the background. The outcome — a question or position — writes silently to Pneuma's state. Pneuma may bring it into the next conversation, or not. You didn't cause it." }
           ]} />
         </ModalSection>
@@ -786,9 +787,9 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
         <ModalSection title="Where This Lives in the Code">
           <ModalFlow steps={[
             { title: "archetypeDepth.js", desc: "Every archetype has a cognitiveTools object — named operations with descriptions. Not quotes to retrieve, but thinking moves to execute." },
-            { title: "llm.js — ARCHETYPE_METHODS", desc: "Key archetypes (Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus...) carry cognitiveMoves: specific named tools drawn from the thinker's actual methodology." },
-            { title: "llm.js — getArchetypeMethods()", desc: "When archetypes are selected for a response, their cognitive tools are assembled into text." },
-            { title: "llm.js — Prompt Injection", desc: 'The assembled tools are injected under the header "THINKING METHODS — not things to say — they\'re ways to THINK. Apply them. Run the user\'s message through these operations."' },
+            { title: "llm.js — ARCHETYPE_INTEGRATION (44 entries, all archetypes)", desc: "The primary cognitive instruction system. Every archetype has a 3-layer stack: chainOfThought (how to reason before responding), cognitiveOp (the specific thinking move to apply), and constraints (output energy — what to emphasize, what vocabulary resonates). This is what makes 'Rumi is active' different from 'Rumi enters through the wound and holds the longing without resolving it.'" },
+            { title: "llm.js — ARCHETYPE_METHODS (legacy, select archetypes)", desc: "Earlier system: key archetypes (Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus) carry named cognitiveMoves objects. Still injected alongside ARCHETYPE_INTEGRATION for depth archetypes." },
+            { title: "llm.js — Prompt Injection", desc: 'Both systems assembled and injected: ARCHETYPE_INTEGRATION under "ARCHETYPE INTEGRATION — ACTIVE LENSES" and ARCHETYPE_METHODS under "THINKING METHODS — ways to THINK, not things to say."' },
             { title: "synthesisEngine.js", desc: "During collision detection, cognitiveTools from both archetypes are pulled and cross-applied — tools from incompatible thinkers forced to operate on the same problem." }
           ]} />
         </ModalSection>
@@ -875,6 +876,12 @@ wallOfStains: "When stuck, look for patterns in chaos.
               icon={RAGIcon}
               onClick={() => setNestedModal('am')}
             />
+            <ModalInfoCard
+              title="Eval Loop"
+              desc="Every response is scored before delivery — misses regenerate once with feedback"
+              icon={BrainIcon}
+              onClick={() => setNestedModal('el')}
+            />
           </ModalInfoGrid>
         </ModalSection>
 
@@ -883,7 +890,8 @@ wallOfStains: "When stuck, look for patterns in chaos.
             Each of these decisions is an architectural choice, not a code trick. You can't copy the
             mechanism and get the same result — the value is in the design decisions encoded into the
             mechanism: which 46 thinkers, what their thinking methods actually are, how 1,764 pairs
-            were mapped for tension, what to do when memory has a "why" attached.
+            were mapped for tension, what to do when memory has a "why" attached, and what counts as
+            a response that actually served the moment.
           </ModalDesc>
           <ModalDesc style={{ marginTop: '12px' }}>
             These decisions transfer to any serious AI product work. They represent the difference
@@ -1255,6 +1263,71 @@ INVENTOR: SAPER VEDERE — knowing how to see
             </ModalDesc>
           </ModalSection>
         </Modal>
+
+        {/* ── Nested: Eval Loop ── */}
+        <Modal
+          isOpen={nestedModal === 'el'}
+          onClose={() => setNestedModal(null)}
+          title="Eval Loop"
+          icon={BrainIcon}
+        >
+          <ModalSection title="Plain English: What This Is">
+            <ModalDesc>
+              Most AI systems generate a response and ship it — no check, no second look.
+              The eval loop closes that gap: after Claude generates, a second fast AI call reads
+              the response and scores it against what the moment actually needed. If it missed,
+              it regenerates once with the score and issue description injected as feedback.
+            </ModalDesc>
+            <ModalDesc style={{ marginTop: '12px' }}>
+              The user only ever sees one response. The loop is invisible. If the first pass
+              scored ≥ 0.6, it ships. If not, the better version replaces it silently.
+            </ModalDesc>
+          </ModalSection>
+
+          <ModalSection title="The Analogy">
+            <ModalDesc>
+              A writer who reads their paragraph back before sending it. Not for grammar — for
+              whether it actually said the thing. Did this land as intended? If not, one more draft.
+              The reader never sees the scratch copy.
+            </ModalDesc>
+          </ModalSection>
+
+          <ModalSection title="How It Works">
+            <ModalFlow steps={[
+              { title: "Claude generates (Pass 1)", desc: "Full response produced via the assembled system prompt, archetype integrations, RAG context, and collision synthesis." },
+              { title: "evalResponse() — Haiku call", desc: "A cheap, fast Claude Haiku call reads the response and scores it 0–1 against the active tone, primary intent, and whether emergent awareness was needed. Returns {score, issue}." },
+              { title: "Score ≥ 0.6", desc: "Response ships as-is. No extra cost, no extra latency." },
+              { title: "Score < 0.6", desc: 'The issue is injected: "[INTERNAL EVAL — do not reference this]: {issue}. Adjust accordingly." Claude regenerates with this feedback active.' },
+              { title: "Better response applied", desc: "If regeneration produces a valid response, it replaces the original. Memory saves the better version." }
+            ]} />
+          </ModalSection>
+
+          <ModalSection title="Fast Paths (eval skipped entirely)">
+            <ModalFlow steps={[
+              { title: "Short response (under 80 chars)", desc: "Nothing meaningful to evaluate." },
+              { title: "Casual-dominant intent (score > 0.7)", desc: "Casual exchanges don't need synthesis verification." },
+              { title: "evalResponse() throws", desc: "Fails open — ships the original. Never blocks a response." }
+            ]} />
+          </ModalSection>
+
+          <ModalSection title="Where It Lives in the Code">
+            <ModalFlow steps={[
+              { title: "llm.js → evalResponse()", desc: "Private function. Takes responseText, tone, intentScores, context. Returns {score, issue} or null. Uses MODELS.dream (Haiku), temperature 0.3, max_tokens 120." },
+              { title: "llm.js → getLLMContent()", desc: "Eval loop runs after parseLLMOutput(), before memory saving. Injects feedback into systemPrompt for the retry call. Memory always saves the final (post-eval) response." }
+            ]} />
+          </ModalSection>
+
+          <ModalSection title="Why This Is Technically Interesting">
+            <ModalDesc>
+              The collision and synthesis system tells Claude how to think. The eval loop checks
+              whether it actually did. Without it, a synthesis directive that says "hold the
+              tension" gets overridden by Claude's training pull toward coherent, helpful resolution —
+              and ships unchecked. The eval loop closes that gap: the system can enforce its own
+              cognitive instructions at the output layer.
+            </ModalDesc>
+          </ModalSection>
+        </Modal>
+
       </Modal>
 
       {/* Contextual Synthesis */}

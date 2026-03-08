@@ -869,10 +869,27 @@ const response = await anthropic.messages.create({
       </ModalDesc>
     </ModalSection>
 
+    <ModalSection title="After Generation: Eval Loop">
+      <ModalDesc>
+        Claude's output isn't shipped immediately. A second fast call (Claude Haiku) scores it 0–1
+        against the active tone and primary intent. Score ≥ 0.6: ships. Score &lt; 0.6: regenerates
+        once with the eval feedback injected into the system prompt. The user sees one response —
+        the loop is invisible.
+      </ModalDesc>
+      <ModalCodeBlock>{`// After parseLLMOutput():
+const evalResult = await evalResponse(parsed.answer, tone, intentScores, context);
+
+if (evalResult && evalResult.score < 0.6) {
+  const feedbackNote = \`\\n\\n[INTERNAL EVAL]: \${evalResult.issue}. Adjust accordingly.\`;
+  // Regenerate with feedback injected into system prompt
+  // Memory saves the better response
+}`}</ModalCodeBlock>
+    </ModalSection>
+
     <ModalSection title="The Key Insight">
       <ModalDesc>
-        The LLM doesn't "understand" the quotes. It predicts what text should come next based on 
-        patterns learned during training. But because we put accurate quotes IN the prompt, the 
+        The LLM doesn't "understand" the quotes. It predicts what text should come next based on
+        patterns learned during training. But because we put accurate quotes IN the prompt, the
         generated text can reference them accurately. The magic is in the SETUP, not the generation.
       </ModalDesc>
     </ModalSection>
