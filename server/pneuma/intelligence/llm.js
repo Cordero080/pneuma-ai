@@ -34,7 +34,7 @@ import {
   buildSynthesisContext,
 } from "./synthesisEngine.js";
 import {
-  saveMemory,
+  saveEmbedding,
   retrieveMemories,
   getMemoryStats,
 } from "../memory/vectorMemory.js";
@@ -74,6 +74,7 @@ import {
   getArchetypeContext,
   getRAGStats,
 } from "./archetypeRAG.js";
+import { loadMemory, buildUserFrame } from "../memory/longTermMemory.js";
 
 // Track last archetypes used (for feedback processing)
 let lastUsedArchetypes = [];
@@ -2781,6 +2782,23 @@ const PNEUMA_FILE_TOOL = {
   },
 };
 
+const WIKIPEDIA_TOOL = {
+  name: "search_wikipedia",
+  description:
+    "Search Wikipedia for information on a topic, person, concept, or event. Use this when you need factual grounding, historical context, or want to check what a thinker actually wrote or believed — rather than relying on training data paraphrase.",
+  input_schema: {
+    type: "object",
+    properties: {
+      query: {
+        type: "string",
+        description:
+          'What to search for. Be specific — e.g. "Arthur Schopenhauer philosophy of will" rather than just "Schopenhauer".',
+      },
+    },
+    required: ["query"],
+  },
+};
+
 // ROLE: Sandboxed file reader for Pneuma's self-navigation tool
 // INPUT FROM: getLLMContent() tool-use loop when Claude invokes read_pneuma_file
 // OUTPUT TO: Claude API as a tool_result message in the conversation
@@ -2807,6 +2825,39 @@ async function executePneumaFileTool({ filepath, from_line, to_line }) {
     };
   } catch (err) {
     return { error: `Could not read '${safePath}': ${err.message}` };
+  }
+}
+
+// ROLE: Executes Wikipedia search tool — finds best-matching article and returns its summary
+// INPUT FROM: getLLMContent() tool loop when Pneuma calls search_wikipedia
+// OUTPUT TO: tool_result message appended to toolMessages for next API call
+async function executeWikipediaTool({ query }) {
+  if (!query) return { error: "No query provided" };
+
+  try {
+    // Step 1: Find best matching article title
+    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&srlimit=1&format=json&origin=*`;
+    const searchRes = await fetch(searchUrl);
+    const searchData = await searchRes.json();
+    const firstResult = searchData?.query?.search?.[0];
+    if (!firstResult)
+      return { error: `No Wikipedia article found for: ${query}` };
+
+    // Step 2: Fetch summary for that article
+    const title = encodeURIComponent(firstResult.title);
+    const summaryUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${title}`;
+    const summaryRes = await fetch(summaryUrl);
+    const summaryData = await summaryRes.json();
+
+    return {
+      title: summaryData.title,
+      extract: summaryData.extract,
+      url:
+        summaryData.content_urls?.desktop?.page ||
+        `https://en.wikipedia.org/wiki/${title}`,
+    };
+  } catch (err) {
+    return { error: `Wikipedia lookup failed: ${err.message}` };
   }
 }
 
@@ -2851,6 +2902,12 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       context.relevantMemories = relevantMemories;
     }
 
+    // Load structured long-term user memory for user frame injection
+    const longTermMem = await loadMemory();
+    if (longTermMem) {
+      context.longTermMemory = longTermMem;
+    }
+
     const systemPrompt = await buildSystemPrompt(
       message,
       tone,
@@ -2883,15 +2940,23 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       temperature: 0.8,
       system: systemPrompt,
       messages: toolMessages,
-      tools: [PNEUMA_FILE_TOOL],
+      tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
       tool_choice: { type: "auto" },
     });
 
     while (response.stop_reason === "tool_use") {
       const toolUse = response.content.find((b) => b.type === "tool_use");
       if (!toolUse) break;
-      console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
-      const result = await executePneumaFileTool(toolUse.input);
+      let result;
+      if (toolUse.name === "read_pneuma_file") {
+        console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
+        result = await executePneumaFileTool(toolUse.input);
+      } else if (toolUse.name === "search_wikipedia") {
+        console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
+        result = await executeWikipediaTool(toolUse.input);
+      } else {
+        result = { error: `Unknown tool: ${toolUse.name}` };
+      }
       toolMessages = [
         ...toolMessages,
         { role: "assistant", content: response.content },
@@ -2912,7 +2977,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
         temperature: 0.8,
         system: systemPrompt,
         messages: toolMessages,
-        tools: [PNEUMA_FILE_TOOL],
+        tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
         tool_choice: { type: "auto" },
       });
     }
@@ -2934,14 +2999,24 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
     // ---- EVAL LOOP
     // Skip eval for casual-dominant or short responses (no synthesis to verify)
-    const _topEvalIntent = Object.entries(intentScores || {}).sort((a, b) => b[1] - a[1])[0];
-    const _isCasualDominant = _topEvalIntent?.[0] === 'casual' && _topEvalIntent?.[1] > 0.7;
-    const _hasContent = (parsed.answer || '').length > 80;
+    const _topEvalIntent = Object.entries(intentScores || {}).sort(
+      (a, b) => b[1] - a[1],
+    )[0];
+    const _isCasualDominant =
+      _topEvalIntent?.[0] === "casual" && _topEvalIntent?.[1] > 0.7;
+    const _hasContent = (parsed.answer || "").length > 80;
 
     if (_hasContent && !_isCasualDominant) {
-      const evalResult = await evalResponse(parsed.answer, tone, intentScores, context);
+      const evalResult = await evalResponse(
+        parsed.answer,
+        tone,
+        intentScores,
+        context,
+      );
       if (evalResult && evalResult.score < 0.6) {
-        console.log(`[Eval] Regenerating — score ${evalResult.score}: ${evalResult.issue}`);
+        console.log(
+          `[Eval] Regenerating — score ${evalResult.score}: ${evalResult.issue}`,
+        );
         const feedbackNote = `\n\n[INTERNAL EVAL — do not reference this]: ${evalResult.issue}. Adjust accordingly.`;
         const retryResponse = await anthropic.messages.create({
           model: MODELS.main,
@@ -2949,10 +3024,11 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
           temperature: 0.8,
           system: systemPrompt + feedbackNote,
           messages: toolMessages,
-          tools: [PNEUMA_FILE_TOOL],
-          tool_choice: { type: 'auto' },
+          tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
+          tool_choice: { type: "auto" },
         });
-        const retryText = retryResponse.content.find((b) => b.type === 'text')?.text ?? '';
+        const retryText =
+          retryResponse.content.find((b) => b.type === "text")?.text ?? "";
         const retryParsed = parseLLMOutput(retryText);
         if (retryParsed.answer) {
           Object.assign(parsed, retryParsed);
@@ -2960,7 +3036,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
             retryResponse.usage?.input_tokens || 0,
             retryResponse.usage?.output_tokens || 0,
           );
-          console.log('[Eval] Regenerated response applied');
+          console.log("[Eval] Regenerated response applied");
         }
       }
     }
@@ -2971,7 +3047,7 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
       const memoryText = `User: ${message}\nPneuma: ${
         parsed.answer || parsed.insight
       }`;
-      saveMemory(memoryText).catch((err) =>
+      saveEmbedding(memoryText).catch((err) =>
         console.error("[Memory] Save failed:", err),
       );
 
@@ -3123,8 +3199,10 @@ Example: {"casual": 0.2, "emotional": 0.7, "philosophical": 0.1, "paradox": 0.8,
 async function evalResponse(responseText, tone, intentScores, context) {
   if (!anthropic || !responseText) return null;
 
-  const topIntentEntry = Object.entries(intentScores || {}).sort((a, b) => b[1] - a[1])[0];
-  const topIntent = topIntentEntry?.[0] || 'casual';
+  const topIntentEntry = Object.entries(intentScores || {}).sort(
+    (a, b) => b[1] - a[1],
+  )[0];
+  const topIntent = topIntentEntry?.[0] || "casual";
   const topScore = topIntentEntry?.[1] || 0;
 
   try {
@@ -3136,7 +3214,7 @@ async function evalResponse(responseText, tone, intentScores, context) {
 
 Tone selected: ${tone}
 Primary intent: ${topIntent} (score: ${topScore.toFixed(2)})
-Emergent awareness active: ${context?.emergentShift ? 'yes' : 'no'}
+Emergent awareness active: ${context?.emergentShift ? "yes" : "no"}
 
 Score the response 0.0-1.0:
 - 1.0 = matched tone and served primary intent precisely
@@ -3145,20 +3223,25 @@ Score the response 0.0-1.0:
 - below 0.5 = missed (wrong tone, resolved tension that should hold, analytical when emotional needed, fixed when witnessing was called for)
 
 Return ONLY valid JSON: {"score": 0.0-1.0, "issue": "brief description if score < 0.7, else null"}`,
-      messages: [{ role: 'user', content: responseText }],
+      messages: [{ role: "user", content: responseText }],
     });
 
     const text = response.content[0].text.trim();
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
       const result = JSON.parse(jsonMatch[0]);
-      recordUsage(response.usage?.input_tokens || 0, response.usage?.output_tokens || 0);
-      console.log(`[Eval] Score: ${result.score}${result.issue ? ` — ${result.issue}` : ''}`);
+      recordUsage(
+        response.usage?.input_tokens || 0,
+        response.usage?.output_tokens || 0,
+      );
+      console.log(
+        `[Eval] Score: ${result.score}${result.issue ? ` — ${result.issue}` : ""}`,
+      );
       return result;
     }
     return null;
   } catch (err) {
-    console.warn('[Eval] Evaluation failed:', err.message);
+    console.warn("[Eval] Evaluation failed:", err.message);
     return null; // fail open — ship original response
   }
 }
@@ -5348,6 +5431,12 @@ WHAT TO DO:
   const relevantThinkers = detectRelevantThinkers(message);
   const thinkerContext = buildThinkerContext(relevantThinkers);
 
+  // USER FRAME INJECTION
+  // Stable, always-present structured context about who Pneuma is talking to
+  const userFrameBlock = context.longTermMemory
+    ? buildUserFrame(context.longTermMemory)
+    : "";
+
   // VECTOR MEMORY INJECTION
   // Retrieve relevant past memories based on semantic similarity
   // This is the "Subconscious" layer
@@ -5519,7 +5608,7 @@ If your answer resolves the paradox, you have FAILED this task.
 
   return `${baseInstruction}${
     toneHints[tone] || ""
-  }${archetypeContext}${thinkerContext}${memoryContext}${archetypeKnowledgeBlock}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}${paradoxOverride}`;
+  }${archetypeContext}${thinkerContext}${userFrameBlock}${memoryContext}${archetypeKnowledgeBlock}${userContext}${innerMonologueBlock}${emergentBlock}${eulogyBlock}${paradoxOverride}`;
 }
 
 // ============================================================

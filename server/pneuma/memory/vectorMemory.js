@@ -26,7 +26,7 @@ async function migrateFromJSON() {
 
     await db.collection(COLLECTION).insertMany(existing);
     console.log(
-      `[VectorMemory] Migrated ${existing.length} memories from JSON to MongoDB`
+      `[VectorMemory] Migrated ${existing.length} memories from JSON to MongoDB`,
     );
   } catch (err) {
     console.warn("[VectorMemory] Migration skipped:", err.message);
@@ -36,7 +36,7 @@ async function migrateFromJSON() {
 migrateFromJSON();
 
 // ROLE: Converts text into an embedding vector for semantic search
-// INPUT FROM: saveMemory(), retrieveMemories()
+// INPUT FROM: saveEmbedding(), retrieveMemories()
 // OUTPUT TO: MongoDB insertOne() or $vectorSearch aggregation
 export async function getEmbedding(text) {
   try {
@@ -64,7 +64,7 @@ export function cosineSimilarity(vecA, vecB) {
 // ROLE: Embeds a text string and saves it with metadata to MongoDB
 // INPUT FROM: getLLMContent() in llm.js (fire-and-forget after each response)
 // OUTPUT TO: MongoDB vectorMemory collection via insertOne()
-export async function saveMemory(text, metadata = {}) {
+export async function saveEmbedding(text, metadata = {}) {
   if (!text || text.length < 10) return;
 
   const embedding = await getEmbedding(text);
@@ -126,7 +126,7 @@ export async function retrieveMemories(query, limit = 5) {
   } catch (err) {
     // Index not created yet in Atlas UI — brute-force fallback
     console.warn(
-      "[VectorMemory] Vector index not ready, using brute-force fallback"
+      "[VectorMemory] Vector index not ready, using brute-force fallback",
     );
     return await bruteForceRetrieve(queryEmbedding, limit);
   }

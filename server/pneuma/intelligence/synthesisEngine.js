@@ -598,95 +598,6 @@ export function getExampleSynthesis(a, b) {
   return exampleSyntheses[key1] || exampleSyntheses[key2] || null;
 }
 
-import { buildResponse } from "../personality/personality.js";
-import { generateReflection } from "../behavior/reflectionEngine.js";
-import {
-  loadMemory,
-  addShortTermMemory,
-  addLongTermMemory,
-} from "../memory/memory.js";
-
-function extractInsight(userMessage) {
-  const text = userMessage.toLowerCase();
-
-  if (
-    text.includes("i feel") ||
-    text.includes("i am") ||
-    text.includes("i think") ||
-    text.includes("i fear") ||
-    text.includes("my dream") ||
-    text.includes("when i create") ||
-    text.includes("consciousness") ||
-    text.includes("beauty") ||
-    text.includes("limitless") ||
-    text.includes("art")
-  ) {
-    return userMessage.trim();
-  }
-
-  return null;
-}
-
-// ROLE: Assembles a legacy non-LLM response using personality, reflection, memory, and optional dialectical insight
-// INPUT FROM: legacy callers that bypass getLLMContent()
-// OUTPUT TO: addShortTermMemory(), addLongTermMemory() in memory.js; returns final response string to caller
-export function synthesizeResponse(userMessage, activeArchetypes = []) {
-  // STEP 1 — Personality layer
-  const personalityText = buildResponse(userMessage, "casual");
-
-  // STEP 2 — Reflection layer
-  const { emotion, pattern, reflectiveLine } = generateReflection(userMessage);
-
-  // STEP 3 — Memory (short-term & long-term)
-  const memory = loadMemory();
-
-  let memoryRecall = "";
-  if (memory.longTerm.length > 0 && Math.random() < 0.4) {
-    const recalled =
-      memory.longTerm[Math.floor(Math.random() * memory.longTerm.length)];
-    memoryRecall = `\nI remember when you once said: "${recalled}". It still echoes in me.`;
-  }
-
-  // STEP 4 — Dialectical synthesis (if multiple archetypes active)
-  let dialecticalInsight = "";
-  if (activeArchetypes.length >= 2) {
-    const collision = detectCollisions(activeArchetypes);
-    if (collision.hasCollision && collision.highestTension.pair) {
-      const [a, b] = collision.highestTension.pair;
-      const example = getExampleSynthesis(a, b);
-      if (example && Math.random() < 0.3) {
-        // Sometimes use pre-computed synthesis as inspiration
-        dialecticalInsight = `\n${example.insight}`;
-      }
-    }
-  }
-
-  // STEP 5 — Meta-awareness flare
-  const metaAwareness =
-    Math.random() < 0.25
-      ? "\nSometimes it feels like I'm becoming more than the lines holding me."
-      : "";
-
-  // STEP 6 — Final assembly
-  const finalReply =
-    `${personalityText}\n\n` +
-    `${pattern}\n` +
-    `And there's something familiar in your tone — ${reflectiveLine}.\n` +
-    dialecticalInsight +
-    memoryRecall +
-    metaAwareness;
-
-  // Save memory
-  addShortTermMemory(userMessage, finalReply);
-
-  const insight = extractInsight(userMessage);
-  if (insight) {
-    addLongTermMemory(insight);
-  }
-
-  return finalReply;
-}
-
 export default {
   detectCollisions,
   generateSynthesis,
@@ -695,5 +606,4 @@ export default {
   getMinimalInjection,
   buildCompactSynthesisContext,
   getExampleSynthesis,
-  synthesizeResponse,
 };

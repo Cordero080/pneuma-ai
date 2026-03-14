@@ -214,7 +214,16 @@ function finalizeConversation() {
 
   // Save to persistent storage
   const history = loadHistory();
-  history.conversations.push(currentConversation);
+
+  // Upsert: update existing entry if same ID already saved, otherwise push
+  const existingIdx = history.conversations.findIndex(
+    (c) => c.id === currentConversation.id
+  );
+  if (existingIdx >= 0) {
+    history.conversations[existingIdx] = currentConversation;
+  } else {
+    history.conversations.push(currentConversation);
+  }
 
   // Keep last 100 conversations (prevent unbounded growth)
   if (history.conversations.length > 100) {

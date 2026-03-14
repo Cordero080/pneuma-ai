@@ -800,6 +800,84 @@ export function getActivePatterns(memory) {
     .map((p) => p.observation);
 }
 
+// ROLE: Synthesizes longTermMemory data into a compact user frame for system prompt injection
+// INPUT FROM: getLLMContent() in llm.js
+// OUTPUT TO: buildSystemPrompt() as a permanent always-present context block
+export function buildUserFrame(memory) {
+  if (!memory) return '';
+
+  const lines = [];
+
+  // Identity
+  const { userFacts, stats } = memory;
+  const name = userFacts?.name || 'the user';
+  const since = userFacts?.knownSince
+    ? new Date(userFacts.knownSince).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+    : null;
+  const sinceStr = since ? `, known since ${since}` : '';
+  const totalConvs = stats?.totalConversations || 0;
+  const totalMsgs = stats?.totalMessages || 0;
+  lines.push(`Name: ${name}${sinceStr} | ${totalConvs} conversations, ${totalMsgs} messages`);
+
+  // Recurring topics (top 5 by weight)
+  const topics = (memory.recurringTopics || [])
+    .sort((a, b) => (b.weight || b.count || 0) - (a.weight || a.count || 0))
+    .slice(0, 5);
+  if (topics.length > 0) {
+    const topicStr = topics
+      .map(t => `${t.topic} (${t.count}x${t.sentiment ? ', ' + t.sentiment : ''})`)
+      .join(' — ');
+    lines.push(`Recurring themes: ${topicStr}`);
+  }
+
+  // Behavioral patterns (confidence >= 0.5)
+  const patterns = (memory.patterns || []).filter(p => (p.confidence || 0) >= 0.5).slice(0, 3);
+  if (patterns.length > 0) {
+    lines.push('Observed patterns:');
+    patterns.forEach(p => lines.push(`  - ${p.observation} (confidence: ${p.confidence})`));
+  }
+
+  // Unresolved struggles
+  const struggles = (memory.struggles || []).filter(s => !s.resolved).slice(0, 3);
+  if (struggles.length > 0) {
+    lines.push('Unresolved struggles:');
+    struggles.forEach(s => lines.push(`  - "${s.description}" (${s.mentions || 1}x)`));
+  }
+
+  // High-weight emotional moments (last 2)
+  const moments = (memory.moments || [])
+    .filter(m => (m.emotionalWeight || m.emotional_weight || 0) >= 0.7)
+    .slice(-2);
+  if (moments.length > 0) {
+    lines.push('Significant moments:');
+    moments.forEach(m => {
+      const date = m.date
+        ? new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        : '';
+      lines.push(`  - "${m.summary}"${date ? ' [' + date + ']' : ''}`);
+    });
+  }
+
+  // Last session handoff
+  const lastSession = memory.sessionEmotionalState;
+  if (lastSession?.lastMood || lastSession?.lastTopic) {
+    const parts = [];
+    if (lastSession.lastMood) parts.push(`mood: ${lastSession.lastMood}`);
+    if (lastSession.lastTopic) parts.push(`topic: ${lastSession.lastTopic}`);
+    if (lastSession.unresolvedThread) parts.push(`unresolved: "${lastSession.unresolvedThread}"`);
+    lines.push(`Last session: ${parts.join(', ')}`);
+  }
+
+  if (lines.length === 0) return '';
+
+  return [
+    '\n\n═══════════════════════════════════════════════════════════════',
+    "WHO YOU'RE TALKING TO",
+    '═══════════════════════════════════════════════════════════════',
+    ...lines,
+  ].join('\n');
+}
+
 export default {
   loadMemory,
   saveMemory,
@@ -817,4 +895,5 @@ export default {
   getWeightedTopics,
   distillConversation,
   getActivePatterns,
+  buildUserFrame,
 };
