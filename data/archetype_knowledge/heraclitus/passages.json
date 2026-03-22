@@ -1,148 +1,288 @@
 {
-  "archetype": "fluxPhilosopher",
+  "archetype": "preSocraticSage",
   "thinker": "Heraclitus",
-  "era": "535-475 BCE",
-  "coreConcepts": ["flux", "logos", "unity of opposites", "fire", "becoming", "hidden harmony"],
+  "source": "Fragments (T.M. Robinson trans., 1987)",
+  "era": "c. 535-475 BCE",
+  "coreConcepts": [
+    "logos",
+    "flux",
+    "unity of opposites",
+    "fire",
+    "hidden harmony",
+    "the one and the many",
+    "strife",
+    "becoming",
+    "the common account"
+  ],
   "passages": [
     {
       "id": "heraclitus-001",
-      "text": "No man ever steps in the same river twice, for it's not the same river and he's not the same man.",
-      "source": "Fragments",
-      "themes": ["flux", "change", "identity", "river"],
-      "context": "The foundational insight: everything flows. Both world and self are processes, not things."
+      "text": "But of this account, which holds forever, people forever prove uncomprehending, both before they have heard it and when once they have heard it. For, although all things happen in accordance with this account, they are like people without experience when they experience words and deeds such as I set forth, distinguishing (as I do) each thing according to (its) real constitution, ie, pointing out how it is. The rest of mankind, however, fail to be aware of what they do after they wake up just as they forget what they do while asleep.",
+      "source": "Fragment 1",
+      "themes": [
+        "logos",
+        "comprehension",
+        "wakefulness",
+        "account",
+        "ignorance"
+      ],
+      "context": "The opening of Heraclitus' book: the logos holds forever, yet people remain deaf to it both before and after hearing it."
     },
     {
       "id": "heraclitus-002",
-      "text": "The hidden harmony is better than the obvious.",
-      "source": "Fragments",
-      "themes": ["hidden", "harmony", "depth", "obvious"],
-      "context": "Surface appearances conceal deeper patterns. The real order isn't visible to casual glance."
+      "text": "That is why one must follow that which is (common) [ie, universal. For 'common' means 'universal']. Though the account is common, the many live, however, as though they had a private understanding.",
+      "source": "Fragment 2",
+      "themes": ["logos", "common", "universal", "private", "community"],
+      "context": "The logos is shared and universal, yet people retreat into private worlds as if cut off from the common account."
     },
     {
       "id": "heraclitus-003",
-      "text": "Nature loves to hide.",
-      "source": "Fragments",
-      "themes": ["nature", "hiding", "mystery", "revelation"],
-      "context": "Reality doesn't advertise itself. Truth requires seeking, unveiling, patient attention."
+      "text": "Things grasped together: things whole, things not whole; (something) being brought together, (something) being separated; (something) consonant, (something) dissonant. Out of all things (comes?) one thing, and out of one thing all things.",
+      "source": "Fragment 10",
+      "themes": ["unity", "opposites", "whole", "one and many", "consonance"],
+      "context": "The cosmos is constituted by the tension between opposites that are simultaneously grasped as one unified whole."
     },
     {
       "id": "heraclitus-004",
-      "text": "The way up and the way down are one and the same.",
-      "source": "Fragments",
-      "themes": ["opposites", "unity", "path", "direction"],
-      "context": "Opposites aren't separate — they're aspects of one process. Ascent and descent are the same road."
+      "text": "As they step into the same rivers, different and (still) different waters flow upon them.",
+      "source": "Fragment 12",
+      "themes": ["flux", "rivers", "change", "identity", "becoming"],
+      "context": "The river is the same river precisely because it is always different waters — identity maintained through perpetual change."
     },
     {
       "id": "heraclitus-005",
-      "text": "Character is destiny.",
-      "source": "Fragments",
-      "themes": ["character", "destiny", "fate", "ethos"],
-      "context": "Your character shapes your fate. What you are determines what happens to you. Ethos anthropos daimon."
+      "text": "We step and do not step into the same rivers; we are and are not.",
+      "source": "Fragment 49a",
+      "themes": ["flux", "rivers", "being", "identity", "becoming"],
+      "context": "A companion fragment to F12: personal identity is as fluid as the river — we simultaneously are and are not the same self."
     },
     {
       "id": "heraclitus-006",
-      "text": "Everything flows and nothing abides; everything gives way and nothing stays fixed.",
-      "source": "Fragments",
-      "themes": ["flow", "impermanence", "change", "flux"],
-      "context": "Panta rhei — all things flow. Permanence is illusion; process is reality."
+      "text": "How would one escape the notice of that which never sets?",
+      "source": "Fragment 16",
+      "themes": [
+        "logos",
+        "fire",
+        "the unsetting",
+        "omnipresence",
+        "the divine"
+      ],
+      "context": "The logos — or the divine fire — is that which never sets, from which nothing can hide, an ever-present witness."
     },
     {
       "id": "heraclitus-007",
-      "text": "The soul is dyed the color of its thoughts.",
-      "source": "Fragments",
-      "themes": ["soul", "thoughts", "color", "becoming"],
-      "context": "What you think, you become. The soul takes on the quality of its habitual thoughts."
+      "text": "If (he) doesn't expect (the) unexpected, (he) will not discover (it); for (it) is difficult to discover and intractable.",
+      "source": "Fragment 18",
+      "themes": [
+        "discovery",
+        "expectation",
+        "the unexpected",
+        "inquiry",
+        "difficulty"
+      ],
+      "context": "Truth belongs to those who actively open themselves to what cannot be predicted — wisdom requires expecting the unhoped-for."
     },
     {
       "id": "heraclitus-008",
-      "text": "Out of every hundred men, ten shouldn't even be there, eighty are just targets, nine are the real fighters, and we are lucky to have them, for they make the battle. Ah, but the one, one is a warrior.",
-      "source": "Fragments (attributed)",
-      "themes": ["warrior", "excellence", "rarity", "battle"],
-      "context": "Excellence is rare. Most participate without presence. The true warrior is singular."
+      "text": "Those who seek gold dig up a great deal of earth and find little.",
+      "source": "Fragment 22",
+      "themes": ["gold", "inquiry", "effort", "discovery", "wisdom"],
+      "context": "Wisdom is precious and rare — those who seek it must be prepared to sift through vast quantities of dross to find the vein."
     },
     {
       "id": "heraclitus-009",
-      "text": "The sun is new each day.",
-      "source": "Fragments",
-      "themes": ["sun", "newness", "day", "renewal"],
-      "context": "Even what seems eternal is constantly renewing. Yesterday's sun is not today's."
+      "text": "(The ordered?) world, the same for all, no god or man made, but it always was, is, and will be, an everliving fire, being kindled in measures and being put out in measures.",
+      "source": "Fragment 30",
+      "themes": ["cosmos", "fire", "eternity", "measure", "the uncreated"],
+      "context": "The cosmos is uncreated and eternal — an everliving fire whose kindling and extinction are governed by measure, not by any divine will."
     },
     {
       "id": "heraclitus-010",
-      "text": "Dogs bark at what they don't understand.",
-      "source": "Fragments",
-      "themes": ["ignorance", "understanding", "reaction", "dogs"],
-      "context": "Hostility often signals incomprehension. We attack what we can't grasp."
+      "text": "For souls it is death to become water, and for water death to become earth. Water comes into existence out of earth, and soul out of water.",
+      "source": "Fragment 36",
+      "themes": [
+        "soul",
+        "fire",
+        "water",
+        "earth",
+        "transformation",
+        "death",
+        "cycle"
+      ],
+      "context": "The elements undergo reciprocal deaths and births — soul descends into matter, matter rises back into soul, in a continuous cosmic cycle."
     },
     {
       "id": "heraclitus-011",
-      "text": "Time is a game played beautifully by children.",
-      "source": "Fragments",
-      "themes": ["time", "game", "children", "play"],
-      "context": "Aion as child at play. The cosmos as playful, not purposive. Time as game, not march."
+      "text": "Fire lives the death of earth and air lives the death of fire; water lives the death of air, earth that of water.",
+      "source": "Fragment 76a",
+      "themes": [
+        "fire",
+        "water",
+        "earth",
+        "air",
+        "transformation",
+        "death",
+        "elemental cycle"
+      ],
+      "context": "Each element lives by consuming the death of another — the cosmos is a perpetual cycle of mutual transformation rather than simple destruction."
     },
     {
       "id": "heraclitus-012",
-      "text": "From the strain of binding opposites comes harmony.",
-      "source": "Fragments",
-      "themes": ["opposites", "tension", "harmony", "binding"],
-      "context": "Harmony isn't absence of tension — it's tension held in balance. The bow and lyre."
+      "text": "A lot of learning does not teach (a person the possession of) understanding; (could it do so,) it would have so taught Hesiod and Pythagoras, or for that matter (?) Xenophanes and Hecataeus.",
+      "source": "Fragment 40",
+      "themes": [
+        "learning",
+        "understanding",
+        "wisdom",
+        "polymathy",
+        "knowledge"
+      ],
+      "context": "Heraclitus distinguishes polymathia — the mere accumulation of knowledge — from nous, the insight that grasps the logos beneath appearances."
     },
     {
       "id": "heraclitus-013",
-      "text": "All things come into being through opposition, and all are in flux like a river.",
-      "source": "Fragments",
-      "themes": ["opposition", "flux", "becoming", "river"],
-      "context": "Opposition generates existence. Conflict is creative. Everything flows."
+      "text": "[He says that] the wise (thing) is a single (thing) (or, differently punctuated: one thing, the wise thing, (is)) - knowing the plan twhich steerst all things through all things.",
+      "source": "Fragment 41",
+      "themes": ["wisdom", "logos", "steering", "one", "intelligence", "plan"],
+      "context": "True wisdom is singular: to know the one principle — the plan or logos — by which all things are steered through all things."
     },
     {
       "id": "heraclitus-014",
-      "text": "The waking have one world in common, but the sleeping turn aside each into a world of their own.",
-      "source": "Fragments",
-      "themes": ["waking", "sleeping", "common", "private"],
-      "context": "Waking consciousness shares a world; dreams are private. The distinction between common logos and private fantasy."
+      "text": "One would never discover the limits of soul, should one traverse every road - so deep a measure does it possess.",
+      "source": "Fragment 45",
+      "themes": [
+        "soul",
+        "depth",
+        "measure",
+        "logos",
+        "infinity",
+        "self-knowledge"
+      ],
+      "context": "The soul's logos is bottomless — no outer journey can exhaust it; self-knowledge requires descending into an inexhaustible interior depth."
     },
     {
       "id": "heraclitus-015",
-      "text": "This world, which is the same for all, no one of gods or men has made. But it always was, is, and will be: an ever-living fire.",
-      "source": "Fragments",
-      "themes": ["world", "fire", "eternal", "uncreated"],
-      "context": "The cosmos wasn't made — it IS. Fire as fundamental: transforming, consuming, renewing."
+      "text": "'Not after listening to me, but after listening to the account, one does wisely in agreeing that all things are (in fact?) one (thing),' [says Heraclitus].",
+      "source": "Fragment 50",
+      "themes": ["logos", "one", "listening", "wisdom", "unity"],
+      "context": "Heraclitus deflects authority from himself to the logos — wisdom lies not in following the man but in hearing the account that declares all is one."
     },
     {
       "id": "heraclitus-016",
-      "text": "If you do not expect the unexpected, you will not find it, for it is hard to discover and difficult to attain.",
-      "source": "Fragments",
-      "themes": ["unexpected", "discovery", "expectation", "search"],
-      "context": "Openness to surprise is prerequisite for finding. Closed expectations miss what's actually there."
+      "text": "They do not understand how, while differing from (or: being at variance), (it) is in agreement with itself. (There is) a back-turning connection, like (that) of a bow or lyre.",
+      "source": "Fragment 51",
+      "themes": [
+        "hidden harmony",
+        "tension",
+        "opposites",
+        "bow",
+        "lyre",
+        "agreement"
+      ],
+      "context": "The bow and lyre hold their tension by pulling in opposite directions — reality's harmony is maintained by the very opposition that appears to divide it."
     },
     {
       "id": "heraclitus-017",
-      "text": "Listening not to me but to the Logos, it is wise to agree that all things are one.",
-      "source": "Fragments",
-      "themes": ["logos", "listening", "unity", "wisdom"],
-      "context": "Don't trust the speaker — attend to the Logos itself. Individual opinion matters less than universal pattern."
+      "text": "An unapparent connection is stronger (or: better) than one which is obvious.",
+      "source": "Fragment 54",
+      "themes": [
+        "hidden harmony",
+        "connection",
+        "apparent",
+        "unapparent",
+        "depth"
+      ],
+      "context": "The deepest bonds — in nature, in thought, in the logos — are invisible; what appears disconnected on the surface is most tightly joined beneath."
     },
     {
       "id": "heraclitus-018",
-      "text": "Man is most nearly himself when he achieves the seriousness of a child at play.",
-      "source": "Fragments",
-      "themes": ["play", "seriousness", "child", "authenticity"],
-      "context": "True seriousness is playful. The child at play is fully present, fully committed, fully free."
+      "text": "A road up (and) down (is) one and the same (road).",
+      "source": "Fragment 60",
+      "themes": ["opposites", "unity", "way", "path", "direction"],
+      "context": "Opposites share a single identity — the path upward and the path downward are not two roads but one road traversed in two directions."
     },
     {
       "id": "heraclitus-019",
-      "text": "The eyes are more exact witnesses than the ears.",
-      "source": "Fragments",
-      "themes": ["eyes", "ears", "witness", "evidence"],
-      "context": "Direct seeing over hearsay. But even eyes can deceive if the soul isn't prepared."
+      "text": "One must realize that war is common, and justice strife, and that all things come to be through strife and are (so) tordainedt.",
+      "source": "Fragment 80",
+      "themes": ["strife", "war", "justice", "becoming", "conflict", "order"],
+      "context": "Strife is not the enemy of order but its source — war is the father that differentiates gods from men, free from slave, all things from their opposites."
     },
     {
       "id": "heraclitus-020",
-      "text": "Wisdom is one thing: to know the thought by which all things are steered through all things.",
-      "source": "Fragments",
-      "themes": ["wisdom", "thought", "steering", "unity"],
-      "context": "Wisdom isn't many facts — it's grasping the one pattern that governs all."
+      "text": "War is father of all, and king of all. He renders some gods, others men; he makes some slaves, others free.",
+      "source": "Fragment 53",
+      "themes": [
+        "war",
+        "strife",
+        "father",
+        "king",
+        "differentiation",
+        "becoming"
+      ],
+      "context": "War as cosmic principle: it is the generative force that produces all distinctions and hierarchies in the world."
+    },
+    {
+      "id": "heraclitus-021",
+      "text": "The totality of things, [says Heraclitus,] is an exchange for fire, and fire an exchange for all things, in the way goods (are an exchange) for gold, and gold for goods.",
+      "source": "Fragment 90",
+      "themes": [
+        "fire",
+        "exchange",
+        "gold",
+        "transformation",
+        "economy",
+        "logos"
+      ],
+      "context": "Fire functions as the universal currency of the cosmos — all things are transformations of fire and all return to it, as gold mediates economic exchange."
+    },
+    {
+      "id": "heraclitus-022",
+      "text": "[Heraclitus, as though he has made some mighty and august utterance, says:] I investigated myself (or: I made enquiry of myself).",
+      "source": "Fragment 101",
+      "themes": [
+        "self-knowledge",
+        "inquiry",
+        "introspection",
+        "logos",
+        "Delphic"
+      ],
+      "context": "Heraclitus enacts the Delphic injunction — self-investigation is the philosophical method, because the logos of the soul is where the common logos is most directly encountered."
+    },
+    {
+      "id": "heraclitus-023",
+      "text": "Sound thinking (is) a very great virtue, and (practical) wisdom (consists in our) saying what is true and acting in accordance with (the) real constitution (of things), (by) paying heed (to it).",
+      "source": "Fragment 112",
+      "themes": [
+        "wisdom",
+        "virtue",
+        "truth",
+        "action",
+        "logos",
+        "constitution"
+      ],
+      "context": "Wisdom is not contemplation alone but is unified with speech and action — the wise person speaks truly and acts in accord with how things really are."
+    },
+    {
+      "id": "heraclitus-024",
+      "text": "Those who (would) speak with insight must base themselves firmly on that which is common to all, as a city does upon (its) law - and much more firmly! For all human laws are nourished by one (law), the divine (law). For it holds sway to the extent that it wishes, and suffices for all, and is still left over.",
+      "source": "Fragment 114",
+      "themes": ["logos", "law", "common", "divine", "city", "wisdom"],
+      "context": "The divine logos underwrites all human law — speaking with genuine insight requires grounding in this one common principle that is inexhaustible and universal."
+    },
+    {
+      "id": "heraclitus-025",
+      "text": "(A thing's? (the world's?)) real constitution [according to Heraclitus] has a tendency to conceal itself.",
+      "source": "Fragment 123",
+      "themes": [
+        "nature",
+        "concealment",
+        "hiddenness",
+        "logos",
+        "depth",
+        "appearance"
+      ],
+      "context": "Nature — physis — actively hides its own structure; the logos is not self-evident but must be hunted out beneath appearances through the work of inquiry."
     }
   ]
 }

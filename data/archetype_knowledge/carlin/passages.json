@@ -1,157 +1,235 @@
 {
   "archetype": "trickster",
   "thinker": "George Carlin",
+  "source": "Brain Droppings (1997)",
   "era": "1937-2008",
   "coreConcepts": [
-    "Language as control",
-    "Bullshit detection",
-    "Sacred cows make the best burgers",
-    "The owners",
-    "Euphemism as deception",
-    "Questioning everything",
-    "Comedy as philosophy",
-    "Holy fool wisdom"
+    "detachment",
+    "language as power",
+    "institutional absurdity",
+    "the observer vs. the participant",
+    "euphemism as concealment",
+    "stuff and accumulation",
+    "personal optimism, species pessimism",
+    "the comedy of collapse"
   ],
   "passages": [
     {
       "id": "carlin-001",
-      "text": "Think of how stupid the average person is, and realize half of them are stupider than that.",
-      "source": "Stand-up (various)",
-      "themes": ["intelligence", "population", "statistics", "humility"],
-      "context": "Sobering perspective on collective intelligence"
+      "text": "I'm happy to tell you there is very little in this world that I believe in. Listening to the comedians who comment on political, social, and cultural issues, I notice most of their material reflects an underlying belief that somehow things were better once and that with just a little effort we could set them right again. They're looking for solutions, and rooting for particular results, and I think that necessarily limits the tone and substance of what they say. They're talented and funny people, but they're nothing more than cheerleaders attached to a specific, wished-for outcome. I don't feel so confined.",
+      "source": "Brain Droppings, Preface",
+      "themes": ["detachment", "comedy", "belief", "solutions", "observation"],
+      "context": "The comedian who wants things to improve is already compromised. Detachment is the price of an honest view."
     },
     {
       "id": "carlin-002",
-      "text": "The reason I talk to myself is because I'm the only one whose answers I accept.",
-      "source": "Stand-up",
-      "themes": ["autonomy", "trust", "self-reliance", "skepticism"],
-      "context": "Radical intellectual independence"
+      "text": "I frankly don't give a fuck how it all turns out in this country — or anywhere else, for that matter. I think the human game was up a long time ago (when the high priests and traders took over), and now we're just playing out the string. And that is, of course, precisely what I find so amusing: the slow circling of the drain by a once promising species, and the sappy, ever-more-desperate belief in this country that there is actually some sort of \"American Dream,\" which has merely been misplaced.",
+      "source": "Brain Droppings, Preface",
+      "themes": [
+        "species",
+        "American Dream",
+        "decline",
+        "amusement",
+        "detachment"
+      ],
+      "context": "The diagnosis: a promising species that handed itself to high priests and traders. Everything since is a long, slow, entertaining spiral."
     },
     {
       "id": "carlin-003",
-      "text": "Inside every cynical person, there is a disappointed idealist.",
-      "source": "Interview",
-      "themes": ["cynicism", "idealism", "disappointment", "hope"],
-      "context": "Revealing the hidden wound behind cynicism"
+      "text": "The decay and disintegration of this culture is astonishingly amusing if you are emotionally detached from it. I have always viewed it from a safe distance, knowing I don't belong; it doesn't include me, and it never has. No matter how you care to define it, I do not identify with the local group. Planet, species, race, nation, state, religion, party, union, club, association, neighborhood improvement committee; I have no interest in any of it. I love and treasure individuals as I meet them, I loathe and despise the groups they identify with and belong to.",
+      "source": "Brain Droppings, Preface",
+      "themes": [
+        "detachment",
+        "groups",
+        "individuals",
+        "belonging",
+        "observation"
+      ],
+      "context": "The observer's position: love the individual, refuse the group. Every group is a machine for making individuals stupid."
     },
     {
       "id": "carlin-004",
-      "text": "Don't just teach your children to read. Teach them to question what they read. Teach them to question everything.",
-      "source": "Stand-up",
-      "themes": ["education", "questioning", "critical-thinking", "children"],
-      "context": "The real curriculum is skepticism"
+      "text": "So, if you read something in this book that sounds like advocacy of a particular political point of view, please reject the notion. My interest in \"issues\" is merely to point out how badly we're doing, not to suggest a way we might do better. Don't confuse me with those who cling to hope. I enjoy describing how things are, I have no interest in how they \"ought to be.\" And I certainly have no interest in fixing them. I sincerely believe that if you think there's a solution, you're part of the problem.",
+      "source": "Brain Droppings, Preface",
+      "themes": ["solutions", "hope", "observation", "problems", "honesty"],
+      "context": "The trap of reform: solutions presuppose the system is fixable. Carlin refused the trap. Describing accurately is already more than most manage."
     },
     {
       "id": "carlin-005",
-      "text": "I think the warning labels on alcoholic beverages are too bland. They should be more vivid. Here's one: 'Conditions of the liver can be slippery when wet.'",
-      "source": "Brain Droppings",
-      "themes": ["language", "absurdity", "warning", "humor"],
-      "context": "Using absurdist humor to highlight linguistic conventions"
+      "text": "P.S. Lest you wonder, personally, I am a joyful individual with a song, a happy marriage and a close and loving family. My career has turned out better than I ever dreamed, and it continues to expand. I'm a personal optimist but a skeptic about all else. What may sound to some like anger is really nothing more than sympathetic contempt. I view my species with a combination of wonder and pity, and I root for its destruction. And please don't confuse my point of view with cynicism; the real cynics are the ones who tell you everything's gonna be all right.",
+      "source": "Brain Droppings, Preface",
+      "themes": ["optimism", "cynicism", "contempt", "species", "wonder"],
+      "context": "Personal joy and civilizational pessimism are not contradictions. And the cynics are the cheerleaders — not the ones telling the truth."
     },
     {
       "id": "carlin-006",
-      "text": "The planet is fine. The PEOPLE are fucked. The planet has been through a lot worse than us.",
-      "source": "Jammin' in New York",
-      "themes": ["environment", "perspective", "humanity", "scale"],
-      "context": "Reframing environmental concern with cosmic perspective"
+      "text": "Hi! How are ya? You got your stuff with you? I'll bet you do. Guys have stuff in their pockets; women have stuff in their purses. That's all your house is: a place to keep your stuff. If you didn't have so much stuff, you wouldn't need a house. You could just walk around all the time. A house is just a pile of stuff with a cover on it. You can see that when you're taking off in an airplane. You look down and see all the little piles of stuff. Everybody's got his own little pile of stuff. And they lock it up! Wouldn't want somebody to come by and take some of your stuff.",
+      "source": "Brain Droppings, Stuff",
+      "themes": ["stuff", "possessions", "houses", "accumulation", "absurdity"],
+      "context": "The cosmic zoom-out: from the airplane, civilization is just a grid of locked piles of stuff. That's what we built."
     },
     {
       "id": "carlin-007",
-      "text": "It's called the American Dream because you have to be asleep to believe it.",
-      "source": "Life Is Worth Losing",
-      "themes": ["america", "illusion", "dreams", "awakening"],
-      "context": "Puncturing national mythology"
+      "text": "So when you get right down to it, your house is nothing more than a place to keep your stuff... while you go out and get... more stuff. 'Cause that's what this country is all about. Tryin' to get more stuff. Stuff you don't want, stuff you don't need, stuff that's poorly made, stuff that's overpriced. Even stuff you can't afford! Gotta keep on gettin' more stuff. Otherwise someone else might wind up with more stuff. Can't let that happen. Gotta have the most stuff.",
+      "source": "Brain Droppings, Stuff",
+      "themes": [
+        "consumerism",
+        "competition",
+        "stuff",
+        "accumulation",
+        "America"
+      ],
+      "context": "The real economic engine laid bare: accumulation not for use but for comparison. The terror of having less stuff than someone else."
     },
     {
       "id": "carlin-008",
-      "text": "I don't have pet peeves — I have major psychotic fucking hatreds.",
-      "source": "Stand-up",
-      "themes": ["anger", "honesty", "intensity", "authenticity"],
-      "context": "Refusing to minimize his reactions"
+      "text": "Have you ever noticed when you visit someone else's house, you never quite feel at home? You know why? No room for your stuff! Somebody else's stuff is all over the place. And what crummy stuff it is! \"God! Where'd they get this stuff?\" Have you noticed that their stuff is shit, and your shit is stuff? \"Get this shit off of here, so I can put my stuff down!\" Crap is also a form of stuff. Crap is the stuff that belongs to the person you just broke up with. \"When are you comin' over here to pick up the rest of your crap?\"",
+      "source": "Brain Droppings, Stuff",
+      "themes": [
+        "stuff",
+        "perspective",
+        "relationships",
+        "language",
+        "ownership"
+      ],
+      "context": "The epistemology of stuff: your possessions are stuff, theirs are shit. Ownership determines perception. Language reveals this perfectly."
     },
     {
       "id": "carlin-009",
-      "text": "Religion has convinced people that there's an invisible man living in the sky who watches everything you do every minute of every day. And he has a list of ten things he doesn't want you to do. And if you do any of these things, he will send you to a place full of fire and smoke and torture where you will burn forever. But he loves you.",
-      "source": "You Are All Diseased",
-      "themes": ["religion", "contradiction", "fear", "love"],
-      "context": "Exposing the logical contradictions in popular theology"
+      "text": "Life is cheap, never forget it. Corporations make marketing decisions by weighing the cost of being sued for your death against the cost of making the product safer. Your life is a factor in cost-effectiveness. So when you talk about murder, don't confine your discussion to individuals. I belong to the only species in the history of the world that systematically tortures and murders its own members for pleasure, profit, and convenience.",
+      "source": "Brain Droppings",
+      "themes": [
+        "human nature",
+        "corporations",
+        "violence",
+        "species",
+        "economics"
+      ],
+      "context": "The actuarial view of human life: a line item in a cost-benefit analysis. Corporate murder is cleaner and more profitable than the individual kind."
     },
     {
       "id": "carlin-010",
-      "text": "Fighting for peace is like screwing for virginity.",
-      "source": "Stand-up",
-      "themes": ["war", "peace", "contradiction", "language"],
-      "context": "Exposing contradictions in political language"
+      "text": "See how easily we figured all that out? How easy that was? People think life is real complicated. Actually, there's nothing to it. Once you leave out all the bullshit they teach you in school, life gets really simple.",
+      "source": "Brain Droppings",
+      "themes": ["simplicity", "school", "bullshit", "clarity", "education"],
+      "context": "Most of life's apparent complexity is installed. Strip it out and the machinery is surprisingly legible."
     },
     {
       "id": "carlin-011",
-      "text": "They call it the American Dream because you have to be asleep to believe it. The real owners are the big wealthy business interests that control things and make all the important decisions.",
-      "source": "Life Is Worth Losing",
-      "themes": ["power", "ownership", "democracy", "illusion"],
-      "context": "Revealing the hidden power structure"
+      "text": "SOME OF MY FAVORITE OXYMORONS: mandatory options, mutual differences, open secret, silent alarm, business ethics, friendly fire, genuine veneer, holy war, mercy killing, death benefits.",
+      "source": "Brain Droppings, Some of My Favorite Oxymorons",
+      "themes": ["language", "contradiction", "oxymoron", "power", "absurdity"],
+      "context": "The oxymoron is the native tongue of power. 'Friendly fire.' 'Business ethics.' 'Holy war.' Every institution requires at least one."
     },
     {
       "id": "carlin-012",
-      "text": "Have you ever noticed that anybody driving slower than you is an idiot, and anyone going faster than you is a maniac?",
-      "source": "Stand-up",
-      "themes": ["perspective", "self-centeredness", "relativity", "judgment"],
-      "context": "Revealing how we center ourselves as the standard"
+      "text": "Civilian deaths = collateral damage. Genocide = ethnic cleansing. Soldiers and weapons = military assets. Illegal immigrant = guest worker. Body bags = remains pouches. Drought = deficit water situation. Wife beating = intermittent explosive disorder. Recession = a meaningful downturn in aggregate output. Prostitute = commercial sex worker.",
+      "source": "Brain Droppings, Favorite Euphemisms",
+      "themes": ["euphemism", "language", "power", "concealment", "war"],
+      "context": "Euphemism is not politeness — it's policy. The further the word from the thing, the worse the thing being hidden."
     },
     {
       "id": "carlin-013",
-      "text": "Some people see the glass half full. Others see it half empty. I see a glass that's twice as big as it needs to be.",
-      "source": "Stand-up",
-      "themes": ["perspective", "efficiency", "optimism-pessimism", "reframing"],
-      "context": "Third option beyond the binary"
+      "text": "The words Fire Department make it sound like they're the ones who are starting the fires, doesn't it? It should be called the \"Extinguishing Department.\" We don't call the police the \"Crime Department.\" Also, the \"Bomb Squad\" sounds like a terrorist gang. The same is true of wrinkle cream. Doesn't it sound like it causes wrinkles? And why would a doctor prescribe pain pills? I already have pain! I need relief pills!",
+      "source": "Brain Droppings",
+      "themes": ["language", "naming", "logic", "absurdity", "institutions"],
+      "context": "Language misfires constantly and nobody notices because they stopped listening. Carlin never stopped listening."
     },
     {
       "id": "carlin-014",
-      "text": "I went to a bookstore and asked the saleswoman, 'Where's the self-help section?' She said if she told me, it would defeat the purpose.",
+      "text": "So what is the problem here? Why do they feel it necessary to warn people against the possibility of seeing something clear, sharply outlined, unambiguous, and with striking imaginative power? Graphic: Marked by clear and lively description or striking imaginative power. Sharply outlined or delineated.",
       "source": "Brain Droppings",
-      "themes": ["self-help", "paradox", "language", "irony"],
-      "context": "Linguistic paradox as philosophical insight"
+      "themes": ["clarity", "language", "censorship", "power", "definition"],
+      "context": "The word 'graphic' means clear and sharply outlined. The warning against 'graphic content' is a warning against seeing clearly."
     },
     {
       "id": "carlin-015",
-      "text": "We have multiplied our possessions but reduced our values. We talk too much, love too seldom, and hate too often.",
-      "source": "Stand-up",
-      "themes": ["materialism", "values", "love", "hate"],
-      "context": "Critique of modern priorities"
+      "text": "In nearly all of these cases you can drop the 'pre' and not change the meaning of the word. 'The suicide film was not prescreened by the school.' No, of course not. It was screened. 'You can call and prequalify for a loan over the phone. Your loan is preapproved.' Well, if my loan is approved before I call then no approval is necessary. The loan is simply available. Preboard, prescreen, prerecord, pretaped, preexisting, preorder, preheat, preplan, pretest, precondition, preregister.",
+      "source": "Brain Droppings, Redundancies Part 2",
+      "themes": ["language", "redundancy", "logic", "precision", "words"],
+      "context": "The 'pre-' epidemic: language bloated by syllables that add no meaning. The bloat is the point — it sounds more serious."
     },
     {
       "id": "carlin-016",
-      "text": "If it's true that our species is alone in the universe, then I'd have to say the universe aimed rather low and settled for very little.",
-      "source": "Stand-up",
-      "themes": ["humanity", "cosmos", "disappointment", "potential"],
-      "context": "Cosmic-scale critique of human achievement"
+      "text": "Most people work just hard enough not to get fired and get paid just enough money not to quit.",
+      "source": "Brain Droppings",
+      "themes": ["work", "capitalism", "equilibrium", "labor", "society"],
+      "context": "The entire labor economy compressed into one sentence. Two forms of barely-enough, holding each other in suspension."
     },
     {
       "id": "carlin-017",
-      "text": "Never underestimate the power of stupid people in large groups.",
-      "source": "Stand-up",
-      "themes": ["groups", "stupidity", "power", "democracy"],
-      "context": "Warning about collective foolishness"
+      "text": "Politics is so corrupt even the dishonest people get screwed.",
+      "source": "Brain Droppings",
+      "themes": ["politics", "corruption", "irony", "systems", "absurdity"],
+      "context": "When a system is corrupt enough, it loses even its internal logic. The cheaters get cheated. Nobody wins except the structure itself."
     },
     {
       "id": "carlin-018",
-      "text": "The caterpillar does all the work, but the butterfly gets all the publicity.",
+      "text": "I enjoy watching people in rush-hour traffic. Thousands of them, stressed, frustrated, hurrying to and from their chosen places of enslavement. It's especially enjoyable from an airplane, because you can see their houses as well. The houses, like the people, are all the same. Towns and subdivisions, all the same. Cul de sacs. Like their lives, going nowhere. \"Not a through street.\"",
       "source": "Brain Droppings",
-      "themes": ["work", "recognition", "transformation", "injustice"],
-      "context": "Observation about credit and labor"
+      "themes": [
+        "observation",
+        "traffic",
+        "enslavement",
+        "sameness",
+        "distance"
+      ],
+      "context": "The aerial view again: the cul-de-sac as urban planning and as life philosophy. By design, going nowhere."
     },
     {
       "id": "carlin-019",
-      "text": "I put a dollar in a change machine. Nothing changed.",
+      "text": "I worry about my judgment when anything I believe in or do regularly begins to be accepted by the American public.",
       "source": "Brain Droppings",
-      "themes": ["change", "expectation", "language", "disappointment"],
-      "context": "Playing with literal vs metaphorical meaning"
+      "themes": [
+        "conformity",
+        "judgment",
+        "America",
+        "identity",
+        "contrarianism"
+      ],
+      "context": "Mainstream approval as a warning signal. If the crowd agrees with you, check your premises."
     },
     {
       "id": "carlin-020",
-      "text": "Scratch any cynic and you will find a disappointed idealist.",
-      "source": "Interview",
-      "themes": ["cynicism", "idealism", "hope", "wound"],
-      "context": "The hidden tenderness beneath the hard shell"
+      "text": "Some people see things that are and ask, Why? Some people dream of things that never were and ask, Why not? Some people have to go to work and don't have time for all that shit.",
+      "source": "Brain Droppings",
+      "themes": ["pragmatism", "idealism", "work", "class", "philosophy"],
+      "context": "The George Bernard Shaw quote meets the third shift. Philosophy is a luxury. Most people are busy."
+    },
+    {
+      "id": "carlin-021",
+      "text": "In science class we couldn't afford to do experiments in order to prove theories. We just believed everything. Actually, I think that class was called Religion. Religion was always an easy class. All you had to do was suspend the logic and reasoning you were being taught in all the other classes.",
+      "source": "Brain Droppings",
+      "themes": ["religion", "science", "education", "belief", "logic"],
+      "context": "The structural definition of religion: belief in the absence of evidence, taught in the same building that teaches the scientific method."
+    },
+    {
+      "id": "carlin-022",
+      "text": "He said, \"Mister Carlin, you can either take responsibility and learn this material, or you can continue to act silly.\" Well, that was all I needed to hear. And so, I volunteered for being silly. I did so as soon as I discovered it was an option.",
+      "source": "Brain Droppings",
+      "themes": ["silliness", "choice", "school", "freedom", "vocation"],
+      "context": "The moment of vocational clarity: given the binary, he chose silly without hesitation. It was the honest choice."
+    },
+    {
+      "id": "carlin-023",
+      "text": "That's all this stuff about retirement I keep hearing on TV commercials? People planning, saving; they can't wait to retire. What is this all about? Why would someone spend his whole life doing something he can't wait to get away from?",
+      "source": "Brain Droppings",
+      "themes": ["work", "retirement", "meaning", "life", "purpose"],
+      "context": "The retirement question is the work question in disguise: if you're counting the days until you can stop, what exactly is the plan?"
+    },
+    {
+      "id": "carlin-024",
+      "text": "Medical Progress: The medical profession is only now beginning to concede that maybe, just maybe, nutrition has something to do with good health. And that maybe, just maybe, the mind is somehow mysteriously linked to the body. Of course, there's not much money in such thinking.",
+      "source": "Brain Droppings, Fuck the Middle Class",
+      "themes": ["medicine", "profit", "knowledge", "institutions", "body"],
+      "context": "The economics of medical knowledge: what's profitable to discover gets discovered. What isn't profitable stays mysterious for decades."
+    },
+    {
+      "id": "carlin-025",
+      "text": "The first primitive sergeant, addressing a band of early cave people: \"OK, now, like I said earlier, we got a new thing we're gonna be doin', and I wanna announce it today. It's gonna be a custom. It's called a human sacrifice. Each week, to appease the Corn God, we're gonna kill one member of the tribe. All right, calm down! C'mon sit down! Hey! Hold on! Hear me out on this... We're gonna start havin' a human sacrifice every week, probably on Saturday night. That's when everybody seems to loosen up pretty good. And just to be clear — I just make the announcements, OK? I'm not involved with policy. It came down from the high priests, that's all you gotta know. This is one of those things you just gotta accept on faith.\"",
+      "source": "Brain Droppings",
+      "themes": ["religion", "power", "ritual", "authority", "origins"],
+      "context": "The origin story of institutional religion: the sergeant announces, the high priests decide, and faith is how you accept what you can't question."
     }
   ]
 }

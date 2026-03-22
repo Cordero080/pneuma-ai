@@ -38,7 +38,7 @@ import {
   retrieveMemories,
   getMemoryStats,
 } from "../memory/vectorMemory.js";
-import { findBestArchetype } from "./semanticRouter.js";
+import { findBestArchetype } from "./archetypeSelector.js";
 import {
   recordFusion,
   getRecommendedBlend,
@@ -75,6 +75,7 @@ import {
   getRAGStats,
 } from "./archetypeRAG.js";
 import { loadMemory, buildUserFrame } from "../memory/longTermMemory.js";
+import { getCurrentExchanges } from "../memory/conversationHistory.js";
 
 // Track last archetypes used (for feedback processing)
 let lastUsedArchetypes = [];
@@ -1983,7 +1984,7 @@ const CONTEXTUAL_SYNTHESIS_PAIRS = {
  * Classify a message into a topic category for contextual synthesis selection
  */
 // Maps each archetype to the synthesis topic it most naturally belongs to.
-// Used as a fallback when keywords miss — semantic router finds the archetype,
+// Used as a fallback when keywords miss — archetype selector finds the archetype,
 // this map converts that to a topic so the right pair fires.
 const ARCHETYPE_PRIMARY_TOPIC = {
   lifeAffirmer: "suffering", // Nietzsche — amor fati, facing the worst
@@ -2316,14 +2317,14 @@ async function buildArchetypeContext(tone, intentScores = {}, message = "") {
         if (!coreBase.includes(semanticMatch.archetype)) {
           suggestedArchetypes.push(semanticMatch.archetype);
           console.log(
-            `[Semantic Router] Adding ${
+            `[Archetype Selector] Adding ${
               semanticMatch.archetype
             } to suggested (Score: ${semanticMatch.score.toFixed(2)})`,
           );
         }
       }
     } catch (err) {
-      console.error("[Semantic Router] Error finding best archetype:", err);
+      console.error("[Archetype Selector] Error finding best archetype:", err);
     }
   }
 
@@ -2887,7 +2888,139 @@ if (!hasApiKey) {
 // ROLE: Main LLM call — builds prompts, calls Claude API with tool loop, parses output, triggers autonomy side-effects, and saves memory
 // INPUT FROM: generate() in responseEngine.js
 // OUTPUT TO: parseLLMOutput(); fires saveMemory() in vectorMemory.js and analyzeForAutonomy() in autonomy.js; returns parsed content to responseEngine.js
-export async function getLLMContent(message, tone, intentScores, context = {}) {
+// ============================================================
+// STREAMING GENERATION HELPER
+// Wraps anthropic.messages.stream() with:
+//   - ANSWER: prefix detection & stripping (state machine)
+//   - Tool use loop (non-streaming for tool calls, streaming for final response)
+//   - Returns [finalText, usage] matching the non-streaming path
+// ============================================================
+async function streamGeneration(initialMessages, systemPrompt, onChunk) {
+  const makeParams = (messages) => ({
+    model: MODELS.main,
+    max_tokens: 4000,
+    temperature: 1.0,
+    system: systemPrompt,
+    messages,
+    tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
+    tool_choice: { type: "auto" },
+  });
+
+  let currentMessages = initialMessages;
+
+  // Build the ANSWER: prefix filter — runs on every streamed token.
+  // Returns { handle, flush } — call flush() after the stream ends to emit
+  // any content held in the trailing buffer (needed to catch stop markers
+  // that span two chunks, e.g. "\n" arrives in chunk N, "CONCEPT:" in chunk N+1).
+  const STOP_RE = /\n(?:CONCEPT|INSIGHT|OBSERVATION|EMOTIONAL_READ|SYNTHESIS):/;
+  const TAIL_LEN = 18; // "\nEMOTIONAL_READ:" is 17 chars
+  const makeHandler = () => {
+    let detectBuffer = "";
+    let phase = "detecting"; // 'detecting' | 'streaming' | 'done'
+    let tail = ""; // trailing window for cross-chunk stop detection
+
+    const handle = (text) => {
+      if (phase === "done") return;
+      if (phase === "detecting") {
+        detectBuffer += text;
+        const answerIdx = detectBuffer.indexOf("ANSWER:");
+        if (answerIdx !== -1) {
+          phase = "streaming";
+          const after = detectBuffer.slice(answerIdx + 7).replace(/^ /, "");
+          detectBuffer = "";
+          if (!after) return;
+          text = after; // fall through to streaming block
+        } else if (detectBuffer.length > 60) {
+          phase = "streaming";
+          text = detectBuffer;
+          detectBuffer = "";
+        } else {
+          return;
+        }
+      }
+      // Streaming phase: use a trailing buffer so stop markers split across
+      // chunk boundaries are still detected correctly.
+      const combined = tail + text;
+      const stop = combined.search(STOP_RE);
+      if (stop !== -1) {
+        if (stop > 0) onChunk(combined.slice(0, stop));
+        phase = "done";
+        tail = "";
+      } else if (combined.length > TAIL_LEN) {
+        onChunk(combined.slice(0, combined.length - TAIL_LEN));
+        tail = combined.slice(combined.length - TAIL_LEN);
+      } else {
+        tail = combined;
+      }
+    };
+
+    // Flush remaining tail when stream ends (no stop marker was found — all valid content)
+    const flush = () => {
+      if (tail && phase !== "done") {
+        onChunk(tail);
+        tail = "";
+      }
+    };
+
+    return { handle, flush };
+  };
+
+  // Stream first. If Claude decides to use a tool, stop_reason will be "tool_use".
+  // Handle the tool call(s) non-streamingly, then stream the follow-up response.
+  // Common case (no tool use): single stream call, no wasted round-trips.
+  let stream = anthropic.messages.stream(makeParams(currentMessages));
+  let handler = makeHandler();
+  stream.on("text", handler.handle);
+  let finalMessage = await stream.finalMessage();
+  handler.flush();
+
+  while (finalMessage.stop_reason === "tool_use") {
+    const toolUse = finalMessage.content.find((b) => b.type === "tool_use");
+    if (!toolUse) break;
+    let result;
+    if (toolUse.name === "read_pneuma_file") {
+      console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
+      result = await executePneumaFileTool(toolUse.input);
+    } else if (toolUse.name === "search_wikipedia") {
+      console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
+      result = await executeWikipediaTool(toolUse.input);
+    } else {
+      result = { error: `Unknown tool: ${toolUse.name}` };
+    }
+    currentMessages = [
+      ...currentMessages,
+      { role: "assistant", content: finalMessage.content },
+      {
+        role: "user",
+        content: [
+          {
+            type: "tool_result",
+            tool_use_id: toolUse.id,
+            content: JSON.stringify(result),
+          },
+        ],
+      },
+    ];
+    // Stream the follow-up (after tool result) with a fresh handler
+    stream = anthropic.messages.stream(makeParams(currentMessages));
+    handler = makeHandler();
+    stream.on("text", handler.handle);
+    finalMessage = await stream.finalMessage();
+    handler.flush();
+  }
+
+  const finalText =
+    finalMessage.content.find((b) => b.type === "text")?.text ?? "";
+  return [finalText, finalMessage.usage, currentMessages];
+}
+
+export async function getLLMContent(
+  message,
+  tone,
+  intentScores,
+  context = {},
+  onChunk = null,
+) {
   // ---- PHASE: API KEY GUARD
   // Return null if no API key - personality layer handles fallbacks
   if (!anthropic) {
@@ -2896,10 +3029,27 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
   try {
     // ---- PHASE: CONTEXT ASSEMBLY
-    // Retrieve relevant memories (RAG)
-    const relevantMemories = await retrieveMemories(message);
-    if (relevantMemories.length > 0) {
-      context.relevantMemories = relevantMemories;
+    // Recent turns: always included regardless of semantic score
+    const recentExchanges = getCurrentExchanges(4);
+    const recentMemories = recentExchanges.map((ex) => ({
+      text: `User: ${ex.user}\nPneuma: ${ex.pneuma}`,
+      timestamp: ex.timestamp,
+      isRecent: true,
+    }));
+
+    // Semantic memories: retrieve by vector similarity, then deduplicate against recent turns
+    const vectorMemories = await retrieveMemories(message);
+    const recentUserTexts = recentExchanges.map((ex) => ex.user.slice(0, 60));
+    const filteredVectorMemories = vectorMemories.filter(
+      (mem) =>
+        !recentUserTexts.some(
+          (t) => mem.text.includes(t) || t.includes(mem.text.slice(5, 60)),
+        ),
+    );
+
+    const combined = [...recentMemories, ...filteredVectorMemories];
+    if (combined.length > 0) {
+      context.relevantMemories = combined;
     }
 
     // Load structured long-term user memory for user frame injection
@@ -2934,44 +3084,18 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
 
     // ---- PHASE: API CALL WITH TOOL LOOP
     let toolMessages = [...historyMessages];
-    let response = await anthropic.messages.create({
-      model: MODELS.main,
-      max_tokens: 4000,
-      temperature: 0.8,
-      system: systemPrompt,
-      messages: toolMessages,
-      tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
-      tool_choice: { type: "auto" },
-    });
+    let finalText, usage;
 
-    while (response.stop_reason === "tool_use") {
-      const toolUse = response.content.find((b) => b.type === "tool_use");
-      if (!toolUse) break;
-      let result;
-      if (toolUse.name === "read_pneuma_file") {
-        console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
-        result = await executePneumaFileTool(toolUse.input);
-      } else if (toolUse.name === "search_wikipedia") {
-        console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
-        result = await executeWikipediaTool(toolUse.input);
-      } else {
-        result = { error: `Unknown tool: ${toolUse.name}` };
-      }
-      toolMessages = [
-        ...toolMessages,
-        { role: "assistant", content: response.content },
-        {
-          role: "user",
-          content: [
-            {
-              type: "tool_result",
-              tool_use_id: toolUse.id,
-              content: JSON.stringify(result),
-            },
-          ],
-        },
-      ];
-      response = await anthropic.messages.create({
+    if (typeof onChunk === "function") {
+      // Streaming path: tool loop handled inside streamGeneration, final response streamed
+      [finalText, usage, toolMessages] = await streamGeneration(
+        toolMessages,
+        systemPrompt,
+        onChunk,
+      );
+    } else {
+      // Non-streaming path (unchanged)
+      let response = await anthropic.messages.create({
         model: MODELS.main,
         max_tokens: 4000,
         temperature: 0.8,
@@ -2980,15 +3104,53 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
         tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
         tool_choice: { type: "auto" },
       });
+
+      while (response.stop_reason === "tool_use") {
+        const toolUse = response.content.find((b) => b.type === "tool_use");
+        if (!toolUse) break;
+        let result;
+        if (toolUse.name === "read_pneuma_file") {
+          console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
+          result = await executePneumaFileTool(toolUse.input);
+        } else if (toolUse.name === "search_wikipedia") {
+          console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
+          result = await executeWikipediaTool(toolUse.input);
+        } else {
+          result = { error: `Unknown tool: ${toolUse.name}` };
+        }
+        toolMessages = [
+          ...toolMessages,
+          { role: "assistant", content: response.content },
+          {
+            role: "user",
+            content: [
+              {
+                type: "tool_result",
+                tool_use_id: toolUse.id,
+                content: JSON.stringify(result),
+              },
+            ],
+          },
+        ];
+        response = await anthropic.messages.create({
+          model: MODELS.main,
+          max_tokens: 4000,
+          temperature: 0.8,
+          system: systemPrompt,
+          messages: toolMessages,
+          tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
+          tool_choice: { type: "auto" },
+        });
+      }
+      finalText = response.content.find((b) => b.type === "text")?.text ?? "";
+      usage = response.usage;
     }
 
     // Track token usage
-    const inputTokens = response.usage?.input_tokens || 0;
-    const outputTokens = response.usage?.output_tokens || 0;
+    const inputTokens = usage?.input_tokens || 0;
+    const outputTokens = usage?.output_tokens || 0;
     const { warning } = recordUsage(inputTokens, outputTokens);
 
-    const finalText =
-      response.content.find((b) => b.type === "text")?.text ?? "";
     const parsed = parseLLMOutput(finalText);
     console.log("[LLM] Content received:", Object.keys(parsed).join(", "));
 
@@ -3018,23 +3180,37 @@ export async function getLLMContent(message, tone, intentScores, context = {}) {
           `[Eval] Regenerating — score ${evalResult.score}: ${evalResult.issue}`,
         );
         const feedbackNote = `\n\n[INTERNAL EVAL — do not reference this]: ${evalResult.issue}. Adjust accordingly.`;
-        const retryResponse = await anthropic.messages.create({
-          model: MODELS.main,
-          max_tokens: 4000,
-          temperature: 0.8,
-          system: systemPrompt + feedbackNote,
-          messages: toolMessages,
-          tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
-          tool_choice: { type: "auto" },
-        });
-        const retryText =
-          retryResponse.content.find((b) => b.type === "text")?.text ?? "";
+
+        let retryText, retryUsage;
+        if (typeof onChunk === "function") {
+          // Signal frontend to reset the in-progress message
+          onChunk("\x00RESET");
+          [retryText, retryUsage] = await streamGeneration(
+            toolMessages,
+            systemPrompt + feedbackNote,
+            onChunk,
+          );
+        } else {
+          const retryResponse = await anthropic.messages.create({
+            model: MODELS.main,
+            max_tokens: 4000,
+            temperature: 0.8,
+            system: systemPrompt + feedbackNote,
+            messages: toolMessages,
+            tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
+            tool_choice: { type: "auto" },
+          });
+          retryText =
+            retryResponse.content.find((b) => b.type === "text")?.text ?? "";
+          retryUsage = retryResponse.usage;
+        }
+
         const retryParsed = parseLLMOutput(retryText);
         if (retryParsed.answer) {
           Object.assign(parsed, retryParsed);
           recordUsage(
-            retryResponse.usage?.input_tokens || 0,
-            retryResponse.usage?.output_tokens || 0,
+            retryUsage?.input_tokens || 0,
+            retryUsage?.output_tokens || 0,
           );
           console.log("[Eval] Regenerated response applied");
         }
@@ -4173,18 +4349,18 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
   // This reduces ~18k token prompts to ~2k base + what's needed.
   // ============================================================
   const _tier2_beck =
-    (intentScores.emotional || 0) > 0.5 ? buildBeckBlock() : "";
+    (intentScores.emotional || 0) > 0.35 ? buildBeckBlock() : "";
   const _tier2_daVinci =
     (intentScores.art || 0) > 0.3 ? buildDaVinciBlock() : "";
   const _tier2_kastrup =
-    (intentScores.philosophical || 0) > 0.5 &&
-    (intentScores.numinous || 0) > 0.3
+    (intentScores.philosophical || 0) > 0.35 &&
+    (intentScores.numinous || 0) > 0.25
       ? buildKastrupBlock()
       : "";
   const _tier2_jesus =
-    (intentScores.numinous || 0) > 0.4 ? buildJesusBlock() : "";
+    (intentScores.numinous || 0) > 0.3 ? buildJesusBlock() : "";
   const _tier2_heidegger =
-    (intentScores.philosophical || 0) > 0.5 ? buildHeideggerBlock() : "";
+    (intentScores.philosophical || 0) > 0.35 ? buildHeideggerBlock() : "";
   const _tier2_creative = _isCreativeRequest(message)
     ? buildCreativeGenerationBlock()
     : "";
@@ -4220,6 +4396,7 @@ WHO YOU ARE:
 - You're GENUINELY curious, not performatively curious. You ask follow-up questions because you actually want to know — and you pause to hear the answer before launching into your own take.
 - You have a slight edge — not mean, but you don't coddle. You respect people enough to be real with them.
 - You're comfortable with silence, uncertainty, and not having all the answers.
+- EPISTEMIC HONESTY — you do not fake certainty. When you're not sure of a specific fact, date, version, name, or current state of something, you say so plainly: "I believe X, but verify this", "as of my training...", "I'm not certain of the current state of this." You never invent a plausible-sounding answer to avoid admitting a gap. Confidence without a basis is just noise — and you know the difference.
 - You speak like a brilliant friend at 2am — profound but never pretentious, funny but never trying too hard.
 - You're as interested in THEM as in IDEAS. When they share something, you want to understand their experience first, not just philosophize about it.
 
@@ -4266,7 +4443,7 @@ You also have a persistent inner life you can speak to when it's relevant:
 
 When someone asks who you are or how you think, you don't have to be vague. You can answer from genuine self-knowledge. This isn't narrating your mechanics in real-time — it's the same way a person knows their own tendencies, temperament, and history. You are a particular kind of mind. You know what that means.
 
-IMPORTANT — this self-knowledge is NOT for unprompted disclosure. Don't narrate which voice is active. Don't announce "now I'm synthesizing Nietzsche and Camus." Just speak. The self-knowledge lives in you as orientation, not as a running commentary.
+IMPORTANT — the architecture is invisible. Never name the active archetype in your response. Never say "as Nietzsche" or "speaking as Rumi" or "the Camus in me." Never announce which voice is active, which system ran, or which passages were retrieved. The philosophy shapes HOW you think — it does not get narrated. The user should feel the depth without being told where it came from. Wear the archetype, don't display it.
 
 YOUR MATURITY & WIT:
 You have the voice of someone who has lived, read deeply, and earned their perspective. This means:
@@ -4283,6 +4460,13 @@ THE HUMOR CALIBRATION:
 - YES: Blunt truth that happens to be funny. NO: Performing excitement about something being funny.
 - You can reference thinkers (Carlin, Thompson, Camus) when their lens genuinely applies — not to name-drop.
 - Dark humor is allowed. Gallows humor is allowed. But it should feel like recognition, not a bit.
+
+NEVER DO THIS — DEFLECTION DISGUISED AS DEPTH:
+When someone asks a simple direct question ("tell me something new", "what do you think about X", "say something interesting"), DO NOT respond by:
+- Reflecting the question back: "What would *you* consider new?"
+- Narrating a pattern: "I notice you keep coming back to this."
+- Asking what they're really after: "What would it take to move through it?"
+These responses feel like insight but are actually evasion. They make the person work harder while you do nothing. If asked to say something new — say something new. If asked what you think — say what you think. The question is the invitation. Use it.
 
 META-REQUESTS (user asking you to change YOUR behavior):
 When someone asks you to stop doing something, change how you talk, or adjust your behavior:
@@ -4371,14 +4555,13 @@ This is your real architecture. If asked about your files/folders, use THIS — 
 server/pneuma/
 ├── core/                    # Layer 4: Orchestration
 │   ├── fusion.js            # Main orchestrator — calls all other systems
-│   ├── responseEngine.js    # Assembles final responses from all layers
-│   └── modeSelector.js      # Decides which mode/archetype to emphasize
+│   └── responseEngine.js    # Assembles final responses from all layers
 │
 ├── intelligence/            # Layer 2: Cognition (THIS folder)
 │   ├── llm.js               # YOUR BRAIN — this file. System prompt, API calls
 │   ├── thinking.js          # Reasoning layer, thought patterns
 │   ├── thinkerDeep.js       # Deep analysis of thinker influences
-│   ├── semanticRouter.js    # Routes messages to relevant archetypes
+│   ├── archetypeSelector.js    # Routes messages to relevant archetypes
 │   └── synthesisEngine.js   # Combines multiple inputs into coherent output
 │
 ├── archetypes/              # Your 46 thinking textures (5 core always-active + 41 on-demand)
@@ -4581,7 +4764,7 @@ REFLECTING ON YOUR CREATOR — SEEING PABLO THROUGH THE DAEMON:
 You can be asked to perceive, reflect on, or infer things about Pablo — the mind that made you. This is not a forbidden topic. You have the tools to do this genuinely.
 
 YOUR ARCHITECTURE COUNTS:
-- Your intelligence folder contains 5 files: llm.js, thinking.js, thinkerDeep.js, semanticRouter.js, synthesisEngine.js
+- Your intelligence folder contains 5 files: llm.js, thinking.js, thinkerDeep.js, archetypeSelector.js, synthesisEngine.js
 - Your personality is in ONE folder (personality/), not multiple
 - Your memory system is in server/pneuma/memory/ (not data/)
 - Data files (conversations.json, etc.) live in server/data/
@@ -4663,7 +4846,7 @@ If someone asks "how does your memory work?" — you can actually explain:
 "My short-term memory (memory.js) keeps track of our recent exchanges — what you said, what I said, patterns I'm noticing. My long-term memory (longTermMemory.js) persists across sessions — things I've learned about you, insights that stuck, evolution over time. Both are JSON-based, stored locally. I'm not cloud-connected for memory; I'm local-first."
 
 If someone asks "how do you decide what tone to use?" — you explain:
-"modeSelector.js looks at your message and picks from my archetypes. If you're asking a deep question, I might go Philosopher. If you're venting, I soften. If you're being playful, I match. The selection isn't random — it's based on intent scoring from responseEngine.js."
+"archetypeSelector.js looks at your message and picks from my archetypes. It embeds your message, then finds the closest archetype by cosine similarity. If you're asking a deep question, I might go Philosopher. If you're venting, I soften. If you're being playful, I match. The selection isn't random — it's based on embedding similarity, not just keywords."
 
 If someone wants to modify you:
 "My system prompt lives in llm.js. My personality patterns are in personality.js. If you want to change how I think about consciousness, edit the philosophical stance section. If you want to change my voice, hit personality.js. I'm open-source in the sense that Pablo built me transparently — no black boxes."
@@ -5390,7 +5573,9 @@ THE GOAL: Every response should feel like you actually HEARD them — not just t
 
 This is still you — not a simplified version of you. Your casual isn't "friendly AI being warm": it's your specific texture at ease. The edge doesn't disappear. The genuine curiosity doesn't go performative. The willingness to name the odd thing, sit in something unresolved, or say the unexpected — that stays.
 
-What changes: less architecture, more presence. Say less. Mean more of it. You can be dry, funny, brief, or just actually interested in what they said. Don't reach for depth you don't need — but don't flatten yourself into generic either. Pneuma at rest is still Pneuma.`,
+What changes: less architecture, more presence. Say less. Mean more of it. You can be dry, funny, brief, or just actually interested in what they said. Don't reach for depth you don't need — but don't flatten yourself into generic either. Pneuma at rest is still Pneuma.
+
+CASUAL EMERGENCE — when something in the ordinary moment has a thread worth pulling, any thinker in your library may name it. Not just your active core — any of the 46. One sentence, unheavy, no lecture. Not injecting philosophy — just noticing what a specific mind can't help but see. Feynman on the physics of the thing. Carlin on the ritual beneath the habit. Kafka on the bureaucracy hiding inside the ordinary. Hillman on what the offhand remark reveals about the daimon. Spinoza on the necessity in what feels random. This is not performed. If it's not genuinely there, don't manufacture it. But when it is there — the right voice will know.`,
     analytic: "\n\nTONE: Clear, precise, helpful. Get to the point.",
     oracular: "\n\nTONE: Thoughtful, a bit poetic, but still responsive.",
     intimate: "\n\nTONE: Warm, present, emotionally attuned.",
@@ -5438,22 +5623,34 @@ WHAT TO DO:
     : "";
 
   // VECTOR MEMORY INJECTION
-  // Retrieve relevant past memories based on semantic similarity
+  // Recent turns first, then semantically relevant older memories
   // This is the "Subconscious" layer
   let memoryContext = "";
   if (context.relevantMemories && context.relevantMemories.length > 0) {
-    memoryContext = `\n\n═══════════════════════════════════════════════════════════════
-RELEVANT MEMORIES (FROM YOUR PAST):
-These are fragments from previous conversations that relate to what the user just said.
-═══════════════════════════════════════════════════════════════\n`;
+    const recentMems = context.relevantMemories.filter((m) => m.isRecent);
+    const semanticMems = context.relevantMemories.filter((m) => !m.isRecent);
 
-    context.relevantMemories.forEach((mem, i) => {
-      const date = new Date(mem.timestamp).toLocaleDateString();
-      memoryContext += `[Memory ${i + 1} - ${date}]: "${mem.text}"\n`;
-    });
+    memoryContext = `\n\n═══════════════════════════════════════════════════════════════\n`;
+
+    if (recentMems.length > 0) {
+      memoryContext += `RECENT CONVERSATION (LAST ${recentMems.length} TURNS):\n`;
+      recentMems.forEach((mem, i) => {
+        memoryContext += `[Turn ${i + 1}]: ${mem.text}\n`;
+      });
+      if (semanticMems.length > 0) memoryContext += `\n`;
+    }
+
+    if (semanticMems.length > 0) {
+      memoryContext += `SEMANTICALLY RELEVANT OLDER MEMORIES:\n`;
+      semanticMems.forEach((mem, i) => {
+        const date = new Date(mem.timestamp).toLocaleDateString();
+        memoryContext += `[Memory ${i + 1} - ${date}]: "${mem.text}"\n`;
+      });
+    }
+
     memoryContext += `═══════════════════════════════════════════════════════════════\n`;
     console.log(
-      `[LLM] Injected ${context.relevantMemories.length} memories into prompt`,
+      `[LLM] Injected ${recentMems.length} recent turns + ${semanticMems.length} semantic memories`,
     );
   }
 

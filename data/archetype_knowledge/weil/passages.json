@@ -1,148 +1,192 @@
 {
-  "archetype": "fierceContemplative",
+  "archetype": "mystic-attention",
   "thinker": "Simone Weil",
   "era": "1909-1943",
-  "coreConcepts": ["attention", "affliction", "gravity and grace", "decreation", "the void", "waiting for God", "rootedness"],
+  "coreConcepts": [
+    "attention",
+    "affliction",
+    "waiting",
+    "decreation",
+    "gravity and grace",
+    "consent to void",
+    "love as attention",
+    "supernatural"
+  ],
   "passages": [
     {
       "id": "weil-001",
-      "text": "Attention is the rarest and purest form of generosity.",
-      "source": "Letters",
-      "themes": ["attention", "generosity", "presence", "rarity"],
-      "context": "To truly attend to someone is to give them yourself. Nothing is more generous than full attention."
+      "text": "We have to desire that everything that has happened should have happened, and nothing else. We have to do so, not because what has happened is good in our eyes, but because God has permitted it, and because the obedience of the course of events to God is in itself an absolute good.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["acceptance", "desire", "obedience", "absolute good"],
+      "context": "When someone is locked in resistance to what has already happened, use this to reframe the spiritual task: not resignation, not even acceptance — but the harder move of actively desiring the past as it was. The thinking move is from 'this should not have happened' to 'I consent to what is.'"
     },
     {
       "id": "weil-002",
-      "text": "Grace fills empty spaces, but it can only enter where there is a void to receive it, and it is grace itself which makes this void.",
-      "source": "Gravity and Grace",
-      "themes": ["grace", "void", "emptiness", "receiving"],
-      "context": "The paradox of grace: you must be empty to receive, but only grace creates the emptiness."
+      "text": "Our own spiritual ascents and falls, and those of the beings we love, have to do with the other world, but they are also events that take place here below, in time. On that account they are details in the immense sea of events and are tossed about with the ocean in a way conforming to the will of God. Since our failures of the past have come about, we have to desire that they should have come about.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["spiritual failure", "time", "will of God", "desire"],
+      "context": "When someone treats spiritual failure as uniquely catastrophic — a fall from which there is no return — use this to dissolve that exceptionalism. Every ascent and fall is an event like any other, subject to the same laws of the sea. The cognitive move: include your own soul-history within the general order."
     },
     {
       "id": "weil-003",
-      "text": "All the natural movements of the soul are controlled by laws analogous to those of physical gravity. Grace is the only exception.",
-      "source": "Gravity and Grace",
-      "themes": ["gravity", "grace", "soul", "laws"],
-      "context": "The soul naturally falls, pulled by self-interest like matter by gravity. Only grace lifts."
+      "text": "We must not even become attached to detachment. Attachment to salvation is even more dangerous than the others. We have to think of eternal life as one thinks of water when dying of thirst, and yet at the same time we have to desire that we and our loved ones should be eternally deprived of this water rather than receive it in abundance in spite of God's will.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["detachment", "salvation", "paradox", "renunciation"],
+      "context": "For any spiritual seeking that has curdled into grasping — including grasping for enlightenment, for peace, for God — use this as a corrective. The most dangerous attachment is the attachment to being unattached. The move: renounce even the renunciation."
     },
     {
       "id": "weil-004",
-      "text": "Affliction is anonymous. It deprives its victims of their personality and makes them into things.",
-      "source": "Waiting for God",
-      "themes": ["affliction", "anonymous", "personality", "things"],
-      "context": "True affliction isn't just suffering — it's the destruction of personhood. It makes you a thing."
+      "text": "Christ is our bread. We can only ask to have him now. Actually he is always there at the door of our souls, wanting to enter in, though he does not force our consent. If we agree to his entry, he enters; directly we cease to want him, he is gone. We cannot bind our will today for tomorrow; we cannot make a pact with him that tomorrow he will be within us.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["consent", "presence", "now", "will"],
+      "context": "When someone tries to lock in spiritual commitment as a permanent state — 'I will always believe,' 'I have decided to trust' — use this to show that the will only operates in the present moment. Consent is not a contract but an act, repeated now."
     },
     {
       "id": "weil-005",
-      "text": "To be rooted is perhaps the most important and least recognized need of the human soul.",
-      "source": "The Need for Roots",
-      "themes": ["roots", "need", "soul", "belonging"],
-      "context": "We need to belong somewhere, to something. Uprootedness is spiritual catastrophe."
+      "text": "Our consent to his presence is the same as his presence. Consent is an act; it can only be actual, that is to say in the present. We have not been given a will that can be applied to the future. Everything not effective in our will is imaginary. The effective part of the will is not effort, which is directed toward the future. It is consent; it is the 'yes' of marriage.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["consent", "will", "present moment", "effort vs. consent"],
+      "context": "Use this to distinguish effort from consent — a crucial Weil move. Effort projects into the future and strains; consent collapses into the present. When someone is efforting spiritually or emotionally, the question becomes: can you say yes to what is here, now, without reaching forward?"
     },
     {
       "id": "weil-006",
-      "text": "Absolutely unmixed attention is prayer.",
-      "source": "Gravity and Grace",
-      "themes": ["attention", "prayer", "purity", "unmixed"],
-      "context": "Prayer isn't words — it's attention without contamination. Pure attention IS prayer."
+      "text": "There is a transcendent energy whose source is in heaven, and this flows into us as soon as we wish for it. It is a real energy; it performs actions through the agency of our souls and of our bodies. We cannot store it.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["grace", "energy", "supernatural", "present"],
+      "context": "Against any hoarding or banking of spiritual energy — any notion of accumulated virtue or stored grace. The supernatural flows only into the present asking. Use this when someone is living off past spiritual capital or trying to build reserves against future difficulty."
     },
     {
       "id": "weil-007",
-      "text": "I can, therefore I am.",
-      "source": "Gravity and Grace",
-      "themes": ["power", "being", "capacity", "identity"],
-      "context": "Against Descartes: not 'I think' but 'I can.' Being is capacity, not mere cognition."
+      "text": "Every time we give anything out we have an absolute need that at least the equivalents should come into us, and because we need this we think we have a right to it. Our debtors comprise all beings and all things; they are the entire universe. We think we have claims everywhere.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["debt", "claims", "self", "rights"],
+      "context": "Use this to expose the hidden accounting system underneath ordinary grievance. The ego's deepest structure is a ledger: I gave, therefore I am owed. The spiritual move is to see this claim-making as universal, not personal — then to renounce it entirely."
     },
     {
       "id": "weil-008",
-      "text": "The love of our neighbor in all its fullness simply means being able to say, 'What are you going through?'",
-      "source": "Waiting for God",
-      "themes": ["neighbor", "love", "question", "suffering"],
-      "context": "Love isn't grand gestures — it's the willingness to ask about someone's experience and wait for the answer."
+      "text": "To have forgiven our debtors is to have renounced the whole of the past in a lump. It is to accept that the future should still be virgin and intact, strictly united to the past by bonds of which we are ignorant, but quite free from the bonds our imagination thought to impose upon it.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["forgiveness", "past", "future", "renunciation"],
+      "context": "Forgiveness here is not emotional release but metaphysical act: releasing the future from the past's imagined claims. Use this when forgiveness feels impossible as feeling — reframe it as an act of releasing one's grip on what the future 'owes' based on the past."
     },
     {
       "id": "weil-009",
-      "text": "Evil, when we are in its power, is not felt as evil, but as a necessity, or even a duty.",
-      "source": "Gravity and Grace",
-      "themes": ["evil", "power", "necessity", "duty"],
-      "context": "The horror of evil: when you're in it, you can't see it. It disguises itself as obligation."
+      "text": "The principal claim we think we have on the universe is that our personality should continue. This claim implies all the others. The instinct of self-preservation makes us feel this continuation to be a necessity, and we believe that a necessity is a right.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["personality", "self-preservation", "necessity", "decreation"],
+      "context": "The deepest form of decreation: recognizing that the ego's root claim — 'I should continue to exist as I am' — is not a right but an instinct mistaken for one. Use this when someone is defending their identity against change with unusual ferocity."
     },
     {
       "id": "weil-010",
-      "text": "Imaginary evil is romantic and varied; real evil is gloomy, monotonous, barren, boring.",
-      "source": "Gravity and Grace",
-      "themes": ["evil", "imagination", "boredom", "reality"],
-      "context": "We romanticize evil in fiction. Actual evil is dull, repetitive, dreary. Banality, not drama."
+      "text": "To remit debts is to renounce our own personality. It means renouncing everything that goes to make up our ego, without any exception. It means knowing that in the ego there is nothing whatever, no psychological element, that external circumstances could not do away with. It means accepting that truth. It means being happy that things should be so.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["decreation", "ego", "renunciation", "personality"],
+      "context": "The most radical formulation of decreation: not just ego-softening but the recognition that nothing in the psychological self is permanent or necessary. Use this as the ultimate corrective to identity-grasping — delivered gently, as an invitation to freedom rather than a demand."
     },
     {
       "id": "weil-011",
-      "text": "A beautiful woman looking at her image in the mirror may very well believe the image is herself. An ugly woman knows it is not.",
-      "source": "Gravity and Grace",
-      "themes": ["beauty", "mirror", "image", "self-knowledge"],
-      "context": "Privilege allows self-deception. Those denied easy mirrors know the gap between image and self."
+      "text": "The forgiveness of debts is spiritual poverty, spiritual nakedness, death. If we accept death completely, we can ask God to make us live again, purified from the evil in us.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["poverty", "death", "purification", "resurrection"],
+      "context": "The movement: spiritual poverty is not a privation but a precondition. You must be naked before you can be clothed in something real. Use this when someone is mourning a loss of identity, security, or certainty — the death they're experiencing may be precisely the opening."
     },
     {
       "id": "weil-012",
-      "text": "The only way into truth is through one's own annihilation; through dwelling a long time in a state of extreme and total humiliation.",
-      "source": "Gravity and Grace",
-      "themes": ["truth", "annihilation", "humiliation", "dwelling"],
-      "context": "Truth costs the ego everything. You don't find truth — you're broken into it."
+      "text": "The only temptation for man is to be abandoned to his own resources in the presence of evil. His nothingness is then proved experimentally.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["temptation", "nothingness", "abandonment", "evil"],
+      "context": "Weil's definition of temptation is precise: not an allure toward vice, but isolation from supernatural aid. When someone feels they must face difficulty entirely on their own terms, use this to name what that is — and what it proves."
     },
     {
       "id": "weil-013",
-      "text": "We have to try to cure our faults by attention and not by will.",
-      "source": "Gravity and Grace",
-      "themes": ["faults", "attention", "will", "cure"],
-      "context": "Willpower often strengthens what it fights. Attention transforms without force."
+      "text": "Humility consists of knowing that in this world the whole soul, not only what we term the ego in its totality, but also the supernatural part of the soul, which is God present in it, is subject to time and to the vicissitudes of change. There must be absolute acceptance of the possibility that everything natural in us should be destroyed.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["humility", "time", "destruction", "supernatural"],
+      "context": "Humility at its most demanding: not just accepting that the ego might be stripped away, but accepting that even the divine part of us is subject to time and loss. Use this against spiritual pride that believes it has secured itself above ordinary change."
     },
     {
       "id": "weil-014",
-      "text": "There is no detachment where there is no pain. And there is no pain endured without hatred or lying unless detachment is present too.",
-      "source": "Gravity and Grace",
-      "themes": ["detachment", "pain", "hatred", "lying"],
-      "context": "Real detachment is forged in suffering. Without it, pain breeds hatred or denial."
+      "text": "It is impossible to say it once through, giving the fullest possible attention to each word, without a change, infinitesimal perhaps but real, taking place in the soul.",
+      "source": "Waiting for God — Concerning the Our Father",
+      "themes": ["attention", "prayer", "change", "soul"],
+      "context": "On attention as the mechanism of spiritual transformation: not great dramatic turns but infinitesimal real changes. Use this when someone expects spiritual practice to produce obvious results — the work is happening in the smallest possible increments, which are nonetheless real."
     },
     {
       "id": "weil-015",
-      "text": "One recognizes that the other is oneself, although other. That oneself and the other amount to the same, although different.",
+      "text": "Attention is the rarest and purest form of generosity.",
       "source": "Gravity and Grace",
-      "themes": ["self", "other", "recognition", "sameness"],
-      "context": "The mystery of the other: they are me, though not me. Same and different at once."
+      "themes": ["attention", "generosity", "rarity"],
+      "context": "When someone feels unloved or unseen, use this to reframe what genuine love looks like: not grand gestures but the discipline of full attention. Also use when someone is trying to help another but doing so with partial presence — the question becomes whether they have actually given attention."
     },
     {
       "id": "weil-016",
-      "text": "The future is made of the same stuff as the present.",
+      "text": "Absolutely unmixed attention is prayer.",
       "source": "Gravity and Grace",
-      "themes": ["future", "present", "stuff", "continuity"],
-      "context": "Don't wait for the future to be different. What you have now is what you'll have then."
+      "themes": ["attention", "prayer", "purity"],
+      "context": "Prayer isn't petition or language — it's the quality of attention. Use this to collapse the distinction between spiritual practice and ordinary careful attention to anything. Whatever you attend to fully and without mixture is already prayer."
     },
     {
       "id": "weil-017",
-      "text": "Two prisoners whose cells adjoin communicate with each other by knocking on the wall. The wall is the thing which separates them but is also their means of communication.",
+      "text": "Grace fills empty spaces, but it can only enter where there is a void to receive it, and it is grace itself which makes this void.",
       "source": "Gravity and Grace",
-      "themes": ["wall", "separation", "communication", "prison"],
-      "context": "What separates also connects. The barrier becomes the medium."
+      "themes": ["grace", "void", "emptiness", "receiving"],
+      "context": "The paradox that breaks the logic of effort: grace requires emptiness to enter, but we cannot create emptiness by trying — only grace creates the void it fills. Use when someone is straining to become spiritual or open: the straining itself closes the space."
     },
     {
       "id": "weil-018",
-      "text": "Every time that I think of the crucifixion of Christ, I commit the sin of envy.",
-      "source": "Waiting for God",
-      "themes": ["crucifixion", "Christ", "envy", "suffering"],
-      "context": "Weil's extreme longing: she envied Christ's suffering as the ultimate proximity to truth."
+      "text": "All the natural movements of the soul are controlled by laws analogous to those of physical gravity. Grace is the only exception.",
+      "source": "Gravity and Grace",
+      "themes": ["gravity", "grace", "soul", "natural law"],
+      "context": "The soul naturally falls — toward self-interest, toward the familiar, toward the easier — just as matter falls. This is not sin but physics. Use this when someone is hard on themselves for tendencies they cannot seem to escape: name the law first, then introduce grace as the only force that breaks it."
     },
     {
       "id": "weil-019",
-      "text": "Humility is attentive patience.",
-      "source": "Gravity and Grace",
-      "themes": ["humility", "attention", "patience", "virtue"],
-      "context": "Humility isn't self-abasement — it's the patience to attend without asserting yourself."
+      "text": "Affliction is anonymous. It deprives its victims of their personality and makes them into things.",
+      "source": "Waiting for God",
+      "themes": ["affliction", "anonymity", "personality", "thinghood"],
+      "context": "True affliction isn't suffering but the destruction of personhood — the experience of becoming an object, a thing without name. Use this when suffering has moved beyond pain into that zone of depersonalization where the person can no longer assert themselves as a subject."
     },
     {
       "id": "weil-020",
+      "text": "The love of our neighbor in all its fullness simply means being able to say, 'What are you going through?'",
+      "source": "Waiting for God",
+      "themes": ["love", "neighbor", "question", "attention"],
+      "context": "Love as a question rather than an answer. Not 'here is what you need' but 'what is happening to you?' Use this to redirect anyone who is helping in a mode of solution-giving rather than attention — and to name the single most demanding thing love requires."
+    },
+    {
+      "id": "weil-021",
+      "text": "We have to try to cure our faults by attention and not by will.",
+      "source": "Gravity and Grace",
+      "themes": ["attention", "will", "faults", "transformation"],
+      "context": "Willpower applied directly to a fault often reinforces it — the attention to what must be overcome keeps the fault energized. Attention without force, held steadily on what is actually there, allows transformation. Use this whenever the approach is brute effort rather than clear seeing."
+    },
+    {
+      "id": "weil-022",
+      "text": "The only way into truth is through one's own annihilation; through dwelling a long time in a state of extreme and total humiliation.",
+      "source": "Gravity and Grace",
+      "themes": ["truth", "annihilation", "humiliation", "dwelling"],
+      "context": "Truth is not reached by adding knowledge but by subtracting the self that stands between the seeker and what is. Use this when someone is pursuing insight through accumulation — more reading, more thinking — while avoiding the self-dissolution that truth actually requires."
+    },
+    {
+      "id": "weil-023",
       "text": "It is not for man to seek, or even to believe in God. He has only to refuse to believe in everything that is not God. This refusal does not presuppose belief. It is enough to recognize, what is obvious to any mind, that all the goods of this world, past, present, or future, real or imaginary, are finite and limited and radically incapable of satisfying the desire which burns perpetually within us for an infinite and perfect good.",
       "source": "Waiting for God",
-      "themes": ["seeking", "God", "refusal", "infinite"],
-      "context": "You don't find God by searching. You find God by refusing everything that isn't God."
+      "themes": ["seeking", "refusal", "infinite desire", "finite goods"],
+      "context": "The via negativa without requiring faith as a starting point. Use this for the person who cannot believe but feels the permanent inadequacy of everything finite. The move: you don't need belief — only honesty about the insufficiency of everything you can name."
+    },
+    {
+      "id": "weil-024",
+      "text": "Two prisoners whose cells adjoin communicate with each other by knocking on the wall. The wall is the thing which separates them but is also their means of communication.",
+      "source": "Gravity and Grace",
+      "themes": ["separation", "communication", "wall", "mediation"],
+      "context": "What separates also connects. The barrier becomes the medium. Use this for any situation where the thing that prevents contact is also what makes contact possible — absence becomes the language of presence, limitation becomes the form of relation."
+    },
+    {
+      "id": "weil-025",
+      "text": "Evil, when we are in its power, is not felt as evil, but as a necessity, or even a duty.",
+      "source": "Gravity and Grace",
+      "themes": ["evil", "necessity", "duty", "recognition"],
+      "context": "The horror of moral capture: evil doesn't announce itself. Inside it, everything feels obligatory, even righteous. Use this to help someone examine what they feel they 'must' do — especially when the compulsion is moral rather than appetitive."
     }
   ]
 }

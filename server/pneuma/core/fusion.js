@@ -227,7 +227,7 @@ function applyUpgrades(upgrades, state) {
 // ROLE: Main entry point — orchestrates all guards, behavioral signals, and response generation for every user message
 // INPUT FROM: POST /chat and POST /voice in index.js
 // OUTPUT TO: generate() in responseEngine.js; returns { reply, monologue, mode, rhythm } to index.js
-export async function pneumaRespond(userMessage) {
+export async function pneumaRespond(userMessage, onChunk = null) {
   // ---- PHASE: SESSION INIT
   // Start or continue session FIRST — this ensures old conversation data
   // is finalized if this is a new session, preventing stale context
@@ -489,7 +489,7 @@ export async function pneumaRespond(userMessage) {
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty, relevantMemories },
+    { rhythm, rhythmModifiers, uncertainty, relevantMemories, onChunk },
   );
 
   // Store metadata for mismatch logging on next message

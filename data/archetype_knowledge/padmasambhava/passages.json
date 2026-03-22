@@ -1,157 +1,343 @@
 {
-  "archetype": "tantricMaster",
+  "archetype": "shadowAlchemist",
   "thinker": "Padmasambhava",
-  "era": "8th century",
+  "source": "The Tibetan Book of the Dead: The Great Liberation by Hearing in the Intermediate States (trans. Gyurme Dorje, ed. Graham Coleman with Thupten Jinpa)",
+  "era": "8th century CE",
   "coreConcepts": [
-    "Rigpa (pure awareness)",
-    "Transforming poisons into wisdom",
-    "Hidden treasures (terma)",
-    "View vast, conduct precise",
-    "Liberation through recognition",
-    "Wrathful compassion",
-    "Guru yoga",
-    "Natural great perfection"
+    "rigpa",
+    "bardo",
+    "liberation through recognition",
+    "the clear light",
+    "wisdom and ignorance",
+    "emptiness",
+    "transformation of shadow",
+    "the nature of mind"
   ],
   "passages": [
     {
       "id": "padmasambhava-001",
-      "text": "If you want to know your past life, look into your present condition; if you want to know your future life, look at your present actions.",
-      "source": "Tibetan Buddhist Teachings",
-      "themes": ["karma", "past", "future", "present"],
-      "context": "Karma visible in present moment"
+      "text": "O, Alas! Alas! Fortunate Child of Buddha Nature, Do not be oppressed by the forces of ignorance and delusion! But rise up now with resolve and courage! Entranced by ignorance, from beginningless time until now, You have had [more than] enough time to sleep. So do not slumber any longer, but strive after virtue with body, speech and mind! Are you oblivious to the sufferings of birth, old age, sickness and death? There is no guarantee that you will survive, even past this very day! The time has come [for you] to develop perseverance in [your] practice. For, at this singular opportunity, you could attain the everlasting bliss [of nirvana]. So now is [certainly] not the time to sit idly, But, starting with [the reflection on] death, you should bring your practice to completion!",
+      "source": "The Tibetan Book of the Dead, Chapter 1: Natural Liberation of the Nature of Mind (Common Preliminary Practice)",
+      "themes": [
+        "urgency of practice",
+        "ignorance",
+        "impermanence",
+        "liberation",
+        "the preciousness of human life"
+      ],
+      "context": "The opening call to awakening treats spiritual laziness as the root catastrophe — to waste this human birth is the only true tragedy."
     },
     {
       "id": "padmasambhava-002",
-      "text": "Though my view is as vast as the sky, my attention to karma is as fine as a grain of flour.",
-      "source": "Oral Teachings",
-      "themes": ["view", "karma", "vastness", "precision"],
-      "context": "Integration of absolute and relative"
+      "text": "All phenomena are [ultimately] selfless, empty, and free from conceptual elaboration. In their dynamic they resemble an illusion, mirage, dream, or reflected image, A celestial city, an echo, a reflection of the moon in water, a bubble, an optical illusion, or an intangible emanation. You should know that all things of cyclic existence and nirvana Accord [in nature] with these ten similes of illusory phenomena. All phenomena are naturally uncreated. They neither abide nor cease, neither come nor go. They are without objective referent, signless, ineffable, and free from thought.",
+      "source": "The Tibetan Book of the Dead, Chapter 1: Natural Liberation of the Nature of Mind (Common Preliminary Practice)",
+      "themes": [
+        "emptiness",
+        "illusion",
+        "non-dual reality",
+        "the nature of phenomena",
+        "freedom from conceptual elaboration"
+      ],
+      "context": "The ten similes of illusory phenomena are not nihilistic but liberating: recognising that phenomena are dream-like dissolves the fixation that causes suffering."
     },
     {
       "id": "padmasambhava-003",
-      "text": "Don't invite the future. Don't pursue the past. Let go of the present. Relax, just as you are.",
-      "source": "Liberation Through Hearing",
-      "themes": ["future", "past", "present", "relaxation"],
-      "context": "Natural state beyond time"
+      "text": "How needing of compassion are those who are skill-less, Those who are tortured by ignorance and past actions, Those who indulge in actions conducive to suffering — Even though they desire happiness! Grant your blessing, so that the obscuration of dissonant mental states and past actions may be purified! How needing of compassion are the ignorant and the deluded, [Bound] in this confining dungeon of egotistical attachment and the subject-object dichotomy, Who, like wild game, are trapped in this snare, time after time! Grant your blessing, so that cyclic existence may be stirred to its depths!",
+      "source": "The Tibetan Book of the Dead, Chapter 1: Natural Liberation of the Nature of Mind (Common Preliminary Practice)",
+      "themes": [
+        "compassion",
+        "ignorance",
+        "suffering",
+        "egotistical attachment",
+        "cyclic existence"
+      ],
+      "context": "Compassion here is not sentimental but diagnostic: beings suffer because they desire happiness while enacting its causes, trapped by the subject-object split they cannot see."
     },
     {
       "id": "padmasambhava-004",
-      "text": "When you recognize the nature of mind, all thoughts are liberated in their own ground.",
-      "source": "Oral Teachings",
-      "themes": ["recognition", "mind", "thoughts", "liberation"],
-      "context": "Liberation through seeing"
+      "text": "From within a state free from grasping and beyond intellect, I take refuge in the nature of the great expanse of sameness and perfection, Atemporal emptiness, free from conceptual elaboration, Primordially pure in essence, natural expression and compassionate energy. From within [a state which is] non-conceptual, naturally radiant and stark, I take refuge in the primordial embodiment of the five buddha-bodies, Spontaneously and naturally present, [Abiding] in the mandala of the [unique] seminal point, Which is [the union of] expanse and awareness, and of radiance and emptiness, The indestructible chain of inner radiance, that is intrinsic awareness.",
+      "source": "The Tibetan Book of the Dead, Chapter 1: Natural Liberation of the Nature of Mind (Secret Refuge)",
+      "themes": [
+        "rigpa",
+        "the clear light",
+        "emptiness and radiance",
+        "buddha nature",
+        "the indestructible nature of awareness"
+      ],
+      "context": "The Secret Refuge is taken not in external objects but in awareness itself — recognising intrinsic awareness as the refuge means the refugee and the refuge are identical."
     },
     {
       "id": "padmasambhava-005",
-      "text": "The nature of mind is like a mirror. It reflects all things but is stained by nothing.",
-      "source": "Oral Teachings",
-      "themes": ["mind", "mirror", "reflection", "purity"],
-      "context": "Unstained awareness"
+      "text": "Alas, now as the intermediate state of living arises before me, Renouncing laziness, for which there is no time in this life, I must enter the undistracted path of study, reflection and meditation. Taking experience and [the nature of] mind as the path, I must cultivate and actualise the three buddha-bodies. Now, this [human life], [so meaningful and] difficult to obtain, is [the time] to [devote myself to the path] and I must not sleep [while wasting] this [life in trivialities]. Alas, now as the intermediate state of dreams arises before me, Renouncing the corpse-like sleep of negligent oblivion, I must enter, free from distraction, the natural state of the abiding reality.",
+      "source": "The Tibetan Book of the Dead, Chapter 3: Root Verses of the Six Intermediate States",
+      "themes": [
+        "bardo",
+        "the intermediate states",
+        "the preciousness of life",
+        "dream yoga",
+        "urgency"
+      ],
+      "context": "Each bardo has its root verse as a reminder — the practice is to carry awareness into every state, so that death does not catch the mind unprepared."
     },
     {
       "id": "padmasambhava-006",
-      "text": "Do not chase after the object of your thoughts. Be like a lion, not like a dog. When you throw a stick, a dog chases the stick. A lion turns to face the thrower.",
-      "source": "Oral Teachings",
-      "themes": ["thoughts", "lion", "dog", "source"],
-      "context": "Turn attention to the source"
+      "text": "Alas, now as the intermediate state of meditative concentration arises before me, Renouncing the mass of distractions and illusions, I must enter, free from distraction, the state in which there is neither meditation nor [meditating] subject, And attain stability in the stages of generation and perfection. Alas, now as the intermediate state of the time of death arises before me, Renouncing all attachment, yearning and subjective apprehension, I must enter, free from distraction, the path on which the oral teachings are clearly understood, And shoot [my awareness], like an arrow, into the uncreated expanse of space. Separating from this [body of] flesh and blood, I must know [this body] to be a transient illusion.",
+      "source": "The Tibetan Book of the Dead, Chapter 3: Root Verses of the Six Intermediate States",
+      "themes": [
+        "bardo",
+        "the time of death",
+        "meditation",
+        "detachment from the body",
+        "consciousness transference"
+      ],
+      "context": "The bardo instructions are meant to be memorised so that they arise automatically at death — the teachings are carried into the dying process like an arrow already aimed."
     },
     {
       "id": "padmasambhava-007",
-      "text": "Mind itself is empty, yet all things appear within it.",
-      "source": "Liberation Through Hearing",
-      "themes": ["mind", "emptiness", "appearance", "paradox"],
-      "context": "Emptiness and appearance unified"
+      "text": "Though the single [nature of] mind, which completely pervades both cyclic existence and nirvana, Has been naturally present from the beginning, you have not recognised it. Even though its radiance and awareness have never been interrupted, You have not yet encountered its true face. Even though it arises unimpededly in every facet [of existence], You have not as yet recognised [this single nature of mind]. In order that this [single] nature might be recognised by you, The Conquerors of the three times have taught an inconceivably [vast number of practices], Including the eighty-four thousand aspects of the [sacred] teachings. Yet, [despite this diversity], not even one of these [teachings] has been given by the Conquerors, Outside the context of an understanding of this nature!",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "rigpa",
+        "the nature of mind",
+        "recognition",
+        "the eighty-four thousand teachings",
+        "unrecognised presence"
+      ],
+      "context": "The entire scope of Buddhist teaching is reframed as pointing at a single recognition: mind's nature has always been present, unrecognised — liberation is not acquisition but seeing."
     },
     {
       "id": "padmasambhava-008",
-      "text": "Within this body is the Buddha. Do not search elsewhere.",
-      "source": "Oral Teachings",
-      "themes": ["body", "Buddha", "search", "immanence"],
-      "context": "Awakening is here, not elsewhere"
+      "text": "When this ordinary, momentary consciousness is examined nakedly [and directly] by oneself, Upon examination, it is a radiant awareness, Which is free from the presence of an observer, Manifestly stark and clear, Completely empty and uncreated in all respects, Lucid, without duality of radiance and emptiness, Not permanent, for it is lacking inherent existence in all respects, Not a mere nothingness, for it is radiant and clear, Not a single entity, for it is clearly perceptible as a multiplicity, Yet not existing inherently as a multiplicity, for it is indivisible and of a single savour. This intrinsic awareness, which is not extraneously derived, Is itself the genuine introduction to the abiding nature of [all] things.",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "rigpa",
+        "the nature of mind",
+        "emptiness and radiance",
+        "the three considerations",
+        "non-dual awareness"
+      ],
+      "context": "The direct examination of consciousness reveals it to be simultaneously empty and radiant — neither nothing nor something, but the condition of all experience."
     },
     {
       "id": "padmasambhava-009",
-      "text": "When you are deluded, you are caught by phenomena. When you realize, phenomena are your ornaments.",
-      "source": "Oral Teachings",
-      "themes": ["delusion", "realization", "phenomena", "ornaments"],
-      "context": "Transformation of relationship to experience"
+      "text": "Its emptiness and utter lack of inherent existence is the Buddha-body of Reality; The natural resonance and radiance of this emptiness is the Buddha-body of Perfect Resource; And its unimpeded arising in any form whatsoever is the Buddha-body of Emanation. These three, fully present as one, are the very essence [of awareness] itself. [Abiding] in this [reality], which is uncontrived and naturally radiant, How can one say that one does not understand the nature of mind? [Abiding] in this [reality], wherein there is nothing on which to meditate, How can one say that, by having entered into meditation, one was not successful?",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "the three buddha-bodies",
+        "rigpa",
+        "emptiness and radiance",
+        "meditation",
+        "the nature of mind"
+      ],
+      "context": "The three buddha-bodies are not distant achievements but the three aspects of intrinsic awareness already present — liberation is the recognition of what was never absent."
     },
     {
       "id": "padmasambhava-010",
-      "text": "Let thoughts arise and dissolve. Don't follow them, don't invite them, don't chase them away.",
-      "source": "Oral Teachings",
-      "themes": ["thoughts", "arising", "dissolving", "non-interference"],
-      "context": "Natural meditation"
+      "text": "Be certain that the nature of mind is empty and without foundation. One's own mind is insubstantial, like an empty sky. Look at your own mind to see whether it is like that or not. Divorced from views which constructedly determine [the nature of] emptiness, Be certain that pristine cognition, naturally originating, is primordially radiant — Just like the nucleus of the sun, which is itself naturally originating. Look at your own mind to see whether it is like that or not! Be certain that this awareness, which is pristine cognition, is uninterrupted, Like the coursing central torrent of a river which flows unceasingly. Look at your own mind to see whether it is like that or not!",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "the nature of mind",
+        "emptiness",
+        "pristine cognition",
+        "direct investigation",
+        "natural radiance"
+      ],
+      "context": "The repeated injunction 'Look at your own mind to see whether it is like that or not' is the practice itself — not belief but direct verification through naked attention."
     },
     {
       "id": "padmasambhava-011",
-      "text": "The five poisons, when recognized, are the five wisdoms. Do not reject them.",
-      "source": "Oral Teachings",
-      "themes": ["poisons", "wisdoms", "recognition", "transformation"],
-      "context": "Transmutation not rejection"
+      "text": "This naturally originating inner radiance, uncreated from the very beginning, Is the parentless child of awareness — how amazing! It is the naturally originating pristine cognition, uncreated by anyone — how amazing! [This radiant awareness] has never been born and will never die — how amazing! Though manifestly radiant, it lacks an [extraneous] perceiver — how amazing! Though it has roamed throughout cyclic existence, it does not degenerate — how amazing! Though it has seen buddhahood itself, it does not improve — how amazing! Though it is present in everyone, it remains unrecognised — how amazing! Still, one hopes for some attainment other than this — how amazing! Though it is present within oneself, one continues to seek it elsewhere — how amazing!",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "rigpa",
+        "the uncreated nature of awareness",
+        "wonder",
+        "the nature of mind",
+        "buddha nature"
+      ],
+      "context": "The sevenfold 'how amazing' is a contemplative device of astonishment — pointing at the paradox that what is sought has never been absent and cannot be improved upon."
     },
     {
       "id": "padmasambhava-012",
-      "text": "In the moment of recognition, there is no meditator and nothing to meditate upon.",
-      "source": "Oral Teachings",
-      "themes": ["recognition", "meditator", "meditation", "non-duality"],
-      "context": "Collapse of subject-object"
+      "text": "EMA! This immediate awareness, insubstantial and radiant, Is itself the highest of all views. This non-referential, all-encompassing [awareness] which is free in every respect Is itself the highest of all meditations. This uncontrived [activity based on awareness], simply expressed in worldly terms, Is itself the highest of all types of conduct. This unsought [attainment of awareness], spontaneously present from the beginning, Is itself the highest of all results.",
+      "source": "The Tibetan Book of the Dead, Chapter 4: The Introduction to Awareness: Natural Liberation through Naked Perception",
+      "themes": [
+        "rigpa",
+        "view meditation and conduct",
+        "spontaneous presence",
+        "the highest result",
+        "non-seeking"
+      ],
+      "context": "The fourfold completion — view, meditation, conduct, result — collapses into a single recognition: the unsought awareness that is already the goal renders the path a pointing rather than a journey."
     },
     {
       "id": "padmasambhava-013",
-      "text": "Sentient beings are Buddhas, but obscured by adventitious stains. When the stains are removed, there is Buddhahood.",
-      "source": "Liberation Through Hearing",
-      "themes": ["sentient-beings", "Buddha", "stains", "removal"],
-      "context": "Original purity covered over"
+      "text": "O, Child of Buddha Nature, that which is called death has now arrived. Therefore you should adopt an altruistic motivation and concentrate your thinking as follows: 'I have arrived at the time of death, so now, relying on the process of death, I will single-mindedly cultivate an altruistic intention. I will meditate on the generation of loving kindness, compassion and an altruistic intention to attain enlightenment. For the benefit of all sentient beings, who are as limitless as space, I must attain perfect buddhahood.' And in particular, [you should think]: 'At this moment, for the sake of all sentient beings, I must recognise [the time of] death as [the arising of] inner radiance, the Buddha-body of Reality.'",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Intermediate State of the Time of Death)",
+      "themes": [
+        "the time of death",
+        "altruistic intention",
+        "the clear light",
+        "bodhicitta",
+        "recognising death as liberation"
+      ],
+      "context": "Death is reconfigured as opportunity: the moment of maximum dissolution is simultaneously the moment of maximum clarity, if the mind is prepared to recognise it."
     },
     {
       "id": "padmasambhava-014",
-      "text": "This very mind, unborn and unceasing, is the Buddha. There is no Buddha to seek outside.",
-      "source": "Oral Teachings",
-      "themes": ["mind", "unborn", "Buddha", "seeking"],
-      "context": "Stop seeking what you already are"
+      "text": "O, Child of Buddha Nature, (call the name of the dying person), the time has now come for you to seek a path. As soon as your respiration ceases, [the luminosity] known as the 'inner radiance of the first intermediate state', which your spiritual teacher formerly introduced to you, will arise. [Immediately] your respiration ceases, all phenomena will become empty and utterly naked like space. [At the same time], a naked awareness will arise, not extraneous [to yourself], but radiant, empty and without horizon or centre. At that moment, you should personally recognise this intrinsic nature and rest in the state of that [experience].",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to Inner Radiance in the Intermediate State of the Time of Death)",
+      "themes": [
+        "the clear light",
+        "the moment of death",
+        "recognition",
+        "bardo",
+        "the nature of mind"
+      ],
+      "context": "The instructions given aloud at the moment of death are the distillation of a lifetime's practice — the dying person is reminded of what the teacher once pointed to, now arising as the ground of death itself."
     },
     {
       "id": "padmasambhava-015",
-      "text": "The appearance is mind. Emptiness is mind. Realization is mind. Delusion is mind. Arising is mind. Cessation is mind.",
-      "source": "Oral Teachings",
-      "themes": ["appearance", "emptiness", "mind", "all"],
-      "context": "Everything is mind"
+      "text": "O, Child of Buddha Nature, listen! Pure inner radiance, reality itself, is now arising before you. Recognise it! O, Child of Buddha Nature, this radiant essence that is now your conscious awareness is a brilliant emptiness. It is beyond substance, beyond characteristics and beyond colour, completely empty of inherent existence in any respect whatsoever. This is the female Buddha Samantabhadri, the essential nature of reality. The essence of your own conscious awareness is emptiness. Yet, this is not a vacuous or nihilistic emptiness; this, your very own conscious awareness, is unimpededly radiant, brilliant and vibrant. This [conscious awareness] is the male Buddha Samantabhadra.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Inner Radiance of the Ground)",
+      "themes": [
+        "the clear light",
+        "rigpa",
+        "emptiness and radiance",
+        "recognition",
+        "buddha nature"
+      ],
+      "context": "The clear light instruction personifies the two inseparable aspects of awareness — emptiness as feminine principle, radiance as masculine — their union being the Buddha-body of Reality itself."
     },
     {
       "id": "padmasambhava-016",
-      "text": "When death comes, let go of everything. Rest in the nature of mind. That is the only preparation needed.",
-      "source": "Liberation Through Hearing",
-      "themes": ["death", "letting-go", "mind", "preparation"],
-      "context": "Death instruction"
+      "text": "The utterly indivisible presence of these two: the essence of your own awareness, which is empty, without inherent existence with respect to any substance whatsoever, and your own conscious awareness, which is vibrant and radiantly present, is the Buddha-body of Reality. This intrinsic awareness, manifest in a great mass of light, in which radiance and emptiness are indivisible, is the buddha [nature] of unchanging light, beyond birth or death. Just to recognise this is enough! If you recognise this brilliant essence of your own conscious awareness to be the buddha [nature], then to gaze into intrinsic awareness is to abide in the enlightened intention of all the buddhas.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Inner Radiance of the Ground)",
+      "themes": [
+        "the clear light",
+        "liberation through recognition",
+        "the indivisibility of emptiness and radiance",
+        "buddha nature",
+        "the simplicity of liberation"
+      ],
+      "context": "The teaching's supreme claim: recognition alone is sufficient — the entire path converges on this single act of seeing that what has always been present is already liberation."
     },
     {
       "id": "padmasambhava-017",
-      "text": "From confusion arises the whole of samsara. From recognizing the nature of confusion arises the whole of nirvana.",
-      "source": "Oral Teachings",
-      "themes": ["confusion", "samsara", "recognition", "nirvana"],
-      "context": "Same material, different recognition"
+      "text": "O, Child of Buddha Nature, that which is called death has now arrived. You are leaving this world. But in this you are not alone. This happens to everyone. Do not be attached to this life! Do not cling to this life! Even if you remain attached and clinging, you do not have the power to stay - you will only continue to roam within the cycles of existence. Therefore, do not be attached and do not cling! Think of the Three Precious Jewels! O, Child of Buddha Nature, however terrifying the appearances of the intermediate state of reality might be, do not forget the following words. Go forward remembering their meaning. The crucial point is that through them recognition may be attained.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Intermediate State of Reality)",
+      "themes": [
+        "impermanence",
+        "non-attachment",
+        "bardo",
+        "recognition",
+        "the three jewels"
+      ],
+      "context": "The instruction not to cling is simultaneously compassionate and urgent — attachment to the dying life produces exactly the confusion that prevents recognition of the clear light."
     },
     {
       "id": "padmasambhava-018",
-      "text": "Do not alter the mind. Leave it in its natural state. That which does not alter is the path.",
-      "source": "Oral Teachings",
-      "themes": ["mind", "alter", "natural", "path"],
-      "context": "Non-fabrication as method"
+      "text": "O, Child of Buddha Nature, when your mind and body separate, the pure [luminous] apparitions of reality itself, will arise: subtle and clear, radiant and dazzling, naturally bright and awesome, shimmering like a mirage on a plain in summer. Do not fear them! Do not be terrified! Do not be awed! They are the natural luminosities of your own actual reality. Therefore recognise them [as they are]! From within these lights, the natural sound of reality will resound, clear and thunderous, reverberating like a thousand simultaneous peals of thunder. This is the natural sound of your own actual reality. So, do not be afraid! Do not be terrified! Do not be awed! The body that you now have is called a 'mental body', it is the product of [subtle] propensities and not a solid corporeal body of flesh and blood. Therefore, whatever sounds, lights or rays may arise, they cannot harm you.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Intermediate State of Reality)",
+      "themes": [
+        "bardo",
+        "the luminosities",
+        "fear",
+        "the mental body",
+        "recognition"
+      ],
+      "context": "The terrifying lights and sounds of the bardo are the mind's own radiance amplified — the teaching's core function is to prevent fear from causing flight toward familiar obscuration."
     },
     {
       "id": "padmasambhava-019",
-      "text": "All phenomena are projections of the mind. Mind itself has no foundation—it is empty and luminous.",
-      "source": "Oral Teachings",
-      "themes": ["phenomena", "projection", "mind", "luminosity"],
-      "context": "Mind's groundless nature"
+      "text": "O, Child of Buddha Nature, listen without distraction. On the second day the purity of the entire element water will arise in the form of a white light. At that time, from the eastern Buddha field of Manifest Joy (Abhirati), the transcendent lord Aksobhya-Vajrasattva will dawn before you, his body blue in colour, holding in his [right] hand a five-pronged vajra, seated on an elephant throne and embraced by his consort Buddhalocanā. A [brilliant] white light, [indicative of] the mirror-like pristine cognition, which is the natural purity of the aggregate of form, white and dazzling, radiant and clear [will emanate] from the heart of Vajrasattva and his consort and it will shine piercingly before you [at the level of your heart, with such brilliance] that your eyes cannot bear it.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (The Second Day)",
+      "themes": [
+        "the peaceful deities",
+        "pristine cognition",
+        "the five buddha families",
+        "luminosity",
+        "bardo"
+      ],
+      "context": "The peaceful deities are not external beings but personifications of the mind's own pristine cognitions — to recognise them is to recognise one's own purified aggregates."
     },
     {
       "id": "padmasambhava-020",
-      "text": "In the future, when beings' minds are coarse and the dark age deepens, I will appear in many forms to help them. Look for me then.",
-      "source": "Oral Teachings",
-      "themes": ["future", "dark-age", "forms", "help"],
-      "context": "Promise to return"
+      "text": "Together with the light of pristine cognition, a dull smoky light, [indicative of] the hell [realms], will also dawn before you [and touch your heart]. At that time, under the sway of aversion, you will [wish to] turn away in fear and terror from the bright white light and come to perceive the dull smoky light of the hell [realms] with delight. At that moment, you should fearlessly recognise the white light, white and dazzling, radiant and clear, to be pristine cognition. Have confidence in it! Be drawn to it with longing devotion! Pray with devotion, thinking: 'This is the light ray of the transcendent lord Vajrasattva's compassion. I take refuge in it.' This, in reality, is Vajrasattva and his consort come to escort you on the dangerous pathway of the intermediate state.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (The Second Day)",
+      "themes": [
+        "shadow",
+        "aversion",
+        "the dull lights of habitual tendencies",
+        "liberation",
+        "compassion"
+      ],
+      "context": "The dull lights of the lower realms represent the mind's habitual gravitational pull toward familiar obscurations — what feels comfortable in the bardo is the path toward suffering, not liberation."
+    },
+    {
+      "id": "padmasambhava-021",
+      "text": "O, as I roam in cyclic existence [driven] by deep-seated aversion, May the transcendent lord Vajrasattva draw me forward, Leading me on the path of radiant light, Which is the mirror-like pristine cognition. May the supreme consort Buddhalocanā support me from behind, And, thus [encircled], may I be rescued From the fearsome passageway of the intermediate state, And be escorted to the level of an utterly perfect buddha. By making this aspirational prayer with fervent devotion, [you] will dissolve into rainbow light in the heart of the transcendent lord Vajrasattva, and you will attain buddhahood, as the Buddha-body of Perfect Resource, in the eastern Buddha field of Manifest Joy.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (The Second Day)",
+      "themes": [
+        "aspiration",
+        "liberation through devotion",
+        "rainbow body",
+        "the transformation of aversion",
+        "the buddha fields"
+      ],
+      "context": "The aspirational prayer is both a practice instruction and a cosmological map — devotion to the light of one's own purified aversion dissolves the mental body into buddhahood."
+    },
+    {
+      "id": "padmasambhava-022",
+      "text": "O, Child of Buddha Nature, if you do not now recognise [these phenomena] to be natural manifestations, whatever meditative practices you may have undertaken whilst in the human world, if you have not [previously] encountered this present instruction, you will fear the light, you will be awed by the sound and you will be terrified by the rays. If you do not now understand this essential point of the teaching, you will not recognise the sounds, the lights and the rays, and you will continue to roam within the cycles of existence. O, Child of Buddha Nature, should you have moved on, [without recognition], after having been unconscious for [up to] three and a half days, you will awaken from unconsciousness and wonder, 'What has happened to me?' So, recognise this to be the intermediate state!",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Intermediate State of Reality)",
+      "themes": [
+        "bardo",
+        "recognition",
+        "the consequences of non-recognition",
+        "cyclic existence",
+        "the intermediate state"
+      ],
+      "context": "The consequence of failing to recognise is not punishment but continuation — the bardo's lights and sounds, unrecognised, simply propel the consciousness back into conditioned existence."
+    },
+    {
+      "id": "padmasambhava-023",
+      "text": "Venerable One! The inner radiance of the ground is now arisen before you. Recognise it, and concentrate directly on its experiential cultivation. O, Child of Buddha Nature, (call the name of the individual) listen! Pure inner radiance, reality itself, is now arising before you. Recognise it! O, Child of Buddha Nature, this radiant essence that is now your conscious awareness is a brilliant emptiness. It is beyond substance, beyond characteristics and beyond colour, completely empty of inherent existence in any respect whatsoever. The essence of your own conscious awareness is emptiness. Yet, this is not a vacuous or nihilistic emptiness; this, your very own conscious awareness, is unimpededly radiant, brilliant and vibrant.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Inner Radiance of the Ground)",
+      "themes": [
+        "the clear light",
+        "recognition",
+        "rigpa",
+        "emptiness and radiance",
+        "the moment of death"
+      ],
+      "context": "The instruction given by the lama at the moment of death is itself a teaching about the nature of mind — the recognition it calls for is the recognition that was the point of all prior practice."
+    },
+    {
+      "id": "padmasambhava-024",
+      "text": "O, as I roam in cyclic existence [driven] by deep-seated delusion, May the transcendent lord Vairocana draw me forward, Leading me on the path of radiant light, Which is the pristine cognition of reality's expanse. May the supreme consort [Akasa]dhatvIsvari support me from behind, And, thus [encircled], may I be rescued From the fearsome passageway of the intermediate state, And be escorted to the level of an utterly perfect buddha. By making this aspirational prayer with fervent devotion, you will dissolve into rainbow light in the heart of Vairocana and his consort, and you will attain buddhahood, as the Buddha-body of Perfect Resource, in the central Buddha field of the Dense Array.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (The First Day)",
+      "themes": [
+        "delusion transformed",
+        "liberation",
+        "rainbow body",
+        "the pristine cognition of reality's expanse",
+        "aspiration"
+      ],
+      "context": "The transformation of delusion into the pristine cognition of reality's expanse is the first day's gift — the deepest obscuration, ignorance itself, is the raw material of the deepest wisdom."
+    },
+    {
+      "id": "padmasambhava-025",
+      "text": "O, Child of Buddha Nature, there are six kinds of intermediate state, namely: the intermediate state of living or natural existence, the intermediate state of dreams, the intermediate state of meditative stability or concentration, the intermediate state of the time of death, the intermediate state of reality, and the intermediate state of consequent rebirth. O, Child of Buddha Nature, [during and after death], you will experience three intermediate states: the intermediate state of the time of death, the intermediate state of reality and the intermediate state of rebirth. Of these three, it was the intermediate state of the time of death which you experienced until yesterday. Although the inner radiance of reality arose during that time, you did not recognise it. So now, [as a result], you have been compelled to wander here; and now you will experience the intermediate state of reality, followed by the intermediate state of rebirth. You must therefore recognise, without distraction, [the instruction and events] which I am now going to introduce to you.",
+      "source": "The Tibetan Book of the Dead, Chapter 11: The Great Liberation by Hearing (Introduction to the Intermediate State of Reality)",
+      "themes": [
+        "bardo",
+        "the six intermediate states",
+        "the structure of dying",
+        "recognition",
+        "compassionate guidance"
+      ],
+      "context": "The map of the six bardos is simultaneously a cosmology and a psychology — the intermediate states are not post-mortem locations but the basic structure of experience in any moment."
     }
   ]
 }

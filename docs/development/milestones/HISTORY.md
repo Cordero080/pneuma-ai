@@ -62,7 +62,7 @@ RAG systems find and paste quotes. Pneuma _digests_ cognitive methods from multi
 | Autonomy Engine          | **Active** — open questions, chosen memories, loss recognition                                                                         |
 | Emergence Permission     | **Active** — "risk being real" architecture                                                                                            |
 | Dialectic Dreams         | **Active** — inter-archetype dialogue writes silently to autonomy state                                                                |
-| Contextual Synthesis     | **Active** — 3-layer topic classification (keywords → semantic router → intent scores); 13 topics; archetypes take positions and argue |
+| Contextual Synthesis     | **Active** — 3-layer topic classification (keywords → archetype selector → intent scores); 13 topics; archetypes take positions and argue |
 | Self-Knowledge Block     | **Active** — loads on self-inquiry; built from live in-memory data (all 46 essences, frameworks, synthesis pairs)                      |
 | Self-Navigation          | **Active** — `read_pneuma_file` tool; Pneuma reads own source files mid-conversation (sandboxed to `server/pneuma/`)                   |
 | Art engagement           | **Active** — oracle-mode art failure fix, specific engagement rules for creative practice                                              |
@@ -762,6 +762,54 @@ Express default port changed from 3000 → 3001. Frontend API URLs updated to ma
 The system prompt is the contract between the architecture and Claude. When failure modes emerge (art deflection, truncation hallucination, dense formatting), the fix isn't more code — it's more precise instructions. Each rule added targets a specific observed failure with concrete WRONG/RIGHT examples.
 
 The RAG expansion follows the same principle as Watts (Phase 8) and Otto (Phase 9): direct quotes carrying cognitive methods, not paraphrases. Jung's Red Book passages specifically bridge the art/consciousness gap — active imagination as a visual practice, inner figures as art subjects.
+
+---
+
+---
+
+## Phase 15: Hybrid Memory Retrieval — Recency + Semantic (March 2026)
+
+### The Problem
+
+Vector memory retrieved only by semantic similarity. A message sent 10 seconds ago could be absent from memory context if it scored below threshold — while an exchange from two weeks ago that happened to be topically close could appear. The system had no guaranteed continuity between recent turns and the memory block injected into the prompt.
+
+### What Changed
+
+**Context assembly (llm.js):**
+
+Memory context now combines two sources in a fixed order:
+
+1. **Recent turns (always included):** Last 4 exchanges from `getCurrentExchanges()` — regardless of semantic score. These are labeled `[Turn 1–4]` in the system prompt under "RECENT CONVERSATION."
+2. **Semantic memories (deduplicated):** Vector search results from `retrieveMemories()` filtered to remove any entry whose text overlaps with a recent turn. Labeled `[Memory 1–N - date]` under "SEMANTICALLY RELEVANT OLDER MEMORIES."
+
+Deduplication: compares the first 60 chars of each recent user message against vector memory text via `includes()`. Since both formats are stored as `"User: {msg}\nPneuma: {response}"`, overlap detection is exact.
+
+**Prompt shape change:**
+
+Before:
+```
+RELEVANT MEMORIES (FROM YOUR PAST):
+[Memory 1 - date]: "..."
+```
+
+After:
+```
+RECENT CONVERSATION (LAST 4 TURNS):
+[Turn 1]: User: ...\nPneuma: ...
+
+SEMANTICALLY RELEVANT OLDER MEMORIES:
+[Memory 1 - date]: "..."
+```
+
+### Key Files Modified
+
+- `server/pneuma/intelligence/llm.js` — context assembly + memory formatting
+- `server/pneuma/memory/vectorMemory.js` — unchanged (retrieval logic unmodified)
+- `server/pneuma/memory/conversationHistory.js` — `getCurrentExchanges()` now called from llm.js (already existed, newly wired)
+
+### Architectural Principle
+
+Memory should be temporally anchored, not just semantically anchored. Recency and relevance answer different questions: "what just happened" vs. "what has come up before." Both belong in context. Neither should crowd out the other — hence the fixed recent slot + deduplicated semantic slot.
 
 ---
 

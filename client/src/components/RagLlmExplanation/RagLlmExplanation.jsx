@@ -724,11 +724,11 @@ const STUDY_SECTIONS = [
           <div className="sg-a">
             <strong>Layer 1 — Keywords:</strong> Fast regex scan. If "death", "grief", "loss" → suffering.
             If "bullshit", "jargon", "overrated" → pretension. Covers most cases.<br/><br/>
-            <strong>Layer 2 — Semantic router:</strong> If keywords miss, <code>findBestArchetype()</code> embeds
+            <strong>Layer 2 — Archetype selector:</strong> If keywords miss, <code>findBestArchetype()</code> embeds
             the message and finds the closest archetype by vector similarity. The result maps through
             <code>ARCHETYPE_PRIMARY_TOPIC</code> — a 46-entry map from archetype name to synthesis topic.
             "The weight I carry" → closest archetype: <code>russianSoul</code> → topic: <code>"suffering"</code>.<br/><br/>
-            <strong>Layer 3 — Intent score fallbacks:</strong> If semantic router scores below threshold,
+            <strong>Layer 3 — Intent score fallbacks:</strong> If archetype selector scores below threshold,
             fall back to intent scores. <code>philosophical &gt; 0.6</code> → consciousness.
             <code>emotional &gt; 0.6</code> → suffering. <code>numinous &gt; 0.5</code> → meaning.
           </div>
@@ -737,7 +737,7 @@ const STUDY_SECTIONS = [
           <div className="sg-q">Q: What is ARCHETYPE_PRIMARY_TOPIC?</div>
           <div className="sg-a">
             A hand-coded map that assigns every archetype to its primary synthesis topic.
-            It converts the semantic router's archetype result into a topic the synthesis engine can use.
+            It converts the archetype selector's archetype result into a topic the synthesis engine can use.
             Without it, knowing that the closest archetype is <code>russianSoul</code> tells you nothing
             about which synthesis pairs to fire. With it: <code>russianSoul</code> → <code>"suffering"</code>
             → Nietzsche × Schopenhauer pair activates.
@@ -767,7 +767,7 @@ const STUDY_SECTIONS = [
         </div>
         <div className="insight-box" style={{ maxWidth: '100%' }}>
           <strong>The point:</strong> Topic classification used to miss anything that didn't use the expected words.
-          Now it reads meaning, not just surface. The semantic router connects user language to archetype language —
+          Now it reads meaning, not just surface. The archetype selector connects user language to archetype language —
           the gap RAG was designed to bridge, now also bridging topic routing.
         </div>
       </>
@@ -909,7 +909,7 @@ const STUDY_SECTIONS = [
           ["Antithetical mode", "A and B disagree; third position emerges from their collision"],
           ["Complementary mode", "A and B agree from opposite approaches; convergence makes the conclusion undeniable"],
           ["Cross-domain mode", "A brings rigor, B brings resonance; two languages translating the same truth"],
-          ["Topic classification", "3-layer: keyword patterns → semantic router (ARCHETYPE_PRIMARY_TOPIC map, 46 archetypes mapped to synthesis topics) → intent score fallbacks; identifies what a message is fundamentally about"],
+          ["Topic classification", "3-layer: keyword patterns → archetype selector (ARCHETYPE_PRIMARY_TOPIC map, 46 archetypes mapped to synthesis topics) → intent score fallbacks; identifies what a message is fundamentally about"],
           ["Synthesis mandate", "Directive telling each archetype to take an actual position on the specific message, not just be present"],
           ["Pretension topic", "12th synthesis category; keywords: bullshit, overrated, jargon, corporate, etc.; fires trickster × brutalist or antifragilist × trickster"],
           ["Trickster autonomous injection", "12% chance on philosophical/analytical messages independent of tone; Carlin/Hicks energy targets ideas, not people; also in analytic tone map"],

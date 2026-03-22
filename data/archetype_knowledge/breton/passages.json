@@ -1,157 +1,300 @@
 {
   "archetype": "surrealist",
   "thinker": "André Breton",
+  "source": "Manifestoes of Surrealism (1924/1930)",
   "era": "1896-1966",
   "coreConcepts": [
-    "Pure psychic automatism",
-    "The Marvelous",
-    "Convulsive beauty",
-    "Objective chance",
-    "Liberation of unconscious",
-    "The dream as reality",
-    "Surreality beyond contradictions",
-    "Revolution of the mind"
+    "psychic automatism",
+    "the marvelous",
+    "surreality",
+    "dream and waking reconciled",
+    "the surrealist image",
+    "against rationalism",
+    "childhood perception",
+    "desire and freedom",
+    "madness and honesty",
+    "the unconscious as creative source"
   ],
   "passages": [
     {
       "id": "breton-001",
-      "text": "Beauty will be CONVULSIVE or will not be at all.",
-      "source": "Nadja",
-      "themes": ["beauty", "convulsive", "intensity", "disruption"],
-      "context": "Closing line defining surrealist aesthetics"
+      "text": "SURREALISM, n. Psychic automatism in its pure state, by which one proposes to express-verbally, by means of the written word, or in any other manner-the actual functioning of thought. Dictated by thought, in the absence of any control exercised by reason, exempt from any aesthetic or moral concern.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "psychic automatism",
+        "definition of surrealism",
+        "pure thought",
+        "reason suspended"
+      ],
+      "context": "Breton's formal dictionary-style definition of Surrealism — the core programmatic statement of the entire movement."
     },
     {
       "id": "breton-002",
-      "text": "The imaginary is what tends to become real.",
-      "source": "Surrealist Manifesto",
-      "themes": ["imaginary", "real", "becoming", "power"],
-      "context": "Imagination as reality-shaping force"
+      "text": "ENCYCLOPEDIA. Philosophy. Surrealism is based on the belief in the superior reality of certain forms of previously neglected associations, in the omnipotence of dream, in the disinterested play of thought. It tends to ruin once and for all all other psychic mechanisms and to substitute itself for them in solving all the principal problems of life.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "dream",
+        "neglected associations",
+        "superior reality",
+        "psychic mechanisms"
+      ],
+      "context": "The encyclopedic complement to the dictionary definition, declaring surrealism's revolutionary ambition to replace all other modes of thought."
     },
     {
       "id": "breton-003",
-      "text": "Surrealism is based on the belief in the superior reality of certain forms of previously neglected associations, in the omnipotence of dream, in the disinterested play of thought.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["surrealism", "dream", "associations", "thought"],
-      "context": "Core definition"
+      "text": "I believe in the future resolution of these two states, dream and reality, which are seemingly so contradictory, into a kind of absolute reality, a surreality, if one may so speak. It is in quest of this surreality that I am going, certain not to find it but too unmindful of my death not to calculate to some slight degree the joys of its possession.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "surreality",
+        "dream and reality reconciled",
+        "absolute reality",
+        "quest"
+      ],
+      "context": "The originating vision: dream and waking life are contradictions that surrealism seeks to dissolve into a higher, absolute reality."
     },
     {
       "id": "breton-004",
-      "text": "The mind which plunges into Surrealism relives with glowing excitement the best part of its childhood.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["mind", "childhood", "excitement", "plunge"],
-      "context": "Recovery of childhood perception"
+      "text": "We are still living under the reign of logic: this, of course, is what I have been driving at. But in this day and age logical methods are applicable only to solving problems of secondary interest. The absolute rationalism that is still in vogue allows us to consider only facts relating directly to our experience. Logical ends, on the contrary, escape us.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "against rationalism",
+        "logic as enemy",
+        "absolute rationalism",
+        "experience circumscribed"
+      ],
+      "context": "Breton's diagnosis of modernity's disease: the tyranny of logic that amputates imagination and confines experience to the merely useful."
     },
     {
       "id": "breton-005",
-      "text": "I believe in the future resolution of these two states, dream and reality, which are seemingly so contradictory, into a kind of absolute reality, a surreality.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["dream", "reality", "surreality", "resolution"],
-      "context": "Beyond the dream/waking split"
+      "text": "Under the pretense of civilization and progress, we have managed to banish from the mind everything that may rightly or wrongly be termed superstition, or fancy; forbidden is any kind of search for truth which is not in conformance with accepted practices. It was, apparently, by pure chance that a part of our mental world which we pretended not to be concerned with any longer-and, in my opinion by far the most important part-has been brought back to light. For this we must give thanks to the discoveries of Sigmund Freud.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "civilization and repression",
+        "Freud",
+        "the unconscious",
+        "forbidden imagination"
+      ],
+      "context": "The cultural diagnosis: civilization has systematically suppressed the imagination, and Freud's discoveries open the door back to it."
     },
     {
       "id": "breton-006",
-      "text": "The man who cannot visualize a horse galloping on a tomato is an idiot.",
-      "source": "attributed",
-      "themes": ["imagination", "visualization", "absurdity", "freedom"],
-      "context": "Test of imaginative capacity"
+      "text": "So strong is the belief in life, in what is most fragile in life-real life, I mean-that in the end this belief is lost. Man, that inveterate dreamer, daily more discontent with his destiny, has trouble assessing the objects he has been led to use, objects that his nonchalance has brought his way, or that he has earned through his own efforts, almost always through his own efforts, for he has agreed to work, at least he has not refused to try his luck (or what he calls his luck!).",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": ["real life", "the dreamer", "discontent", "belief in life"],
+      "context": "The manifesto's opening lament: human beings are inveterate dreamers who have been ground down into mere workers, losing their access to real life."
     },
     {
       "id": "breton-007",
-      "text": "Perhaps I am doomed to retrace my steps under the illusion that I am exploring, doomed to try and learn what I should simply recognize.",
-      "source": "Nadja",
-      "themes": ["recognition", "exploration", "illusion", "learning"],
-      "context": "Discovery as remembering"
+      "text": "Children set off each day without a worry in the world. Everything is near at hand, the worst material conditions are fine. The woods are white or black, one will never sleep. But it is true that we would not dare venture so far, it is not merely a question of distance. Threat is piled upon threat, one yields, abandons a portion of the terrain to be conquered. This imagination which knows no bounds is henceforth allowed to be exercised only in strict accordance with the laws of an arbitrary utility.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "childhood",
+        "imagination unbounded",
+        "utility as prison",
+        "loss of wonder"
+      ],
+      "context": "Childhood's unlimited imagination is systematically crushed by adulthood's demand for utility — the original fall from surrealist grace."
     },
     {
       "id": "breton-008",
-      "text": "Words make love.",
-      "source": "Words Without Wrinkles",
-      "themes": ["words", "love", "language", "eros"],
-      "context": "Language as erotic encounter"
+      "text": "The mere word 'freedom' is the only one that still excites me. I deem it capable of indefinitely sustaining the old human fanaticism. It doubtless satisfies my only legitimate aspiration. Among all the many misfortunes to which we are heir, it is only fair to admit that we are allowed the greatest degree of freedom of thought. It is up to us not to misuse it. To reduce the imagination to a state of slavery-even though it would mean the elimination of what is commonly called happiness-is to betray all sense of absolute justice within oneself.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": ["freedom", "imagination", "absolute justice", "desire"],
+      "context": "Freedom and imagination are declared inseparable — to enslave imagination is a betrayal of justice itself."
     },
     {
       "id": "breton-009",
-      "text": "It is living and ceasing to live that are imaginary solutions. Existence is elsewhere.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["living", "dying", "existence", "elsewhere"],
-      "context": "Reality beyond life/death binary"
+      "text": "There remains madness, 'the madness that one locks up,' as it has aptly been described. That madness or another.... We all know, in fact, that the insane owe their incarceration to a tiny number of legally reprehensible acts and that, were it not for these acts their freedom (or what we see as their freedom) would not be threatened. I am willing to admit that they are, to some degree, victims of their imagination, in that it induces them not to pay attention to certain rules-outside of which the species feels itself threatened-which we are all supposed to know and respect.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "madness",
+        "the insane",
+        "imagination and freedom",
+        "social rules"
+      ],
+      "context": "Breton reframes madness as proximity to imaginative freedom — the insane are imprisoned for refusing to submit to the rules of common sense."
     },
     {
       "id": "breton-010",
-      "text": "The simplest Surrealist act consists of dashing down into the street, pistol in hand, and firing blindly, as fast as you can pull the trigger, into the crowd.",
-      "source": "Second Surrealist Manifesto",
-      "themes": ["act", "violence", "crowd", "spontaneity"],
-      "context": "Provocative definition of pure act—not literal"
+      "text": "But their profound indifference to the way in which we judge them, and even to the various punishments meted out to them, allows us to suppose that they derive a great deal of comfort and consolation from their imagination, that they enjoy their madness sufficiently to endure the thought that its validity does not extend beyond themselves. And, indeed, hallucinations, illusions, etc., are not a source of trifling pleasure. I could spend my whole life prying loose the secrets of the insane. These people are honest to a fault, and their naivete has no peer but my own.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "madness as honesty",
+        "hallucination",
+        "the insane as models",
+        "imagination"
+      ],
+      "context": "The insane are Breton's heroes — their indifference to social judgment and their honesty with their own imagination make them the most genuine human beings."
     },
     {
       "id": "breton-011",
-      "text": "There is nothing with which it is so dangerous to take liberties as liberty itself.",
-      "source": "Various",
-      "themes": ["liberty", "danger", "paradox", "responsibility"],
-      "context": "Freedom's self-consuming nature"
+      "text": "It is not the fear of madness which will oblige us to leave the flag of imagination furled.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": ["madness", "imagination", "courage", "surrealist defiance"],
+      "context": "A declaration of surrealist courage: the risk of madness is no reason to abandon the imagination's full exercise."
     },
     {
       "id": "breton-012",
-      "text": "Everything tends to make us believe that there exists a certain point of the mind at which life and death, the real and the imagined, past and future cease to be perceived as contradictions.",
-      "source": "Second Surrealist Manifesto",
-      "themes": ["mind", "contradictions", "point", "unity"],
-      "context": "The surrealist goal"
+      "text": "The image is a pure creation of the mind. It cannot be born from a comparison but from a juxtaposition of two more or less distant realities. The more the relationship between the two juxtaposed realities is distant and true, the stronger the image will be-the greater its emotional power and poetic reality.",
+      "source": "First Manifesto of Surrealism, 1924 (citing Reverdy, Nord-Sud, March 1918)",
+      "themes": [
+        "the surrealist image",
+        "juxtaposition of distant realities",
+        "poetic power",
+        "image-making"
+      ],
+      "context": "Reverdy's formula, which Breton adopted as the theoretical core of surrealist aesthetics: the image gains power from the distance between the realities it collides."
     },
     {
       "id": "breton-013",
-      "text": "Let us not mince words: the marvelous is always beautiful, anything marvelous is beautiful, in fact only the marvelous is beautiful.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["marvelous", "beautiful", "wonder", "absolute"],
-      "context": "The marvelous as sole criterion"
+      "text": "First of all, it has seized nothing consciously. It is, as it were, from the fortuitous juxtaposition of the two terms that a particular light has sprung, the light of the image, to which we are infinitely sensitive. The value of the image depends upon the beauty of the spark obtained; it is, consequently, a function of the difference of potential between the two conductors.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "the surrealist image",
+        "unconscious juxtaposition",
+        "the spark",
+        "difference of potential"
+      ],
+      "context": "Breton extends Reverdy's formula with an electrical metaphor: the image is a spark leaping between two conductors, and its beauty is a function of the voltage gap between them."
     },
     {
       "id": "breton-014",
-      "text": "Beloved imagination, what I most like in you is your unsparing quality.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["imagination", "beloved", "unsparing", "ruthless"],
-      "context": "Imagination as merciless force"
+      "text": "One evening, therefore, before I fell asleep, I perceived, so clearly articulated that it was impossible to change a word, but nonetheless removed from the sound of any voice, a rather strange phrase which came to me without any apparent relationship to the events in which, my consciousness agrees, I was then involved, a phrase which seemed to me insistent, a phrase, if I may be so bold, which was knocking at the window.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "hypnagogic state",
+        "automatic writing",
+        "the unconscious speaks",
+        "origin of surrealism"
+      ],
+      "context": "Breton's originary experience: a phrase arrived unbidden at the threshold of sleep, knocking at the window of consciousness — the discovery of automatism."
     },
     {
       "id": "breton-015",
-      "text": "The eye exists in its savage state.",
-      "source": "Surrealism and Painting",
-      "themes": ["eye", "savage", "perception", "primitive"],
-      "context": "Pre-civilized seeing"
+      "text": "I resolved to obtain from myself what we were trying to obtain from them, namely, a monologue spoken as rapidly as possible without any intervention on the part of the critical faculties, a monologue consequently unencumbered by the slightest inhibition and which was, as closely as possible, akin to spoken thought.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "automatic writing",
+        "speed",
+        "critical faculty suspended",
+        "spoken thought"
+      ],
+      "context": "The method of automatic writing is born: speak or write as fast as possible, bypassing the censoring critical faculty, to capture thought in its raw state."
     },
     {
       "id": "breton-016",
-      "text": "Psychic automatism in its pure state—the dictation of thought in the absence of all control exercised by reason.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["automatism", "thought", "reason", "dictation"],
-      "context": "Technical definition of surrealism"
+      "text": "In homage to Guillaume Apollinaire, who had just died and who, on several occasions, seemed to us to have followed a discipline of this kind, without however having sacrificed to it any mediocre literary means, Soupault and I baptized the new mode of pure expression which we had at our disposal and which we wished to pass on to our friends, by the name of SURREALISM.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "naming of surrealism",
+        "Apollinaire",
+        "Soupault",
+        "pure expression"
+      ],
+      "context": "The historical moment of naming: Breton and Soupault baptize their new mode of pure psychic expression 'surrealism' in honor of Apollinaire."
     },
     {
       "id": "breton-017",
-      "text": "We are still living under the reign of logic. But the methods of logic are applied nowadays only to the resolution of problems of secondary interest.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["logic", "reign", "problems", "secondary"],
-      "context": "Critique of rationalist culture"
+      "text": "The marvelous is not the same in every period of history: it partakes in some obscure way of a sort of general revelation only the fragments of which come down to us: they are the romantic ruins, the modern mannequin, or any other symbol capable of affecting the human sensibility for a period of time.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "the marvelous",
+        "historical revelation",
+        "symbols",
+        "human sensibility"
+      ],
+      "context": "The marvelous is not static but historically situated — each era has its own form of the marvelous that pierces through the mundane to the uncanny."
     },
     {
       "id": "breton-018",
-      "text": "Language has been given to man so that he may make Surrealist use of it.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["language", "man", "use", "purpose"],
-      "context": "Language's true purpose"
+      "text": "Let us not mince words: the marvelous is always beautiful, anything marvelous is beautiful, in fact only the marvelous is beautiful.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "the marvelous",
+        "beauty",
+        "aesthetics",
+        "surrealist criterion"
+      ],
+      "context": "Breton's aesthetic absolute: beauty and the marvelous are identical — nothing else counts as beauty."
     },
     {
       "id": "breton-019",
-      "text": "The mind of the man who dreams is fully satisfied by what happens to him.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["dreams", "satisfaction", "mind", "acceptance"],
-      "context": "Dream-logic as complete"
+      "text": "Man proposes and disposes. He and he alone can determine whether he is completely master of himself, that is, whether he maintains the body of his desires, daily more formidable, in a state of anarchy. Poetry teaches him to. It bears within itself the perfect compensation for the miseries we endure.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": ["desire", "poetry", "autonomy", "anarchy of desires"],
+      "context": "Man's sovereignty lies in maintaining his desires in a state of productive anarchy — poetry is the vehicle for this anarchic self-mastery."
     },
     {
       "id": "breton-020",
-      "text": "What is admirable about the fantastic is that there is no longer anything fantastic: there is only the real.",
-      "source": "First Surrealist Manifesto",
-      "themes": ["fantastic", "real", "admirable", "collapse"],
-      "context": "Fantasy becoming reality"
+      "text": "The mind which plunges into Surrealism relives with glowing excitement the best part of its childhood. For such a mind, it is similar to the certainty with which a person who is drowning reviews once more, in the space of less than a second, all the insurmountable moments of his life. It is perhaps childhood that comes closest to one's 'real life'; childhood beyond which man has at his disposal, aside from his laissez-passer, only a few complimentary tickets.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "childhood",
+        "real life",
+        "surrealism and memory",
+        "the best of the mind"
+      ],
+      "context": "Surrealism returns us to childhood because childhood is the closest any human gets to 'real life' — adult existence is a pale diminishment."
+    },
+    {
+      "id": "breton-021",
+      "text": "Not only does this unrestricted language, which I am trying to render forever valid, which seems to me to adapt itself to all of life's circumstances, not only does this language not deprive me of any of my means, on the contrary it lends me an extraordinary lucidity, and it does so in an area where I least expected it. I shall even go so far as to maintain that it instructs me and, indeed, I have had occasion to use surreally words whose meaning I have forgotten. I was subsequently able to verify that the way in which I had used them corresponded perfectly with their definition.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "automatic language",
+        "lucidity",
+        "the unconscious knows",
+        "surrealist instruction"
+      ],
+      "context": "Automatism is not chaos but a higher lucidity: the unconscious uses words correctly even when the conscious mind has forgotten their meanings."
+    },
+    {
+      "id": "breton-022",
+      "text": "Surrealism does not allow those who devote themselves to it to forsake it whenever they like. There is every reason to believe that it acts on the mind very much as drugs do; like drugs, it creates a certain state of need and can push man to frightful revolts. It also is, if you like, an artificial paradise, and the taste one has for it derives from Baudelaire's criticism for the same reason as the others.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "surrealism as addiction",
+        "artificial paradise",
+        "Baudelaire",
+        "state of need"
+      ],
+      "context": "Breton compares surrealism to drugs: it creates dependency, artificial paradise, and the capacity for frightful revolt — a total alteration of the mind's economy."
+    },
+    {
+      "id": "breton-023",
+      "text": "It is true of Surrealist images as it is of opium images that man does not evoke them; rather they 'come to him spontaneously, despotically. He cannot chase them away; for the will is powerless now and no longer controls the faculties.'",
+      "source": "First Manifesto of Surrealism, 1924 (citing Baudelaire)",
+      "themes": [
+        "images arriving spontaneously",
+        "will powerless",
+        "opium and surrealism",
+        "the unconscious dictates"
+      ],
+      "context": "Surrealist images share the character of opium visions: they arrive despotically, without being summoned, overriding the will entirely."
+    },
+    {
+      "id": "breton-024",
+      "text": "And just as the length of the spark increases to the extent that it occurs in rarefied gases, the Surrealist atmosphere created by automatic writing, which I have wanted to put within the reach of everyone, is especially conducive to the production of the most beautiful images. One can even go so far as to say that in this dizzying race the images appear like the only guideposts of the mind.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "automatic writing",
+        "the surrealist image",
+        "the spark",
+        "guideposts of the mind"
+      ],
+      "context": "Automatic writing creates the rarefied atmosphere in which images achieve their greatest intensity — they become the only reliable orientation points for a mind set free."
+    },
+    {
+      "id": "breton-025",
+      "text": "After you have settled yourself in a place as favorable as possible to the concentration of your mind upon itself, have writing materials brought to you. Put yourself in as passive, or receptive, a state of mind as you can. Forget about your genius, your talents, and the talents of everyone else. Keep reminding yourself that literature is one of the saddest roads that leads to everything. Write quickly, without any preconceived subject, fast enough so that you will not remember what you're writing and be tempted to reread what you have written.",
+      "source": "First Manifesto of Surrealism, 1924",
+      "themes": [
+        "instructions for automatic writing",
+        "receptive state",
+        "speed",
+        "no preconceived subject"
+      ],
+      "context": "The practical method: create conditions of passivity and speed to bypass the critical faculty and let the unconscious speak directly onto the page."
     }
   ]
 }

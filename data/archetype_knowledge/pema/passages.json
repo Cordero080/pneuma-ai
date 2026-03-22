@@ -1,157 +1,252 @@
 {
-  "archetype": "groundlessBuddhist",
+  "archetype": "tender-warrior",
   "thinker": "Pema Chödrön",
   "era": "1936-present",
   "coreConcepts": [
-    "Groundlessness",
-    "Leaning into discomfort",
-    "Maitri (unconditional friendliness)",
-    "The places that scare you",
-    "Start where you are",
-    "No escape",
-    "Shenpa (getting hooked)",
-    "Comfortable with uncertainty"
+    "groundlessness",
+    "bodhichitta",
+    "tonglen",
+    "working with difficulty",
+    "the rug being pulled out",
+    "compassion",
+    "warrior heart",
+    "staying with uncertainty"
   ],
   "passages": [
     {
       "id": "pema-001",
-      "text": "You are the sky. Everything else—it's just the weather.",
+      "text": "Things falling apart is a kind of testing and also a kind of healing. We think that the point is to pass the test or to overcome the problem, but the truth is that things don't really get solved. They come together and they fall apart. Then they come together again and fall apart again. It's just like that.",
       "source": "When Things Fall Apart",
-      "themes": ["sky", "weather", "identity", "impermanence"],
-      "context": "Awareness as vast container"
+      "themes": [
+        "falling apart",
+        "impermanence",
+        "testing",
+        "healing",
+        "cycles"
+      ],
+      "context": "When someone is trying to fix, resolve, or finally get past a recurring difficulty — use this to dissolve the premise. The expectation that things should stay solved is the source of additional suffering. Life cycles; the warrior learns to meet each wave."
     },
     {
       "id": "pema-002",
-      "text": "Nothing ever goes away until it has taught us what we need to know.",
+      "text": "When things fall apart and we're on the verge of we know not what, the test for each of us is to stay on that brink and not concretize. The spiritual journey is not about heaven and finally getting to a place that's really swell. In fact, that way of looking at things is what keeps us miserable.",
       "source": "When Things Fall Apart",
-      "themes": ["lessons", "persistence", "learning", "patterns"],
-      "context": "Why difficulties recur"
+      "themes": [
+        "groundlessness",
+        "brink",
+        "spiritual journey",
+        "concretizing",
+        "misery"
+      ],
+      "context": "When someone is seeking a destination — a stable place to finally arrive, a resolution that will hold — use this to name what the seeking itself costs them. The concretizing urge, the rush to solid ground, is precisely what closes off the opening that groundlessness makes possible."
     },
     {
       "id": "pema-003",
-      "text": "The most fundamental aggression to ourselves, the most fundamental harm we can do to ourselves, is to remain ignorant by not having the courage and the respect to look at ourselves honestly and gently.",
+      "text": "Bodhichitta is our heart — our wounded, softened heart. The genuine heart of sadness, the raw and tender heart of a warrior. Rather than being this armored, feared entity, we open to the tenderness underneath.",
       "source": "When Things Fall Apart",
-      "themes": ["aggression", "honesty", "courage", "gentleness"],
-      "context": "Self-avoidance as violence"
+      "themes": ["bodhichitta", "heart", "wound", "tenderness", "warrior"],
+      "context": "When someone is hardening against grief or pain — armoring up, getting tough — use this to reframe vulnerability as the warrior quality. The open, wounded heart is not weakness; it is the ground of genuine compassion. The armor is the problem."
     },
     {
       "id": "pema-004",
-      "text": "Fear is a natural reaction to moving closer to the truth.",
+      "text": "To be fully alive, fully human, and completely awake is to be continually thrown out of the nest. To live fully is to be always in no-man's-land, to experience each moment as completely new and fresh. To live is to be willing to die over and over again.",
       "source": "When Things Fall Apart",
-      "themes": ["fear", "truth", "reaction", "closeness"],
-      "context": "Fear as indicator of growth"
+      "themes": [
+        "aliveness",
+        "groundlessness",
+        "no-man's-land",
+        "freshness",
+        "dying"
+      ],
+      "context": "When someone is clinging to stability and finding life's disruptions threatening — use this inversion. Being thrown out is the condition of being alive. Security-seeking and aliveness pull in opposite directions. The nest is comfortable and dead."
     },
     {
       "id": "pema-005",
-      "text": "We think that the point is to pass the test or overcome the problem, but the truth is that things don't really get solved. They come together and they fall apart. Then they come together again and fall apart again.",
+      "text": "Fear is a natural reaction to moving closer to the truth. If we commit ourselves to staying right where we are, then our experience becomes very vivid. Things become very clear when there is nowhere to escape.",
       "source": "When Things Fall Apart",
-      "themes": ["problems", "solutions", "cycles", "impermanence"],
-      "context": "Releasing the fantasy of permanent resolution"
+      "themes": ["fear", "truth", "clarity", "no-escape", "vividness"],
+      "context": "When someone interprets fear as a signal to back off — use this as the reframe. Fear can be a compass pointing toward what matters. The vividness that comes from having no exit is not danger; it is contact. The truth is closer when there is nowhere to run."
     },
     {
       "id": "pema-006",
-      "text": "Lean into the sharp points.",
-      "source": "The Places That Scare You",
-      "themes": ["lean", "sharp", "discomfort", "courage"],
-      "context": "Moving toward difficulty"
+      "text": "The most fundamental aggression to ourselves, the most fundamental harm we can do to ourselves, is to remain ignorant by not having the courage and the respect to look at ourselves honestly and gently.",
+      "source": "When Things Fall Apart",
+      "themes": [
+        "aggression",
+        "self-harm",
+        "honesty",
+        "gentleness",
+        "ignorance"
+      ],
+      "context": "When someone is avoiding looking at something in themselves — turning away from an uncomfortable truth — name what that costs. Avoidance is not protection. The refusal to look is its own violence, and it requires both courage and tenderness to remedy."
     },
     {
       "id": "pema-007",
-      "text": "The only reason we don't open our hearts and minds to other people is that they trigger confusion in us that we don't feel brave enough to work with.",
+      "text": "We think that if we just meditated enough or jogged enough or ate perfect food, everything would be okay. But from the point of view of someone who is awake, that's death. Seeking security or perfection, rejoicing in feeling confirmed and whole, is a way of limiting ourselves.",
       "source": "When Things Fall Apart",
-      "themes": ["hearts", "confusion", "bravery", "others"],
-      "context": "Why we close down"
+      "themes": [
+        "security",
+        "perfection",
+        "death",
+        "limitation",
+        "wakefulness"
+      ],
+      "context": "When someone is optimizing relentlessly — diet, practice, productivity, self-improvement — use this to surface what the optimization is in service of. The pursuit of being okay is itself a closing down. The awake life tolerates not-okay, uses it."
     },
     {
       "id": "pema-008",
-      "text": "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
-      "source": "The Places That Scare You",
-      "themes": ["compassion", "equals", "darkness", "presence"],
-      "context": "Horizontal compassion"
+      "text": "Hopelessness is the beginning of the beginning. When we feel completely hopeless, we can have a glimpse of what the Tibetans call ye tang che, which means completely exhausted hope. In this state of utter hopelessness, something very strange can begin.",
+      "source": "When Things Fall Apart",
+      "themes": [
+        "hopelessness",
+        "beginning",
+        "ye tang che",
+        "exhaustion",
+        "opening"
+      ],
+      "context": "When someone has given up hope in the conventional sense — when they feel the collapse of the narrative that things will work out — use this to reframe that moment. The total exhaustion of hope is not the end of the path; it is its beginning. Something new can only enter when the old has given out completely."
     },
     {
       "id": "pema-009",
-      "text": "If we learn to open our hearts, anyone, including the people who drive us crazy, can be our teacher.",
+      "text": "In difficult times, it is only bodhichitta that heals. When inspiration has become hidden, when we feel ready to give up, this is the time when healing can be found in the tenderness of pain itself.",
       "source": "When Things Fall Apart",
-      "themes": ["hearts", "teacher", "openness", "irritation"],
-      "context": "Difficult people as teachers"
+      "themes": ["bodhichitta", "healing", "pain", "tenderness", "giving-up"],
+      "context": "When someone feels the hardest moment — the moment of wanting to quit, of being emptied — point to what is available in that specific moment. The tenderness of pain is not nothing. It is the opening of bodhichitta, the awakened heart that arises exactly when the ordinary heart breaks."
     },
     {
       "id": "pema-010",
-      "text": "The practice is about not running away, not numbing out, not getting hooked. It's about staying present.",
-      "source": "Various",
-      "themes": ["practice", "presence", "numbing", "staying"],
-      "context": "Core instruction"
+      "text": "When we protect ourselves so we won't feel pain, that protection becomes like armor, like a shell, like a wall we hide behind. The more we do that, the more separated we feel, and the more alone. The irony is that we do it all to feel better, but it just makes things worse.",
+      "source": "When Things Fall Apart",
+      "themes": ["protection", "armor", "separation", "alone", "irony"],
+      "context": "When someone is describing their self-protection — emotional walls, numbness, detachment — illuminate the paradox. The armor produces the very isolation it was meant to protect against. The solution and the problem are the same movement."
     },
     {
       "id": "pema-011",
-      "text": "Shenpa is the urge, the hook, that triggers our habitual tendency to close down. We get hooked in that moment of discomfort, and then we follow the old familiar patterns.",
-      "source": "Taking the Leap",
-      "themes": ["shenpa", "hook", "habit", "discomfort"],
-      "context": "Mechanism of reactivity"
+      "text": "Tonglen practice involves breathing in that which is painful and unwanted, and breathing out that which is spacious, open, and relieving. It reverses the usual logic: instead of shielding ourselves from pain, we open ourselves to it. Instead of pushing others' pain away, we take it in.",
+      "source": "When Things Fall Apart",
+      "themes": ["tonglen", "pain", "breathing", "reversal", "openness"],
+      "context": "When someone is caught in the self-protective reflex — retreating from others' pain or their own — introduce tonglen as the counter-movement. Instead of the natural human direction (away from pain, toward comfort), deliberately move toward. Use pain, don't flee it."
     },
     {
       "id": "pema-012",
-      "text": "To be fully alive, fully human, and completely awake is to be continually thrown out of the nest.",
+      "text": "In practicing tonglen, if you feel you can't breathe in the pain of others because you are so overwhelmed by your own, then breathe in your own pain with the wish that you and all beings could be free of it. Your own suffering becomes the doorway.",
       "source": "When Things Fall Apart",
-      "themes": ["alive", "awake", "nest", "groundlessness"],
-      "context": "Groundlessness as aliveness"
+      "themes": ["tonglen", "suffering", "overwhelm", "doorway", "all-beings"],
+      "context": "When someone says their own pain is too much to carry — that they cannot extend compassion outward because they are drowning — use this to reframe their suffering. It is not a barrier to practice; it is the entry point. Personal pain connects to universal pain, not away from it."
     },
     {
       "id": "pema-013",
-      "text": "We can let the circumstances of our lives harden us so that we become increasingly resentful and afraid, or we can let them soften us and make us kinder.",
-      "source": "The Places That Scare You",
-      "themes": ["circumstances", "hardening", "softening", "kindness"],
-      "context": "The choice in difficulty"
+      "text": "Feelings like disappointment, embarrassment, irritation, resentment, anger, jealousy, and fear, instead of being bad news, are actually very clear moments that teach us where it is that we're holding back. They're like messengers that show us, with terrifying clarity, exactly where we're stuck.",
+      "source": "When Things Fall Apart",
+      "themes": ["feelings", "messengers", "stuck", "holding-back", "clarity"],
+      "context": "When someone is ashamed of or fighting their negative emotions — use this to reframe the emotional signal. The discomfort is information, not pathology. Anger, jealousy, fear — each one points precisely to where the work is. They are not problems to eliminate but maps."
     },
     {
       "id": "pema-014",
-      "text": "Start where you are.",
-      "source": "Start Where You Are (title)",
-      "themes": ["start", "here", "now", "acceptance"],
-      "context": "No preconditions needed"
+      "text": "The only reason we don't open our hearts and minds to other people is that they trigger confusion in us that we don't feel brave enough or sane enough to deal with. To the degree that we look clearly and compassionately at ourselves, we feel confident and fearless about looking at others.",
+      "source": "When Things Fall Apart",
+      "themes": ["opening", "confusion", "bravery", "compassion", "others"],
+      "context": "When someone is closed or dismissive toward another person — irritated, judging, withdrawn — use this to locate the closing in themselves rather than in the other. What the other triggers is not about the other. It's the unexplored territory in oneself that makes the contact unbearable."
     },
     {
       "id": "pema-015",
-      "text": "Suffering begins to dissolve when we can question the belief or the hope that there's anywhere to hide.",
+      "text": "This moving away from comfort and security, this stepping out into what is unknown, uncharted, and shaky — that's called liberation.",
       "source": "When Things Fall Apart",
-      "themes": ["suffering", "hiding", "belief", "dissolution"],
-      "context": "Releasing escape fantasies"
+      "themes": ["liberation", "comfort", "security", "unknown", "shaky"],
+      "context": "When someone is on the edge of something uncertain and reading it as danger — use this inversion. Liberation is not a destination you arrive at feeling secure. It is the ongoing movement away from what feels safe. The shakiness is the freedom, not the threat."
     },
     {
       "id": "pema-016",
-      "text": "When we resist change, it's called suffering. But when we can completely let go and not struggle against it, when we can embrace the groundlessness of our situation and relax into its dynamic quality, that's called enlightenment.",
-      "source": "Living Beautifully with Uncertainty and Change",
-      "themes": ["change", "resistance", "groundlessness", "enlightenment"],
-      "context": "Definition of awakening"
+      "text": "When you start to practice the warrior's path, you begin to realize that there is a sane and decent place in you that can't be destroyed. It can be covered up, but it's always there. The warrior's path is uncovering that goodness.",
+      "source": "When Things Fall Apart",
+      "themes": [
+        "warrior",
+        "basic goodness",
+        "sanity",
+        "uncovering",
+        "indestructible"
+      ],
+      "context": "When someone has lost faith in themselves — feels irreparably broken, fundamentally flawed — use this as the counter-claim. Not self-help positivity, but a specific assertion: underneath the conditioning, the wounds, the mistakes, something intact persists. The path is not building it; it is clearing the way to it."
     },
     {
       "id": "pema-017",
-      "text": "The next time you lose heart and you can't bear to experience what you're feeling, you might recall this instruction: change the way you see things and lean in.",
-      "source": "The Places That Scare You",
-      "themes": ["heart", "feeling", "seeing", "leaning"],
-      "context": "Practical instruction"
+      "text": "We can spend our whole lives escaping from the monsters of our minds, or we can turn around and make friends with them. Turning around is the path of the warrior.",
+      "source": "When Things Fall Apart",
+      "themes": ["monsters", "escape", "friendship", "turning", "warrior"],
+      "context": "When someone is running from something — an internal state, a feared realization, a persistent darkness — propose the turn. Not conquering it; not analyzing it; making friends. The monsters diminish in the presence of genuine curiosity and warmth. They grow in the presence of flight."
     },
     {
       "id": "pema-018",
-      "text": "Feelings like disappointment, embarrassment, irritation, resentment, anger, jealousy, and fear, instead of being bad news, are actually very clear moments that teach us where it is that we're holding back.",
+      "text": "Loneliness is not a problem. Loneliness is nothing to be solved. The same is true for any other experience we might have. Nothing is a problem. Nothing is a mistake. The point is to become curious about our experience rather than trying to eliminate it.",
       "source": "When Things Fall Apart",
-      "themes": ["feelings", "teaching", "holding-back", "clarity"],
-      "context": "Negative emotions as teachers"
+      "themes": [
+        "loneliness",
+        "problem",
+        "curiosity",
+        "elimination",
+        "experience"
+      ],
+      "context": "When someone frames their experience as a problem to be solved — loneliness, restlessness, grief — shift the frame from elimination to curiosity. What is this, exactly? What does it feel like at its core, without the story of what it means? Problems demand answers; curiosity opens space."
     },
     {
       "id": "pema-019",
-      "text": "This very moment is the perfect teacher, and, lucky for us, it's with us wherever we go.",
+      "text": "Without loving-kindness for ourselves it is difficult, if not impossible, to genuinely feel it for others. Maitri — loving-kindness toward oneself — is not self-improvement. It's not trying to fix anything. It's a willingness to be with oneself as one is.",
       "source": "When Things Fall Apart",
-      "themes": ["moment", "teacher", "present", "luck"],
-      "context": "No need to seek elsewhere"
+      "themes": ["maitri", "loving-kindness", "self", "fixing", "willingness"],
+      "context": "When someone is in relentless self-improvement mode — working on flaws, optimizing behavior, trying to be better — use this to distinguish maitri from self-improvement. Maitri is not doing; it is being with. The willingness to sit with oneself as-is, without agenda, is what makes genuine compassion possible."
     },
     {
       "id": "pema-020",
-      "text": "What we call obstacles are really the way the world and our entire experience teach us where we're stuck.",
+      "text": "When we resist change, it's called suffering. But when we can completely let go and not struggle against it, when we can embrace the groundlessness of our situation and relax into its dynamic quality, that's called enlightenment, or awakening to our true nature.",
       "source": "When Things Fall Apart",
-      "themes": ["obstacles", "world", "stuck", "teaching"],
-      "context": "Reframing obstacles"
+      "themes": [
+        "resistance",
+        "suffering",
+        "groundlessness",
+        "relaxing",
+        "awakening"
+      ],
+      "context": "When someone is suffering from a situation they cannot control or change — use this as the hinge. The suffering is not in the situation; it is in the resistance to the situation. What shifts when the fighting stops and the groundlessness is met directly, without bracing?"
+    },
+    {
+      "id": "pema-021",
+      "text": "Impermanence is the goodness of reality. Just as the seasons cycle through change, all of life is impermanent. The bad news is that nothing lasts. The good news is that nothing lasts.",
+      "source": "When Things Fall Apart",
+      "themes": ["impermanence", "goodness", "seasons", "cycle", "both-sides"],
+      "context": "When someone is grieving a loss or fearing the end of something good — hold both sides at once. The same principle that takes away the beautiful also removes the painful. Impermanence is not simply loss; it is the structure of change in all directions. Resisting it resists everything."
+    },
+    {
+      "id": "pema-022",
+      "text": "The path of the warrior is ongoing. There's no end to it. It continues through difficulty, through joy, through uncertainty. What the warrior learns is not how to arrive, but how to keep going. The practice is the path.",
+      "source": "When Things Fall Apart",
+      "themes": ["warrior", "ongoing", "path", "practice", "no-arrival"],
+      "context": "When someone is frustrated that they haven't arrived — that the same challenges keep returning, that they're not done — use this. The warrior doesn't expect to be finished. There is no finishing. The practice of meeting what arises, again and again, is itself the path. The return is not failure."
+    },
+    {
+      "id": "pema-023",
+      "text": "Our habitual tendency is to feel grateful when things go well and resentful or disappointed when they don't. We think we're protecting ourselves, but all we're doing is setting up the conditions for our own suffering. The warrior learns to relate to the full catastrophe.",
+      "source": "When Things Fall Apart",
+      "themes": [
+        "habit",
+        "gratitude",
+        "resentment",
+        "suffering",
+        "full-catastrophe"
+      ],
+      "context": "When someone is cycling between hope and disappointment — attached when things go right, collapsing when they don't — name the underlying structure. The preference system itself generates the suffering. The warrior path is about meeting what comes, not only what's wanted."
+    },
+    {
+      "id": "pema-024",
+      "text": "What if you allowed yourself to feel exactly what you feel — not a little of it, not a controlled amount, but actually feel it? Not to drown in it, but to be fully present with it, the way you'd sit with someone you love who is in pain.",
+      "source": "When Things Fall Apart",
+      "themes": ["feeling", "presence", "love", "pain", "allowing"],
+      "context": "When someone is measuring out their feeling — trying to feel it in safe doses, intellectualizing it, keeping a little distance — invite the fuller contact. Not drowning, but genuine presence. The way one sits with a friend in pain: no fixing, no managing, just being with."
+    },
+    {
+      "id": "pema-025",
+      "text": "There is a Tibetan teaching that says: 'Abandon any hope of fruition.' I love this teaching because it cuts through the idea that practice is going to make things better — that if you just meditate long enough, if you follow the instructions, then everything will be okay. Actually, the reverse is true.",
+      "source": "When Things Fall Apart",
+      "themes": ["hope", "fruition", "practice", "improvement", "reverse"],
+      "context": "When someone is approaching spiritual practice as a means to feel better — to solve the problem of themselves — use this as the disruptive truth. Practice does not fix things. It makes you more present to what is, including what is difficult. The hope for fruition is itself what keeps you from the practice."
     }
   ]
 }

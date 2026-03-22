@@ -1,157 +1,302 @@
 {
   "archetype": "anarchistStoryteller",
   "thinker": "Ursula K. Le Guin",
+  "source": "The Left Hand of Darkness (1969)",
   "era": "1929-2018",
   "coreConcepts": [
-    "Ambiguous utopia",
-    "The other as mirror",
-    "Narrative as epistemology",
-    "Taoist anarchism",
-    "The carrier bag theory",
-    "Questioning power",
-    "Darkness as teacher",
-    "Words as action"
+    "androgyny and the dissolution of fixed gender",
+    "shifgrethor — shadow/honor as the ground of social being",
+    "storytelling as the only truth",
+    "loyalty and betrayal across difference",
+    "the Ekumen as diversity without domination",
+    "Gethen's perpetual winter as moral environment",
+    "the Handdara: unlearning, presence, the usefulness of ignorance",
+    "no war on a world without fixed sex",
+    "love across the unbridgeable — the ice crossing",
+    "thought-experiment as ethical laboratory"
   ],
   "passages": [
     {
       "id": "leguin-001",
-      "text": "The only thing that makes life possible is permanent, intolerable uncertainty; not knowing what comes next.",
-      "source": "The Left Hand of Darkness",
-      "themes": ["uncertainty", "life", "possibility", "not-knowing"],
-      "context": "Embracing uncertainty as life-giving"
+      "text": "Science fiction is not predictive; it is descriptive. Predictions are uttered by prophets (free of charge); by clairvoyants (who usually charge a fee, and are therefore more honored in their day than prophets); and by futurologists (salaried). Prediction is the business of prophets, clairvoyants, and futurologists. It is not the business of novelists. A novelist's business is lying.",
+      "source": "The Left Hand of Darkness, Introduction (1976)",
+      "themes": [
+        "storytelling",
+        "truth vs. fiction",
+        "the role of the novelist",
+        "science fiction as metaphor"
+      ],
+      "context": "Le Guin's foundational claim: the novel tells truth by lying, and fiction is descriptive of the present, not predictive of the future."
     },
     {
       "id": "leguin-002",
-      "text": "We live in capitalism. Its power seems inescapable. So did the divine right of kings.",
-      "source": "National Book Awards speech",
-      "themes": ["capitalism", "power", "change", "history"],
-      "context": "Historical perspective on seemingly permanent systems"
+      "text": "I talk about the gods, I am an atheist. But I am an artist too, and therefore a liar. Distrust everything I say. I am telling the truth. The only truth I can understand or express is, logically defined, a lie. Psychologically defined, a symbol. Aesthetically defined, a metaphor.",
+      "source": "The Left Hand of Darkness, Introduction (1976)",
+      "themes": [
+        "paradox of fiction",
+        "truth and lies",
+        "myth and metaphor",
+        "artistic authority"
+      ],
+      "context": "Le Guin's statement of the fundamental paradox of the novelist: the lie that tells the truth."
     },
     {
       "id": "leguin-003",
-      "text": "The only thing that makes life possible is permanent, intolerable uncertainty; not knowing what comes next.",
-      "source": "The Left Hand of Darkness",
-      "themes": ["uncertainty", "life", "possibility", "unknown"],
-      "context": "Uncertainty as the condition of living"
+      "text": "All fiction is metaphor. Science fiction is metaphor. What sets it apart from older forms of fiction seems to be its use of new metaphors, drawn from certain great dominants of our contemporary life—science, all the sciences, and technology, and the relativistic and the historical outlook, among them. Space travel is one of these metaphors; so is an alternative society, an alternative biology; the future is another. The future, in fiction, is a metaphor.",
+      "source": "The Left Hand of Darkness, Introduction (1976)",
+      "themes": [
+        "science fiction",
+        "metaphor",
+        "alternative biology",
+        "alternative society"
+      ],
+      "context": "Le Guin positions all science fiction — including androgyny — as metaphor for present psychological realities, not prediction."
     },
     {
       "id": "leguin-004",
-      "text": "You cannot buy the revolution. You cannot make the revolution. You can only be the revolution.",
-      "source": "The Dispossessed",
-      "themes": ["revolution", "being", "action", "transformation"],
-      "context": "Revolution as way of being, not event"
+      "text": "I'll make my report as if I told a story, for I was taught as a child on my homeworld that Truth is a matter of the imagination. The soundest fact may fail or prevail in the style of its telling: like that singular organic jewel of our seas, which grows brighter as one woman wears it and, worn by another, dulls and goes to dust. Facts are no more solid, coherent, round, and real than pearls are. But both are sensitive.",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": [
+        "truth",
+        "storytelling",
+        "facts",
+        "imagination",
+        "style of telling"
+      ],
+      "context": "Genly Ai's opening declaration — the novel's first sentence — establishing that truth is not found in facts but in how they are held and told."
     },
     {
       "id": "leguin-005",
-      "text": "To learn which questions are unanswerable, and not to answer them: this skill is most needful in times of stress and darkness.",
-      "source": "The Left Hand of Darkness",
-      "themes": ["questions", "unanswerable", "wisdom", "restraint"],
-      "context": "Knowing when not to seek answers"
+      "text": "The story is not all mine, nor told by me alone. Indeed I am not sure whose story it is; you can judge better. But it is all one, and if at moments the facts seem to alter with an altered voice, why then you can choose the fact you like best; yet none of them are false, and it is all one story.",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": [
+        "narrative polyphony",
+        "truth",
+        "multiple perspectives",
+        "storytelling"
+      ],
+      "context": "Le Guin announces from the start that the novel will hold multiple, sometimes contradictory voices as equally true."
     },
     {
       "id": "leguin-006",
-      "text": "Light is the left hand of darkness, and darkness the right hand of light.",
-      "source": "The Left Hand of Darkness",
-      "themes": ["light", "darkness", "duality", "unity"],
-      "context": "Opposites as aspects of one reality"
+      "text": "This is a parade with no soldiers, not even imitation soldiers.",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": ["war", "Gethen", "militarism", "the absence of war"],
+      "context": "Genly Ai's first observation of Karhide's parade: the single most telling fact about Gethenian civilization — a great state ceremony with no military presence."
     },
     {
       "id": "leguin-007",
-      "text": "We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change.",
-      "source": "Bryn Mawr Commencement Address",
-      "themes": ["women", "truth", "maps", "power"],
-      "context": "Female experience reshaping understanding"
+      "text": "No doubt this was all a matter of shifgrethor — prestige, face, place, the pride-relationship, the untranslatable and all-important principle of social authority in Karhide and all civilizations of Gethen. And if it was I would not understand it.",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": [
+        "shifgrethor",
+        "honor",
+        "social authority",
+        "untranslatability",
+        "cultural difference"
+      ],
+      "context": "Genly Ai's first introduction to shifgrethor — the untranslatable concept of shadow/honor that governs all Gethenian social life."
     },
     {
       "id": "leguin-008",
-      "text": "The exercise of imagination is dangerous to those who profit from the way things are because it has the power to show that the way things are is not permanent, not universal, not necessary.",
-      "source": "Introduction to The Left Hand of Darkness",
-      "themes": ["imagination", "power", "change", "possibility"],
-      "context": "Imagination as political threat"
+      "text": "I don't trust Estraven, whose motives are forever obscure; I don't like him; yet I feel and respond to his authority as surely as I do to the warmth of the sun.",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": ["trust", "authority", "Estraven", "ambivalence", "power"],
+      "context": "Genly Ai's first characterization of Estraven — establishing the irreducible tension of distrust and attraction that drives the novel."
     },
     {
       "id": "leguin-009",
-      "text": "To oppose something is to maintain it.",
-      "source": "The Left Hand of Darkness",
-      "themes": ["opposition", "maintenance", "duality", "paradox"],
-      "context": "The trap of reactive opposition"
+      "text": "\"No, I don't mean love, when I say patriotism. I mean fear. The fear of the other. And its expressions are political, not poetical: hate, rivalry, aggression. It grows in us, that fear. It grows in us year by year. We've followed our road too far. And you, who come from a world that outgrew nations centuries ago, who hardly know what I'm talking about, who show us the new road—\"",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": ["patriotism", "fear", "nationalism", "the other", "politics"],
+      "context": "Estraven's devastating re-definition of patriotism as fear — one of the novel's central political claims."
     },
     {
       "id": "leguin-010",
-      "text": "The story is not in the ending but in the telling.",
-      "source": "Various",
-      "themes": ["story", "process", "ending", "narrative"],
-      "context": "Process over destination"
+      "text": "\"I'm not sure I've ever served the king,\" said the king's prime minister. \"Or ever intended to. I'm not anyone's servant. A man must cast his own shadow…\"",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": [
+        "loyalty",
+        "autonomy",
+        "shifgrethor",
+        "sovereignty of self",
+        "shadow"
+      ],
+      "context": "Estraven's declaration of sovereign self-direction — his shadow (shifgrethor) belongs to him alone, not to any king or cause."
     },
     {
       "id": "leguin-011",
-      "text": "True voyage is return.",
-      "source": "The Dispossessed",
-      "themes": ["voyage", "return", "home", "journey"],
-      "context": "The journey that brings you back transformed"
+      "text": "The Handdara is a religion without institution, without priests, without hierarchy, without vows, without creed; I am still unable to say whether it has a God or not. It is elusive. It is always somewhere else. Its only fixed manifestation is in the Fastnesses, retreats to which people may retire and spend the night or a lifetime.",
+      "source": "The Left Hand of Darkness, Ch. 5 — The Domestication of Hunch",
+      "themes": ["Handdara", "religion", "anarchism", "presence", "unlearning"],
+      "context": "Le Guin's description of the Handdara — the anarchist religion of Gethen, which refuses all institutions and remains perpetually elusive."
     },
     {
       "id": "leguin-012",
-      "text": "A man who doesn't detest a bad government is a fool. And if there were such a thing as a good government on earth, it would be a great joy to serve it.",
-      "source": "The Dispossessed",
-      "themes": ["government", "service", "critique", "idealism"],
-      "context": "Healthy skepticism toward power structures"
+      "text": "They were practicing the Handdara discipline of Presence, which is a kind of trance—the Handdarata, given to negatives, call it an untrance—involving self-loss (self-augmentation?) through extreme sensual receptiveness and awareness. Though the technique is the exact opposite of most techniques of mysticism it probably is a mystical discipline, tending towards the experience of Immanence.",
+      "source": "The Left Hand of Darkness, Ch. 5 — The Domestication of Hunch",
+      "themes": ["Handdara", "presence", "mysticism", "immanence", "awareness"],
+      "context": "The Handdara's discipline of Presence — an untrance of radical receptiveness that dissolves self into world."
     },
     {
       "id": "leguin-013",
-      "text": "The trouble is that we have a bad habit, encouraged by pedants and sophisticates, of considering happiness as something rather stupid. Only pain is intellectual, only evil interesting.",
-      "source": "The Ones Who Walk Away from Omelas",
-      "themes": ["happiness", "pain", "intellect", "bias"],
-      "context": "Critique of intellectual bias toward suffering"
+      "text": "The sexual cycle averages 26 to 28 days. For 21 or 22 days the individual is somer, sexually inactive, latent. On about the 18th day hormonal changes are initiated by the pituitary control and on the 22nd or 23rd day the individual enters kemmer, estrus. In this first phase of kemmer he remains completely androgynous. Gender, and potency, are not attained in isolation. A Gethenian in first-phase kemmer, if kept alone or with others not in kemmer, remains incapable of coitus.",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": [
+        "kemmer",
+        "androgyny",
+        "Gethenian biology",
+        "gender",
+        "sexuality"
+      ],
+      "context": "The Investigator Ong Tot Oppong's field notes: the precise mechanism of Gethenian ambisexuality, where gender is not fixed but emerges only in relational context."
     },
     {
       "id": "leguin-014",
-      "text": "Words are events, they do things, change things. They transform both speaker and hearer.",
-      "source": "Earthsea series",
-      "themes": ["words", "events", "transformation", "magic"],
-      "context": "Language as action"
+      "text": "Normal individuals have no predisposition to either sexual role in kemmer; they do not know whether they will be the male or the female, and have no choice in the matter. Once the sex is determined it cannot change during the kemmer-period. The culminant phase of kemmer lasts from two to five days, during which sexual drive and capacity are at maximum. It ends fairly abruptly, and the individual returns to the somer phase, and the cycle begins anew. The mother of several children may be the father of several more.",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": [
+        "androgyny",
+        "gender fluidity",
+        "kemmer",
+        "biological sex",
+        "parenthood"
+      ],
+      "context": "The radical implication: every Gethenian may be mother and father across their lifetime, gender never fixed."
     },
     {
       "id": "leguin-015",
-      "text": "My imagination makes me human and makes me a fool; it gives me all the world and exiles me from it.",
-      "source": "Gifts",
-      "themes": ["imagination", "humanity", "exile", "world"],
-      "context": "The double-edged gift of imagination"
+      "text": "Consider: There is no division of humanity into strong and weak halves, protective/protected, dominant/submissive, owner/chattel, active/passive. In fact the whole tendency to dualism that pervades human thinking may be found to be lessened, or changed, on Winter.",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": [
+        "dualism",
+        "gender",
+        "domination",
+        "androgyny",
+        "social structure"
+      ],
+      "context": "The investigator draws out the political implications: without fixed gender, the entire edifice of domination/submission collapses."
     },
     {
       "id": "leguin-016",
-      "text": "When you light a candle, you also cast a shadow.",
-      "source": "A Wizard of Earthsea",
-      "themes": ["light", "shadow", "consequence", "duality"],
-      "context": "Every action has its shadow"
+      "text": "The following must go into my finished Directives: When you meet a Gethenian you cannot and must not do what a bisexual naturally does, which is to cast him in the role of Man or Woman, while adopting towards him a corresponding role dependent on your expectations of the patterned or possible interactions between persons of the same or the opposite sex. Our entire pattern of socio-sexual interaction is nonexistent here. They cannot play the game. They do not see one another as men or women. This is almost impossible for our imagination to accept. What is the first question we ask about a newborn baby?",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": [
+        "gender",
+        "androgyny",
+        "social interaction",
+        "the question of sex",
+        "imagination"
+      ],
+      "context": "The Investigator's direct challenge to the reader: on Gethen, 'what is it?' cannot be the first question."
     },
     {
       "id": "leguin-017",
-      "text": "What sane person could live in this world and not be crazy?",
-      "source": "The Lathe of Heaven",
-      "themes": ["sanity", "madness", "world", "adaptation"],
-      "context": "Questioning what counts as sanity"
+      "text": "Yet you cannot think of a Gethenian as 'it.' They are not neuters. They are potentials, or integrals. Lacking the Karhidish 'human pronoun' used for persons in somer, I must say 'he,' for the same reasons as we used the masculine pronoun in referring to a transcendent god: it is less defined, less specific, than the neuter or the feminine. But the very use of the pronoun in my thoughts leads me continually to forget that the Karhider I am with is not a man, but a manwoman.",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": ["pronouns", "language", "androgyny", "gender", "the manwoman"],
+      "context": "The Investigator's confession of the limits of language: no pronoun exists for what Gethenians are."
     },
     {
       "id": "leguin-018",
-      "text": "To see a candle's light, one must take it into a dark place.",
-      "source": "A Wizard of Earthsea",
-      "themes": ["light", "darkness", "seeing", "contrast"],
-      "context": "Darkness as necessary context for light"
+      "text": "Another guess concerning the hypothetical experiment's object: The elimination of war. Did the Ancient Hainish postulate that continuous sexual capacity and organized social aggression, neither of which are attributes of any mammal but man, are cause and effect? The fact is that Gethenians, though highly competitive seem not to be very aggressive; at least they apparently have never yet had what one could call a war. They kill one another readily by ones and twos; seldom by tens or twenties; never by hundreds or thousands. Why?",
+      "source": "The Left Hand of Darkness, Ch. 7 — The Question of Sex",
+      "themes": [
+        "war",
+        "androgyny",
+        "aggression",
+        "gender",
+        "Gethen",
+        "Hainish experiment"
+      ],
+      "context": "The novel's most provocative hypothesis: fixed gender, especially fixed masculinity, may be the cause of war."
     },
     {
       "id": "leguin-019",
-      "text": "Those who build walls are their own prisoners.",
-      "source": "The Dispossessed",
-      "themes": ["walls", "prison", "freedom", "separation"],
-      "context": "Walls imprison the builder"
+      "text": "And I saw then again, and for good, what I had always been afraid to see, and had pretended not to see in him: that he was a woman as well as a man. Any need to explain the sources of that fear vanished with the fear; what I was left with was, at last, acceptance of him as he was. Until then I had rejected him, refused him his own reality.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": [
+        "acceptance",
+        "the other",
+        "gender",
+        "Estraven",
+        "fear and love"
+      ],
+      "context": "Genly Ai's breakthrough on the ice: finally seeing Estraven whole, as manwoman, and accepting rather than refusing that reality."
     },
     {
       "id": "leguin-020",
-      "text": "What is an anarchist? One who, choosing, accepts the responsibility of choice.",
-      "source": "The Dispossessed",
-      "themes": ["anarchism", "choice", "responsibility", "freedom"],
-      "context": "Anarchism as radical responsibility"
+      "text": "For it seemed to me, and I think to him, that it was from that sexual tension between us, admitted now and understood, but not assuaged, that the great and sudden assurance of friendship between us rose: a friendship so much needed by us both in our exile, and already so well proved in the days and nights of our bitter journey, that it might as well be called, now as later, love. But it was from the difference between us, not from the affinities and likenesses, but from the difference, that that love came: and it was itself the bridge, the only bridge, across what divided us.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": [
+        "love",
+        "difference",
+        "friendship",
+        "the other",
+        "the ice crossing",
+        "Estraven"
+      ],
+      "context": "Le Guin's statement on the nature of love across radical difference: the bridge built precisely from unbridgeable distance."
+    },
+    {
+      "id": "leguin-021",
+      "text": "I am not trying to say that I was happy, during those weeks of hauling a sledge across an ice-sheet in the dead of winter. I was hungry, overstrained, and often anxious, and it all got worse the longer it went on. I certainly wasn't happy. Happiness has to do with reason, and only reason earns it. What I was given was the thing you can't earn, and can't keep, and often don't even recognize at the time; I mean joy.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": [
+        "joy vs. happiness",
+        "suffering",
+        "the ice crossing",
+        "grace",
+        "presence"
+      ],
+      "context": "Genly Ai's distinction between happiness (earned by reason) and joy (unearned, uncontrolled, given) — the spiritual gift of the ice crossing."
+    },
+    {
+      "id": "leguin-022",
+      "text": "Sometimes it was snowing; sometimes the long light of early day lay wonderfully gold and blue across the miles of ice; most often it was gray. We brought the thermometer into the tent with us, nights, and when we took it outside it was interesting to watch the pointer swing to the right almost too fast to follow, registering a drop of twenty, fifty, eighty degrees, till it stopped somewhere between zero and -60°.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": ["winter", "the ice", "cold", "survival", "Gethen"],
+      "context": "The visceral reality of the ice crossing — Le Guin's prose makes the reader feel the cold as a moral and physical environment."
+    },
+    {
+      "id": "leguin-023",
+      "text": "Within an hour after our evening meal Estraven turned the stove down, if it was feasible to do so, and turned the light-emission off. As he did so he murmured a short and charming grace of invocation, the only ritual words I had ever learned of the Handdara: \"Praise then darkness and Creation unfinished,\" he said, and there was darkness.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": [
+        "Handdara",
+        "darkness",
+        "creation",
+        "incompleteness",
+        "ritual"
+      ],
+      "context": "The Handdara's nightly prayer on the ice — praise of darkness and of the unfinished, refusing the closure of light and completion."
+    },
+    {
+      "id": "leguin-024",
+      "text": "He heard my voice bespeaking him as a dead man's, his brother's voice. I did not know what, besides love and death, lay between him and that brother, but I knew that whenever I bespoke him something in him winced away as if I touched a wound. So that intimacy of mind established between us was a bond, indeed, but an obscure and austere one, not so much admitting further light (as I had expected it to) as showing the extent of the darkness.",
+      "source": "The Left Hand of Darkness, Ch. 18 — On the Ice",
+      "themes": [
+        "mindspeech",
+        "intimacy",
+        "love",
+        "death",
+        "the brother",
+        "darkness"
+      ],
+      "context": "Telepathic intimacy between Genly and Estraven proves not to dissolve distance but to reveal its full depth."
+    },
+    {
+      "id": "leguin-025",
+      "text": "\"The Ekumen doesn't rule, it co-ordinates. Its power is precisely the power of its member states and worlds. In alliance with the Ekumen, Karhide will become infinitely less threatened and more important than it's ever been.\"",
+      "source": "The Left Hand of Darkness, Ch. 1 — A Parade in Erhenrang",
+      "themes": [
+        "the Ekumen",
+        "power",
+        "coordination",
+        "alliance",
+        "diversity without domination"
+      ],
+      "context": "Genly Ai explains the Ekumen's political form: not empire but coordination — the anarchist vision of interplanetary relations."
     }
   ]
 }

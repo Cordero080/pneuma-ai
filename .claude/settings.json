@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"\nimport sys, json, subprocess, os, re\nfrom collections import Counter\ntry:\n    data = json.load(sys.stdin)\n    path = data.get('tool_input', {}).get('file_path', '')\n    if '/server/pneuma/core/' not in path and '/server/pneuma/memory/' not in path: sys.exit(0)\n    root = re.sub(r'/server/.*', '', path)\n    dirs = [f'{root}/server/pneuma/core', f'{root}/server/pneuma/memory']\n    lines = []\n    for d in dirs:\n        if os.path.isdir(d):\n            r = subprocess.run(['grep', '-rn', '--include=*.js', '-E', r'^export (async )?function \\w+', d], capture_output=True, text=True)\n            lines.extend(l for l in r.stdout.strip().splitlines() if l)\n    if not lines: sys.exit(0)\n    names = [m.group(1) for l in lines for m in [re.search(r'function (\\w+)', l)] if m]\n    dupes = [n for n, c in Counter(names).items() if c > 1]\n    if not dupes: sys.exit(0)\n    sigs = chr(10).join(lines)\n    prompt = f'Exported function names duplicated across server/pneuma/core/ or server/pneuma/memory/: {chr(44).join(dupes)}\\n\\nSignatures:\\n{sigs}\\n\\nAre these logic duplicates or same-name-different-purpose? List file:function pairs only. No tools needed, analyze only what I provided.'\n    r2 = subprocess.run(['claude', '-p', prompt, '--model', 'claude-haiku-4-5-20251001'], capture_output=True, text=True, timeout=60)\n    out = (r2.stdout or r2.stderr or '').strip()\n    if out: print('[DupeGuard]', out)\nexcept SystemExit as e: sys.exit(e.code)\nexcept Exception as e: print('[DupeGuard error]', e)\n\""
+          }
+        ]
+      }
+    ]
+  }
+}

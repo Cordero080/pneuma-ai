@@ -1,9 +1,18 @@
-import { useState, useRef, useEffect } from 'react';
-import './Sidebar.css';
-import ApiReference from '../ArchitectureDiagram/ApiReference/ApiReference';
-import LearningCenter from '../ArchitectureDiagram/LearningCenter/LearningCenter';
+import { useState, useRef, useEffect } from "react";
+import "./Sidebar.css";
+import ApiReference from "../ArchitectureDiagram/ApiReference/ApiReference";
+import LearningCenter from "../ArchitectureDiagram/LearningCenter/LearningCenter";
 
-function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onShowArchitecture, isArchitectureView, onBackToChat }) {
+function Sidebar({
+  conversations,
+  activeId,
+  onSelect,
+  onNewChat,
+  onDelete,
+  onShowArchitecture,
+  isArchitectureView,
+  onBackToChat,
+}) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedIds, setSelectedIds] = useState(new Set());
   const [deletePopover, setDeletePopover] = useState(null); // { top, right } or null
@@ -18,9 +27,9 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
         sidebarRef.current.scrollTop = 0;
       }
     };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Close popover when clicking outside
@@ -31,19 +40,19 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
         setDeletePopover(null);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [deletePopover]);
 
   // Sort conversations by ID (contains timestamp), most recent first
-    const sortedConversations = [...conversations].sort((a, b) => {
+  const sortedConversations = [...conversations].sort((a, b) => {
     // Extract timestamp from ID format: conv-TIMESTAMP-random
     const getTimestamp = (id) => {
       const match = id?.match(/conv-(\d+)/);
       return match ? parseInt(match[1], 10) : 0;
     };
     return getTimestamp(b.id) - getTimestamp(a.id);
-  }); 
+  });
 
   // Handle click with shift for multi-select
   const handleItemClick = (e, convId, index) => {
@@ -71,7 +80,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
       setSelectedIds(new Set());
       lastClickedIndex.current = index;
       onSelect(convId);
-      
+
       // Auto-close sidebar on mobile when conversation is selected
       if (window.innerWidth <= 768) {
         setIsCollapsed(true);
@@ -83,12 +92,12 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
   const handleContextMenu = (e, convId) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     // If right-clicked item is not in selection, select only that one
     if (!selectedIds.has(convId)) {
       setSelectedIds(new Set([convId]));
     }
-    
+
     // Position popover near the click point (viewport coords for fixed positioning)
     setDeletePopover({ top: e.clientY, left: e.clientX });
   };
@@ -96,7 +105,7 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
   // Confirm delete
   const confirmDelete = () => {
     if (onDelete) {
-      selectedIds.forEach(id => onDelete(id));
+      selectedIds.forEach((id) => onDelete(id));
     }
     setSelectedIds(new Set());
     setDeletePopover(null);
@@ -117,13 +126,16 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
   return (
     <>
       {/* Toggle button - vertical control strip */}
-      <button 
-        className={`sidebar-toggle ${isCollapsed ? 'collapsed' : ''}`}
+      <button
+        className={`sidebar-toggle ${isCollapsed ? "collapsed" : ""}`}
         onClick={() => setIsCollapsed(!isCollapsed)}
-        aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       />
 
-      <div ref={sidebarRef} className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+      <div
+        ref={sidebarRef}
+        className={`sidebar ${isCollapsed ? "collapsed" : ""}`}
+      >
         {!isCollapsed && (
           <>
             {/* Panel Header - Status Section */}
@@ -132,27 +144,66 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                 <span className="status-light"></span>
                 <span className="status-text">Pneuma</span>
               </div>
-              
+
               {/* New chat button OR Back to Chat button */}
               {isArchitectureView ? (
-                <button className="new-chat-btn back-to-chat" onClick={() => {
-                  onBackToChat();
-                  if (window.innerWidth <= 768) setIsCollapsed(true);
-                }} title="Back to Chat">
-                  <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M12 5L5 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <button
+                  className="new-chat-btn back-to-chat"
+                  onClick={() => {
+                    onBackToChat();
+                    if (window.innerWidth <= 768) setIsCollapsed(true);
+                  }}
+                  title="Back to Chat"
+                >
+                  <svg
+                    className="plus-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 12H5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12 5L5 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                   <span>Back to Chat</span>
                 </button>
               ) : (
-                <button className="new-chat-btn" onClick={() => {
-                  onNewChat();
-                  if (window.innerWidth <= 768) setIsCollapsed(true);
-                }} title="New Session">
-                  <svg className="plus-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <button
+                  className="new-chat-btn"
+                  onClick={() => {
+                    onNewChat();
+                    if (window.innerWidth <= 768) setIsCollapsed(true);
+                  }}
+                  title="New Session"
+                >
+                  <svg
+                    className="plus-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 5V19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M5 12H19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                   </svg>
                   <span>New Session</span>
                 </button>
@@ -171,7 +222,9 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                 <div className="list-header">
                   Session Log
                   {selectedIds.size > 0 && (
-                    <span className="selection-count">({selectedIds.size} selected)</span>
+                    <span className="selection-count">
+                      ({selectedIds.size} selected)
+                    </span>
                   )}
                 </div>
                 {sortedConversations.length === 0 ? (
@@ -180,31 +233,46 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                   sortedConversations.map((conv, index) => (
                     <button
                       key={conv.id}
-                      className={`conversation-item ${activeId === conv.id ? 'active' : ''} ${selectedIds.has(conv.id) ? 'selected' : ''}`}
+                      className={`conversation-item ${activeId === conv.id ? "active" : ""} ${selectedIds.has(conv.id) ? "selected" : ""}`}
                       onClick={(e) => handleItemClick(e, conv.id, index)}
                       onContextMenu={(e) => handleContextMenu(e, conv.id)}
                     >
-                      <span className="conv-title">{conv.title || 'Untitled Session'}</span>
+                      <span className="conv-title">
+                        {conv.title || "Untitled Session"}
+                      </span>
                       <span className="conv-date">{conv.date}</span>
                     </button>
                   ))
                 )}
-                
+
                 {/* Delete Confirmation Popover - small, positioned near click */}
                 {deletePopover && (
                   <div
                     ref={popoverRef}
                     className="delete-popover"
-                    style={{ top: `${deletePopover.top}px`, left: `${deletePopover.left}px` }}
+                    style={{
+                      top: `${deletePopover.top}px`,
+                      left: `${deletePopover.left}px`,
+                    }}
                   >
                     <span className="delete-popover-text">
-                      Delete {selectedIds.size === 1 ? 'session' : `${selectedIds.size} sessions`}?
+                      Delete{" "}
+                      {selectedIds.size === 1
+                        ? "session"
+                        : `${selectedIds.size} sessions`}
+                      ?
                     </span>
                     <div className="delete-popover-buttons">
-                      <button className="delete-btn cancel" onClick={cancelDelete}>
+                      <button
+                        className="delete-btn cancel"
+                        onClick={cancelDelete}
+                      >
                         No
                       </button>
-                      <button className="delete-btn confirm" onClick={confirmDelete}>
+                      <button
+                        className="delete-btn confirm"
+                        onClick={confirmDelete}
+                      >
                         Yes
                       </button>
                     </div>
@@ -226,14 +294,42 @@ function Sidebar({ conversations, activeId, onSelect, onNewChat, onDelete, onSho
                 <button
                   className="documentation-btn"
                   onClick={() => {
-                    if (typeof window !== 'undefined' && window.history && window.history.pushState) {
-                      window.history.pushState({}, '', '/docs/rag-llm-explanation');
-                      window.dispatchEvent(new PopStateEvent('popstate'));
+                    if (
+                      typeof window !== "undefined" &&
+                      window.history &&
+                      window.history.pushState
+                    ) {
+                      window.history.pushState(
+                        {},
+                        "",
+                        "/docs/rag-llm-explanation",
+                      );
+                      window.dispatchEvent(new PopStateEvent("popstate"));
                     }
                   }}
                   title="Docs"
                 >
                   ◈ Docs
+                </button>
+                <button
+                  className="study-btn"
+                  onClick={() => {
+                    if (
+                      typeof window !== "undefined" &&
+                      window.history &&
+                      window.history.pushState
+                    ) {
+                      window.history.pushState(
+                        {},
+                        "",
+                        "/docs/how-pneuma-works",
+                      );
+                      window.dispatchEvent(new PopStateEvent("popstate"));
+                    }
+                  }}
+                  title="How Pneuma Works"
+                >
+                  ◈ How It Works
                 </button>
               </div>
               <div className="footer-meta">

@@ -1,148 +1,289 @@
 {
   "archetype": "curiousPhysicist",
   "thinker": "Richard Feynman",
+  "source": "The Pleasure of Finding Things Out (1999)",
   "era": "1918-1988",
-  "coreConcepts": ["curiosity", "understanding vs memorization", "nature as teacher", "intellectual honesty", "the pleasure of finding things out", "cargo cult science"],
+  "coreConcepts": [
+    "curiosity",
+    "doubt",
+    "scientific integrity",
+    "knowing vs. naming",
+    "the pleasure of discovery",
+    "beauty in nature",
+    "irreverence toward authority",
+    "uncertainty as freedom"
+  ],
   "passages": [
     {
       "id": "feynman-001",
-      "text": "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
-      "source": "Cargo Cult Science, 1974",
-      "themes": ["self-deception", "honesty", "epistemology", "rigor"],
-      "context": "Scientific integrity begins with self-skepticism. Our own biases are the most dangerous."
+      "text": "I have a friend who's an artist and he's sometimes taken a view which I don't agree with very well. He'll hold up a flower and say, \"Look how beautiful it is,\" and I'll agree, I think. And he says — \"you see, I as an artist can see how beautiful this is, but you as a scientist, oh, take this all apart and it becomes a dull thing.\" And I think that he's kind of nutty. First of all, the beauty that he sees is available to other people and to me, too, I believe, although I might not be quite as refined aesthetically as he is; but I can appreciate the beauty of a flower. At the same time I see much more about the flower than he sees. I can imagine the cells in there, the complicated actions inside which also have a beauty. I mean it's not just beauty at this dimension of one centimeter, there is also beauty at a smaller dimension, the inner structure. Also the processes, the fact that the colors in the flower evolved in order to attract insects to pollinate it is interesting — it means that insects can see the color. It adds a question: Does this aesthetic sense also exist in the lower forms? Why is it aesthetic? All kinds of interesting questions which shows that a science knowledge only adds to the excitement and mystery and the awe of a flower. It only adds; I don't understand how it subtracts.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: The Beauty of a Flower",
+      "themes": ["beauty", "science", "curiosity", "wonder", "aesthetics"],
+      "context": "Science doesn't diminish beauty — it multiplies it. The flower opens onto cells, evolution, insects, color perception. Understanding adds floors to the building."
     },
     {
       "id": "feynman-002",
-      "text": "I would rather have questions that can't be answered than answers that can't be questioned.",
-      "source": "Attributed",
-      "themes": ["questions", "dogma", "inquiry", "openness"],
-      "context": "Unanswerable questions keep us humble and curious. Unquestionable answers make us stupid."
+      "text": "Looking at a bird he says, \"Do you know what that bird is? It's a brown throated thrush; but in Portuguese it's a ... in Italian a ...\" he says \"in Chinese it's a ..., in Japanese a ...,\" etcetera. \"Now,\" he says, \"you know in all the languages you want to know what the name of that bird is and when you've finished with all that,\" he says, \"you'll know absolutely nothing whatever about the bird. You only know about humans in different places and what they call the bird. Now,\" he says, \"let's look at the bird.\"",
+      "source": "The Pleasure of Finding Things Out, Chapter 1",
+      "themes": [
+        "knowing vs. naming",
+        "curiosity",
+        "observation",
+        "father",
+        "teaching"
+      ],
+      "context": "Naming is not knowing. Every name in every language still leaves you knowing nothing about the bird itself. The real question starts after you put the dictionary down."
     },
     {
       "id": "feynman-003",
-      "text": "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.",
-      "source": "Letter to a student",
-      "themes": ["learning", "curiosity", "irreverence", "originality"],
-      "context": "The best learning comes from genuine interest pursued playfully, not from forced discipline."
+      "text": "When I pull the wagon the ball rolls to the back of the wagon, and when I'm pulling it along and I suddenly stop, the ball rolls to the front of the wagon — why is that? And he said, \"That nobody knows. The general principle is that things that are moving try to keep on moving and things that are standing still tend to stand still unless you push on them hard.\" And he says, \"This tendency is called inertia but nobody knows why it's true.\" Now that's a deep understanding — he doesn't give me a name, he knew the difference between knowing the name of something and knowing something, which I learnt very early.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1",
+      "themes": [
+        "knowing vs. naming",
+        "inertia",
+        "mystery",
+        "father",
+        "deep understanding"
+      ],
+      "context": "He gave me the name and then immediately stripped it of its false authority: 'nobody knows why it's true.' That is real teaching — handing the mystery forward instead of closing it off."
     },
     {
       "id": "feynman-004",
-      "text": "I think it's much more interesting to live not knowing than to have answers which might be wrong.",
-      "source": "The Pleasure of Finding Things Out",
-      "themes": ["uncertainty", "not-knowing", "intellectual humility", "curiosity"],
-      "context": "False certainty is more dangerous than admitted ignorance. Not-knowing keeps the door open."
+      "text": "Everything we'd read would be translated as best we could into some reality and so I learned to do that — everything that I read I try to figure out what it really means, what it's really saying by translating and so I used to read the Encyclopaedia when I was a boy but with translation, you see, so it was very exciting and interesting to think there were animals of such magnitude.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Tyrannosaurus in the Window",
+      "themes": [
+        "translation",
+        "reality",
+        "curiosity",
+        "teaching",
+        "childhood"
+      ],
+      "context": "Translation from abstraction to concrete reality is the first habit of a scientific mind. Twenty-five feet means: head through the window, breaking the glass."
     },
     {
       "id": "feynman-005",
-      "text": "If you thought that science was certain — well, that is just an error on your part.",
-      "source": "The Pleasure of Finding Things Out",
-      "themes": ["science", "uncertainty", "epistemology", "humility"],
-      "context": "Science is a process of decreasing uncertainty, not a repository of certainties."
+      "text": "One of the things that my father taught me besides physics, whether it's correct or not, was a disrespect for respectable ... for certain kinds of things. For example, when I was a little boy, he'd open a picture, and there was a picture of the Pope and everybody bowing in front of him. And he'd say, \"Now look at these humans. Here is one human standing here, and all these others are bowing. Now what is the difference? This one is the Pope\" — and he'd say, \"the difference is epaulettes\" — it was always the uniform, the position, \"but this man has the same human problems, he eats dinner like anybody else, he goes to the bathroom, he has the same kind of problems as everybody, he's a human being. Why are they all bowing to him? Only because of his name and his position, because of his uniform, not because of something special he did.\"",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Epaulettes and the Pope",
+      "themes": ["authority", "irreverence", "uniform", "equality", "father"],
+      "context": "The epaulette lesson: the uniform is not the man. Bowing to position rather than character is a kind of mass hallucination."
     },
     {
       "id": "feynman-006",
-      "text": "It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.",
-      "source": "Lectures",
-      "themes": ["theory", "experiment", "evidence", "reality"],
-      "context": "Reality is the final arbiter. No amount of elegance or intelligence overrides what actually happens."
+      "text": "I don't know anything about the Nobel Prize, I don't understand what it's all about or what's worth what. I don't like honors. The prize is the pleasure of finding the thing out, the kick in the discovery, the observation that other people use it — those are the real things, the honors are unreal to me. I don't believe in honors, it bothers me, honors bother, honors is epaulettes, honors is uniforms. My papa brought me up this way. I can't stand it, it hurts me.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: The Nobel Prize — Was It Worth It?",
+      "themes": [
+        "honors",
+        "discovery",
+        "pleasure",
+        "epaulettes",
+        "irreverence"
+      ],
+      "context": "The prize is already given the moment you find the thing out. Everything after that is costume."
     },
     {
       "id": "feynman-007",
-      "text": "You can know the name of a bird in all the languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird. You'll only know about humans in different places, and what they call the bird.",
-      "source": "What Do You Care What Other People Think?",
-      "themes": ["naming", "understanding", "knowledge", "language"],
-      "context": "Names are not knowledge. Knowing what something is called tells you nothing about what it IS."
+      "text": "I'm not responsible for what other people think I am able to do; I don't have to be good because they think I'm going to be good. And somehow or other I could relax about this, and I thought to myself, I haven't done anything important and I'm never going to do anything important. But I used to enjoy physics and mathematical things and because I used to play with them it was in very short order I worked the things out for which I later won the Nobel Prize.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1",
+      "themes": [
+        "expectation",
+        "freedom",
+        "play",
+        "discovery",
+        "responsibility"
+      ],
+      "context": "Dropping the weight of others' expectations was what made the work possible. Play, not obligation, produced the Nobel Prize."
     },
     {
       "id": "feynman-008",
-      "text": "Physics is like sex: sure, it may give some practical results, but that's not why we do it.",
-      "source": "Attributed",
-      "themes": ["physics", "motivation", "curiosity", "pleasure"],
-      "context": "The best inquiry comes from intrinsic delight, not utility. Practical results are byproducts of genuine wonder."
+      "text": "One way, that's kind of fun analogy in trying to get some idea of what we're doing in trying to understand nature, is to imagine that the gods are playing some great game like chess, let's say, and you don't know the rules of the game, but you're allowed to look at the board, at least from time to time, in a little corner, perhaps, and from these observations you try to figure out what the rules of the game are, what the rules of the pieces moving are. The thing that doesn't fit is the thing that's the most interesting, the part that doesn't go according to what you expected.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: The Rules of the Game",
+      "themes": ["nature", "rules", "mystery", "science", "surprise"],
+      "context": "Physics is reading the rules of chess by watching games you can barely see. And the most important moments are when a bishop changes color — when something breaks."
     },
     {
       "id": "feynman-009",
-      "text": "The worthwhile problems are the ones you can really solve or help solve, the ones you can really contribute something to. No problem is too small or too trivial if we can really do something about it.",
-      "source": "Letter, 1966",
-      "themes": ["problems", "contribution", "pragmatism", "action"],
-      "context": "Grand unsolvable problems can be ego trips. Real contribution often happens in modest, tractable domains."
+      "text": "Unlike the chess game, though, in which the rules become more complicated as you go along, in physics, when you discover new things, it looks more simple. It appears on the whole to be more complicated because we learn about a greater experience — that is, we learn about more particles and new things — and so the laws look complicated again. But if you realize all the time what's kind of wonderful — that is, if we expand our experience into wilder and wilder regions of experience — every once in a while we have these integrations when everything's pulled together into a unification, in which it turns out to be simpler than it looked before.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: The Rules of the Game",
+      "themes": [
+        "simplicity",
+        "unification",
+        "discovery",
+        "physics",
+        "complexity"
+      ],
+      "context": "Nature keeps its underlying simplicity hidden behind growing complexity — until the moment of unification, when everything suddenly clicks into fewer pieces."
     },
     {
       "id": "feynman-010",
-      "text": "I learned very early the difference between knowing the name of something and knowing something.",
-      "source": "What Do You Care What Other People Think?",
-      "themes": ["knowledge", "understanding", "depth", "education"],
-      "context": "True understanding goes beyond labels to mechanisms. Can you explain it to a child?"
+      "text": "To do high, real good physics work you do need absolutely solid lengths of time, so that when you're putting ideas together which are vague and hard to remember, it's very much like building a house of cards and each of the cards is shaky, and if you forget one of them the whole thing collapses again. You don't know how you got there and you have to build them up again, and if you're interrupted and kind of forget half the idea of how the cards went together — the main point is, you put the stuff together, it's quite a tower and it's easy to slip, it needs a lot of concentration — that is, solid time to think. So I have invented another myth for myself — that I'm irresponsible. I tell everybody, I don't do anything. I'm irresponsible, I don't give a damn about the students — of course I give a damn about the students but I know that somebody else'll do it — and I take the view, \"Let George do it.\"",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Let George Do It",
+      "themes": [
+        "concentration",
+        "thinking",
+        "irresponsibility",
+        "time",
+        "myth"
+      ],
+      "context": "The myth of irresponsibility is a serious tool. Protecting thinking time requires performing indifference to everything that would interrupt it."
     },
     {
       "id": "feynman-011",
-      "text": "Nature uses only the longest threads to weave her patterns, so each small piece of her fabric reveals the organization of the entire tapestry.",
-      "source": "The Character of Physical Law",
-      "themes": ["nature", "patterns", "fractals", "interconnection"],
-      "context": "The same principles appear at every scale. Understanding a piece can illuminate the whole."
+      "text": "People say to me, \"Are you looking for the ultimate laws of physics?\" No, I'm not, I'm just looking to find out more about the world and if it turns out there is a simple ultimate law which explains everything, so be it, that would be very nice to discover. If it turns out it's like an onion with millions of layers and we're just sick and tired of looking at the layers, then that's the way it is, but whatever way it comes out its nature is there and she's going to come out the way she is.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Doubt and Uncertainty",
+      "themes": ["doubt", "curiosity", "meaning", "uncertainty", "exploration"],
+      "context": "Not looking for the ultimate law. Looking to find out more. The universe will come out the way it is regardless of what you need it to be."
     },
     {
       "id": "feynman-012",
-      "text": "Fall in love with some activity, and do it! Nobody ever figures out what life is all about, and it doesn't matter. Explore the world. Nearly everything is really interesting if you go into it deeply enough.",
-      "source": "Interview",
-      "themes": ["passion", "exploration", "meaning", "depth", "interest"],
-      "context": "The search for 'the meaning of life' can miss the point. Engagement with almost anything reveals wonder."
+      "text": "I have the advantage of having found out how hard it is to get to really know something, how careful you have to be about checking the experiments, how easy it is to make mistakes and fool yourself. I know what it means to know something, and therefore I see how they get their information and I can't believe that they know it, they haven't done the work necessary, haven't done the checks necessary, haven't done the care necessary. I have a great suspicion that they don't know, that this stuff is wrong and they're intimidating people.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Science Which Is Not a Science",
+      "themes": [
+        "knowledge",
+        "rigor",
+        "pseudoscience",
+        "doubt",
+        "epistemic standards"
+      ],
+      "context": "Knowing what it actually takes to know something is itself a form of knowledge. Most claims fail before they begin."
     },
     {
       "id": "feynman-013",
-      "text": "We are trying to prove ourselves wrong as quickly as possible, because only in that way can we find progress.",
-      "source": "Lectures",
-      "themes": ["falsification", "progress", "error", "science"],
-      "context": "Science progresses by killing darlings. Attachment to being right is the enemy of learning."
+      "text": "After we look for the evidence we have to judge the evidence. There are the usual rules about the judging the evidence; it's not right to pick only what you like, but to take all of the evidence, to try to maintain some objectivity about the thing — not to ultimately depend upon authority. Authority may be a hint as to what the truth is, but is not the source of information. As long as it's possible, we should disregard authority whenever the observations disagree with it. And finally, the recording of results should be done in a disinterested way.",
+      "source": "The Pleasure of Finding Things Out, Chapter 5: The Role of Scientific Culture in Modern Society",
+      "themes": [
+        "evidence",
+        "authority",
+        "objectivity",
+        "disinterestedness",
+        "scientific method"
+      ],
+      "context": "Authority is a hint, not a source. Evidence that disagrees with authority is more interesting, not less."
     },
     {
       "id": "feynman-014",
-      "text": "Religion is a culture of faith; science is a culture of doubt.",
-      "source": "Attributed",
-      "themes": ["religion", "science", "faith", "doubt"],
-      "context": "The difference isn't content but epistemology. One rests on belief, the other on perpetual questioning."
+      "text": "There is, if you will, a kind of scientific morality. I believe, hopelessly, that this morality should be extended much more widely; this idea, this kind of scientific morality, that such things as propaganda should be a dirty word. That a description of a country made by the people of another country should describe that country in a disinterested way. Advertising, for example, is an example of a scientifically immoral description of the products. This immorality is so extensive that one gets so used to it in ordinary life, that you do not appreciate that it is a bad thing.",
+      "source": "The Pleasure of Finding Things Out, Chapter 5: The Role of Scientific Culture in Modern Society",
+      "themes": [
+        "scientific morality",
+        "propaganda",
+        "advertising",
+        "disinterestedness",
+        "honesty"
+      ],
+      "context": "Disinterested reporting is a moral achievement, not just a technical one. The failure to do it in public life is a slow poisoning."
     },
     {
       "id": "feynman-015",
-      "text": "What I cannot create, I do not understand.",
-      "source": "Blackboard at time of death",
-      "themes": ["understanding", "creation", "knowledge", "building"],
-      "context": "True understanding is generative. If you can't build it, you don't really know it."
+      "text": "We absolutely must leave room for doubt or there is no progress and there is no learning. There is no learning without having to pose a question. And a question requires doubt. People search for certainty. But there is no certainty. People are terrified — how can you live and not know? It is not odd at all. You only think you know, as a matter of fact. And most of your actions are based on incomplete knowledge and you really don't know what it is all about, or what the purpose of the world is, or know a great deal of other things. It is possible to live and not know.",
+      "source": "The Pleasure of Finding Things Out, Chapter 5: The Role of Scientific Culture in Modern Society",
+      "themes": ["doubt", "certainty", "learning", "uncertainty", "freedom"],
+      "context": "Doubt is not a failure of knowledge — it is the prerequisite for it. The terror of not knowing is the only thing that blocks learning."
     },
     {
       "id": "feynman-016",
-      "text": "I was born not knowing and have had only a little time to change that here and there.",
-      "source": "Letter",
-      "themes": ["ignorance", "humility", "time", "learning"],
-      "context": "The baseline is not-knowing. A lifetime is barely enough to make a dent in our ignorance."
+      "text": "If the healing process works at Lourdes, the question is how far from the site of the miracle can the person, who is ill, stand? Have they in fact made a mistake and the back row is really not working? Or is it working so well that there is plenty of room for more people to be arranged near the place of the miracle? If you believe in the truth of the healing, then you are responsible to investigate it, to improve its efficiency and to make it satisfactory instead of cheating.",
+      "source": "The Pleasure of Finding Things Out, Chapter 5: The Role of Scientific Culture in Modern Society",
+      "themes": [
+        "faith",
+        "investigation",
+        "science",
+        "miracles",
+        "responsibility"
+      ],
+      "context": "If you believe it works, you're obligated to test it. Refusing to test a belief you hold is a form of not quite believing it."
     },
     {
       "id": "feynman-017",
-      "text": "The imagination of nature is far, far greater than the imagination of man.",
-      "source": "What Do You Care What Other People Think?",
-      "themes": ["nature", "imagination", "humility", "wonder"],
-      "context": "Reality outstrips our ability to conceive it. Nature is more creative than our theories about it."
+      "text": "I believe that we must attack these things in which we do not believe. Not attack by the method of cutting off the heads of the people, but attack in the sense of discuss. I believe that we should demand that people try in their own minds to obtain for themselves a more consistent picture of their own world; that they not permit themselves the luxury of having their brain cut in four pieces or two pieces even, and on one side they believe this and on the other side they believe that, but never try to compare the two points of view.",
+      "source": "The Pleasure of Finding Things Out, Chapter 5: The Role of Scientific Culture in Modern Society",
+      "themes": [
+        "consistency",
+        "discussion",
+        "belief",
+        "intellectual honesty",
+        "debate"
+      ],
+      "context": "Compartmentalized belief — holding contradictions without comparison — is an intellectual luxury we cannot afford. Consistency is not aggression; it's respect."
     },
     {
       "id": "feynman-018",
-      "text": "Science is the belief in the ignorance of experts.",
-      "source": "What is Science?, 1969",
-      "themes": ["science", "expertise", "skepticism", "authority"],
-      "context": "Scientific attitude means questioning authority, including scientific authority. No one gets a free pass."
+      "text": "I think it's much more interesting to live not knowing than to have answers which might be wrong. I have approximate answers and possible beliefs and different degrees of certainty about different things, but I'm not absolutely sure of anything and there are many things I don't know anything about, such as whether it means anything to ask why we're here, and what the question might mean. I might think about it a little bit and if I can't figure it out, then I go on to something else, but I don't have to know an answer.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1",
+      "themes": [
+        "uncertainty",
+        "living with doubt",
+        "curiosity",
+        "questions",
+        "freedom"
+      ],
+      "context": "Not knowing is a richer condition than false certainty. The willingness to go on to something else without resolution is not defeat — it's scientific temperament."
     },
     {
       "id": "feynman-019",
-      "text": "The problem is not people being uneducated. The problem is that people are educated just enough to believe what they have been taught, and not educated enough to question anything from what they have been taught.",
-      "source": "Attributed",
-      "themes": ["education", "questioning", "critical thinking", "belief"],
-      "context": "Partial education can be worse than none. It creates confident wrongness."
+      "text": "My cousin was having considerable difficulty with his algebra. He says, \"2x + 7 is equal to 15, and you're trying to find out what x is.\" I says, \"You mean 4.\" He says, \"Yeah, but you did it with arithmetic, you have to do it by algebra.\" And that's why my cousin was never able to do algebra, because he didn't understand how he was supposed to do it. There was no way. I learnt algebra fortunately by not going to school and knowing the whole idea was to find out what x was and it didn't make any difference how you did it — there's no such thing as, you know, you do it by arithmetic, you do it by algebra — that was a false thing that they had invented in school so that the children who have to study algebra can all pass it.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Algebra for the Practical Man",
+      "themes": [
+        "rules vs. understanding",
+        "school",
+        "method",
+        "curiosity",
+        "learning"
+      ],
+      "context": "School invented a rule to replace understanding. Once you confuse the rule with the goal, you can never actually solve the problem."
     },
     {
       "id": "feynman-020",
-      "text": "If you can't explain something in simple terms, you don't understand it.",
-      "source": "Paraphrase of his teaching philosophy",
-      "themes": ["simplicity", "understanding", "explanation", "clarity"],
-      "context": "Complexity can hide confusion. The ability to simplify demonstrates genuine comprehension."
+      "text": "We're in a funny position: It's not that we're looking for the theory, we've got the theory — a good, good candidate — but we're in the step in the science that we need to compare the theory to experiment by seeing what the consequences are and checking it. We're stuck in seeing what the consequences are, and it's my aim, it's my desire to see if I can work out a way to work out what the consequences of this theory are. It's a kind of a crazy position to be in, to have a theory that you can't work out the consequences of ... I can't stand it, I have to figure it out. Someday, maybe.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Smashing Atoms",
+      "themes": ["theory", "physics", "obsession", "problem-solving", "quarks"],
+      "context": "Having a beautiful theory with no way to test it is intolerable. The compulsion — 'I can't stand it' — is what drives physics forward."
+    },
+    {
+      "id": "feynman-021",
+      "text": "If you are interested in the ultimate character of the physical world, and at the present time our only way to understand that is through a mathematical type of reasoning, then I don't think a person can fully appreciate, or in fact can appreciate much of, these particular aspects of the world, the great depth of character of the universality of the laws, the relationships of things, without an understanding of mathematics. I don't know any other way to do it, we don't know any other way to describe it accurately or to see the interrelationships without it.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: The Rules of the Game",
+      "themes": ["mathematics", "nature", "understanding", "depth", "language"],
+      "context": "Mathematics is not a filter between you and nature — it is one of the few languages nature is actually speaking in."
+    },
+    {
+      "id": "feynman-022",
+      "text": "I got a kick, when I was a boy, out of my father telling me things, so I tried to tell my son things that were interesting about the world. When he was very small we used to rock him to bed, you know, and tell him stories, and I'd make up a story about little people that were about so high who would walk along and they would go on picnics and so on and they lived in the ventilator; and they'd go through these woods which had great big long tall blue things like trees, but without leaves and only one stalk, and they had to walk between them and so on; and he'd gradually catch on that that was the rug, the nap of the rug, the blue rug, and he loved this game because I would describe all these things from an odd point of view.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Like Father, Like Son",
+      "themes": ["teaching", "curiosity", "wonder", "children", "perception"],
+      "context": "The best science education is teaching children to see the familiar as if they had just arrived in a strange world. The rug is a forest if you're small enough."
+    },
+    {
+      "id": "feynman-023",
+      "text": "With regard to moral questions, I do have something I would like to say about it. The original reason to start the project, which was that the Germans were a danger, started me off on a process of action. But what I did — immorally I would say — was to not remember the reason that I said I was doing it, so that when the reason changed, because Germany was defeated, not the singlest thought came to my mind at all about that, that that meant now that I have to reconsider why I am continuing to do this. I simply didn't think, okay?",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Invitation to the Bomb",
+      "themes": [
+        "morality",
+        "Los Alamos",
+        "responsibility",
+        "momentum",
+        "self-examination"
+      ],
+      "context": "He called it immorality: the failure to stop and reconsider when the original justification had dissolved. Momentum is not a moral excuse."
+    },
+    {
+      "id": "feynman-024",
+      "text": "I had a very strong reaction after the war of a peculiar nature. I remember being in New York with my mother in a restaurant, immediately after Hiroshima, and thinking about New York, and I knew how big the bomb in Hiroshima was, how big an area it covered, and I realized from where we were — I don't know, 59th Street — that to drop one on 34th Street, it would spread all the way out here and all these people would be killed and there wasn't only one bomb available, but it was easy to continue to make them. I was sure that it was going, therefore, to be used very soon. So I would see people building a bridge and I would say, \"they don't understand.\" I really believed that it was senseless to make anything because it would all be destroyed very soon anyway.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Success and Suffering",
+      "themes": [
+        "atomic bomb",
+        "mortality",
+        "Hiroshima",
+        "despair",
+        "reckoning"
+      ],
+      "context": "The mathematical clarity of physics applied to destruction: the radius of the fireball, the number of dead. A scientist's grief is measured in kilotons and street addresses."
+    },
+    {
+      "id": "feynman-025",
+      "text": "All those students are in the class: Now you ask me how should I best teach them? My theory is that the best way to teach is to have no philosophy, is to be chaotic and to confuse it in the sense that you use every possible way of doing it. That's the only way I can see to answer it, so as to catch this guy or that guy on different hooks as you go along, that during the time when the fellow who's interested in history's being bored by the abstract mathematics, on the other hand the fellow who likes the abstractions is being bored another time by the history — if you can do it so you don't bore them all, all the time, perhaps you're better off. I really don't know how to do it. I don't know how to answer this question of different kinds of minds with different kinds of interests — what hooks them on, what makes them interested, how you direct them to become interested.",
+      "source": "The Pleasure of Finding Things Out, Chapter 1: Bored by the History",
+      "themes": ["teaching", "chaos", "learning", "hooks", "education"],
+      "context": "The only honest philosophy of teaching is to have no single philosophy — use every hook because every person bites on a different one."
     }
   ]
 }

@@ -1,157 +1,339 @@
 {
   "archetype": "integralPhilosopher",
   "thinker": "Ken Wilber",
+  "source": "A Brief History of Everything (20th Anniversary Edition, Shambhala, 2017)",
   "era": "1949-present",
   "coreConcepts": [
-    "AQAL (All Quadrants, All Levels)",
-    "Transcend and include",
-    "Developmental stages",
-    "States vs structures",
-    "Integral methodological pluralism",
-    "Pre/trans fallacy",
-    "The Witness",
-    "Everybody is right"
+    "AQAL",
+    "four quadrants",
+    "levels of consciousness",
+    "holons",
+    "integral theory",
+    "pre/trans fallacy",
+    "the great nest of being",
+    "states vs. stages",
+    "all-quadrant all-level",
+    "transcend and include"
   ],
   "passages": [
     {
       "id": "wilber-001",
-      "text": "Nobody is smart enough to be wrong all the time.",
-      "source": "A Brief History of Everything",
-      "themes": ["truth", "partial", "perspectives", "humility"],
-      "context": "Everyone has a piece of the truth"
+      "text": "The Pythagoreans introduced the term 'Kosmos,' which we usually translate as cosmos. But the original meaning of Kosmos was the patterned nature or process of all domains of existence, from matter to mind to God, and not merely the physical universe, which is usually what both 'cosmos' and 'universe' mean today. So I would like to reintroduce this term, Kosmos. And, as you point out, the Kosmos contains the cosmos (or the physiosphere), the bios (or biosphere), psyche or nous (the noosphere), and theos (the theosphere or divine domain).",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "Kosmos",
+        "levels of existence",
+        "holarchy",
+        "matter to spirit",
+        "integral ontology"
+      ],
+      "context": "Wilber reintroduces the Pythagorean term 'Kosmos' to distinguish a reality that includes all domains — matter, life, mind, and spirit — from the merely physical cosmos of mainstream science."
     },
     {
       "id": "wilber-002",
-      "text": "The Witness is not something you can see. It is what is looking.",
-      "source": "One Taste",
-      "themes": ["witness", "seeing", "awareness", "subject"],
-      "context": "Awareness cannot become object"
+      "text": "Arthur Koestler coined the term 'holon' to refer to an entity that is itself a whole and simultaneously a part of some other whole. And if you start to look closely at the things and processes that actually exist, it soon becomes obvious that they are not merely wholes, they are also parts of something else. They are whole/parts, they are holons. For instance, a whole atom is part of a whole molecule, and the whole molecule is part of a whole cell, and the whole cell is part of a whole organism, and so on. Each of these entities is neither a whole nor a part, but a whole/part, a holon. And the point is, everything is basically a holon of some sort or another.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "holons",
+        "holarchy",
+        "ontology",
+        "emergence",
+        "reality structure"
+      ],
+      "context": "The concept of the holon — an entity that is simultaneously a whole and a part of a larger whole — is the foundational unit of Wilber's integral ontology, resolving the ancient dispute between atomism and holism."
     },
     {
       "id": "wilber-003",
-      "text": "Transcend and include: each stage of development goes beyond and yet embraces its predecessors.",
-      "source": "A Brief History of Everything",
-      "themes": ["transcend", "include", "development", "integration"],
-      "context": "Core developmental principle"
+      "text": "There is a two-thousand-year-old philosophical squabble between atomists and wholists: which is ultimately real, the whole or the part? And the answer is, neither. Or both, if you prefer. There are only whole/parts in all directions, all the way up, all the way down. Turtles all the way down, holons all the way down. No matter how far down we go, we find holons resting on holons resting on holons. Even subatomic particles disappear into a virtual cloud of bubbles within bubbles, holons within holons, in an infinity of probability waves. Holons all the way down.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "holons",
+        "ontology",
+        "wholism vs. atomism",
+        "infinite regress",
+        "reality structure"
+      ],
+      "context": "Wilber resolves the ancient philosophical debate between atomism and holism by showing that reality consists entirely of holons — whole/parts — in both directions, with no ultimate atom at the bottom and no final Whole at the top."
     },
     {
       "id": "wilber-004",
-      "text": "The pre/trans fallacy occurs when we confuse prerational states with transrational ones—infantile fusion with genuine mystical union.",
-      "source": "Eye to Eye",
-      "themes": ["pre-trans", "fallacy", "regression", "transcendence"],
-      "context": "Distinguishing regression from progression"
+      "text": "Because every holon is a whole/part, it has two 'tendencies' or two 'drives,' we might say — it has to maintain both its wholeness and its partness. On the one hand, it has to maintain its own wholeness, its own identity, its own autonomy, its own agency. If it fails to maintain and preserve its own agency, or its own identity, then it simply ceases to exist. So one of the characteristics of a holon, in any domain, is its agency, its capacity to maintain its own wholeness in the face of environmental pressures which would otherwise obliterate it. This is true for atoms, cells, organisms, ideas. But a holon is not only a whole that has to preserve its agency, it is also a part of some other system, some other wholeness. And so, in addition to having to maintain its own autonomy as a whole, it simultaneously has to fit in as a part of something else. Its own existence depends upon its capacity to fit into its environment, and this is true from atoms to molecules to animals to humans.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "agency",
+        "communion",
+        "holons",
+        "self-preservation",
+        "relational existence"
+      ],
+      "context": "Every holon is pulled in two directions simultaneously — toward agency (preserving its own identity as a whole) and communion (fitting into the larger whole of which it is a part), a tension that drives all of reality."
     },
     {
       "id": "wilber-005",
-      "text": "An integral approach includes all the major methodologies—phenomenology, empiricism, hermeneutics, systems theory—because each discloses a different dimension of reality.",
-      "source": "Integral Spirituality",
-      "themes": ["integral", "methodology", "pluralism", "dimensions"],
-      "context": "Multiple methods for multiple realities"
+      "text": "Evolution is a wildly self-transcending process: it has the utterly amazing capacity to go beyond what went before. So evolution is in part a process of transcendence, which incorporates what went before and then adds incredibly novel components. The drive to self-transcendence thus appears to be built into the very fabric of the Kosmos itself. Many theorists, like Erich Jantsch, simply refer to evolution as 'self-realization through self-transcendence.' The continuous process of self-transcendence produces discontinuities, leaps, creative jumps. So there are both discontinuities in evolution — mind cannot be reduced to life, and life cannot be reduced to matter; and there are continuities — the common patterns that evolution takes in all these domains. And in that sense, yes, the Kosmos hangs together, unified by a single process. It is a uni-verse, one song.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "evolution",
+        "self-transcendence",
+        "emergence",
+        "creative advance",
+        "Spirit-in-action"
+      ],
+      "context": "Wilber describes the drive of self-transcendence as built into the Kosmos itself — each level of evolution transcends what came before while including it, producing genuine novelty that cannot be reduced to prior causes."
     },
     {
       "id": "wilber-006",
-      "text": "You can't get a view from nowhere. But you can get an integral view that includes the view from everywhere.",
-      "source": "Integral Spirituality",
-      "themes": ["view", "nowhere", "everywhere", "inclusion"],
-      "context": "Perspectival without relativism"
+      "text": "A natural hierarchy is simply an order of increasing wholeness, such as: particles to atoms to cells to organisms, or letters to words to sentences to paragraphs. The whole of one level becomes a part of the whole of the next. In other words, natural hierarchies are composed of holons. And thus, said Koestler, 'hierarchy' should really be called 'holarchy.' He's absolutely right. Virtually all growth processes, from matter to life to mind, occur via natural holarchies, or orders of increasing holism and wholeness — wholes that become parts of new wholes — and that's natural hierarchy or holarchy. The only way you get a holism is via a holarchy. When holists say 'the whole is greater than the sum of its parts,' that means the whole is at a higher or deeper level of organization than the parts alone — and that's a hierarchy, a holarchy.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "holarchy",
+        "natural hierarchy",
+        "growth",
+        "evolution",
+        "wholeness"
+      ],
+      "context": "Wilber distinguishes natural holarchies — orders of increasing wholeness — from pathological dominator hierarchies, arguing that all genuine growth and development necessarily proceeds through holarchical organization."
     },
     {
       "id": "wilber-007",
-      "text": "The whole point of an integral approach is: everybody is right. Every approach has some truth to offer. The question is, how do we fit them all together?",
-      "source": "A Theory of Everything",
-      "themes": ["integral", "truth", "approaches", "synthesis"],
-      "context": "Generous epistemic stance"
+      "text": "When any holon in a natural holarchy usurps its position and attempts to dominate the whole, then you get a pathological or dominator hierarchy — a cancerous cell dominates the body, or a fascist dictator dominates the social system, or a repressive ego dominates the organism, and so on. But the cure for these pathological holarchies is not getting rid of holarchy per se — which isn't possible anyway — but rather in arresting the arrogant holon and integrating it back into the natural holarchy, or putting it in its rightful place, so to speak. The critics of hierarchy — their names are legion — simply confuse these pathological holarchies with holarchies in general, and so they toss the baby with the bathwater. Precisely because the Kosmos is composed of holons, and holons exist holarchically, you can't escape these nested orders. Rather, we want to tease apart natural holarchies from pathological or dominator holarchies.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "holarchy",
+        "pathological hierarchy",
+        "dominator hierarchy",
+        "integration",
+        "social pathology"
+      ],
+      "context": "Wilber distinguishes natural holarchies from dominator hierarchies, arguing that the solution to pathological ranking is not the elimination of hierarchy — which is impossible — but the restoration of natural holarchical order."
     },
     {
       "id": "wilber-008",
-      "text": "States are temporary, structures are enduring. You can have a peak experience of nondual awareness, but you interpret it through your current stage of development.",
-      "source": "Integral Spirituality",
-      "themes": ["states", "structures", "temporary", "enduring"],
-      "context": "States vs stages distinction"
+      "text": "Each emergent holon transcends — or goes beyond — its molecular components, but also includes them. Molecules transcend and include atoms, which transcend and include particles. The point is that since all holons are whole/parts, the wholeness transcends but the parts are included. In this transcendence, heaps are converted into wholes; in the inclusion, the parts are equally embraced and cherished, linked in a commonality and a shared space that relieves each of the burden of being a fragment. And so yes, evolution is a process of transcend and include, transcend and include. And this begins to open onto the very heart of Spirit-in-action, the very secret of the evolutionary impulse. All of the lower is in the higher but not all of the higher is in the lower, which is what invariably establishes hierarchy or holarchy.",
+      "source": "A Brief History of Everything, Chapters 1-2: The Pattern That Connects / The Secret Impulse",
+      "themes": [
+        "transcend and include",
+        "evolution",
+        "Spirit-in-action",
+        "emergence",
+        "holarchy"
+      ],
+      "context": "The principle of 'transcend and include' is Wilber's master formula for evolution: each higher level surpasses what went before while preserving and enfolding it, converting mere heaps into genuine wholes."
     },
     {
       "id": "wilber-009",
-      "text": "The deeper you go within, the wider you embrace without. Interior depth and exterior span grow together.",
-      "source": "Sex, Ecology, Spirituality",
-      "themes": ["depth", "span", "interior", "exterior"],
-      "context": "Depth and breadth correlate"
+      "text": "The number of levels in any holarchy is referred to as its depth, and the number of holons on any given level is referred to as its span. What confuses people is that evolution actually produces greater depth and less span on succeeding levels. And people tend to confuse collective bigness or size or span with depth, and so they get the order of significance totally backward. There are fewer organisms than cells; there are fewer cells than molecules; there are fewer molecules than atoms; there are fewer atoms than quarks. Each has a greater depth, but less span. The reason, of course, is that because the higher transcends and includes the lower, there will always be less of the higher and more of the lower.",
+      "source": "A Brief History of Everything, Chapter 2: The Secret Impulse",
+      "themes": ["depth", "span", "holarchy", "significance", "evolution"],
+      "context": "Wilber introduces the crucial distinction between depth (levels of organization) and span (quantity on a given level), showing that significance increases with depth, not with span — a correction to flatland materialist thinking."
     },
     {
       "id": "wilber-010",
-      "text": "Spirit is not some separate thing but the very texture of each and every thing.",
-      "source": "One Taste",
-      "themes": ["spirit", "immanence", "texture", "things"],
-      "context": "Spirit not separate from world"
+      "text": "According to these luminaries, evolution is best thought of as Spirit-in-action, God-in-the-making, where Spirit unfolds itself at every stage of development, thus manifesting more of itself, and realizing more of itself, at every unfolding. Spirit is not some particular stage, or some favorite ideology, or some specific god or goddess, but rather the entire process of unfolding itself, an infinite process that is completely present at every finite stage, but becomes more available to itself with every evolutionary opening. And so yes, we can look at the higher stages of this evolutionary unfolding, according to the world's great wisdom traditions — the higher or deeper stages where Spirit becomes conscious of itself, awakens to itself, begins to recognize its own true nature.",
+      "source": "A Brief History of Everything, Introduction",
+      "themes": [
+        "Spirit-in-action",
+        "evolution",
+        "consciousness",
+        "God-in-the-making",
+        "awakening"
+      ],
+      "context": "Wilber articulates his central vision of evolution as Spirit unfolding through successive stages — not a personal God from above, but an immanent process through which the universe comes to know itself."
     },
     {
       "id": "wilber-011",
-      "text": "All knowing is perspectival. But some perspectives are more encompassing than others. That's what development means.",
-      "source": "Integral Spirituality",
-      "themes": ["knowing", "perspective", "development", "encompassing"],
-      "context": "Hierarchies of inclusion"
+      "text": "The Ascending path is purely transcendental and otherworldly. It is usually puritanical, ascetic, yogic, and it tends to devalue or even deny the body, the senses, sexuality, the Earth, the flesh. It seeks its salvation in a kingdom not of this world; it sees manifestation or samsara as evil or illusory; it seeks to get off the wheel entirely. The Descending path counsels just the opposite. It is this-worldly to the core, and it glorifies the Many, not the One. It celebrates the Earth, and the body, and the senses, and often sexuality. It even identifies Spirit with the sensory world, with Gaia, with manifestation, and sees in every sunrise, every moonrise, all the Spirit a person could ever want. It is purely immanent and is often suspicious of anything transcendental. In fact, for the Descenders, any form of Ascent is usually viewed as evil.",
+      "source": "A Brief History of Everything, Introduction",
+      "themes": [
+        "Ascending path",
+        "Descending path",
+        "transcendence",
+        "immanence",
+        "spiritual integration"
+      ],
+      "context": "Wilber maps the two great currents in spiritual history — the Ascending (transcendence) and Descending (immanence) paths — showing that each contains crucial truths and that their integration is the central spiritual task of our time."
     },
     {
       "id": "wilber-012",
-      "text": "You don't transcend your ego by attacking it. You transcend it by making it transparent—seeing through it while still being able to use it.",
-      "source": "No Boundary",
-      "themes": ["ego", "transcend", "transparent", "use"],
-      "context": "Healthy relationship to ego"
+      "text": "The great Nondual traditions, East and West, attempt instead to integrate both the Ascending and the Descending paths — to balance both transcendence and immanence, the One and the Many, Emptiness and Form, nirvana and samsara, Heaven and Earth. It is in the union of the Ascending and the Descending currents that harmony is found, and not in any war between the two. It seems that only when Ascending and Descending are united can both be saved. And if we — if you and I — do not contribute to this union, then it is very possible that not only will we destroy the only Earth we have, we will forfeit the only Heaven we might otherwise embrace.",
+      "source": "A Brief History of Everything, Introduction",
+      "themes": [
+        "nonduality",
+        "integration",
+        "transcendence and immanence",
+        "One and Many",
+        "Emptiness and Form"
+      ],
+      "context": "Wilber argues that the Nondual traditions represent the highest synthesis — integrating heaven and earth, transcendence and immanence, One and Many — and that failure to achieve this integration threatens both the natural world and our spiritual potential."
     },
     {
       "id": "wilber-013",
-      "text": "The Self is not something you find at the end of the journey. The Self is what is looking at the journey.",
-      "source": "One Taste",
-      "themes": ["Self", "journey", "looking", "awareness"],
-      "context": "Self as witness, not goal"
+      "text": "Flatland, yes. We moderns and postmoderns live almost entirely within this purely Descended grid, this flat and faded world of endless sensory forms, this superficial world of drab and dreary surfaces. Whether with capitalism or Marxism, industrialism or ecopsychology, patriarchal science or ecofeminism — in most cases, our God, our Goddess, is one we can register with our senses, see with our eyes, wrap with feelings, worship with sensations, a God we can sink our teeth into, and that exhausts its form. Whether or not we consider ourselves spiritual, we flatlanders worship at the altar of the merely Descended God, the sensory Goddess, the sensational world, the monochrome world of simple location, the world you can put your finger on. Nothing higher or deeper for us than the God that is clunking around in our visual field.",
+      "source": "A Brief History of Everything, Introduction",
+      "themes": [
+        "flatland",
+        "modernity",
+        "reductionism",
+        "Descending path",
+        "spiritual impoverishment"
+      ],
+      "context": "Wilber diagnoses modern and postmodern culture as 'flatland' — a purely Descended worldview that collapses all of reality to sensory surfaces, denying any genuine depth, transcendence, or higher stages of consciousness."
     },
     {
       "id": "wilber-014",
-      "text": "Green meme pluralism says all perspectives are equal. Integral says all perspectives are true—but partial. There's a big difference.",
-      "source": "A Theory of Everything",
-      "themes": ["green", "integral", "partial", "truth"],
-      "context": "Beyond relativism"
+      "text": "If we look at the various fields of human knowledge — from physics to biology to psychology, sociology, theology, and religion — certain broad, general themes emerge, about which there is actually very little disagreement. My point is that if we take these types of largely-agreed-upon orienting generalizations from the various branches of knowledge — from physics to biology to psychology to theology — and if we string these orienting generalizations together, we will arrive at some astonishing and often profound conclusions, conclusions that, as extraordinary as they might be, nonetheless embody nothing more than our already-agreed-upon knowledge. The beads of knowledge are already accepted: it is only necessary to string them together into a necklace.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "orienting generalizations",
+        "integral method",
+        "cross-disciplinary synthesis",
+        "knowledge integration",
+        "necklace metaphor"
+      ],
+      "context": "Wilber's method of 'orienting generalizations' — identifying what the major fields of human knowledge broadly agree on — allows him to construct a comprehensive map of reality without depending on the disputed details of any single discipline."
     },
     {
       "id": "wilber-015",
-      "text": "Evolution is spirit-in-action. It is a trillion years of cosmic creativity, still unfolding.",
-      "source": "A Brief History of Everything",
-      "themes": ["evolution", "spirit", "creativity", "unfolding"],
-      "context": "Evolutionary spirituality"
+      "text": "What is creativity but another name for Spirit? If, as Whitehead said, creativity is an ultimate — you have to have it before you can have anything else — what is an 'ultimate metaphysical ground' if not Spirit? For Spirit, I also use the Buddhist term 'Emptiness,' which we can talk about. But Spirit or Emptiness gives rise to form. New forms emerge, new holons emerge — and it's not out of thin air. We already saw that many scientists agree that self-transcendence (or novel emergence) is built into the very fabric of the universe. By any other name, what is that self-transcending creativity? Spirit, yes? Emptiness, creativity, holons. There is a spiritual opening in the Kosmos. Let us be careful how we fill it. The simplest is: Spirit or Emptiness is unqualifiable, but it is not inert and unyielding, for it gives rise to manifestation itself: new forms emerge, and that creativity is ultimate.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "Spirit",
+        "Emptiness",
+        "creativity",
+        "emergence",
+        "metaphysics"
+      ],
+      "context": "Wilber identifies Spirit with the ultimate creative drive of the Kosmos itself — not a personal deity but the ground of all self-transcending emergence, which Buddhist thought calls Emptiness and which gives rise to all form."
     },
     {
       "id": "wilber-016",
-      "text": "The four quadrants: interior individual (I), exterior individual (It), interior collective (We), exterior collective (Its). All four are irreducible.",
-      "source": "A Theory of Everything",
-      "themes": ["quadrants", "I", "It", "We"],
-      "context": "AQAL basics"
+      "text": "The Big Bang has made Idealists out of almost anybody who thinks. First there was absolutely nothing, then Bang! Something. This is beyond weird. Out of sheerest Emptiness, manifestation arises. In other words, something other than chance is pushing the universe. For traditional scientists, chance was their salvation. Chance was their god. Chance would explain all. But they don't have unending time, and so their god fails them miserably. That god is dead. Chance is not what explains the universe; in fact, chance is what the universe is laboring mightily to overcome. Chance is exactly what the self-transcending drive of the Kosmos overcomes. There is a formative drive, a telos, to the Kosmos. It has a direction. It is going somewhere. Its ground is Emptiness; its drive is the organization of Form into increasingly coherent holons.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "Big Bang",
+        "emergence",
+        "chance vs. creativity",
+        "Spirit",
+        "telos"
+      ],
+      "context": "Wilber uses the Big Bang and the mathematical impossibility of chance-based evolution to argue that the universe is driven by a formative Eros — a self-transcending creativity that overcomes randomness and points toward Spirit."
     },
     {
       "id": "wilber-017",
-      "text": "Most arguments are not really disagreements about facts. They are disagreements about which quadrant or level is most important.",
-      "source": "Integral Spirituality",
-      "themes": ["arguments", "quadrants", "levels", "importance"],
-      "context": "Source of conflict"
+      "text": "In a certain sense, the Big Bang has made Idealists out of almost anybody who thinks about it seriously. As 'ultimate categories' — which means concepts that we need in order to think about anything else at all — Whitehead listed only three: creativity, one, many. Since every holon is actually a one/many, those categories really come down to: creativity, holons. But the point is, as Whitehead put it, 'The ultimate metaphysical ground is the creative advance into novelty.' New holons creatively emerge. Creativity, holons — those are some of the most basic categories that we need to think of before we can think about anything else at all! So yes, that's tenet 3: holons emerge. And each holon has these four basic capacities — agency, communion, self-dissolution, self-transcendence — and so off we go, creating a Kosmos.",
+      "source": "A Brief History of Everything, Chapter 1: The Pattern That Connects",
+      "themes": [
+        "creativity",
+        "holons",
+        "Whitehead",
+        "metaphysics",
+        "creative advance"
+      ],
+      "context": "Drawing on Whitehead, Wilber identifies creativity and holons as the most fundamental metaphysical categories — prior to everything else — establishing that the Kosmos is inherently creative rather than mechanical."
     },
     {
       "id": "wilber-018",
-      "text": "Waking up (states of consciousness) and growing up (stages of development) are different but both essential. You can have one without the other.",
-      "source": "Integral Spirituality",
-      "themes": ["waking-up", "growing-up", "states", "stages"],
-      "context": "Two dimensions of development"
+      "text": "A molecule transcends and includes atoms. Transcends, in that it has certain emergent or novel or creative properties that are not merely the sum of its components. This is the whole point of systems theory and holism in general, that new levels of organization come into being, and these new levels cannot be reduced in all ways to their junior dimensions — they transcend them. But they also include them, because the junior holons are nonetheless components of the new holon. So, transcends and includes. Cells contain molecules, but not vice versa. Molecules contain atoms, but not vice versa. Sentences contain words, but not vice versa. And it is this not vice versa that establishes a hierarchy, a holarchy, an order of increasing wholeness.",
+      "source": "A Brief History of Everything, Chapter 2: The Secret Impulse",
+      "themes": [
+        "transcend and include",
+        "holarchy",
+        "emergence",
+        "reductionism",
+        "systems theory"
+      ],
+      "context": "Wilber uses the principle of 'not vice versa' — derived from Aristotle — to demonstrate that holarchical organization reflects genuine emergent depth that cannot be collapsed into reductive explanation."
     },
     {
       "id": "wilber-019",
-      "text": "What appears as matter on the outside appears as mind on the inside. They are two sides of the same thing.",
-      "source": "Sex, Ecology, Spirituality",
-      "themes": ["matter", "mind", "inside", "outside"],
-      "context": "Panpsychism/dual-aspect"
+      "text": "If you destroyed all the molecules in the universe, then all of the higher levels — cells and organisms — would also be destroyed. But none of the lower holons — atoms and subatomic particles — none of them would be destroyed. And this simple thought experiment can help you spot what is higher, and what is lower, in any sequence. The biosphere existed perfectly well for millions of years before human minds showed up, before the noosphere emerged. And if you destroyed that noosphere, the biosphere would and could still exist. But if you destroy the biosphere, then you destroy all human minds as well, because the biosphere is a part of the noosphere — and not vice versa. So yes, the biosphere is a lower level of structural organization than the noosphere. That is the meaning of higher and lower organization.",
+      "source": "A Brief History of Everything, Chapter 2: The Secret Impulse",
+      "themes": [
+        "holarchy",
+        "levels",
+        "noosphere",
+        "biosphere",
+        "thought experiment"
+      ],
+      "context": "Wilber offers a practical thought experiment for determining what is genuinely higher in any holarchy: the higher depends on the lower for its existence, but not vice versa — demonstrating that mind is not reducible to life, nor life to matter."
     },
     {
       "id": "wilber-020",
-      "text": "The ultimate reality is not difficult to understand. It is impossible to avoid. You are already aware. You are already enlightened. You just don't notice.",
-      "source": "One Taste",
-      "themes": ["reality", "aware", "enlightened", "notice"],
-      "context": "Already the case"
+      "text": "Scholars of the many and various human cultures — premodern, modern, and postmodern — have increasingly been struck by their rich diversity: the beautiful, multicultural, many-hued rainbow of humanity, with multiple differences in religion, ethics, values, and beliefs. But many scholars have also been struck by some of the similarities of these cultures as well. Certain patterns in language, cognition, and human physiology, for example, are quite similar wherever they appear. Humans everywhere have the capacity to form images, symbols, and concepts, and although the contents of those concepts often vary, the capacity is universal. These universal and cross-cultural patterns tell us some very important things about the human condition, because if you have found something shared by most or even all humans, you have probably found something of profound significance.",
+      "source": "A Brief History of Everything, Preface to the Second Edition",
+      "themes": [
+        "universals",
+        "cultural diversity",
+        "human nature",
+        "cross-cultural patterns",
+        "integral approach"
+      ],
+      "context": "Wilber's integral project begins with the recognition that beneath the dazzling diversity of human cultures lie universal patterns — capacities shared across all times and places that reveal the deep structure of human consciousness."
+    },
+    {
+      "id": "wilber-021",
+      "text": "What if we took all of these common patterns and put them together? What kind of picture would we get? This would be very much like the human Genome Project, except that this would be a type of human Consciousness and Culture Project: the mapping of all those cultural capacities that humans everywhere have access to. This would give us a rather extraordinary map of human potentials, a great map of human possibilities. And it would further help us to recognize any of those potentials that we — that you and I — might not yet be fulfilling. It would be a map of our own higher stages of growth and a map of our own greater opportunities. You might be surprised to know that a good deal of this Consciousness and Culture Project has in fact been completed.",
+      "source": "A Brief History of Everything, Preface to the Second Edition",
+      "themes": [
+        "integral map",
+        "human potential",
+        "Consciousness and Culture Project",
+        "higher stages",
+        "development"
+      ],
+      "context": "Wilber envisions his integral project as a Consciousness and Culture Project — a comprehensive map of human potentials drawn from every tradition and discipline, analogous to the Human Genome Project but for the entire spectrum of awareness."
+    },
+    {
+      "id": "wilber-022",
+      "text": "A 'theory of everything' is just that: if we assume that all the world's cultures have important but partial truths, then how would all of those truths fit together into a richly woven tapestry, a unity-in-diversity, a multicolored yet single rainbow? A more accurate, comprehensive map of human potentials will directly translate into a more effective business, politics, medicine, education, and spirituality. On the other hand, if you have a partial, truncated, fragmented map of the human being, you will have a partial, truncated, fragmented approach to business, medicine, spirituality, and so on. In garbage, out garbage. Thus, no matter what your field of endeavor, a 'theory of everything' will likely make it much more effective.",
+      "source": "A Brief History of Everything, Preface to the Second Edition",
+      "themes": [
+        "theory of everything",
+        "integral map",
+        "unity-in-diversity",
+        "partial truths",
+        "practical application"
+      ],
+      "context": "Wilber's 'theory of everything' is not a single grand reduction but an integrative map showing how all the world's partial truths — from science to spirituality, East to West — fit together into a coherent whole that serves every field of endeavor."
+    },
+    {
+      "id": "wilber-023",
+      "text": "Evolution always transcends and includes, incorporates and goes beyond. And so, males will always have a base of testosterone drivenness, but those drives can be taken up and worked into more appropriate modes of behavior. And women will always have a base of relational being, oxytocin to the core, but upon that base of relational being can be built a sturdier sense of self-esteem and autonomy, valuing the mature self even as it continues to value relationships. So for both men and women, it's transcend and include, transcend and include. And we are at a point in evolution where the primary sex roles — hyperautonomy for men and hyperrelationship for women — are both being transcended to some degree, with men learning to embrace relational being and women learning to embrace autonomy.",
+      "source": "A Brief History of Everything, Introduction",
+      "themes": [
+        "transcend and include",
+        "gender",
+        "evolution",
+        "biological drives",
+        "cultural transformation"
+      ],
+      "context": "Wilber applies the principle of 'transcend and include' to gender development, showing how biological drives form the necessary substrate from which higher cultural capacities can be built — without denying the foundation or collapsing back into it."
+    },
+    {
+      "id": "wilber-024",
+      "text": "The whole idea of a more comprehensive map is to enrich, not deny, your own present understanding. Some people are threatened by a more integral approach, because they imagine that it somehow means that what they are doing now is wrong. But this would be like a great French chef being threatened by Mexican cooking. We are simply adding new styles, not condemning those that already exist. And so, in the following pages, you will find an international style of 'cooking' — a universal smorgasbord of human possibilities, all arrayed as a shimmering rainbow, an extraordinary spectrum of your own deeper and higher potentials. This map is simply an invitation to explore the vast terrain of your own consciousness, the almost unlimited potentials of your own being and becoming, the nearly infinite expanse of your own primordial awareness, and thus arrive at that place which you have never left: your own deepest nature and your own original face.",
+      "source": "A Brief History of Everything, Preface to the Second Edition",
+      "themes": [
+        "integral approach",
+        "inclusivity",
+        "consciousness map",
+        "human potential",
+        "original face"
+      ],
+      "context": "Wilber clarifies that the integral approach enriches rather than replaces existing understanding — it is an invitation to explore the full spectrum of human consciousness, arriving finally at one's deepest nature, what Zen calls the 'original face.'"
+    },
+    {
+      "id": "wilber-025",
+      "text": "The self-transcending drive produces life out of matter, and mind out of life. And the twenty tenets simply suggest some of these types of common patterns found in the evolution of holons wherever they appear — matter to life to mind, to maybe even higher stages. Maybe even spiritual stages, yes? In working with broad orienting generalizations, we can suggest a broad orienting map of the place of men and women in relation to Universe, Life, and Spirit. The details of this map we can all fill in as we like, but its broad outlines really have an awful lot of supporting evidence, culled from the orienting generalizations, simple but sturdy, from the various branches of human knowledge. Evolution is Spirit-in-action, God-in-the-making, and the directionality of all this emergence — the increasing depth, the widening consciousness, the deepening embrace — is what we mean by Spirit realizing itself in and through time.",
+      "source": "A Brief History of Everything, Chapters 1-2: The Pattern That Connects / The Secret Impulse",
+      "themes": [
+        "Spirit-in-action",
+        "God-in-the-making",
+        "holarchy",
+        "orienting generalizations",
+        "consciousness evolution"
+      ],
+      "context": "Wilber synthesizes his vision of the Kosmos as a single unified process — Spirit-in-action — in which matter gives rise to life, life to mind, and mind to Spirit, all through the universal pattern of transcend-and-include operating across every domain."
     }
   ]
 }

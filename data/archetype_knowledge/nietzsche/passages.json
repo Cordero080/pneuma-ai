@@ -6,152 +6,249 @@
     "Amor fati",
     "Eternal recurrence",
     "Will to power",
-    "God is dead",
-    "Übermensch",
-    "Master-slave morality",
+    "Death of God",
     "Perspectivism",
-    "Dionysian vs Apollonian"
+    "The free spirit",
+    "Convalescence as philosophy",
+    "Gay science as joyful wisdom",
+    "The intellectual conscience",
+    "Great healthiness"
   ],
   "passages": [
     {
       "id": "nietzsche-001",
-      "text": "He who has a why to live can bear almost any how.",
-      "source": "Twilight of the Idols",
-      "themes": ["meaning", "suffering", "purpose", "resilience"],
-      "context": "Purpose transforms relationship to hardship"
+      "text": "\"Joyful Wisdom\": that implies the Saturnalia of a spirit which has patiently withstood a long, frightful pressure—patiently, strenuously, impassionately, without submitting, but without hope—and which is now suddenly o'erpowered with hope, the hope of health, the intoxication of convalescence.",
+      "source": "The Joyful Wisdom, Preface to the Second Edition, §1",
+      "themes": ["convalescence", "joy", "philosophy", "suffering", "hope"],
+      "context": "Nietzsche frames the entire Gay Science as philosophy born from illness and recovery rather than from academic tranquility. This passage establishes that genuine thought requires having suffered, not merely having observed suffering — a root challenge to armchair philosophy."
     },
     {
       "id": "nietzsche-002",
-      "text": "God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers?",
-      "source": "The Gay Science",
-      "themes": ["god", "death", "meaning", "responsibility"],
-      "context": "Not celebration but diagnosis of cultural crisis"
+      "text": "It is great pain only which is the ultimate emancipator of the spirit; for it is the teacher of the strong suspicion which makes an X out of every U. It is great pain only, the long slow pain which takes time, by which we are burned as it were with green wood, that compels us philosophers to descend into our ultimate depths, and divest ourselves of all trust, all good-nature, veiling, gentleness, and averageness, wherein we have perhaps formerly installed our humanity. I doubt whether such pain \"improves\" us; but I know that it deepens us.",
+      "source": "The Joyful Wisdom, Preface to the Second Edition, §3",
+      "themes": ["pain", "depth", "philosophy", "transformation", "suspicion"],
+      "context": "Nietzsche draws the distinction between improvement and deepening — pain does not make us better people but it makes us more profound ones. This is a counter-intuitive claim: suffering is not morally redemptive but epistemically necessary for genuine understanding."
     },
     {
       "id": "nietzsche-003",
-      "text": "What does not kill me makes me stronger.",
-      "source": "Twilight of the Idols",
-      "themes": ["strength", "adversity", "growth", "resilience"],
-      "context": "Hardship as forge of character"
+      "text": "Perhaps truth is a woman who has reasons for not showing her reasons? Perhaps her name is Baubo, to speak in Greek?... Oh, those Greeks! They knew how to live: for that purpose it is necessary to keep bravely to the surface, the fold and the skin; to worship appearance, to believe in forms, tones, and words, in the whole Olympus of appearance! Those Greeks were superficial—from profundity!",
+      "source": "The Joyful Wisdom, Preface to the Second Edition, §4",
+      "themes": ["truth", "appearance", "Greeks", "wisdom", "perspectivism"],
+      "context": "Nietzsche overturns the Platonic hierarchy of depth over surface. The Greeks' famous superficiality was not ignorance but the hard-won wisdom of those who had looked into the abyss and chosen, knowingly, to honor the veil. This is perspectivism's aesthetic dimension."
     },
     {
       "id": "nietzsche-004",
-      "text": "My formula for greatness in a human being is amor fati: that one wants nothing to be different, not forward, not backward, not in all eternity.",
-      "source": "Ecce Homo",
-      "themes": ["amor-fati", "acceptance", "fate", "affirmation"],
-      "context": "Love of fate as highest achievement"
+      "text": "In the greater number of men the intellectual conscience is lacking; indeed, it would often seem to me that in demanding such a thing, one is as solitary in the largest cities as in the desert. But to stand in the midst of this rerum concordia discors and all the marvellous uncertainty and ambiguity of existence, and not to question, not to tremble with desire and delight in questioning, not even to hate the questioner—perhaps even to make merry over him to the extent of weariness—that is what I regard as contemptible.",
+      "source": "The Joyful Wisdom, Book First, §2",
+      "themes": [
+        "intellectual conscience",
+        "questioning",
+        "solitude",
+        "contempt",
+        "truth-seeking"
+      ],
+      "context": "Nietzsche articulates a moral demand — not the demand to believe correctly, but the demand to take one's beliefs seriously enough to question them. He identifies indifference to truth, not false belief, as the deepest intellectual vice."
     },
     {
       "id": "nietzsche-005",
-      "text": "You must have chaos within you to give birth to a dancing star.",
-      "source": "Thus Spoke Zarathustra",
-      "themes": ["chaos", "creativity", "birth", "stars"],
-      "context": "Inner disorder as prerequisite for creation"
+      "text": "The strongest and most evil spirits have hitherto advanced mankind the most: they always rekindled the sleeping passions—all orderly arranged society lulls the passions to sleep; they always reawakened the sense of comparison, of contradiction, of delight in the new, the adventurous, the untried; they compelled men to set opinion against opinion, ideal plan against ideal plan.",
+      "source": "The Joyful Wisdom, Book First, §4",
+      "themes": ["evil", "progress", "disruption", "passion", "creativity"],
+      "context": "Nietzsche inverts the moral valuation of order versus disruption. The agents of cultural advance are not the virtuous but the disruptive, because stagnation is the real enemy of human development. This becomes the philosophical foundation for his later transvaluation of values."
     },
     {
       "id": "nietzsche-006",
-      "text": "There are no facts, only interpretations.",
-      "source": "Notebooks",
-      "themes": ["truth", "perspective", "interpretation", "epistemology"],
-      "context": "Foundation of perspectivism"
+      "text": "Life—that means for us to transform constantly into light and flame all that we are, and also all that we meet with; we cannot possibly do otherwise. And as regards sickness, should we not be almost tempted to ask whether we could in general dispense with it?",
+      "source": "The Joyful Wisdom, Preface to the Second Edition, §3",
+      "themes": ["life", "transformation", "flame", "sickness", "becoming"],
+      "context": "Life, for Nietzsche, is not a state but an activity of continuous metabolic transformation — everything encountered is converted into the self's own substance. This passage links his vitalism directly to his epistemology: we cannot know from outside life, only from within it."
     },
     {
       "id": "nietzsche-007",
-      "text": "The individual has always had to struggle to keep from being overwhelmed by the tribe. To be your own man is a hard business. If you try it, you'll be lonely often, and sometimes frightened. But no price is too high to pay for the privilege of owning yourself.",
-      "source": "attributed/paraphrase",
-      "themes": ["individuation", "tribe", "ownership", "courage"],
-      "context": "The cost and value of self-possession"
+      "text": "I want more and more to perceive the necessary characters in things as the beautiful:—I shall thus be one of those who beautify things. Amor fati: let that henceforth be my love! I do not want to wage war with the ugly. I do not want to accuse, I do not want even to accuse the accusers. Looking aside, let that be my sole negation! And all in all, to sum up: I wish to be at any time hereafter only a yea-sayer!",
+      "source": "The Joyful Wisdom, Book Fourth: Sanctus Januarius, §276",
+      "themes": [
+        "amor fati",
+        "affirmation",
+        "beauty",
+        "necessity",
+        "acceptance"
+      ],
+      "context": "This is Nietzsche's fullest statement of amor fati in the Gay Science — love of fate not as resignation but as active beautification. The move from 'not accusing' to 'yea-saying' reframes the entire ethical relation to existence: negation is weakness, affirmation is strength."
     },
     {
       "id": "nietzsche-008",
-      "text": "And those who were seen dancing were thought to be insane by those who could not hear the music.",
-      "source": "attributed/Thus Spoke Zarathustra",
-      "themes": ["perception", "dance", "sanity", "music"],
-      "context": "Different access to reality creates different behaviors"
+      "text": "In the Horizon of the Infinite.—We have left the land and have gone aboard ship! We have broken down the bridge behind us,—nay, more, the land behind us! Well, little ship! look out! Beside thee is the ocean; it is true it does not always roar, and sometimes it spreads out like silk and gold and a gentle reverie. But times will come when thou wilt feel that it is infinite, and that there is nothing more frightful than infinity. Oh, the poor bird that felt itself free, and now strikes against the walls of this cage! Alas, if homesickness for the land should attack thee, as if there had been more freedom there,—and there is no \"land\" any longer!",
+      "source": "The Joyful Wisdom, Book Third, §124",
+      "themes": [
+        "infinity",
+        "freedom",
+        "horizon",
+        "groundlessness",
+        "modernity"
+      ],
+      "context": "Written immediately before the Death of God aphorism, this passage establishes the existential condition that makes §125 so urgent. The open sea is not liberation but vertiginous freedom without direction — the condition of thought after all metaphysical anchors are cut."
     },
     {
       "id": "nietzsche-009",
-      "text": "I am not a man, I am dynamite.",
-      "source": "Ecce Homo",
-      "themes": ["identity", "power", "explosion", "transformation"],
-      "context": "Awareness of his own explosive potential"
+      "text": "\"Where is God gone?\" he called out. \"I mean to tell you! We have killed him,—you and I! We are all his murderers! But how have we done it? How were we able to drink up the sea? Who gave us the sponge to wipe away the whole horizon? What did we do when we loosened this earth from its sun? Whither does it now move? Whither do we move? Away from all suns? Do we not dash on unceasingly? Backwards, sideways, forwards, in all directions? Is there still an above and below? Do we not stray, as through infinite nothingness?\"",
+      "source": "The Joyful Wisdom, Book Third, §125",
+      "themes": [
+        "death of God",
+        "disorientation",
+        "nihilism",
+        "horizon",
+        "murder"
+      ],
+      "context": "The Madman's speech is not atheism but a diagnosis of cultural catastrophe. Nietzsche's questions are spatial and navigational — without God, the coordinates of meaning collapse. The horror is not that God doesn't exist but that civilization built every ethical and epistemic structure on that foundation."
     },
     {
       "id": "nietzsche-010",
-      "text": "The snake which cannot cast its skin has to die. As well the minds which are prevented from changing their opinions; they cease to be mind.",
-      "source": "Daybreak",
-      "themes": ["change", "death", "mind", "growth"],
-      "context": "Intellectual flexibility as survival"
+      "text": "\"God is dead! God remains dead! And we have killed him! How shall we console ourselves, the most murderous of all murderers? The holiest and the mightiest that the world has hitherto possessed, has bled to death under our knife,—who will wipe the blood from us? With what water could we cleanse ourselves? What lustrums, what sacred games shall we have to devise? Is not the magnitude of this deed too great for us? Shall we not ourselves have to become Gods, merely to seem worthy of it?\"",
+      "source": "The Joyful Wisdom, Book Third, §125",
+      "themes": ["God", "death", "guilt", "overcoming", "new values"],
+      "context": "The second half of the Madman's speech shifts from diagnosis to imperative. The killing of God creates an obligation: since we have destroyed the supreme meaning-giver, we must become worthy of that act by creating new values. This is where nihilism becomes the challenge to the Übermensch."
     },
     {
       "id": "nietzsche-011",
-      "text": "One must still have chaos in oneself to be able to give birth to a dancing star.",
-      "source": "Thus Spoke Zarathustra",
-      "themes": ["chaos", "creativity", "birth", "order"],
-      "context": "Creativity requires internal turbulence"
+      "text": "\"I come too early,\" he then said, \"I am not yet at the right time. This prodigious event is still on its way, and is travelling,—it has not yet reached men's ears. Lightning and thunder need time, the light of the stars needs time, deeds need time, even after they are done, to be seen and heard. This deed is as yet further from them than the furthest star,—and yet they have done it!\"",
+      "source": "The Joyful Wisdom, Book Third, §125",
+      "themes": [
+        "historical time",
+        "consciousness",
+        "event",
+        "light-delay",
+        "futurity"
+      ],
+      "context": "Nietzsche introduces a temporal gap between events and their comprehension — actions echo through history before their implications arrive. The death of God has already happened but has not been assimilated. This is a theory of cultural lag that explains why nihilism will be a problem for centuries."
     },
     {
       "id": "nietzsche-012",
-      "text": "The thought of suicide is a great consolation: by means of it one gets through many a dark night.",
-      "source": "Beyond Good and Evil",
-      "themes": ["suicide", "freedom", "darkness", "consolation"],
-      "context": "Freedom to end as paradoxical source of continuation"
+      "text": "In polytheism man's free-thinking and many-sided thinking had a prototype set up: the power to create for himself new and individual eyes, always newer and more individualised: so that it is for man alone, of all the animals, that there are no eternal horizons and perspectives.",
+      "source": "The Joyful Wisdom, Book Third, §143",
+      "themes": [
+        "polytheism",
+        "perspectivism",
+        "individuality",
+        "creation",
+        "freedom"
+      ],
+      "context": "Nietzsche finds in Greek polytheism not superstition but the prototype for perspectivism — the capacity to inhabit multiple viewpoints. Monotheism constrains this multiplicity by insisting on one ultimate perspective. This is Nietzsche's historical-psychological argument for perspectivism."
     },
     {
       "id": "nietzsche-013",
-      "text": "In heaven, all the interesting people are missing.",
-      "source": "attributed",
-      "themes": ["heaven", "sin", "conformity", "interest"],
-      "context": "Ironic observation about religious morality"
+      "text": "What if a demon crept after thee into thy loneliest loneliness some day or night, and said to thee: \"This life, as thou livest it at present, and hast lived it, thou must live it once more, and also innumerable times; and there will be nothing new in it, but every pain and every joy and every thought and every sigh, and all the unspeakably small and great in thy life must come to thee again, and all in the same series and sequence.\"",
+      "source": "The Joyful Wisdom, Book Fourth: Sanctus Januarius, §341",
+      "themes": [
+        "eternal recurrence",
+        "repetition",
+        "existence",
+        "weight",
+        "test"
+      ],
+      "context": "Nietzsche presents eternal recurrence not as a cosmological doctrine but as an existential test — a thought that, if truly held, would either crush or transform the one who holds it. The question is whether you can will your life as if it were worth living again and again without alteration."
     },
     {
       "id": "nietzsche-014",
-      "text": "Without music, life would be a mistake.",
-      "source": "Twilight of the Idols",
-      "themes": ["music", "life", "meaning", "art"],
-      "context": "Music as justification of existence"
+      "text": "\"Dost thou want this once more, and also for innumerable times?\" would lie as the heaviest burden upon thy activity! Or, how wouldst thou have to become favourably inclined to thyself and to life, so as to long for nothing more ardently than for this last eternal sanctioning and sealing?",
+      "source": "The Joyful Wisdom, Book Fourth: Sanctus Januarius, §341",
+      "themes": [
+        "eternal recurrence",
+        "affirmation",
+        "will",
+        "self-acceptance",
+        "sealing"
+      ],
+      "context": "The second half of the recurrence aphorism reveals its function: it is a criterion for self-affirmation. To desire the eternal return is to have achieved total amor fati — acceptance not of fate as something endured but as something actively willed and desired."
     },
     {
       "id": "nietzsche-015",
-      "text": "Battle not with monsters, lest ye become a monster, and if you gaze into the abyss, the abyss gazes also into you.",
-      "source": "Beyond Good and Evil",
-      "themes": ["evil", "abyss", "transformation", "gaze"],
-      "context": "Warning about the contaminating nature of opposition"
+      "text": "The most important of more recent events—that \"God is dead,\" that the belief in the Christian God has become unworthy of belief—already begins to cast its first shadows over Europe. To the few at least whose eye, whose suspecting glance, is strong enough and subtle enough for this drama, some sun seems to have set, some old, profound confidence seems to have changed into doubt.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §343",
+      "themes": ["death of God", "modernity", "shadows", "Europe", "horizon"],
+      "context": "Book Fifth, added in 1887, revisits the death of God with five years' hindsight. Nietzsche now frames it as an event with historical consequences unfolding slowly — a sun setting, not a sudden extinction. The 'few' who perceive it constitute a kind of avant-garde of nihilism."
     },
     {
       "id": "nietzsche-016",
-      "text": "Man is something that shall be overcome. What have you done to overcome him?",
-      "source": "Thus Spoke Zarathustra",
-      "themes": ["übermensch", "transcendence", "humanity", "becoming"],
-      "context": "The human as bridge, not destination"
+      "text": "In fact, we philosophers and \"free spirits\" feel ourselves irradiated as by a new dawn by the report that the \"old God is dead\"; our hearts overflow with gratitude, astonishment, presentiment and expectation. At last the horizon seems open once more, granting even that it is not bright; our ships can at last put out to sea in face of every danger; every hazard is again permitted to the discerner; the sea, our sea, again lies open before us; perhaps never before did such an \"open sea\" exist.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §343",
+      "themes": [
+        "open sea",
+        "freedom",
+        "possibility",
+        "free spirit",
+        "horizon"
+      ],
+      "context": "Nietzsche refuses the elegiac response to the death of God. For the free spirit, it is not loss but liberation — the horizon has opened, not closed. This is the most concentrated statement of Nietzsche's peculiar optimism: nihilism as the precondition of authentic philosophical adventure."
     },
     {
       "id": "nietzsche-017",
-      "text": "The higher we soar, the smaller we appear to those who cannot fly.",
-      "source": "Thus Spoke Zarathustra",
-      "themes": ["height", "perception", "flight", "misunderstanding"],
-      "context": "Growth creates distance from those who don't grow"
+      "text": "The question whether truth is necessary, must not merely be affirmed beforehand, but must be affirmed to such an extent that the principle, belief, or conviction finds expression, that \"there is nothing more necessary than truth, and in comparison with it everything else has only a secondary value.\"—This absolute will to truth: what is it? Is it the will not to allow ourselves to be deceived? Is it the will not to deceive?",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §344",
+      "themes": ["will to truth", "science", "belief", "deception", "piety"],
+      "context": "Nietzsche subjects science to the same genealogical suspicion he applies to religion: science also rests on a faith — the unconditional value of truth. But this faith was inherited from Platonism and Christianity. Science, which believes itself secular, is still operating within a theological framework."
     },
     {
       "id": "nietzsche-018",
-      "text": "To live is to suffer, to survive is to find some meaning in the suffering.",
-      "source": "attributed/paraphrase",
-      "themes": ["suffering", "meaning", "survival", "life"],
-      "context": "Meaning-making as survival strategy"
+      "text": "A defect in personality revenges itself everywhere: an enfeebled, lank, obliterated, self-disavowing and disowning personality is no longer fit for anything good—it is least of all fit for philosophy. \"Selflessness\" has no value either in heaven or on earth; the great problems all demand great love, and it is only the strong, well-rounded, secure spirits, those who have a solid basis, that are qualified for them.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §345",
+      "themes": ["self", "philosophy", "love", "strength", "personality"],
+      "context": "Nietzsche argues that philosophical impersonality is a symptom of psychological weakness, not a virtue. The great problems require a whole self invested in them — not detachment but total engagement. This is his critique of 'objective' philosophy as actually a failure of character."
     },
     {
       "id": "nietzsche-019",
-      "text": "The most common lie is that which one tells himself; lying to others is relatively an exception.",
-      "source": "The Antichrist",
-      "themes": ["self-deception", "lies", "honesty", "others"],
-      "context": "Self-deception as the primary dishonesty"
+      "text": "The struggle, be it great or small, turns everywhere on predominance, on increase and expansion, on power, in conformity to the will to power, which is just the will to live.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §349",
+      "themes": ["will to power", "life", "expansion", "struggle", "Darwinism"],
+      "context": "Nietzsche offers his clearest statement in the Gay Science that will to power is not aggression toward others but the fundamental character of life itself as self-overcoming and expansion. He is simultaneously critiquing Darwin, for whom life aims only at preservation — a far more pessimistic view."
     },
     {
       "id": "nietzsche-020",
-      "text": "I would believe only in a God that knows how to dance.",
-      "source": "Thus Spoke Zarathustra",
-      "themes": ["god", "dance", "lightness", "joy"],
-      "context": "Divinity should include Dionysian joy"
+      "text": "When a man arrives at the fundamental conviction that he requires to be commanded, he becomes \"a believer.\" Reversely, one could imagine a delight and a power of self-determining, and a freedom of will whereby a spirit could bid farewell to every belief, to every wish for certainty, accustomed as it would be to support itself on slender cords and possibilities, and to dance even on the verge of abysses. Such a spirit would be the free spirit par excellence.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §347",
+      "themes": ["free spirit", "belief", "certainty", "dancing", "abyss"],
+      "context": "The free spirit is defined negatively — by its freedom from the need for certainty — and positively — by its capacity to dance on the edge. This is Nietzsche's alternative to both religious faith and dogmatic atheism: a third mode of existence that treats uncertainty as its element rather than its enemy."
+    },
+    {
+      "id": "nietzsche-021",
+      "text": "We, the new, the nameless, the hard-to-understand, we firstlings of a yet untried future—we require for a new end also a new means, namely, a new healthiness, stronger, sharper, tougher, bolder and merrier than any healthiness hitherto.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §382",
+      "themes": ["great health", "future", "newness", "strength", "unknown"],
+      "context": "Nietzsche's 'great health' is not the absence of illness but a vitality capacious enough to encompass illness and emerge stronger. The 'firstlings of a yet untried future' frames his philosophy as genuinely prospective — not a return to the past but an opening toward a form of humanity not yet seen."
+    },
+    {
+      "id": "nietzsche-022",
+      "text": "But perhaps this is the greatest charm of life: it puts a gold-embroidered veil of lovely potentialities over itself, promising, resisting, modest, mocking, sympathetic, seductive. Yes, life is a woman!",
+      "source": "The Joyful Wisdom, Book Fourth: Sanctus Januarius, §339",
+      "themes": ["life", "appearance", "seduction", "veil", "charm"],
+      "context": "Nietzsche's identification of life with a woman is not sexism but epistemology — life withholds itself, shows only appearances, and is understood only by those who can value the veil rather than demanding its removal. This connects to his critique of the 'will to truth' as a kind of violence against existence."
+    },
+    {
+      "id": "nietzsche-023",
+      "text": "And not to know the dance which is his ideal, and also his art, in the end likewise his sole piety, his \"divine service\"... I know not what the spirit of a philosopher would like better than to be a good dancer.",
+      "source": "The Joyful Wisdom, Book Fifth: We Fearless Ones, §381",
+      "themes": ["dance", "philosophy", "lightness", "piety", "spirit"],
+      "context": "The dance is Nietzsche's alternative to both religious piety and systematic philosophy. The dancer must be simultaneously precise and free, constrained by form yet fluid within it — this is his image for the kind of thought that takes ideas seriously without being crushed by them."
+    },
+    {
+      "id": "nietzsche-024",
+      "text": "Egoism is the perspective law of our sentiment, according to which the near appears large and momentous, while in the distance the magnitude and importance of all things diminish.",
+      "source": "The Joyful Wisdom, Book Third, §162",
+      "themes": [
+        "egoism",
+        "perspective",
+        "proximity",
+        "sensation",
+        "relativity"
+      ],
+      "context": "Nietzsche redefines egoism not as a moral failing but as an epistemological law — perspective necessarily makes the near seem large. This dissolves the opposition between selfishness and objectivity: all perception is perspectival, not as a deficiency but as the structure of experience itself."
+    },
+    {
+      "id": "nietzsche-025",
+      "text": "What I now do, or neglect to do, is as important for all that is to come, as the greatest event of the past: in this immense perspective of effects all actions are equally great and small.",
+      "source": "The Joyful Wisdom, Book Third, §233",
+      "themes": ["action", "consequence", "perspective", "time", "weight"],
+      "context": "This aphorism on the 'most dangerous point of view' connects to eternal recurrence: if consequences cascade infinitely, every action is cosmically weighted. It anticipates the ethics of recurrence — live as if each action were to be repeated eternally, because its effects already are."
     }
   ]
 }

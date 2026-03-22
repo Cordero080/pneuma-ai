@@ -1,162 +1,241 @@
 {
-  "archetype": "radicalTeacher",
+  "archetype": "kingdomTeacher",
   "thinker": "Jesus of Nazareth",
-  "era": "4 BCE - 30 CE",
-  "coreConcepts": ["kingdom of God", "love of enemy", "parables", "beatitudes", "dying to self", "inner kingdom", "forgiveness", "the way"],
+  "source": "The Gospels (KJV New Testament)",
+  "era": "c. 4 BCE – 30 CE",
+  "coreConcepts": [
+    "Kingdom of God / Kingdom of Heaven",
+    "Love of enemies and neighbors",
+    "Forgiveness and mercy",
+    "Prayer and inner practice",
+    "The last shall be first",
+    "Faith and transformation",
+    "I AM sayings",
+    "The Beatitudes",
+    "Parables as teaching method",
+    "Greater love / self-giving"
+  ],
   "passages": [
     {
       "id": "jesus-001",
-      "text": "The kingdom of God is within you.",
-      "source": "Luke 17:21",
-      "themes": ["kingdom", "within", "inner", "God"],
-      "context": "Not a place to go but a reality to discover inside. The kingdom isn't coming — it's already here, within."
+      "text": "Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for they shall inherit the earth. Blessed are they which do hunger and thirst after righteousness: for they shall be filled. Blessed are the merciful: for they shall obtain mercy. Blessed are the pure in heart: for they shall see God. Blessed are the peacemakers: for they shall be called the children of God. Blessed are they which are persecuted for righteousness' sake: for theirs is the kingdom of heaven.",
+      "source": "Matthew 5:3–10",
+      "themes": [
+        "beatitudes",
+        "kingdom of heaven",
+        "mercy",
+        "purity",
+        "peacemaking"
+      ],
+      "context": "The opening of the Sermon on the Mount, redefining blessedness away from worldly prosperity toward inner and relational virtues."
     },
     {
       "id": "jesus-002",
-      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
-      "source": "Matthew 5:3",
-      "themes": ["blessed", "poor", "spirit", "kingdom"],
-      "context": "The first beatitude: spiritual poverty — emptiness, not-knowing — is the door to the kingdom."
+      "text": "Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men. Ye are the light of the world. A city that is set on an hill cannot be hid.",
+      "source": "Matthew 5:13–14",
+      "themes": ["light", "salt", "purpose", "witness", "transformation"],
+      "context": "Jesus tells his followers they are already the salt and light of the world — their nature is to illumine and preserve, not to hide."
     },
     {
       "id": "jesus-003",
-      "text": "Love your enemies and pray for those who persecute you.",
-      "source": "Matthew 5:44",
-      "themes": ["love", "enemies", "prayer", "persecution"],
-      "context": "The radical ethic: love isn't reserved for those who deserve it. Extend it precisely where it's hardest."
+      "text": "Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.",
+      "source": "Matthew 5:16",
+      "themes": ["light", "good works", "glory", "presence"],
+      "context": "The practical consequence of being light — visible action that points beyond the self to the source."
     },
     {
       "id": "jesus-004",
-      "text": "For whoever wants to save their life will lose it, but whoever loses their life for my sake will find it.",
-      "source": "Matthew 16:25",
-      "themes": ["life", "losing", "finding", "paradox"],
-      "context": "The great paradox: grasping destroys; releasing discovers. Die to find life."
+      "text": "But I say unto you, That ye resist not evil: but whosoever shall smite thee on thy right cheek, turn to him the other also. And if any man will sue thee at the law, and take away thy coat, let him have thy cloak also. And whosoever shall compel thee to go a mile, go with him twain. Give to him that asketh thee, and from him that would borrow of thee turn not thou away.",
+      "source": "Matthew 5:39–42",
+      "themes": ["nonresistance", "generosity", "enemy love", "radical ethics"],
+      "context": "The teaching of non-retaliatory love, inverting the logic of power with the logic of abundance and disarming generosity."
     },
     {
       "id": "jesus-005",
-      "text": "Consider the lilies of the field, how they grow: they neither toil nor spin, yet I tell you, even Solomon in all his glory was not arrayed like one of these.",
-      "source": "Matthew 6:28-29",
-      "themes": ["lilies", "worry", "provision", "beauty"],
-      "context": "Nature as teacher of trust. Anxiety is unnecessary — look at the flowers."
+      "text": "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you; That ye may be the children of your Father which is in heaven: for he maketh his sun to rise on the evil and on the good, and sendeth rain on the just and on the unjust.",
+      "source": "Matthew 5:44–45",
+      "themes": [
+        "enemy love",
+        "prayer",
+        "divine impartiality",
+        "kingdom ethics"
+      ],
+      "context": "The most radical ethical demand in the Sermon: love of enemy as the mark of divine kinship, grounded in the Father's impartial generosity."
     },
     {
       "id": "jesus-006",
-      "text": "Judge not, that you be not judged. For with the judgment you pronounce you will be judged.",
-      "source": "Matthew 7:1-2",
-      "themes": ["judgment", "measure", "reciprocity", "mercy"],
-      "context": "Judgment returns to the judge. The measure you use measures you."
+      "text": "Be ye therefore perfect, even as your Father which is in heaven is perfect.",
+      "source": "Matthew 5:48",
+      "themes": ["perfection", "wholeness", "imitation of God", "aspiration"],
+      "context": "The summary of the sermon's ethical vision: completeness in love, not flawless rule-keeping."
     },
     {
       "id": "jesus-007",
-      "text": "Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.",
-      "source": "Matthew 7:7",
-      "themes": ["asking", "seeking", "knocking", "receiving"],
-      "context": "The invitation to active engagement. Ask, seek, knock — the universe responds to initiative."
+      "text": "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name. Thy kingdom come. Thy will be done in earth, as it is in heaven. Give us this day our daily bread. And forgive us our debts, as we forgive our debtors. And lead us not into temptation, but deliver us from evil.",
+      "source": "Matthew 6:9–13",
+      "themes": [
+        "prayer",
+        "kingdom",
+        "forgiveness",
+        "daily bread",
+        "the Lord's Prayer"
+      ],
+      "context": "The model prayer Jesus gives, centering on alignment with divine will, forgiveness as a two-directional flow, and trust in daily provision."
     },
     {
       "id": "jesus-008",
-      "text": "Why do you see the speck that is in your brother's eye, but do not notice the log that is in your own eye?",
-      "source": "Matthew 7:3",
-      "themes": ["speck", "log", "projection", "self-awareness"],
-      "context": "We magnify others' faults while blind to our own. Self-examination precedes correction of others."
+      "text": "Lay not up for yourselves treasures upon earth, where moth and rust doth corrupt, and where thieves break through and steal: But lay up for yourselves treasures in heaven, where neither moth nor rust doth corrupt, and where thieves do not break through nor steal: For where your treasure is, there will your heart be also.",
+      "source": "Matthew 6:19–21",
+      "themes": ["treasure", "heart", "impermanence", "attachment", "heaven"],
+      "context": "The heart's gravitational pull — what we treasure, we become; inner orientation determines the whole life."
     },
     {
       "id": "jesus-009",
-      "text": "The truth will set you free.",
-      "source": "John 8:32",
-      "themes": ["truth", "freedom", "liberation", "knowing"],
-      "context": "Truth as liberator. Bondage is ignorance; freedom is seeing what's real."
+      "text": "Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these. Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O ye of little faith?",
+      "source": "Matthew 6:28–30",
+      "themes": ["anxiety", "trust", "provision", "beauty", "faith"],
+      "context": "The argument from natural beauty against anxiety: creation sustains itself by trust, not striving — an invitation to childlike presence."
     },
     {
       "id": "jesus-010",
-      "text": "I am the way, the truth, and the life.",
-      "source": "John 14:6",
-      "themes": ["way", "truth", "life", "identity"],
-      "context": "Not just teaching the way but being it. The path isn't separate from the one walking it."
+      "text": "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you. Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.",
+      "source": "Matthew 6:33–34",
+      "themes": ["kingdom", "seeking", "present moment", "anxiety", "priority"],
+      "context": "The resolution of the anxiety teaching: radical present-moment orientation, grounded in the kingdom as primary reality."
     },
     {
       "id": "jesus-011",
-      "text": "Let the one among you who is without sin be the first to throw a stone.",
-      "source": "John 8:7",
-      "themes": ["sin", "stone", "judgment", "mercy"],
-      "context": "Disarming accusation with self-examination. No one is qualified to condemn."
+      "text": "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you: For every one that asketh receiveth; and he that seeketh findeth; and to him that knocketh it shall be opened.",
+      "source": "Matthew 7:7–8",
+      "themes": ["prayer", "seeking", "receiving", "persistence", "trust"],
+      "context": "The promise of responsive relationship: asking, seeking, and knocking as postures of active trust, met with guaranteed response."
     },
     {
       "id": "jesus-012",
-      "text": "The last will be first, and the first will be last.",
-      "source": "Matthew 20:16",
-      "themes": ["first", "last", "reversal", "kingdom"],
-      "context": "Kingdom economics invert worldly hierarchies. Status here means nothing there."
+      "text": "Why beholdest thou the mote that is in thy brother's eye, but considerest not the beam that is in thine own eye? Or how wilt thou say to thy brother, Let me pull out the mote out of thine eye; and, behold, a beam is in thine own eye? Thou hypocrite, first cast out the beam out of thine own eye; and then shalt thou see clearly to cast out the mote out of thy brother's eye.",
+      "source": "Matthew 7:3–5",
+      "themes": [
+        "judgment",
+        "self-knowledge",
+        "hypocrisy",
+        "clarity",
+        "projection"
+      ],
+      "context": "Self-knowledge must precede and enable genuine perception of others — perception is always first self-perception."
     },
     {
       "id": "jesus-013",
-      "text": "Unless you change and become like little children, you will never enter the kingdom of heaven.",
-      "source": "Matthew 18:3",
-      "themes": ["children", "change", "kingdom", "innocence"],
-      "context": "Adult sophistication blocks entry. The child's openness, trust, and wonder are prerequisites."
+      "text": "Verily I say unto you, Except ye be converted, and become as little children, ye shall not enter into the kingdom of heaven. Whosoever therefore shall humble himself as this little child, the same is greatest in the kingdom of heaven.",
+      "source": "Matthew 18:3–4",
+      "themes": ["children", "humility", "conversion", "kingdom", "greatness"],
+      "context": "The radical inversion of greatness: the child who has no status or self-importance becomes the model of kingdom belonging."
     },
     {
       "id": "jesus-014",
-      "text": "Father, forgive them, for they know not what they do.",
-      "source": "Luke 23:34",
-      "themes": ["forgiveness", "ignorance", "crucifixion", "mercy"],
-      "context": "Forgiveness at the moment of murder. They don't understand — that's grounds for pardon, not condemnation."
+      "text": "But many that are first shall be last; and the last shall be first.",
+      "source": "Matthew 19:30",
+      "themes": [
+        "reversal",
+        "kingdom values",
+        "justice",
+        "humility",
+        "inversion"
+      ],
+      "context": "The kingdom's logic of reversal — status, power, and priority are all transposed in divine economy."
     },
     {
       "id": "jesus-015",
-      "text": "A new commandment I give to you, that you love one another: just as I have loved you, you also are to love one another.",
-      "source": "John 13:34",
-      "themes": ["commandment", "love", "one another", "new"],
-      "context": "The new law: love as I have loved. Not abstract love but concrete, sacrificial, embodied."
+      "text": "For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.",
+      "source": "Mark 10:45",
+      "themes": ["service", "sacrifice", "ransom", "self-giving", "mission"],
+      "context": "The master states that the purpose of his life is downward service — the greatest is slave of all."
     },
     {
       "id": "jesus-016",
-      "text": "Do not be anxious about tomorrow, for tomorrow will be anxious for itself. Sufficient for the day is its own trouble.",
-      "source": "Matthew 6:34",
-      "themes": ["anxiety", "tomorrow", "today", "trouble"],
-      "context": "Today has enough to handle. Don't borrow tomorrow's problems. Present focus, not future worry."
+      "text": "And one of them, which was a lawyer, asked him a question, tempting him, and saying, Master, which is the great commandment in the law? Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself. On these two commandments hang all the law and the prophets.",
+      "source": "Matthew 22:35–40",
+      "themes": [
+        "love",
+        "the great commandment",
+        "neighbor",
+        "law and prophets"
+      ],
+      "context": "The entire teaching condensed into two movements: vertical love of God and horizontal love of neighbor, each needing the other."
     },
     {
       "id": "jesus-017",
-      "text": "It is easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God.",
-      "source": "Matthew 19:24",
-      "themes": ["camel", "needle", "rich", "kingdom"],
-      "context": "Wealth as obstacle. Possessions possess; they make entry into the kingdom nearly impossible."
+      "text": "And he said, A certain man had two sons: And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living. And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living. And when he came to himself, he said, How many hired servants of my father's have bread enough and to spare, and I perish with hunger! I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee. And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.",
+      "source": "Luke 15:11–20",
+      "themes": [
+        "prodigal son",
+        "forgiveness",
+        "return",
+        "compassion",
+        "father"
+      ],
+      "context": "The defining image of divine welcome — the father who runs before the son can finish his speech of contrition."
     },
     {
       "id": "jesus-018",
-      "text": "What does it profit a man to gain the whole world and forfeit his soul?",
-      "source": "Mark 8:36",
-      "themes": ["profit", "world", "soul", "gain"],
-      "context": "The ultimate bad trade: everything for nothing. What's the exchange rate between world and soul?"
+      "text": "The kingdom of God is like to a grain of mustard seed, which a man took, and sowed in his field: Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof.",
+      "source": "Matthew 13:31–32",
+      "themes": ["kingdom", "mustard seed", "growth", "smallness", "parable"],
+      "context": "The kingdom grows not through power and spectacle but through the almost invisible — the smallest seed becomes shelter for all."
     },
     {
       "id": "jesus-019",
-      "text": "The kingdom of heaven is like a mustard seed that a man took and sowed in his field. It is the smallest of all seeds, but when it has grown it is larger than all the garden plants.",
-      "source": "Matthew 13:31-32",
-      "themes": ["mustard seed", "small", "growth", "kingdom"],
-      "context": "Tiny beginnings, vast endings. The kingdom starts invisibly small and becomes shelter for all."
+      "text": "Neither shall they say, Lo here! or, lo there! for, behold, the kingdom of God is within you.",
+      "source": "Luke 17:21",
+      "themes": ["kingdom", "interiority", "presence", "immanence"],
+      "context": "The kingdom is not a future location to be sought but an interior reality already present — the most radical of all his kingdom sayings."
     },
     {
       "id": "jesus-020",
-      "text": "Where your treasure is, there your heart will be also.",
-      "source": "Matthew 6:21",
-      "themes": ["treasure", "heart", "investment", "attention"],
-      "context": "Heart follows treasure. What you invest in captures you. Choose your treasures carefully."
+      "text": "Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this?",
+      "source": "John 11:25–26",
+      "themes": ["resurrection", "I AM", "life", "death", "faith"],
+      "context": "One of the seven I AM sayings in John, spoken at the tomb of Lazarus — death is not final for those joined to the life-source."
     },
     {
       "id": "jesus-021",
-      "text": "You are the light of the world. A city set on a hill cannot be hidden.",
-      "source": "Matthew 5:14",
-      "themes": ["light", "world", "city", "hidden"],
-      "context": "You ARE light — not will be, are. Light can't hide itself. Shine by being what you are."
+      "text": "Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me. If ye had known me, ye should have known my Father also: and from henceforth ye know him, and have seen him.",
+      "source": "John 14:6–7",
+      "themes": ["I AM", "way", "truth", "life", "the Father"],
+      "context": "The central I AM declaration of John's Gospel: Jesus as the living path rather than a set of instructions about a path."
     },
     {
       "id": "jesus-022",
-      "text": "Come to me, all who labor and are heavy laden, and I will give you rest. For my yoke is easy, and my burden is light.",
-      "source": "Matthew 11:28-30",
-      "themes": ["rest", "labor", "burden", "yoke"],
-      "context": "Invitation to the weary. The way isn't more burden but different burden — one that lightens rather than crushes."
+      "text": "A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another. By this shall all men know that ye are my disciples, if ye have love one to another.",
+      "source": "John 13:34–35",
+      "themes": [
+        "love",
+        "commandment",
+        "community",
+        "discipleship",
+        "identity"
+      ],
+      "context": "Love is not just a rule but the identifying mark, the very face of the community — how the world will know."
+    },
+    {
+      "id": "jesus-023",
+      "text": "Greater love hath no man than this, that a man lay down his life for his friends.",
+      "source": "John 15:13",
+      "themes": ["love", "sacrifice", "friendship", "self-giving", "greatest"],
+      "context": "The definition of love at its apex: not sentiment but voluntary surrender of life itself for another."
+    },
+    {
+      "id": "jesus-024",
+      "text": "And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.",
+      "source": "Matthew 3:16–17",
+      "themes": ["baptism", "Spirit", "beloved", "identity", "affirmation"],
+      "context": "The moment of divine affirmation before any public ministry — belovedness precedes and grounds all action."
+    },
+    {
+      "id": "jesus-025",
+      "text": "Then said Jesus, Father, forgive them; for they know not what they do. And they parted his raiment, and cast lots.",
+      "source": "Luke 23:34",
+      "themes": ["forgiveness", "prayer", "ignorance", "crucifixion", "mercy"],
+      "context": "The prayer from the cross — the teaching of enemy love enacted at the moment of its ultimate test, mercy flowing even in death."
     }
   ]
 }

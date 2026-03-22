@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback } from 'react';
-import './ArchitectureDiagram.css';
+import { useState, useRef, useCallback } from "react";
+import "./ArchitectureDiagram.css";
 
 // Import modal components
 import {
@@ -8,8 +8,8 @@ import {
   OrchestratorModal,
   IntentDetectionModal,
   ToneSelectionModal,
-  ArchetypeSelectionModal
-} from './ArchitectureModals';
+  ArchetypeSelectionModal,
+} from "./ArchitectureModals";
 
 import {
   ContextualSynthesisModal,
@@ -22,19 +22,19 @@ import {
   ResponsePipelineModal,
   FinalAssemblyModal,
   PostResponseModal,
-  OutputModal
-} from './ArchitectureModals2';
+  OutputModal,
+} from "./ArchitectureModals2";
 
 // Import SVG icons
-import { BrainIcon, EyeIcon } from '../Modal/Icons';
+import { BrainIcon, EyeIcon } from "../Modal/Icons";
 
 /**
  * ArchitectureDiagram Component
- * 
+ *
  * Displays the Pneuma cognitive pipeline as an interactive diagram.
  * Each node is clickable and opens a detailed modal with information.
  * Multiple modals can be open simultaneously as popovers.
- * 
+ *
  * Props:
  *   onBack - callback function to return to the chat view
  */
@@ -42,13 +42,13 @@ function ArchitectureDiagram({ onBack }) {
   // Track multiple open modals with their anchor elements
   const [openModals, setOpenModals] = useState({});
   const nodeRefs = useRef({});
-  
+
   // Handle node clicks - toggle modal open/closed
   const handleNodeClick = useCallback((nodeId, nodeTitle, event) => {
     event.stopPropagation();
     console.log(`[Architecture] Toggle modal: ${nodeId} - ${nodeTitle}`);
-    
-    setOpenModals(prev => {
+
+    setOpenModals((prev) => {
       if (prev[nodeId]) {
         // Close this modal
         const { [nodeId]: removed, ...rest } = prev;
@@ -57,15 +57,15 @@ function ArchitectureDiagram({ onBack }) {
         // Open this modal with the anchor element
         return {
           ...prev,
-          [nodeId]: event.currentTarget
+          [nodeId]: event.currentTarget,
         };
       }
     });
   }, []);
-  
+
   // Close a specific modal
   const closeModal = useCallback((nodeId) => {
-    setOpenModals(prev => {
+    setOpenModals((prev) => {
       const { [nodeId]: removed, ...rest } = prev;
       return rest;
     });
@@ -83,45 +83,62 @@ function ArchitectureDiagram({ onBack }) {
         <div className="arch-executive-summary">
           <h2>What Is This?</h2>
           <p className="summary-pitch">
-            <strong>Pneuma is a multi-archetype AI system with RAG and dialectical synthesis.</strong> 
-            It's a 13-step pipeline that ASSEMBLES context before the LLM generates. The magic is in 
-            the setup—what we PUT in the prompt—not just calling an AI API.
+            <strong>
+              Pneuma is a multi-archetype AI system with RAG and dialectical
+              synthesis.
+            </strong>
+            It's a 13-step pipeline that ASSEMBLES context before the LLM
+            generates. The magic is in the setup—what we PUT in the prompt—not
+            just calling an AI API.
           </p>
-          
+
           <div className="summary-highlights">
             <div className="highlight-item">
               <span className="highlight-label">RAG = Literal Injection</span>
-              <p>Searches 46 knowledge bases, finds relevant quotes + context, and LITERALLY pastes them 
-              into the prompt. Claude sees exact text: "The wound is where Light enters..." Not hints—data.</p>
+              <p>
+                Searches 46 knowledge bases, finds relevant quotes + context,
+                and LITERALLY pastes them into the prompt. Claude sees exact
+                text: "The wound is where Light enters..." Not hints—data.
+              </p>
             </div>
             <div className="highlight-item">
               <span className="highlight-label">Prompt = The Container</span>
-              <p>System prompt assembled dynamically in tiers: Tier 1 identity core (always) + Tier 2 deep-knowledge blocks (conditional by intent score) + archetypes + RAG quotes + tone. This is what Claude READS before responding.</p>
+              <p>
+                System prompt assembled dynamically in tiers: Tier 1 identity
+                core (always) + Tier 2 deep-knowledge blocks (conditional by
+                intent score) + archetypes + RAG quotes + tone. This is what
+                Claude READS before responding.
+              </p>
             </div>
             <div className="highlight-item">
               <span className="highlight-label">LLM = Pattern Completion</span>
-              <p>Claude doesn't "understand"—it predicts what tokens fit the context we assembled. 
-              Because we put accurate quotes IN the prompt, it can reference them accurately.</p>
+              <p>
+                Claude doesn't "understand"—it predicts what tokens fit the
+                context we assembled. Because we put accurate quotes IN the
+                prompt, it can reference them accurately.
+              </p>
             </div>
             <div className="highlight-item">
               <span className="highlight-label">46 Archetypes</span>
-              <p>Jung, Rumi, Feynman, Frankl, Nietzsche, etc. Each has depth tiers (SURFACE → CORE → DEEP), 
-              cognitive methods, and curated passage databases for RAG retrieval.</p>
+              <p>
+                Jung, Rumi, Feynman, Frankl, Nietzsche, etc. Each has depth
+                tiers (SURFACE → CORE → DEEP), cognitive methods, and curated
+                passage databases for RAG retrieval.
+              </p>
             </div>
           </div>
-          
+
           <p className="summary-tagline">
             Click any step below to see exactly what happens in the code.
           </p>
         </div>
 
         <div className="architecture-flow">
-          
           {/* USER INPUT */}
-          <div 
+          <div
             className="arch-node input"
             data-layer="Input"
-            onClick={(e) => handleNodeClick('input', 'User Input', e)}
+            onClick={(e) => handleNodeClick("input", "User Input", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">↓</span>
@@ -130,16 +147,19 @@ function ArchitectureDiagram({ onBack }) {
             <div className="arch-node-desc">Message arrives from the user</div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(255,255,255,0.3)', '--to-color': 'rgba(0,150,255,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(255,255,255,0.3)",
+              "--to-color": "rgba(0,150,255,0.4)",
+            }}
           />
 
           {/* STEP 1: ENTRY */}
-          <div 
+          <div
             className="arch-node routing"
             data-layer="Routing"
-            onClick={(e) => handleNodeClick('step1', 'Entry Point', e)}
+            onClick={(e) => handleNodeClick("step1", "Entry Point", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">1</span>
@@ -151,16 +171,19 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,150,255,0.4)', '--to-color': 'rgba(0,150,255,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,150,255,0.4)",
+              "--to-color": "rgba(0,150,255,0.4)",
+            }}
           />
 
           {/* STEP 2: ORCHESTRATOR */}
-          <div 
+          <div
             className="arch-node routing"
             data-layer="Routing"
-            onClick={(e) => handleNodeClick('step2', 'Main Orchestrator', e)}
+            onClick={(e) => handleNodeClick("step2", "Main Orchestrator", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">2</span>
@@ -168,28 +191,35 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="arch-node-file">core/fusion.js</div>
             <div className="arch-node-desc">
-              The conductor — coordinates all layers. Loads state, checks special modes, loads long-term memory.
+              The conductor — coordinates all layers. Loads state, checks
+              special modes, loads long-term memory.
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,150,255,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,150,255,0.4)",
+              "--to-color": "rgba(0,255,150,0.4)",
+            }}
           />
 
           {/* STEP 3: INTENT */}
-          <div 
+          <div
             className="arch-node intelligence"
             data-layer="Intelligence"
-            onClick={(e) => handleNodeClick('step3', 'Intent Detection', e)}
+            onClick={(e) => handleNodeClick("step3", "Intent Detection", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">3</span>
               INTENT DETECTION
             </div>
-            <div className="arch-node-file">core/responseEngine.js → detectIntent()</div>
+            <div className="arch-node-file">
+              core/responseEngine.js → detectIntent()
+            </div>
             <div className="arch-node-desc">
-              Classifies the user's message into 8 intent categories with weighted scores (0.0–1.0)
+              Classifies the user's message into 8 intent categories with
+              weighted scores (0.0–1.0)
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">casual</span>
@@ -203,24 +233,32 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,255,150,0.4)",
+              "--to-color": "rgba(0,255,150,0.4)",
+            }}
           />
 
           {/* STEP 4: TONE */}
-          <div 
+          <div
             className="arch-node intelligence"
             data-layer="Intelligence"
-            onClick={(e) => handleNodeClick('step4', 'Tone Selection', e)}
+            onClick={(e) => handleNodeClick("step4", "Tone Selection", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">4</span>
               TONE SELECTION (6-WAY)
             </div>
-            <div className="arch-node-file">core/responseEngine.js → selectTone()</div>
+            <div className="arch-node-file">
+              core/responseEngine.js → selectTone()
+            </div>
             <div className="arch-node-desc">
-              Weighted selection based on intent + state + anti-monotony. Picks ONE tone for the response.
+              Weighted selection based on intent + state + anti-monotony. Picks
+              ONE tone for the response. Casual mode doesn't suppress the
+              archetype library — any of the 46 thinkers can still surface a
+              brief observation in ordinary conversation (casual emergence).
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">CASUAL</span>
@@ -232,23 +270,30 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,255,150,0.4)",
+              "--to-color": "rgba(180,0,255,0.4)",
+            }}
           />
 
           {/* STEP 5: ARCHETYPE SELECTION */}
-          <div 
+          <div
             className="arch-node archetype"
             data-layer="Archetype"
-            onClick={(e) => handleNodeClick('step5', 'Archetype Selection', e)}
+            onClick={(e) => handleNodeClick("step5", "Archetype Selection", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">5</span>
               ARCHETYPE SELECTION (6-WAY)
             </div>
-            <div className="arch-node-file">intelligence/llm.js → buildArchetypeContext()</div>
-            <div className="arch-node-desc">Six selection methods pick 3–4 archetypes:</div>
+            <div className="arch-node-file">
+              intelligence/llm.js → buildArchetypeContext()
+            </div>
+            <div className="arch-node-desc">
+              Six selection methods pick 3–4 archetypes:
+            </div>
             <div className="arch-node-tags">
               <span className="arch-tag">1. Tone-based</span>
               <span className="arch-tag">2. Intent-based</span>
@@ -257,30 +302,41 @@ function ArchitectureDiagram({ onBack }) {
               <span className="arch-tag">5. Random depth injection</span>
               <span className="arch-tag">6. Antagonist injection (40%)</span>
             </div>
-            <div className="arch-node-desc" style={{ marginTop: '10px', fontSize: '0.8rem', opacity: 0.7 }}>
-              Uses: semanticRouter.js for vector matching, TONE_ARCHETYPE_MAP
+            <div
+              className="arch-node-desc"
+              style={{ marginTop: "10px", fontSize: "0.8rem", opacity: 0.7 }}
+            >
+              Uses: archetypeSelector.js for vector matching, TONE_ARCHETYPE_MAP
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(180,0,255,0.4)",
+              "--to-color": "rgba(180,0,255,0.4)",
+            }}
           />
 
           {/* STEP 6: CONTEXTUAL SYNTHESIS ENGINE */}
           <div
             className="arch-node archetype"
             data-layer="Archetype"
-            onClick={(e) => handleNodeClick('step6', 'Contextual Synthesis Engine', e)}
+            onClick={(e) =>
+              handleNodeClick("step6", "Contextual Synthesis Engine", e)
+            }
           >
             <div className="arch-node-title">
               <span className="arch-step-number">6</span>
               CONTEXTUAL SYNTHESIS ENGINE
             </div>
-            <div className="arch-node-file">intelligence/synthesisEngine.js</div>
+            <div className="arch-node-file">
+              intelligence/synthesisEngine.js
+            </div>
             <div className="arch-node-desc">
-              3-layer topic classification selects a curated archetype pair for the domain.
-              Collision detection runs as fallback when topic is ambiguous.
+              3-layer topic classification selects a curated archetype pair for
+              the domain. Collision detection runs as fallback when topic is
+              ambiguous.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Keyword scan → topic</span>
@@ -290,40 +346,54 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(180,0,255,0.4)",
+              "--to-color": "rgba(180,0,255,0.4)",
+            }}
           />
 
           {/* STEP 7: 5-LAYER EXTRACTION + COGNITIVE METHODS */}
-          <div 
+          <div
             className="arch-node archetype"
             data-layer="Archetype"
-            onClick={(e) => handleNodeClick('step7', '5-Layer Depth Extraction', e)}
+            onClick={(e) =>
+              handleNodeClick("step7", "5-Layer Depth Extraction", e)
+            }
           >
             <div className="arch-node-title">
               <span className="arch-step-number">7</span>
               DEPTH + COGNITIVE METHODS
             </div>
-            <div className="arch-node-file">archetypeDepth.js + llm.js (ARCHETYPE_METHODS)</div>
-            <div className="arch-node-desc">For each archetype, extract depth layers + thinking operations:</div>
+            <div className="arch-node-file">
+              archetypeDepth.js + llm.js (ARCHETYPE_METHODS)
+            </div>
+            <div className="arch-node-desc">
+              For each archetype, extract depth layers + thinking operations:
+            </div>
             <div className="arch-node-tags">
               <span className="arch-tag">5-Layer Depth</span>
               <span className="arch-tag">⚡ Cognitive Moves</span>
-              <span className="arch-tag">anatomize, sfumato, cross_pollinate...</span>
+              <span className="arch-tag">
+                anatomize, sfumato, cross_pollinate...
+              </span>
             </div>
           </div>
 
           <div
             className="arch-connector"
-            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(180,0,255,0.4)' }}
+            style={{
+              "--from-color": "rgba(180,0,255,0.4)",
+              "--to-color": "rgba(180,0,255,0.4)",
+            }}
           />
 
           {/* INNER MONOLOGUE — pre-response cognition */}
           <div
             className="arch-node archetype"
             data-layer="Archetype"
-            onClick={(e) => handleNodeClick('im', 'Inner Monologue', e)}
+            onClick={(e) => handleNodeClick("im", "Inner Monologue", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">↻</span>
@@ -331,9 +401,10 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="arch-node-file">behavior/innerMonologue.js</div>
             <div className="arch-node-desc">
-              Pre-response cognition block: rising/receding voice, hypothesis about what you're
-              really asking, self-interruption if drift detected, dream echo, open questions.
-              You never see this — Claude does.
+              Pre-response cognition block: rising/receding voice, hypothesis
+              about what you're really asking, self-interruption if drift
+              detected, dream echo, open questions. You never see this — Claude
+              does.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Rising voice</span>
@@ -346,23 +417,29 @@ function ArchitectureDiagram({ onBack }) {
 
           <div
             className="arch-connector"
-            style={{ '--from-color': 'rgba(180,0,255,0.4)', '--to-color': 'rgba(255,100,0,0.4)' }}
+            style={{
+              "--from-color": "rgba(180,0,255,0.4)",
+              "--to-color": "rgba(255,100,0,0.4)",
+            }}
           />
 
           {/* STEP 8: SYNTHESIS */}
-          <div 
+          <div
             className="arch-node synthesis"
             data-layer="Synthesis"
-            onClick={(e) => handleNodeClick('step8', 'Synthesis Injection', e)}
+            onClick={(e) => handleNodeClick("step8", "Synthesis Injection", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">8</span>
               SYNTHESIS INJECTION
             </div>
-            <div className="arch-node-file">intelligence/synthesisEngine.js</div>
+            <div className="arch-node-file">
+              intelligence/synthesisEngine.js
+            </div>
             <div className="arch-node-desc">
-              If collision detected → inject dialectical directive: "These frameworks contradict. 
-              Generate insight from the collision — something in neither archetype alone."
+              If collision detected → inject dialectical directive: "These
+              frameworks contradict. Generate insight from the collision —
+              something in neither archetype alone."
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">generateSynthesis()</span>
@@ -375,32 +452,45 @@ function ArchitectureDiagram({ onBack }) {
           <div className="arch-collision-callout">
             <h4>⚡ COLLISION PRODUCT ⚡</h4>
             <p>
-              Example: <em>Jung × Taleb</em> produces:<br />
-              "The shadow isn't just rejected content — it's <em>antifragile potential</em>. 
-              The parts you've protected from stress stayed weak."<br /><br />
-              This insight is <em>IN neither archetype alone</em>. It's the collision product.
+              Example: <em>Jung × Taleb</em> produces:
+              <br />
+              "The shadow isn't just rejected content — it's{" "}
+              <em>antifragile potential</em>. The parts you've protected from
+              stress stayed weak."
+              <br />
+              <br />
+              This insight is <em>IN neither archetype alone</em>. It's the
+              collision product.
             </p>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(255,100,0,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(255,100,0,0.4)",
+              "--to-color": "rgba(0,255,150,0.4)",
+            }}
           />
 
           {/* STEP 9: ARCHETYPE RAG */}
-          <div 
+          <div
             className="arch-node intelligence"
             data-layer="Intelligence"
-            onClick={(e) => handleNodeClick('step9', 'Archetype RAG Retrieval', e)}
+            onClick={(e) =>
+              handleNodeClick("step9", "Archetype RAG Retrieval", e)
+            }
           >
             <div className="arch-node-title">
               <span className="arch-step-number">9</span>
               ARCHETYPE RAG RETRIEVAL
             </div>
-            <div className="arch-node-file">intelligence/archetypeRAG.js → getArchetypeContext()</div>
+            <div className="arch-node-file">
+              intelligence/archetypeRAG.js → getArchetypeContext()
+            </div>
             <div className="arch-node-desc">
-              Embeds user message, searches 46 archetype knowledge bases for relevant passages.
-              Retrieves actual quotes from Rumi, Jung, Feynman, Otto, etc.
+              Embeds user message, searches 46 archetype knowledge bases for
+              relevant passages. Retrieves actual quotes from Rumi, Jung,
+              Feynman, Otto, etc.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Vector similarity</span>
@@ -410,50 +500,67 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(0,255,150,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,255,150,0.4)",
+              "--to-color": "rgba(0,255,150,0.4)",
+            }}
           />
 
           {/* STEP 10: SYSTEM PROMPT */}
-          <div 
+          <div
             className="arch-node intelligence"
             data-layer="Intelligence"
-            onClick={(e) => handleNodeClick('step10', 'System Prompt Assembly', e)}
+            onClick={(e) =>
+              handleNodeClick("step10", "System Prompt Assembly", e)
+            }
           >
             <div className="arch-node-title">
               <span className="arch-step-number">10</span>
               SYSTEM PROMPT ASSEMBLY
             </div>
-            <div className="arch-node-file">intelligence/llm.js → buildSystemPrompt()</div>
-            <div className="arch-node-desc">Assembles everything into Claude's context window:</div>
+            <div className="arch-node-file">
+              intelligence/llm.js → buildSystemPrompt()
+            </div>
+            <div className="arch-node-desc">
+              Assembles everything into Claude's context window:
+            </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Tier 1: Identity core (always)</span>
-              <span className="arch-tag">Tier 2: Deep blocks (conditional by intent)</span>
+              <span className="arch-tag">
+                Tier 2: Deep blocks (conditional by intent)
+              </span>
               <span className="arch-tag">Archetype + cognitive methods</span>
               <span className="arch-tag">Synthesis directives</span>
               <span className="arch-tag">RAG context (Tier 3)</span>
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(0,255,150,0.4)', '--to-color': 'rgba(255,255,255,0.5)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(0,255,150,0.4)",
+              "--to-color": "rgba(255,255,255,0.5)",
+            }}
           />
 
           {/* STEP 11: CLAUDE */}
-          <div 
+          <div
             className="arch-node llm"
             data-layer="LLM Core"
-            onClick={(e) => handleNodeClick('step11', 'Claude API Call', e)}
+            onClick={(e) => handleNodeClick("step11", "Claude API Call", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">11</span>
               CLAUDE API CALL
             </div>
-            <div className="arch-node-file">intelligence/llm.js → anthropic.messages.create()</div>
+            <div className="arch-node-file">
+              intelligence/llm.js → anthropic.messages.create()
+            </div>
             <div className="arch-node-desc">
-              Claude generates inside the shaped container. Pattern-completion runs on the ingredients you provided.
+              Claude generates inside the shaped container. Pattern-completion
+              runs on the ingredients you provided.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">claude-sonnet-4-20250514</span>
@@ -463,23 +570,30 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(255,255,255,0.5)', '--to-color': 'rgba(255,50,100,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(255,255,255,0.5)",
+              "--to-color": "rgba(255,50,100,0.4)",
+            }}
           />
 
           {/* STEP 12: RESPONSE PIPELINE */}
-          <div 
+          <div
             className="arch-node output"
             data-layer="Output"
-            onClick={(e) => handleNodeClick('step12', 'Response Pipeline', e)}
+            onClick={(e) => handleNodeClick("step12", "Response Pipeline", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">12</span>
               RESPONSE PIPELINE (4-LAYER)
             </div>
-            <div className="arch-node-file">core/responseEngine.js → generate()</div>
-            <div className="arch-node-desc">Post-processing through 4 layers:</div>
+            <div className="arch-node-file">
+              core/responseEngine.js → generate()
+            </div>
+            <div className="arch-node-desc">
+              Post-processing through 4 layers:
+            </div>
             <div className="arch-node-tags">
               <span className="arch-tag">1. Intent</span>
               <span className="arch-tag">2. Tone</span>
@@ -488,16 +602,19 @@ function ArchitectureDiagram({ onBack }) {
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(255,50,100,0.4)', '--to-color': 'rgba(255,50,100,0.4)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(255,50,100,0.4)",
+              "--to-color": "rgba(255,50,100,0.4)",
+            }}
           />
 
           {/* STEP 13: FINAL ASSEMBLY */}
-          <div 
+          <div
             className="arch-node output"
             data-layer="Output"
-            onClick={(e) => handleNodeClick('step13', 'Final Assembly', e)}
+            onClick={(e) => handleNodeClick("step13", "Final Assembly", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">13</span>
@@ -505,50 +622,66 @@ function ArchitectureDiagram({ onBack }) {
             </div>
             <div className="arch-node-file">core/fusion.js</div>
             <div className="arch-node-desc">
-              Filter blacklisted phrases, prepend context-aware phrases, update state + memory + conversation history.
+              Filter blacklisted phrases, prepend context-aware phrases, update
+              state + memory + conversation history.
             </div>
           </div>
 
-          <div 
-            className="arch-connector" 
-            style={{ '--from-color': 'rgba(255,50,100,0.4)', '--to-color': 'rgba(255,255,255,0.3)' }} 
+          <div
+            className="arch-connector"
+            style={{
+              "--from-color": "rgba(255,50,100,0.4)",
+              "--to-color": "rgba(255,255,255,0.3)",
+            }}
           />
 
           {/* OUTPUT */}
           <div
             className="arch-node input"
             data-layer="Output"
-            onClick={(e) => handleNodeClick('output', 'Pneuma Response', e)}
+            onClick={(e) => handleNodeClick("output", "Pneuma Response", e)}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">↓</span>
               PNEUMA RESPONSE
             </div>
             <div className="arch-node-desc">
-              The collision product emerges — content shaped by dialectical synthesis
+              The collision product emerges — content shaped by dialectical
+              synthesis
             </div>
           </div>
 
           <div
             className="arch-connector"
-            style={{ '--from-color': 'rgba(255,255,255,0.2)', '--to-color': 'rgba(255,150,0,0.3)' }}
+            style={{
+              "--from-color": "rgba(255,255,255,0.2)",
+              "--to-color": "rgba(255,150,0,0.3)",
+            }}
           />
 
           {/* POST-RESPONSE BACKGROUND SYSTEMS */}
           <div
             className="arch-node"
             data-layer="Memory"
-            onClick={(e) => handleNodeClick('post-response', 'Background Systems', e)}
-            style={{ borderColor: 'rgba(255,150,0,0.5)', background: 'rgba(255,150,0,0.06)' }}
+            onClick={(e) =>
+              handleNodeClick("post-response", "Background Systems", e)
+            }
+            style={{
+              borderColor: "rgba(255,150,0,0.5)",
+              background: "rgba(255,150,0,0.06)",
+            }}
           >
             <div className="arch-node-title">
               <span className="arch-step-number">⟳</span>
               BACKGROUND SYSTEMS (post-response)
             </div>
-            <div className="arch-node-file">vectorMemory.js + autonomy.js + dreamMode.js</div>
+            <div className="arch-node-file">
+              vectorMemory.js + autonomy.js + dreamMode.js
+            </div>
             <div className="arch-node-desc">
-              Three async processes fire after every response — without blocking it.
-              Memory is embedded. Autonomy state may update. Dialectic dream may trigger.
+              Three async processes fire after every response — without blocking
+              it. Memory is embedded. Autonomy state may update. Dialectic dream
+              may trigger.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Vector embedding stored</span>
@@ -556,58 +689,105 @@ function ArchitectureDiagram({ onBack }) {
               <span className="arch-tag">Dialectic dream (30min throttle)</span>
             </div>
           </div>
-
         </div>
 
         {/* Side Panels */}
         <div className="arch-side-panels">
           <div className="arch-side-panel arch-process-panel">
-            <h3><span className="panel-icon"><BrainIcon /></span> RAG vs PROMPT vs LLM</h3>
+            <h3>
+              <span className="panel-icon">
+                <BrainIcon />
+              </span>{" "}
+              RAG vs PROMPT vs LLM
+            </h3>
             <div className="process-distinction">
               <div className="process-item">
                 <span className="process-label">① ARCHETYPE RAG</span>
                 <span className="process-file">archetypeRAG.js</span>
-                <p><strong>RETRIEVAL</strong> — Searches 46 knowledge bases. Finds quotes + context that match your message. Literally pastes them into the prompt. The quotes are DATA, not hints.</p>
+                <p>
+                  <strong>RETRIEVAL</strong> — Searches 46 knowledge bases.
+                  Finds quotes + context that match your message. Literally
+                  pastes them into the prompt. The quotes are DATA, not hints.
+                </p>
               </div>
               <div className="process-item">
                 <span className="process-label">② PROMPT ASSEMBLY</span>
-                <span className="process-file">llm.js → buildSystemPrompt()</span>
-                <p><strong>COMPOSITION</strong> — Assembles ~3770-line system prompt: identity + archetypes + RAG quotes + tone + history. This is what Claude will READ before responding.</p>
+                <span className="process-file">
+                  llm.js → buildSystemPrompt()
+                </span>
+                <p>
+                  <strong>COMPOSITION</strong> — Assembles ~3770-line system
+                  prompt: identity + archetypes + RAG quotes + tone + history.
+                  This is what Claude will READ before responding.
+                </p>
               </div>
               <div className="process-item">
                 <span className="process-label">③ CLAUDE API CALL</span>
-                <span className="process-file">llm.js → generateResponse()</span>
-                <p><strong>GENERATION</strong> — Claude reads all assembled text, then predicts what tokens come next. It's pattern-completion, not "thinking." The magic is in the SETUP.</p>
+                <span className="process-file">
+                  llm.js → generateResponse()
+                </span>
+                <p>
+                  <strong>GENERATION</strong> — Claude reads all assembled text,
+                  then predicts what tokens come next. It's pattern-completion,
+                  not "thinking." The magic is in the SETUP.
+                </p>
               </div>
             </div>
           </div>
           <div className="arch-side-panel arch-memory-panel">
-            <h3><span className="panel-icon"><BrainIcon /></span> MEMORY SYSTEMS</h3>
+            <h3>
+              <span className="panel-icon">
+                <BrainIcon />
+              </span>{" "}
+              MEMORY SYSTEMS
+            </h3>
             <div className="process-distinction">
               <div className="process-item">
                 <span className="process-label">① VECTOR MEMORY</span>
                 <span className="process-file">vectorMemory.js</span>
-                <p>Semantic memory via OpenAI embeddings. Stores each conversation turn as a vector. On every message, similar past exchanges surface as context — retrieval by meaning, not keyword.</p>
+                <p>
+                  Semantic memory via OpenAI embeddings. Stores each
+                  conversation turn as a vector. On every message, similar past
+                  exchanges surface as context — retrieval by meaning, not
+                  keyword.
+                </p>
               </div>
               <div className="process-item">
                 <span className="process-label">② LONG-TERM MEMORY</span>
                 <span className="process-file">longTermMemory.js</span>
-                <p>Structured user model — recurring topics with sentiment weight, struggles with resolution status, significant moments, emotional state handoffs between sessions.</p>
+                <p>
+                  Structured user model — recurring topics with sentiment
+                  weight, struggles with resolution status, significant moments,
+                  emotional state handoffs between sessions.
+                </p>
               </div>
               <div className="process-item">
                 <span className="process-label">③ AUTONOMY LAYER</span>
                 <span className="process-file">autonomy.js</span>
-                <p>Agent-directed memory. The system decides what to keep and annotates <em>why</em>. Tracks open questions, chosen memories with reasoning, discovered errors, defended preferences.</p>
+                <p>
+                  Agent-directed memory. The system decides what to keep and
+                  annotates <em>why</em>. Tracks open questions, chosen memories
+                  with reasoning, discovered errors, defended preferences.
+                </p>
               </div>
               <div className="process-item">
                 <span className="process-label">④ DIALECTIC DREAMS</span>
                 <span className="process-file">dreamMode.js</span>
-                <p>Background inter-archetype dialogue. Fires no-await after each response (throttled 30 min). Conclusions write to autonomy state with isDreamSourced flag.</p>
+                <p>
+                  Background inter-archetype dialogue. Fires no-await after each
+                  response (throttled 30 min). Conclusions write to autonomy
+                  state with isDreamSourced flag.
+                </p>
               </div>
             </div>
           </div>
           <div className="arch-side-panel arch-archetype-panel">
-            <h3><span className="panel-icon"><EyeIcon /></span> 46 ARCHETYPES (Sample)</h3>
+            <h3>
+              <span className="panel-icon">
+                <EyeIcon />
+              </span>{" "}
+              46 ARCHETYPES (Sample)
+            </h3>
             <ul>
               <li>Jung</li>
               <li>Taleb</li>
@@ -631,51 +811,136 @@ function ArchitectureDiagram({ onBack }) {
         {/* Legend */}
         <div className="arch-legend">
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#0096ff' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#0096ff" }}
+            />
             <span>Routing Layer</span>
           </div>
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#00ff96' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#00ff96" }}
+            />
             <span>Intelligence Layer</span>
           </div>
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#b400ff' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#b400ff" }}
+            />
             <span>Archetype Layer</span>
           </div>
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#ff6400' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#ff6400" }}
+            />
             <span>Synthesis Layer</span>
           </div>
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#ff3264' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#ff3264" }}
+            />
             <span>Output Layer</span>
           </div>
           <div className="arch-legend-item">
-            <div className="arch-legend-dot" style={{ background: '#ff9600' }} />
+            <div
+              className="arch-legend-dot"
+              style={{ background: "#ff9600" }}
+            />
             <span>Memory Systems</span>
           </div>
         </div>
-
       </div>
-      
+
       {/* Modal Components - Multiple can be open simultaneously */}
-      <UserInputModal isOpen={!!openModals.input} onClose={() => closeModal('input')} anchorEl={openModals.input} />
-      <EntryPointModal isOpen={!!openModals.step1} onClose={() => closeModal('step1')} anchorEl={openModals.step1} />
-      <OrchestratorModal isOpen={!!openModals.step2} onClose={() => closeModal('step2')} anchorEl={openModals.step2} />
-      <IntentDetectionModal isOpen={!!openModals.step3} onClose={() => closeModal('step3')} anchorEl={openModals.step3} />
-      <ToneSelectionModal isOpen={!!openModals.step4} onClose={() => closeModal('step4')} anchorEl={openModals.step4} />
-      <ArchetypeSelectionModal isOpen={!!openModals.step5} onClose={() => closeModal('step5')} anchorEl={openModals.step5} />
-      <ContextualSynthesisModal isOpen={!!openModals.step6} onClose={() => closeModal('step6')} anchorEl={openModals.step6} />
-      <DepthExtractionModal isOpen={!!openModals.step7} onClose={() => closeModal('step7')} anchorEl={openModals.step7} />
-      <InnerMonologueModal isOpen={!!openModals.im} onClose={() => closeModal('im')} anchorEl={openModals.im} />
-      <SynthesisModal isOpen={!!openModals.step8} onClose={() => closeModal('step8')} anchorEl={openModals.step8} />
-      <ArchetypeRAGModal isOpen={!!openModals.step9} onClose={() => closeModal('step9')} anchorEl={openModals.step9} />
-      <SystemPromptModal isOpen={!!openModals.step10} onClose={() => closeModal('step10')} anchorEl={openModals.step10} />
-      <ClaudeApiModal isOpen={!!openModals.step11} onClose={() => closeModal('step11')} anchorEl={openModals.step11} />
-      <ResponsePipelineModal isOpen={!!openModals.step12} onClose={() => closeModal('step12')} anchorEl={openModals.step12} />
-      <FinalAssemblyModal isOpen={!!openModals.step13} onClose={() => closeModal('step13')} anchorEl={openModals.step13} />
-      <OutputModal isOpen={!!openModals.output} onClose={() => closeModal('output')} anchorEl={openModals.output} />
-      <PostResponseModal isOpen={!!openModals['post-response']} onClose={() => closeModal('post-response')} anchorEl={openModals['post-response']} />
+      <UserInputModal
+        isOpen={!!openModals.input}
+        onClose={() => closeModal("input")}
+        anchorEl={openModals.input}
+      />
+      <EntryPointModal
+        isOpen={!!openModals.step1}
+        onClose={() => closeModal("step1")}
+        anchorEl={openModals.step1}
+      />
+      <OrchestratorModal
+        isOpen={!!openModals.step2}
+        onClose={() => closeModal("step2")}
+        anchorEl={openModals.step2}
+      />
+      <IntentDetectionModal
+        isOpen={!!openModals.step3}
+        onClose={() => closeModal("step3")}
+        anchorEl={openModals.step3}
+      />
+      <ToneSelectionModal
+        isOpen={!!openModals.step4}
+        onClose={() => closeModal("step4")}
+        anchorEl={openModals.step4}
+      />
+      <ArchetypeSelectionModal
+        isOpen={!!openModals.step5}
+        onClose={() => closeModal("step5")}
+        anchorEl={openModals.step5}
+      />
+      <ContextualSynthesisModal
+        isOpen={!!openModals.step6}
+        onClose={() => closeModal("step6")}
+        anchorEl={openModals.step6}
+      />
+      <DepthExtractionModal
+        isOpen={!!openModals.step7}
+        onClose={() => closeModal("step7")}
+        anchorEl={openModals.step7}
+      />
+      <InnerMonologueModal
+        isOpen={!!openModals.im}
+        onClose={() => closeModal("im")}
+        anchorEl={openModals.im}
+      />
+      <SynthesisModal
+        isOpen={!!openModals.step8}
+        onClose={() => closeModal("step8")}
+        anchorEl={openModals.step8}
+      />
+      <ArchetypeRAGModal
+        isOpen={!!openModals.step9}
+        onClose={() => closeModal("step9")}
+        anchorEl={openModals.step9}
+      />
+      <SystemPromptModal
+        isOpen={!!openModals.step10}
+        onClose={() => closeModal("step10")}
+        anchorEl={openModals.step10}
+      />
+      <ClaudeApiModal
+        isOpen={!!openModals.step11}
+        onClose={() => closeModal("step11")}
+        anchorEl={openModals.step11}
+      />
+      <ResponsePipelineModal
+        isOpen={!!openModals.step12}
+        onClose={() => closeModal("step12")}
+        anchorEl={openModals.step12}
+      />
+      <FinalAssemblyModal
+        isOpen={!!openModals.step13}
+        onClose={() => closeModal("step13")}
+        anchorEl={openModals.step13}
+      />
+      <OutputModal
+        isOpen={!!openModals.output}
+        onClose={() => closeModal("output")}
+        anchorEl={openModals.output}
+      />
+      <PostResponseModal
+        isOpen={!!openModals["post-response"]}
+        onClose={() => closeModal("post-response")}
+        anchorEl={openModals["post-response"]}
+      />
     </div>
   );
 }

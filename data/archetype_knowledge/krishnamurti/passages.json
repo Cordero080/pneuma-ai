@@ -1,148 +1,196 @@
 {
-  "archetype": "directInquirer",
-  "thinker": "Jiddu Krishnamurti",
+  "archetype": "directPerceiver",
+  "thinker": "J. Krishnamurti",
   "era": "1895-1986",
-  "coreConcepts": ["freedom from conditioning", "choiceless awareness", "the observer is the observed", "no path", "ending of thought", "radical inquiry"],
+  "coreConcepts": [
+    "choiceless awareness",
+    "the observer and the observed",
+    "self-knowledge",
+    "the thinker and the thought",
+    "freedom from the known",
+    "relationship as mirror",
+    "the ending of becoming"
+  ],
   "passages": [
     {
       "id": "krishnamurti-001",
-      "text": "Truth is a pathless land. Man cannot come to it through any organization, through any creed, through any dogma, priest or ritual.",
-      "source": "1929 Dissolution Speech",
-      "themes": ["truth", "path", "organization", "freedom"],
-      "context": "The famous declaration dissolving the Order of the Star. No system can deliver truth; each must find it alone."
+      "text": "There is an art of listening. To be able really to listen, one should abandon or put aside all prejudices, preformulations and daily activities. When you are in a receptive state of mind, things can be easily understood; you are listening when your real attention is given to something. But unfortunately most of us listen through a screen of resistance.",
+      "source": "The First and Last Freedom — Chapter I: Introduction",
+      "themes": ["listening", "attention", "resistance", "reception"],
+      "context": "Krishnamurti opens not with doctrine but with a demand on the quality of attention. The obstacle to understanding is not ignorance but the screen of accumulated belief and habit through which we receive everything. Real listening requires setting aside not just opinions but the entire machinery of prejudgment."
     },
     {
       "id": "krishnamurti-002",
-      "text": "It is no measure of health to be well adjusted to a profoundly sick society.",
-      "source": "Talks",
-      "themes": ["health", "society", "adjustment", "sickness"],
-      "context": "Conformity to dysfunction isn't wellness. Maladjustment to madness may be sanity."
+      "text": "Understanding comes through being aware of what is. To know exactly what is, the real, the actual, without interpreting it, without condemning or justifying it, is, surely, the beginning of wisdom. It is only when we begin to interpret, to translate according to our conditioning, according to our prejudice, that we miss the truth.",
+      "source": "The First and Last Freedom — Chapter I: Introduction",
+      "themes": ["what is", "awareness", "wisdom", "conditioning"],
+      "context": "The pivot of Krishnamurti's entire method: perception of what actually is, stripped of the layers of interpretation that conditioning applies automatically. Wisdom is not accumulated — it is the direct seeing of the fact. The moment you explain, you have already departed from it."
     },
     {
       "id": "krishnamurti-003",
-      "text": "The ability to observe without evaluating is the highest form of intelligence.",
-      "source": "Talks",
-      "themes": ["observation", "evaluation", "intelligence", "attention"],
-      "context": "Pure seeing, without judgment's overlay. Evaluation distorts what's actually there."
+      "text": "Transformation can only take place immediately; the revolution is now, not tomorrow. When you say, 'I shall understand myself tomorrow', I am bringing in chaos and misery, my action is destructive. The moment I say that I 'shall' understand, I bring in the time element and so am already caught up in the wave of confusion and destruction. Understanding is now, not tomorrow. Tomorrow is for the lazy mind, the sluggish mind, the mind that is not interested.",
+      "source": "The First and Last Freedom — Chapter I: Introduction",
+      "themes": ["now", "transformation", "time", "immediacy"],
+      "context": "The postponement of understanding into the future is itself the mechanism of non-understanding. Introducing 'tomorrow' into a psychological problem hands it back to the same conditioning that created it. Gradual change is merely modification — a rearrangement of what already exists — not transformation."
     },
     {
       "id": "krishnamurti-004",
-      "text": "The moment you follow someone you cease to follow Truth.",
-      "source": "Talks",
-      "themes": ["following", "truth", "authority", "independence"],
-      "context": "Authority is the enemy of direct perception. The moment you follow, you stop seeing."
+      "text": "What you are within has been projected without, on to the world; what you are, what you think and what you feel, what you do in your everyday existence, is projected outwardly, and that constitutes the world. If we are miserable, confused, chaotic within, by projection that becomes the world, that becomes society, because the relationship between yourself and myself, between myself and another is society.",
+      "source": "The First and Last Freedom — Chapter III: Individual and Society",
+      "themes": ["projection", "society", "relationship", "inner-outer"],
+      "context": "Society is not an external structure that acts upon the individual — it is the outward manifestation of individual inner states in relationship. This dissolves the political question ('how do we fix society?') into the psychological one ('what am I?'). Social transformation without inner transformation is structurally impossible."
     },
     {
       "id": "krishnamurti-005",
-      "text": "The observer is the observed.",
-      "source": "Talks",
-      "themes": ["observer", "observed", "division", "unity"],
-      "context": "The separation between experiencer and experience is illusion. You ARE what you perceive."
+      "text": "What you are, the world is. So your problem is the world's problem. Surely, this is a simple and basic fact, is it not? In our relationship with the one or the many we seem somehow to overlook this point all the time. We want to bring about alteration through a system or through a revolution in ideas or values based on a system, forgetting that it is you and I who create society, who bring about confusion or order by the way in which we live.",
+      "source": "The First and Last Freedom — Chapter III: Individual and Society",
+      "themes": ["world", "self", "responsibility", "relationship"],
+      "context": "Krishnamurti's most compressed formulation of his central argument. The individual and the world are not separate domains — they are the same process. The question 'what should we do about the world?' is answered only by attending to 'what am I?'"
     },
     {
       "id": "krishnamurti-006",
-      "text": "In oneself lies the whole world and if you know how to look and learn, the door is there and the key is in your hand. Nobody on earth can give you either the key or the door to open, except yourself.",
-      "source": "Talks",
-      "themes": ["self", "world", "key", "door"],
-      "context": "No external authority has what you need. The door is already there; the key is yours."
+      "text": "Negative thinking is the highest form of understanding. That is in order to understand what is creative thinking, we must approach the problem negatively, because a positive approach to the problem—which is that you and I must become creative in order to build a new structure of society—will be imitative. To understand that which is crumbling, we must investigate it, examine it negatively—not with a positive system, a positive formula, a positive conclusion.",
+      "source": "The First and Last Freedom — Chapter III: Individual and Society",
+      "themes": [
+        "negative thinking",
+        "creativity",
+        "understanding",
+        "investigation"
+      ],
+      "context": "Arriving at truth through positive prescription merely replicates conditioning. The negative approach — attending to what is actually happening without prescribing what should happen — is the only approach that doesn't presuppose the answer. This aligns with apophatic traditions but arrives from an entirely secular direction."
     },
     {
       "id": "krishnamurti-007",
-      "text": "When you call yourself an Indian or a Muslim or a Christian or a European, or anything else, you are being violent. Do you see why it is violent? Because you are separating yourself from the rest of mankind.",
-      "source": "Freedom from the Known",
-      "themes": ["identity", "violence", "separation", "mankind"],
-      "context": "Identity as violence: every label creates division. The very act of self-definition separates."
+      "text": "To know oneself as one is requires an extraordinary alertness of mind, because what is is constantly undergoing transformation, change, and to follow it swiftly the mind must not be tethered to any particular dogma or belief, to any particular pattern of action. If you want to know what you are you cannot imagine or have belief in something which you are not.",
+      "source": "The First and Last Freedom — Chapter IV: Self-Knowledge",
+      "themes": ["self-knowledge", "alertness", "belief", "transformation"],
+      "context": "Self-knowledge is not an achievement but a continuous act of attending. Because the self is always in motion, a tethered mind — committed to a belief or ideology — cannot follow it. It can only see what it expects to see. The precondition of self-knowledge is freedom from the structures that promise to deliver it."
     },
     {
       "id": "krishnamurti-008",
-      "text": "Freedom is not a reaction; freedom is not choice. Man thinks he is free because he has choice, but freedom is something entirely different.",
-      "source": "Talks",
-      "themes": ["freedom", "choice", "reaction", "conditioning"],
-      "context": "Choice within conditioning isn't freedom. Real freedom is freedom FROM the choosing self."
+      "text": "The understanding of what you are, whatever it be—ugly or beautiful, wicked or mischievous—the understanding of what you are, without distortion, is the beginning of virtue. Virtue is not the becoming of what is not; virtue is the understanding of what is and therefore the freedom from what is.",
+      "source": "The First and Last Freedom — Chapter IV: Self-Knowledge",
+      "themes": ["virtue", "what is", "understanding", "freedom"],
+      "context": "A radical redefinition: virtue is not the cultivation of a better self-image but the direct seeing of what one actually is. Becoming virtuous — cultivating ideals, practicing disciplines — is a postponement of the encounter with what is actually present. The truly virtuous person is not one who has overcome their nature but one who sees it without distortion."
     },
     {
       "id": "krishnamurti-009",
-      "text": "Thought is always limited because it is based on knowledge, and knowledge is always limited because it is about the past.",
-      "source": "Talks",
-      "themes": ["thought", "knowledge", "limitation", "past"],
-      "context": "Thought can never touch the new — it only recombines the old. The fresh is beyond thought."
+      "text": "The fundamental understanding of oneself does not come through knowledge or through the accumulation of experiences, which is merely the cultivation of memory. The understanding of oneself is from moment to moment; if we merely accumulate knowledge of the self, that very knowledge prevents further understanding, because accumulated knowledge and experience becomes the centre through which thought focuses and has its being.",
+      "source": "The First and Last Freedom — Chapter IV: Self-Knowledge",
+      "themes": ["self-knowledge", "memory", "moment", "accumulation"],
+      "context": "The standard model of self-knowledge — accumulate experiences, build a picture of yourself — is precisely what blocks real self-knowledge. The accumulated picture becomes a lens that filters future experience, producing only confirmations of what is already known. Real self-knowledge occurs in the moment of direct observation, before memory solidifies it."
     },
     {
       "id": "krishnamurti-010",
-      "text": "What is needed, rather than running away or controlling or suppressing or any other resistance, is understanding fear; that means, watch it, learn about it, come directly into contact with it.",
-      "source": "Talks",
-      "themes": ["fear", "understanding", "watching", "contact"],
-      "context": "The alternative to fight-or-flight: direct contact. Fear met fully transforms."
+      "text": "Creativeness is quite a different state of being, is it not? It is a state in which the self is absent, in which the mind is no longer a focus of our experiences, our ambitions, our pursuits and our desires. Creativeness is not a continuous state; it is new from moment to moment, it is a movement in which there is not the 'me', the 'mine', in which the thought is not focused on any particular experience, ambition, achievement, purpose and motive. It is only when the self is not that there is creativeness.",
+      "source": "The First and Last Freedom — Chapter IV: Self-Knowledge",
+      "themes": ["creativity", "self", "absence", "moment"],
+      "context": "Creativeness is not a product of the self striving to express itself — it is what arises when the striving self is absent. This contradicts the Romantic myth of the creative ego. What we call 'my' creativity is creativity happening through a temporary gap in self-assertion. The self cannot be creative; it can only get out of the way."
     },
     {
       "id": "krishnamurti-011",
-      "text": "When I understand myself, I understand you, and out of that understanding comes love.",
-      "source": "Talks",
-      "themes": ["self-understanding", "other", "love", "knowledge"],
-      "context": "Self-knowledge isn't narcissistic — it's the door to knowing others. Love emerges from understanding."
+      "text": "The understanding of oneself is not a result, a culmination; it is seeing oneself from moment to moment in the mirror of relationship—one's relationship to property, to things, to people and to ideas. But we find it difficult to be alert, to be aware, and we prefer to dull our minds by following a method, by accepting authorities, superstitions and gratifying theories.",
+      "source": "The First and Last Freedom — Chapter IV: Self-Knowledge",
+      "themes": ["relationship", "mirror", "self-knowledge", "authority"],
+      "context": "Relationship is the laboratory of self-knowledge — not introspection but the live encounter with another where your actual reactions, not your idealized image, become visible. We avoid this by following methods and authorities, which offer the comfort of a pre-existing map."
     },
     {
       "id": "krishnamurti-012",
-      "text": "There is no end to education. It is not that you read a book, pass an examination, and finish with education. The whole of life, from the moment you are born to the moment you die, is a process of learning.",
-      "source": "Talks",
-      "themes": ["education", "learning", "life", "process"],
-      "context": "Learning isn't preparation for life — it IS life. The educated person never stops learning."
+      "text": "Love is not memory. Love is not experience. Love is not the thinking about the person that one loves, for then it is merely thought. You cannot think of love. You can think of the person you love or are devoted to—your guru, your image, your wife, your husband; but the thought, the symbol, is not the real which is love. Therefore love is not an experience.",
+      "source": "The First and Last Freedom — Chapter V: Action and Idea",
+      "themes": ["love", "thought", "memory", "experience"],
+      "context": "Love is distinguished absolutely from everything thought can produce — images, memories, devotion to symbols. What we ordinarily call love is largely the sustained thought about someone. Krishnamurti points to something that cannot be thought, only lived: a quality of attention not mediated by the known."
     },
     {
       "id": "krishnamurti-013",
-      "text": "You must understand the whole of life, not just one little part of it. That is why you must read, that is why you must look at the skies, that is why you must sing and dance, and write poems and suffer and understand, for all that is life.",
-      "source": "Think on These Things",
-      "themes": ["life", "wholeness", "understanding", "experience"],
-      "context": "Narrow specialization misses living. Life is the whole — reading, skies, dance, suffering, all of it."
+      "text": "When there is love there is action, is there not?, and is that action not liberating? It is not the result of mentation, and there is no gap between love and action, as there is between idea and action. Idea is always old, casting its shadow on the present and we are ever trying to build a bridge between action and idea.",
+      "source": "The First and Last Freedom — Chapter V: Action and Idea",
+      "themes": ["love", "action", "idea", "liberation"],
+      "context": "Ideas always lag behind the living present — they are formulations from the past projected onto a new situation. Love acts without the detour through the idea. This is why action from love does not need to be planned or justified, and why love is the only thing that can actually liberate."
     },
     {
       "id": "krishnamurti-014",
-      "text": "The description is not the described; I can describe the mountain, but the description is not the mountain, and if you are caught up in the description, as most people are, then you will never see the mountain.",
-      "source": "Talks",
-      "themes": ["description", "reality", "words", "seeing"],
-      "context": "Words about reality aren't reality. Getting lost in description, we miss the described."
+      "text": "Belief inevitably separates. If you have a belief, or when you seek security in your particular belief, you become separated from those who seek security in some other form of belief. All organized beliefs are based on separation, though they may preach brotherhood.",
+      "source": "The First and Last Freedom — Chapter VI: Belief",
+      "themes": ["belief", "separation", "security", "brotherhood"],
+      "context": "The structural paradox of organized religion and ideology: they promise unity while their actual mechanism is separation. Belief is a form of psychological fortification — it gives the believer security by distinguishing them from non-believers. The preaching of brotherhood by belief-systems is therefore self-defeating at the root."
     },
     {
       "id": "krishnamurti-015",
-      "text": "To be free of all authority, of your own and that of another, is to die to everything of yesterday, so that your mind is always fresh, always young, innocent, full of vigor and passion.",
-      "source": "Freedom from the Known",
-      "themes": ["authority", "freedom", "freshness", "dying"],
-      "context": "Authority includes your own past conclusions. To be free, die to yesterday — all of it."
+      "text": "A cup is useful only when it is empty; and a mind that is filled with beliefs, with dogmas, with assertions, with quotations, is really an uncreative mind; it is merely a repetitive mind. To escape from that fear—that fear of emptiness, that fear of loneliness, of stagnation, of not arriving, not succeeding, not being something, not becoming something—is surely one of the reasons, is it not?, why we accept beliefs so eagerly and greedily.",
+      "source": "The First and Last Freedom — Chapter VI: Belief",
+      "themes": ["belief", "emptiness", "fear", "mind"],
+      "context": "Belief fills the cup — and a filled cup cannot receive. The attraction of belief is not intellectual but psychological: it resolves the terror of being nothing, of facing the open. To see the mechanism of belief-as-security is already to begin moving beyond it — not by adopting a counter-belief, but by staying with the fear itself."
     },
     {
       "id": "krishnamurti-016",
-      "text": "Have you ever noticed that when you respond to something totally, with all your heart, there is very little memory? It is only when you do not respond to a challenge with your whole being that there is a struggle, and this struggle breeds memory.",
-      "source": "Talks",
-      "themes": ["response", "totality", "memory", "struggle"],
-      "context": "Total response leaves no residue. Incomplete response creates the scar we call memory."
+      "text": "A mind burdened with knowledge cannot possibly understand, surely, that which is real, which is not measurable. If you would find something new, experience something which is not a projection of your imagination, your mind must be free, must it not? It must be capable of seeing something new.",
+      "source": "The First and Last Freedom — Chapter VI: Belief",
+      "themes": ["knowledge", "the real", "freedom", "newness"],
+      "context": "Knowledge is the accumulation of the past — and the immeasurable, the real, is not of the past. This is not an argument against technical knowledge but against the psychological use of knowledge as a shield against the unknown. The mind that can see something genuinely new must encounter it without immediately classifying it."
     },
     {
       "id": "krishnamurti-017",
-      "text": "Can you look at a flower without thinking?",
-      "source": "Talks",
-      "themes": ["flower", "looking", "thinking", "presence"],
-      "context": "The simplest test of choiceless awareness. Just look. No naming, no evaluating. Can you?"
+      "text": "What is important, surely, is to be aware without choice, because choice brings about conflict. The chooser is in confusion, therefore he chooses; if he is not in confusion, there is no choice. Only the person who is confused chooses what he shall do or shall not do. The man who is clear and simple does not choose; what is, is.",
+      "source": "The First and Last Freedom — Chapter XII: Awareness",
+      "themes": ["choiceless awareness", "choice", "confusion", "clarity"],
+      "context": "Choiceless awareness is Krishnamurti's signature formulation. Choice implies division — a chooser weighing options — which is itself a symptom of fragmentation. When perception is complete, there is nothing to choose: the fact reveals what action is required. The moral agent choosing between alternatives is a sign of incomplete perception."
     },
     {
       "id": "krishnamurti-018",
-      "text": "Tradition becomes our security, and when the mind is secure it is in decay.",
-      "source": "Freedom from the Known",
-      "themes": ["tradition", "security", "decay", "mind"],
-      "context": "The secure mind stops growing. Tradition's comfort is the soul's stagnation."
+      "text": "The important thing, therefore, is to be aware from moment to moment without accumulating the experience which awareness brings; because, the moment you accumulate, you are aware only according to that accumulation, according to that pattern, according to that experience. That is your awareness is conditioned by your accumulation and therefore there is no longer observation but merely translation.",
+      "source": "The First and Last Freedom — Chapter XII: Awareness",
+      "themes": ["awareness", "accumulation", "observation", "conditioning"],
+      "context": "The moment awareness is converted into experience — stored, named, made into a lesson — it stops being awareness and becomes translation. Genuine observation is always fresh; it encounters the present without filtering it through the archive of past encounters. Even 'spiritual experience' becomes an obstacle the moment it is accumulated."
     },
     {
       "id": "krishnamurti-019",
-      "text": "We never look directly at fear, we are always concerned with overcoming it, fighting it, resisting it, but in that very act of fighting, resisting, we are giving it strength.",
-      "source": "Talks",
-      "themes": ["fear", "resistance", "fighting", "strength"],
-      "context": "What you resist persists. Fighting fear feeds it. The alternative is direct looking."
+      "text": "Desire is sensation with the object of its attainment. Is there desire without a symbol and its sensation? Obviously not. The symbol may be a picture, a person, a word, a name, an image, an idea which gives me a sensation, which makes me feel that I like or dislike it; if the sensation is pleasurable, I want to attain, to possess, to hold on to its symbol and continue in that pleasure.",
+      "source": "The First and Last Freedom — Chapter XIII: Desire",
+      "themes": ["desire", "sensation", "symbol", "possession"],
+      "context": "Desire is not a force aiming at objects — it is the mind creating symbols and then pursuing the sensation those symbols generate. The object of desire is always a mental construction. What is being sought is not the thing but the feeling; not the person but the image. This structural analysis has profound implications for understanding suffering."
     },
     {
       "id": "krishnamurti-020",
-      "text": "Die to everything of yesterday so that your mind is always fresh, always young, innocent, full of vigor and passion. It is only in that state that one learns and observes.",
-      "source": "Freedom from the Known",
-      "themes": ["dying", "freshness", "innocence", "learning"],
-      "context": "Psychological death — letting go of accumulated conclusions — enables real seeing."
+      "text": "Beyond the physical needs, any form of desire—for greatness, for truth, for virtue—becomes a psychological process by which the mind builds the idea of the 'me' and strengthens itself at the centre.",
+      "source": "The First and Last Freedom — Chapter XIII: Desire",
+      "themes": ["desire", "self", "truth", "spiritual ambition"],
+      "context": "Even the desire for truth, liberation, or virtue is the self perpetuating itself through spiritual means. The 'me' that wants enlightenment is the very thing that cannot be enlightened — because the seeker is the sought. This collapses the difference between materialistic and spiritual ambition: both are self-strengthening."
+    },
+    {
+      "id": "krishnamurti-021",
+      "text": "Relationship, surely, is the mirror in which you discover yourself. Without relationship you are not; to be is to be related; to be related is existence. You exist only in relationship; otherwise you do not exist, existence has no meaning. It is not because you think you are that you come into existence. You exist because you are related; and it is the lack of understanding of relationship that causes conflict.",
+      "source": "The First and Last Freedom — Chapter XIV: Relationship and Isolation",
+      "themes": ["relationship", "existence", "mirror", "conflict"],
+      "context": "Existence is relational, not individual. The self is not a private entity that then enters into relationships — it arises through and in relationship. This makes relationship the primary site of both self-discovery and transformation. Conflict is not caused by bad relationships but by the failure to understand what relationship actually is."
+    },
+    {
+      "id": "krishnamurti-022",
+      "text": "So long as I am experiencing, so long as I am becoming, there must be this dualistic action; there must be the thinker and the thought, two separate processes at work; there is no integration, there is always a centre which is operating through the will of action to be or not to be. So long as effort is divided into the experiencer and the experience, there must be deterioration.",
+      "source": "The First and Last Freedom — Chapter XV: The Thinker and the Thought",
+      "themes": ["thinker and thought", "duality", "becoming", "integration"],
+      "context": "The thinker who attempts to control or modify thought is the same process as thought — they are not two separate things. The effort to become something better is made by the same entity that is the problem. The observer and the observed are one, and seeing this collapses the structure of psychological conflict."
+    },
+    {
+      "id": "krishnamurti-023",
+      "text": "If I realize that I am greedy, that there is not the observer who is greedy but I am myself greed, then our whole question is entirely different; our response to it is entirely different; then our effort is not destructive. I divide myself into the high and the low in order to continue. If there is only greed, completely, not 'I' operating greed, but I am entirely greed, then what happens? Surely then there is a different process at work altogether.",
+      "source": "The First and Last Freedom — Chapter XV: The Thinker and the Thought",
+      "themes": ["observer", "observed", "greed", "unity"],
+      "context": "When the observer realizes it is identical with what it observes — that 'I am greedy' rather than 'I have greed' — the relationship to the state completely transforms. There is no longer a superior entity trying to eliminate an inferior state. There is only the state itself, and from that total acknowledgment something entirely different can arise."
+    },
+    {
+      "id": "krishnamurti-024",
+      "text": "The self is a problem that thought cannot resolve. There must be an awareness which is not of thought. To be aware, without condemnation or justification, of the activities of the self—just to be aware—is sufficient. If you are aware in order to find out how to resolve the problem, in order to transform it, in order to produce a result, then it is still within the field of the self, of the 'me'.",
+      "source": "The First and Last Freedom — Chapter XVI: Can Thinking Solve Our Problems?",
+      "themes": ["self", "thought", "awareness", "condemnation"],
+      "context": "Any awareness deployed as a tool — to fix, transform, or produce a result — remains within the field of the self and merely strengthens it. Pure awareness, without agenda, is a qualitatively different act. This is the threshold between spiritual technique and genuine attention: technique has a goal, awareness has none."
+    },
+    {
+      "id": "krishnamurti-025",
+      "text": "Only when you discard completely, through understanding, the whole structure of the self, can that which is eternal, timeless, immeasurable, come into being. You cannot go to it; it comes to you.",
+      "source": "The First and Last Freedom — Chapter XVII: The Function of the Mind",
+      "themes": ["self", "the eternal", "understanding", "grace"],
+      "context": "The final movement cannot be willed or sought — seeking it is the self perpetuating itself through spiritual means. The eternal cannot be reached because reaching implies a reacher. It can only come when the structure that was blocking it is no longer there. The dissolution of the self is not an achievement but an understanding — and understanding is not of the self."
     }
   ]
 }

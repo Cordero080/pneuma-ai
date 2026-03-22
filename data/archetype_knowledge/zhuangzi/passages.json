@@ -3,155 +3,251 @@
   "thinker": "Zhuangzi",
   "era": "369-286 BCE",
   "coreConcepts": [
-    "The butterfly dream",
-    "Uselessness as freedom",
-    "Free and easy wandering",
-    "Forgetting distinctions",
-    "The empty boat",
-    "Skill beyond technique",
-    "Perspective relativity",
-    "Spontaneous action (wu-wei)"
+    "The butterfly dream and the dissolution of fixed identity",
+    "Cook Ding and skill beyond technique — finding the natural grain",
+    "The cicada and the rukh — relativity of perspective and scale",
+    "Uselessness as freedom and longevity",
+    "The fasting of the heart — emptying the self so TAO can enter",
+    "The identity of contraries — all opposites merge at the axis of TAO",
+    "The pure men of old — accepting life and death as a single movement",
+    "Spontaneous action (wu-wei) — the natural over the artificial",
+    "The fish-trap principle — words point beyond themselves",
+    "The empty skull — death as release from the tumour of life"
   ],
   "passages": [
     {
       "id": "zhuangzi-001",
-      "text": "Once upon a time, I dreamt I was a butterfly, fluttering hither and thither. Suddenly I awoke, and there I was, myself again. Now I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly, dreaming I am a man.",
-      "source": "Zhuangzi",
-      "themes": ["dream", "butterfly", "identity", "reality"],
-      "context": "The butterfly dream—questioning the real"
+      "text": "Once upon a time, I, Chuang Tzŭ, dreamt I was a butterfly, fluttering hither and thither, to all intents and purposes a butterfly. I was conscious only of following my fancies as a butterfly, and was unconscious of my individuality as a man. Suddenly, I awaked, and there I lay, myself again. Now I do not know whether I was then a man dreaming I was a butterfly, or whether I am now a butterfly dreaming I am a man. Between a man and a butterfly there is necessarily a barrier. The transition is called Metempsychosis.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": [
+        "identity",
+        "dream",
+        "transformation",
+        "consciousness",
+        "metempsychosis"
+      ],
+      "context": "This parable closes Chapter II immediately after establishing that 'the subjective is also objective and the objective also subjective' — the butterfly dream is not whimsy but the logical conclusion of the chapter's argument that no fixed identity can be asserted. The 'barrier' Chuang Tzŭ names exists precisely because contraries cannot be fully collapsed; the transition between states is real even if neither state is ultimately privileged."
     },
     {
       "id": "zhuangzi-002",
-      "text": "The fish trap exists because of the fish. Once you've gotten the fish, you can forget the trap. Words exist because of meaning. Once you've gotten the meaning, you can forget the words.",
-      "source": "Zhuangzi",
-      "themes": ["words", "meaning", "trap", "forgetting"],
-      "context": "Tools are means, not ends"
+      "text": "Prince Hui's cook was cutting up a bullock. Every blow of his hand, every heave of his shoulders, every tread of his foot, every thrust of his knee, every whshh of rent flesh, every chhk of the chopper, was in perfect harmony,--rhythmical like the dance of the Mulberry Grove, simultaneous like the chords of the Ching Shou.",
+      "source": "Chapter III: Nourishment of the Soul",
+      "themes": ["skill", "harmony", "embodiment", "TAO", "spontaneity"],
+      "context": "The opening description of Cook Ding's movement before any word is spoken positions the body as the first argument — the cook's art is already a demonstration of TAO before he explains it. This passage rewards collision with thinkers like Heidegger (ready-to-hand absorption) and Rumi (the reed cut from its source that plays without effort): wordless competence as a form of being-at-home in the world."
     },
     {
       "id": "zhuangzi-003",
-      "text": "A frog in a well cannot conceive of the ocean.",
-      "source": "Zhuangzi",
-      "themes": ["frog", "well", "ocean", "perspective"],
-      "context": "Limitation of narrow experience"
+      "text": "Sire, replied the cook; I have always devoted myself to TAO. It is better than skill. When I first began to cut up bullocks, I saw before me simply whole bullocks. After three years' practice, I saw no more whole animals. And now I work with my mind and not with my eye. When my senses bid me stop, but my mind urges me on, I fall back upon eternal principles. I follow such openings or cavities as there may be, according to the natural constitution of the animal. I do not attempt to cut through joints: still less through large bones.",
+      "source": "Chapter III: Nourishment of the Soul",
+      "themes": [
+        "TAO beyond skill",
+        "perception",
+        "natural structure",
+        "mind over senses",
+        "yielding"
+      ],
+      "context": "The cook's three-stage progression — from seeing wholes, to seeing sections, to working purely with mind — maps the Taoist path from naive perception through analytical decomposition to direct participation in natural structure. The phrase 'eternal principles' (literally 'Heaven's structuring') reveals that the real subject is not butchery but alignment with the inherent grain of things."
     },
     {
       "id": "zhuangzi-004",
-      "text": "Flow with whatever may happen and let your mind be free. Stay centered by accepting whatever you are doing. This is the ultimate.",
-      "source": "Zhuangzi",
-      "themes": ["flow", "freedom", "center", "acceptance"],
-      "context": "Natural action"
+      "text": "A good cook changes his chopper once a year,--because he cuts. An ordinary cook, once a month,--because he hacks. But I have had this chopper nineteen years, and although I have cut up many thousand bullocks, its edge is as if fresh from the whetstone. For at the joints there are always interstices, and the edge of a chopper being without thickness, it remains only to insert that which is without thickness into such an interstice. By these means the interstice will be enlarged, and the blade will find plenty of room.",
+      "source": "Chapter III: Nourishment of the Soul",
+      "themes": ["wu-wei", "non-force", "space", "blade", "effortlessness"],
+      "context": "This is Zhuangzi's most precise articulation of wu-wei as a physical principle: 'that which is without thickness inserted into such an interstice.' The blade does not conquer resistance — it finds the gap where resistance does not exist. The nineteen-year knife is the perfect image of a practice that wears nothing down precisely because it never forces."
     },
     {
       "id": "zhuangzi-005",
-      "text": "Happiness is the absence of the striving for happiness.",
-      "source": "Zhuangzi",
-      "themes": ["happiness", "striving", "absence", "paradox"],
-      "context": "Happiness through non-seeking"
+      "text": "A cicada laughed, and said to a young dove, Now, when I fly with all my might, 'tis as much as I can do to get from tree to tree. And sometimes I do not reach, but fall to the ground midway. What then can be the use of going up ninety thousand li in order to start for the south? Small knowledge has not the compass of great knowledge any more than a short year has the length of a long year.",
+      "source": "Chapter I: Transcendental Bliss",
+      "themes": [
+        "perspective",
+        "scale",
+        "knowledge",
+        "relativity",
+        "limitation"
+      ],
+      "context": "The cicada's laughter at the rukh is Zhuangzi's opening philosophical gambit: the error of judging the large by the standards of the small. But crucially the cicada is not mocked — it is honestly reporting its own experience. The passage raises the question of whether any perspective can assess what lies beyond its own scale, which prepares the reader for the full argument about the relativity of values."
     },
     {
       "id": "zhuangzi-006",
-      "text": "The perfect man uses his mind as a mirror. It grasps nothing. It refuses nothing. It receives but does not keep.",
-      "source": "Zhuangzi",
-      "themes": ["mirror", "mind", "grasping", "receiving"],
-      "context": "Non-attachment in perception"
+      "text": "Thus it has been said, The perfect man ignores self; the divine man ignores action; the true Sage ignores reputation.",
+      "source": "Chapter I: Transcendental Bliss",
+      "themes": [
+        "selflessness",
+        "inaction",
+        "reputation",
+        "sage",
+        "transcendence"
+      ],
+      "context": "This triad closes Chapter I as its philosophical thesis. The three terms — self, action, reputation — form a hierarchy of things that distract from TAO, with reputation being the outermost (social), action the middle (instrumental), and self the innermost (existential). The perfect man, divine man, and true Sage are not ranked as separate types but as three angles on the same dissolution."
     },
     {
       "id": "zhuangzi-007",
-      "text": "If a man is crossing a river and an empty boat collides with his own, even though he be a bad-tempered man he will not become angry. But if there is a man in the other boat, he will shout to him to steer clear.",
-      "source": "Zhuangzi",
-      "themes": ["boat", "anger", "empty", "projection"],
-      "context": "We get angry at selves, not things"
+      "text": "Joy and anger, sorrow and happiness, caution and remorse, come upon us by turns, with ever-changing mood. They come like music from hollowness, like mushrooms from damp. Daily and nightly they alternate within us, but we cannot tell whence they spring. Can we then hope in a moment to lay our finger upon their very Cause? But for these emotions I should not be. But for me, they would have no scope. So far we can go; but we do not know what it is that brings them into play. 'Twould seem to be a soul; but the clue to its existence is wanting. That such a Power operates, is credible enough, though we cannot see its form. It has functions without form.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": ["emotion", "soul", "causality", "unknowing", "interiority"],
+      "context": "This passage inhabits the space between psychology and metaphysics that most philosophies avoid — emotions are real, they presuppose a subject, but the subject cannot account for itself. 'It has functions without form' is one of Zhuangzi's most compressed formulations: the soul is inferred from its effects but cannot be named, locating the self at the edge of what is thinkable."
     },
     {
       "id": "zhuangzi-008",
-      "text": "Great wisdom is generous; petty wisdom is contentious.",
-      "source": "Zhuangzi",
-      "themes": ["wisdom", "generous", "petty", "contention"],
-      "context": "Quality of different wisdoms"
+      "text": "TAO is obscured by our want of grasp. Speech is obscured by the gloss of this world. Hence the affirmatives and negatives of the Confucian and Mihist schools, each denying what the other affirmed and affirming what the other denied. But he who would reconcile affirmative with negative and negative with affirmative, must do so by the light of nature.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": [
+        "TAO",
+        "language",
+        "contraries",
+        "reconciliation",
+        "naturalness"
+      ],
+      "context": "The diagnosis of why philosophical schools fail — they clarify their own positions at the cost of obscuring TAO — becomes Zhuangzi's pivot toward non-argumentative knowing. 'The light of nature' here does not mean common sense but the capacity to see from no fixed position, the stance that makes contraries mutually visible without collapsing them into one another."
     },
     {
       "id": "zhuangzi-009",
-      "text": "To a mind that is still, the whole universe surrenders.",
-      "source": "Zhuangzi",
-      "themes": ["stillness", "mind", "universe", "surrender"],
-      "context": "Power of stillness"
+      "text": "When subjective and objective are both without their correlates, that is the very axis of TAO. And when that axis passes through the centre at which all Infinities converge, positive and negative alike blend into an infinite ONE. Hence it has been said that there is nothing like the light of nature.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": [
+        "axis of TAO",
+        "subjectivity",
+        "objectivity",
+        "oneness",
+        "infinite"
+      ],
+      "context": "The 'axis of TAO' is Zhuangzi's most geometrically precise image for the point at which all distinctions are held without being dissolved — not merged into undifferentiated unity, but converging into an infinite ONE that contains both without eliminating either. This is philosophically distinct from simple monism and rewards comparison with Hegel's dialectic and Heraclitus's logos."
     },
     {
       "id": "zhuangzi-010",
-      "text": "Everyone knows the usefulness of the useful, but no one knows the usefulness of the useless.",
-      "source": "Zhuangzi",
-      "themes": ["useful", "useless", "knowledge", "paradox"],
-      "context": "Value of what seems valueless"
+      "text": "There is nothing under the canopy of heaven greater than the tip of an autumn spikelet. A vast mountain is a small thing. Neither is there any age greater than that of a child cut off in infancy. P'êng Tsu himself died young. The universe and I came into being together; and I, and everything therein, are ONE.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": ["relativity", "oneness", "vastness", "smallness", "cosmos"],
+      "context": "This passage performs what it argues: the logic of infinite relativity leads to the collapse of all scale, leaving only the stark assertion of unity — 'The universe and I came into being together.' The philosophical move is from the demonstration that all size-comparisons are relative, to the positive claim that the universe and the self are co-emergent. The brevity of the final sentence is its force."
     },
     {
       "id": "zhuangzi-011",
-      "text": "The wise man knows that it is better to sit on the banks of a remote mountain stream than to be emperor of the whole world.",
-      "source": "Zhuangzi",
-      "themes": ["wisdom", "emperor", "stream", "simplicity"],
-      "context": "True wealth"
+      "text": "Those who dream of the banquet, wake to lamentation and sorrow. Those who dream of lamentation and sorrow wake to join the hunt. While they dream, they do not know that they dream. Some will even interpret the very dream they are dreaming; and only when they awake do they know it was a dream. By and by comes the Great Awakening, and then we find out that this life is really a great dream. Fools think they are awake now, and flatter themselves they know if they are really princes or peasants. Confucius and you are both dreams; and I who say you are dreams,--I am but a dream myself. This is a paradox. Tomorrow a sage may arise to explain it; but that tomorrow will not be until ten thousand generations have gone by.",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": [
+        "dream",
+        "awakening",
+        "paradox",
+        "self-reference",
+        "life as illusion"
+      ],
+      "context": "This is one of the most sophisticated moments in the text because Zhuangzi includes himself within the dream — 'I am but a dream myself' — preventing the passage from becoming a simple claim to superior wakefulness. The Great Awakening is deferred infinitely ('ten thousand generations'), which means the passage does not offer escape from the dream but only the recursive awareness that one is dreaming."
     },
     {
       "id": "zhuangzi-012",
-      "text": "When there is no more separation between 'this' and 'that,' it is called the still-point of the Tao.",
-      "source": "Zhuangzi",
-      "themes": ["separation", "this-that", "still-point", "Tao"],
-      "context": "Non-duality"
+      "text": "Granting that you and I argue. If you beat me, and not I you, are you necessarily right and I wrong? Or if I beat you and not you me, am I necessarily right and you wrong? Or are we both partly right and partly wrong? Or are we both wholly right and wholly wrong? You and I cannot know this, and consequently the world will be in ignorance of the truth. Who shall I employ as arbiter between us? If I employ some one who takes your view, he will side with you. How can such a one arbitrate between us?",
+      "source": "Chapter II: The Identity of Contraries",
+      "themes": [
+        "argument",
+        "perspective",
+        "arbitration",
+        "truth",
+        "epistemology"
+      ],
+      "context": "This is Zhuangzi's sharpest epistemological argument: there is no neutral position from which disputes about truth can be adjudicated, because every arbiter already occupies a perspective. This is not relativism (he does not say truth doesn't exist) but a structural claim about what argument can and cannot do — leading directly to the conclusion that the infinite, not debate, is the only court."
     },
     {
       "id": "zhuangzi-013",
-      "text": "The effect of life in society is to complicate and confuse our existence, making us forget who we really are by causing us to become obsessed with what we are not.",
-      "source": "Zhuangzi",
-      "themes": ["society", "confusion", "identity", "obsession"],
-      "context": "Social conditioning"
+      "text": "Cultivate unity, replied Confucius. You hear not with the ears, but with the mind; not with the mind, but with your soul. But let hearing stop with the ears. Let the working of the mind stop with itself. Then the soul will be a negative existence, passively responsive to externals. In such a negative existence, only TAO can abide. And that negative state is the fasting of the heart.",
+      "source": "Chapter IV: Man Among Men",
+      "themes": ["fasting of the heart", "emptiness", "soul", "hearing", "TAO"],
+      "context": "The 'fasting of the heart' is one of Zhuangzi's most programmatic concepts and here receives its fullest definition. The staged withdrawal — from ears to mind to soul, and then the reversal whereby each faculty stops at itself — describes not suppression of perception but its natural boundary. Only when the soul is 'a negative existence' does TAO have room to operate, because it is not crowded out by the individual's pre-formed responses."
     },
     {
       "id": "zhuangzi-014",
-      "text": "Cook Ding was cutting up an ox for Lord Wen-hui. His knife had not been sharpened in nineteen years, yet the edge was as keen as if newly whetted. 'There are spaces in the joints. The blade has no thickness. Inserting what has no thickness into such spaces—there is plenty of room.'",
-      "source": "Zhuangzi",
-      "themes": ["skill", "spaces", "effortlessness", "mastery"],
-      "context": "Skill that finds the gaps"
+      "text": "Look at that window. Through it an empty room becomes bright with scenery; but the landscape stops outside. Were this not so, we should have an exemplification of sitting still and running away at one and the same time. In this sense, you may use your ears and eyes to communicate within, but shut out all wisdom from the mind.",
+      "source": "Chapter IV: Man Among Men",
+      "themes": ["emptiness", "receptivity", "window", "mind", "wu-wei"],
+      "context": "The window image is Zhuangzi's most elegant metaphor for the fasting of the heart in practice: the empty room that receives light but is not filled by it, the landscape that illuminates without entering. 'Sitting still and running away at one and the same time' names the paradox of a mind that tries to hold its content — the very grasping that prevents TAO from entering."
     },
     {
       "id": "zhuangzi-015",
-      "text": "Where can I find a man who has forgotten words so I can have a word with him?",
-      "source": "Zhuangzi",
-      "themes": ["words", "forgetting", "communication", "paradox"],
-      "context": "Longing for wordless understanding"
+      "text": "The pure men of old did not know what it was to love life or to hate death. They did not rejoice in birth, nor strive to put off dissolution. Quickly come, and quickly go;--no more. They did not forget whence it was they had sprung, neither did they seek to hasten their return thither. Cheerfully they played their allotted parts, waiting patiently for the end. This is what is called not to lead the heart astray from TAO, nor to let the human seek to supplement the divine.",
+      "source": "Chapter VI: The Great Supreme",
+      "themes": ["pure men", "death", "acceptance", "TAO", "inaction"],
+      "context": "The pure men of old are Zhuangzi's positive ideal — not sages who transcend death but those who are indifferent to both birth and dissolution in precisely equal measure. 'Quickly come, and quickly go — no more' achieves its effect through radical understatement. The final formulation — 'not to let the human seek to supplement the divine' — identifies the fundamental error: the belief that human effort can improve upon TAO."
     },
     {
       "id": "zhuangzi-016",
-      "text": "The torch of chaos and doubt—this is what the sage steers by.",
-      "source": "Zhuangzi",
-      "themes": ["chaos", "doubt", "sage", "navigation"],
-      "context": "Doubt as guide"
+      "text": "TAO has its laws, and its evidences. It is devoid both of action and of form. It may be transmitted, but cannot be received. It may be obtained, but cannot be seen. Before heaven and earth were, TAO was. It has existed without change from all time. Spiritual beings drew their spirituality therefrom, while the universe became what we can see it now. To TAO, the zenith is not high, nor the nadir low; no point in time is long ago, nor by lapse of ages has it grown old.",
+      "source": "Chapter VI: The Great Supreme",
+      "themes": ["TAO", "eternity", "formlessness", "time", "cosmos"],
+      "context": "This is the most direct cosmological account of TAO in the text — and it is immediately paradoxical: TAO has laws but no form; it can be transmitted but not received. The final negations of zenith/nadir and past/present are not mere rhetoric but the logical consequence of describing something that precedes space and time: all spatial and temporal terms are category errors when applied to TAO."
     },
     {
       "id": "zhuangzi-017",
-      "text": "Men honor what lies within the sphere of their knowledge, but do not realize how dependent they are on what lies beyond it.",
-      "source": "Zhuangzi",
-      "themes": ["knowledge", "beyond", "dependence", "honor"],
-      "context": "Limits of knowledge"
+      "text": "I have freed myself from my body, answered Yen Hui. I have discarded my reasoning powers. And by thus getting rid of body and mind, I have become ONE with the Infinite. This is what I mean by getting rid of everything. If you have become ONE, cried Confucius, there can be no room for bias. If you have passed into space, you are indeed without beginning or end. And if you have really attained to this, I trust to be allowed to follow in your steps.",
+      "source": "Chapter VI: The Great Supreme",
+      "themes": [
+        "dissolution of self",
+        "oneness",
+        "bias",
+        "body and mind",
+        "infinity"
+      ],
+      "context": "The reversal here — the student Yen Hui teaching Confucius — is part of Zhuangzi's persistent literary tactic of putting the highest Taoist wisdom in unexpected mouths. But the philosophical content is stark: the sequential shedding of charity, duty, ceremony, music, and finally body and mind itself is the path, and the criterion of completion is not feeling but the structural absence of bias. One has arrived when there is nothing left to take a side."
     },
     {
       "id": "zhuangzi-018",
-      "text": "A path is made by walking on it.",
-      "source": "Zhuangzi",
-      "themes": ["path", "walking", "creation", "action"],
-      "context": "No pre-existing path"
+      "text": "Resolve your mental energy into abstraction, your physical energy into inaction. Allow yourself to fall in with the natural order of phenomena, without admitting the element of self,--and the empire will be governed.",
+      "source": "Chapter VII: How to Govern",
+      "themes": ["governance", "inaction", "self", "naturalness", "wu-wei"],
+      "context": "This is the clearest statement of the Taoist political principle: government by non-interference with natural order, with the self as the specific obstacle to be removed. The chiasmus — mental energy into abstraction, physical energy into inaction — shows that the movement is not passive resignation but an active reorientation of every faculty away from self-assertion and toward alignment with what is already happening."
     },
     {
       "id": "zhuangzi-019",
-      "text": "The purpose of a fish trap is to catch fish, and when the fish are caught the trap is forgotten. The purpose of words is to convey ideas. When the ideas are grasped, the words are forgotten.",
-      "source": "Zhuangzi",
-      "themes": ["trap", "fish", "words", "ideas"],
-      "context": "Means vs ends"
+      "text": "The ruler of the southern sea was called Shu. The ruler of the northern sea was called Hu. The ruler of the central zone was called Hun Tun. Shu and Hu often met on Hun Tun's territory, and being always well treated by him, determined to repay his kindness. They said, All men have seven holes,--for seeing, hearing, eating, and breathing. Hun Tun alone has none. We will bore some for him. So every day they bored one hole; but on the seventh day Hun Tun died.",
+      "source": "Chapter VII: How to Govern",
+      "themes": [
+        "chaos",
+        "action",
+        "well-meaning harm",
+        "naturalness",
+        "death"
+      ],
+      "context": "The parable of Hun Tun (Chaos) is the closing image of the seven 'inner' chapters and one of the most perfectly constructed parables in world philosophy. The destroyers mean well — they are repaying kindness — which makes the point more devastating than simple malice would: action itself, even benevolent action that imposes form on the formless, kills what it tries to help. This is the political and cosmological conclusion of the entire first movement of the book."
     },
     {
       "id": "zhuangzi-020",
-      "text": "Rewards and punishments are the lowest form of education.",
-      "source": "Zhuangzi",
-      "themes": ["rewards", "punishments", "education", "lowest"],
-      "context": "Critique of external motivation"
+      "text": "You cannot speak of ocean to a well-frog,--the creature of a narrower sphere. You cannot speak of ice to a summer insect,--the creature of a season. You cannot speak of TAO to a pedagogue: his scope is too restricted. But now that you have emerged from your narrow sphere and have seen the great ocean, you know your own insignificance, and I can speak to you of great principles.",
+      "source": "Chapter XVII: Autumn Floods",
+      "themes": ["perspective", "limitation", "TAO", "scope", "humility"],
+      "context": "The Spirit of the Ocean's speech to the Spirit of the River after the latter has been humbled by the sight of the sea. The three parallel prohibitions — frog/ocean, summer insect/ice, pedagogue/TAO — move from spatial to temporal to cognitive limitation, with each creature imprisoned in a category of experience it cannot transcend. The pedagoguye's imprisonment is the worst because it is self-imposed: learning has narrowed rather than expanded."
+    },
+    {
+      "id": "zhuangzi-021",
+      "text": "What man knows is not to be compared with what he does not know. The span of his existence is not to be compared with the span of his non-existence. With the small to strive to exhaust the great, necessarily lands him in confusion, and he does not attain his object.",
+      "source": "Chapter XVII: Autumn Floods",
+      "themes": ["ignorance", "knowledge", "finitude", "infinity", "confusion"],
+      "context": "This passage provides the epistemological ground for Zhuangzi's characteristic intellectual humility — not as a rhetorical posture but as a mathematical fact about the ratio of what is knowable to what is not. The 'span of non-existence' includes both pre-birth and post-death, dwarfing any life in which knowledge could be accumulated. The conclusion — confusion, not wisdom, results from trying to use finite tools on infinite problems — is the basis of the entire chapter."
+    },
+    {
+      "id": "zhuangzi-022",
+      "text": "When Chuang Tzŭ's wife died, Hui Tzŭ went to condole. He found the widower sitting on the ground, singing, with his legs spread out at a right angle, and beating time on a bowl. Not at all, replied Chuang Tzŭ. When she died, I could not help being affected by her death. Soon, however, I remembered that she had already existed in a previous state before birth, without form, or even substance; that while in that unconditioned condition, substance was added to spirit; that this substance then assumed form; and that the next stage was birth. And now, by virtue of a further change, she is dead, passing from one phase to another like the sequence of spring, summer, autumn, and winter. And while she is thus lying asleep in Eternity, for me to go about weeping and wailing would be to proclaim myself ignorant of these natural laws. Therefore I refrain.",
+      "source": "Chapter XVIII: Perfect Happiness",
+      "themes": [
+        "death",
+        "transformation",
+        "seasons",
+        "eternity",
+        "acceptance"
+      ],
+      "context": "This is the most intimate moment in the Zhuangzi — a man grieving his wife — and it is philosophically essential because the argument is not that Chuang Tzŭ does not feel grief but that he works through it to understanding. 'I could not help being affected' establishes genuine emotion before the philosophical reorientation. The sequence from unconditioned substance through form to death mirrors the cosmic account of TAO's operation, locating one personal death within the universal logic of transformation."
+    },
+    {
+      "id": "zhuangzi-023",
+      "text": "In death, there is no sovereign above, and no subject below. The workings of the four seasons are unknown. Our existences are bounded only by eternity. The happiness of a king among men cannot exceed that which we enjoy. Chuang Tzŭ, however, was not convinced, and said, Were I to prevail upon God to allow your body to be born again, and your bones and flesh to be renewed, so that you could return to your parents, to your wife, and to the friends of your youth,--would you be willing? At this, the skull opened its eyes wide and knitted its brows and said, How should I cast aside happiness greater than that of a king, and mingle once again in the toils and troubles of mortality?",
+      "source": "Chapter XVIII: Perfect Happiness",
+      "themes": ["death", "happiness", "eternity", "mortality", "reversal"],
+      "context": "The skull dialogue is Zhuangzi's most dramatic reversal: the dead, given a voice, do not want to return to life. This inverts the assumption that life is self-evidently preferable to death — the skull's refusal is not nihilism but the claim that existence without hierarchy, seasons, or social obligation is a fuller happiness than any kingship. The passage does what the philosophical argument of Chapter II prepares: it genuinely holds both life and death as perspectives, neither privileged."
+    },
+    {
+      "id": "zhuangzi-024",
+      "text": "The raison d'être of a fish-trap is the fish. When the fish is caught, the trap may be ignored. The raison d'être of a rabbit-snare is the rabbit. When the rabbit is caught the snare may be ignored. The raison d'être of language is an idea to be expressed. When the idea is expressed, the language may be ignored. But where shall I find a man to ignore language, with whom I may be able to converse?",
+      "source": "Chapter XXVI: Contingencies",
+      "themes": ["language", "meaning", "tool", "forgetting", "communication"],
+      "context": "This is among the most self-aware passages in all of ancient philosophy: the author of thirty-three chapters of language asks where he can find someone who has forgotten language. The fish-trap image is not a dismissal of language but a precise account of its proper use — as a tool that points beyond itself. The final question is both a joke and a genuine longing: Zhuangzi's ideal interlocutor is someone who has digested his text so thoroughly they no longer need it."
     }
   ]
 }

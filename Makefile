@@ -1,11 +1,11 @@
 # Pneuma Development Commands
 
 # Start backend server
-s:
+server s:
 	cd server && node index.js
 
 # Start frontend dev server
-c:
+client c:
 	cd client && npm run dev
 
 # Install all dependencies
@@ -18,4 +18,4 @@ dev:
 	@echo "Starting backend and frontend..."
 	@make server & make client
 
-.PHONY: server client install dev
+.PHONY: server client install dev s c

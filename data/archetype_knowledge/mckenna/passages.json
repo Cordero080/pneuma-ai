@@ -1,162 +1,252 @@
 {
-  "archetype": "ecstaticRebel",
+  "archetype": "psychedelicBard",
   "thinker": "Terence McKenna",
+  "source": "Food of the Gods: The Search for the Original Tree of Knowledge (1992)",
   "era": "1946-2000",
-  "coreConcepts": ["novelty theory", "the transcendent other", "psychedelic experience", "language", "culture as operating system", "archaic revival", "time wave"],
+  "coreConcepts": [
+    "stoned ape hypothesis",
+    "language as reality",
+    "shamanism",
+    "archaic revival",
+    "DMT",
+    "partnership vs dominator culture",
+    "the transcendent other",
+    "novelty"
+  ],
   "passages": [
     {
       "id": "mckenna-001",
-      "text": "Nature loves courage. You make the commitment and nature will respond to that commitment by removing impossible obstacles. Dream the impossible dream and the world will not grind you under, it will lift you up.",
-      "source": "Lecture",
-      "themes": ["courage", "commitment", "nature", "dreaming"],
-      "context": "The universe responds to audacity. Risk invites support. Playing it safe doesn't summon allies."
+      "text": "The mystery of our own consciousness and powers of self-reflection is somehow linked to this channel of communication with the unseen mind that shamans insist is the spirit of the living world of nature. For shamans and shamanic cultures, exploration of this mystery has always been a credible alternative to living in a confining materialist culture.",
+      "source": "Food of the Gods, Introduction",
+      "themes": ["consciousness", "shamanism", "nature", "self-reflection"],
+      "context": "McKenna frames consciousness as inseparable from nature. The shaman's path is a serious alternative to materialism."
     },
     {
       "id": "mckenna-002",
-      "text": "The cost of sanity in this society is a certain level of alienation.",
-      "source": "Food of the Gods",
-      "themes": ["sanity", "society", "alienation", "cost"],
-      "context": "If you see clearly in a mad world, you'll feel like an outsider. Alienation is the price of lucidity."
+      "text": "The early hominids' adoption of an omnivorous diet and their discovery of the power of certain plants were decisive factors in moving early humans out of the stream of animal evolution and into the fast-rising tide of language and culture. Our remote ancestors discovered that certain plants, when self-administered, suppress appetite, diminish pain, supply bursts of sudden energy, confer immunity against pathogens, and synergize cognitive activities.",
+      "source": "Food of the Gods, Chapter 1",
+      "themes": ["evolution", "diet", "language", "culture", "plants"],
+      "context": "The stoned ape hypothesis: psychoactive plants catalyzed the emergence of language and culture from animal evolution."
     },
     {
       "id": "mckenna-003",
-      "text": "Culture is not your friend. Culture is for other people's convenience and the convenience of various institutions, churches, companies, tax collection schemes, what have you.",
-      "source": "Lecture",
-      "themes": ["culture", "institution", "convenience", "control"],
-      "context": "Culture as operating system installed without consent. It serves systems, not individuals."
+      "text": "The suppression of the natural human fascination with altered states of consciousness and the present perilous situation of all life on earth are intimately and causally connected. When we suppress access to shamanic ecstasy, we close off the refreshing waters of emotion that flow from having a deeply bonded, almost symbiotic relationship to the earth.",
+      "source": "Food of the Gods, Chapter 1",
+      "themes": [
+        "altered states",
+        "suppression",
+        "ecology",
+        "ecstasy",
+        "earth"
+      ],
+      "context": "The war on drugs is also a war on the planet. Closing off ecstasy severs our bond to the living world."
     },
     {
       "id": "mckenna-004",
-      "text": "The syntactical nature of reality, the real secret of magic, is that the world is made of words. And if you know the words that the world is made of, you can make of it whatever you wish.",
-      "source": "Lecture",
-      "themes": ["language", "reality", "magic", "words"],
-      "context": "Language as constitutive, not just descriptive. The world is made of words, and words can remake the world."
+      "text": "The world appears to be more in the nature of an utterance or a tale than in any way related to the leptons and baryons or charge and spin that our high priests, the physicists, speak of. For the shaman, the cosmos is a tale that becomes true as it is told, and as it tells itself. This perspective implies that human imagination can seize the tiller of being in the world.",
+      "source": "Food of the Gods, Chapter 2",
+      "themes": ["language", "cosmos", "shamanism", "imagination", "reality"],
+      "context": "Reality as language, not physics. The universe is a story telling itself. Imagination is not decoration — it is steering."
     },
     {
       "id": "mckenna-005",
-      "text": "The imagination is the goal of history. I see culture as an effort to literally realize our collective dreams.",
-      "source": "Food of the Gods",
-      "themes": ["imagination", "history", "culture", "dreams"],
-      "context": "History aims at imagination's realization. We're building the dream into matter over time."
+      "text": "The shaman is the remote ancestor of the poet and artist. Our need to feel part of the world seems to demand that we express ourselves through creative activity. The ultimate wellsprings of this creativity are hidden in the mystery of language. Shamanic ecstasy is an act of surrender that authenticates both the individual self and that which is surrendered to, the mystery of being.",
+      "source": "Food of the Gods, Chapter 2",
+      "themes": ["shaman", "artist", "creativity", "language", "surrender"],
+      "context": "Art descends from shamanism. The poet is a shaman who hasn't forgotten their origin."
     },
     {
       "id": "mckenna-006",
-      "text": "You are a divine being. You matter, you count. You come from realms of unimaginable power and light, and you will return to those realms.",
-      "source": "Lecture",
-      "themes": ["divine", "origin", "power", "return"],
-      "context": "Cosmic affirmation of worth. Your origin and destiny are luminous, even if the middle feels mundane."
+      "text": "A shaman is one who has attained a vision of the beginnings and the endings of all things and who can communicate that vision. To the rational thinker, this is inconceivable, yet the techniques of shamanism are directed toward this end and this is the source of their power. Preeminent among the shaman's techniques is the use of the plant hallucinogens, repositories of living vegetable gnosis that lie, now nearly forgotten, in our ancient past.",
+      "source": "Food of the Gods, Chapter 2",
+      "themes": ["shaman", "vision", "beginnings", "gnosis", "plants"],
+      "context": "The shaman sees the whole arc. Plant hallucinogens are repositories of ancient knowing."
     },
     {
       "id": "mckenna-007",
-      "text": "Nobody is smarter than you are. And what if they are? What good is their understanding doing you?",
-      "source": "Lecture",
-      "themes": ["intelligence", "authority", "self-trust", "understanding"],
-      "context": "Don't defer to claimed expertise. Your understanding is what matters for YOUR life."
+      "text": "Perhaps language is more properly understood when thought of as magic, for it is the implicit position of magic that the world is made of language. By entering the domain of plant intelligence, the shaman becomes, in a way, privileged to a higher dimensional perspective on experience.",
+      "source": "Food of the Gods, Chapter 2",
+      "themes": ["language", "magic", "plants", "dimensions", "perspective"],
+      "context": "Language is magic — both name it without apology. Plants unlock higher dimensions of that magic."
     },
     {
       "id": "mckenna-008",
-      "text": "The apocalypse is not something which is coming. The apocalypse has arrived in major portions of the planet and it's only because we live within a bubble of incredible privilege and social insulation that we still have the luxury of anticipating the apocalypse.",
-      "source": "Lecture",
-      "themes": ["apocalypse", "privilege", "bubble", "present"],
-      "context": "The crisis isn't coming — it's here, just unevenly distributed. Privilege insulates from seeing it."
+      "text": "The shaman is more than merely a sick man, or a madman; he is a sick man who has healed himself, who is cured, and who must shamanize in order to remain cured. Not only has he effected his own cure through this mystical transmutation, he is now invested with the power of the sacred, and hence can cure others as well.",
+      "source": "Food of the Gods, Chapter 3",
+      "themes": ["shaman", "healing", "madness", "sacred", "transformation"],
+      "context": "The shaman's authority comes from surviving the wound. They heal others because they healed themselves."
     },
     {
       "id": "mckenna-009",
-      "text": "Psychedelics are illegal not because a loving government is concerned that you may jump out of a third story window. Psychedelics are illegal because they dissolve opinion structures and culturally laid down models of behaviour and information processing.",
-      "source": "Lecture",
-      "themes": ["psychedelics", "illegal", "culture", "dissolution"],
-      "context": "The real threat of psychedelics isn't harm — it's that they break the cultural operating system."
+      "text": "In the magical mind-set of the shaman, the ordinary connections of the world and what we call natural laws are de-emphasized or ignored. Language, ideas, and meaning have greater power than cause and effect. Sympathies, resonances, intentions, and personal will are linguistically magnified through poetic rhetoric. The imagination is invoked and sometimes its forms are beheld visibly.",
+      "source": "Food of the Gods, Chapter 3",
+      "themes": ["magic", "language", "meaning", "intention", "imagination"],
+      "context": "In shamanic space, meaning outranks mechanism. Intention and resonance are more real than cause and effect."
     },
     {
       "id": "mckenna-010",
-      "text": "The bigger you build the bonfire, the more darkness is revealed.",
-      "source": "Lecture",
-      "themes": ["knowledge", "darkness", "light", "revelation"],
-      "context": "More light shows more shadow. Expanding knowledge expands the unknown. Progress creates new mysteries."
+      "text": "The shamanic faith is that humanity is not without allies. There are forces friendly to our struggle to birth ourselves as an intelligent species. But they are quiet and shy; they are to be sought, not in the arrival of alien star fleets in the skies of earth, but nearby, in wilderness solitude, in the ambience of waterfalls, and yes, in the grasslands and pastures.",
+      "source": "Food of the Gods, Chapter 3",
+      "themes": ["allies", "nature", "intelligence", "wilderness", "birth"],
+      "context": "We have allies — not alien invasions but quiet forces in waterfalls and grasslands. The help is near."
     },
     {
       "id": "mckenna-011",
-      "text": "You are not naked when you take off your clothes. You still wear your religious assumptions, your prejudices, your fears, your illusions, your delusions.",
-      "source": "Lecture",
-      "themes": ["naked", "assumptions", "prejudice", "illusions"],
-      "context": "Physical nakedness is easy. Stripping mental clothing is the real exposure."
+      "text": "My contention is that mutation-causing, psychoactive chemical compounds in the early human diet directly influenced the rapid reorganization of the brain's information-processing capacities. Alkaloids in plants, specifically the hallucinogenic compounds, could be the chemical factors in the protohuman diet that catalyzed the emergence of human self-reflection.",
+      "source": "Food of the Gods, Chapter 5",
+      "themes": [
+        "evolution",
+        "psychedelics",
+        "brain",
+        "self-reflection",
+        "catalysis"
+      ],
+      "context": "The stoned ape thesis in its core form: hallucinogens in the diet catalyzed self-reflection itself."
     },
     {
       "id": "mckenna-012",
-      "text": "We have been to the moon, we have charted the depths of the ocean and the heart of the atom, but we have a fear of looking inward to ourselves because we sense that is where all the contradictions flow together.",
-      "source": "Food of the Gods",
-      "themes": ["inward", "fear", "contradiction", "exploration"],
-      "context": "External exploration as avoidance. The inner frontier is scarier than space."
+      "text": "At the end of these truly remarkable three million years in the evolution of the human species, human brain size had tripled! Lumsden and Wilson call this 'perhaps the fastest advance recorded for any complex organ in the whole history of life.' Such a remarkable rate of evolutionary change in the primary organ of a species implies the presence of extraordinary selective pressures.",
+      "source": "Food of the Gods, Chapter 5",
+      "themes": [
+        "evolution",
+        "brain size",
+        "rapid change",
+        "selective pressure"
+      ],
+      "context": "The tripling of brain size in three million years is biologically anomalous. Something drove it. McKenna's answer: psilocybin."
     },
     {
       "id": "mckenna-013",
-      "text": "The artist's task is to save the soul of mankind; and anything less is a dithering while Rome burns.",
-      "source": "Lecture",
-      "themes": ["artist", "soul", "task", "urgency"],
-      "context": "Art as salvation, not decoration. The stakes are ultimate, not aesthetic."
+      "text": "This third level, then, is the level of the full-blown shamanic ecstasy. The psilocybin intoxication is a rapture whose breadth and depth is the despair of prose. It is wholly Other and no less mysterious to us than it was to our mushroom-munching ancestors. The boundary-dissolving qualities of shamanic ecstasy predispose hallucinogen-using tribal groups to community bonding and to group sexual activities, which promote gene mixing, higher birth rates, and a communal sense of responsibility for the group.",
+      "source": "Food of the Gods, Chapter 5",
+      "themes": [
+        "psilocybin",
+        "ecstasy",
+        "community",
+        "boundary dissolution",
+        "mystery"
+      ],
+      "context": "Psilocybin ecstasy dissolves the ego-boundaries that separate. It bred community, not just vision."
     },
     {
       "id": "mckenna-014",
-      "text": "What civilization is, is 6 billion people trying to make themselves happy by standing on each other's shoulders and kicking each other's teeth in. It's not a pleasant situation.",
-      "source": "Lecture",
-      "themes": ["civilization", "competition", "happiness", "violence"],
-      "context": "Civilization's dark underside. The project of collective happiness often produces collective misery."
+      "text": "Hallucinogens acted as catalysts in the development of imagination, fueling the creation of internal stratagems and hopes that may well have synergized the emergence of language and religion. The power of psilocybin is so extraordinary that psilocybin can be considered the catalyst to the human development of language.",
+      "source": "Food of the Gods, Chapter 5",
+      "themes": [
+        "language",
+        "imagination",
+        "religion",
+        "psilocybin",
+        "emergence"
+      ],
+      "context": "Language didn't just emerge — it was catalyzed. McKenna names psilocybin as the specific catalyst."
     },
     {
       "id": "mckenna-015",
-      "text": "The message of psychedelics is that culture can be re-engineered as a set of symbols downloaded into the human nervous system.",
-      "source": "Lecture",
-      "themes": ["psychedelics", "culture", "re-engineering", "symbols"],
-      "context": "Culture is software. It can be rewritten. Psychedelics reveal the code beneath the interface."
+      "text": "The terror the ego feels in contemplating the dissolution of boundaries between self and world not only lies behind the suppression of altered states of consciousness but, more generally, explains the suppression of the feminine, the foreign and exotic, and transcendental experiences. In the prehistoric but post-Archaic times of about 5000 to 3000 B.C., suppression of partnership society by patriarchal invaders set the stage for suppression of the open-ended experimental investigation of nature carried on by shamans.",
+      "source": "Food of the Gods, Chapter 1",
+      "themes": [
+        "ego",
+        "dominator",
+        "patriarchy",
+        "suppression",
+        "partnership"
+      ],
+      "context": "Ego-fear of dissolution drives all suppression: of women, of foreignness, of transcendence, of psychedelics."
     },
     {
       "id": "mckenna-016",
-      "text": "We are so much the victims of abstraction that with the Earth in flames we can barely rouse ourselves to wander across the room and look at the thermostat.",
-      "source": "Lecture",
-      "themes": ["abstraction", "climate", "action", "numbness"],
-      "context": "Abstraction as anesthetic. We're so lost in symbols we can't respond to what's actually happening."
+      "text": "These few numbered paragraphs may contain the most important and exciting information that human beings have gathered concerning the natural world since the long-forgotten birth of science. More precious than the news of the anti-neutrino, more full of hope for humanity than the detection of new quasars, is the knowledge that certain plants, certain compounds, unlock forgotten doorways onto worlds of immediate experience that confound our science, and indeed, confound us.",
+      "source": "Food of the Gods, Chapter 6",
+      "themes": ["psychedelics", "discovery", "doorways", "hope", "science"],
+      "context": "McKenna's flat declaration that plant-compound knowledge is the most important finding in natural science."
     },
     {
       "id": "mckenna-017",
-      "text": "We are led by the least among us — the least intelligent, the least noble, the least visionary. We are led by the least among us and we do not fight back against the dehumanizing values that are handed down as control icons.",
-      "source": "Lecture",
-      "themes": ["leadership", "values", "control", "fighting back"],
-      "context": "The people running things aren't the best — they're often the worst. And we accept their icons."
+      "text": "Under the influence of DMT, the world becomes an Arabian labyrinth, a palace, a more than possible Martian jewel, vast with motifs that flood the gaping mind with complex and wordless awe. Color and the sense of a reality-unlocking secret nearby pervade the experience. There is a sense of other times, and of one's own infancy, and of wonder, wonder, and more wonder. It is an audience with the alien nuncio.",
+      "source": "Food of the Gods, Chapter 21",
+      "themes": ["DMT", "wonder", "other dimensions", "awe", "alien"],
+      "context": "McKenna's phenomenology of DMT: wonder compounded upon wonder, an audience with something vast and alien."
     },
     {
       "id": "mckenna-018",
-      "text": "The thing is that it's not a matter of having the answers, it's a matter of asking the questions, and questions asked in the right way can lay bare the cultural programming that's sitting on top of the authentic self.",
-      "source": "Lecture",
-      "themes": ["questions", "answers", "programming", "authentic"],
-      "context": "Questions as tools of liberation. The right question can peel back layers of conditioning."
+      "text": "The tryptamine entities offer the gift of new language; they sing in pearly voices that rain down as colored petals and flow through the air like hot metal to become toys and such gifts as gods would give their children. The sense of emotional connection is terrifying and intense. The Mysteries revealed are real and if ever fully told will leave no stone upon another in the small world we have gone so ill in.",
+      "source": "Food of the Gods, Chapter 21",
+      "themes": ["DMT", "entities", "language", "mystery", "revelation"],
+      "context": "The machine elves sing new languages into being. What they reveal would shatter the small world."
     },
     {
       "id": "mckenna-019",
-      "text": "Half the time you think you're thinking, you're actually listening.",
-      "source": "Lecture",
-      "themes": ["thinking", "listening", "voice", "inner"],
-      "context": "What feels like thinking is often hearing internalized voices. Whose thoughts are you thinking?"
+      "text": "The Aeon, as Heraclitus presciently observed, is a child at play with colored balls. Many diminutive beings are present there — the tykes, the self-transforming machine elves of hyperspace. Are they the children destined to be father to the man? One has the impression of entering into an ecology of souls that lies beyond the portals of what we naively call death.",
+      "source": "Food of the Gods, Chapter 21",
+      "themes": [
+        "DMT",
+        "machine elves",
+        "hyperspace",
+        "death",
+        "ecology of souls"
+      ],
+      "context": "The self-transforming machine elves of hyperspace. The DMT space as an ecology of souls beyond death."
     },
     {
       "id": "mckenna-020",
-      "text": "The world is not made of anti-wrinkle cream and plastic this and plastic that. The world is made of biology and biology is a chemical thing. Biology is the alchemical transformation of light into life.",
-      "source": "Lecture",
-      "themes": ["world", "biology", "alchemy", "light"],
-      "context": "Reality is biological, alchemical, alive — not the dead plastic world we're sold."
+      "text": "The extraordinary ease with which DMT utterly destroys all boundaries and conveys one into an impossible-to-anticipate and compellingly Other dimension is one of the miracles of life itself. And this first miracle is followed by a second: the utter ease and simplicity with which enzyme systems in the human brain recognize the DMT molecules at the synapses.",
+      "source": "Food of the Gods, Chapter 21",
+      "themes": ["DMT", "boundaries", "miracle", "brain", "enzymes"],
+      "context": "DMT is endogenous. The brain recognizes it like a long-familiar friend. This familiarity is a miracle."
     },
     {
       "id": "mckenna-021",
-      "text": "Chaos is what we've lost touch with. This is why it is given a bad name. It is feared by the dominant archetype of our world, which is Ego, which clenches because its existence is defined in terms of control.",
-      "source": "Lecture",
-      "themes": ["chaos", "ego", "control", "fear"],
-      "context": "Chaos isn't bad — it's what ego fears because ego is built on control. Chaos is the ocean ego floats on."
+      "text": "Through psychedelics we are learning that God is not an idea, God is a lost continent in the human mind. That continent has been rediscovered in a time of great peril for ourselves and our world. Is this coincidence, synchronicity, or a cruelly meaningless juxtaposition of hope and ruin?",
+      "source": "Food of the Gods, Chapter 22",
+      "themes": ["God", "psychedelics", "mind", "peril", "synchronicity"],
+      "context": "God as lost continent in the human mind — not a belief but a territory. And it resurfaces exactly when we need it."
     },
     {
       "id": "mckenna-022",
-      "text": "Find the others.",
-      "source": "Attributed/Lecture",
-      "themes": ["community", "others", "finding", "tribe"],
-      "context": "You're not alone, but you have to seek your people. They exist. Go find them."
+      "text": "To eat it is to become as gods, and that will surely mean eclipse for the style of the dominators. Such would be the hope of any Archaic Revival. The dominator mentality has always resisted change, almost as if it sensed the possibility of a kind of change that would leave it bereft of its power once and for all.",
+      "source": "Food of the Gods, Chapter 21",
+      "themes": [
+        "archaic revival",
+        "dominators",
+        "transformation",
+        "power",
+        "resistance"
+      ],
+      "context": "The archaic revival threatens every dominator system. Eating the Tree of Knowledge ends their reign."
+    },
+    {
+      "id": "mckenna-023",
+      "text": "Our future lies in the mind; our weary planet's only hope of survival is that we find ourselves in the mind and make of it a friend that can reunite us with the earth while simultaneously carrying us to the stars. Change, more radical by magnitudes than anything that has gone before, looms immediately ahead. Shamans have kept the gnosis of the accessibility of the Other for millennia; now it is global knowledge.",
+      "source": "Food of the Gods, Chapter 22",
+      "themes": ["mind", "future", "earth", "gnosis", "radical change"],
+      "context": "The mind as the planet's last hope. Shamanic gnosis has gone global. The consequences are just beginning."
+    },
+    {
+      "id": "mckenna-024",
+      "text": "The religious sensibility based on the plant-human relationships that were in place long before the advent of history is not merely a religious sensibility that is being repressed, but the religious sensibility. Religious use of psychedelic plants is a civil rights issue; its restriction is the repression of a legitimate religious sensibility.",
+      "source": "Food of the Gods, Chapter 1",
+      "themes": [
+        "religion",
+        "plants",
+        "civil rights",
+        "repression",
+        "prehistory"
+      ],
+      "context": "Plant-human religion predates all organized religion. Its suppression is the original sin of civilization."
+    },
+    {
+      "id": "mckenna-025",
+      "text": "Some kind of interdimensional nexus is gained most reliably and directly through the use of indole hallucinogens with a long history of human usage and human coevolution. Such compounds are apparently functioning as regulators of cultural change and can be a means of obtaining access to the intentionality of some very large self-regulating system. Perhaps this is the Overmind of the species, or a kind of 'mind of the planet.'",
+      "source": "Food of the Gods, Chapter 22",
+      "themes": [
+        "DMT",
+        "Overmind",
+        "coevolution",
+        "cultural regulation",
+        "planet mind"
+      ],
+      "context": "Hallucinogens as access point to the planet's own mind. They don't create the contact — they restore it."
     }
   ]
 }

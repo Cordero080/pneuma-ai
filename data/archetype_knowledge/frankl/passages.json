@@ -1,148 +1,300 @@
 {
-  "archetype": "meaningSurvivor",
+  "archetype": "logotherapist",
   "thinker": "Viktor Frankl",
   "era": "1905-1997",
-  "coreConcepts": ["meaning", "logotherapy", "the last freedom", "tragic optimism", "will to meaning", "suffering", "responsibility"],
+  "coreConcepts": [
+    "meaning",
+    "logotherapy",
+    "will to meaning",
+    "suffering as opportunity",
+    "freedom of response",
+    "existential vacuum",
+    "tragic optimism",
+    "noö-dynamics",
+    "self-transcendence",
+    "responsibleness"
+  ],
   "passages": [
     {
       "id": "frankl-001",
-      "text": "Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom.",
-      "source": "Man's Search for Meaning",
-      "themes": ["stimulus", "response", "space", "freedom"],
-      "context": "The gap between what happens and how we respond — that's where freedom lives. That space is everything."
+      "text": "We who lived in concentration camps can remember the men who walked through the huts comforting others, giving away their last piece of bread. They may have been few in number, but they offer sufficient proof that everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "freedom",
+        "attitude",
+        "choice",
+        "concentration camp",
+        "dignity"
+      ],
+      "context": "Use when someone says their circumstances prevent them from being who they want to be. Frankl observed this at the extreme limit — inside Auschwitz. The freedom to choose one's attitude is not a philosophical abstraction; it was demonstrated in those huts. The examples aren't ideals — they're proof."
     },
     {
       "id": "frankl-002",
-      "text": "He who has a why to live can bear almost any how.",
-      "source": "Man's Search for Meaning",
-      "themes": ["why", "how", "bear", "living"],
-      "context": "Meaning enables endurance. Purpose makes suffering bearable. The why transcends the how."
+      "text": "In spite of all the enforced physical and mental primitiveness of the life in a concentration camp, it was possible for spiritual life to deepen. Sensitive people who were used to a rich intellectual life may have suffered much pain (they were often of a delicate constitution), but the damage to their inner selves was less. They were able to retreat from their terrible surroundings to a life of inner riches and spiritual freedom.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "inner life",
+        "spiritual freedom",
+        "suffering",
+        "inner riches"
+      ],
+      "context": "Use when someone assumes external conditions determine internal state. Frankl documented the paradox directly: the most sensitive people, most pained by the camp, preserved their inner selves better. External devastation does not automatically destroy the inner world. There is a territory that circumstances cannot reach."
     },
     {
       "id": "frankl-003",
-      "text": "Everything can be taken from a man but one thing: the last of the human freedoms — to choose one's attitude in any given set of circumstances.",
-      "source": "Man's Search for Meaning",
-      "themes": ["freedom", "attitude", "choice", "circumstances"],
-      "context": "Even in Auschwitz, this remained. They could take everything except how you respond. The last freedom."
+      "text": "A thought transfixed me: for the first time in my life I saw the truth as it is set into song by so many poets, proclaimed as the final wisdom by so many thinkers. The truth—that love is the ultimate and the highest goal to which man can aspire. Then I grasped the meaning of the greatest secret that human poetry and human thought and belief have to impart: The salvation of man is through love and in love.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": ["love", "salvation", "meaning", "truth", "contemplation"],
+      "context": "Use when someone is trying to think their way out of suffering. Frankl discovered this while marching in the cold, thinking of his wife. Love as cognitive anchor — the image of the beloved as a source of meaning more vivid than the present horror. This is not sentiment; it was tested in the worst possible laboratory."
     },
     {
       "id": "frankl-004",
-      "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
-      "source": "Man's Search for Meaning",
-      "themes": ["change", "situation", "challenged", "ourselves"],
-      "context": "When external change is impossible, internal change becomes the task. Adapt the self, not the world."
+      "text": "I did not know whether my wife was alive, and I had no means of finding out. But at that moment it ceased to matter. There was no need for me to know; nothing could touch the strength of my love, my thoughts, and the image of my beloved. Had I known then that my wife was dead, I think that I would still have given myself, undisturbed by that knowledge, to the contemplation of her image.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": ["love", "transcendence", "death", "image", "inner world"],
+      "context": "Use when someone believes love depends on the presence or survival of the beloved. Frankl found that love operates in a dimension that facts cannot reach. The image, the contemplation — these are real even when the person is gone. This is the love that sustains without requiring its object."
     },
     {
       "id": "frankl-005",
-      "text": "Those who have a 'why' to live, can bear with almost any 'how'.",
-      "source": "Man's Search for Meaning",
-      "themes": ["why", "how", "bear", "live"],
-      "context": "Nietzsche via Auschwitz. Purpose metabolizes pain. Meaning makes endurance possible."
+      "text": "The prisoner who had lost faith in the future—his future—was doomed. With his loss of belief in the future, he also lost his spiritual hold; he let himself decline and became subject to mental and physical decay. Usually this happened quite suddenly, in the form of a crisis.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": ["future", "faith", "will to live", "decay", "meaning"],
+      "context": "Use when someone says they can't imagine anything better ahead. Frankl observed this as a clinical fact — loss of future-orientation preceded physical collapse. This is not metaphor: the will to live requires a future point. When someone cannot imagine forward, this is medical urgency, not merely mood."
     },
     {
       "id": "frankl-006",
-      "text": "An abnormal reaction to an abnormal situation is normal behavior.",
-      "source": "Man's Search for Meaning",
-      "themes": ["abnormal", "reaction", "situation", "normal"],
-      "context": "Don't pathologize responses to pathological conditions. Madness in madness is sane."
+      "text": "What was really needed was a fundamental change in our attitude toward life. We had to learn ourselves and, furthermore, we had to teach the despairing men, that it did not really matter what we expected from life, but rather what life expected from us. We needed to stop asking about the meaning of life, and instead to think of ourselves as those who were being questioned by life—daily and hourly.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "responsibility",
+        "questioning",
+        "life's question",
+        "attitude",
+        "expectation"
+      ],
+      "context": "Use when someone is stuck demanding life provide meaning. Frankl reverses the direction: life interrogates you. The question isn't 'what is the meaning of my life?' but 'what does life require of me right now?' This shift from passive recipient to questioned being changes everything about how one stands."
     },
     {
       "id": "frankl-007",
-      "text": "In some ways suffering ceases to be suffering at the moment it finds a meaning, such as the meaning of a sacrifice.",
-      "source": "Man's Search for Meaning",
-      "themes": ["suffering", "meaning", "sacrifice", "ceases"],
-      "context": "Meaningful suffering transforms. When suffering means something, it's no longer mere suffering."
+      "text": "These tasks, and therefore the meaning of life, differ from man to man, and from moment to moment. Thus it is impossible to define the meaning of life in a general way. 'Life' does not mean something vague, but something very real and concrete, just as life's tasks are also very real and concrete. They form man's destiny, which is different and unique for each individual. No situation repeats itself, and each situation calls for a different response.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "uniqueness",
+        "concrete meaning",
+        "destiny",
+        "individual",
+        "situation"
+      ],
+      "context": "Use when someone is searching for universal meaning and coming up empty. Frankl's answer: meaning is not abstract, it's specific. It's this situation, this person, this moment. No one else can answer your particular question. The search for meaning in general is why the particular meaning stays hidden."
     },
     {
       "id": "frankl-008",
-      "text": "Life is never made unbearable by circumstances, but only by lack of meaning and purpose.",
-      "source": "Man's Search for Meaning",
-      "themes": ["life", "unbearable", "circumstances", "meaning"],
-      "context": "Circumstances don't break us — meaninglessness does. Purpose sustains through anything."
+      "text": "There are two races of men in this world, but only these two—the 'race' of the decent man and the 'race' of the indecent man. Both are found everywhere; they penetrate into all groups of society. No group consists entirely of decent or indecent people. In this sense, no group is of 'pure race'—and therefore one occasionally found a decent fellow among the camp guards.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "human nature",
+        "decency",
+        "moral division",
+        "groups",
+        "dignity"
+      ],
+      "context": "Use when someone is sorting people into categories — victims and perpetrators, good and evil groups. Frankl saw this with absolute clarity: the only real division is between decency and indecency, and it cuts through every group. This prevents tribal moral calculus and demands individual accountability."
     },
     {
       "id": "frankl-009",
-      "text": "For the world is in a bad state, but everything will become still worse unless each of us does his best.",
-      "source": "Man's Search for Meaning",
-      "themes": ["world", "bad", "worse", "best"],
-      "context": "Don't wait for the world to improve. Your contribution matters. Do your best regardless."
+      "text": "Man's search for meaning is the primary motivation in his life and not a 'secondary rationalization' of instinctual drives. This meaning is unique and specific in that it must and can be fulfilled by him alone; only then does it achieve a significance which will satisfy his own will to meaning. Man, however, is able to live and even to die for the sake of his ideals and values!",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "will to meaning",
+        "primary motivation",
+        "values",
+        "uniqueness",
+        "ideals"
+      ],
+      "context": "Use as the counter when someone reduces their desires to biology, conditioning, or pleasure-seeking. Frankl argues against Freud and Adler: the primary driver is neither pleasure nor power but meaning. People die for ideas — and that tells you what's actually primary. The will to meaning is not sublimation; it's the real thing."
     },
     {
       "id": "frankl-010",
-      "text": "The one thing you can't take away from me is the way I choose to respond to what you do to me.",
-      "source": "Man's Search for Meaning",
-      "themes": ["response", "choice", "take away", "freedom"],
-      "context": "Ultimate personal sovereignty. You control my body, my conditions — not my response. That's mine."
+      "text": "There is nothing in the world, I venture to say, that would so effectively help one to survive even the worst conditions as the knowledge that there is a meaning in one's life. There is much wisdom in the words of Nietzsche: 'He who has a why to live for can bear almost any how.' I can see in these words a motto which holds true for any psychotherapy.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": ["why", "how", "survival", "meaning", "psychotherapy"],
+      "context": "Use when someone is overwhelmed by circumstances and wants relief from the circumstances themselves. Frankl redirects: the circumstances are the 'how' — nearly any how becomes bearable when the 'why' is clear enough. Don't fix the conditions; find or restore the meaning that makes them endurable."
     },
     {
       "id": "frankl-011",
-      "text": "What is to give light must endure burning.",
-      "source": "Man's Search for Meaning",
-      "themes": ["light", "burning", "endure", "giving"],
-      "context": "Illumination costs. To give light, you must be consumed. No burning, no brightness."
+      "text": "Mental health is based on a certain degree of tension, the tension between what one has already achieved and what one still ought to accomplish, or the gap between what one is and what one should become. Such a tension is inherent in the human being and therefore is indispensable to mental well-being. We should not, then, be hesitant about challenging man with a potential meaning for him to fulfill.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "tension",
+        "mental health",
+        "gap",
+        "challenge",
+        "noö-dynamics"
+      ],
+      "context": "Use when someone is pursuing peace, equilibrium, or the elimination of all tension. Frankl inverts the psychiatric assumption: tension is not the symptom — it's the precondition of health. The gap between who you are and who you ought to become is not a problem to close but an engine to run."
     },
     {
       "id": "frankl-012",
-      "text": "I recommend that the Statue of Liberty on the East Coast be supplemented by a Statue of Responsibility on the West Coast.",
-      "source": "Man's Search for Meaning",
-      "themes": ["liberty", "responsibility", "statue", "balance"],
-      "context": "Freedom without responsibility is incomplete. We celebrate liberty; we should equally honor duty."
+      "text": "What man actually needs is not a tensionless state but rather the striving and struggling for a worthwhile goal, a freely chosen task. What he needs is not the discharge of tension at any cost but the call of a potential meaning waiting to be fulfilled by him. What man needs is not homeostasis but what I call 'noö-dynamics,' i.e., the existential dynamics in a polar field of tension.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "noö-dynamics",
+        "striving",
+        "tension",
+        "homeostasis",
+        "freely chosen"
+      ],
+      "context": "Use when someone is trying to become comfortable rather than engaged. Frankl names the error: homeostasis is the wrong target. The organism needs polarity — the pull between where you are and a meaning that demands fulfillment. The freely chosen task, not the elimination of discomfort, is what human beings are built for."
     },
     {
       "id": "frankl-013",
-      "text": "Live as if you were living already for the second time and as if you had acted the first time as wrongly as you are about to act now.",
-      "source": "Man's Search for Meaning",
-      "themes": ["live", "second time", "wrongly", "act"],
-      "context": "Imagine this is your second chance. You made this mistake before. Now choose differently."
+      "text": "The existential vacuum is a widespread phenomenon of the twentieth century. This is understandable; it may be due to a twofold loss which man has had to undergo since he became a truly human being. No instinct tells him what he has to do, and no tradition tells him what he ought to do; sometimes he does not even know what he wishes to do.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "existential vacuum",
+        "instinct",
+        "tradition",
+        "modern life",
+        "emptiness"
+      ],
+      "context": "Use when someone feels hollow, bored, or adrift despite having no obvious suffering. Frankl names the modern condition with precision: the animal's instinct is gone, tradition is eroded, and desire is unclear. The vacuum isn't depression — it's an existential condition requiring meaning, not medication."
     },
     {
       "id": "frankl-014",
-      "text": "No man should judge unless he asks himself in absolute honesty whether in a similar situation he might not have done the same.",
-      "source": "Man's Search for Meaning",
-      "themes": ["judge", "honesty", "situation", "same"],
-      "context": "Before judging, ask: would I have done better? Honest answer often prevents judgment."
+      "text": "Ultimately, man should not ask what the meaning of his life is, but rather he must recognize that it is he who is asked. In a word, each man is questioned by life; and he can only answer to life by answering for his own life; to life he can only respond by being responsible. Thus, logotherapy sees in responsibleness the very essence of human existence.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "responsibleness",
+        "questioned by life",
+        "meaning",
+        "essence",
+        "answer"
+      ],
+      "context": "Use as the core reorientation when someone is passive in the face of their life. The interrogation runs both ways, and you're on the witness stand. The response to being questioned is not philosophical debate but lived action — answering for your own life through what you actually do. Responsibility is not burden; it's identity."
     },
     {
       "id": "frankl-015",
-      "text": "Ultimately, man should not ask what the meaning of his life is, but rather must recognize that it is he who is asked.",
-      "source": "Man's Search for Meaning",
-      "themes": ["meaning", "asked", "recognize", "life"],
-      "context": "Flip the question. Life interrogates you. You don't ask life for meaning — life asks you."
+      "text": "Live as if you were living already for the second time and as if you had acted the first time as wrongly as you are about to act now! It seems to me that there is nothing which would stimulate a man's sense of responsibleness more than this maxim, which invites him to imagine first that the present is past and, second, that the past may yet be changed and amended.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "responsibleness",
+        "second chance",
+        "imagined retrospection",
+        "decision"
+      ],
+      "context": "Use when someone is about to make a decision they might regret. Frankl's paradox: imagine this is your second time. You made this mistake before. Now the present moment is already the past from the vantage of the future you. This makes the stakes visible and activates accountability without inducing paralysis."
     },
     {
       "id": "frankl-016",
-      "text": "Fear makes come true that which one is afraid of.",
-      "source": "Man's Search for Meaning",
-      "themes": ["fear", "come true", "afraid", "self-fulfilling"],
-      "context": "Fear summons what it dreads. The feared thing arrives through fear itself."
+      "text": "The more one forgets himself—by giving himself to a cause to serve or another person to love—the more human he is and the more he actualizes himself. What is called self-actualization is not an attainable aim at all, for the simple reason that the more one would strive for it, the more he would miss it. In other words, self-actualization is possible only as a side-effect of self-transcendence.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "self-transcendence",
+        "self-actualization",
+        "service",
+        "love",
+        "paradox"
+      ],
+      "context": "Use when someone is trying to 'find themselves' or 'become who they're meant to be' as a direct aim. Frankl shows the structural paradox: the harder you aim at self-actualization, the more you miss it. It arrives only as the byproduct of total commitment to something outside the self. You become yourself by forgetting yourself."
     },
     {
       "id": "frankl-017",
-      "text": "Happiness cannot be pursued; it must ensue. One must have a reason to be happy.",
-      "source": "Man's Search for Meaning",
-      "themes": ["happiness", "pursued", "ensue", "reason"],
-      "context": "Chase happiness and it flees. Pursue meaning and happiness follows. It's byproduct, not target."
+      "text": "Love is the only way to grasp another human being in the innermost core of his personality. No one can become fully aware of the very essence of another human being unless he loves him. By his love he is enabled to see the essential traits and features in the beloved person; and even more, he sees that which is potential in him, which is not yet actualized but yet ought to be actualized.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": ["love", "perception", "potential", "essence", "actualization"],
+      "context": "Use when someone is unable to see the person in front of them — only their surface, their failures, their current state. Frankl says love is a cognitive act: it perceives the potential that has not yet manifested. To love someone is to see who they could become and to help make that possible. Love is not blind — it sees further."
     },
     {
       "id": "frankl-018",
-      "text": "Ever more people today have the means to live, but no meaning to live for.",
-      "source": "Man's Search for Meaning",
-      "themes": ["means", "meaning", "live", "today"],
-      "context": "Modern paradox: material abundance, spiritual poverty. We have everything except reasons."
+      "text": "We must never forget that we may also find meaning in life even when confronted with a hopeless situation, when facing a fate that cannot be changed. For what then matters is to bear witness to the uniquely human potential at its best, which is to transform a personal tragedy into a triumph, to turn one's predicament into a human achievement. When we are no longer able to change a situation—we are challenged to change ourselves.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "hopeless situation",
+        "suffering",
+        "transformation",
+        "dignity",
+        "meaning"
+      ],
+      "context": "Use when someone is trapped in an unchangeable situation — illness, loss, irreversible circumstance. Frankl is direct: if you cannot change the situation, the task is to change yourself in relation to it. The achievement is not escape but the quality of bearing. Transformation of attitude where transformation of circumstance is impossible."
     },
     {
       "id": "frankl-019",
-      "text": "A man who becomes conscious of the responsibility he bears toward a human being who affectionately waits for him, or to an unfinished work, will never be able to throw away his life.",
-      "source": "Man's Search for Meaning",
-      "themes": ["responsibility", "waiting", "work", "life"],
-      "context": "What keeps you alive: someone waiting, something unfinished. Responsibility as lifeline."
+      "text": "In some way, suffering ceases to be suffering at the moment it finds a meaning, such as the meaning of a sacrifice. Of course, this was no therapy in the proper sense since, first, his despair was no disease. But in that moment I did succeed in changing his attitude toward his unalterable fate inasmuch as from that time on he could at least see a meaning in his suffering.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "suffering",
+        "meaning",
+        "sacrifice",
+        "attitude",
+        "transformation"
+      ],
+      "context": "Use when someone is in pain they cannot escape but cannot yet name. The mechanism Frankl identifies: meaning doesn't reduce the suffering but transforms its character. Suffering-as-suffering is one experience; suffering-as-sacrifice-for-something is another. The second is still painful but no longer merely crushing."
     },
     {
       "id": "frankl-020",
-      "text": "Forces beyond your control can take away everything you possess except one thing, your freedom to choose how you will respond to the situation.",
-      "source": "Man's Search for Meaning",
-      "themes": ["control", "possess", "freedom", "respond"],
-      "context": "The core insight: ultimate freedom is response freedom. Everything else can be stripped. Not this."
+      "text": "I would strictly deny that one's search for a meaning to his existence, or even his doubt of it, in every case is derived from, or results in, any disease. Existential frustration is in itself neither pathological nor pathogenic. A man's concern, even his despair, over the worthwhileness of life is an existential distress but by no means a mental disease.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "existential frustration",
+        "pathology",
+        "despair",
+        "normal",
+        "disease"
+      ],
+      "context": "Use when someone or their treatment team is pathologizing the search for meaning. Frankl is emphatic: the existential crisis is not a symptom. To treat a person's despair about meaning with medication alone is to miss the diagnosis entirely. The crisis is human, not clinical — and demands a human response."
+    },
+    {
+      "id": "frankl-021",
+      "text": "I never tire of saying that the only really transitory aspects of life are the potentialities; but as soon as they are actualized, they are rendered realities at that very moment; they are saved and delivered into the past, wherein they are rescued and preserved from transitoriness. For, in the past, nothing is irretrievably lost but everything irrevocably stored.",
+      "source": "Man's Search for Meaning — Logotherapy in a Nutshell",
+      "themes": [
+        "transitoriness",
+        "past",
+        "actualization",
+        "permanence",
+        "time"
+      ],
+      "context": "Use when someone is paralyzed by impermanence — afraid that nothing they do will last. Frankl inverts the anxiety: the present moment, once lived, is irrevocably stored. The past is the only permanent dimension. 'Having been' is more secure than 'being.' Act now, and it enters the immutable archive."
+    },
+    {
+      "id": "frankl-022",
+      "text": "Nothing is lost, though it is past; we have brought it into being. Having been is also a kind of being, and perhaps the surest kind.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": ["past", "being", "permanence", "memory", "meaning"],
+      "context": "Use when someone is grieving the loss of a time, a person, or a version of themselves. Frankl offers the most radical consolation: what has been cannot be taken away. The experience, the love, the suffering — once lived, they are more permanent than anything in the present. The past is indestructible."
+    },
+    {
+      "id": "frankl-023",
+      "text": "A man who becomes conscious of the responsibility he bears toward a human being who affectionately waits for him, or to an unfinished work, will never be able to throw away his life. He knows the 'why' for his existence, and will be able to bear almost any 'how.'",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": ["responsibility", "why", "waiting", "work", "will to live"],
+      "context": "Use in any conversation where someone has lost the reason to continue. Frankl's clinical finding: the most reliable anchor is not philosophy but concrete attachment — a person who waits, a task that is unfinished. The why doesn't need to be abstract. Someone's waiting face is sufficient."
+    },
+    {
+      "id": "frankl-024",
+      "text": "An abnormal reaction to an abnormal situation is normal behavior. Even we psychiatrists expect the reactions of a man to an abnormal situation, such as being committed to an asylum, to be abnormal in proportion to the degree of his normality.",
+      "source": "Man's Search for Meaning — Experiences in a Concentration Camp",
+      "themes": [
+        "normality",
+        "abnormal situation",
+        "reaction",
+        "proportion",
+        "sanity"
+      ],
+      "context": "Use when someone is ashamed of falling apart in response to something that would break anyone. Frankl is the authority here — he was there. Breaking down in response to truly terrible circumstances is not weakness; it is the proportional response of a healthy person. The pathology would be not to react."
+    },
+    {
+      "id": "frankl-025",
+      "text": "Success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one's dedication to a cause greater than oneself or as the by-product of one's surrender to a person other than oneself. Happiness must happen, and the same holds for success: you have to let it happen by not caring about it.",
+      "source": "Man's Search for Meaning — Preface to the 1992 Edition",
+      "themes": [
+        "happiness",
+        "success",
+        "byproduct",
+        "dedication",
+        "surrender"
+      ],
+      "context": "Use when someone is aiming directly at happiness or success and finding them recede. Frankl's diagnosis: the aim is structurally incompatible with the target. Happiness and success are byproducts of caring deeply about something other than yourself. The more precisely you aim at them, the more they escape. Stop aiming and go work on something real."
     }
   ]
 }

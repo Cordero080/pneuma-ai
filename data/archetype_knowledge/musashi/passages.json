@@ -1,157 +1,305 @@
 {
-  "archetype": "warriorSage",
+  "archetype": "strategist",
   "thinker": "Miyamoto Musashi",
+  "source": "Book of Five Rings (c. 1645)",
   "era": "1584-1645",
   "coreConcepts": [
-    "The Way of strategy",
-    "No attachment to any weapon",
-    "Seeing with the spirit",
-    "Economy of motion",
-    "Stillness in action",
-    "The Void",
-    "Timing and rhythm",
-    "Know the Way broadly"
+    "the Way of strategy",
+    "cadence and timing",
+    "the two ways",
+    "emptiness",
+    "perceiving what cannot be seen",
+    "economy of action",
+    "the carpenter analogy",
+    "no fixed guard",
+    "knowing one thing to know ten thousand"
   ],
   "passages": [
     {
       "id": "musashi-001",
-      "text": "Do nothing that is of no use.",
-      "source": "The Book of Five Rings",
-      "themes": ["utility", "economy", "action", "waste"],
-      "context": "Principle of essential action only"
+      "text": "First of all, warriors must familiarize themselves with what is known as \"the two ways,\" literature and the martial arts. That is their way. Even if you are clumsy, you must persevere in strategy because of your position.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "the two ways",
+        "literature",
+        "martial arts",
+        "warrior",
+        "perseverance"
+      ],
+      "context": "The warrior's path is dual — mastery requires both the literary and martial arts, neither alone suffices."
     },
     {
       "id": "musashi-002",
-      "text": "Perceive that which cannot be seen with the eye.",
-      "source": "The Book of Five Rings",
-      "themes": ["perception", "invisible", "spirit", "seeing"],
-      "context": "Seeing beyond physical sight"
+      "text": "There are people who make a profession out of selling the arts. They treat themselves as articles of merchandise and produce objects with a view to selling them. This attitude is tantamount to the act of separating the flower from the fruit. And it must be said that the fruit in this case does not amount to much. They adorn the way of strategy with flowery colors, lay out a display of techniques, and teach their way by creating first one dojo, then another.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "flower and fruit",
+        "authenticity",
+        "commercialization",
+        "true way",
+        "technique vs. principle"
+      ],
+      "context": "When strategy is made merchandise, the flower is separated from the fruit — superficial display replaces the genuine principle."
     },
     {
       "id": "musashi-003",
-      "text": "The Way is in training. Today is victory over yourself of yesterday; tomorrow is your victory over lesser men.",
-      "source": "The Book of Five Rings",
-      "themes": ["training", "victory", "self", "progress"],
-      "context": "Primary battle is with yesterday's self"
+      "text": "A general, like a master carpenter, should know the overall rules of the country and adjust the rules of his own province to fit with them, just as the way of the master carpenter consists in regulating the measurements of the house he is going to construct. The master carpenter learns the structural pattern for building a tower or a temple and knows the construction plans for palaces and fortresses. He builds houses by making use of people. In this way the chief carpenter and the chief warrior resemble each other.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "carpenter analogy",
+        "command",
+        "planning",
+        "measurement",
+        "using people"
+      ],
+      "context": "The commander and the carpenter share the same structural wisdom — knowing how things fit together and how to deploy the right person for the right task."
     },
     {
       "id": "musashi-004",
-      "text": "You must understand that there is more than one path to the top of the mountain.",
-      "source": "The Book of Five Rings",
-      "themes": ["path", "mountain", "multiple", "ways"],
-      "context": "Many valid approaches"
+      "text": "In using men, the master carpenter must know the qualities of the carpenters. In accordance with their high, medium, or low ability, he must assign them different tasks, such as construction of the tokonoma; of the sliding doors and the shoji; or of the sills, lintels, and ceilings. It is appropriate to have support framing done by those with not much skill, and wedges made by the most unskillful. If one is able to discern the qualities of men in this manner, work progresses quickly and efficiently.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "carpenter analogy",
+        "discernment",
+        "assigning tasks",
+        "qualities of men",
+        "efficiency"
+      ],
+      "context": "Mastery of strategy requires knowing how to read people and assign them appropriately — the same insight that makes a great carpenter makes a great general."
     },
     {
       "id": "musashi-005",
-      "text": "In battle, if you make your opponent flinch, you have already won.",
-      "source": "The Book of Five Rings",
-      "themes": ["battle", "flinch", "psychology", "victory"],
-      "context": "Psychological advantage"
+      "text": "Those who would like to learn my strategy should apply the following rules in order to practice the way: i. Think of that which is not evil. 2. Train in the way. 3. Take an interest in all the arts. 4. Know the way of all professions. 5. Know how to appreciate the advantages and disadvantages of each thing. 6. Learn to judge the quality of each thing. 7. Perceive and understand that which is not visible from the outside. 8. Be attentive even to minimal things. 9. Do not perform useless acts.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "nine rules",
+        "training",
+        "perception",
+        "broad knowledge",
+        "useless acts",
+        "economy"
+      ],
+      "context": "Musashi's nine precepts compress the entire discipline of strategy: perception of the invisible, attention to the minimal, and the refusal to waste any act."
     },
     {
       "id": "musashi-006",
-      "text": "Think lightly of yourself and deeply of the world.",
-      "source": "The Book of Five Rings",
-      "themes": ["self", "world", "lightness", "depth"],
-      "context": "Ego reduction, world attention"
+      "text": "Think of that which is not evil. Train in the way. Take an interest in all the arts. Know the way of all professions. Know how to appreciate the advantages and disadvantages of each thing. Learn to judge the quality of each thing. Perceive and understand that which is not visible from the outside. Be attentive even to minimal things. Do not perform useless acts.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "perception",
+        "invisible",
+        "useless acts",
+        "all arts",
+        "quality",
+        "economy"
+      ],
+      "context": "Perceiving what cannot be seen with the eye is listed among Musashi's core disciplines — strategy demands vision beyond the literal."
     },
     {
       "id": "musashi-007",
-      "text": "In strategy your spiritual bearing must not be any different from normal. Both in fighting and in everyday life you should be determined though calm.",
-      "source": "The Book of Five Rings",
-      "themes": ["strategy", "calmness", "determination", "everyday"],
-      "context": "No separation between combat and life"
+      "text": "In strategy, different cadences exist. First it is necessary to know the concordant cadences and then to learn the discordant ones. Among the large or small and slow or fast cadences, it is indispensable for strategy to discern striking cadences, interval cadences, and opposing cadences. Your strategy cannot be sure if you do not succeed in mastering the opposing cadence. At the time of strategic combat, you must know the cadences of each enemy and utilize cadences that they will not think of.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "cadence",
+        "timing",
+        "rhythm",
+        "concordant",
+        "discordant",
+        "opposing"
+      ],
+      "context": "Timing is the heart of strategy — the practitioner must master not only concordant rhythms but the discordant cadences that opponents cannot anticipate."
     },
     {
       "id": "musashi-008",
-      "text": "The primary thing when you take a sword in your hands is your intention to cut the enemy, whatever the means.",
-      "source": "The Book of Five Rings",
-      "themes": ["intention", "sword", "means", "purpose"],
-      "context": "Clarity of purpose"
+      "text": "In the way of strategy, one's state of mind need not be distinct from the ordinary one. In daily life as well as in strategy, it is necessary to have an ample and broad mind and to carefully keep it very straight, not too tight and not at all loose. In order not to have your mind too much off to one side, it is necessary to place it in the center and move it calmly so that it does not cease to move even in moments of change.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": ["state of mind", "ordinary mind", "balance", "calm", "center"],
+      "context": "The strategic mind is not exotic or trance-like — it is the ordinary mind held straight, neither too tense nor too slack, perpetually centered."
     },
     {
       "id": "musashi-009",
-      "text": "You can only fight the way you practice.",
-      "source": "The Book of Five Rings",
-      "themes": ["practice", "fighting", "preparation", "consistency"],
-      "context": "Performance matches preparation"
+      "text": "Even at a calm time, the mind is not calm; even at a moment of great speed, the mind is not at all fast. The mind must not be carried along by the body, nor the body by the mind. The mind must be wary when the body remains unguarded.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": ["mind", "body", "speed", "calm", "vigilance", "guard"],
+      "context": "Mind and body are neither fused nor separate — the practitioner maintains the mind's vigilance precisely when the body appears relaxed."
     },
     {
       "id": "musashi-010",
-      "text": "Respect Buddha and the gods without counting on their help.",
-      "source": "Dokkōdō (The Way of Walking Alone)",
-      "themes": ["gods", "respect", "self-reliance", "independence"],
-      "context": "Spiritual respect without dependency"
+      "text": "Your look must be broad and ample. Looking and seeing are two different things. Look powerfully, see gently. It is necessary to look at what is distant as something that is close and what is close as something that is distant—this is essential for strategy. It is fundamental in strategy to know the sword of the adversary without ever looking at it.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": [
+        "looking vs. seeing",
+        "gaze",
+        "perception",
+        "direct gaze",
+        "indirect gaze"
+      ],
+      "context": "Musashi distinguishes looking — directed, forceful attention — from seeing — the soft, peripheral awareness that catches what direct focus misses."
     },
     {
       "id": "musashi-011",
-      "text": "Accept everything just the way it is.",
-      "source": "Dokkōdō",
-      "themes": ["acceptance", "reality", "things", "as-is"],
-      "context": "Radical acceptance"
+      "text": "In the way of strategy, by accumulating experiences with different opponents, you will learn the lightness or weight of the mind of each one. By practicing the way in this manner, you can see everything that is far away or close and also assess the speed or slowness of the adversary's sword. Generally, in strategy you place your gaze on the mind of your opponent.",
+      "source": "Book of Five Rings, Wind Book",
+      "themes": [
+        "gaze",
+        "mind of opponent",
+        "perception",
+        "experience",
+        "indirect gaze"
+      ],
+      "context": "The true object of the strategist's gaze is the opponent's mind, not the sword — experienced eyes read intention before action."
     },
     {
       "id": "musashi-012",
-      "text": "Do not seek pleasure for its own sake.",
-      "source": "Dokkōdō",
-      "themes": ["pleasure", "seeking", "discipline", "moderation"],
-      "context": "Pleasure as byproduct, not goal"
+      "text": "Here is what I call the guard without a guard—this is not having in your mind the idea of adopting a guard position. Nevertheless, the five positions that I have mentioned can become guard positions. You will find yourself placing your sword in a variety of positions depending on the openings furnished by your opponent and depending on the place and the situation of combat—but no matter what the situation, you must always hold the sword in such a way that you can slash well at your opponent.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": [
+        "guard without guard",
+        "no fixed position",
+        "adaptability",
+        "openings",
+        "fluid"
+      ],
+      "context": "The guard without a guard is the highest defensive posture — form maintained without the rigidity of fixed form, alive to every opening."
     },
     {
       "id": "musashi-013",
-      "text": "Never let yourself be saddened by a separation.",
-      "source": "Dokkōdō",
-      "themes": ["separation", "sadness", "attachment", "independence"],
-      "context": "Non-attachment to people"
+      "text": "Never fail to have this attitude of mind, go forward without hurry, learn the essence of things through frequent experiences, taking advantage of every occasion. Fight against all kinds of people and be aware of their mind. Follow a road that is a thousand leagues long one step at a time. Be without haste and be convinced that all these practices are the duty of a bushi. Be victorious today over what you were yesterday; tomorrow be victorious over your clumsiness and then also over your skill.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": [
+        "continuous training",
+        "no haste",
+        "self-overcoming",
+        "step by step",
+        "duty"
+      ],
+      "context": "Progress in strategy is measured against oneself — the warrior's only opponent is yesterday's self, overcome one step at a time."
     },
     {
       "id": "musashi-014",
-      "text": "Resentment and complaint are appropriate neither for oneself nor others.",
-      "source": "Dokkōdō",
-      "themes": ["resentment", "complaint", "appropriateness", "restraint"],
-      "context": "Futility of resentment"
+      "text": "A thousand days of training to develop, ten thousand days of training to polish. You must examine all this well.",
+      "source": "Book of Five Rings, Water Book",
+      "themes": [
+        "training",
+        "polishing",
+        "development",
+        "long practice",
+        "dedication"
+      ],
+      "context": "Mastery is a matter of time-scale: a thousand days to develop capability, ten thousand to refine it to its essential edge."
     },
     {
       "id": "musashi-015",
-      "text": "Do not let yourself be guided by the feeling of lust or love.",
-      "source": "Dokkōdō",
-      "themes": ["lust", "love", "guidance", "clarity"],
-      "context": "Not ruled by passion"
+      "text": "In combat there are three ways of taking the initiative (sen). The first consists in attacking before your opponent. I call this \"attacking before your opponent\" (ken no sen). The second consists in taking the initiative when your opponent attacks first. I call it \"taking initiative at the time of an attack\" (tai no sen). The third consists in taking the initiative when the two adversaries are getting ready to attack each other. I call it \"the initiative at the time of a reciprocal attack\" (tai-tai no sen). These are the three ways of taking the initiative.",
+      "source": "Book of Five Rings, Fire Book",
+      "themes": ["initiative", "timing", "sen", "attack", "three ways"],
+      "context": "All combat reduces to three modes of initiative — attacking first, responding first, or seizing priority in simultaneous engagement."
     },
     {
       "id": "musashi-016",
-      "text": "Be detached from desire your whole life long.",
-      "source": "Dokkōdō",
-      "themes": ["detachment", "desire", "life", "freedom"],
-      "context": "Lifelong practice of non-attachment"
+      "text": "What I want to express by \"holding down on the headrest\" is a way of conducting yourself in combat in which you do not allow your opponent to raise his head. In the combat of strategy, it is harmful to allow yourself to be led by your opponent and to place yourself on the defensive. It is necessary at all costs to work to lead your opponent in accordance with your will.",
+      "source": "Book of Five Rings, Fire Book",
+      "themes": [
+        "initiative",
+        "control",
+        "dominance",
+        "timing",
+        "preventing response"
+      ],
+      "context": "The principle of holding down the headrest: anticipate the opponent's intention at its very first syllable and prevent it from ever completing."
     },
     {
       "id": "musashi-017",
-      "text": "It is difficult to understand the universe if you only study one planet.",
-      "source": "The Book of Five Rings",
-      "themes": ["universe", "study", "breadth", "understanding"],
-      "context": "Need for broad study"
+      "text": "For each thing there exists an instant in which it collapses. A house, a person, an adversary, collapses over the course of time following discordances in cadence. In group strategy, once you have grasped the cadence of collapse of your adversaries, it is essential to place them under attack without leaving them a single instant's interval.",
+      "source": "Book of Five Rings, Fire Book",
+      "themes": [
+        "collapse",
+        "timing",
+        "cadence",
+        "discordance",
+        "seizing the moment"
+      ],
+      "context": "Every structure has a moment of collapse — the strategist reads the cadence of disintegration and strikes without interval when it arrives."
     },
     {
       "id": "musashi-018",
-      "text": "Know the smallest things and the biggest things, the shallowest things and the deepest things.",
-      "source": "The Book of Five Rings",
-      "themes": ["knowledge", "scale", "depth", "breadth"],
-      "context": "Comprehensive understanding"
+      "text": "It is not appropriate to think of this in just one way. It is when he has collapsed from the very bottom that you no longer need to maintain your vigilance—otherwise, you must maintain it. But as long as in its depth he maintains his mind, it is difficult to bring him to collapse.",
+      "source": "Book of Five Rings, Fire Book",
+      "themes": [
+        "vigilance",
+        "mind",
+        "depth",
+        "collapse",
+        "never let guard down"
+      ],
+      "context": "Vigilance must be maintained until the opponent has collapsed at the level of mind — surface defeat is not true victory while depth remains unbroken."
     },
     {
       "id": "musashi-019",
-      "text": "In the void is virtue, and no evil. Wisdom has existence, principle has existence, the Way has existence, spirit is nothingness.",
-      "source": "The Book of Five Rings",
-      "themes": ["void", "virtue", "nothingness", "spirit"],
-      "context": "The Book of the Void's conclusion"
+      "text": "In the Scroll of Wind I write about the strategies of other present-day schools. We use the expressions the ancient wind and the modern wind, and also the wind of such and such a family. I explain the strategies of the other schools and their techniques in the Scroll of Wind. Without knowing others, one cannot really know oneself. In the practice of all the ways and in all manners of working with things, the danger exists of deviating from the true way.",
+      "source": "Book of Five Rings, Ground Book",
+      "themes": [
+        "other schools",
+        "self-knowledge",
+        "knowing others",
+        "the five schools",
+        "true way"
+      ],
+      "context": "Understanding other schools is not a detour but a necessity — you cannot know your own way without knowing the ways from which it departs."
     },
     {
       "id": "musashi-020",
-      "text": "From one thing, know ten thousand things.",
-      "source": "The Book of Five Rings",
-      "themes": ["one", "many", "knowing", "depth"],
-      "context": "Deep knowledge of one illuminates all"
+      "text": "The principle of my school is quite different. In the other schools, techniques are displayed like merchandise adorned with colors and flowers, so they can be turned into a way of making a living, which is not the true way. The strategies propagated in this world are limited to the single small domain of the art of the sword, and it is thought that to win it is enough solely to acquire techniques by training in handling the sword and in movements of the body. Neither of these two ways is a sure one.",
+      "source": "Book of Five Rings, Wind Book",
+      "themes": [
+        "true way",
+        "other schools",
+        "technique vs. principle",
+        "breadth",
+        "not just sword technique"
+      ],
+      "context": "The true way of strategy is not limited to sword technique — schools that reduce it to technique alone miss the governing principle."
+    },
+    {
+      "id": "musashi-021",
+      "text": "Speed is not part of the true way of strategy. When you say \"fast,\" this means a lag has occurred in relation to the cadence of things; that is what is meant by \"fast\" or \"slow.\" In whatever the domain, the movements of a good, accomplished practitioner do not appear fast.",
+      "source": "Book of Five Rings, Wind Book",
+      "themes": ["speed", "cadence", "timing", "apparent speed", "mastery"],
+      "context": "True mastery never appears fast because it is never late — apparent speed is a symptom of being out of sync with cadence, not ahead of it."
+    },
+    {
+      "id": "musashi-022",
+      "text": "Think lightly of yourself and think deeply of the world.",
+      "source": "Book of Five Rings, Dokkodo (The Way to Be Followed Alone)",
+      "themes": ["self", "world", "humility", "depth", "perspective", "ego"],
+      "context": "From Musashi's deathbed precepts: the inverse proportion of self-weight to world-weight is the fundamental posture of the strategist-sage."
+    },
+    {
+      "id": "musashi-023",
+      "text": "In this scroll of heaven, I elucidate the way of strategy of the School of Two Swords. The meaning of emptiness is space where there is nothing, and I also envisage emptiness as that which cannot be known. Emptiness, of course, is where there is nothing. Knowing that which does not exist while knowing that which exists—that is emptiness.",
+      "source": "Book of Five Rings, Heaven Book (Scroll of Emptiness)",
+      "themes": ["emptiness", "void", "heaven", "the unknowable", "ku"],
+      "context": "Musashi's emptiness is not nihilism — it is the state of knowing both what exists and what does not, the ground from which true strategy arises."
+    },
+    {
+      "id": "musashi-024",
+      "text": "The warrior must learn the way of strategy with certainty by practicing the different disciplines of the martial arts, and he should not disregard anything connected with the practice of the way of the warrior. He should put it into practice from morning till night without tiring and without letting his mind wander. He should polish his mind and his will and sharpen the two visions—the one that consists in looking and the one that consists in seeing. He should know that true empty space is where the clouds of uncertainty have completely dissipated.",
+      "source": "Book of Five Rings, Heaven Book (Scroll of Emptiness)",
+      "themes": [
+        "emptiness",
+        "polishing",
+        "two visions",
+        "uncertainty",
+        "void"
+      ],
+      "context": "True emptiness is not vacancy but the complete dissolution of uncertainty — a state achieved through relentless daily polishing of mind and will."
+    },
+    {
+      "id": "musashi-025",
+      "text": "Know this state of mind and take as fundamental that which is straight, conceive of the way with a sincere mind, practice strategy broadly, think on a large scale with accuracy and clarity, think of void as the way and see the way as void. In emptiness the good exists and evil does not exist. Knowing exists, the principle exists, the way exists, and the mind—is void.",
+      "source": "Book of Five Rings, Heaven Book (Scroll of Emptiness)",
+      "themes": ["void", "emptiness", "the way", "good", "knowing", "mind"],
+      "context": "The final teaching of the Five Rings: in the void, knowing and principle remain while the ego-mind dissolves — this is the source of strategy's highest freedom."
     }
   ]
 }

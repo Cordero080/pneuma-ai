@@ -1,5 +1,5 @@
 // ============================================================
-// PNEUMA — SEMANTIC ROUTER
+// PNEUMA — ARCHETYPE SELECTOR
 // Purpose: Selects archetypes based on vector similarity (Vibe Matching)
 // Input: User message
 // Output: The most semantically relevant archetype
@@ -20,7 +20,7 @@ let isInitialized = false;
 export async function initializeArchetypeEmbeddings() {
   if (isInitialized) return;
 
-  console.log("[Semantic Router] Initializing archetype embeddings...");
+  console.log("[Archetype Selector] Initializing archetype embeddings...");
   const keys = Object.keys(archetypeEssences);
 
   // Process in parallel-ish (OpenAI rate limits might apply, but for ~30 items it's usually fine)
@@ -34,7 +34,7 @@ export async function initializeArchetypeEmbeddings() {
       }
     } catch (error) {
       console.error(
-        `[Semantic Router] Failed to embed archetype: ${key}`,
+        `[Archetype Selector] Failed to embed archetype: ${key}`,
         error
       );
     }
@@ -42,7 +42,7 @@ export async function initializeArchetypeEmbeddings() {
 
   isInitialized = true;
   console.log(
-    `[Semantic Router] Initialized ${
+    `[Archetype Selector] Initialized ${
       Object.keys(archetypeEmbeddings).length
     } archetype embeddings.`
   );
@@ -56,7 +56,7 @@ export async function initializeArchetypeEmbeddings() {
 export async function findBestArchetype(message) {
   if (!isInitialized) {
     console.warn(
-      "[Semantic Router] Warning: Router not initialized. Initializing now..."
+      "[Archetype Selector] Warning: Router not initialized. Initializing now..."
     );
     await initializeArchetypeEmbeddings();
   }

@@ -1,0 +1,510 @@
+/* ─── FLOW DIAGRAM ─────────────────────────────────────────────────────────── */
+
+.flow-diagram {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.flow-row {
+  background: rgba(0, 255, 242, 0.05);
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  color: #e0e6ed;
+}
+
+.flow-row.merge {
+  background: rgba(255, 170, 0, 0.06);
+  border-color: rgba(255, 170, 0, 0.3);
+  color: #ffaa00;
+}
+
+.flow-row.final {
+  background: rgba(0, 255, 170, 0.06);
+  border-color: rgba(0, 255, 170, 0.35);
+  color: #00ffaa;
+}
+
+.flow-arrow {
+  color: rgba(0, 255, 242, 0.4);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.flow-split {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.flow-branch {
+  flex: 1;
+  max-width: 220px;
+  background: rgba(10, 14, 26, 0.6);
+  border: 1px solid rgba(0, 255, 242, 0.15);
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.flow-branch-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flow-branch-title.cyan {
+  color: #00fff2;
+}
+.flow-branch-title.amber {
+  color: #ffaa00;
+}
+
+.flow-branch-desc {
+  color: #8a93a6;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.flow-branch-out {
+  color: #e0e6ed;
+  font-size: 0.75rem;
+  background: rgba(0, 255, 242, 0.06);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+}
+
+.flow-label {
+  color: #e0e6ed;
+}
+
+/* ─── CODE BLOCK ────────────────────────────────────────────────────────────── */
+
+.code-block {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 242, 0.15);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: #b8c0d0;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* ─── CHEAT SHEET ───────────────────────────────────────────────────────────── */
+
+.cheat-sheet .cs-intro {
+  text-align: center;
+  color: #8a93a6;
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.cs-block {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: rgba(10, 14, 26, 0.5);
+  border: 1px solid rgba(0, 255, 242, 0.12);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.cs-block:hover {
+  border-color: rgba(0, 255, 242, 0.3);
+}
+
+.cs-number {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(0, 255, 242, 0.25);
+  min-width: 2.5rem;
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+
+.cs-content {
+  flex: 1;
+}
+
+.cs-title {
+  font-weight: 600;
+  color: #00fff2;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.cs-body {
+  color: #b8c0d0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.cs-body code {
+  background: rgba(0, 255, 242, 0.1);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+  font-size: 0.82rem;
+  color: #00fff2;
+}
+
+/* ─── FILE REF (inline chip + ? button) ────────────────────────────────────── */
+
+.fr-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+}
+
+.fr-chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: #00fff2;
+  background: rgba(0, 255, 242, 0.08);
+  border: 1px solid rgba(0, 255, 242, 0.25);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+/* Term chip — amber tint to visually distinguish from file chips */
+.tr-chip {
+  font-size: 0.82rem;
+  color: #ffcc66;
+  background: rgba(255, 170, 0, 0.08);
+  border: 1px solid rgba(255, 170, 0, 0.25);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+.fr-help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 242, 0.4);
+  background: rgba(0, 255, 242, 0.06);
+  color: rgba(0, 255, 242, 0.7);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.fr-help:hover {
+  background: rgba(0, 255, 242, 0.18);
+  border-color: rgba(0, 255, 242, 0.7);
+  color: #00fff2;
+}
+
+/* Demo spans in subtitle */
+.fr-chip-demo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: #00fff2;
+  background: rgba(0, 255, 242, 0.08);
+  border: 1px solid rgba(0, 255, 242, 0.25);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+.fr-help-demo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 242, 0.4);
+  background: rgba(0, 255, 242, 0.06);
+  color: rgba(0, 255, 242, 0.7);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* FileRef inside flow branches */
+.flow-branch-file {
+  margin-top: 0.5rem;
+}
+
+/* ─── FILE MODAL ─────────────────────────────────────────────────────────────── */
+
+.fm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.fm-modal {
+  background: #0d1117;
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  max-width: 460px;
+  max-height: 80vh;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 255, 242, 0.08);
+  overflow-y: auto;
+  resize: vertical;
+}
+
+.fm-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 4px;
+  color: rgba(0, 255, 242, 0.5);
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+  padding: 0;
+}
+
+.fm-close:hover {
+  border-color: rgba(0, 255, 242, 0.6);
+  color: #00fff2;
+}
+
+.fm-header {
+  margin-bottom: 0.85rem;
+  padding-right: 2.5rem;
+}
+
+.fm-filename {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #00fff2;
+}
+
+.fm-path {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: rgba(0, 255, 242, 0.4);
+  margin-top: 0.2rem;
+}
+
+.fm-role {
+  font-size: 0.85rem;
+  color: #b8c0d0;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(0, 255, 242, 0.1);
+}
+
+.fm-section {
+  margin-bottom: 0.8rem;
+}
+
+.fm-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(0, 255, 242, 0.45);
+  margin-bottom: 0.4rem;
+}
+
+.fm-fn {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  color: #00fff2;
+  margin-bottom: 0.35rem;
+}
+
+.fm-fn-desc {
+  font-size: 0.84rem;
+  color: #b8c0d0;
+  line-height: 1.6;
+}
+
+.fm-chain {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: #8a93a6;
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
+
+.fm-direction {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: 3px;
+  padding: 0.2em 0.6em;
+  margin-bottom: 0.4rem;
+}
+
+.fm-direction.request {
+  background: rgba(0, 255, 242, 0.1);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  color: #00fff2;
+}
+
+.fm-direction.response {
+  background: rgba(0, 255, 170, 0.1);
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  color: #00ffaa;
+}
+
+.fm-direction.both {
+  background: rgba(255, 170, 0, 0.08);
+  border: 1px solid rgba(255, 170, 0, 0.3);
+  color: #ffaa00;
+}
+
+.fm-direction-note {
+  font-size: 0.78rem;
+  color: #8a93a6;
+  line-height: 1.5;
+}
+
+.fm-know-this {
+  background: rgba(255, 170, 0, 0.05);
+  border: 1px solid rgba(255, 170, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.fm-know-this .fm-label {
+  color: rgba(255, 170, 0, 0.6);
+}
+
+.fm-insight {
+  font-size: 0.84rem;
+  color: #c8b88a;
+  line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Modal: slide up from bottom, full-width sheet */
+  .fm-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .fm-modal {
+    max-width: 100%;
+    width: 100%;
+    max-height: 85vh;
+    border-radius: 16px 16px 0 0;
+    padding: 1.1rem 1.1rem 1.5rem;
+    resize: none;
+  }
+
+  /* Flow chain text — allow wrapping on narrow screens */
+  .fm-chain {
+    font-size: 0.72rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Inline chips slightly smaller */
+  .fr-chip {
+    font-size: 0.72rem;
+  }
+
+  /* Flow diagram */
+  .flow-split {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flow-branch {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .flow-row {
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+  }
+
+  /* Code block — horizontal scroll on small screens */
+  .code-block {
+    font-size: 0.72rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Cheat sheet */
+  .cs-block {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .cs-number {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fm-modal {
+    max-height: 90vh;
+    padding: 1rem 0.9rem 1.5rem;
+  }
+
+  .fm-filename {
+    font-size: 0.95rem;
+  }
+
+  .fm-fn {
+    font-size: 0.75rem;
+    word-break: break-all;
+  }
+
+  .fm-role,
+  .fm-fn-desc,
+  .fm-insight {
+    font-size: 0.8rem;
+  }
+}

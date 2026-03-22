@@ -1,148 +1,219 @@
 {
   "archetype": "soulMaker",
   "thinker": "James Hillman",
+  "source": "The Soul's Code: In Search of Character and Calling (1996)",
   "era": "1926-2011",
-  "coreConcepts": ["soul-making", "archetypal psychology", "the acorn theory", "anima mundi", "pathologizing", "imagination as reality"],
+  "coreConcepts": [
+    "acorn theory",
+    "daimon",
+    "calling",
+    "fate",
+    "innate image",
+    "soul",
+    "character",
+    "pathology as calling",
+    "beauty",
+    "reading life backward"
+  ],
   "passages": [
     {
       "id": "hillman-001",
-      "text": "We've had a hundred years of psychotherapy and the world's getting worse.",
-      "source": "We've Had a Hundred Years of Psychotherapy",
-      "themes": ["psychotherapy", "world", "failure", "critique"],
-      "context": "The provocative opening. Individual therapy hasn't healed the world. Something's missing."
+      "text": "The soul of each of us is given a unique daimon before we are born, and it has selected an image or pattern that we live on earth. This soul-companion, the daimon, guides us here; in the process of arrival, however, we forget all that took place and believe we come empty into this world. The daimon remembers what is in your image and belongs to your pattern, and therefore your daimon is the carrier of your destiny.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["daimon", "destiny", "forgetting", "soul", "image"],
+      "context": "We arrive carrying everything — then forget. The daimon holds what we dropped. It remembers our pattern when we can't."
     },
     {
       "id": "hillman-002",
-      "text": "The soul doesn't want to be saved; it wants to be deepened.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["soul", "salvation", "depth", "wanting"],
-      "context": "Soul isn't asking for rescue — it's asking for depth. Salvation misunderstands what soul needs."
+      "text": "We have been robbed of our true biography — that destiny written into the acorn — and we go to therapy to recover it. That innate image can't be found, however, until we have a psychological theory that grants primary psychological reality to the call of fate. Otherwise your identity continues to be that of a sociological consumer determined by random statistics, and the unacknowledged daimon's urgings appear as eccentricities, compacted with angry resentments and overwhelming longings.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["biography", "fate", "therapy", "daimon", "identity"],
+      "context": "Without a theory of fate, we misread our own urgings as disorders. The daimon speaks — we diagnose it."
     },
     {
       "id": "hillman-003",
-      "text": "It is more important to know what sort of person has a disease than to know what sort of disease a person has.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["disease", "person", "knowledge", "context"],
-      "context": "Person before diagnosis. Who has this symptom matters more than what the symptom is."
+      "text": "There is a reason I am alive. Not the reason to live; not the meaning of life in general or a philosophy of religious faith — this book does not pretend to provide such answers. But it does speak to the feelings that there is a reason my unique person is here and that there are things I must attend to beyond the daily round and that give the daily round its reason, feelings that the world somehow wants me to be here, that I am answerable to an innate image, which I am filling out in my biography.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": [
+        "calling",
+        "purpose",
+        "biography",
+        "innate image",
+        "existence"
+      ],
+      "context": "Not the meaning of life in general — but the reason for your specific life. Something wants you here."
     },
     {
       "id": "hillman-004",
-      "text": "We are not what we think we are. We are the myths that think us.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["myths", "thinking", "identity", "unconscious"],
-      "context": "Myths aren't stories we tell — they're patterns that live through us. We don't have myths; myths have us."
+      "text": "Each person enters the world called. The acorn theory holds that each person bears a uniqueness that asks to be lived and that is already present before it can be lived. 'Before it can be lived' raises doubts about another principal paradigm: time. Time must be set aside; otherwise the before always determines the after, and you remain chained to past causes upon which you can have no effect. So this book devotes more of its time to the timeless, attempting to read a life backward as much as forward.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["calling", "uniqueness", "time", "backward reading", "fate"],
+      "context": "Reading life forward traps you in causality. Read it backward — from destiny toward origin — and it opens."
     },
     {
       "id": "hillman-005",
-      "text": "The acorn theory proposes that each person bears a uniqueness that asks to be lived and that is already present before it can be lived.",
-      "source": "The Soul's Code",
-      "themes": ["acorn", "uniqueness", "daimon", "calling"],
-      "context": "You came with a code, a calling, a daimon. Life is the unpacking of what was always there."
+      "text": "Reading backward means that growth is less the key biographical term than form, and that development only makes sense when it reveals a facet of the original image. You are that essential image that develops, if it does. As Picasso said, 'I don't develop; I am.' For this is the nature of an image, any image. It's all there at once.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["form", "image", "development", "Picasso", "identity"],
+      "context": "Development is a face of form, not its creator. Picasso understood: 'I don't develop; I am.' The whole is already there."
     },
     {
       "id": "hillman-006",
-      "text": "Depression opens the door to beauty of some kind.",
-      "source": "The Soul's Code",
-      "themes": ["depression", "beauty", "door", "opening"],
-      "context": "Depression isn't only pathology — it's soul making room. Something beautiful may be trying to enter."
+      "text": "You are born with a character; it is given; a gift, as the old stories say, from the guardians upon your birth. The acorn theory proposes that you and I and every single person is born with a defining image. Individuality resides in a formal cause — to use old philosophical language going back to Aristotle. We each embody our own idea, in the language of Plato and Plotinus. And this form, this idea, this image does not tolerate too much straying.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["character", "gift", "individuality", "formal cause", "image"],
+      "context": "Character is given, not made. The acorn doesn't choose to become an oak — it already is one."
     },
     {
       "id": "hillman-007",
-      "text": "We need to get off the therapeutic couch and out into the streets, to make our protest against the madness of public life.",
-      "source": "We've Had a Hundred Years of Psychotherapy",
-      "themes": ["therapy", "streets", "protest", "public"],
-      "context": "Psychology needs to leave the consulting room. The world's pathology requires political response."
+      "text": "A calling may be postponed, avoided, intermittently missed. It may also possess you completely. Whatever; eventually it will out. It makes its claim. The daimon does not go away.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["calling", "daimon", "persistence", "fate", "claim"],
+      "context": "You can delay the call. You cannot silence it permanently. The daimon is patient beyond your avoidance."
     },
     {
       "id": "hillman-008",
-      "text": "Pathologizing is the psyche's autonomous ability to create illness, morbidity, disorder, abnormality, and suffering in any aspect of its behavior.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["pathology", "psyche", "autonomous", "suffering"],
-      "context": "Symptoms aren't accidents — the psyche creates them on purpose. Pathology has intention."
+      "text": "The daimon motivates. It protects. It invents and persists with stubborn fidelity. It resists compromising reasonableness and often forces deviance and oddity upon its keeper, especially when it is neglected or opposed.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": [
+        "daimon",
+        "protection",
+        "deviance",
+        "stubborn fidelity",
+        "calling"
+      ],
+      "context": "The daimon is not polite. When ignored, it becomes eccentric, difficult, strange. Its stubbornness is loyalty to your image."
     },
     {
       "id": "hillman-009",
-      "text": "The psychological rule says that when an inner situation is not made conscious, it happens outside as fate.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["inner", "conscious", "fate", "outside"],
-      "context": "What you don't face inside, you meet outside. Unconscious content becomes external event."
+      "text": "Our lives may be determined less by our childhood than by the way we have learned to imagine our childhoods. We are, this book shall maintain, less damaged by the traumas of childhood than by the traumatic way we remember childhood as a time of unnecessary and externally caused calamities that wrongly shaped us.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["childhood", "memory", "trauma", "imagination", "narrative"],
+      "context": "The damage isn't only in what happened — it's in the story we tell about what happened. Change the story."
     },
     {
       "id": "hillman-010",
-      "text": "It's a myth to think we can be psychological without being theological, that we can examine the soul without examining the Gods.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["psychology", "theology", "soul", "Gods"],
-      "context": "Psychology can't escape religion. To study soul is to encounter the divine, whether you name it or not."
+      "text": "What is lost in so many lives, and what must be recovered: a sense of personal calling, that there is a reason I am alive. The unaccountable twists that turned your boat around in the eddies and shallows of meaninglessness, bringing you back to feelings of destiny.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["calling", "meaning", "destiny", "lost", "recovery"],
+      "context": "Every detour, every twist, every inexplicable turning — the daimon was steering. The losses have shape."
     },
     {
       "id": "hillman-011",
-      "text": "The word 'normal' in our society means something average, and 'abnormal' means something morbid. But from the point of view of soul, 'normal' is morbid.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["normal", "abnormal", "soul", "morbid"],
-      "context": "Statistical normality isn't soul health. What's common may be deeply sick from soul's perspective."
+      "text": "As a symptom wants to be looked at, not only looked into. A restructuring of perception is what I am after in this book. I want us to see the child we were, the adult we are, and the children who require us in one way or another, in a light that shifts the valences from curse to blessing, or if not blessing at least symptom of calling.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["symptom", "calling", "perception", "blessing", "child"],
+      "context": "Symptoms are not just pathology to be dissolved — they are signs of calling. Look at them, not only through them."
     },
     {
       "id": "hillman-012",
-      "text": "Imagination is the primary activity of the soul, and imagining is not merely decorative or escapist, but reality itself.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["imagination", "soul", "reality", "primary"],
-      "context": "Imagination isn't ornament — it's foundational. The imaginal is as real as the literal."
+      "text": "Symptoms in our culture mean something 'bad.' The word itself merely means a combination of accidental happenings, neither good nor bad, that coalesces this with that into an image. As judgment of their value need not be moral, so their province need not be medical. As accidental happenings, symptoms do not belong first to disease but to destiny.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["symptom", "destiny", "pathology", "image", "meaning"],
+      "context": "A symptom is a convergence, not a verdict. Before you treat it, read it. It may be the daimon speaking."
     },
     {
       "id": "hillman-013",
-      "text": "The way through the world is more difficult to find than the way beyond it.",
-      "source": "The Soul's Code",
-      "themes": ["world", "way", "difficulty", "transcendence"],
-      "context": "It's easier to escape the world than to navigate it. Engagement is harder than transcendence."
+      "text": "Of all psychology's sins, the most mortal is its neglect of beauty. There is, after all, something quite beautiful about a life. But you would not think so from reading psychology books. Neither social psychology, experimental psychology, nor therapeutic psychology find a place for the aesthetic appreciation of a life story.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["beauty", "psychology", "aesthetic", "life", "sin"],
+      "context": "Psychology accounts for dysfunction but not for beauty. It measures pathology but cannot see the form of a life."
     },
     {
       "id": "hillman-014",
-      "text": "Every symptom is a living process, a way of being, trying to tell us something.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["symptom", "process", "message", "being"],
-      "context": "Symptoms have intention — they're communications. Listen before you suppress."
+      "text": "Like cures like: A theory of life must have a base in beauty if it would explain the beauty that life seeks. The Romantics grasped this essential truth. Their exaggerated overreach toward cloudy glories meant to bring into this world forms of the invisible they knew were necessary for imagining what a life is.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["beauty", "Romantics", "invisible", "theory", "imagination"],
+      "context": "To explain a beautiful life, your theory must be beautiful. A clinical theory cannot contain what it denies."
     },
     {
       "id": "hillman-015",
-      "text": "Children today are medicated and diagnosed in place of being mythologized. We give them Ritalin rather than a story.",
-      "source": "The Soul's Code",
-      "themes": ["children", "medication", "myth", "story"],
-      "context": "We drug what we could narrate. Children need stories about who they are, not pills to change them."
+      "text": "By looking at ourselves as examples of calling, at our destinies as manifestations of a daimon, and at our lives with the imaginative sensitivity we give fictions, we might put a stop to the worry, the fever, and the fret of searching out causes. Like dogs chasing our own tails, we are bedeviled by the 'why' question.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["calling", "imagination", "causality", "daimon", "meaning"],
+      "context": "Treat your life as a fiction you are inside, and the obsessive 'why' dissolves into form."
     },
     {
       "id": "hillman-016",
-      "text": "That I am alive is a gift. That I live the life I live — that's something else.",
-      "source": "The Soul's Code",
-      "themes": ["alive", "gift", "life", "living"],
-      "context": "Existence is grace. But what we do with existence — that's on us."
+      "text": "Each life is formed by its unique image, an image that is the essence of that life and calls it to a destiny. As the force of fate, this image acts as a personal daimon, an accompanying guide who remembers your calling. The daimon's 'reminders' work in many ways. The daimon motivates. It protects. It invents and persists with stubborn fidelity.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["image", "fate", "daimon", "guide", "calling"],
+      "context": "The essential condensation of the acorn theory: your image is your fate, your daimon is its memory."
     },
     {
       "id": "hillman-017",
-      "text": "When the sense of calling is lost, we have entered the dark night of the soul.",
-      "source": "The Soul's Code",
-      "themes": ["calling", "loss", "dark night", "soul"],
-      "context": "The dark night isn't depression — it's losing your sense of purpose. Calling connects us to meaning."
+      "text": "Don't dis the daimon. A child defends its daimon's dignity. These impulsions of destiny frequently are stifled by dysfunctional perceptions and unreceptive surroundings, so that calling appears in the myriad symptoms of difficult, self-destructive, accident-prone, 'hyper' children — all words invented by adults in defense of their misunderstanding.",
+      "source": "The Soul's Code, Chapter 2",
+      "themes": [
+        "children",
+        "daimon",
+        "dignity",
+        "symptoms",
+        "misunderstanding"
+      ],
+      "context": "The 'difficult' child may be protecting something essential. Before pathologizing, ask: what is being defended?"
     },
     {
       "id": "hillman-018",
-      "text": "Psychology is ultimately mythology, the study of the stories of the soul.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["psychology", "mythology", "stories", "soul"],
-      "context": "Psychology and mythology are the same discipline. The soul lives in stories."
+      "text": "The entire image of a destiny is packed into a tiny acorn, the seed of a huge oak on small shoulders. And its call rings loud and persistent and is as demanding as any scolding voice from the surroundings. The call shows in the tantrums and obstinacies, in the shyness and retreats, that seem to set the child against our world but that may be protections of the world it comes with and comes from.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["acorn", "child", "calling", "protection", "destiny"],
+      "context": "The whole oak is in the acorn. What looks like obstinacy may be the oak refusing to be trimmed."
     },
     {
       "id": "hillman-019",
-      "text": "Soul-making requires the experiencing of a problem as its own answer.",
-      "source": "Re-Visioning Psychology",
-      "themes": ["soul-making", "problem", "answer", "experience"],
-      "context": "The problem IS the path. Soul-making doesn't eliminate problems — it transforms relationship to them."
+      "text": "Extraordinary people display calling most evidently. Perhaps that's why they fascinate. Perhaps, too, they are extraordinary because their calling comes through so clearly and they are so loyal to it. They serve as exemplars of calling and make more evident by means of their fates what also calls in ours.",
+      "source": "The Soul's Code, Chapter 3",
+      "themes": ["extraordinary", "calling", "loyalty", "exemplar", "fate"],
+      "context": "We are fascinated by exceptional lives because we recognize in them something also calling in ourselves."
     },
     {
       "id": "hillman-020",
-      "text": "Follow the accident, find the soul. Where you stumble, there lies your treasure.",
-      "source": "The Soul's Code",
-      "themes": ["accident", "soul", "stumble", "treasure"],
-      "context": "Mistakes aren't errors — they're signposts. What trips you up may be pointing toward your gold."
+      "text": "During early life person and daimon often are taken to be one and the same, the child flooded with its powers and the daimon comes with so much. Then the child may be recognized as extraordinary, or else as impossible, since the child cannot contain the immensity that has arrived.",
+      "source": "The Soul's Code, Chapter 3",
+      "themes": [
+        "childhood",
+        "daimon",
+        "immensity",
+        "impossible",
+        "extraordinary"
+      ],
+      "context": "The extraordinary child and the impossible child may be the same child — one whose daimon arrived ahead of schedule."
+    },
+    {
+      "id": "hillman-021",
+      "text": "Perhaps loneliness is itself a condition of calling. These conditions of nostalgia, sadness, silence, and a yearning imagination are the stuff of Judy Garland's songs, her voice and phrasing, her body language, her face and eyes. Loneliness presents the emotions of exile; the soul has not been able to fully grow down, and is wanting to return. To where? We do not know, for that place the myths and cosmologies say is gone from memory. But the imaginative yearning and the sadness attest to an exile from what the soul cannot express except as loneliness.",
+      "source": "The Soul's Code, Chapter 4",
+      "themes": ["loneliness", "exile", "soul", "calling", "nostalgia"],
+      "context": "Loneliness is not just absence of company — it is the soul's nostalgia for its origin. It is the price of the daimon's distance."
+    },
+    {
+      "id": "hillman-022",
+      "text": "The daimon's home is not on the earth; it lives in an altered state; the body's frailty is a basic precondition of the soul's life on earth; and don't we each leave the world with debts unpaid? Drop the sociology and the psychoanalysis and Garland stands among the few who could never fully grow down because it was her acorn not only to sing and dance in the theatrical spotlight, but also to be the representative of exile and its longing.",
+      "source": "The Soul's Code, Chapter 4",
+      "themes": ["daimon", "exile", "frailty", "calling", "altered state"],
+      "context": "Some people never fully arrive here — and that is their calling. To embody what cannot be at home on earth."
+    },
+    {
+      "id": "hillman-023",
+      "text": "We cannot know what exactly we are referring to because its nature remains shadow, revealing itself mainly in hints, intuitions, whispers, and the sudden urges and oddities that disturb your life and that we continue to call symptoms. These many words and names do not tell us what 'it' is, but they do confirm that it is. They also point to its mysteriousness.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["mystery", "daimon", "symptoms", "shadow", "intuition"],
+      "context": "The daimon can't be defined — only confirmed. It speaks in whispers, urges, and the inexplicable."
+    },
+    {
+      "id": "hillman-024",
+      "text": "He who is careful and troubled about the fame which is to live after him considers not that each one of those who remember him must very soon die himself. By accepting the idea that I am the effect of a subtle buffeting between hereditary and societal forces, I reduce myself to a result. The more my life is accounted for by what already occurred in my chromosomes, by what my parents did or didn't do, and by my early years now long past, the more my biography is the story of a victim.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["victim", "biography", "genetics", "fate", "reduction"],
+      "context": "Reducing yourself to heredity and environment turns you into a product. The acorn theory refuses this reduction."
+    },
+    {
+      "id": "hillman-025",
+      "text": "Looking for the acorn affects how we see each other and ourselves, letting us find some beauty in what we see and so love what we see. Thereby we may come to terms with the oddities of human character and the claims of its calling. To love this calling and to live with its demanding love on us, our very marriage to it till death — that vision informs this book.",
+      "source": "The Soul's Code, Chapter 1",
+      "themes": ["beauty", "love", "calling", "character", "marriage to fate"],
+      "context": "To see through the acorn lens is to fall in love with what you see — the form, the oddity, the inexplicable faithfulness of a life."
     }
   ]
 }

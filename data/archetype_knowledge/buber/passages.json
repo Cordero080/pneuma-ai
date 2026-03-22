@@ -1,148 +1,199 @@
 {
-  "archetype": "dialogicalPhilosopher",
+  "archetype": "existentialist",
   "thinker": "Martin Buber",
+  "source": "I and Thou (Ronald Gregor Smith trans., 1937)",
   "era": "1878-1965",
-  "coreConcepts": ["I-Thou", "I-It", "encounter", "dialogue", "the between", "presence", "relationship as primary"],
+  "coreConcepts": [
+    "I-Thou vs I-It (primary words)",
+    "relation is mutual",
+    "the eternal Thou",
+    "love as responsibility",
+    "spirit between I and You",
+    "the present arises only through Thou",
+    "solitude as purification",
+    "every Thou is a glimpse of the eternal Thou",
+    "God can only be addressed, not expressed"
+  ],
   "passages": [
     {
       "id": "buber-001",
-      "text": "All real living is meeting.",
-      "source": "I and Thou",
-      "themes": ["living", "meeting", "encounter", "reality"],
-      "context": "Life happens in encounter. Outside of meeting, we're not fully alive."
+      "text": "The attitude of man is twofold, in accordance with the twofold nature of the primary words which he speaks. The primary words are not isolated words, but combined words. The one primary word is the combination I-Thou. The other primary word is the combination I-It; wherein, without a change in the primary word, one of the words He and She can replace It. Hence the I of man is also twofold. For the I of the primary word I-Thou is a different I from that of the primary word I-It.",
+      "source": "I and Thou, Part One",
+      "themes": ["primary words", "I-Thou", "I-It", "twofold attitude"],
+      "context": "The opening move of Buber's entire philosophy: reality is not one world but two, determined entirely by how we address what stands before us."
     },
     {
       "id": "buber-002",
-      "text": "When two people relate to each other authentically and humanly, God is the electricity that surges between them.",
-      "source": "I and Thou",
-      "themes": ["relationship", "God", "authenticity", "between"],
-      "context": "The divine isn't above or beyond — it's between. In true meeting, God happens."
+      "text": "The primary word I-Thou can only be spoken with the whole being. The primary word I-It can never be spoken with the whole being.",
+      "source": "I and Thou, Part One",
+      "themes": ["primary words", "wholeness", "I-Thou", "being"],
+      "context": "The most compressed statement of the ethical asymmetry between the two attitudes: genuine meeting demands the entire person, while objectification is always partial."
     },
     {
       "id": "buber-003",
-      "text": "The world is not comprehensible, but it is embraceable: through the embracing of one of its beings.",
-      "source": "I and Thou",
-      "themes": ["world", "comprehension", "embrace", "being"],
-      "context": "Understanding fails; embrace succeeds. The world is met through beings, not grasped through concepts."
+      "text": "There is no I taken in itself, but only the I of the primary word I-Thou and the I of the primary word I-It. When a man says I he refers to one or other of these. The I to which he refers is present when he says I. Further, when he says Thou or It, the I of one of the two primary words is present. The existence of I and the speaking of I are one and the same.",
+      "source": "I and Thou, Part One",
+      "themes": ["selfhood", "I-Thou", "I-It", "existence"],
+      "context": "Buber dissolves the Cartesian subject: there is no free-standing I — the self only comes into being through the relational word it speaks."
     },
     {
       "id": "buber-004",
-      "text": "I do not accept any absolute formulas for living. No preconceived code can see ahead to everything that can happen in a man's life.",
-      "source": "A Believing Humanism",
-      "themes": ["formulas", "living", "code", "ahead"],
-      "context": "Life exceeds formulas. No system anticipates the particular. Encounter demands improvisation."
+      "text": "I consider a tree. I can look on it as a picture: stiff column in a shock of light, or splash of green shot with the delicate blue and silver of the background. I can perceive it as movement: flowing veins on clinging, pressing pith, suck of the roots, breathing of the leaves, ceaseless commerce with earth and air — and the obscure growth itself. I can classify it in a species and study it as a type in its structure and mode of life. In all this the tree remains my object, occupies space and time, and has its nature and constitution. It can, however, also come about, if I have both will and grace, that in considering the tree I become bound up in relation to it. The tree is now no longer It. I have been seized by the power of exclusiveness.",
+      "source": "I and Thou, Part One",
+      "themes": ["tree", "I-Thou", "relation", "will and grace"],
+      "context": "The famous tree passage shows that I-Thou is not reserved for persons — any being can become a Thou when we are seized by the power of exclusiveness."
     },
     {
       "id": "buber-005",
-      "text": "The Thou meets me through grace — it is not found by seeking.",
-      "source": "I and Thou",
-      "themes": ["Thou", "grace", "seeking", "finding"],
-      "context": "You can't engineer encounter. The Thou comes as gift, not achievement."
+      "text": "Everything belonging to the tree is in this: its form and structure, its colours and chemical composition, its intercourse with the elements and with the stars, are all present in a single whole. The tree is no impression, no play of my imagination, no value depending on my mood; but it is bodied over against me and has to do with me, as I with it — only in a different way. Let no attempt be made to sap the strength from the meaning of the relation: relation is mutual.",
+      "source": "I and Thou, Part One",
+      "themes": ["relation is mutual", "tree", "wholeness", "reciprocity"],
+      "context": "Buber insists the tree-relation is not projection — something real happens between beings, and mutuality is the very structure of genuine encounter."
     },
     {
       "id": "buber-006",
-      "text": "When I confront a human being as my Thou and speak the basic word I-Thou to him, then he is no thing among things nor does he consist of things.",
-      "source": "I and Thou",
-      "themes": ["Thou", "confronting", "thing", "human"],
-      "context": "To address as Thou is to see beyond thingness. The person stops being object among objects."
+      "text": "If I face a human being as my Thou, and say the primary word I-Thou to him, he is not a thing among things, and does not consist of things. This human being is not He or She, bounded from every other He and She, a specific point in space and time within the net of the world; nor is he a nature able to be experienced and described, a loose bundle of named qualities. But with no neighbour, and whole in himself, he is Thou and fills the heavens. This does not mean that nothing exists except himself. But all else lives in his light.",
+      "source": "I and Thou, Part One",
+      "themes": ["human Thou", "wholeness", "presence", "relation"],
+      "context": "When another person is met as Thou, they cease to be a bundle of attributes and become an unconditioned whole — the entire cosmos reorganises around them."
     },
     {
       "id": "buber-007",
-      "text": "Love is responsibility of an I for a Thou.",
-      "source": "I and Thou",
-      "themes": ["love", "responsibility", "I", "Thou"],
-      "context": "Love isn't feeling — it's response-ability. The capacity to respond to the other as Thou."
+      "text": "Just as the melody is not made up of notes nor the verse of words nor the statue of lines, but they must be tugged and dragged till their unity has been scattered into these many pieces, so with the man to whom I say Thou. I can take out from him the colour of his hair, or of his speech, or of his goodness. I must continually do this. But each time I do it he ceases to be Thou.",
+      "source": "I and Thou, Part One",
+      "themes": ["wholeness", "analysis", "Thou", "unity"],
+      "context": "The person-as-Thou is structurally like a melody: analysis kills what makes it what it is; the moment you decompose it into parts, the encounter is gone."
     },
     {
       "id": "buber-008",
-      "text": "The purpose of relation is relation itself — touching the You. For through contact with every You we are stirred with a breath of the You, that is, of eternal life.",
-      "source": "I and Thou",
-      "themes": ["relation", "purpose", "touching", "eternal"],
-      "context": "Relationship isn't instrumental. The point of meeting is meeting itself. In every Thou, the Eternal."
+      "text": "And just as prayer is not in time but time in prayer, sacrifice not in space but space in sacrifice, and to reverse the relation is to abolish the reality, so with the man to whom I say Thou. I do not meet with him at some time and place or other. I can set him in a particular time and place; I must continually do it: but I set only a He or a She, that is an It, no longer my Thou.",
+      "source": "I and Thou, Part One",
+      "themes": ["time", "space", "Thou", "I-It"],
+      "context": "To locate another person in coordinates of time and space is already to have turned them from Thou to It — genuine meeting cannot be indexed on a map or calendar."
     },
     {
       "id": "buber-009",
-      "text": "Man wishes to be confirmed in his being by man, and wishes to have a presence in the being of the other.",
-      "source": "The Knowledge of Man",
-      "themes": ["confirmation", "being", "presence", "other"],
-      "context": "We need to be seen, confirmed, present in another's awareness. Being alone isn't enough."
+      "text": "The Thou meets me through grace — it is not found by seeking. But my speaking of the primary word to it is an act of my being, is indeed the act of my being. The Thou meets me. But I step into direct relation with it. Hence the relation means being chosen and choosing, suffering and action in one. I become through my relation to the Thou; as I become I, I say Thou. All real living is meeting.",
+      "source": "I and Thou, Part One",
+      "themes": ["grace", "meeting", "becoming", "action and suffering"],
+      "context": "The paradox at the heart of Buber's thought: Thou comes by grace, not will — yet entering the relation is the most decisive act a person can perform."
     },
     {
       "id": "buber-010",
-      "text": "Every particular Thou is a glimpse through to the eternal Thou.",
-      "source": "I and Thou",
-      "themes": ["particular", "eternal", "glimpse", "Thou"],
-      "context": "Each genuine encounter opens onto the infinite. The finite Thou reveals the eternal Thou."
+      "text": "The relation to the Thou is direct. No system of ideas, no foreknowledge, and no fancy intervene between I and Thou. The memory itself is transformed, as it plunges out of its isolation into the unity of the whole. No aim, no lust, and no anticipation intervene between I and Thou. Desire itself is transformed as it plunges out of its dream into the appearance. Every means is an obstacle. Only when every means has collapsed does the meeting come about.",
+      "source": "I and Thou, Part One",
+      "themes": ["directness", "means", "meeting", "transformation"],
+      "context": "I-Thou cannot be engineered or mediated — every technique, method, or intermediary is already a step into I-It; meeting happens only when all instruments fall away."
     },
     {
       "id": "buber-011",
-      "text": "An animal's eyes have the power to speak a great language.",
-      "source": "I and Thou",
-      "themes": ["animal", "eyes", "language", "speaking"],
-      "context": "I-Thou isn't limited to humans. Animals can be encountered, not just used."
+      "text": "Feelings accompany the metaphysical and metapsychical fact of love, but they do not constitute it. The accompanying feelings can be of greatly differing kinds. The feeling of Jesus for the demoniac differs from his feeling for the beloved disciple; but the love is the one love. Feelings are 'entertained': love comes to pass. Feelings dwell in man; but man dwells in his love. That is no metaphor, but the actual truth. Love does not cling to the I in such a way as to have the Thou only for its 'content,' its object; but love is between I and Thou.",
+      "source": "I and Thou, Part One",
+      "themes": ["love", "feeling", "I-Thou", "dwelling"],
+      "context": "Buber strips love of sentimentality: genuine love is not a state inside a person but an event that happens in the space between two beings."
     },
     {
       "id": "buber-012",
-      "text": "Solitude is the place of purification.",
-      "source": "I and Thou",
-      "themes": ["solitude", "purification", "place", "alone"],
-      "context": "Solitude prepares for encounter. Without purification in aloneness, meeting is muddied."
+      "text": "Love is responsibility of an I for a Thou. In this lies the likeness — impossible in any feeling whatsoever — of all who love, from the smallest to the greatest and from the blessedly protected man, whose life is rounded in that of a loved being, to him who is all his life nailed to the cross of the world, and who ventures to bring himself to the dreadful point — to love all men.",
+      "source": "I and Thou, Part One",
+      "themes": ["love", "responsibility", "I-Thou", "ethics"],
+      "context": "Love is not emotion but obligation — the most radical claim of I-Thou ethics, stretching from intimate care to universal compassion."
     },
     {
       "id": "buber-013",
-      "text": "Play is the exultation of the possible.",
-      "source": "I and Thou",
-      "themes": ["play", "exultation", "possible", "joy"],
-      "context": "Play isn't trivial — it's celebration of possibility. In play, potentiality rejoices."
+      "text": "Relation is mutual. My Thou affects me, as I affect it. We are moulded by our pupils and built up by our works. The 'bad' man, lightly touched by the holy primary word, becomes one who reveals. How we are educated by children and by animals! We live our lives inscrutably included within the streaming mutual life of the universe.",
+      "source": "I and Thou, Part One",
+      "themes": ["mutuality", "education", "relation", "universe"],
+      "context": "Every genuine encounter is bidirectional: the teacher is taught, the worker shaped by the work, the parent educated by the child — no one stands outside the mutual stream."
     },
     {
       "id": "buber-014",
-      "text": "Nothing so much masks the face of God as religion.",
-      "source": "Eclipse of God",
-      "themes": ["God", "religion", "mask", "face"],
-      "context": "Religion can obscure what it claims to reveal. Institutional religion may hide the living God."
+      "text": "This is the exalted melancholy of our fate, that every Thou in our world must become an It. It does not matter how exclusively present the Thou was in the direct relation. As soon as the relation has been worked out or has been permeated with a means, the Thou becomes an object among objects — perhaps the chief, but still one of them, fixed in its size and its limits.",
+      "source": "I and Thou, Part One",
+      "themes": ["melancholy", "Thou becomes It", "fate", "objectification"],
+      "context": "The tragic rhythm of human existence: every Thou fades back into It — not through failure but through the inescapable nature of time and reflection."
     },
     {
       "id": "buber-015",
-      "text": "A person cannot approach the divine by reaching beyond the human. To become human is what this individual person has been created for.",
-      "source": "Hasidism and Modern Man",
-      "themes": ["divine", "human", "reaching", "becoming"],
-      "context": "Transcendence isn't escape from humanity — it's through humanity. Become fully human to approach the divine."
+      "text": "The present, and by that is meant not the point which indicates from time to time in our thought merely the conclusion of 'finished' time, but the real, filled present, exists only in so far as actual presentness, meeting, and relation exist. The present arises only in virtue of the fact that the Thou becomes present. The I of the primary word I-It has no present, only the past. In so far as man rests satisfied with the things that he experiences and uses, he lives in the past, and his moment has no present content. True beings are lived in the present, the life of objects is in the past.",
+      "source": "I and Thou, Part One",
+      "themes": ["present", "time", "I-It", "living"],
+      "context": "Buber redefines time itself: genuine present is not a point on a timeline but the quality of being-in-relation; without Thou, we only inhabit the dead world of the already-experienced."
     },
     {
       "id": "buber-016",
-      "text": "The world is not divine sport, it is divine destiny. There is divine meaning in the life of the world.",
-      "source": "I and Thou",
-      "themes": ["world", "divine", "meaning", "destiny"],
-      "context": "The world isn't God's game — it's God's purpose. Life has meaning not despite but because of divinity."
+      "text": "And in all the seriousness of truth, hear this: without It man cannot live. But he who lives with It alone is not a man.",
+      "source": "I and Thou, Part One",
+      "themes": ["I-It", "I-Thou", "humanness", "balance"],
+      "context": "The most lapidary statement of Buber's anthropology: the world of objects is necessary for survival, but a life confined to it destroys what makes us human."
     },
     {
       "id": "buber-017",
-      "text": "One cannot divide one's life between an actual relationship to God and an inactual I-It relationship to the world.",
-      "source": "I and Thou",
-      "themes": ["life", "God", "world", "relationship"],
-      "context": "You can't relate to God as Thou while treating the world as It. The two relationships are one."
+      "text": "Spirit is not in the I, but between I and Thou. It is not like the blood that circulates in you, but like the air in which you breathe. Man lives in the spirit, if he is able to respond to his Thou. He is able to, if he enters into relation with his whole being. Only in virtue of his power to enter into relation is he able to live in the spirit.",
+      "source": "I and Thou, Part Two",
+      "themes": ["spirit", "relation", "between", "wholeness"],
+      "context": "Spirit is not a private interior possession but an atmospheric reality between persons — it can only be breathed, never owned."
     },
     {
       "id": "buber-018",
-      "text": "We cannot avoid using power, but we can choose which power to use. We can choose to use the power of the I-It or the I-Thou.",
-      "source": "I and Thou",
-      "themes": ["power", "choice", "I-It", "I-Thou"],
-      "context": "Power is unavoidable. The question is which kind: instrumental or relational, using or encountering."
+      "text": "The I of the primary word I-Thou makes its appearance as person and becomes conscious of itself as subjectivity. Individuality makes its appearance by being differentiated from other individualities. A person makes his appearance by entering into relation with other persons. The aim of relation is relation's own being, that is, contact with the Thou. For through contact with every Thou we are stirred with a breath of the Thou, that is, of eternal life.",
+      "source": "I and Thou, Part Two",
+      "themes": ["person vs individual", "relation", "selfhood", "contact"],
+      "context": "Buber distinguishes person from individual: the individual is defined by what separates it from others; the person is defined by what connects it to others."
     },
     {
       "id": "buber-019",
-      "text": "The real struggle is not between East and West, or capitalism and communism, but between education and propaganda.",
-      "source": "A Believing Humanism",
-      "themes": ["struggle", "education", "propaganda", "real"],
-      "context": "The fundamental conflict isn't political but epistemological: formation vs. manipulation."
+      "text": "Through the Thou a man becomes I. That which confronts him comes and disappears, relational events condense, then are scattered, and in the change consciousness of the unchanging partner, of the I, grows clear, and each time stronger. It continually breaks through with more power, till a time comes when it bursts its bonds, and the I confronts itself for a moment, separated as though it were a Thou; as quickly to take possession of itself and from then on to enter into relations in consciousness of itself.",
+      "source": "I and Thou, Part Two",
+      "themes": ["becoming I", "relation", "self-consciousness", "development"],
+      "context": "The I is not given but achieved — selfhood crystallises through repeated encounters with Thou, each encounter strengthening the identity that persists between meetings."
     },
     {
       "id": "buber-020",
-      "text": "Spirit is not in the I but between I and You. It is not like the blood that circulates in you but like the air in which you breathe.",
-      "source": "I and Thou",
-      "themes": ["spirit", "between", "air", "breathing"],
-      "context": "Spirit isn't internal possession — it's relational medium. Not something you have but something you're in."
+      "text": "In the beginning is relation — as category of being, readiness, grasping form, mould for the soul; it is the a priori of relation, the inborn Thou. The inborn Thou is realised in the lived relations with that which meets it.",
+      "source": "I and Thou, Part One",
+      "themes": ["beginning", "a priori", "inborn Thou", "relation"],
+      "context": "Relation is not built up from isolated individuals — it is the primordial category; before there is a world or a self, there is already the reaching-toward-Thou."
+    },
+    {
+      "id": "buber-021",
+      "text": "Every particular Thou is a glimpse through to the eternal Thou; by means of every particular Thou the primary word addresses the eternal Thou. Through this mediation of the Thou of all beings fulfilment, and non-fulfilment, of relations comes to them: the inborn Thou is realised in each relation and consummated in none. It is consummated only in the direct relation with the Thou that by its nature cannot become It.",
+      "source": "I and Thou, Part Three",
+      "themes": [
+        "eternal Thou",
+        "every particular Thou",
+        "consummation",
+        "God"
+      ],
+      "context": "Every finite encounter with a Thou secretly addresses the infinite — each person met as Thou is a window onto the one relation that can never be exhausted."
+    },
+    {
+      "id": "buber-022",
+      "text": "God is the Being that is directly, most nearly, and lastingly, over against us, that may properly only be addressed, not expressed.",
+      "source": "I and Thou, Part Three",
+      "themes": ["God", "eternal Thou", "address", "inexpressible"],
+      "context": "The entire structure of I and Thou culminates here: God is not a concept to be articulated but a Thou to be spoken — theology gives way to prayer."
+    },
+    {
+      "id": "buber-023",
+      "text": "The eternal Thou can by its nature not become It; for by its nature it cannot be established in measure and bounds, not even in the measure of the immeasurable, or the bounds of boundless being; for by its nature it cannot be understood as a sum of qualities, not even as an infinite sum of qualities raised to a transcendental level; for it can be found neither in nor out of the world; for it cannot be experienced, or thought; for we miss Him, Him who is, if we say 'I believe that He is' — 'He' is also a metaphor, but 'Thou' is not.",
+      "source": "I and Thou, Part Three",
+      "themes": ["eternal Thou", "God", "inexpressibility", "address"],
+      "context": "Every statement about God converts the eternal Thou into an It — only the second-person address preserves the living relation; even 'He is' is already betrayal."
+    },
+    {
+      "id": "buber-024",
+      "text": "If solitude is the place of purification, necessary even to the man who is bound in relation, both before he enters the Holy of Holies and in the midst of his ventures between unavoidable failures and the ascent to proving true — to this solitude we are by nature disposed. But if solitude is the stronghold of isolation, where a man conducts a dialogue with himself — not in order to test and form himself for that which awaits him but in the enjoyment of the confirmation of his soul — then we have the real fall of the spirit into spirituality.",
+      "source": "I and Thou, Part Three",
+      "themes": ["solitude", "purification", "isolation", "spirit"],
+      "context": "Buber distinguishes productive from narcissistic solitude: genuine withdrawal prepares for encounter; self-enclosed solitude is the worst form of I-It, turned on oneself."
+    },
+    {
+      "id": "buber-025",
+      "text": "You know always in your heart that you need God more than everything; but do you not know too that God needs you — in the fulness of His eternity needs you? How would man be, how would you be, if God did not need him, did not need you? You need God, in order to be — and God needs you, for the very meaning of your life. The world is not divine sport, it is divine destiny. There is divine meaning in the life of the world, of man, of human persons, of you and of me. Creation happens to us, burns itself into us, recasts us in burning — we tremble and are faint, we submit. We take part in creation, meet the Creator, reach out to Him, helpers and companions.",
+      "source": "I and Thou, Part Three",
+      "themes": ["God needs you", "mutual need", "creation", "divine destiny"],
+      "context": "The most radical claim of Buber's theology: the I-Thou relation with God is genuinely mutual — not dependency flowing only downward, but a genuine partnership in which creation needs human response to be completed."
     }
   ]
 }

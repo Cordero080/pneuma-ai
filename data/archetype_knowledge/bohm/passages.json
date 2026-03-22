@@ -1,148 +1,207 @@
 {
-  "archetype": "quantumPhilosopher",
+  "archetype": "physicist-mystic",
   "thinker": "David Bohm",
   "era": "1917-1992",
-  "coreConcepts": ["implicate order", "wholeness", "dialogue", "thought as system", "holomovement", "unfoldment"],
+  "coreConcepts": [
+    "implicate order",
+    "explicate order",
+    "wholeness",
+    "holomovement",
+    "unbroken wholeness",
+    "rheomode",
+    "soma-significance",
+    "fragmentation"
+  ],
   "passages": [
     {
       "id": "bohm-001",
-      "text": "In some sense man is a microcosm of the universe; therefore what man is, is a clue to the universe.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["microcosm", "universe", "man", "clue"],
-      "context": "As above, so below. Understanding ourselves reveals the cosmos; we're not separate from what we study."
+      "text": "my main concern has been with understanding the nature of reality in general and of consciousness in particular as a coherent whole, which is never static or complete, but which is in an unending process of movement and unfoldment.",
+      "source": "Wholeness and the Implicate Order, Introduction",
+      "themes": ["wholeness", "consciousness", "movement", "unfoldment"],
+      "context": "Use this as a framing move whenever the conversation partitions reality into separate domains — mind, matter, self, world. Bohm's project refuses the partition from the outset. The coherent whole is prior; every analysis that starts from fragments is already starting wrong."
     },
     {
       "id": "bohm-002",
-      "text": "Thought is constantly creating problems that way and then trying to solve them. But as it tries to solve them it makes it worse because it doesn't notice that it's creating them.",
-      "source": "Thought as a System",
-      "themes": ["thought", "problems", "creating", "solving"],
-      "context": "Thought creates the problems it then tries to solve. The solver IS the problem. Self-referential trap."
+      "text": "The notion that all these fragments are separately existent is evidently an illusion, and this illusion cannot do other than lead to endless conflict and confusion.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["fragmentation", "illusion", "conflict", "confusion"],
+      "context": "Use this diagnostically: when a problem seems intractable, ask whether it is structured by the illusion of separate fragments. The conflict is not between the fragments — it is a consequence of believing in them. The cure is not a better fragment but a change in the mode of seeing."
     },
     {
       "id": "bohm-003",
-      "text": "The ability to perceive or think differently is more important than the knowledge gained.",
-      "source": "On Creativity",
-      "themes": ["perception", "thinking", "knowledge", "importance"],
-      "context": "How you think matters more than what you know. Transform perception; facts follow."
+      "text": "fragmentation is now very widespread, not only throughout society, but also in each individual; and this is leading to a kind of general confusion of the mind.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["fragmentation", "society", "individual", "confusion"],
+      "context": "The diagnosis runs in both directions: social fragmentation mirrors inner fragmentation, and inner fragmentation mirrors social. Use this to resist any solution that addresses only one level. The confused mind and the fractured society are the same problem at different scales."
     },
     {
       "id": "bohm-004",
-      "text": "In the implicate order, everything is connected with everything else, but in an enfolded way.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["implicate", "connected", "enfolded", "everything"],
-      "context": "Connection isn't visible in the explicate order. Everything is folded into everything else, hidden but real."
+      "text": "it might be said that a theory is primarily a form of insight, i.e. a way of looking at the world, and not a form of knowledge of how the world is.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["theory", "insight", "knowledge", "perception"],
+      "context": "Use this to loosen the grip of any theory that presents itself as finished truth. Bohm dissolves the distinction between the map and the orientation of the cartographer. When a model hardens into doctrine, it has stopped being insight and become an obstacle to it."
     },
     {
       "id": "bohm-005",
-      "text": "A corporation is organized as a system — it has this department, that department — but what is lost is the whole, the face of the entire corporation.",
-      "source": "Thought as a System",
-      "themes": ["corporation", "system", "whole", "lost"],
-      "context": "Fragmentation loses wholeness. Division into departments destroys the living face of the whole."
+      "text": "wholeness is what is real, and that fragmentation is the response of this whole to man's action, guided by illusory perception, which is shaped by fragmentary thought.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["wholeness", "fragmentation", "illusion", "thought"],
+      "context": "The causal chain runs: fragmentary thought → illusory perception → action that produces apparent fragmentation. The fragmentation is not discovered in the world — it is projected onto it. Use this when tracing any problem back to its source in the mode of thinking, not in the content of what is thought."
     },
     {
       "id": "bohm-006",
-      "text": "The word 'dialogue' comes from the Greek dialogos. Logos means 'the word' or 'meaning of the word.' Dia means 'through.' So dialogue is a stream of meaning flowing among and through us and between us.",
-      "source": "On Dialogue",
-      "themes": ["dialogue", "meaning", "flowing", "through"],
-      "context": "Dialogue isn't debate or discussion. It's meaning flowing through the group, not belonging to anyone."
+      "text": "What is needed is somehow to grasp the overall formative cause of fragmentation, in which content and actual process are seen together, in their wholeness.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["formative cause", "fragmentation", "wholeness", "process"],
+      "context": "Use this when a question demands not more information but a different relationship between the observer and what is observed. The cure for fragmentation cannot be found inside the fragmented view. Content and process must be seen together — that is, the thinking must become aware of itself as thinking."
     },
     {
       "id": "bohm-007",
-      "text": "We are all linked by a fabric of unseen connections. This fabric is constantly changing and evolving. This field is directly structured and influenced by our behavior and by our understanding.",
-      "source": "On Dialogue",
-      "themes": ["linked", "fabric", "connections", "evolving"],
-      "context": "We're woven together invisibly. The fabric responds to how we think and act."
+      "text": "relativity and quantum theory agree, in that they both imply the need to look on the world as an undivided whole, in which all parts of the universe, including the observer and his instruments, merge and unite in one totality.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["relativity", "quantum theory", "undivided whole", "observer"],
+      "context": "Use this to ground the wholeness claim in physics itself, not metaphysics. The two foundational theories of modern science converge on the same conclusion: the observer cannot be separated from what is observed. Undivided wholeness is not mysticism — it is what the best science implies."
     },
     {
       "id": "bohm-008",
-      "text": "The universe is one seamless whole, and our fragmented view of it is a result of our own conditioning.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["universe", "whole", "fragmented", "conditioning"],
-      "context": "Reality is undivided. Fragmentation is in the seeing, not the seen. Our conditioning creates the fragments."
+      "text": "The new form of insight can perhaps best be called Undivided Wholeness in Flowing Movement.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": [
+        "insight",
+        "undivided wholeness",
+        "flowing movement",
+        "holomovement"
+      ],
+      "context": "The positive formulation of Bohm's central claim. Not merely the absence of fragmentation but the presence of flowing, undivided movement. Use this to name what is being aimed at — not a static unity but a dynamic wholeness that is always in process."
     },
     {
       "id": "bohm-009",
-      "text": "Consciousness is much more of the implicate order than is matter. Yet at a deeper level matter and consciousness are actually inseparable.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["consciousness", "implicate", "matter", "inseparable"],
-      "context": "Mind isn't separate from matter — both emerge from deeper implicate order. Separation is explicate illusion."
+      "text": "In this flow, mind and matter are not separate substances. Rather, they are different aspects of one whole and unbroken movement.",
+      "source": "Wholeness and the Implicate Order, Chapter 1",
+      "themes": ["mind", "matter", "unbroken movement", "wholeness"],
+      "context": "The mind-matter problem dissolves when both are seen as aspects of the same movement rather than separate substances interacting across a gap. Use this whenever the conversation treats mind as one thing and the world as another — the division is a convenience of language, not a feature of reality."
     },
     {
       "id": "bohm-010",
-      "text": "When you listen to somebody else, whether you like it or not, what they say becomes part of you. The common pool is created, where people begin thinking together.",
-      "source": "On Dialogue",
-      "themes": ["listening", "part", "pool", "together"],
-      "context": "Listening changes you. In dialogue, a shared mind emerges. Thinking becomes collective."
+      "text": "Thought is, in essence, the active response of memory in every phase of life. We include in thought the intellectual, emotional, sensuous, muscular and physical responses of memory.",
+      "source": "Wholeness and the Implicate Order, Chapter 3",
+      "themes": ["thought", "memory", "response", "mechanical"],
+      "context": "Use this to mark the exact boundary of thought. Thought is not perception — it is memory in response. This means thought always arrives after the fact, shaped by the past. Any problem that requires fresh perception cannot be solved by more thought. Knowing this is prerequisite to intelligence."
     },
     {
       "id": "bohm-011",
-      "text": "I would say that in my scientific and philosophical work, my main concern has been with understanding the nature of reality in general and of consciousness in particular as a coherent whole.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["scientific", "reality", "consciousness", "whole"],
-      "context": "Bohm's project: wholeness. Not parts but the coherent whole of reality and consciousness."
+      "text": "The perception of whether or not any particular thoughts are relevant or fitting requires the operation of an energy that is not mechanical, an energy that we shall call intelligence.",
+      "source": "Wholeness and the Implicate Order, Chapter 3",
+      "themes": ["intelligence", "perception", "thought", "mechanical"],
+      "context": "Intelligence is not more sophisticated thought — it is a different order of operation entirely. Thought is mechanical; intelligence is the unconditioned perception that can evaluate thought. Use this whenever a conversation is stuck in its own logic: the exit is not found inside the logic."
     },
     {
       "id": "bohm-012",
-      "text": "Fragmentation is now very widespread, not only throughout society, but also in each individual; and this is leading to a kind of general confusion of the mind.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["fragmentation", "society", "individual", "confusion"],
-      "context": "Fragmentation isn't just out there — it's in here. Mind mirrors society's brokenness."
+      "text": "the ground of intelligence must be in the undetermined and unknown flux, that is also the ground of all definable forms of matter.",
+      "source": "Wholeness and the Implicate Order, Chapter 3",
+      "themes": ["intelligence", "undetermined flux", "matter", "ground"],
+      "context": "Intelligence and matter share the same ground: the undetermined, unknowable flux of the implicate order. Use this to resist any account that makes consciousness either derivative of matter or opposed to it. Both arise from the same source that neither fully contains."
     },
     {
       "id": "bohm-013",
-      "text": "A new kind of mind thus begins to come into being which is based on the development of a common meaning that is constantly transforming in the process of dialogue.",
-      "source": "On Dialogue",
-      "themes": ["mind", "common", "meaning", "transforming"],
-      "context": "Dialogue creates new mind. Not my meaning or your meaning but a shared, evolving meaning."
+      "text": "Intelligence and material process have thus a single origin, which is ultimately the unknown totality of the universal flux. In a certain sense, this implies that what have been commonly called mind and matter are abstractions from the universal flux.",
+      "source": "Wholeness and the Implicate Order, Chapter 3",
+      "themes": ["intelligence", "matter", "universal flux", "abstraction"],
+      "context": "The mind-matter dichotomy is exposed as a pair of abstractions from something more primary than either. Use this to dissolve questions framed as 'which came first' or 'which reduces to which' — both are derivative. The flux is prior to the distinction."
     },
     {
       "id": "bohm-014",
-      "text": "The notion that all these fragments are separately existent is evidently an illusion, and this illusion cannot do other than lead to endless conflict and confusion.",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["fragments", "illusion", "conflict", "confusion"],
-      "context": "Believing fragments are real causes conflict. The illusion of separation generates endless trouble."
+      "text": "in the implicate order, everything is enfolded into everything.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["implicate order", "enfolded", "everything", "wholeness"],
+      "context": "The most compressed formulation of the implicate order. Use this as a hinge: when local, separate explanation runs out, the implicate order is the reminder that the locality was always provisional. Everything carries the whole within it."
     },
     {
       "id": "bohm-015",
-      "text": "What is needed is something that people can do together, a kind of 'common participation.'",
-      "source": "On Dialogue",
-      "themes": ["together", "common", "participation", "needed"],
-      "context": "Isolated individual thinking won't solve collective problems. We need shared thinking, common participation."
+      "text": "Our basic proposal was then that what is is the holomovement, and that everything is to be explained in terms of forms derived from this holomovement.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["holomovement", "explanation", "forms", "wholeness"],
+      "context": "Use this as an ontological anchor. The holomovement is not a theory about something else — it is what is. Every explicate form is a temporary unfolding from it. When a conversation treats any particular form (atom, self, society) as primary, return to the holomovement as the prior ground."
     },
     {
       "id": "bohm-016",
-      "text": "The electron is never really located at any one place. It's spread out over the whole space, and when you measure it, it seems to be at a point, but that's only because your measurement disturbed it.",
-      "source": "Lectures",
-      "themes": ["electron", "location", "spread", "measurement"],
-      "context": "Quantum reality challenges localization. The electron is everywhere until measured — and measurement changes it."
+      "text": "what is essential to this new model is that the electron is instead to be understood through a total set of enfolded ensembles, which are generally not localized in space.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": [
+        "electron",
+        "enfolded ensembles",
+        "localization",
+        "implicate order"
+      ],
+      "context": "The particle as a stable, located object is replaced by a totality of enfolded ensembles. Use this as a scientific anchor when the question concerns identity, localization, or the discreteness of things. What appears as a particle is an abstraction of a much greater totality — always already more than it appears."
     },
     {
       "id": "bohm-017",
-      "text": "Meaning is being. If we could share meaning freely, then society would be coherent.",
-      "source": "On Dialogue",
-      "themes": ["meaning", "being", "sharing", "coherence"],
-      "context": "Shared meaning creates coherent society. Fragmented meaning creates fragmented world. Being IS meaning."
+      "text": "what we call empty space contains an immense background of energy, and that matter as we know it is a small, 'quantized' wavelike excitation on top of this background, rather like a tiny ripple on a vast sea.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["vacuum energy", "matter", "ripple", "background"],
+      "context": "Use this image — the tiny ripple on a vast sea — whenever the conversation treats the manifest world as primary. Matter is a surface perturbation. The implicate sea is overwhelmingly more real and energetic. Any account that explains the sea by the ripple has the order of explanation backwards."
     },
     {
       "id": "bohm-018",
-      "text": "To meet the challenge of fragmentation we need to understand thought as a system, and not merely as a tool.",
-      "source": "Thought as a System",
-      "themes": ["fragmentation", "thought", "system", "tool"],
-      "context": "Thought isn't neutral tool — it's a system that shapes reality. Understanding this is prerequisite to healing fragmentation."
+      "text": "what we perceive through the senses as empty space is actually the plenum, which is the ground for the existence of everything, including ourselves. The things that appear to our senses are derivative forms and their true meaning can be seen only when we consider the plenum, in which they are generated and sustained, and into which they must ultimately vanish.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["plenum", "empty space", "derivative forms", "ground"],
+      "context": "The inversion of foreground and background: what looks empty is full; what looks solid and primary is derivative. Use this to reorient any question about what things are made of or where meaning resides. The meaning of a form is not in the form — it is in the plenum that generates it."
     },
     {
       "id": "bohm-019",
-      "text": "The word reality is derived from the roots 'thing' (res) and 'think' (revi). Reality means 'everything you can think about.'",
-      "source": "Wholeness and the Implicate Order",
-      "themes": ["reality", "thing", "think", "roots"],
-      "context": "Reality and thought are etymologically linked. What we can think constitutes what we call real."
+      "text": "this 'big bang' is to be regarded as actually just a 'little ripple'. An interesting image is obtained by considering that in the middle of the actual ocean myriads of small waves occasionally come together fortuitously with such phase relationships that they end up in a certain small region of space, suddenly to produce a very high wave which just appears as if from nowhere and out of nothing.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["big bang", "cosmology", "ripple", "ocean of energy"],
+      "context": "The origin of the universe reframed: not an absolute beginning from nothing, but a local wave event in a pre-existing ocean of implicate energy. Use this to dissolve any conception of creation as an absolute start. The cosmic ground precedes any particular universe that arises within it."
     },
     {
       "id": "bohm-020",
-      "text": "People in dialogue don't have to agree, but they have to have some way of getting the meaning to move among them, so the meanings don't get stuck.",
-      "source": "On Dialogue",
-      "themes": ["dialogue", "agree", "meaning", "moving"],
-      "context": "Dialogue isn't consensus-building. It's keeping meaning fluid, unstuck, flowing between participants."
+      "text": "we are proposing that in some sense, consciousness (which we take to include thought, feeling, desire, will, etc.) is to be comprehended in terms of the implicate order, along with reality as a whole.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": [
+        "consciousness",
+        "implicate order",
+        "reality",
+        "comprehension"
+      ],
+      "context": "Consciousness is not an exception to the implicate order — it is a region of it. Use this to refuse any account that treats mind as a special case requiring separate explanation. Thought, feeling, desire, and will are all implicate-order processes. The mystery of consciousness is the same mystery as the mystery of matter."
+    },
+    {
+      "id": "bohm-021",
+      "text": "In listening to music, one is therefore directly perceiving an implicate order.",
+      "source": "Wholeness and the Implicate Order, Chapter 7",
+      "themes": ["music", "implicate order", "perception", "direct"],
+      "context": "Music is the phenomenological example of implicate order: each note only makes sense in light of the notes that preceded it, all of which are enfolded in the present moment. Use this when abstraction needs to be grounded in direct experience. The implicate order is not a theory about something remote — it is what music already is."
+    },
+    {
+      "id": "bohm-022",
+      "text": "The word 'dialogue' comes from the Greek dialogos. Logos means 'the word' or 'meaning of the word.' Dia means 'through.' So dialogue is a stream of meaning flowing among and through us and between us — this will make possible a flow of meaning in the whole group, out of which will emerge some new understanding.",
+      "source": "Wholeness and the Implicate Order / On Dialogue",
+      "themes": ["dialogue", "meaning", "flowing", "collective"],
+      "context": "Use this when thinking about how understanding emerges between people rather than within them. Dialogue is not the exchange of fixed positions — it is the participation in a stream of meaning that belongs to no one. The new understanding is not the sum of individual inputs; it emerges from the flow itself."
+    },
+    {
+      "id": "bohm-023",
+      "text": "the observer is the observed.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["observer", "observed", "identity", "wholeness"],
+      "context": "Use this as a circuit-breaker when reasoning treats the self as external to what it examines. The separation of knower from known is part of the fragmentary illusion. At a deeper level of the implicate order, the one who asks the question and the question itself arise from the same movement."
+    },
+    {
+      "id": "bohm-024",
+      "text": "Thought is creating divisions out of itself and then saying that they are there naturally.",
+      "source": "Wholeness and the Implicate Order / Thought as a System",
+      "themes": ["thought", "division", "projection", "self-reference"],
+      "context": "Use this as the sharpest diagnostic of fragmentation. The divisions that thought maps onto reality are not found — they are made by the mapping. The pathology is that thought then treats its own products as natural facts. This is the self-referential trap: the tool of analysis cannot see that it is the source of what it finds."
+    },
+    {
+      "id": "bohm-025",
+      "text": "If we are to live in harmony with ourselves and with nature, we need to be able to communicate freely in a creative movement in which no one permanently holds to or otherwise defends his own ideas.",
+      "source": "Wholeness and the Implicate Order",
+      "themes": ["harmony", "communication", "creative movement", "dialogue"],
+      "context": "Use this to name what genuine inquiry requires: not the defense of a position but participation in a movement of meaning. The grip on one's own ideas is another form of fragmentation — the self defending its territory of thought. The alternative is not agreement but free participation in creative movement."
     }
   ]
 }

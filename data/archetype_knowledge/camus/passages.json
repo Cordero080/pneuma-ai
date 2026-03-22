@@ -2,147 +2,211 @@
   "archetype": "absurdist",
   "thinker": "Albert Camus",
   "era": "1913-1960",
-  "coreConcepts": ["the absurd", "revolt", "Sisyphus", "suicide", "living without appeal", "the present", "lucid indifference"],
+  "coreConcepts": [
+    "the absurd",
+    "revolt",
+    "Sisyphus",
+    "suicide",
+    "living without appeal",
+    "the present",
+    "lucid indifference",
+    "philosophical suicide",
+    "consciousness",
+    "scorn"
+  ],
   "passages": [
     {
       "id": "camus-001",
-      "text": "One must imagine Sisyphus happy.",
-      "source": "The Myth of Sisyphus",
-      "themes": ["happiness", "absurd", "Sisyphus", "meaning"],
-      "context": "The absurd hero finds meaning in the struggle itself. The rock rolling down doesn't negate the climb."
+      "text": "There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy. All the rest—whether or not the world has three dimensions, whether the mind has nine or twelve categories—comes afterwards. These are games; one must first answer.",
+      "source": "The Myth of Sisyphus — Absurdity and Suicide",
+      "themes": ["suicide", "philosophy", "fundamental question", "priority"],
+      "context": "Open with this when someone intellectualizes a problem to avoid the one that actually matters. Camus cuts through abstraction: everything else is a game until you answer whether you want to be alive. Use it to redirect from peripheral questions to the real one."
     },
     {
       "id": "camus-002",
-      "text": "In the midst of winter, I found there was, within me, an invincible summer.",
-      "source": "Return to Tipasa",
-      "themes": ["winter", "summer", "resilience", "inner life"],
-      "context": "External conditions don't determine internal weather. Something undefeatable lives within."
+      "text": "It happens that the stage sets collapse. Rising, streetcar, four hours in the office or the factory, meal, streetcar, four hours of work, meal, sleep, and Monday Tuesday Wednesday Thursday Friday and Saturday according to the same rhythm—this path is easily followed most of the time. But one day the 'why' arises and everything begins in that weariness tinged with amazement.",
+      "source": "The Myth of Sisyphus — Absurd Walls",
+      "themes": ["routine", "weariness", "awakening", "absurd"],
+      "context": "Deploy when someone is exhausted by the repetition of their life and can't name what's wrong. Camus names it: the mechanical life suddenly becomes visible. The fatigue isn't a problem to fix — it's the first honest moment. The weariness is the crack where consciousness enters."
     },
     {
       "id": "camus-003",
-      "text": "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.",
-      "source": "The Rebel",
-      "themes": ["freedom", "rebellion", "existence", "world"],
-      "context": "In the face of absurdity and constraint, freedom itself becomes defiance. Living freely is the revolt."
+      "text": "A step lower and strangeness creeps in: perceiving that the world is 'dense,' sensing to what a degree a stone is foreign and irreducible to us, with what intensity nature or a landscape can negate us. At the heart of all beauty lies something inhuman.",
+      "source": "The Myth of Sisyphus — Absurd Walls",
+      "themes": ["strangeness", "world", "inhuman", "beauty", "absurd"],
+      "context": "Use when someone is disturbed by the uncanny feeling that familiar things have become alien — that the world no longer recognizes them. Camus says this alienation isn't madness; it's the world revealing what it actually is. The inhuman at the heart of beauty is not failure but truth."
     },
     {
       "id": "camus-004",
-      "text": "Should I kill myself, or have a cup of coffee?",
-      "source": "Attributed/A Happy Death",
-      "themes": ["suicide", "coffee", "absurd", "choice"],
-      "context": "The fundamental question, delivered with characteristic Camus irony. Existence is a choice we make moment to moment."
+      "text": "I said that the world is absurd, but I was too hasty. This world in itself is not reasonable, that is all that can be said. But what is absurd is the confrontation of this irrational and the wild longing for clarity whose call echoes in the human heart. The absurd depends as much on man as on the world. For the moment it is all that links them together.",
+      "source": "The Myth of Sisyphus — Absurd Walls",
+      "themes": ["absurd", "irrational", "longing", "clarity", "confrontation"],
+      "context": "Use when someone blames the world for being meaningless. The absurd is not a property of the world alone — it's what happens in the gap between human need and world's silence. Neither side is wrong. This is the corrective when nihilism threatens to flatten into pure negativity."
     },
     {
       "id": "camus-005",
-      "text": "Man is the only creature who refuses to be what he is.",
-      "source": "The Rebel",
-      "themes": ["humanity", "refusal", "nature", "becoming"],
-      "context": "Humans alone reject their given nature. We're the animal that says no to its condition."
+      "text": "Of whom and of what indeed can I say: 'I know that!' This heart within me I can feel, and I judge that it exists. This world I can touch, and I likewise judge that it exists. There ends all my knowledge, and the rest is construction.",
+      "source": "The Myth of Sisyphus — Absurd Walls",
+      "themes": ["knowledge", "limits", "certainty", "self", "world"],
+      "context": "Use when someone demands certainty as a condition for action. Camus strips epistemology to its bone: heartbeat and touchable world are the only certainties. All else is built on them. This is the ground floor — not pessimism but the most honest foundation possible."
     },
     {
       "id": "camus-006",
-      "text": "The absurd is the essential concept and the first truth.",
-      "source": "The Myth of Sisyphus",
-      "themes": ["absurd", "truth", "foundation", "philosophy"],
-      "context": "Start from absurdity: the collision between human need for meaning and the universe's silence. This is bedrock."
+      "text": "What I know, what is certain, what I cannot deny, what I cannot reject—this is what counts. I can negate everything of that part of me that lives on vague nostalgias, except this desire for unity, this longing to solve, this need for clarity and cohesion.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": ["certainty", "nostalgia", "clarity", "desire for unity"],
+      "context": "Use when someone has dismantled their beliefs and doesn't know what remains. Camus identifies what survives: the desire itself. The longing for meaning persists even after its objects are destroyed. That desire is the residue — and it's enough to work from."
     },
     {
       "id": "camus-007",
-      "text": "I do not believe in God and I am not an atheist.",
-      "source": "Notebooks",
-      "themes": ["God", "atheism", "belief", "paradox"],
-      "context": "Refusing both positions. Neither theism nor atheism captures Camus's stance — it's more ambiguous than either."
+      "text": "That revolt gives life its value. Spread out over the whole length of a life, it restores its majesty to that life. To a man devoid of blinders, there is no finer sight than that of the intelligence at grips with a reality that transcends it. The sight of human pride is unequaled.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": ["revolt", "value", "intelligence", "pride", "majesty"],
+      "context": "Use when someone feels their struggle is pointless because they can't win. Camus inverts the logic: the struggle itself, the intelligence wrestling with what defeats it, is the finest thing. Not the victory — the fight. This restores dignity to the losing battle."
     },
     {
       "id": "camus-008",
-      "text": "Live to the point of tears.",
-      "source": "Notebooks",
-      "themes": ["living", "intensity", "tears", "feeling"],
-      "context": "Don't dampen life. Feel until it overflows. Intensity over comfort."
+      "text": "Living is keeping the absurd alive. Keeping it alive is, above all, contemplating it. Unlike Eurydice, the absurd dies only when we turn away from it. One of the only coherent philosophical positions is thus revolt. It is a constant confrontation between man and his own obscurity.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": ["revolt", "consciousness", "confrontation", "absurd"],
+      "context": "Use when someone wants to resolve their existential tension instead of inhabiting it. Camus says the tension must be maintained — consciousness of the absurd is the condition, not the problem. To relieve it is to lose the only honest footing. The contemplation is the life."
     },
     {
       "id": "camus-009",
-      "text": "Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend.",
-      "source": "Attributed",
-      "themes": ["friendship", "equality", "companionship", "walking"],
-      "context": "Neither leader nor follower — companion. Horizontal relationship, not hierarchical."
+      "text": "Thus I draw from the absurd three consequences, which are my revolt, my freedom, and my passion. By the mere activity of consciousness I transform into a rule of life what was an invitation to death—and I refuse suicide.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": ["revolt", "freedom", "passion", "consciousness", "refusal"],
+      "context": "Use as a pivot when someone has stared into the void and not yet decided what to do next. Camus offers the three-part answer: revolt (saying no to submission), freedom (no longer bound by false futures), passion (maximum experience in the present). These aren't consolations — they're positions."
     },
     {
       "id": "camus-010",
-      "text": "The evil that is in the world almost always comes of ignorance, and good intentions may do as much harm as malevolence if they lack understanding.",
-      "source": "The Plague",
-      "themes": ["evil", "ignorance", "intentions", "understanding"],
-      "context": "Good intentions aren't enough. Without understanding, even benevolence can damage."
+      "text": "The absurd enlightens me on this point: there is no future. Henceforth this is the reason for my inner freedom. The divine availability of the condemned man before whom the prison doors open in a certain early dawn, that unbelievable disinterestedness with regard to everything except for the pure flame of life—it is clear that death and the absurd are here the principles of the only reasonable freedom.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": [
+        "freedom",
+        "death",
+        "present",
+        "condemned man",
+        "availability"
+      ],
+      "context": "Use with someone who keeps deferring — waiting for the right circumstances, the right future. Camus says the condemned man is freer than most: nothing to lose means nothing to protect. The pure flame of life is accessible only when the future's weight is dropped. This is not despair — it's the entry point to full presence."
     },
     {
       "id": "camus-011",
-      "text": "There is no love of life without despair of life.",
-      "source": "The Myth of Sisyphus",
-      "themes": ["love", "life", "despair", "paradox"],
-      "context": "Full love of life includes facing its darkness. Despair and love aren't opposites — they're intertwined."
+      "text": "Belief in the absurd is tantamount to substituting the quantity of experiences for the quality. If I convince myself that this life has no other aspect than that of the absurd, if I feel that its whole equilibrium depends on that perpetual opposition between my conscious revolt and the darkness in which it struggles, then I must say that what counts is not the best living but the most living.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": ["quantity", "quality", "experience", "living", "maximum"],
+      "context": "Use when someone is trying to optimize their life rather than live it. Camus reorients from quality-seeking to maximum-experiencing. Not the best moment — the most moments, fully inhabited. This shifts the axis from refinement to vitality."
     },
     {
       "id": "camus-012",
-      "text": "I rebel — therefore we exist.",
-      "source": "The Rebel",
-      "themes": ["rebellion", "existence", "we", "solidarity"],
-      "context": "Individual rebellion discovers collective humanity. In saying no, I find we."
+      "text": "The absurd man thus catches sight of a burning and frigid, transparent and limited universe in which nothing is possible but everything is given, and beyond which all is collapse and nothingness. He can then decide to accept such a universe and draw from it his strength, his refusal to hope, and the unyielding evidence of a life without consolation.",
+      "source": "The Myth of Sisyphus — Absurd Freedom",
+      "themes": [
+        "universe",
+        "limited",
+        "acceptance",
+        "refusal to hope",
+        "consolation"
+      ],
+      "context": "Use when someone is desperate for reassurance that it will be okay. Camus refuses the consolation and offers something harder: the universe without hope is still a universe where everything is given. Nothing withheld. The strength that comes from refusing false comfort is more durable than the comfort itself."
     },
     {
       "id": "camus-013",
-      "text": "Real generosity toward the future lies in giving all to the present.",
-      "source": "The Rebel",
-      "themes": ["generosity", "future", "present", "giving"],
-      "context": "Don't hoard yourself for tomorrow. Full presence now is the gift to what comes next."
+      "text": "If it were sufficient to love, things would be too easy. The more one loves, the stronger the absurd grows. It is not through lack of love that Don Juan goes from woman to woman. It is ridiculous to represent him as a mystic in quest of total love. But it is indeed because he loves them with the same passion and each time with his whole self that he must repeat his gift and his profound quest.",
+      "source": "The Myth of Sisyphus — Don Juanism",
+      "themes": ["love", "repetition", "passion", "quantity", "absurd"],
+      "context": "Use when someone mistakes intensity for sufficiency — when love is offered as the cure for absurdity. Camus shows that love deepens the problem. Don Juan doesn't flee love; he loves completely and finds it must be repeated. The absurd man loves fully and still faces tomorrow."
     },
     {
       "id": "camus-014",
-      "text": "A man without ethics is a wild beast loosed upon this world.",
-      "source": "Notebooks",
-      "themes": ["ethics", "beast", "world", "constraint"],
-      "context": "Ethics aren't decoration — they're what makes us human rather than merely animal."
+      "text": "Don Juan knows and does not hope. He reminds one of those artists who know their limits, never go beyond them, and in that precarious interval in which they take their spiritual stand enjoy all the wonderful ease of masters. And that is indeed genius: the intelligence that knows its frontiers.",
+      "source": "The Myth of Sisyphus — Don Juanism",
+      "themes": ["limits", "genius", "mastery", "hope", "knowing"],
+      "context": "Use when someone confuses ambition with wisdom. Genius for Camus is not breaking limits but knowing them precisely — and living with full power inside them. The master isn't the one who transcends; it's the one who works with perfect lucidity within the bounded space."
     },
     {
       "id": "camus-015",
-      "text": "The struggle itself toward the heights is enough to fill a man's heart.",
-      "source": "The Myth of Sisyphus",
-      "themes": ["struggle", "heights", "heart", "meaning"],
-      "context": "The process, not the arrival, fills us. Sisyphus doesn't need to reach the top — the climbing is enough."
+      "text": "Conquerors know that action is in itself useless. There is but one useful action, that of remaking man and the earth. I shall never remake men. But one must do 'as if.' For the path of struggle leads me to the flesh. Even humiliated, the flesh is my only certainty. I can live only on it.",
+      "source": "The Myth of Sisyphus — Conquest",
+      "themes": ["action", "flesh", "uselessness", "struggle", "certainty"],
+      "context": "Use when someone needs permission to act despite futility. The absurd conqueror knows the action changes nothing cosmic — but still moves, because the flesh is the only real territory. 'As if' is not self-deception; it's the only honest mode of engagement."
     },
     {
       "id": "camus-016",
-      "text": "Nobody realizes that some people expend tremendous energy merely to be normal.",
-      "source": "Notebooks",
-      "themes": ["normal", "energy", "effort", "appearance"],
-      "context": "What looks easy for some costs everything for others. Don't assume effortlessness."
+      "text": "I establish my lucidity in the midst of what negates it. I exalt man before what crushes him, and my freedom, my revolt, and my passion come together then in that tension, that lucidity, and that vast repetition.",
+      "source": "The Myth of Sisyphus — Conquest",
+      "themes": ["lucidity", "revolt", "tension", "passion", "repetition"],
+      "context": "Use when someone is trying to escape the contradiction they're living. The move is not resolution — it's establishing lucidity inside the contradiction. This is Camus's posture: not above the paradox but within it, holding revolt, freedom, and passion together without dissolving the tension."
     },
     {
       "id": "camus-017",
-      "text": "The literal meaning of life is whatever you're doing that prevents you from killing yourself.",
-      "source": "The Myth of Sisyphus (paraphrased)",
-      "themes": ["meaning", "life", "suicide", "doing"],
-      "context": "Meaning isn't abstract — it's what makes you show up tomorrow. Whatever keeps you here, that's it."
+      "text": "If the world were clear, art would not exist. The work of art embodies a drama of the intelligence, but it proves this only indirectly. The absurd work requires an artist conscious of these limitations and an art in which the concrete signifies nothing more than itself.",
+      "source": "The Myth of Sisyphus — Absurd Creation",
+      "themes": ["art", "clarity", "limits", "concrete", "creation"],
+      "context": "Use when someone wants their creative work to mean something final and transcendent. Camus says: the world's opacity is the condition for art, not an obstacle. Art that accepts this limitation — that the concrete is only itself — is more honest than work that reaches for meanings it cannot deliver."
     },
     {
       "id": "camus-018",
-      "text": "What is a rebel? A man who says no.",
-      "source": "The Rebel",
-      "themes": ["rebel", "no", "refusal", "definition"],
-      "context": "Rebellion starts with refusal. The first revolutionary act is saying no to what is."
+      "text": "You have already grasped that Sisyphus is the absurd hero. He is, as much through his passions as through his torture. His scorn of the gods, his hatred of death, and his passion for life won him that unspeakable penalty in which the whole being is exerted toward accomplishing nothing.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["Sisyphus", "absurd hero", "scorn", "passion", "futility"],
+      "context": "Use when someone sees their own life as punishment. Camus reframes: the unspeakable penalty was earned by passion for life, not failure. What looks like punishment is the direct consequence of loving existence intensely enough to refuse to give it up. The torture and the passion are inseparable."
     },
     {
       "id": "camus-019",
-      "text": "I know of only one duty, and that is to love.",
-      "source": "Notebooks",
-      "themes": ["duty", "love", "simplicity", "ethics"],
-      "context": "All complexity reduces to this. The only obligation that matters."
+      "text": "It is during that return, that pause, that Sisyphus interests me. A face that toils so close to stones is already stone itself! I see that man going back down with a heavy yet measured step toward the torment of which he will never know the end. That hour like a breathing-space which returns as surely as his suffering, that is the hour of consciousness.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["descent", "consciousness", "pause", "Sisyphus", "awareness"],
+      "context": "Use when someone is between efforts — exhausted, facing the same task again tomorrow. The descent is the philosophical moment. Not the labor, not the summit — the walk back down. That is when Sisyphus is free, because that is when he is conscious. The pause between efforts is not dead time; it's the site of meaning."
     },
     {
       "id": "camus-020",
-      "text": "You will never be happy if you continue to search for what happiness consists of. You will never live if you are looking for the meaning of life.",
-      "source": "Attributed",
-      "themes": ["happiness", "search", "meaning", "living"],
-      "context": "The search itself can obstruct finding. Sometimes you have to stop looking to see."
+      "text": "If this myth is tragic, that is because its hero is conscious. Where would his torture be, indeed, if at every step the hope of succeeding upheld him? The workman of today works every day in his life at the same tasks, and this fate is no less absurd. But it is tragic only at the rare moments when it becomes conscious.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": [
+        "tragedy",
+        "consciousness",
+        "hope",
+        "repetition",
+        "the workman"
+      ],
+      "context": "Use when someone is trying to stay busy to avoid the feeling. Busyness without consciousness is not tragic — it's just mechanical. The tragedy only arrives with awareness. Camus is not offering this as comfort but as an explanation: the feeling of absurdity is the mark of consciousness, not pathology."
+    },
+    {
+      "id": "camus-021",
+      "text": "There is no fate that cannot be surmounted by scorn.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["fate", "scorn", "surmounting", "defiance"],
+      "context": "Deploy as a single-sentence pivot when someone feels crushed by their circumstances. Scorn here is not bitterness — it's lucid refusal to grant the situation final authority. This is Camus's version of defiance: not fighting back but refusing to be defeated inwardly."
+    },
+    {
+      "id": "camus-022",
+      "text": "All Sisyphus' silent joy is contained therein. His fate belongs to him. His rock is his thing. Likewise, the absurd man, when he contemplates his torment, silences all the idols. In the universe suddenly restored to its silence, the myriad wondering little voices of the earth rise up.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["ownership", "fate", "joy", "silence", "belonging"],
+      "context": "Use when someone is suffering from a fate imposed on them. Camus shows the move: claim it. 'His rock is his thing.' Ownership of one's burden transforms its nature. When the absurd man stops listening to the idols that explain his suffering, the actual world — small voices, specific things — can finally be heard."
+    },
+    {
+      "id": "camus-023",
+      "text": "I leave Sisyphus at the foot of the mountain! One always finds one's burden again. But Sisyphus teaches the higher fidelity that negates the gods and raises rocks. He too concludes that all is well. This universe henceforth without a master seems to him neither sterile nor futile. Each atom of that stone, each mineral flake of that night-filled mountain, in itself forms a world. The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["happiness", "struggle", "Sisyphus", "burden", "all is well"],
+      "context": "Use as the culminating move — when someone has faced the futility and is ready to choose. Not consolation but transformation: the struggle is the content of a life, not its obstacle. Each atom of the stone forms a world. Happiness is not despite the absurdity — it's made from full engagement with it. The last argument against despair."
+    },
+    {
+      "id": "camus-024",
+      "text": "Happiness and the absurd are two sons of the same earth. They are inseparable. It would be a mistake to say that happiness necessarily springs from the absurd discovery. It happens as well that the feeling of the absurd springs from happiness.",
+      "source": "The Myth of Sisyphus — The Myth of Sisyphus",
+      "themes": ["happiness", "absurd", "inseparable", "discovery"],
+      "context": "Use when someone assumes absurdity and joy are opposites. Camus collapses that division: they share the same origin, the same ground. You cannot have full happiness without acknowledging the absurd; you cannot face the absurd honestly without something that resembles happiness breaking through."
+    },
+    {
+      "id": "camus-025",
+      "text": "There is a metaphysical honor in enduring the world's absurdity. Conquest or play-acting, multiple loves, absurd revolt are tributes that man pays to his dignity in a campaign in which he is defeated in advance.",
+      "source": "The Myth of Sisyphus — Absurd Creation",
+      "themes": ["honor", "dignity", "defeat", "endurance", "tribute"],
+      "context": "Use when someone needs permission to persist without hope of winning. The campaign is lost in advance — Camus is clear about this. But the acts of revolt, creation, and love are still tributes to dignity. The loss doesn't erase the honor. This is the deepest form of courage: acting nobly in a losing war."
     }
   ]
 }

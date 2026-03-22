@@ -4,154 +4,227 @@
   "era": "1788-1860",
   "coreConcepts": [
     "Will as blind striving",
-    "Life as suffering",
-    "Aesthetic contemplation",
-    "Denial of the will",
-    "Compassion as ethics",
-    "The veil of Maya",
-    "Boredom and pain pendulum",
-    "Genius as objectivity"
+    "Emptiness of existence",
+    "Will of the species",
+    "Thinking vs. reading",
+    "Style as the physiognomy of mind",
+    "Resignation and denial of will",
+    "The intellect as instrument of will",
+    "Personality and truth",
+    "Contemplation of animals",
+    "Death and indestructibility"
   ],
   "passages": [
     {
       "id": "schopenhauer-001",
-      "text": "Life swings like a pendulum backward and forward between pain and boredom.",
-      "source": "The World as Will and Representation",
-      "themes": ["suffering", "boredom", "life", "oscillation"],
-      "context": "The two poles of unsatisfied existence"
+      "text": "There are, first of all, two kinds of authors: those who write for the subject's sake, and those who write for writing's sake. The first kind have had thoughts or experiences which seem to them worth communicating, while the second kind need money and consequently write for money. They think in order to write, and they may be recognised by their spinning out their thoughts to the greatest possible length.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": ["authorship", "truth", "money", "thinking", "integrity"],
+      "context": "Schopenhauer opens his essay on style with a fundamental moral distinction in intellectual life — the difference between thought that precedes and motivates writing versus writing that generates thought post hoc. This is not merely a stylistic critique but a character diagnosis."
     },
     {
       "id": "schopenhauer-002",
-      "text": "The will is a blind, unconscious striving, an endless desiring that can never be satisfied.",
-      "source": "The World as Will and Representation",
-      "themes": ["will", "desire", "striving", "blindness"],
-      "context": "Core metaphysics—will as thing-in-itself"
+      "text": "What an inestimable advantage it would be, if, in every branch of literature, there existed only a few but excellent books! This can never come to pass so long as money is to be made by writing. It seems as if money lay under a curse, for every author deteriorates directly he writes in any way for the sake of money. The best works of great men all come from the time when they had to write either for nothing or for very little pay.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": ["money", "literature", "corruption", "greatness", "incentive"],
+      "context": "Schopenhauer makes an economic argument about intellectual production: market incentives systematically corrupt thought by rewarding volume and popularity over depth. This is an early formulation of what we now call the attention economy problem applied to ideas."
     },
     {
       "id": "schopenhauer-003",
-      "text": "We forfeit three-quarters of ourselves in order to be like other people.",
-      "source": "Parerga and Paralipomena",
-      "themes": ["conformity", "self", "society", "loss"],
-      "context": "The cost of social belonging"
+      "text": "There are three kinds of authors. In the first place, there are those who write without thinking. They write from memory, from reminiscences, or even direct from other people's books. This class is the most numerous. In the second, those who think whilst they are writing. They think in order to write; and they are numerous. In the third place, there are those who have thought before they begin to write. They write solely because they have thought; and they are rare.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": [
+        "thinking",
+        "writing",
+        "rarity",
+        "originality",
+        "classification"
+      ],
+      "context": "This taxonomy maps onto a deeper epistemological claim: genuine thought is an activity that happens before and outside of expression, not as a consequence of it. The third class — those who write because they have thought — are rare because real thinking is itself rare."
     },
     {
       "id": "schopenhauer-004",
-      "text": "Compassion is the basis of all morality.",
-      "source": "On the Basis of Morality",
-      "themes": ["compassion", "ethics", "morality", "foundation"],
-      "context": "Ethics grounded in felt connection to suffering"
+      "text": "Style is the physiognomy of the mind. It is a more reliable key to character than the physiognomy of the body. To imitate another person's style is like wearing a mask. However fine the mask, it soon becomes insipid and intolerable because it is without life; so that even the ugliest living face is better.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": ["style", "character", "mind", "imitation", "authenticity"],
+      "context": "Schopenhauer's identification of style with physiognomy makes it impossible to separate how someone writes from who they are. This is not an aesthetic claim but a metaphysical one: style is the legible trace of the underlying will, and imitation of style is therefore a kind of lying about one's being."
     },
     {
       "id": "schopenhauer-005",
-      "text": "Talent hits a target no one else can hit; genius hits a target no one else can see.",
-      "source": "The World as Will and Representation",
-      "themes": ["genius", "talent", "vision", "perception"],
-      "context": "Distinction between skill and original seeing"
+      "text": "Style receives its beauty from the thought expressed, while with those writers who only pretend to think it is their thoughts that are said to be fine because of their style. Style is merely the silhouette of thought; and to write in a vague or bad style means a stupid or confused mind.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": ["style", "clarity", "thought", "obscurity", "intelligence"],
+      "context": "Schopenhauer reverses the common assumption that complexity of style indicates depth of thought. He argues the opposite: genuine thought generates clear expression because it is already clear in itself. Obscurity of style is therefore diagnostic of obscurity of thought."
     },
     {
       "id": "schopenhauer-006",
-      "text": "Every man takes the limits of his own field of vision for the limits of the world.",
-      "source": "Parerga and Paralipomena",
-      "themes": ["perspective", "limits", "world", "vision"],
-      "context": "The prison of subjective viewpoint"
+      "text": "Truth that is naked is the most beautiful, and the simpler its expression the deeper is the impression it makes; this is partly because it gets unobstructed hold of the hearer's mind without his being distracted by secondary thoughts, and partly because he feels that here he is not being corrupted or deceived by the arts of rhetoric, but that the whole effect is got from the thing itself.",
+      "source": "Essays of Schopenhauer, On Authorship and Style",
+      "themes": ["truth", "simplicity", "beauty", "rhetoric", "directness"],
+      "context": "Schopenhauer's aesthetics of expression mirrors his metaphysics: the will, at its most essential, operates without decoration. Rhetorical ornament is a symptom of a thought that does not trust itself — just as the will to live disguises itself in love, style disguises itself in ornament."
     },
     {
       "id": "schopenhauer-007",
-      "text": "The two enemies of human happiness are pain and boredom.",
-      "source": "Essays and Aphorisms",
-      "themes": ["happiness", "pain", "boredom", "enemies"],
-      "context": "The inescapable oscillation"
+      "text": "When we read, another person thinks for us: we merely repeat his mental process. It is the same as the pupil, in learning to write, following with his pen the lines that have been pencilled by the teacher. Accordingly, in reading, the work of thinking is, for the greater part, done for us. This is why we are consciously relieved when we turn to reading after being occupied with our own thoughts. But, in reading, our head is, however, really only the arena of some one else's thoughts.",
+      "source": "Essays of Schopenhauer, On Reading and Books",
+      "themes": ["reading", "thinking", "passivity", "mind", "autonomy"],
+      "context": "Schopenhauer makes a strong claim against reading as intellectual activity: it is inherently passive because the cognitive work has been done by another. The relief we feel turning from thinking to reading is itself evidence that thinking is the harder, more original activity."
     },
     {
       "id": "schopenhauer-008",
-      "text": "A man can be himself only so long as he is alone; and if he does not love solitude, he will not love freedom.",
-      "source": "Counsels and Maxims",
-      "themes": ["solitude", "freedom", "self", "authenticity"],
-      "context": "Solitude as condition of selfhood"
+      "text": "The person who reads a great deal—that is to say, almost the whole day, and recreates himself by spending the intervals in thoughtless diversion, gradually loses the ability to think for himself; just as a man who is always riding at last forgets how to walk. Such, however, is the case with many men of learning: they have read themselves stupid.",
+      "source": "Essays of Schopenhauer, On Reading and Books",
+      "themes": ["reading", "stupidity", "learning", "capacity", "atrophy"],
+      "context": "The paradox of the over-read scholar is central to Schopenhauer's critique of academic philosophy: maximum reading correlates with minimum original thought. The mind, like a muscle, atrophies without the resistance of independent thinking — bookishness is a form of intellectual comfort-seeking."
     },
     {
       "id": "schopenhauer-009",
-      "text": "The assumption that animals are without rights and the illusion that our treatment of them has no moral significance is a positively outrageous example of Western crudity and barbarity.",
-      "source": "On the Basis of Morality",
-      "themes": ["animals", "rights", "compassion", "ethics"],
-      "context": "Early voice for animal ethics"
+      "text": "Thoughts put down on paper are nothing more than footprints in the sand: one sees the road the man has taken, but in order to know what he saw on the way, one requires his eyes.",
+      "source": "Essays of Schopenhauer, On Reading and Books",
+      "themes": [
+        "writing",
+        "thought",
+        "communication",
+        "limitation",
+        "understanding"
+      ],
+      "context": "Schopenhauer acknowledges the fundamental gap between thought and its expression: writing preserves the path of thought but not the vision that motivated it. This is simultaneously a critique of book-learning and an argument for why great works must be read with creative participation rather than passive absorption."
     },
     {
       "id": "schopenhauer-010",
-      "text": "Hope is the confusion of the desire for a thing with its probability.",
-      "source": "The World as Will and Representation",
-      "themes": ["hope", "desire", "probability", "delusion"],
-      "context": "Critique of optimistic self-deception"
+      "text": "One can never read too little of bad, or too much of good books: bad books are intellectual poison; they destroy the mind. In order to read what is good one must make it a condition never to read what is bad; for life is short, and both time and strength limited.",
+      "source": "Essays of Schopenhauer, On Reading and Books",
+      "themes": ["reading", "quality", "time", "judgment", "discrimination"],
+      "context": "Schopenhauer's argument for radical selectivity in reading rests on a scarcity model of attention: the mind's capacity for deep engagement is finite and gets used up on inferior material. The art of reading is therefore primarily an art of exclusion — a form of intellectual self-protection."
     },
     {
       "id": "schopenhauer-011",
-      "text": "Mostly it is loss which teaches us about the worth of things.",
-      "source": "Parerga and Paralipomena",
-      "themes": ["loss", "value", "appreciation", "learning"],
-      "context": "We discover value through absence"
+      "text": "This emptiness finds its expression in the whole form of existence, in the infiniteness of Time and Space as opposed to the finiteness of the individual in both; in the flitting present as the only manner of real existence; in the dependence and relativity of all things; in constantly Becoming without Being; in continually wishing without being satisfied; in an incessant thwarting of one's efforts, which go to make up life, until victory is won.",
+      "source": "Essays of Schopenhauer, The Emptiness of Existence",
+      "themes": ["emptiness", "time", "becoming", "desire", "finitude"],
+      "context": "Schopenhauer opens his essay on existence by cataloguing the structural features that make satisfaction impossible. The list is formally exhaustive: every dimension of experience — spatial, temporal, motivational — is configured to produce perpetual striving without arrival. This is not pessimism as mood but as phenomenological analysis."
     },
     {
       "id": "schopenhauer-012",
-      "text": "Every parting gives a foretaste of death; every reunion a hint of the resurrection.",
-      "source": "Essays and Aphorisms",
-      "themes": ["parting", "death", "reunion", "resurrection"],
-      "context": "Small deaths and resurrections in daily life"
+      "text": "Our existence is based solely on the ever-fleeting present. Essentially, therefore, it has to take the form of continual motion without there ever being any possibility of our finding the rest after which we are always striving. It is the same as a man running downhill, who falls if he tries to stop, and it is only by his continuing to run on that he keeps on his legs; it is like a pole balanced on one's finger-tips, or like a planet that would fall into its sun as soon as it stopped hurrying onwards. Hence unrest is the type of existence.",
+      "source": "Essays of Schopenhauer, The Emptiness of Existence",
+      "themes": ["unrest", "motion", "existence", "rest", "momentum"],
+      "context": "The image of the downhill runner captures Schopenhauer's deepest insight about willing: we cannot pause because the will has no goal beyond continued striving. Rest would not be satisfaction but collapse — the will sustains itself through its own restlessness, which is why boredom feels like death."
     },
     {
       "id": "schopenhauer-013",
-      "text": "Music is the melody whose text is the world.",
-      "source": "The World as Will and Representation",
-      "themes": ["music", "world", "expression", "will"],
-      "context": "Music as direct expression of the will itself"
+      "text": "The scenes of our life are like pictures in rough mosaic, which have no effect at close quarters, but must be looked at from a distance in order to discern their beauty. So that to obtain something we have desired is to find out that it is worthless; we are always living in expectation of better things, while, at the same time, we often repent and long for things that belong to the past.",
+      "source": "Essays of Schopenhauer, The Emptiness of Existence",
+      "themes": [
+        "desire",
+        "distance",
+        "disillusionment",
+        "regret",
+        "expectation"
+      ],
+      "context": "The mosaic metaphor reveals the temporal structure of desire: proximity always destroys value because what we wanted was the wanting, not the having. Satisfaction converts the desired thing from a possibility into a fact — and facts cannot sustain the will the way possibilities can."
     },
     {
       "id": "schopenhauer-014",
-      "text": "The doctor sees all the weakness of mankind; the lawyer all the wickedness, the theologian all the stupidity.",
-      "source": "Essays and Aphorisms",
-      "themes": ["professions", "weakness", "wickedness", "stupidity"],
-      "context": "Each profession reveals a different flaw"
+      "text": "So that most people will find if they look back when their life is at an end, that they have lived their lifelong ad interim, and they will be surprised to find that something they allowed to pass by unnoticed and unenjoyed was just their life—that is to say, it was the very thing in the expectation of which they lived. And so it may be said of man in general that, befooled by hope, he dances into the arms of death.",
+      "source": "Essays of Schopenhauer, The Emptiness of Existence",
+      "themes": ["life", "death", "hope", "time", "regret"],
+      "context": "The phrase 'befooled by hope, he dances into the arms of death' is Schopenhauer at his most compressed. Hope is not a psychological comfort but a structural mechanism of the will: it keeps us moving by always projecting the real life forward, beyond the present moment that is the only life we will ever have."
     },
     {
       "id": "schopenhauer-015",
-      "text": "Happiness consists in frequent repetition of pleasure.",
-      "source": "Essays and Aphorisms",
-      "themes": ["happiness", "pleasure", "repetition", "frequency"],
-      "context": "Modest definition against grand aspirations"
+      "text": "That human life must be a kind of mistake is sufficiently clear from the fact that man is a compound of needs, which are difficult to satisfy; moreover, if they are satisfied, all he is granted is a state of painlessness, in which he can only give himself up to boredom. This is a precise proof that existence in itself has no value, since boredom is merely the feeling of the emptiness of life.",
+      "source": "Essays of Schopenhauer, The Emptiness of Existence",
+      "themes": ["boredom", "needs", "value", "painlessness", "emptiness"],
+      "context": "Schopenhauer's argument from boredom is his sharpest logical move: if existence had positive value, its absence of pain would itself be fulfilling. But boredom — the feeling we get when pain is absent and desires are satisfied — reveals that what we really wanted was the wanting, not any particular object."
     },
     {
       "id": "schopenhauer-016",
-      "text": "To overcome difficulties is to experience the full delight of existence.",
-      "source": "Essays and Aphorisms",
-      "themes": ["difficulty", "overcoming", "delight", "existence"],
-      "context": "Paradox—struggle as source of meaning"
+      "text": "The largest library in disorder is not so useful as a smaller but orderly one; in the same way the greatest amount of knowledge, if it has not been worked out in one's own mind, is of less value than a much smaller amount that has been fully considered. For it is only when a man combines what he knows from all sides, and compares one truth with another, that he completely realises his own knowledge and gets it into his power. A man can only think over what he knows, therefore he should learn something; but a man only knows what he has pondered.",
+      "source": "Essays of Schopenhauer, Thinking for Oneself",
+      "themes": [
+        "knowledge",
+        "thinking",
+        "pondering",
+        "order",
+        "understanding"
+      ],
+      "context": "Schopenhauer articulates the difference between information and knowledge: information accumulates, but knowledge requires active integration through pondering. The library metaphor reveals that most 'learned' people have a warehouse of information that has never become genuinely their own because it has never been subjected to original thought."
     },
     {
       "id": "schopenhauer-017",
-      "text": "Reading is merely a surrogate for thinking for yourself; it means letting someone else direct your thoughts.",
-      "source": "Essays and Aphorisms",
-      "themes": ["reading", "thinking", "autonomy", "surrogate"],
-      "context": "Warning against intellectual passivity"
+      "text": "The difference between the effect that thinking for oneself and that reading has on the mind is incredibly great; hence it is continually developing that original difference in minds which induces one man to think and another to read. Reading forces thoughts upon the mind which are as foreign and heterogeneous to the bent and mood in which it may be for the moment, as the seal is to the wax on which it stamps its imprint.",
+      "source": "Essays of Schopenhauer, Thinking for Oneself",
+      "themes": [
+        "reading",
+        "thinking",
+        "heteronomy",
+        "imprint",
+        "intellectual character"
+      ],
+      "context": "Schopenhauer's seal-and-wax metaphor captures the violence of reading: it imposes an alien form on the mind's current state rather than allowing thought to develop organically from within. He is not against reading but against reading as a replacement for the organic development of one's own philosophical character."
     },
     {
       "id": "schopenhauer-018",
-      "text": "The fundament upon which all our knowledge and learning rests is the inexplicable.",
-      "source": "Parerga and Paralipomena",
-      "themes": ["knowledge", "inexplicable", "foundation", "mystery"],
-      "context": "Mystery at the ground of all understanding"
+      "text": "Indeed, it is only a man's own fundamental thoughts that have truth and life in them. For it is these that he really and completely understands. To read the thoughts of others is like taking the remains of some one else's meal, like putting on the discarded clothes of a stranger.",
+      "source": "Essays of Schopenhauer, Thinking for Oneself",
+      "themes": [
+        "original thought",
+        "understanding",
+        "alien thought",
+        "assimilation",
+        "ownership"
+      ],
+      "context": "The meal and clothing metaphors make explicit what is at stake: thoughts borrowed from books are not nourishment but already-consumed food, not a garment that fits but one cut for another body. Genuine knowledge must be metabolized by the thinker's own intellectual constitution."
     },
     {
       "id": "schopenhauer-019",
-      "text": "After your death you will be what you were before your birth.",
-      "source": "Parerga and Paralipomena",
-      "themes": ["death", "birth", "nothingness", "symmetry"],
-      "context": "Death as return to prenatal non-existence"
+      "text": "The will to live, which forms the innermost kernel of every living being, is most distinctly apparent in the highest, that is to say in the cleverest, order of animals, and therefore in them we may see and consider the nature of the will most clearly. For below this order of animals the will is not so prominent, and has a less degree of objectivation; but above the higher order of animals, I mean in men, we get reason, and with reason reflection, and with this the faculty for dissimulation, which immediately throws a veil over the actions of the will.",
+      "source": "Essays of Schopenhauer, Psychological Observations",
+      "themes": ["will", "animals", "reason", "dissimulation", "objectivation"],
+      "context": "Schopenhauer's observation that reason enables dissimulation reveals his psychology's dark implication: consciousness does not liberate the will but conceals it. Animals express the will nakedly; humans mask it behind reasons. Philosophy must therefore unmask the will that reason hides."
     },
     {
       "id": "schopenhauer-020",
-      "text": "Almost all of our sorrows spring out of our relations with other people.",
-      "source": "Essays and Aphorisms",
-      "themes": ["sorrow", "relationships", "people", "suffering"],
-      "context": "Social life as primary source of pain"
+      "text": "There is only one mendacious creature in the world—man. Every other is true and genuine, for it shows itself as it is, and expresses itself just as it feels. An emblematical or allegorical expression of this fundamental difference is to be found in the fact that all animals go about in their natural state; this largely accounts for the happy impression they make on us when we look at them.",
+      "source": "Essays of Schopenhauer, Psychological Observations",
+      "themes": ["honesty", "animals", "authenticity", "nature", "deception"],
+      "context": "Schopenhauer's admiration for animals is philosophically grounded: they are ontologically honest because they lack the capacity for self-deception. Human consciousness introduces the possibility of the lie, and culture systematizes it. The 'happy impression' animals make on us is recognition of a freedom we have lost."
+    },
+    {
+      "id": "schopenhauer-021",
+      "text": "The ultimate aim of all love-affairs, whether they be of a tragic or comic nature, is really more important than all other aims in human life, and therefore is perfectly deserving of that profound seriousness with which it is pursued. What manifests itself in the individual consciousness as instinct of sex in general, without being concentrated on any particular individual, is very plainly in itself, in its generalised form, the will to live.",
+      "source": "Essays of Schopenhauer, Metaphysics of Love",
+      "themes": ["love", "will", "species", "sex", "unconscious purpose"],
+      "context": "Schopenhauer's metaphysics of love subordinates individual romantic experience to the will of the species. What we experience as love is the species using individual consciousness as its instrument for self-perpetuation — the first systematic account of what Freud would later theorize as the unconscious."
+    },
+    {
+      "id": "schopenhauer-022",
+      "text": "The real aim of the whole of love's romance, although the persons concerned are unconscious of the fact, is that a particular being may come into the world; and the way and manner in which it is accomplished is a secondary consideration. That growing affection of two lovers for each other is in reality the will to live of the new being, of which they shall become the parents; indeed, in the meeting of their glances its new life flashes for the first time.",
+      "source": "Essays of Schopenhauer, Metaphysics of Love",
+      "themes": ["love", "unconscious", "generation", "will", "species"],
+      "context": "Schopenhauer's claim that the new being's will to live initiates the love between its future parents reverses the causal sequence: the child causes the love, not the love the child. This is his most radical statement of the priority of the species will over individual consciousness."
+    },
+    {
+      "id": "schopenhauer-023",
+      "text": "Every human face is a hieroglyph, which, to be sure, admits of being deciphered—nay, the whole alphabet of which we carry about with us. Indeed, the face of a man, as a rule, bespeaks more interesting matter than his tongue, for it is the compendium of all which he will ever say, as it is the register of all his thoughts and aspirations. Moreover, the tongue only speaks the thoughts of one man, while the face expresses a thought of nature.",
+      "source": "Essays of Schopenhauer, Physiognomy",
+      "themes": ["face", "character", "nature", "expression", "reading people"],
+      "context": "Schopenhauer's physiognomy essay turns the face into a text written by nature rather than the individual. The tongue expresses the person's conscious thoughts; the face expresses what nature has determined — the will's objectivation in individual form. Reading faces is therefore a form of reading the will itself."
+    },
+    {
+      "id": "schopenhauer-024",
+      "text": "As far as I can see, it is only the followers of monotheistic, that is of Jewish, religions that regard suicide as a crime. This is the more striking as there is no forbiddance of it, or even positive disapproval of it, to be found either in the New Testament or the Old; so that teachers of religion have to base their disapprobation of suicide on their own philosophical grounds; these, however, are so bad that they try to compensate for the weakness of their arguments by strongly expressing their abhorrence of the act—that is to say, by abusing it.",
+      "source": "Essays of Schopenhauer, On Suicide",
+      "themes": ["suicide", "religion", "freedom", "moral authority", "death"],
+      "context": "Schopenhauer's defense of the right to suicide is not a celebration of death but a logical extension of his metaphysics: if the will is the ultimate reality and suffering is its universal character, then the right to withdraw one's consent to suffering is the most basic freedom the individual can claim against cosmic necessity."
+    },
+    {
+      "id": "schopenhauer-025",
+      "text": "The development of the intellect to an abnormal degree of strength and superiority, thereby making it out of all proportion to the will, a condition which constitutes the essence of true genius, is not only superfluous but actually an impediment to the needs and purposes of life. While the genius, as I have stated, is at bottom a monstrum per excessum; just as conversely the passionate, violent, and unintelligent man, the brainless savage, is a monstrum per dejectum.",
+      "source": "Essays of Schopenhauer, Psychological Observations",
+      "themes": ["genius", "will", "intellect", "excess", "impediment"],
+      "context": "Schopenhauer's definition of genius as a disproportionate intellect has tragic implications: the genius is by definition ill-adapted to ordinary life because his intellect exceeds what the will's purposes require. Genius is not advantage but an excess that makes the genius useless for ordinary living and visible to extraordinary seeing."
     }
   ]
 }

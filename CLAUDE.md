@@ -42,7 +42,7 @@ Pneuma is a **cognitive orchestration layer** that shapes how Claude thinks befo
 POST /chat (index.js)
   → fusion.js:pneumaRespond()        # command dispatcher — gathers all intelligence
       ├─ modeSelector.js             # intent detection & tone selection
-      ├─ semanticRouter.js           # selects archetypes by embedding similarity
+      ├─ archetypeSelector.js           # selects archetypes by embedding similarity
       ├─ archetypeRAG.js             # retrieves relevant passages from knowledge base
       ├─ innerMonologue.js           # pre-response dialectical cognition
       ├─ synthesisEngine.js          # detects archetype collisions → synthesis
@@ -60,7 +60,7 @@ POST /chat (index.js)
 
 **`server/pneuma/intelligence/`** — Cognitive engines:
 - `llm.js` — System prompt builder with tiered loading (base ~2k tokens; deep blocks up to 18k tokens load conditionally)
-- `semanticRouter.js` — Archetype selection via OpenAI embeddings (text-embedding-3-small)
+- `archetypeSelector.js` — Archetype selection via OpenAI embeddings (text-embedding-3-small)
 - `synthesisEngine.js` — Detects when incompatible archetypes should collide
 - `archetypeRAG.js` — Vector-based passage retrieval from `data/archetype_knowledge/`
 - `thinkerDeep.js` — Loads conditional deep knowledge blocks
@@ -97,6 +97,24 @@ MongoDB and ChromaDB are optional integrations; the system runs fully on local J
 ### Frontend
 
 React 19 + Vite 7 SPA. Key components: `ChatBox` (message I/O), `Sidebar` (conversation list), `Title3D` (Three.js animation), `ConsciousnessIndicator` (engine visualization). `App.jsx` owns routing and top-level state.
+
+### HowPneumaWorks.jsx — Annotation Convention
+
+`client/src/components/HowPneumaWorks/HowPneumaWorks.jsx` is a living technical doc for non-technical readers. **Any time content is added or edited here, apply these rules:**
+
+**`<FileRef name="filename.js" />`** — wrap every bare filename that links to a real server file. Renders as a cyan chip + `?` that opens a modal with the file's role, key function, flow chain, and insight. Data lives in `FILE_REGISTRY` at the top of the file.
+
+**`<TermRef name="term" />`** — wrap every technical term a non-developer might not know. Renders as an amber chip + `?` that opens a plain-language explanation. Data lives in `TERM_REGISTRY` at the top of the file.
+
+**What warrants a `TermRef`:**
+- Database/search jargon: "vector memory", "semantic search", "vector index", "deduplication", "recency"
+- Math concepts: "cosine similarity", "embedding", "vector", "threshold"
+- Architecture patterns: "RAG", "fire-and-forget", "brute-force fallback"
+- Any phrase where a curious reader would think "what does that actually mean?"
+
+**When adding a new term:** add the entry to `TERM_REGISTRY` first (`what` + `inPneuma` fields), then wrap the term in JSX with `<TermRef name="..." />`. If a new file is referenced, add it to `FILE_REGISTRY` too.
+
+**Do not leave bare technical jargon** in paragraph text, accordion answers, cheat sheet items, or flow diagram labels — if a term exists in `TERM_REGISTRY`, always use `<TermRef>` instead of writing it plain.
 
 ### Diagnostic Hooks (runtime)
 

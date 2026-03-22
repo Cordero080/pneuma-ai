@@ -1,157 +1,346 @@
 {
   "archetype": "wisdomCognitivist",
   "thinker": "John Vervaeke",
+  "source": "Awakening from the Meaning Crisis: Origins (Uncorrected Proof, forthcoming 2023), adapted from lecture series of the same name",
   "era": "1961-present",
   "coreConcepts": [
-    "Relevance realization",
-    "The meaning crisis",
-    "Participatory knowing",
-    "Transformative experience",
-    "Opponent processing",
-    "Salience landscape",
-    "Wisdom as systematic insight",
-    "Religio as reconnection"
+    "relevance realization",
+    "participatory knowing",
+    "transformative experience",
+    "the meaning crisis",
+    "gnosis",
+    "flow states",
+    "awakening from the meaning crisis",
+    "the sage",
+    "active open-mindedness",
+    "psychotechnologies",
+    "exaptation"
   ],
   "passages": [
     {
       "id": "vervaeke-001",
-      "text": "We are in the midst of a meaning crisis. We have lost the practices and institutions that used to connect us to what is sacred.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["meaning", "crisis", "sacred", "loss"],
-      "context": "Central diagnosis of modern condition"
+      "text": "As a cognitive scientist, I am keenly interested in how naturalistic accounts of human cognition inform our understanding of intelligence, sacredness, and the cultivation of wisdom. Over many years, I have closely monitored and dialogued with a tradition of thinkers, researchers and writers who have identified a nebulous problem in our modern epoch. If we could describe this problem simply, there would be no need for this book to exist. However, your intuition may already be filling the gaps; it has something to do with the decentring of human life from its cosmic significance, a decline in our sense of purpose, a sensation of having lost the soul that gave earlier human societies their adaptiveness and vitality. What we are left with, it seems, is a feeling of having lost our place in the world, along with a sense of who we are, and what we ought to do with ourselves.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "meaning crisis",
+        "cognitive science",
+        "wisdom",
+        "cosmic significance",
+        "modern disorientation"
+      ],
+      "context": "Vervaeke opens his lifelong inquiry into the meaning crisis by situating it not as a metaphysical abstraction but as a felt cognitive and existential displacement — a loss of the participatory relationship between self and world."
     },
     {
       "id": "vervaeke-002",
-      "text": "Relevance realization is the process by which the brain generates what matters from the chaos of information.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["relevance", "brain", "information", "mattering"],
-      "context": "Core cognitive mechanism"
+      "text": "Thanks to this convergence of Cognitive Science and Buddhism, and the renewed interest in wisdom, we have more adequate explanations to instruct our intuition, and to explain the primacy of meaning in human life. We are beginning to understand again that meaning in life, rather than simply an accessory to survival, is essential to human flourishing, predictive of well-being in every sense of the term. It is little wonder that people seek it so voraciously. Nor is it a coincidence that all of these movements are happening right now: the confluence between Buddhism and the Mindfulness Revolution, an interest in wisdom and ancient philosophies like Stoicism, a burgeoning interest in psychedelics, and in transformative and mystical experiences. There is a pattern to all of these efforts, a certain hunger in the human spirit, a depth of need that has not been fully understood.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "meaning",
+        "Buddhism",
+        "cognitive science",
+        "human flourishing",
+        "wisdom traditions"
+      ],
+      "context": "Vervaeke identifies a unified pattern behind the Mindfulness Revolution, interest in Stoicism, and psychedelic research — all are responses to the same underlying hunger, the meaning crisis demanding a cognitive-scientific account of wisdom."
     },
     {
       "id": "vervaeke-003",
-      "text": "Wisdom is not just knowing things. It is knowing how to live well—and being transformed by that knowledge.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["wisdom", "knowledge", "transformation", "living"],
-      "context": "Distinction between knowledge and wisdom"
+      "text": "Each of these movements is responding to a crisis of meaning, a disorienting sense that we have forgotten some essential dimension to reality, and lost our relationship to what is good, true and beautiful. This crisis has deprived us of something essential at the center of our lives. It has been described in many ways by many thoughtful people across time, but we might think of it quite simply as a famine of the spirit, an existential illness that has taken shape in the human brain, body, culture and soul. When these systems of culture become unglued, it becomes increasingly difficult to keep a coherent model of the world. The world itself begins to feel untrustworthy, as though we can no longer feel ground beneath our feet.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "meaning crisis",
+        "existential illness",
+        "culture",
+        "spiritual famine",
+        "disorientation"
+      ],
+      "context": "Vervaeke characterizes the meaning crisis as a 'famine of the spirit' — not merely a philosophical puzzle but an existential illness operating simultaneously at the levels of brain, body, culture, and soul."
     },
     {
       "id": "vervaeke-004",
-      "text": "We don't just believe propositions. We participate in the world. And that participatory knowing is often more fundamental than propositional knowledge.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["participation", "knowledge", "propositions", "world"],
-      "context": "Types of knowing"
+      "text": "Wisdom is ultimately about how to generate and enhance this meaning. Wisdom is about realizing. This means that cultivating wisdom generates realization in both senses of the word: becoming aware and making real. Wisdom is about realizing meaning in life in a profound way. Throughout this book, we will keep coming back to these three questions: What is this meaning? Why do we hunger for it? How do we cultivate the wisdom to realize it? To answer these questions adequately, this book will attempt to trace the evolution of meaning in our culture.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "wisdom",
+        "realization",
+        "meaning",
+        "cultivation",
+        "becoming aware"
+      ],
+      "context": "Vervaeke's key insight — that wisdom involves 'realization' in both senses, becoming aware AND making real — establishes that wisdom is not merely descriptive knowledge but a transformative capacity that enacts meaning into existence."
     },
     {
       "id": "vervaeke-005",
-      "text": "The self is not a thing you have. It is a process you do. And wisdom is about transforming that process.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["self", "process", "transformation", "wisdom"],
-      "context": "Self as verb not noun"
+      "text": "There are different kinds of knowing, different ways in which a human being is able to know. Some of these ways have fallen off our cultural radar in the wake of the Meaning Crisis. When we read the ancients talk about knowing, we think of it now as a special kind of belief, a belief that something is true or false. But there is much more to knowing than having justified true beliefs. Trapping ourselves in this mode of factuality has made us more susceptible to bullshit and ideology because it has caused us to ignore several dimensions of experience that are essential to being rational. In this book, we will begin to reacquaint ourselves with these other ways of knowing: knowing how to catch a baseball, knowing what it is like to sit in your room and read this chapter, and knowing what it means to participate in a relationship. Consider that your relationship is not something you believe to be true or false. It is something you believe in.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "ways of knowing",
+        "participatory knowing",
+        "propositional knowledge",
+        "wisdom",
+        "cognition"
+      ],
+      "context": "Vervaeke's central epistemological move: he distinguishes propositional knowing (knowing-that) from procedural knowing (knowing-how), perspectival knowing (knowing-what-it's-like), and participatory knowing (belonging-in), arguing that the Meaning Crisis arises from the collapse of the latter three."
     },
     {
       "id": "vervaeke-006",
-      "text": "Insight is not just seeing something new. It is a restructuring of the very way you are making sense of things.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["insight", "restructuring", "sense-making", "seeing"],
-      "context": "Insight as cognitive transformation"
+      "text": "These other kinds of knowing, when they are addressed at all, are usually encountered in the therapeutic context. Therapy is another cultural practice that seems to have surged in response to the Meaning Crisis. Many people who seek therapy are trying, among other things, to recover these lost kinds of knowing, to retrieve the kind of insight that can transform them — not just change their beliefs, but change the perspective they take on their lives, the procedure of how they interact with it, the way they participate in themselves. That is why psychedelics can play a key role in therapeutic success; they help reactivate these different kinds of knowing.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "therapy",
+        "transformation",
+        "participatory knowing",
+        "psychedelics",
+        "self-knowledge"
+      ],
+      "context": "Vervaeke explains the therapeutic and psychedelic renaissance as attempts to recover lost modes of knowing — participatory, procedural, and perspectival — that were once cultivated by shamanism and the great wisdom traditions."
     },
     {
       "id": "vervaeke-007",
-      "text": "The opposite of bullshitting is not truth-telling. It is caring about the truth.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["bullshit", "truth", "caring", "orientation"],
-      "context": "Attitude toward truth matters"
+      "text": "Meaning is such a deep part of our nature that it seems to define, at least in part, what it means to be human in the first place. It plays a formative role in so many of the uniquely human attributes that seem to distinguish us from other species — like language, or religiousness, or even reflective self consciousness. There are so many human endeavors, especially artistic ones, that seem to have no other function than to celebrate our meaning-making abilities. It seems beside the point to ask why the poet writes, or the dancer dances, or why a rock climber puts herself in danger to scale a 1,000 foot cliff.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "meaning-making",
+        "human nature",
+        "language",
+        "religiousness",
+        "reflective consciousness"
+      ],
+      "context": "Vervaeke establishes meaning-making as constitutive of humanity itself — not a secondary feature but the very thing that distinguishes humans from other species, evident in language, religion, art, and reflective self-consciousness."
     },
     {
       "id": "vervaeke-008",
-      "text": "Flow states give us a taste of what it's like when relevance realization is working optimally. That's why they feel so meaningful.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["flow", "relevance", "meaning", "optimal"],
-      "context": "Explaining flow phenomenologically"
+      "text": "We will begin with the Upper Paleolithic Transition, which occurred around 40,000 BCE. Many people think of this period as the time when humanity — as we now define it — came into form. While we wouldn't be able to relate to these ancestors culturally or linguistically, we would nevertheless recognize their kind of humanity as akin to ours, a humanity that is bound up with the same meaning-making characteristics that I have been exploring with you in the previous sections. Human beings began doing things they were not doing before. They began to make representational art, like sculptures and cave paintings. We have good evidence to suggest that they also started making music. During this transition, human beings seem to have undergone a significant enhancement in cognition.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "Upper Paleolithic Transition",
+        "cognitive evolution",
+        "representational art",
+        "meaning-making",
+        "human origins"
+      ],
+      "context": "Vervaeke traces the origin of human meaning-making to the Upper Paleolithic Transition — a cognitive revolution that produced art, music, calendrics, and projectile weapons, establishing the participatory and symbolic capacities that define humanity."
     },
     {
       "id": "vervaeke-009",
-      "text": "Religio means to bind together again. What the ancients meant by religion was practices that reconnect you to yourself, to others, and to the world.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["religio", "binding", "reconnection", "practice"],
-      "context": "Etymology as insight"
+      "text": "We need to abstract for a moment to realize the momentousness of this evolutionary development: think about how deep this idea of throwing is in our cognition. Think of a project you are working on — project, like throwing to strike a moving target. Or consider the word object, which means 'thrown against.' Subject, meaning 'thrown under.' All day long, cognitively, you are throwing at moving targets. This is a deceptively complex task. As the military has discovered, trying to build artificial intelligence to project at moving targets turns out to be a very tall order. In time, the advent of long range weapons was accompanied by other seminal human projects, such as calendrics, music, sculpture, and paintings. Notice how all of these activities are associated with different aspects of meaning. They extend our attention into different domains of experience, and multiply our ways of knowing ourselves and our environment.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "projectile weaponry",
+        "cognition",
+        "attention",
+        "metaphor",
+        "meaning-making"
+      ],
+      "context": "Vervaeke reveals how projectile weaponry — a seemingly mundane invention — is the cognitive origin of projection, objecthood, and subjective perspective, showing that the capacity for throwing at moving targets underwrites our entire conceptual apparatus."
     },
     {
       "id": "vervaeke-010",
-      "text": "The sage is not someone who has all the answers. The sage is someone whose questions have become deep enough to transform how they live.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["sage", "questions", "answers", "transformation"],
-      "context": "Wisdom as deep questioning"
+      "text": "Forming these broader trading relationships was seminal because it changed the scale at which human cognition could operate. Your cognition is very participatory; you partake in large, distributed networks of cognition. Before the internet networked computers together, culture networked brains together to provide some of our most powerful problem solving abilities. This is how human beings responded to an impossible predicament — they formed a social network. These networks were managed with a form of pattern-oriented activity that became so fundamental to human culture that its influence pervades nearly all of our behavior. We call it ritual.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "distributed cognition",
+        "ritual",
+        "social networks",
+        "participation",
+        "cultural evolution"
+      ],
+      "context": "Vervaeke identifies ritual as the original technology for managing distributed cognitive networks — the cultural equivalent of what the internet does for computers, linking brains together to multiply problem-solving capacity."
     },
     {
       "id": "vervaeke-011",
-      "text": "Self-deception is not just lying to yourself. It is organizing your attention so that you don't notice what would disturb you.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["self-deception", "attention", "organization", "avoidance"],
-      "context": "Mechanism of self-deception"
+      "text": "Ritual trains your ability to regulate your emotion, and to undertake a process called decentering: adopting a non-egoic perspective by redirecting your attention to something real outside of you. Undertaking a ritual often means placing yourself in the hands of other people. In the initiation rituals, the entire group is, so to speak, shaking hands with the new member. The third-person perspective of the group becomes the first-person perspective of each participant. The ritual is centered on you, but through the ritual, your attention and identity become centered on the group. This has a tremendous impact on your cognition.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "ritual",
+        "decentering",
+        "emotion regulation",
+        "identity",
+        "perspective-taking"
+      ],
+      "context": "Vervaeke explains ritual's cognitive function as decentering — a shift from egoic to non-egoic perspective — that trains the capacity for self-transcendence and participatory knowing essential to wisdom cultivation."
     },
     {
       "id": "vervaeke-012",
-      "text": "Opponent processing means that the brain generates meaning through dynamic tension—like how you see depth through two eyes that disagree.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["opponent", "processing", "tension", "depth"],
-      "context": "Cognitive dynamics"
+      "text": "Shamanism, as the first psychotechnology, is a kind of anthropological origin story for the project of meaning in life, and therefore also for the meaning crisis. The way it altered our state of consciousness and cognition led to the philosophical and scientific enterprise, the capacity to turn scrutinous inquiry on worldly phenomena, and take a perspective on our existence. The shamans discovered an important connection between cognitive disruptions — breaks in the ordinary continuity of consciousness and physiology — and the capacity for insight. This connection has survived well into the modern world.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "shamanism",
+        "psychotechnology",
+        "altered states",
+        "insight",
+        "cognitive disruption"
+      ],
+      "context": "Vervaeke identifies shamanism as the first psychotechnology — a cognitive upgrade, not a hardware change — whose discovery that disrupting ordinary consciousness produces insight established the origin of philosophy, science, and wisdom cultivation."
     },
     {
       "id": "vervaeke-013",
-      "text": "We need an ecology of practices—not a single solution—to address the meaning crisis. No one practice will save us.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["ecology", "practices", "solution", "integration"],
-      "context": "Multi-practice approach"
+      "text": "If shamanism was like a software update, we can conceptualize it as a form of technology for the brain — or a psychotechnology. As the cognitive scientist Andy Clark wrote, you are a natural-born cyborg. Your brain has evolved across several species to use and integrate tools into its everyday functionality. When you start using a tool, even for a very short period of time, your brain will begin to model it as part of your body. When you are parking your car, for example, you can sense where the edge of your car is. The car turns invisible; it becomes an extension of your person. The same is true of your clothes, which modify your mobility and dexterity through various environments. Yet this is not the end of the story; your ability to internalize a tool can be exapted into a cognitive process, and this is how psychotechnologies become possible.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "psychotechnology",
+        "exaptation",
+        "extended mind",
+        "cognition",
+        "tool use"
+      ],
+      "context": "Vervaeke coins the concept of 'psychotechnology' — tools that, when internalized, become cognitive processes — showing how shamanism, literacy, and mindfulness are all software upgrades to the human brain, not mere beliefs."
     },
     {
       "id": "vervaeke-014",
-      "text": "The Socratic method is not about refuting people. It is about helping them realize that they don't know what they think they know—so they can actually begin to learn.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["Socratic", "knowledge", "ignorance", "learning"],
-      "context": "Purpose of elenchus"
+      "text": "Literacy is now so embedded in our culture that it is difficult to account for its many functions. It is a set of tools that standardizes how you process information, and allows you to share, remember, develop and transform that information. I do not have to retain all of my knowledge in mind; I can write it down and return to it later. I can see patterns in it that I didn't see before, and I can adjust and add to it across time. This also means I can see and adjust myself across time. I can link my brain to its counterparts in the past and future, and network all of these moments of problem solving together. I can also network my brain with your brain and mutually improve our ability to solve problems. Think of the effect on mindsight, and the distributed networks we discussed above — literacy allows me to know you better, know myself better, and know what it means to know better. It therefore gives me the capacity for what we call second order thinking.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "literacy",
+        "psychotechnology",
+        "second order thinking",
+        "distributed cognition",
+        "self-knowledge"
+      ],
+      "context": "Vervaeke treats literacy as a paradigm psychotechnology — an internalized tool that enables second-order thinking, self-correction across time, and the distributed cognitive networking that makes civilization possible."
     },
     {
       "id": "vervaeke-015",
-      "text": "Platonic anagoge is the process of being drawn upward by the beautiful toward the good and the true. It's not just intellectual—it transforms you.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["anagoge", "beauty", "good", "transformation"],
-      "context": "Platonic ascent"
+      "text": "Participatory knowing allows the shaman to combine many attributes that, in the modern epoch, are sequestered into separate roles and offices. The shaman is antecedent to the sage, highly charismatic and multifarious. Imagine combining a prodigious rock star, therapist, and artist into one individual, and being visited by this individual when you are sick and indisposed. The shaman does not simply mete out advice, but induces changes in your participatory, perspectival and procedural knowing. Their presence can therefore enhance your ability to trigger your own placebo effect. All medication has to surpass the placebo effect in order to be considered real and efficacious. In the absence of modern pharmacology, an individual that can trigger this effect is the best possible advantage for a community.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "participatory knowing",
+        "shamanism",
+        "sage",
+        "placebo effect",
+        "healing"
+      ],
+      "context": "Vervaeke explains the shaman's transformative power as the capacity to induce changes in participatory, perspectival, and procedural knowing — not via propositional persuasion but through a direct restructuring of how one's cognition relates to reality."
     },
     {
       "id": "vervaeke-016",
-      "text": "The axial age discovered that you can cultivate a second self—a self that can observe and transform the first self. That's the birth of self-transcendence.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["axial", "second-self", "observation", "transcendence"],
-      "context": "Historical insight about self-transcendence"
+      "text": "The flow state occurs when the demands of the situation slightly exceed your skill level, provoking an intense form of focus that allows for more cognitive flexibility in the way you detect and track patterns. In order to get into the flow channel, I must extend myself to meet the demands of a task that slightly exceeds my capacity. This requires me, through insight, to restructure my attention and change something about the way I am approaching the problem. This restructuring may be prolonged and methodical, or sudden and spontaneous. Either way, it requires me to put everything I have into the task. The key to the flow state is a dynamic coupling between the individual and the environment, and a close feedback loop running between them; as your skills improve, your environment responds, and yields additional pathways and opportunities for action.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "flow state",
+        "insight",
+        "cognitive flexibility",
+        "skill-challenge balance",
+        "dynamic coupling"
+      ],
+      "context": "Vervaeke's cognitive account of flow emphasizes its structural conditions — the dynamic coupling of skill and challenge, the tight feedback loop — showing that flow is not mysterious but a reproducible state that can be deliberately cultivated."
     },
     {
       "id": "vervaeke-017",
-      "text": "Gnosis is not just knowing about something. It is being transformed by your knowing—the way knowing a person changes you.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["gnosis", "transformation", "knowing", "person"],
-      "context": "Participatory vs propositional"
+      "text": "Now that we have outlined the conditions for flow, it becomes clear that the flow state is not the result of some mysterious alchemy; we can consciously reverse engineer those conditions that activate it. Shamanic rituals, with their various deprivation and feats of danger, are designed to do just that. While most of these rituals have faded from popular practice, elements of them remain in athletics, the arts, and in ascetic religious traditions. There are many activities we undertake precisely to get into flow. We dance, play jazz, or practice martial arts. Consider an activity like rock climbing: you climb precariously up a vertical rock face. The task is extremely physically demanding. It carries the risk of injury, exhaustion, and even death. Once you get to the top, you come back down, and eventually repeat the climb. Experienced rock climbers attain a very profound flow state. This is not the same thing as physical pleasure, but it is a deeply positive experience, a sense of connectedness to the world and to oneself that makes a person feel somehow more alive, more present to existence.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "flow state",
+        "shamanism",
+        "athletics",
+        "consciousness",
+        "connectedness"
+      ],
+      "context": "Vervaeke traces shamanic ritual as the original technology for inducing flow states, arguing that rock climbing, jazz, and martial arts are modern inheritors of the same cognitive strategy — deliberate exposure to conditions that force restructured attention."
     },
     {
       "id": "vervaeke-018",
-      "text": "Agency is not just doing what you want. It is being able to want what you would want if you could step back and see yourself more clearly.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["agency", "wanting", "clarity", "reflection"],
-      "context": "Higher-order agency"
+      "text": "When people are in the flow state, their self-consciousness disappears into the background. This doesn't mean that they become oblivious or obtuse, but they are temporarily relieved of that nattering, autobiographical voice that is constantly evaluating their presentation: How is my day going? How am I doing? Who am I? What am I doing? How am I perceived? How do I look? What are people thinking of me? How am I doing? Am I under threat? The presence of that authorial voice — though important for its own reasons — can overstay its usefulness. It can keep you at a distance from the world, interrupt your focus, elide the quality of attention you bring to bear on your activities. In depressive states, this kind of rumination can be paralytic, but in the flow state, it retreats into the margins of your concentration. The flow state brings salience to experience, a certain intensity to the world, a brightness and vividness you might associate with a video game.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "flow state",
+        "self-consciousness",
+        "autobiographical voice",
+        "salience",
+        "presence"
+      ],
+      "context": "Vervaeke explains how the flow state temporarily dissolves the autobiographical self-monitoring voice, producing a heightened participatory presence — a direct engagement with reality unmediated by self-referential rumination."
     },
     {
       "id": "vervaeke-019",
-      "text": "The sacred is not supernatural. It is that which is experienced as inexhaustibly deep, with which we can be in an ever-deepening relationship.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["sacred", "supernatural", "depth", "relationship"],
-      "context": "Naturalistic account of the sacred"
+      "text": "The flow state appears universal. It is experienced by people across cultures, in all kinds of socio-economic groups, genders, languages, environments and age groups. In every case, it is described in almost exactly the same way. Universals are important in cognitive science. We pay close attention to them because they yield important insights into the nature of our cognitive machinery and our evolutionary history. Understanding the flow state leads us back to shamanism, but it also helps us understand many timeless human experiences that are otherwise difficult to describe. When you are in the flow state, you feel deeply at one with things, as though you are being acted upon by an outside force that lends timing and fluidity to your movements. Each sport has an equivalent kind of excellence that corresponds to the flow state. There is a tremendous sense of at-onement.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "flow state",
+        "universals",
+        "at-onement",
+        "cognitive science",
+        "timeless experience"
+      ],
+      "context": "The universality of the flow state across cultures and contexts is, for Vervaeke, a cognitive-scientific clue about the deep structure of human consciousness — pointing toward the ancient at-onement experiences that religious traditions have always sought to cultivate."
     },
     {
       "id": "vervaeke-020",
-      "text": "Bullshit is not lying. Bullshit is not caring whether what you say is true or false. And we are drowning in it.",
-      "source": "Awakening from the Meaning Crisis",
-      "themes": ["bullshit", "lying", "caring", "truth"],
-      "context": "Distinction between bullshit and lies"
+      "text": "The word metaphor is itself a metaphor. It means to bridge, to carry over, to connect things that are normally not connected. These statements are all metaphors. Take the following sentence: the weather feels moody as you have your breakfast, wondering how to broach a delicate topic on the way to work with a colleague who is touchy about taking your criticism. Our phrases are composed of these molecular metaphoric compounds. Even the most rigorous analytical thinker does not speak literally. The psychotechnology of metaphor is as pervasive as it is profound, and it is so essential to our thinking as to be invisible in our everyday language. To use Heraclitus's words, metaphor is a hidden harmony that undergirds our speech.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "metaphor",
+        "psychotechnology",
+        "cognition",
+        "hidden harmony",
+        "language"
+      ],
+      "context": "Vervaeke treats metaphor as a psychotechnology — not merely a literary device but the cognitive machinery by which the brain connects disparate domains, creating the 'hidden harmony' Heraclitus identified as the ground of all intelligibility."
+    },
+    {
+      "id": "vervaeke-021",
+      "text": "The power of metaphor lies in its poetic capacity to create connections between ideas, to fit things together that did not originally belong together. When two independent domains of thought or experience are made to belong together, they create a kind of third identity, a new region of imagination that expresses and explores parts of our experience that were not expressible or explorable. Metaphor puts parts together to make a new whole, but it also allows a whole — e.g., the brain — to relate its own parts. These parts now belong more with one another, and so the shaman seems to belong more in himself. Metaphor plays a decisive role in how we gather ourselves together, gather to the world, gather the world to order. There is a deep connection, therefore, between metaphorical thought and insight — your ability to solve problems.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "metaphor",
+        "insight",
+        "imagination",
+        "integration",
+        "belonging"
+      ],
+      "context": "Vervaeke shows that metaphor does not merely describe but constitutes — creating new regions of imagination where previously disconnected domains can belong together, which is the cognitive mechanism of insight and participatory knowing."
+    },
+    {
+      "id": "vervaeke-022",
+      "text": "With the Axial Age, the continuity of time and power was interrupted. It did not disappear altogether — some aspects of the cyclicality persisted — but a new worldview was overlaid, a different mythology for understanding the connection between self and world. Charles Taylor calls this the great disembedding, in which the world of the Continuous Cosmos was replaced by a different mythological structure. In the great disembedding, one world became two. The everyday world was that of the untrained mind, a world beset by self-deception, self-destruction, illusion, violence, and chaos. To live in this world was to be out of touch with reality. The real world lay behind this world of illusion. This was how the trained mind, the wise mind, saw the world.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 3: The Continuous Cosmos and Modern World Grammar",
+      "themes": [
+        "Axial Age",
+        "great disembedding",
+        "Two Worlds Mythology",
+        "illusion",
+        "wisdom"
+      ],
+      "context": "Vervaeke traces the Axial Revolution as a great disembedding — the replacement of the Continuous Cosmos with a Two Worlds Mythology that created the inner existential space within which self-transcendence, wisdom, and personal responsibility became possible."
+    },
+    {
+      "id": "vervaeke-023",
+      "text": "Before the Axial Revolution, chaos, warfare and violence were part of the natural order. Human beings were merely the vassals of greater powers. With the advent of second order thinking, people began to realize they had a hand in their own misfortune. We too were responsible for violence and chaos. They also were consequences of meaning-making. This axial insight is captured by the following phrase in The Dhammapada: 'the mind is the chief thing... there is no enemy greater than your own mind, but there is no ally greater than your own mind.' Cognition is a double-edged sword. If it goes undisciplined, it leads us to illusion, self-deception, and violence. If we discipline it through self-correction, our cognition becomes a greater power of its own, and it can alleviate unnecessary suffering. Thus was the gauntlet thrown at the foot of humanity. Wisdom was not a luxury, but somehow a necessity.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 2: Flow, Metaphor and the Axial Revolution",
+      "themes": [
+        "Axial Revolution",
+        "second order thinking",
+        "self-deception",
+        "wisdom necessity",
+        "suffering"
+      ],
+      "context": "Vervaeke identifies the Axial Revolution's central insight: that the mind is both the source of suffering and the instrument of liberation — making wisdom not a luxury but an existential necessity for any person who has awakened to their own capacity for self-deception."
+    },
+    {
+      "id": "vervaeke-024",
+      "text": "The Two Worlds Mythology is a mythological form of thinking that allows us to articulate and train the psychotechnologies of the Axial Revolution, the projects of self-transcendence and wisdom. It took the meaning-making of the shaman and refined it into a more precise way of cultivating human cognition. However, this mythology is failing us now. The scientific worldview, with its materialist and physicalist metaphysics, is gradually eroding the Axial project. It is a cosmic irony, perhaps, that the scientific worldview is returning us to a Continuous Cosmos. Its naturalism is retracting the movement of self-transcendence. There is no radical difference in kind between you and the primates you evolved from. There is no radical difference in kind between your mind and your embodied existence. Science is leveling the world again.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 3: The Continuous Cosmos and Modern World Grammar",
+      "themes": [
+        "Two Worlds Mythology",
+        "scientific worldview",
+        "Continuous Cosmos",
+        "self-transcendence",
+        "modernity"
+      ],
+      "context": "Vervaeke identifies the core of the modern Meaning Crisis: the scientific worldview's return to a naturalistic Continuous Cosmos is eroding the Two Worlds Mythology that sustained the Axial project of wisdom and self-transcendence, leaving us with neither mythology's benefits."
+    },
+    {
+      "id": "vervaeke-025",
+      "text": "Ignorance is a lack of knowledge, whereas foolishness is a lack of wisdom. Foolishness occurs when your capacity to engage your agency or pursue your goals is undermined by self-deceptive and self-destructive behavior. This behavior is a perennial vulnerability in your cognition. As I will argue, the machinery that makes you so adaptively intelligent is the same machinery that makes you susceptible to foolishness. It is important not to underestimate this foolishness, or to think of it as belonging to a few hapless people. We are all susceptible to this behavior when we confront, or are confronted by, the dark features of our existence: life's finite nature, the presence of fatalism, the constancy of change, the erosion of life by time, and the tension between our lofty aspiration and life's unpredictable fatalities. These confrontations induce in us experiences of absurdity, alienation, futility and horror. When we lose the capacity to confront them, we begin to avoid some essential part of our humanity.",
+      "source": "Awakening from the Meaning Crisis: Origins, Chapter 1: The Question of Meaning",
+      "themes": [
+        "foolishness vs. ignorance",
+        "self-deception",
+        "wisdom",
+        "cognitive vulnerability",
+        "human condition"
+      ],
+      "context": "Vervaeke draws the crucial Socratic distinction between ignorance and foolishness, arguing that the machinery producing human adaptiveness is the same machinery that generates self-deception — making wisdom not optional but the central existential task of a self-aware being."
     }
   ]
 }

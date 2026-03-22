@@ -153,11 +153,11 @@ function normalizeIntentScores(raw) {
 export function selectTone(intentScores, state, threadMemory) {
   // Base weights from state (intimate lower to avoid over-triggering)
   const weights = {
-    casual: state.casualWeight || 0.69,
+    casual: state.casualWeight || 0.5,
     analytic: state.analyticWeight || 0.5,
-    oracular: state.oracularWeight || 0.2,
+    oracular: state.oracularWeight || 0.35,
     intimate: (state.intimateWeight || 0.25) * 0.6, // deliberately nerfed (* 0.6) — without this, intimate wins too often and Pneuma sounds clingy
-    shadow: state.shadowWeight || 0.15,
+    shadow: state.shadowWeight || 0.25,
   };
 
   // Strong casual override: if casual intent is very high, force it
@@ -458,7 +458,13 @@ export async function generate(
       emergentShift, // flag: tells Claude to be more self-reflective
       eulogyLens, // flag: tells Claude to add mortality/finality flavor
     };
-    llmContent = await getLLMContent(message, tone, intentScores, context); // ask Claude to write
+    llmContent = await getLLMContent(
+      message,
+      tone,
+      intentScores,
+      context,
+      typeof extraContext.onChunk === "function" ? extraContext.onChunk : null,
+    ); // ask Claude to write
   }
 
   // ── STEP 3: LAYER 3 — Personality Profile ────────────────

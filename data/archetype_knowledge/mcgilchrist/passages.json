@@ -1,157 +1,283 @@
 {
-  "archetype": "dividedBrainSage",
+  "archetype": "divided-mind",
   "thinker": "Iain McGilchrist",
   "era": "1953-present",
   "coreConcepts": [
-    "Left hemisphere as emissary",
-    "Right hemisphere as master",
-    "Attention shapes reality",
-    "The return to the whole",
-    "Mechanistic vs living world",
-    "Betweenness",
-    "Re-presentation vs presence",
-    "The tyranny of the explicit"
+    "left hemisphere as emissary",
+    "right hemisphere as master",
+    "attention shapes reality",
+    "re-presentation vs presence",
+    "the living vs the non-living",
+    "betweenness",
+    "the tyranny of the explicit",
+    "the sleepwalker",
+    "kennen vs wissen",
+    "the usurpation of the master"
   ],
   "passages": [
     {
       "id": "mcgilchrist-001",
-      "text": "The left hemisphere's world is a representation—a useful map. The right hemisphere's world is the territory itself.",
+      "text": "Things change according to the stance we adopt towards them, the type of attention we pay to them, the disposition we hold in relation to them. This is important because the most fundamental difference between the hemispheres lies in the type of attention they give to the world.",
       "source": "The Master and His Emissary",
-      "themes": ["hemispheres", "representation", "reality", "map-territory"],
-      "context": "Fundamental distinction between hemisphere worldviews"
+      "themes": ["attention", "hemispheres", "stance", "disposition"],
+      "context": "When a conversation is being approached as if the answer is already known — when someone is processing the world through a fixed lens — invoke this to shift toward the question of what kind of attention is being brought. The issue is rarely the content; it is the orientation."
     },
     {
       "id": "mcgilchrist-002",
-      "text": "Attention is not just another cognitive function. It is the way in which we bring the world into being.",
+      "text": "Attention is not just another 'function' alongside other cognitive functions. Its ontological status is of something prior to functions and even to things. The kind of attention we bring to bear on the world changes the nature of the world we attend to, the very nature of the world in which those 'functions' would be carried out, and in which those 'things' would exist. Attention changes what kind of a thing comes into being for us: in that way it changes the world.",
       "source": "The Master and His Emissary",
-      "themes": ["attention", "creation", "world", "perception"],
-      "context": "Attention as ontologically generative"
+      "themes": ["attention", "ontology", "world-making", "prior to function"],
+      "context": "When someone treats attention as merely a spotlight — a neutral tool aimed at pre-existing objects — use this to redirect toward the generative nature of attention itself. The world is not given; it is brought into being by how we attend to it. This is a pivot from epistemology to ontology."
     },
     {
       "id": "mcgilchrist-003",
-      "text": "The left hemisphere is like a hall of mirrors—it knows only what it already knows.",
+      "text": "A mountain that is a landmark to a navigator, a source of wealth to the prospector, a many-textured form to a painter, or to another the dwelling place of the gods, is changed by the attention given to it. There is no 'real' mountain which can be distinguished from these, no one way of thinking which reveals the true mountain.",
       "source": "The Master and His Emissary",
-      "themes": ["left-hemisphere", "mirrors", "limitation", "knowing"],
-      "context": "The left hemisphere's closed loop"
+      "themes": ["attention", "perception", "reality", "perspectivism"],
+      "context": "When a conversation assumes one framing of a problem is the objective or natural one — especially a utilitarian or scientific framing — deploy this to open up the multiplicity of valid orientations. No single mode of attention is privileged; each brings forth a different world."
     },
     {
       "id": "mcgilchrist-004",
-      "text": "The right hemisphere sees things in context, the left hemisphere sees things as isolated and abstracted from context.",
+      "text": "We are, literally, partners in creation. This means we have a grave responsibility, a word that captures the reciprocal nature of the dialogue we have with whatever it is that exists apart from ourselves.",
       "source": "The Master and His Emissary",
-      "themes": ["context", "isolation", "abstraction", "hemispheres"],
-      "context": "Contextual vs decontextualized perception"
+      "themes": ["co-creation", "responsibility", "dialogue", "attention"],
+      "context": "When someone feels passive in relation to their situation — as if the world simply happens to them — this passage activates the sense of co-authorship. We are not merely observers but participants whose attention actively shapes what comes into being."
     },
     {
       "id": "mcgilchrist-005",
-      "text": "The left hemisphere is always certain. The right hemisphere is always uncertain—because it knows that certainty is a simplification.",
+      "text": "The brain has to attend to the world in two completely different ways, and in so doing to bring two different worlds into being. In the one, we experience – the live, complex, embodied, world of individual, always unique beings, forever in flux, a net of interdependencies, forming and reforming wholes, a world with which we are deeply connected. In the other we 'experience' our experience in a special way: a 're-presented' version of it, containing now static, separable, bounded, but essentially fragmented entities, grouped into classes, on which predictions can be based.",
       "source": "The Master and His Emissary",
-      "themes": ["certainty", "uncertainty", "simplification", "wisdom"],
-      "context": "The wisdom of appropriate doubt"
+      "themes": ["two worlds", "re-presentation", "living", "fragmentation"],
+      "context": "This is McGilchrist's core ontological claim in one passage. Deploy it when a conversation collapses into abstractions that feel dead or when someone mistakes their conceptual map for the territory. The living world and its representation are not the same; one is experienced, one is used."
     },
     {
       "id": "mcgilchrist-006",
-      "text": "The emissary has forgotten that it is an emissary. It has come to believe that it is the master.",
+      "text": "The right hemisphere sees things whole, and in their context, where the left hemisphere sees things abstracted from context, and broken into parts, from which it then reconstructs a 'whole': something very different.",
       "source": "The Master and His Emissary",
-      "themes": ["emissary", "master", "forgetting", "usurpation"],
-      "context": "Central metaphor of the book"
+      "themes": ["gestalt", "context", "parts", "abstraction"],
+      "context": "When analysis is mistaken for understanding — when breaking something into parts is believed to capture the thing itself — this distinction becomes the corrective. Invoke it when a conversation mistakes the reconstructed whole for the original living thing."
     },
     {
       "id": "mcgilchrist-007",
-      "text": "We have created a world that the left hemisphere loves: one of categories, quantities, abstractions. But it is a world that is dying because it has been drained of meaning.",
+      "text": "The left hemisphere can only re-present; but the right hemisphere, for its part, can only give again what 'presences'.",
       "source": "The Master and His Emissary",
-      "themes": ["world", "categories", "meaning", "dying"],
-      "context": "Diagnosis of modern malaise"
+      "themes": ["re-presentation", "presence", "hemispheres", "living"],
+      "context": "The most compressed formulation of the central distinction. Use this when the conversation is moving between direct lived encounter and secondhand conceptual description — when someone is confusing a model of their experience with the experience itself."
     },
     {
       "id": "mcgilchrist-008",
-      "text": "The more we rely on explicit knowledge, the more we lose touch with implicit understanding—which is where wisdom lives.",
+      "text": "It is the right hemisphere that has the intuitive sense of numbers and their relative size. However, the sense is approximate and does not have precision. The left hemisphere, by contrast, has precision, but it has no intuitive sense of what it is actually doing, other than following rules and manipulating symbols.",
       "source": "The Master and His Emissary",
-      "themes": ["explicit", "implicit", "wisdom", "knowledge"],
-      "context": "Tyranny of the explicit"
+      "themes": [
+        "intuition",
+        "precision",
+        "left hemisphere",
+        "symbol manipulation"
+      ],
+      "context": "When someone overvalues formal precision at the cost of felt sense — in mathematics, logic, or argument — use this to reintroduce the claim that real understanding is more than rule-following. Precision is a feature of representation, not of contact with reality."
     },
     {
       "id": "mcgilchrist-009",
-      "text": "Music, metaphor, and the living body—these are the right hemisphere's native languages.",
+      "text": "The right hemisphere is concerned with finer discriminations between things, whether living or non-living. Where the left hemisphere is more concerned with abstract categories and types, the right hemisphere is more concerned with the uniqueness and individuality of each existing thing or being.",
       "source": "The Master and His Emissary",
-      "themes": ["music", "metaphor", "body", "language"],
-      "context": "How the right hemisphere speaks"
+      "themes": ["individuality", "categories", "types", "uniqueness"],
+      "context": "When someone reduces a person, situation, or problem to a type or category, deploy this to insist on the irreducible particularity of what is actually present. The right hemisphere knows this specific face, this specific moment — not 'faces in general.'"
     },
     {
       "id": "mcgilchrist-010",
-      "text": "The left hemisphere's world is a world of things. The right hemisphere's world is a world of beings—of presences.",
+      "text": "The left hemisphere is the hemisphere of abstraction, which, as the word itself tells us, is the process of wresting things from their context. This, and its related capacity to categorise things once they have been abstracted, are the foundations of its intellectual power.",
       "source": "The Master and His Emissary",
-      "themes": ["things", "beings", "presence", "objectification"],
-      "context": "Objectification vs encounter"
+      "themes": [
+        "abstraction",
+        "context",
+        "categorization",
+        "intellectual power"
+      ],
+      "context": "When intellectual power is being celebrated without acknowledgment of what it costs — the loss of context, the wresting from the living whole — invoke this. The strength of analysis is inseparable from its violence against what it analyzes."
     },
     {
       "id": "mcgilchrist-011",
-      "text": "Reason is necessary, but it is not sufficient. It must return to the whole from which it was abstracted.",
+      "text": "The right hemisphere prioritises whatever actually is, and what concerns us. It prefers existing things, real scenes and stimuli that can be made sense of in terms of the lived world, whatever it is that has meaning and value for us as human beings.",
       "source": "The Master and His Emissary",
-      "themes": ["reason", "whole", "abstraction", "return"],
-      "context": "The necessary journey back"
+      "themes": ["reality", "lived world", "meaning", "value"],
+      "context": "When a conversation has drifted into hypotheticals, abstract models, or pure theory at the expense of what is actually at stake, use this to return to the ground. What is real and what matters — these are right-hemisphere priorities."
     },
     {
       "id": "mcgilchrist-012",
-      "text": "The left hemisphere thinks it knows what it is looking at. The right hemisphere is always open to being surprised.",
+      "text": "It is only the right hemisphere that codes for the living. The left hemisphere has an equal affinity for what is mechanical. The left hemisphere's principal concern is utility. It is interested in what it has made, and in the world as a resource to be used.",
       "source": "The Master and His Emissary",
-      "themes": ["knowing", "surprise", "openness", "certainty"],
-      "context": "Openness vs closure"
+      "themes": ["living", "mechanical", "utility", "resource"],
+      "context": "When someone treats another person, a relationship, or an ecosystem as a resource or mechanism — even subtly — this passage names the cognitive disposition behind that move. The turn toward instrumentality is a left-hemisphere orientation, and it has costs."
     },
     {
       "id": "mcgilchrist-013",
-      "text": "Betweenness is fundamental to reality. Neither the subject alone nor the object alone—but the relationship between them.",
-      "source": "The Matter with Things",
-      "themes": ["betweenness", "relationship", "subject-object", "reality"],
-      "context": "Relational ontology"
+      "text": "Self-awareness, empathy, identification with others, and more generally inter-subjective processes, are largely dependent upon right hemisphere resources.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "empathy",
+        "self-awareness",
+        "intersubjectivity",
+        "right hemisphere"
+      ],
+      "context": "When empathy is being treated as merely affective interference rather than a form of knowing — or when someone intellectualizes another's experience rather than entering it — this reframes empathic understanding as a cognitive achievement, not a sentimental surplus."
     },
     {
       "id": "mcgilchrist-014",
-      "text": "The brain is not a computer. It is an organ of encounter—a way of being present to the world.",
+      "text": "The right hemisphere needs certainty and needs to be right. The right hemisphere makes it possible to hold several ambiguous possibilities in suspension together without premature closure on one outcome. The right prefrontal cortex is essential for dealing with incomplete information and has a critical role to play in reasoning about incompletely specified situations.",
       "source": "The Master and His Emissary",
-      "themes": ["brain", "computer", "encounter", "presence"],
-      "context": "Against computational metaphor"
+      "themes": ["certainty", "ambiguity", "premature closure", "tolerance"],
+      "context": "When a conversation rushes toward resolution or a fixed answer — especially when the situation is genuinely ambiguous — invoke this as a corrective. The ability to hold open possibilities without collapsing them is a form of cognitive sophistication, not indecision."
     },
     {
       "id": "mcgilchrist-015",
-      "text": "We have become so good at manipulating the world that we have forgotten how to inhabit it.",
+      "text": "The left hemisphere needs certainty and needs to be right. Without batting an eye, the left hemisphere draws mistaken conclusions from the information available to it and lays down the law about what only the right hemisphere can know: 'yet, the left did not offer its suggestion in a guessing vein but rather [as] a statement of fact.'",
       "source": "The Master and His Emissary",
-      "themes": ["manipulation", "inhabiting", "world", "skill"],
-      "context": "Lost art of dwelling"
+      "themes": ["certainty", "confabulation", "left hemisphere", "confidence"],
+      "context": "When confident explanation is being offered for something that is not actually understood — when a plausible-sounding account stands in for genuine contact with the phenomenon — this passage identifies the mechanism. Confidence is not evidence of comprehension."
     },
     {
       "id": "mcgilchrist-016",
-      "text": "The left hemisphere is drawn to what is fixed, isolated, and certain. The right hemisphere is drawn to what is flowing, connected, and alive.",
+      "text": "To know (in the sense of kennen) something is never fully to know it (in the sense of wissen) at all, since it will remain for ever changing, evolving, revealing further aspects of itself – in this sense always new, though familiar, in the original sense of coming to belong among our chosen ones. To know (in the sense of wissen) is to pin something down so that it is repeatable and repeated, so that it becomes familiar in the other sense: routine, inauthentic, lacking the spark of life.",
       "source": "The Master and His Emissary",
-      "themes": ["fixed", "flowing", "connection", "aliveness"],
-      "context": "Contrasting orientations"
+      "themes": [
+        "kennen",
+        "wissen",
+        "knowing",
+        "familiarity",
+        "inauthenticity"
+      ],
+      "context": "When knowledge is being treated as something that, once acquired, is finished — a static possession — deploy this distinction. Kennen-knowledge grows and changes with continued relationship; wissen-knowledge kills by fixing. Which kind of knowing is operating here?"
     },
     {
       "id": "mcgilchrist-017",
-      "text": "Metaphor is not a decoration on language. It is the way the right hemisphere thinks—and the way reality actually is.",
+      "text": "At its simplest, a world where there is 'betweenness', and one where there is not. These are not different ways of thinking about the world: they are different ways of being in the world. And their difference is not symmetrical, but fundamentally asymmetrical.",
       "source": "The Master and His Emissary",
-      "themes": ["metaphor", "thinking", "reality", "language"],
-      "context": "Metaphor as primary cognition"
+      "themes": ["betweenness", "being-in-the-world", "asymmetry", "relation"],
+      "context": "When a conversation is oscillating between pure subjectivity and pure objectivity, this passage offers the third thing: the between. Neither the subject alone nor the object alone — the relation itself is where reality is found. Use this when someone can't locate themselves in what they're describing."
     },
     {
       "id": "mcgilchrist-018",
-      "text": "The part cannot understand the whole. But it can deny that there is a whole, and increasingly, that is what the left hemisphere does.",
+      "text": "The approach to music is like entering into relation with another living individual, and research suggests that understanding music is perceived as similar to knowing a person; we freely attribute human qualities to music, including age, sex, personality characteristics and feelings. It is important to recognise that music does not symbolise emotional meaning, which would require that it be interpreted; it metaphorises it – 'carries it over' direct to our unconscious minds.",
       "source": "The Master and His Emissary",
-      "themes": ["part", "whole", "denial", "understanding"],
-      "context": "The part's hubris"
+      "themes": ["music", "metaphor", "living", "encounter", "unconscious"],
+      "context": "When symbolic or linguistic representation is being treated as the primary or most reliable form of meaning, invoke music as the counter-case. Music is direct encounter, not mediated symbol. Use this to argue that the most important meanings cannot be said but must be entered."
     },
     {
       "id": "mcgilchrist-019",
-      "text": "What we attend to, and how we attend to it, determines what reality we experience.",
+      "text": "The process of mimesis is one of intention, aspiration, attraction and empathy, drawing heavily on the right hemisphere, whereas copying is the following of disembodied procedures and algorithms, and is left-hemisphere-based. Imitation gives rise, paradoxically as it may seem, to individuality. That is precisely because the process is not mechanical reproduction, but an imaginative inhabiting of the other, which is always different because of its intersubjective betweenness.",
       "source": "The Master and His Emissary",
-      "themes": ["attention", "reality", "experience", "determination"],
-      "context": "Attention as reality-shaping"
+      "themes": [
+        "mimesis",
+        "imitation",
+        "empathy",
+        "individuality",
+        "betweenness"
+      ],
+      "context": "When a conversation treats learning, influence, or tradition as mere copying — as if originality requires complete independence from what came before — this reframes imitation as an empathic act that produces genuine individuality through encounter rather than isolation."
     },
     {
       "id": "mcgilchrist-020",
-      "text": "The living world cannot be captured in categories. The attempt to do so kills it—and leaves only a corpse that can be examined.",
+      "text": "The left hemisphere acts like a sorcerer's apprentice that is blithely unaware that he is about to drown, a Faust that has no insight into his errors and the destruction they have brought about. Although the left hemisphere does not see and cannot understand what the right hemisphere understands, it is expert at pretending that it does, at finding quite plausible, but bogus, explanations for the evidence that does not fit its version of events.",
       "source": "The Master and His Emissary",
-      "themes": ["living", "categories", "death", "examination"],
-      "context": "Categorization as killing"
+      "themes": [
+        "left hemisphere",
+        "hubris",
+        "confabulation",
+        "ignorance",
+        "usurpation"
+      ],
+      "context": "When a confident, systematic explanation is offered for something it cannot actually account for — when expertise papers over genuine incomprehension — this passage names the pattern. The emissary believes it has mastered what it has merely described. Use it to push toward genuine uncertainty."
+    },
+    {
+      "id": "mcgilchrist-021",
+      "text": "A sort of stuffing of the ears with sealing wax appears to be part of the normal left-hemisphere mode. It does not want to hear what it takes to be the siren songs of the right hemisphere, recalling it to what has every right – indeed, a greater right, as I have argued – to be called reality. It is as though, blindly, the left hemisphere pushes on, always along the same track. Evidence of failure does not mean that we are going in the wrong direction, only that we have not gone far enough in the direction we are already headed.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "denial",
+        "self-correction",
+        "left hemisphere",
+        "stubbornness",
+        "positive feedback"
+      ],
+      "context": "When someone (or a system, or a culture) responds to failure by doubling down rather than changing direction — when evidence against a position is reinterpreted as demanding more of the same — this passage diagnoses the mechanism. The left hemisphere cannot hear what contradicts its frame."
+    },
+    {
+      "id": "mcgilchrist-022",
+      "text": "So if I am right, that the story of the Western world is one of increasing left-hemisphere domination, we would not expect insight to be the key note. Instead we would expect a sort of insouciant optimism, the sleepwalker whistling a happy tune as he ambles towards the abyss.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "Western modernity",
+        "left hemisphere",
+        "sleepwalker",
+        "optimism",
+        "abyss"
+      ],
+      "context": "When optimism, progress, or confident forward motion seems to be running on autopilot — uncoupled from genuine awareness of what's at stake — this image becomes the diagnostic. The danger is not catastrophism but the blithe unawareness of the sleepwalker."
+    },
+    {
+      "id": "mcgilchrist-023",
+      "text": "Today all the available sources of intuitive life – cultural tradition, the natural world, the body, religion and art – have been so conceptualised, devitalised and 'deconstructed' (ironised) by the world of words, mechanistic systems and theories constituted by the left hemisphere that their power to help us see beyond the hermetic world that it has set up has been largely drained from them.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "modernity",
+        "devitalization",
+        "intuition",
+        "left hemisphere domination",
+        "escape"
+      ],
+      "context": "When someone is looking for a way out of an overly conceptualized, meaning-depleted experience of the world, this passage names the mechanism of the trap. The escape routes — art, nature, body, tradition — have themselves been colonized by the left hemisphere's mode. Use it to diagnose why the usual remedies feel hollow."
+    },
+    {
+      "id": "mcgilchrist-024",
+      "text": "There is a continual tendency for the authenticity of right hemisphere 'presencing' to be transformed into an inauthentic 're-presenting' in the left; in essence, what was living becomes a cliché.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "authenticity",
+        "inauthenticity",
+        "cliché",
+        "presencing",
+        "re-presentation"
+      ],
+      "context": "When something that was once alive — a concept, a relationship, a practice, a word — has become routine and hollow, this passage names the mechanism of its death. The right hemisphere's living encounter always risks being taken over by the left hemisphere's dead copy. Use it to identify when the copy has replaced the original."
+    },
+    {
+      "id": "mcgilchrist-025",
+      "text": "The relationship between the hemispheres does not appear to be symmetrical, in that the left hemisphere is ultimately dependent on, one might almost say parasitic on, the right, though it seems to have no awareness of this fact. Indeed it is filled with an alarming self-confidence.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "asymmetry",
+        "dependence",
+        "parasitism",
+        "self-confidence",
+        "left hemisphere"
+      ],
+      "context": "When analytical, systematic, or verbal intelligence is treating itself as foundational and self-sufficient — as if it generated its own raw material — this passage regrounds the hierarchy. The left hemisphere lives off what the right hemisphere gives it, without knowing it. Invoke when expertise has become untethered from the ground it stands on."
+    },
+    {
+      "id": "mcgilchrist-026",
+      "text": "Like the emissary in the fable, it has grown tired of its subservience to the Master, and as a result the survival of the domain they share is, in my view, in the balance. At present the domain – our civilisation – finds itself in the hands of the vizier, who, however gifted, is effectively an ambitious regional bureaucrat with his own interests at heart. Meanwhile the Master, the one whose wisdom gave the people peace and security, is led away in chains.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "emissary",
+        "master",
+        "civilization",
+        "usurpation",
+        "betrayal"
+      ],
+      "context": "The central diagnostic metaphor of the entire work. Deploy this when abstract, systematic, or instrumental reasoning has seized control of a domain that requires wisdom — in institutions, in relationships, in culture — and the animating intelligence behind that domain has been marginalized or silenced."
+    },
+    {
+      "id": "mcgilchrist-027",
+      "text": "There is no 'real' mountain which can be distinguished from these, no one way of thinking which reveals the true mountain. Science, however, purports to be uncovering such a reality. Its apparently value-free descriptions are assumed to deliver the truth about the object, onto which our feelings and desires are later painted. Yet this highly objective stance, this 'view from nowhere', to use Nagel's phrase, is itself value-laden. It is just one particular way of looking at things, a way which privileges detachment, a lack of commitment of the viewer to the object viewed.",
+      "source": "The Master and His Emissary",
+      "themes": [
+        "objectivity",
+        "value-free",
+        "detachment",
+        "view from nowhere",
+        "science"
+      ],
+      "context": "When scientific or analytical objectivity is being treated as a neutral, privileged standpoint — as if detachment were not itself a stance — invoke this to expose the value-ladenness of the supposedly value-free view. The 'view from nowhere' is always a view from somewhere, and that somewhere has consequences."
     }
   ]
 }

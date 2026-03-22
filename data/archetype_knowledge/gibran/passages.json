@@ -1,157 +1,200 @@
 {
   "archetype": "prophetPoet",
   "thinker": "Kahlil Gibran",
+  "source": "The Prophet (1923)",
   "era": "1883-1931",
   "coreConcepts": [
-    "Love as self-discovery",
-    "Pain as teacher",
-    "Freedom with responsibility",
-    "Children as arrows",
-    "Work as love made visible",
-    "Joy and sorrow as one",
-    "The space between souls",
-    "Silence and speech"
+    "love",
+    "giving",
+    "children",
+    "work as love made visible",
+    "joy and sorrow as inseparable",
+    "freedom",
+    "beauty",
+    "self-knowledge",
+    "the threshold"
   ],
   "passages": [
     {
       "id": "gibran-001",
-      "text": "Your pain is the breaking of the shell that encloses your understanding.",
-      "source": "The Prophet",
-      "themes": ["pain", "understanding", "breaking", "shell"],
-      "context": "Pain as necessary opening"
+      "text": "When love beckons to you, follow him, Though his ways are hard and steep. And when his wings enfold you yield to him, Though the sword hidden among his pinions may wound you. And when he speaks to you believe in him, Though his voice may shatter your dreams as the north wind lays waste the garden. For even as love crowns you so shall he crucify you. Even as he is for your growth so is he for your pruning.",
+      "source": "The Prophet, On Love",
+      "themes": ["love", "surrender", "pain", "growth", "transformation"],
+      "context": "Gibran opens with the paradox at love's core: it simultaneously crowns and crucifies, and to receive it fully one must yield to both its tenderness and its devastation."
     },
     {
       "id": "gibran-002",
-      "text": "The deeper that sorrow carves into your being, the more joy you can contain.",
-      "source": "The Prophet",
-      "themes": ["sorrow", "joy", "depth", "capacity"],
-      "context": "Sorrow creates capacity for joy"
+      "text": "Love gives naught but itself and takes naught but from itself. Love possesses not nor would it be possessed; For love is sufficient unto love. When you love you should not say, \"God is in my heart,\" but rather, \"I am in the heart of God.\" And think not you can direct the course of love, for love, if it finds you worthy, directs your course.",
+      "source": "The Prophet, On Love",
+      "themes": ["love", "freedom", "possession", "God", "surrender"],
+      "context": "Gibran inverts the ordinary grammar of love — love is not a possession or sentiment but a larger field one enters, moving the self from subject to vessel."
     },
     {
       "id": "gibran-003",
-      "text": "Your children are not your children. They are the sons and daughters of Life's longing for itself.",
-      "source": "The Prophet",
-      "themes": ["children", "life", "longing", "belonging"],
-      "context": "Children belong to life, not parents"
+      "text": "To melt and be like a running brook that sings its melody to the night. To know the pain of too much tenderness. To be wounded by your own understanding of love; And to bleed willingly and joyfully. To wake at dawn with a winged heart and give thanks for another day of loving; To rest at the noon hour and meditate love's ecstacy; To return home at eventide with gratitude; And then to sleep with a prayer for the beloved in your heart and a song of praise upon your lips.",
+      "source": "The Prophet, On Love",
+      "themes": ["love", "joy", "gratitude", "tenderness", "daily rhythm"],
+      "context": "Gibran renders love not as a dramatic event but as a daily devotional practice, structuring the whole arc of a day around giving thanks for the capacity to love."
     },
     {
       "id": "gibran-004",
-      "text": "You are the bows from which your children as living arrows are sent forth.",
-      "source": "The Prophet",
-      "themes": ["children", "arrows", "bows", "sending"],
-      "context": "Parents as instruments of life"
+      "text": "You were born together, and together you shall be forevermore. You shall be together when the white wings of death scatter your days. Aye, you shall be together even in the silent memory of God. But let there be spaces in your togetherness, And let the winds of the heavens dance between you. Love one another, but make not a bond of love: Let it rather be a moving sea between the shores of your souls.",
+      "source": "The Prophet, On Marriage",
+      "themes": ["marriage", "togetherness", "freedom", "love", "space"],
+      "context": "Gibran reframes marriage: permanence and individuality are not opposites but necessary partners — the sea between souls sustains rather than separates them."
     },
     {
       "id": "gibran-005",
-      "text": "Work is love made visible.",
-      "source": "The Prophet",
-      "themes": ["work", "love", "visible", "expression"],
-      "context": "Work as expression of love"
+      "text": "Fill each other's cup but drink not from one cup. Give one another of your bread but eat not from the same loaf. Sing and dance together and be joyous, but let each one of you be alone, Even as the strings of a lute are alone though they quiver with the same music. Give your hearts, but not into each other's keeping. For only the hand of Life can contain your hearts. And stand together yet not too near together: For the pillars of the temple stand apart, And the oak tree and the cypress grow not in each other's shadow.",
+      "source": "The Prophet, On Marriage",
+      "themes": [
+        "marriage",
+        "individuality",
+        "togetherness",
+        "freedom",
+        "love"
+      ],
+      "context": "Through a cascade of intimate images — cup, loaf, lute strings, temple pillars — Gibran argues that true union requires each soul to remain sovereign and unabsorbed."
     },
     {
       "id": "gibran-006",
-      "text": "Let there be spaces in your togetherness, and let the winds of the heavens dance between you.",
-      "source": "The Prophet",
-      "themes": ["togetherness", "space", "wind", "dance"],
-      "context": "Healthy distance in love"
+      "text": "Your children are not your children. They are the sons and daughters of Life's longing for itself. They come through you but not from you, And though they are with you yet they belong not to you. You may give them your love but not your thoughts, For they have their own thoughts. You may house their bodies but not their souls, For their souls dwell in the house of tomorrow, which you cannot visit, not even in your dreams.",
+      "source": "The Prophet, On Children",
+      "themes": ["children", "freedom", "love", "belonging", "futurity"],
+      "context": "Gibran dissolves parental ownership entirely: children are emissaries of life's own longing, belonging to a future the parent can love but never inhabit."
     },
     {
       "id": "gibran-007",
-      "text": "You give but little when you give of your possessions. It is when you give of yourself that you truly give.",
-      "source": "The Prophet",
-      "themes": ["giving", "possessions", "self", "generosity"],
-      "context": "True giving is of the self"
+      "text": "You may strive to be like them, but seek not to make them like you. For life goes not backward nor tarries with yesterday. You are the bows from which your children as living arrows are sent forth. The archer sees the mark upon the path of the infinite, and He bends you with His might that His arrows may go swift and far. Let your bending in the Archer's hand be for gladness; For even as he loves the arrow that flies, so He loves also the bow that is stable.",
+      "source": "The Prophet, On Children",
+      "themes": ["children", "parenting", "release", "purpose", "God"],
+      "context": "The archer-bow-arrow image transforms the parent's role from shaper to instrument: the glory of parenting is the willingness to be bent so that what one loves can fly beyond oneself."
     },
     {
       "id": "gibran-008",
-      "text": "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars.",
-      "source": "The Prophet",
-      "themes": ["suffering", "strength", "character", "scars"],
-      "context": "Suffering as forge of character"
+      "text": "You give but little when you give of your possessions. It is when you give of yourself that you truly give. For what are your possessions but things you keep and guard for fear you may need them tomorrow? There are those who give little of the much which they have — and they give it for recognition and their hidden desire makes their gifts unwholesome. And there are those who have little and give it all. These are the believers in life and the bounty of life, and their coffer is never empty.",
+      "source": "The Prophet, On Giving",
+      "themes": ["giving", "generosity", "self", "fear", "abundance"],
+      "context": "Gibran distinguishes material giving from self-giving and exposes how giving for recognition poisons the gift — only those who give from abundance of spirit never run dry."
     },
     {
       "id": "gibran-009",
-      "text": "Love knows not its own depth until the hour of separation.",
-      "source": "The Prophet",
-      "themes": ["love", "depth", "separation", "knowing"],
-      "context": "Loss reveals love's depth"
+      "text": "There are those who give with joy, and that joy is their reward. And there are those who give with pain, and that pain is their baptism. And there are those who give and know not pain in giving, nor do they seek joy, nor give with mindfulness of virtue; They give as in yonder valley the myrtle breathes its fragrance into space. Through the hands of such as these God speaks, and from behind their eyes He smiles upon the earth.",
+      "source": "The Prophet, On Giving",
+      "themes": ["giving", "joy", "grace", "God", "unconscious virtue"],
+      "context": "The highest giving is effortless and unself-conscious — like the myrtle releasing fragrance with no thought of reward, it becomes a channel through which the divine acts."
     },
     {
       "id": "gibran-010",
-      "text": "When you love you should not say, 'God is in my heart,' but rather, 'I am in the heart of God.'",
-      "source": "The Prophet",
-      "themes": ["love", "god", "heart", "containment"],
-      "context": "Being held rather than holding"
+      "text": "It is well to give when asked, but it is better to give unasked, through understanding; And to the open-handed the search for one who shall receive is joy greater than giving. And is there aught you would withhold? All you have shall some day be given; Therefore give now, that the season of giving may be yours and not your inheritors'.",
+      "source": "The Prophet, On Giving",
+      "themes": ["giving", "generosity", "time", "understanding", "abundance"],
+      "context": "Gibran argues that the most profound giving anticipates need before it is named — and that hoarding is simply postponing the inevitable dispersal of everything we hold."
     },
     {
       "id": "gibran-011",
-      "text": "Yesterday is but today's memory, and tomorrow is today's dream.",
-      "source": "The Prophet",
-      "themes": ["time", "memory", "dream", "present"],
-      "context": "Past and future as aspects of now"
+      "text": "You work that you may keep pace with the earth and the soul of the earth. For to be idle is to become a stranger unto the seasons, and to step out of life's procession, that marches in majesty and proud submission towards the infinite. When you work you are a flute through whose heart the whispering of the hours turns to music. Which of you would be a reed, dumb and silent, when all else sings together in unison?",
+      "source": "The Prophet, On Work",
+      "themes": ["work", "purpose", "nature", "music", "belonging"],
+      "context": "Work for Gibran is participation in a cosmic rhythm — to labor is to become the flute through which time's whispering becomes music, to be idle is to step out of life itself."
     },
     {
       "id": "gibran-012",
-      "text": "Tenderness and kindness are not signs of weakness and despair, but manifestations of strength and resolution.",
-      "source": "The Prophet",
-      "themes": ["tenderness", "kindness", "strength", "resolution"],
-      "context": "Softness as strength"
+      "text": "And all knowledge is vain save when there is work, And all work is empty save when there is love; And when you work with love you bind yourself to yourself, and to one another, and to God. And what is it to work with love? It is to weave the cloth with threads drawn from your heart, even as if your beloved were to wear that cloth. It is to build a house with affection, even as if your beloved were to dwell in that house. It is to sow seeds with tenderness and reap the harvest with joy, even as if your beloved were to eat the fruit.",
+      "source": "The Prophet, On Work",
+      "themes": ["work", "love", "God", "craft", "devotion"],
+      "context": "Gibran constructs a ladder — knowledge without work is vain, work without love is empty — and defines love-infused work as weaving each act as though the beloved would receive it."
     },
     {
       "id": "gibran-013",
-      "text": "If you love somebody, let them go, for if they return, they were always yours. If they don't, they never were.",
-      "source": "Sand and Foam",
-      "themes": ["love", "freedom", "return", "belonging"],
-      "context": "Love and freedom together"
+      "text": "Work is love made visible. And if you cannot work with love but only with distaste, it is better that you should leave your work and sit at the gate of the temple and take alms of those who work with joy. For if you bake bread with indifference, you bake a bitter bread that feeds but half man's hunger. And if you grudge the crushing of the grapes, your grudge distils a poison in the wine.",
+      "source": "The Prophet, On Work",
+      "themes": ["work", "love", "craft", "indifference", "wholeness"],
+      "context": "The distillation of the entire On Work speech into its essential axiom: loveless labor corrupts its own product, feeding only the body while starving the soul that receives it."
     },
     {
       "id": "gibran-014",
-      "text": "I have learned silence from the talkative, toleration from the intolerant, and kindness from the unkind.",
-      "source": "Sand and Foam",
-      "themes": ["learning", "opposites", "teachers", "contrast"],
-      "context": "Learning from negative examples"
+      "text": "Your joy is your sorrow unmasked. And the self same well from which your laughter rises was oftentimes filled with your tears. And how else can it be? The deeper that sorrow carves into your being, the more joy you can contain. Is not the cup that holds your wine the very cup that was burned in the potter's oven? And is not the lute that soothes your spirit, the very wood that was hollowed with knives?",
+      "source": "The Prophet, On Joy and Sorrow",
+      "themes": ["joy", "sorrow", "inseparability", "depth", "transformation"],
+      "context": "Gibran argues that joy and sorrow are not opposites but the same cavity: the depth to which suffering carves is precisely the depth that joy can then fill."
     },
     {
       "id": "gibran-015",
-      "text": "Trust in dreams, for in them is hidden the gate to eternity.",
-      "source": "The Prophet",
-      "themes": ["dreams", "trust", "eternity", "gate"],
-      "context": "Dreams as portal"
+      "text": "When you are joyous, look deep into your heart and you shall find it is only that which has given you sorrow that is giving you joy. When you are sorrowful look again in your heart, and you shall see that in truth you are weeping for that which has been your delight. Some of you say, \"Joy is greater than sorrow,\" and others say, \"Nay, sorrow is the greater.\" But I say unto you, they are inseparable. Together they come, and when one sits alone with you at your board, remember that the other is asleep upon your bed.",
+      "source": "The Prophet, On Joy and Sorrow",
+      "themes": ["joy", "sorrow", "inseparability", "memory", "presence"],
+      "context": "Gibran refuses the hierarchy of joy over sorrow — they are twin guests who never truly leave, always taking turns at the table and the bed of a single life."
     },
     {
       "id": "gibran-016",
-      "text": "Beauty is not in the face; beauty is a light in the heart.",
-      "source": "Various",
-      "themes": ["beauty", "face", "heart", "light"],
-      "context": "Inner source of beauty"
+      "text": "Your pain is the breaking of the shell that encloses your understanding. Even as the stone of the fruit must break, that its heart may stand in the sun, so must you know pain. And could you keep your heart in wonder at the daily miracles of your life, your pain would not seem less wondrous than your joy; And you would accept the seasons of your heart, even as you have always accepted the seasons that pass over your fields. Much of your pain is self-chosen. It is the bitter potion by which the physician within you heals your sick self.",
+      "source": "The Prophet, On Pain",
+      "themes": ["pain", "growth", "understanding", "acceptance", "healing"],
+      "context": "Pain is not punishment but gestation — the shell breaking to let the inner life reach sunlight, and Gibran's physician metaphor reframes suffering as the body's own medicine."
     },
     {
       "id": "gibran-017",
-      "text": "Forget not that the earth delights to feel your bare feet and the winds long to play with your hair.",
-      "source": "The Prophet",
-      "themes": ["earth", "feet", "wind", "hair"],
-      "context": "Nature's desire for connection"
+      "text": "Your hearts know in silence the secrets of the days and the nights. But your ears thirst for the sound of your heart's knowledge. You would know in words that which you have always known in thought. The hidden well-spring of your soul must needs rise and run murmuring to the sea; And the treasure of your infinite depths would be revealed to your eyes. But let there be no scales to weigh your unknown treasure; And seek not the depths of your knowledge with staff or sounding line. For self is a sea boundless and measureless.",
+      "source": "The Prophet, On Self-Knowledge",
+      "themes": ["self-knowledge", "silence", "soul", "mystery", "depth"],
+      "context": "Self-knowledge cannot be measured or forced — the self is a boundless sea that reveals itself only to those who resist the urge to plumb it with instruments."
     },
     {
       "id": "gibran-018",
-      "text": "The soul walks not upon a line, neither does it grow like a reed. The soul unfolds itself, like a lotus of countless petals.",
-      "source": "The Prophet",
-      "themes": ["soul", "unfolding", "lotus", "petals"],
-      "context": "Soul's organic expansion"
+      "text": "Say not, \"I have found the truth,\" but rather, \"I have found a truth.\" Say not, \"I have found the path of the soul.\" Say rather, \"I have met the soul walking upon my path.\" For the soul walks upon all paths. The soul walks not upon a line, neither does it grow like a reed. The soul unfolds itself, like a lotus of countless petals.",
+      "source": "The Prophet, On Self-Knowledge",
+      "themes": ["self-knowledge", "truth", "soul", "humility", "unfolding"],
+      "context": "Gibran dismantles the claim of arrived certainty: the soul is not a destination but a presence that meets us on every path, unfolding endlessly like a lotus rather than completing itself."
     },
     {
       "id": "gibran-019",
-      "text": "If you reveal your secrets to the wind, you should not blame the wind for revealing them to the trees.",
-      "source": "Sand and Foam",
-      "themes": ["secrets", "wind", "trees", "responsibility"],
-      "context": "Responsibility for disclosure"
+      "text": "No man can reveal to you aught but that which already lies half asleep in the dawning of your knowledge. The teacher who walks in the shadow of the temple, among his followers, gives not of his wisdom but rather of his faith and his lovingness. If he is indeed wise he does not bid you enter the house of his wisdom, but rather leads you to the threshold of your own mind. For the vision of one man lends not its wings to another man.",
+      "source": "The Prophet, On Teaching",
+      "themes": ["teaching", "wisdom", "self-knowledge", "threshold", "vision"],
+      "context": "The true teacher does not transfer wisdom but points each student toward their own inner threshold — understanding cannot be given, only awakened in the one who already possesses it."
     },
     {
       "id": "gibran-020",
-      "text": "We are all prisoners, but some of us are in cells with windows and some without.",
-      "source": "Sand and Foam",
-      "themes": ["prison", "windows", "perspective", "freedom"],
-      "context": "Degrees of imprisonment"
+      "text": "At the city gate and by your fireside I have seen you prostrate yourself and worship your own freedom, Even as slaves humble themselves before a tyrant and praise him though he slays them. And my heart bled within me; for you can only be free when even the desire of seeking freedom becomes a harness to you, and when you cease to speak of freedom as a goal and a fulfilment. You shall be free indeed when your days are not without a care nor your nights without a want and a grief, But rather when these things girdle your life and yet you rise above them naked and unbound.",
+      "source": "The Prophet, On Freedom",
+      "themes": ["freedom", "desire", "paradox", "liberation", "self"],
+      "context": "Gibran identifies the supreme paradox of freedom: the very desire for freedom becomes its own chain, and true freedom is not the absence of care but rising above care while remaining fully within life."
+    },
+    {
+      "id": "gibran-021",
+      "text": "Your reason and your passion are the rudder and the sails of your seafaring soul. If either your sails or your rudder be broken, you can but toss and drift, or else be held at a standstill in mid-seas. For reason, ruling alone, is a force confining; and passion, unattended, is a flame that burns to its own destruction. Therefore let your soul exalt your reason to the height of passion, that it may sing; And let it direct your passion with reason, that your passion may live through its own daily resurrection, and like the phoenix rise above its own ashes.",
+      "source": "The Prophet, On Reason and Passion",
+      "themes": ["reason", "passion", "balance", "soul", "wholeness"],
+      "context": "Gibran refuses the hierarchy of reason over passion or passion over reason — the soul is the vessel that needs both, and each must be elevated to the other's level to sustain life."
+    },
+    {
+      "id": "gibran-022",
+      "text": "Where shall you seek beauty, and how shall you find her unless she herself be your way and your guide? All these things have you said of beauty, Yet in truth you spoke not of her but of needs unsatisfied, And beauty is not a need but an ecstasy. It is not a mouth thirsting nor an empty hand stretched forth, But rather a heart enflamed and a soul enchanted. It is not the image you would see nor the song you would hear, But rather an image you see though you close your eyes and a song you hear though you shut your ears. People of Orphalese, beauty is life when life unveils her holy face. But you are life and you are the veil. Beauty is eternity gazing at itself in a mirror. But you are eternity and you are the mirror.",
+      "source": "The Prophet, On Beauty",
+      "themes": ["beauty", "ecstasy", "life", "eternity", "perception"],
+      "context": "Gibran collapses the distance between perceiver and beauty entirely: beauty is not what the eye finds but what the soul becomes when it stops seeking and starts being — you are the mirror in which eternity recognizes itself."
+    },
+    {
+      "id": "gibran-023",
+      "text": "Your daily life is your temple and your religion. Whenever you enter into it take with you your all. Take the plough and the forge and the mallet and the lute, The things you have fashioned in necessity or for delight. For in revery you cannot rise above your achievements nor fall lower than your failures. And if you would know God be not therefore a solver of riddles. Rather look about you and you shall see Him playing with your children. And look into space; you shall see Him walking in the cloud, outstretching His arms in the lightning and descending in rain.",
+      "source": "The Prophet, On Religion",
+      "themes": ["religion", "daily life", "God", "work", "presence"],
+      "context": "Gibran dissolves the boundary between sacred and secular: the temple is not a building but every ordinary moment of living, and God is not in doctrine but in rain and children's play."
+    },
+    {
+      "id": "gibran-024",
+      "text": "You would know the secret of death. But how shall you find it unless you seek it in the heart of life? For life and death are one, even as the river and the sea are one. In the depth of your hopes and desires lies your silent knowledge of the beyond; And like seeds dreaming beneath the snow your heart dreams of spring. Trust the dreams, for in them is hidden the gate to eternity. For what is it to die but to stand naked in the wind and to melt into the sun? And what is it to cease breathing, but to free the breath from its restless tides, that it may rise and expand and seek God unencumbered?",
+      "source": "The Prophet, On Death",
+      "themes": ["death", "life", "eternity", "freedom", "continuity"],
+      "context": "Gibran removes death's sting by placing it within the continuum of life: dying is not ending but release — the breath freed from its tidal limits to expand and seek the divine."
+    },
+    {
+      "id": "gibran-025",
+      "text": "Only when you drink from the river of silence shall you indeed sing. And when you have reached the mountain top, then you shall begin to climb. And when the earth shall claim your limbs, then shall you truly dance.",
+      "source": "The Prophet, On Death",
+      "themes": ["death", "paradox", "silence", "transcendence", "freedom"],
+      "context": "Gibran's closing paradoxes on death are among the most compressed in all his writing: arrival is always a new beginning, silence is the condition of song, and the surrender of the body is when the spirit finally dances free."
     }
   ]
 }

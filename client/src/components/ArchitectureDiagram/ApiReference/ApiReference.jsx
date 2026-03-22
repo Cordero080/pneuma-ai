@@ -72,7 +72,7 @@ const ApiReference = () => {
       id: 'cat-archetype',
       name: 'Archetype Layer',
       color: '#b400ff',
-      files: ['archetypes/archetypeDepth.js', 'intelligence/semanticRouter.js']
+      files: ['archetypes/archetypeDepth.js', 'intelligence/archetypeSelector.js']
     },
     {
       id: 'cat-synthesis',
@@ -224,7 +224,7 @@ const response = await anthropic.messages.create({
         </ModalSection>
         
         <ModalSection title="Location">
-          <ModalFilePath path="server/pneuma/intelligence/semanticRouter.js" />
+          <ModalFilePath path="server/pneuma/intelligence/archetypeSelector.js" />
           <ModalFilePath path="server/pneuma/memory/vectorMemory.js" />
         </ModalSection>
 
@@ -399,7 +399,7 @@ export default defineConfig({
         </ModalSection>
         <ModalSection title="Key Files">
           <ModalFilePath path="server/pneuma/archetypes/archetypeDepth.js" />
-          <ModalFilePath path="server/pneuma/intelligence/semanticRouter.js" />
+          <ModalFilePath path="server/pneuma/intelligence/archetypeSelector.js" />
         </ModalSection>
         <ModalSection title="Responsibilities">
           <ModalFlow steps={[
@@ -529,7 +529,7 @@ export default defineConfig({
 ├── intelligence/
 │   ├── llm.js            # Claude API integration
 │   ├── archetypeRAG.js    # Knowledge retrieval (46 bases)
-│   ├── semanticRouter.js  # Vector-based routing
+│   ├── archetypeSelector.js  # Vector-based routing
 │   └── synthesisEngine.js # Collision synthesis
 ├── archetypes/
 │   └── archetypeDepth.js  # 5-layer depth data

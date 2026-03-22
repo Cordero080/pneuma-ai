@@ -2,147 +2,231 @@
   "archetype": "mysticalTheologian",
   "thinker": "Meister Eckhart",
   "era": "1260-1328",
-  "coreConcepts": ["detachment", "the ground of the soul", "God beyond God", "letting go", "breakthrough", "birth of the Word in the soul"],
+  "coreConcepts": [
+    "detachment",
+    "the ground of the soul",
+    "the divine spark",
+    "poverty of spirit",
+    "the birth of the Word in the soul",
+    "God beyond God",
+    "union without distinction",
+    "letting go"
+  ],
   "passages": [
     {
       "id": "eckhart-001",
-      "text": "The eye through which I see God is the same eye through which God sees me; my eye and God's eye are one eye, one seeing, one knowing, one love.",
-      "source": "Sermons",
-      "themes": ["eye", "God", "seeing", "unity"],
-      "context": "Subject-object collapse at the deepest level. Not two looking at each other, but one seeing."
+      "text": "GOD is nameless, for no man can either say or understand aught about Him. If I say, God is good, it is not true; nay more; I am good, God is not good. I may even say, I am better than God; for whatever is good, may become better, and whatever may become better, may become best. Now God is not good, for He cannot become better. And if He cannot become better, He cannot become best, for these three things, good, better, and best, are far from God, since He is above all.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, sermon on God",
+      "themes": [
+        "apophatic theology",
+        "God beyond categories",
+        "negation",
+        "transcendence"
+      ],
+      "context": "Eckhart's via negativa at its most radical: any positive predicate applied to God falsifies God, because God exceeds every quality that admits of degree. This passage destabilizes all conventional God-language and forces the listener toward a speechless encounter with what lies beyond all naming."
     },
     {
       "id": "eckhart-002",
-      "text": "If the only prayer you ever say in your entire life is thank you, it will be enough.",
-      "source": "Sermons",
-      "themes": ["prayer", "gratitude", "enough", "simplicity"],
-      "context": "All prayer reduces to gratitude. Thankfulness is the sufficient spiritual practice."
+      "text": "God is always ready, but we are very unready; God is near to us, but we are far from Him; God is within, but we are without; God is at home, but we are strangers.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, sermon on God's readiness",
+      "themes": ["immanence", "alienation", "home", "nearness"],
+      "context": "The spiritual problem is not God's distance but our own estrangement from what is already interior. Union requires not a journey outward but a recognition of what has always been present — a reversal of the direction of seeking."
     },
     {
       "id": "eckhart-003",
-      "text": "The soul must long for God in order to be set aflame by God's love; but if the soul cannot yet feel the longing, then it must long for the longing.",
-      "source": "Sermons",
-      "themes": ["longing", "God", "love", "desire"],
-      "context": "Even the absence of longing can be worked with. Desire for desire is a beginning."
+      "text": "There is something in the soul, which is so akin to God that it is one with Him and not merely united with Him. And again: There is a force in the soul; and not only a force, but something more, a being; and not only a being, but something more; it is so pure and high and noble in itself that no creature can come there, and God alone can dwell there.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on the spark of the soul",
+      "themes": [
+        "Seelenfünklein",
+        "divine spark",
+        "uncreated",
+        "ground of the soul"
+      ],
+      "context": "The Seelenfünklein — the spark of the soul — is Eckhart's most characteristic doctrine: a point within the soul that is not merely like God but is, in some sense, identical with the divine nature. It is uncreated, untouched by time, and constitutes the deepest locus of possible union with God."
     },
     {
       "id": "eckhart-004",
-      "text": "Be willing to be a beginner every single morning.",
-      "source": "Sermons",
-      "themes": ["beginner", "morning", "willingness", "fresh"],
-      "context": "Expertise can harden. Beginner's mind keeps the soul supple, open to fresh seeing."
+      "text": "There is something secret about it; and thereby he means the spark of the soul, which alone can apprehend God. The true union between God and the soul takes place in the little spark, which is called the spirit of the soul. Grace unites not to any work. It is an indwelling and a living together of the soul in God.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, sermon on Grace",
+      "themes": ["grace", "spark", "indwelling", "union"],
+      "context": "Grace is not an external transaction or reward for works but an interior event — a living-together of soul and God in the deepest point of the self. This collapses the distance between creature and creator at the level of essence rather than activity."
     },
     {
       "id": "eckhart-005",
-      "text": "God is not found in the soul by adding anything, but by a process of subtraction.",
-      "source": "Sermons",
-      "themes": ["God", "soul", "subtraction", "addition"],
-      "context": "Via negativa: God isn't gained by accumulation but by stripping away. Less is more."
+      "text": "He who is always alone, he is worthy of God; and he who is always at home, to him is God present; and he who abides always in a present now, in him doth God beget His Son without ceasing.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Sayings of Eckhart",
+      "themes": [
+        "solitude",
+        "presence",
+        "the eternal Now",
+        "birth of the Word"
+      ],
+      "context": "Three conditions for divine birth: interior solitude (not physical but metaphysical), homecoming to one's ground, and dwelling in the eternal present rather than the flowing past-and-future. All three are forms of the same detachment from the dispersed self."
     },
     {
       "id": "eckhart-006",
-      "text": "The more we have the less we own.",
-      "source": "Sermons",
-      "themes": ["having", "owning", "possession", "paradox"],
-      "context": "Accumulation doesn't increase ownership — it disperses attention. Poverty enables possession."
+      "text": "I will never pray to God to give Himself to me: I will pray Him to make me purer. If I were purer, God must give Himself to me, of His own nature, and sink into me.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Sayings of Eckhart",
+      "themes": ["prayer", "purity", "necessity", "God's nature"],
+      "context": "God's self-giving is not a matter of petition but of metaphysical law: a purified vessel necessarily receives the divine, as space necessarily receives light. This transforms prayer from supplication into self-preparation — the work falls entirely on the human side."
     },
     {
       "id": "eckhart-007",
-      "text": "There exists only the present instant... a Now which always and without end is itself new.",
-      "source": "Sermons",
-      "themes": ["present", "now", "time", "eternity"],
-      "context": "Eternity isn't endless time — it's the ever-new Now. Each moment is fresh creation."
+      "text": "The man who has submitted his will and purposes entirely to God, carries God with him in all his works and in all circumstances. Therein can no man hinder him, for he neither aims at nor enjoys anything else, save God. The same disposition that thou hast in church or in thy cell, thou shouldst keep and maintain in a crowd, and amid the unrest and manifoldness of the world.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Detachment",
+      "themes": ["detachment", "equanimity", "action", "inwardness"],
+      "context": "True detachment is not withdrawal from the world but a quality of inner orientation maintained regardless of outer circumstance. The monastery and the marketplace become identical when the soul has found its ground — a radical teaching against any dualism of sacred and secular space."
     },
     {
       "id": "eckhart-008",
-      "text": "God is at home. It is we who have gone out for a walk.",
-      "source": "Sermons",
-      "themes": ["God", "home", "wandering", "return"],
-      "context": "The journey isn't God's absence — it's our departure. Coming home is recognizing where we've always been."
+      "text": "It is often much harder for a man to be alone in a crowd than in the desert; and it is often harder to leave a small thing than a great, and to practise a small work than one which people consider very great.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Detachment",
+      "themes": ["detachment", "difficulty", "small things", "hidden work"],
+      "context": "The spiritual path is most demanding in its ordinary moments, not its dramatic ones. The small attachments — to comfort, to recognition, to minor habitual pleasures — are harder to relinquish than great renunciations, because they hide from attention."
     },
     {
       "id": "eckhart-009",
-      "text": "What a man takes in by contemplation, that he pours out in love.",
-      "source": "Sermons",
-      "themes": ["contemplation", "love", "receiving", "giving"],
-      "context": "Contemplation and action aren't opposed. What fills the soul overflows as love."
+      "text": "Those who accept all that the Lord send, as the very best, remain always in perfect peace, for in them God's will has become their will. This is incomparably better than for our will to become God's will.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Surrender of the Will",
+      "themes": ["will", "surrender", "peace", "union of wills"],
+      "context": "Eckhart draws a sharp distinction between conforming our will to God's (effortful, conditional) and God's will becoming our very will (total, structural). The latter is a transformation of the self's core orientation, not a submission of one will to another — a distinction that separates mystical union from mere obedience."
     },
     {
       "id": "eckhart-010",
-      "text": "To be full of things is to be empty of God. To be empty of things is to be full of God.",
-      "source": "Sermons",
-      "themes": ["fullness", "emptiness", "things", "God"],
-      "context": "Spiritual economics: fullness of one is emptiness of the other. Choose what fills you."
+      "text": "HE who has found this way of love, seeketh no other. He who turns on this pivot is in such wise a prisoner that his foot and hand and mouth and eyes and heart, and all his human faculties, belong to God. Death separates the soul from the body, but love separates all things from the soul. She suffers nought to come near her, that is not God nor God-like.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Love",
+      "themes": ["love", "freedom", "possession", "exclusion"],
+      "context": "Love becomes the operative principle of detachment: not a cold withdrawal from things but an overwhelming orientation toward God that crowds out all lesser attachments by its sheer gravity. The soul imprisoned by love is paradoxically the freest soul, because nothing extraneous can enter."
     },
     {
       "id": "eckhart-011",
-      "text": "We are all meant to be mothers of God. For God is always needing to be born.",
-      "source": "Sermons",
-      "themes": ["mother", "God", "birth", "becoming"],
-      "context": "The divine isn't complete — it needs birth through us. We're not just recipients but birthers."
+      "text": "THE union of the soul with God is far more inward than that of the soul and body. Now I might ask, how stands it with the soul that is lost in God? Does the soul find herself or not? To this will I answer as it appears to me, that the soul finds herself in the point, where every rational being understands itself with itself.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Union with God",
+      "themes": ["union", "self-discovery", "identity", "ground"],
+      "context": "Union with God does not abolish the self but locates it at its deepest point. The soul lost in God paradoxically finds itself — not the ego-self but the essential self that was always the point of contact between creature and creator. Loss and discovery are the same event."
     },
     {
       "id": "eckhart-012",
-      "text": "The outward work will never be puny if the inward work is great. And the outward work can never be great if the inward one is puny or of little worth.",
-      "source": "Sermons",
-      "themes": ["outward", "inward", "work", "greatness"],
-      "context": "Inner and outer correspond. External action reveals internal state; no hiding, no faking."
+      "text": "SIN is nothing else but the turning away of the creature from the unchangeable Good to the changeable; from the perfect to the imperfect, and most often to itself. What else did the devil do, and what was his error and fall, except that he claimed for himself to be something, and that something was his and was due to him? This claim of his—this 'I, me, and mine,' were his error and his fall.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, on Sin and Selfishness",
+      "themes": ["sin", "selfhood", "possessiveness", "the fall"],
+      "context": "The Theologia Germanica identifies the root of all sin as the possessive ego — the 'I, me, mine' that claims the creature's being as its own property rather than as gift. This is a structural analysis of evil that cuts beneath moral categories to the metaphysics of selfhood."
     },
     {
       "id": "eckhart-013",
-      "text": "Theologians may quarrel, but the mystics of the world speak the same language.",
-      "source": "Sermons",
-      "themes": ["theologians", "mystics", "language", "unity"],
-      "context": "At the conceptual level, disagreement. At the experiential level, convergence."
+      "text": "We should remember the saying that the soul of Christ had two eyes, a right eye and a left eye. The one is the power of looking into eternity, the other the power of looking into time and the creatures. But these two eyes of the soul cannot both perform their office at once; if the soul would look with the right eye into eternity, the left eye must be shut, and must cease to work: it must be as if it were dead.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, The Two Eyes",
+      "themes": ["contemplation", "action", "eternity and time", "attention"],
+      "context": "The two-eyes doctrine articulates a genuine tension at the heart of mystical life: the gaze into eternity and engagement with temporal creation are mutually exclusive modes of attention. This is not a dualism to be resolved but a polarity to be navigated — the contemplative and active lives require alternation."
     },
     {
       "id": "eckhart-014",
-      "text": "Only the hand that erases can write the true thing.",
-      "source": "Sermons",
-      "themes": ["erasing", "writing", "truth", "negation"],
-      "context": "Creation requires destruction. The blank slate enables fresh inscription."
+      "text": "Some have asked whether it is possible for the soul, while it is still in the body, to reach so great a height as to gaze into eternity, and receive a foretaste of eternal life and blessedness. And a master has said, about this passage of St Dionysius, that it is possible, and may come to a man so often that he may become accustomed to it, and be able to gaze into eternity whenever he will. And a single one of these glances is better, worthier, higher, and more pleasing to God than all that the creature can do as a creature.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, A Foretaste of Eternal Life",
+      "themes": ["contemplation", "eternity", "access", "the possible"],
+      "context": "Against those who defer mystical union to the afterlife, the Theologia Germanica insists on its present-life possibility — and further claims that a single moment of such vision surpasses all other spiritual work. This democratizes the mystical claim: it is available now, repeatedly, to those who practice."
     },
     {
       "id": "eckhart-015",
-      "text": "You may call God love, you may call God goodness. But the best name for God is compassion.",
-      "source": "Sermons",
-      "themes": ["God", "love", "goodness", "compassion"],
-      "context": "Of all divine names, compassion is truest. Suffering-with as God's essential nature."
+      "text": "In what does union with God consist? It means that we should be indeed purely, simply, and wholly at one with the one eternal Will of God, or altogether without will, so that the created will should flow out into the eternal Will and be swallowed up and lost in it, so that the eternal Will alone should do and leave undone in us.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, Union with God",
+      "themes": ["union", "will", "surrender", "absorption"],
+      "context": "The Theologia Germanica defines union not as a feeling or an experience but as a structural condition of the will — the complete flowing of creaturely volition into divine volition such that they can no longer be distinguished. This is a metaphysical merger, not a psychological state."
     },
     {
       "id": "eckhart-016",
-      "text": "Do exactly what you would do if you felt most secure.",
-      "source": "Sermons",
-      "themes": ["action", "security", "fear", "behavior"],
-      "context": "Act from your best self, not your frightened self. Security is inner, not circumstantial."
+      "text": "Be well assured that none can be illuminated, unless he be first cleansed, purified, or stripped. Also none can be united to God unless he be first illuminated. There are therefore three stages—first, the purification; secondly, the illumination; and thirdly, the union.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, The Three Stages",
+      "themes": ["purgation", "illumination", "union", "spiritual development"],
+      "context": "The classical three-stage schema of mystical development — purgation, illumination, union — gives the mystical path a sequential logic. But within the Eckhartian tradition, this is not a ladder one climbs once; each stage recurs and deepens as the soul returns through the cycle repeatedly."
     },
     {
       "id": "eckhart-017",
-      "text": "In silence and in stillness a devout soul makes progress.",
-      "source": "Sermons",
-      "themes": ["silence", "stillness", "progress", "soul"],
-      "context": "Noise and motion can be avoidance. True advancement often looks like stopping."
+      "text": "NOTHING in the world is so necessary for man as to be constantly assailed; for in fighting he learns to know himself. As grace is necessary to a man, so also is fighting. Virtue begins in fighting, and is developed in fighting.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Tauler, Life a Battle",
+      "themes": [
+        "struggle",
+        "self-knowledge",
+        "virtue",
+        "necessity of conflict"
+      ],
+      "context": "Tauler's teaching on spiritual combat insists that opposition is not an obstacle to the spiritual life but its necessary medium. Without resistance, there is no self-knowledge; without struggle, virtue remains untested and therefore not truly possessed. The enemy functions as teacher."
     },
     {
       "id": "eckhart-018",
-      "text": "Every creature is a word of God.",
-      "source": "Sermons",
-      "themes": ["creature", "word", "God", "expression"],
-      "context": "The world as divine language. Each being speaks the divine in its own tongue."
+      "text": "The man, to whom cometh but a little drop of the light of grace, to him all that is not God becomes as bitter as gall upon the tongue.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Tauler, on the Efficacy of Divine Grace",
+      "themes": [
+        "grace",
+        "transformation",
+        "taste",
+        "alienation from creatures"
+      ],
+      "context": "A single touch of divine grace reorganizes the soul's entire hierarchy of value: what was desirable becomes repellent, what was satisfying becomes hollow. The image of taste captures a total sensory reorganization — not intellectual persuasion but a change in the very faculty of desire."
     },
     {
       "id": "eckhart-019",
-      "text": "If I were alone in a desert and feeling afraid, I would want a child to be with me. For then my fear would disappear and I would be made strong.",
-      "source": "Sermons",
-      "themes": ["fear", "child", "strength", "presence"],
-      "context": "A child's presence dissolves adult fear. Responsibility and innocence as courage-makers."
+      "text": "O Almighty God, if Thou art so lovable and so pleasant in Thy creatures, how happy and blessed, how full of all joy and beauty, must Thou be in Thyself? But further, my daughter, contemplate the elements themselves—Earth, Water, Air, and Fire, with all the wonderful things which they contain in infinite variety—men, beasts, birds, fishes, and sea-monsters. And all of these give praise and honour to the unfathomable immensity that is in Thee.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Suso, dialogue with the spiritual daughter",
+      "themes": ["creation as mirror", "beauty", "praise", "God in creatures"],
+      "context": "Suso's contemplative method moves outward through creation as a mirror of divine beauty rather than inward through negation. The creatures are not obstacles to be renounced but witnesses to be read — each species a different syllable in the vocabulary of divine praise."
     },
     {
       "id": "eckhart-020",
-      "text": "There is something in the soul which is above the soul, divine, simple, an absolute nothing; rather unnamed than named, unknown than known... Sometimes I have called it a power, sometimes an uncreated light, and sometimes a divine spark.",
-      "source": "Sermons",
-      "themes": ["soul", "divine", "spark", "uncreated"],
-      "context": "The ground of the soul: something in us that isn't us, that was never created, that is God's own presence."
+      "text": "A certain wise theologian says that God, in regard to His Godhead, is like a vast circle, of which the centre is everywhere, and the circumference nowhere. If anyone throws a great stone into the middle of a pool, a ring is formed in the water, and this ring makes a second ring, and the second a third. Suppose now that the first ring represents the omnipotent virtue of the Divine nature, which is infinite in God the Father. This produces another ring like itself, which is the Son. And the two produce the third, which is the Holy Ghost.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Suso, dialogue on the Trinity",
+      "themes": ["Trinity", "emanation", "concentric circles", "God as circle"],
+      "context": "Suso's concentric-ring image renders the eternal procession of Persons as a rippling outward from a single impulse — an image that captures both the unity of origin and the differentiation of Persons. The stone thrown is the Father's self-knowing; the rings are the Son and Spirit; the pool is the Godhead."
+    },
+    {
+      "id": "eckhart-021",
+      "text": "No resignation is more perfect or more excellent, than to be resigned in dereliction. Wherein is virtue proved, if not in adversity?",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Suso, Wisdom's dialogue with the Servitor",
+      "themes": ["dereliction", "resignation", "dark night", "virtue"],
+      "context": "Suso's Eternal Wisdom teaches that the highest form of spiritual surrender is not surrender in the experience of consolation but surrender when God seems absent — when the soul feels utterly abandoned. This is the test that proves whether the soul seeks God or only God's gifts."
+    },
+    {
+      "id": "eckhart-022",
+      "text": "So long as the loved one is present with the lover, the lover knoweth not how dear the loved one is to him; it is only separation which can teach him that.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Suso, on the play of love",
+      "themes": [
+        "absence",
+        "desire",
+        "the play of love",
+        "knowing through loss"
+      ],
+      "context": "Divine withdrawal is pedagogical: the soul learns the depth of its love for God precisely through the experience of that love's apparent deprivation. The dark night is not a punishment but an education in the nature and magnitude of longing — a form of deepening by subtraction."
+    },
+    {
+      "id": "eckhart-023",
+      "text": "He who finds the inward in the outward goes deeper than he who only finds the inward in the inward.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Suso, Aphorisms and Maxims",
+      "themes": [
+        "inner and outer",
+        "depth",
+        "contemplation in action",
+        "the world as sacred"
+      ],
+      "context": "This aphorism reverses the common mystical hierarchy: the contemplative who can find God within worldly engagement goes deeper than the one who can only access the divine in withdrawal from it. True inwardness pervades the outward rather than retreating from it."
+    },
+    {
+      "id": "eckhart-024",
+      "text": "It may be asked, What is it like to be a partaker of the Divine nature, or a Godlike man? The answer is, that he who is steeped in, or illuminated by, the eternal and Divine Light, and kindled or consumed by the eternal and Divine Love, is a Godlike man and a partaker of the Divine nature. But this light or knowledge is of no avail without love.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Theologia Germanica, Light and Love",
+      "themes": ["theosis", "light", "love", "participation in God"],
+      "context": "The Theologia Germanica defines theosis — participation in the divine nature — as a double transformation: intellectual illumination by divine light and affective ignition by divine love. Neither alone is sufficient; knowledge without love is inert, and love without knowledge is blind. Both must be operative together."
+    },
+    {
+      "id": "eckhart-025",
+      "text": "Better one life-master than a thousand reading-masters. If I sought a master in the scriptures, I should seek him in Paris and in the high schools of high learning. But if I wished to ask questions about the perfect life, that he could not tell me.",
+      "source": "Light, Life, and Love: Selections from the German Mystics — Eckhart, on Precept and Practice",
+      "themes": [
+        "lived wisdom",
+        "book learning",
+        "experience",
+        "practice over theory"
+      ],
+      "context": "Eckhart's distinction between the reading-master and the life-master cuts to the heart of medieval scholasticism: accumulated theological knowledge is one kind of mastery, but embodied spiritual transformation is entirely another, and the second is superior. The university cannot teach what only living can."
     }
   ]
 }

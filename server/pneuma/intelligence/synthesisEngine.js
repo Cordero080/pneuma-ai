@@ -11,7 +11,7 @@ import {
 
 // ROLE: Identifies the highest-tension archetype pair among all active archetypes
 // INPUT FROM: buildArchetypeContext() in llm.js and getMinimalInjection()
-// OUTPUT TO: buildArchetypeContext(), getMinimalInjection(), synthesizeResponse()
+// OUTPUT TO: buildArchetypeContext(), getMinimalInjection()
 export function detectCollisions(activeArchetypes) {
   if (activeArchetypes.length < 2) {
     return { hasCollision: false, pairs: [], highestTension: null };
@@ -590,7 +590,7 @@ export const exampleSyntheses = {
 };
 
 // ROLE: Looks up a pre-computed synthesis insight for a known archetype pair
-// INPUT FROM: synthesizeResponse() and buildArchetypeContext() in llm.js
+// INPUT FROM: buildArchetypeContext() in llm.js
 // OUTPUT TO: callers that optionally inject the pre-computed insight into the response
 export function getExampleSynthesis(a, b) {
   const key1 = `${a}_${b}`;

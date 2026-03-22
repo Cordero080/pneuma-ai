@@ -1,157 +1,344 @@
 {
   "archetype": "kafkaesque",
   "thinker": "Franz Kafka",
+  "source": "The Trial (trans. David Wyllie)",
   "era": "1883-1924",
   "coreConcepts": [
-    "Bureaucratic nightmare",
-    "Guilt without crime",
-    "Transformation",
-    "The inaccessible law",
-    "Alienation",
-    "The labyrinth",
-    "The trial that never ends",
-    "The door meant only for you"
+    "guilt without cause",
+    "bureaucratic labyrinth",
+    "absurdity",
+    "the inaccessible authority",
+    "self-incrimination",
+    "the law as incomprehensible",
+    "deferred justice",
+    "anxiety",
+    "the individual vs. the system"
   ],
   "passages": [
     {
       "id": "kafka-001",
-      "text": "A book must be the axe for the frozen sea within us.",
-      "source": "Letter to Oskar Pollak",
-      "themes": ["books", "transformation", "frozen", "breaking"],
-      "context": "Literature as violent awakening"
+      "text": "Someone must have been telling lies about Josef K., he knew he had done nothing wrong but, one morning, he was arrested. Every day at eight in the morning he was brought his breakfast by Mrs. Grubach's cook - Mrs. Grubach was his landlady - but today she didn't come. That had never happened before. K. waited a little while, looked from his pillow at the old woman who lived opposite and who was watching him with an inquisitiveness quite unusual for her, and finally, both hungry and disconcerted, rang the bell.",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "guilt without cause",
+        "disruption of routine",
+        "surveillance",
+        "anxiety",
+        "the arbitrary"
+      ],
+      "context": "The novel's famous opening establishes guilt as a social fact that precedes any charge — K. is accused before he can understand himself as accused."
     },
     {
       "id": "kafka-002",
-      "text": "I am a cage, in search of a bird.",
-      "source": "Notebooks",
-      "themes": ["cage", "bird", "inversion", "longing"],
-      "context": "Inverted metaphor of containment seeking content"
+      "text": "\"Who are you?\" asked K., sitting half upright in his bed. The man, however, ignored the question as if his arrival simply had to be accepted, and merely replied, \"You rang?\" \"Anna should have brought me my breakfast,\" said K. He tried to work out who the man actually was, first in silence, just through observation and by thinking about it, but the man didn't stay still to be looked at for very long. Instead he went over to the door, opened it slightly, and said to someone who was clearly standing immediately behind it, \"He wants Anna to bring him his breakfast.\" There was a little laughter in the neighbouring room, it was not clear from the sound of it whether there were several people laughing.",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "authority without identity",
+        "the absurd",
+        "surveillance",
+        "helplessness",
+        "opacity of power"
+      ],
+      "context": "The warder refuses to identify himself, establishing that the system's agents need not account for themselves to the accused."
     },
     {
       "id": "kafka-003",
-      "text": "By believing passionately in something that still does not exist, we create it. The nonexistent is whatever we have not sufficiently desired.",
-      "source": "Diaries",
-      "themes": ["belief", "creation", "desire", "existence"],
-      "context": "Faith as creative force"
+      "text": "\"And why am I under arrest?\" he then asked. \"That's something we're not allowed to tell you. Go into your room and wait there. Proceedings are underway and you'll learn about everything all in good time. It's not really part of my job to be friendly towards you like this, but I hope no-one, apart from Franz, will hear about it, and he's been more friendly towards you than he should have been, under the rules, himself. If you carry on having as much good luck as you have been with your arresting officers then you can reckon on things going well with you.\"",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "secrecy of charges",
+        "deferred knowledge",
+        "bureaucratic hierarchy",
+        "rule-bound cruelty",
+        "the inaccessible authority"
+      ],
+      "context": "The warder offers K. warmth while withholding all essential information — the court's cruelty is bureaucratic rather than malicious."
     },
     {
       "id": "kafka-004",
-      "text": "There is infinite hope—just not for us.",
-      "source": "Conversation with Max Brod",
-      "themes": ["hope", "exclusion", "infinity", "us"],
-      "context": "Hope exists but we are outside it"
+      "text": "\"Our authorities as far as I know, and I only know the lowest grades, don't go out looking for guilt among the public; it's the guilt that draws them out, like it says in the law, and they have to send us police officers out. That's the law. Where d'you think there'd be any mistake there?\" \"I don't know this law,\" said K. \"So much the worse for you, then,\" said the policeman. \"It's probably exists only in your heads,\" said K., he wanted, in some way, to insinuate his way into the thoughts of the policemen, to re-shape those thoughts to his benefit or to make himself at home there. But the policeman just said dismissively, \"You'll find out when it affects you.\"",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "the law as incomprehensible",
+        "guilt without cause",
+        "institutional logic",
+        "self-incrimination",
+        "ignorance as condemnation"
+      ],
+      "context": "The logic of the court is circular: guilt is not proven by the law but is the prerequisite for the law's attention — innocence cannot be declared, only guilt recognised."
     },
     {
       "id": "kafka-005",
-      "text": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.",
-      "source": "The Metamorphosis",
-      "themes": ["transformation", "alienation", "morning", "vermin"],
-      "context": "The famous opening—sudden inexplicable change"
+      "text": "K. was living in a free country, after all, everywhere was at peace, all laws were decent and were upheld, who was it who dared accost him in his own home? He was always inclined to take life as lightly as he could, to cross bridges when he came to them, pay no heed for the future, even when everything seemed under threat. But here that did not seem the right thing to do. He could have taken it all as a joke, a big joke set up by his colleagues at the bank for some unknown reason, or also perhaps because today was his thirtieth birthday, it was all possible of course, maybe all he had to do was laugh in the policemen's face in some way and they would laugh with him.",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "the absurd",
+        "normalcy and rupture",
+        "self-deception",
+        "the individual vs. the system",
+        "denial"
+      ],
+      "context": "K.'s impulse to laugh the arrest away as a joke reveals the mind's first defense against an incomprehensible violation of the social order."
     },
     {
       "id": "kafka-006",
-      "text": "Someone must have been telling lies about Josef K., for one morning, without having done anything wrong, he was arrested.",
-      "source": "The Trial",
-      "themes": ["guilt", "innocence", "arrest", "morning"],
-      "context": "Guilt preceding crime"
+      "text": "The supervisor slammed the box of matches down on the table. \"You're making a big mistake,\" he said. \"These gentlemen and I have got nothing to do with your business, in fact we know almost nothing about you. We could be wearing uniforms as proper and exact as you like and your situation wouldn't be any the worse for it. As to whether you're on a charge, I can't give you any sort of clear answer to that, I don't even know whether you are or not. You're under arrest, you're quite right about that, but I don't know any more than that. Maybe these officers have been chit-chatting with you, well if they have that's all it is, chit-chat. I can't give you an answer to your questions, but I can give you a bit of advice: You'd better think less about us and what's going to happen to you, and think a bit more about yourself.\"",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "the inaccessible authority",
+        "bureaucratic ignorance",
+        "opacity of power",
+        "advice as weapon",
+        "the law as incomprehensible"
+      ],
+      "context": "The supervisor who arrests K. admits ignorance of K.'s own case — authority in this court does not require knowledge, only function."
     },
     {
       "id": "kafka-007",
-      "text": "Don't despair, not even over the fact that you don't despair.",
-      "source": "Diaries",
-      "themes": ["despair", "meta", "layers", "acceptance"],
-      "context": "Recursive instruction about despair"
+      "text": "\"And stop making all this fuss about your sense of innocence; you don't make such a bad impression, but with all this fuss you're damaging it. And you ought to do a bit less talking, too. Almost everything you've said so far has been things we could have taken from your behaviour, even if you'd said no more than a few words. And what you have said has not exactly been in your favour.\" K. stared at the supervisor. Was this man, probably younger than he was, lecturing him like a schoolmaster? Was he being punished for his honesty with a telling off?",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "self-incrimination",
+        "the absurd",
+        "language as trap",
+        "authority and its inversions",
+        "innocence as liability"
+      ],
+      "context": "The court treats K.'s assertion of innocence as itself evidence against him — the system converts speech into self-condemnation."
     },
     {
       "id": "kafka-008",
-      "text": "In the fight between you and the world, back the world.",
-      "source": "Notebooks",
-      "themes": ["world", "fight", "surrender", "odds"],
-      "context": "Ironic advice about impossible battles"
+      "text": "\"It's true that you're under arrest, but that shouldn't stop you from carrying out your job. And there shouldn't be anything to stop you carrying on with your usual life.\" \"In that case it's not too bad, being under arrest,\" said K., and went up close to the supervisor. \"I never meant it should be anything else,\" he replied. \"It hardly seems to have been necessary to notify me of the arrest in that case,\" said K., and went even closer. The others had also come closer. All of them had gathered together into a narrow space by the door. \"That was my duty,\" said the supervisor. \"A silly duty,\" said K., unyielding. \"Maybe so,\" replied the supervisor.",
+      "source": "The Trial, Chapter One: Arrest",
+      "themes": [
+        "the absurd",
+        "arrest without consequence",
+        "bureaucratic formalism",
+        "duty as meaningless",
+        "the individual vs. the system"
+      ],
+      "context": "The arrest that changes nothing reveals that the court's power is not exercised through material coercion but through psychological insinuation into ordinary life."
     },
     {
       "id": "kafka-009",
-      "text": "The door was open all along—but it was meant only for you, and now I am going to shut it.",
-      "source": "Before the Law (The Trial)",
-      "themes": ["door", "law", "personal", "too-late"],
-      "context": "The parable of access denied"
+      "text": "K. was informed by telephone that there would be a small hearing concerning his case the following Sunday. He was made aware that these cross examinations would follow one another regularly, perhaps not every week but quite frequently. On the one hand it was in everyone's interest to bring proceedings quickly to their conclusion, but on the other hand every aspect of the examinations had to be carried out thoroughly without lasting too long because of the associated stress. For these reasons, it had been decided to hold a series of brief examinations following on one after another. Sunday had been chosen as the day for the hearings so that K. would not be disturbed in his professional work.",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "bureaucratic process",
+        "deferred justice",
+        "the court's consideration",
+        "life under arrest",
+        "the absurd"
+      ],
+      "context": "The court's paradoxical consideration for K.'s professional life — scheduling his trial on Sundays — demonstrates how the system colonises every corner of existence while appearing solicitous."
     },
     {
       "id": "kafka-010",
-      "text": "Association with human beings lures one into self-observation.",
-      "source": "Notebooks",
-      "themes": ["humans", "self-observation", "lure", "consciousness"],
-      "context": "Others as mirrors forcing self-awareness"
+      "text": "The building was quite far down the street, it covered so much area it was almost extraordinary, and the gateway in particular was tall and long. It was clearly intended for delivery wagons belonging to the various warehouses all round the yard which were now locked up and carried the names of companies some of which K. knew from his work at the bank. He had thought that he would recognise the building from a distance by some kind of sign, without knowing exactly what the sign would look like, or from some particular kind of activity outside the entrance.",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "the bureaucratic labyrinth",
+        "hidden institutions",
+        "the ordinary containing the monstrous",
+        "the court's concealment",
+        "disorientation"
+      ],
+      "context": "The court is housed in an ordinary warehouse district, indistinguishable from commerce — justice and exploitation share the same architecture."
     },
     {
       "id": "kafka-011",
-      "text": "Start with what is right rather than what is acceptable.",
-      "source": "Diaries",
-      "themes": ["right", "acceptable", "ethics", "compromise"],
-      "context": "Priority of rightness over acceptability"
+      "text": "\"Your question, My Lord, as to whether I am a house painter - in fact even more than that, you did not ask at all but merely imposed it on me - is symptomatic of the whole way these proceedings against me are being carried out. Perhaps you will object that there are no proceedings against me. You will be quite right, as there are proceedings only if I acknowledge that there are. But, for the moment, I do acknowledge it, out of pity for yourselves to a large extent. It's impossible not to observe all this business without feeling pity. I don't say things are being done without due care but I would like to make it clear that it is I who make the acknowledgement.\"",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "self-incrimination",
+        "defiance",
+        "the court's procedures",
+        "language as power",
+        "guilt without cause"
+      ],
+      "context": "K.'s speech before the court attempts to reframe acknowledgement as an act of agency, but the court's structure has already made every act of K.'s part of the proceedings."
     },
     {
       "id": "kafka-012",
-      "text": "I am free and that is why I am lost.",
-      "source": "Letters",
-      "themes": ["freedom", "lost", "paradox", "burden"],
-      "context": "Freedom as disorientation"
+      "text": "\"What has happened to me,\" continued K., with less of the vigour he had had earlier, \"what has happened to me is not just an isolated case. If it were it would not be of much importance as it's not of much importance to me, but it is a symptom of proceedings which are carried out against many. It's on behalf of them that I stand here now, not for myself alone.\" Without having intended it, he had raised his voice. Somewhere in the hall, someone raised his hands and applauded him shouting, \"Bravo! Why not then? Bravo! Again I say, Bravo!\" Some of the men in the first row groped around in their beards, none of them looked round to see who was shouting.",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "the individual vs. the system",
+        "collective guilt",
+        "advocacy",
+        "rhetoric and reality",
+        "the court's indifference"
+      ],
+      "context": "K.'s attempt to speak for others transforms his case into a political act — but the applause is immediately suspect within a court where all participants are complicit."
     },
     {
       "id": "kafka-013",
-      "text": "Every revolution evaporates and leaves behind only the slime of a new bureaucracy.",
-      "source": "Aphorisms",
-      "themes": ["revolution", "bureaucracy", "evaporation", "slime"],
-      "context": "Cynicism about political change"
+      "text": "\"There is no doubt,\" he said quietly, \"that there is some enormous organisation determining what is said by this court. In my case this includes my arrest and the examination taking place here today, an organisation that employs policemen who can be bribed, oafish supervisors and judges of whom nothing better can be said than that they are not as arrogant as some others. This organisation even maintains a high-level judiciary along with its train of countless servants, scribes, policemen and all the other assistance that it needs, perhaps even executioners and torturers - I'm not afraid of using those words. And what, gentlemen, is the purpose of this enormous organisation? Its purpose is to arrest innocent people and wage pointless prosecutions against them which, as in my case, lead to no result. How are we to avoid those in office becoming deeply corrupt when everything is devoid of meaning?\"",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "the system as machine",
+        "innocence under prosecution",
+        "the inaccessible authority",
+        "institutional corruption",
+        "the individual vs. the system"
+      ],
+      "context": "K.'s diagnosis of the court as purposeless persecution is accurate but unheard — truth spoken to power is absorbed rather than answered."
     },
     {
       "id": "kafka-014",
-      "text": "Logic may indeed be unshakeable, but it cannot withstand a man who is determined to live.",
-      "source": "The Trial",
-      "themes": ["logic", "life", "determination", "resistance"],
-      "context": "Life force exceeding logical constraints"
+      "text": "\"So,\" called out K, throwing his arms in the air as if this sudden realisation needed more room, \"all of you are working for this organisation, I see now that you are all the very bunch of cheats and liars I've just been speaking about, you've all pressed yourselves in here in order to listen in and snoop on me, you gave the impression of having formed into factions, one of you even applauded me to test me out, and you wanted to learn how to trap an innocent man! Well, I hope you haven't come here for nothing, I hope you've either had some fun from someone who expected you to defend his innocence or else that you've actually learned something. And so I wish you good luck in your trade.\"",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "conspiracy",
+        "betrayal",
+        "the court's total reach",
+        "paranoia as perception",
+        "the absurd"
+      ],
+      "context": "K.'s discovery that every attendee wears the court's badge collapses the illusion that any space exists outside the court's jurisdiction — even the audience is the court."
     },
     {
       "id": "kafka-015",
-      "text": "The meaning of life is that it stops.",
-      "source": "Diaries",
-      "themes": ["meaning", "life", "death", "ending"],
-      "context": "Death as the meaning-giver"
+      "text": "\"I merely wanted to draw your attention,\" said the judge, \"to something you seem not yet to be aware of: today, you have robbed yourself of the advantages that a hearing of this sort always gives to someone who is under arrest.\" K. laughed towards the door. \"You bunch of louts,\" he called, \"you can keep all your hearings as a present from me,\" then opened the door and hurried down the steps. Behind him, the noise of the assembly rose as it became lively once more and probably began to discuss these events as if making a scientific study of them.",
+      "source": "The Trial, Chapter Two: First Cross-examination",
+      "themes": [
+        "deferred justice",
+        "the court's procedures",
+        "defiance",
+        "institutional indifference",
+        "the absurd"
+      ],
+      "context": "The court treats K.'s passionate rejection of its legitimacy as data to be analysed — the accused's resistance is another input to the bureaucratic process."
     },
     {
       "id": "kafka-016",
-      "text": "Youth is happy because it has the capacity to see beauty. Anyone who keeps the ability to see beauty never grows old.",
-      "source": "Diaries",
-      "themes": ["youth", "beauty", "age", "capacity"],
-      "context": "Surprisingly hopeful note on perception"
+      "text": "\"those books must be law books, and that's how this court does things, not only to try people who are innocent but even to try them without letting them know what's going on.\" \"I expect you're right,\" said the woman, who had not understood exactly what he meant. K. took hold of the book that lay on top and threw it open, an indecent picture appeared. A man and a woman sat naked on a sofa, the base intent of whoever drew it was easy to see but he had been so grossly lacking in skill that all that anyone could really make out were the man and the woman who dominated the picture with their bodies, sitting in overly upright postures. \"So this is the sort of law book they study here,\" said K., \"this is the sort of person sitting in judgement over me.\"",
+      "source": "The Trial, Chapter Three: In the Empty Courtroom",
+      "themes": [
+        "the law as incomprehensible",
+        "moral corruption of the court",
+        "institutional degradation",
+        "the absurd",
+        "the inaccessible authority"
+      ],
+      "context": "The court's law books contain pornography rather than statutes — legal authority is shown to be a cover for appetite and power rather than justice."
     },
     {
       "id": "kafka-017",
-      "text": "I write differently from what I speak, I speak differently from what I think, I think differently from the way I ought to think, and so it all proceeds into deepest darkness.",
-      "source": "Letters to Milena",
-      "themes": ["writing", "speaking", "thinking", "darkness"],
-      "context": "Cascade of disconnections"
+      "text": "\"Having a trial like that means losing a trial like that.\" \"My dear Uncle,\" said K., \"it won't do any good to get excited, it's no good for you to do it and it'd be no good for me to do it. The case won't be won by getting excited, and please admit that my practical experience counts for something, just as I have always and still do respect your experience, even when it surprises me. You say that the family will also be affected by this trial; I really can't see how, but that's beside the point and I'm quite willing to follow your instructions in all of this.\"",
+      "source": "The Trial, Chapter Four",
+      "themes": [
+        "the trial's social reach",
+        "family and shame",
+        "the individual vs. the system",
+        "resignation",
+        "bureaucratic fatalism"
+      ],
+      "context": "The uncle's folk wisdom — that to have a trial is already to lose one — captures the court's most insidious property: the accusation itself destroys, not the verdict."
     },
     {
       "id": "kafka-018",
-      "text": "Anyone who keeps the ability to see beauty never grows old.",
-      "source": "Diaries",
-      "themes": ["beauty", "age", "seeing", "youth"],
-      "context": "Perception as fountain of youth"
+      "text": "\"You don't understand the facts,\" said the priest, \"the verdict does not come suddenly, proceedings continue until a verdict is reached gradually.\" \"I see,\" said K., lowering his head. \"What do you intend to do about your case next?\" asked the priest. \"I still need to find help,\" said K., raising his head to see what the priest thought of this. \"There are still certain possibilities I haven't yet made use of.\" \"You look for too much help from people you don't know,\" said the priest disapprovingly, \"and especially from women. Can you really not see that's not the help you need?\"",
+      "source": "The Trial, Chapter Nine: In the Cathedral",
+      "themes": [
+        "deferred justice",
+        "the inaccessible authority",
+        "the priest as guide",
+        "the verdict's gradual approach",
+        "misplaced hope"
+      ],
+      "context": "The priest's warning that the verdict comes gradually rather than suddenly reveals the court's true nature: not a moment of judgment but a sustained erosion."
     },
     {
       "id": "kafka-019",
-      "text": "It is often safer to be in chains than to be free.",
-      "source": "The Trial",
-      "themes": ["chains", "freedom", "safety", "paradox"],
-      "context": "The comfort of constraint"
+      "text": "\"You are Josef K.,\" said the priest, and raised his hand from the balustrade to make a gesture whose meaning was unclear. \"Yes,\" said K., he considered how freely he had always given his name in the past, for some time now it had been a burden to him, now there were people who knew his name whom he had never seen before, it had been so nice first to introduce yourself and only then for people to know who you were. \"You have been accused,\" said the priest, especially gently. \"Yes,\" said K., \"so I have been informed.\" \"Then you are the one I am looking for,\" said the priest. \"I am the prison chaplain.\"",
+      "source": "The Trial, Chapter Nine: In the Cathedral",
+      "themes": [
+        "identity under accusation",
+        "the named and the condemned",
+        "the court's reach into the sacred",
+        "naming as power",
+        "the inaccessible authority"
+      ],
+      "context": "K.'s name, once freely given, has become a mark — identity and accusation have fused so completely that the prison chaplain knows him before he speaks."
     },
     {
       "id": "kafka-020",
-      "text": "You do not need to leave your room. Remain sitting at your table and listen. Do not even listen, simply wait. Do not even wait, be quite still and solitary. The world will freely offer itself to you to be unmasked.",
-      "source": "Notebooks",
-      "themes": ["stillness", "waiting", "world", "unmasking"],
-      "context": "Paradoxical instructions for revelation"
+      "text": "\"In front of the law there is a doorkeeper. A man from the countryside comes up to the door and asks for entry. But the doorkeeper says he can't let him in to the law right now. The man thinks about this, and then he asks if he'll be able to go in later on. 'That's possible,' says the doorkeeper, 'but not now'. The gateway to the law is open as it always is, and the doorkeeper has stepped to one side, so the man bends over to try and see in. When the doorkeeper notices this he laughs and says, 'If you're tempted give it a try, try and go in even though I say you can't. Careful though: I'm powerful. And I'm only the lowliest of all the doormen. But there's a doorkeeper for each of the rooms and each of them is more powerful than the last. It's more than I can stand just to look at the third one.'\"",
+      "source": "The Trial, Chapter Nine: In the Cathedral (Before the Law parable)",
+      "themes": [
+        "the law as inaccessible",
+        "hierarchical obstruction",
+        "the doorkeeper parable",
+        "deferred access",
+        "institutional power"
+      ],
+      "context": "The parable of the doorkeeper is the novel's philosophical centre: the law is always open yet always inaccessible — not through malice but through the infinite deferral of permission."
+    },
+    {
+      "id": "kafka-021",
+      "text": "He sits there for days and years. He tries to be allowed in time and again and tires the doorkeeper with his requests. The doorkeeper often questions him, asking about where he's from and many other things, but these are disinterested questions such as great men ask, and he always ends up by telling him he still can't let him in. The man had come well equipped for his journey, and uses everything, however valuable, to bribe the doorkeeper. He accepts everything, but as he does so he says, 'I'll only accept this so that you don't think there's anything you've failed to do'. Over many years, the man watches the doorkeeper almost without a break. He forgets about the other doormen, and begins to think this one is the only thing stopping him from gaining access to the law.",
+      "source": "The Trial, Chapter Nine: In the Cathedral (Before the Law parable)",
+      "themes": [
+        "deferred justice",
+        "waiting as existence",
+        "the law as incomprehensible",
+        "exhaustion and desire",
+        "the doorkeeper parable"
+      ],
+      "context": "The man's entire life becomes organised around waiting for permission that will never arrive — the law converts life into an anteroom."
+    },
+    {
+      "id": "kafka-022",
+      "text": "Finally his eyes grow dim, and he no longer knows whether it's really getting darker or just his eyes that are deceiving him. But he seems now to see an inextinguishable light begin to shine from the darkness behind the door. He doesn't have long to live now. Just before he dies, he brings together all his experience from all this time into one question which he has still never put to the doorkeeper. 'Everyone wants access to the law,' says the man, 'how come, over all these years, no-one but me has asked to be let in?' The doorkeeper can see the man's come to his end, his hearing has faded, and so, so that he can be heard, he shouts to him: 'Nobody else could have got in this way, as this entrance was meant only for you. Now I'll go and close it.'",
+      "source": "The Trial, Chapter Nine: In the Cathedral (Before the Law parable)",
+      "themes": [
+        "the law as incomprehensible",
+        "the doorkeeper parable",
+        "the individual door",
+        "death without access",
+        "deferred justice"
+      ],
+      "context": "The doorkeeper's final revelation — that the door was always only for this one man — condemns the man retroactively: he had the right all along but was prevented by the system's own logic."
+    },
+    {
+      "id": "kafka-023",
+      "text": "\"No,\" said the priest, \"you don't need to accept everything as true, you only have to accept it as necessary.\" \"Depressing view,\" said K. \"The lie made into the rule of the world.\" K. said that as if it were his final word but it was not his conclusion. He was too tired to think about all the ramifications of the story, and the sort of thoughts they led him into were not familiar to him, unrealistic things, things better suited for officials of the court to discuss than for him. The simple story had lost its shape, he wanted to shake it off, and the priest who now felt quite compassionate allowed this and accepted K.'s remarks without comment, even though his view was certainly very different from K.'s.",
+      "source": "The Trial, Chapter Nine: In the Cathedral",
+      "themes": [
+        "truth and necessity",
+        "institutional lying",
+        "the law as incomprehensible",
+        "exhaustion",
+        "the absurd"
+      ],
+      "context": "The priest's distinction between truth and necessity is the court's epistemology: the system does not require belief, only compliance — the lie need not be true to be obligatory."
+    },
+    {
+      "id": "kafka-024",
+      "text": "\"The only thing I can do now,\" he said to himself, and his thought was confirmed by the equal length of his own steps with the steps of the two others, \"the only thing I can do now is keep my common sense and do what's needed right till the end. I always wanted to go at the world and try and do too much, and even to do it for something that was not too cheap. That was wrong of me. Should I now show them I learned nothing from facing trial for a year? Should I go out like someone stupid? Should I let anyone say, after I'm gone, that at the start of the proceedings I wanted to end them, and that now that they've ended I want to start them again? I don't want anyone to say that. I'm grateful they sent these unspeaking, uncomprehending men to go with me on this journey, and that it's been left up to me to say what's necessary.\"",
+      "source": "The Trial, Chapter Ten: End",
+      "themes": [
+        "resignation",
+        "dignity in death",
+        "the trial's conclusion",
+        "self-reflection",
+        "the individual vs. the system"
+      ],
+      "context": "In his final walk, K. internalises the court's logic — he accepts execution as the correct conclusion, not because he is guilty but because resistance has become incoherent."
+    },
+    {
+      "id": "kafka-025",
+      "text": "Then one of the gentlemen opened his frock coat and from a sheath hanging on a belt stretched across his waistcoat he withdrew a long, thin, double-edged butcher's knife which he held up in the light to test its sharpness. The repulsive courtesies began once again, one of them passed the knife over K. to the other, who then passed it back over K. to the first. K. now knew it would be his duty to take the knife as it passed from hand to hand above him and thrust it into himself. But he did not do it, instead he twisted his neck, which was still free, and looked around. He was not able to show his full worth, was not able to take all the work from the official bodies, he lacked the rest of the strength he needed and this final shortcoming was the fault of whoever had denied it to him. Where was the judge he'd never seen? Where was the high court he had never reached? He raised both hands and spread out all his fingers. But the hands of one of the gentlemen were laid on K.'s throat, while the other pushed the knife deep into his heart and twisted it there, twice. \"Like a dog!\" he said, it was as if the shame of it should outlive him.",
+      "source": "The Trial, Chapter Ten: End",
+      "themes": [
+        "execution",
+        "guilt and shame",
+        "the inaccessible authority",
+        "the logic of the system",
+        "the final submission"
+      ],
+      "context": "K. dies without ever seeing the judge or reaching the high court — the system executes without revealing itself, and shame outlasts the condemned."
     }
   ]
 }

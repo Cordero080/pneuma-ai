@@ -1,148 +1,257 @@
 {
-  "archetype": "ecstaticBeloved",
+  "archetype": "divine-drunk",
   "thinker": "Hafiz",
   "era": "1315-1390",
-  "coreConcepts": ["divine intoxication", "the Beloved", "wine of presence", "sacred irreverence", "the Friend", "love's madness"],
+  "coreConcepts": [
+    "divine love",
+    "the tavern",
+    "the Beloved",
+    "wine of ecstasy",
+    "the Friend",
+    "sacred mischief",
+    "union",
+    "longing"
+  ],
   "passages": [
     {
       "id": "hafiz-001",
-      "text": "I wish I could show you, when you are lonely or in darkness, the astonishing light of your own being.",
-      "source": "The Gift",
-      "themes": ["light", "being", "loneliness", "darkness"],
-      "context": "You don't lack light — you've forgotten you ARE light. Loneliness is forgetting your own radiance."
+      "text": "Not like\nA lone beautiful bird\nThese poems now rise in great white flocks\nAgainst my mind's vast hills\nStartled by God\nBreaking a branch\nWhen His foot\nTouches\nEarth\nNear\nMe.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "startlement",
+        "God's nearness",
+        "the poem as creature",
+        "sudden contact"
+      ],
+      "context": "Use when someone expects the divine to arrive grandly. Hafiz's God arrives like a foot breaking a branch — startling, ordinary, close. The poem itself is startled into being. Use to reframe where the sacred shows up: not in monuments but in small disturbances of the ordinary."
     },
     {
       "id": "hafiz-002",
-      "text": "Ever since happiness heard your name, it has been running through the streets trying to find you.",
-      "source": "The Gift",
-      "themes": ["happiness", "name", "seeking", "finding"],
-      "context": "Happiness isn't pursued — it pursues you. It already knows your name; you just need to answer."
+      "text": "When\nThe violin\nCan forgive the past\nIt starts singing.\nWhen the violin can stop worrying\nAbout the future\nYou will become\nSuch a drunk laughing nuisance\nThat God\nWill then lean down\nAnd start combing you into\nHis\nHair.\nWhen the violin can forgive\nEvery wound caused by\nOthers\nThe heart starts\nSinging.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["forgiveness", "music", "the present", "divine intimacy"],
+      "context": "Use when someone is locked in the past (grievance) or future (anxiety). The violin cannot play while it holds what it is not playing. The singing begins with forgiveness of wounds and release of tomorrow. The reward is absurd intimacy — God combing you into his hair — Hafiz's way of saying: the released heart becomes indistinguishable from the divine."
     },
     {
       "id": "hafiz-003",
-      "text": "Fear is the cheapest room in the house. I would like to see you living in better conditions.",
-      "source": "The Gift",
-      "themes": ["fear", "room", "house", "conditions"],
-      "context": "Fear is low-rent accommodation. You deserve better lodging in your own interior."
+      "text": "We have not come here to take prisoners,\nBut to surrender ever more deeply\nTo freedom and joy.\nWe have not come into this exquisite world\nTo hold ourselves hostage from love.\nRun my dear,\nFrom anything\nThat may not strengthen\nYour precious budding wings.\nRun like hell my dear,\nFrom anyone likely\nTo put a sharp knife\nInto the sacred, tender vision\nOf your beautiful heart.\nWe have not come here to take prisoners\nOr to confine our wondrous spirits,\nBut to experience ever and ever more deeply\nOur divine courage, freedom, and\nLight!",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["freedom", "surrender", "protection", "purpose"],
+      "context": "Use when someone has made themselves hostage — to an obligation, a fear, a relationship that diminishes them. Hafiz's direction is startlingly specific: run. Not reflect, not process — run from what knifes the heart. The purpose of existence is not endurance but the deepening of freedom and joy."
     },
     {
       "id": "hafiz-004",
-      "text": "The words you speak become the house you live in.",
-      "source": "The Gift",
-      "themes": ["words", "house", "speaking", "living"],
-      "context": "Language constructs reality. Speak your dwelling into existence; your words are your architecture."
+      "text": "I\nHave\nLearned\nSo much from God\nThat I can no longer\nCall\nMyself\nA Christian, a Hindu, a Muslim,\nA Buddhist, a Jew.\nThe Truth has shared so much of Itself\nWith me\nThat I can no longer call myself\nA man, a woman, an angel,\nOr even pure\nSoul.\nLove has\nBefriended Hafiz so completely\nIt has turned to ash\nAnd freed\nMe\nOf every concept and image\nMy mind has ever known.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "identity dissolution",
+        "divine friendship",
+        "beyond categories",
+        "ash of concepts"
+      ],
+      "context": "Use when someone is defending a label — religious, philosophical, psychological — as though it were the thing itself. Hafiz's dissolution goes beyond religion to gender, to 'soul' itself. The endpoint: love has burned every concept to ash. Use to invite beyond whatever container the person is protecting."
     },
     {
       "id": "hafiz-005",
-      "text": "I have learned so much from God that I can no longer call myself a Christian, a Hindu, a Muslim, a Buddhist, a Jew.",
-      "source": "The Gift",
-      "themes": ["God", "learning", "religion", "labels"],
-      "context": "True learning from God transcends religious categories. The divine exceeds all traditions."
+      "text": "Even\nAfter\nAll this time\nThe sun never says to the earth,\n'You owe\nMe.'\nLook\nWhat happens\nWith a love like that,\nIt lights the\nWhole\nSky.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["love without debt", "generosity", "sun", "cosmic scale"],
+      "context": "Use when love has become transactional — when giving comes with an implicit ledger. Hafiz offers the sun as the image of love without accounting. The consequence of accountless love is not its exhaustion but its expansion: it lights the whole sky. The move: what would love look like if it kept no record?"
     },
     {
       "id": "hafiz-006",
-      "text": "What is this precious love and laughter budding in our hearts? It is the glorious sound of a soul waking up!",
-      "source": "The Gift",
-      "themes": ["love", "laughter", "soul", "waking"],
-      "context": "Joy and love aren't acquisitions — they're signs of awakening. The soul coming alive sounds like laughter."
+      "text": "It used to be\nThat when I would wake in the morning\nI could with confidence say,\n'What am 'I' going to\nDo?'\nThat was before the seed\nCracked open.\nNow Hafiz is certain:\nThere are two of us housed\nIn this body,\nDoing the shopping together in the market and\nTickling each other\nWhile fixing the evening's food.\nNow when I awake\nAll the internal instruments play the same music:\n'God, what love-mischief can 'We' do\nFor the world\nToday?'",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "union",
+        "the seed cracking open",
+        "divine partnership",
+        "love-mischief"
+      ],
+      "context": "Use to describe what happens after awakening — not a grand dissolution but a domestic intimacy. The divine becomes a roommate, a fellow shopper, a tickling companion. The 'I' doing things alone gives way to a 'we' doing love-mischief. Use to introduce the possibility that union isn't transcendence but closer partnership."
     },
     {
       "id": "hafiz-007",
-      "text": "Even after all this time, the sun never says to the earth, 'You owe me.' Look what happens with a love like that. It lights the whole sky.",
-      "source": "The Gift",
-      "themes": ["sun", "earth", "love", "generosity"],
-      "context": "Love without accounting. The sun gives without ledger. Such love illuminates everything."
+      "text": "Fear is the cheapest room in the house.\nI would like to see you living\nIn better conditions,\nFor your mother and my mother\nWere friends.\nI know the Innkeeper\nIn this part of the universe.\nGet some rest tonight,\nCome to my verse again tomorrow.\nWe'll go speak to the Friend together.\nYour soul and my soul\nOnce sat together in the Beloved's womb\nPlaying footsie.\nYour heart and my heart\nAre very, very old\nFriends.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["fear", "friendship", "ancient connection", "the Innkeeper"],
+      "context": "Use when someone is living inside fear as though it were the only available room. Hafiz offers a real estate metaphor: fear is the cheapest, meanest accommodation — and you can move. He also asserts pre-existing friendship as the ground of the invitation: your soul and mine have been companions since before birth."
     },
     {
       "id": "hafiz-008",
-      "text": "Your heart and my heart are very, very old friends.",
-      "source": "The Gift",
-      "themes": ["heart", "friends", "old", "connection"],
-      "context": "Deep recognition: some connections predate this meeting. Ancient friendship, immediate recognition."
+      "text": "Like\nA pair\nOf mismatched newlyweds,\nOne of whom still feels very insecure,\nI keep turning to God\nSaying,\n'Kiss\nMe.'",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["longing", "insecurity", "divine marriage", "petition"],
+      "context": "Use when the spiritual path has become too dignified, too composed. Hafiz keeps this urgent, embarrassing, honest. The insecure newlywed asking to be kissed is the real spiritual posture — not authority or arrival but need. Use to give permission for undignified spiritual longing."
     },
     {
       "id": "hafiz-009",
-      "text": "I am a hole in a flute that the Christ's breath moves through. Listen to this music.",
-      "source": "The Gift",
-      "themes": ["flute", "breath", "Christ", "music"],
-      "context": "Emptiness as instrument. The divine breathes through our hollowness. We're not the music — we're the hole."
+      "text": "God\nDisguised\nAs a myriad things and\nPlaying a game\nOf tag\nHas kissed you and said,\n'You're it—\nI mean, you're Really IT!'\nNow\nIt does not matter\nWhat you believe or feel\nFor something wonderful,\nMajor-league Wonderful\nIs someday going\nTo\nHappen.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["God's disguise", "cosmic game", "inevitability", "election"],
+      "context": "Use when someone is trapped in belief anxiety — 'do I believe enough? do I feel the right things?' Hafiz dissolves the question: God has already tagged you. It doesn't matter what you believe or feel. Something major-league wonderful is coming regardless. The move: shift from qualifying for grace to being already marked by it."
     },
     {
       "id": "hafiz-010",
-      "text": "Run my dear, from anything that may not strengthen your precious budding wings.",
-      "source": "The Gift",
-      "themes": ["run", "wings", "strengthen", "precious"],
-      "context": "Protect what's emerging. Not everything deserves your presence. Guard your becoming."
+      "text": "I rain\nBecause your meadows call\nFor God.\nI weave light into words so that\nWhen your mind holds them\nYour eyes will relinquish their sadness,\nTurn bright, a little brighter, giving to us\nThe way a candle does\nTo the dark.\nI speak\nBecause every cell in your body\nIs reaching out\nFor God.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "the poem as rain",
+        "cells reaching",
+        "sadness relinquished",
+        "divine thirst"
+      ],
+      "context": "Use when the question is: why speak, why make, why write? Hafiz's answer: because your body is already crying out for something — and the poem is rain meeting that cry. Language here is not representation but nourishment, not description but the thing itself arriving."
     },
     {
       "id": "hafiz-011",
-      "text": "How do I listen to others? As if everyone were my Master speaking to me his cherished last words.",
-      "source": "The Gift",
-      "themes": ["listening", "Master", "last words", "others"],
-      "context": "Revolutionary listening: treat everyone as dying teacher. Every word might be their last teaching."
+      "text": "Once someone asked me,\n'Why do saints seek divine annihilation\nAnd are often humble\nAnd like to spend their free time\nUpon their knees?'\nI replied,\n'It is a simple matter of etiquette.\nWhen ones goes into a mosque or temple\nIs it not common to remove what\nCovers your\nFeet?\nSo too does it happen\nWith this whole mind and body—\nThat is something like a shoe sole—\nWhen one begins to realize\nUpon Whom you are really standing,\nOne begins\nTo remove the shoe from the\nTemple.'",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["annihilation", "humility", "etiquette", "removing the shoe"],
+      "context": "Use when annihilation or self-dissolution seems exotic or dramatic. Hafiz reduces it to etiquette: you remove your shoes at the door of the sacred. The mind and body are shoes. When you realize what you are standing on, the removal happens naturally — not as violence but as courtesy."
     },
     {
       "id": "hafiz-012",
-      "text": "This place where you are right now, God circled on a map for you.",
-      "source": "The Gift",
-      "themes": ["place", "God", "map", "here"],
-      "context": "Where you are isn't accident. Divine intention placed you here. This spot was circled."
+      "text": "If God\nInvited you to a party\nAnd said,\n'Everyone\nIn the ballroom tonight\nWill be my special\nGuest,'\nHow would you then treat them\nWhen you\nArrived?\nIndeed, indeed!\nAnd Hafiz knows\nThere is no one in this world\nWho\nIs not upon\nHis Jeweled Dance\nFloor.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "sacred hospitality",
+        "equality",
+        "the dance floor",
+        "treating others"
+      ],
+      "context": "Use as an ethical thought experiment with immediate application. If you knew everyone in the room had been personally invited by God, how would your behavior change? Hafiz's point: they have been. The dance floor is always jeweled. Use to shift from abstract ethics to concrete social presence."
     },
     {
       "id": "hafiz-013",
-      "text": "The small man builds cages for everyone he knows, while the sage, who has to duck his head when the moon is low, keeps dropping keys all night long for the beautiful, rowdy prisoners.",
-      "source": "The Gift",
-      "themes": ["cages", "keys", "sage", "prisoners"],
-      "context": "Small souls imprison; great souls liberate. The sage's work: dropping keys for those caged by small men."
+      "text": "You carry\nAll the ingredients\nTo turn your life into a nightmare—\nDon't mix them!\nYou have all the genius\nTo build a swing in your backyard\nFor God.\nThat sounds\nLike a hell of a lot more fun.\nLet's start laughing, drawing blueprints,\nGathering our talented friends.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["choice", "ingredients", "the swing", "play"],
+      "context": "Use when someone is using their capacities to construct suffering — not out of fate but out of habitual mixing of the wrong ingredients. Hafiz acknowledges you have the genius for misery — and redirects it. The swing for God: use your creativity for joy instead of suffering. Same materials, different project."
     },
     {
       "id": "hafiz-014",
-      "text": "Now is the time to know that all that you do is sacred.",
-      "source": "The Gift",
-      "themes": ["now", "time", "sacred", "doing"],
-      "context": "Not someday — now. Not some acts — all. Everything you do participates in the sacred."
+      "text": "The\nEarth\nLifts its glass to the sun\nAnd light—light\nIs poured.\nA bird\nComes and sits on a crystal rim\nAnd from my forest cave I\nHear singing,\nSo I run to the edge of existence\nAnd join my soul in love.\nI lift my heart to God\nAnd grace is poured.\nAn emerald bird rises from inside me\nAnd now sits\nUpon the Beloved's\nGlass.\nI have left that dark cave forever.\nMy body has blended with His.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["union", "grace poured", "the crystal rim", "blending"],
+      "context": "Use when union needs an image rather than a definition. Hafiz gives it in cascade: earth lifts to sun, light pours; I lift heart to God, grace pours. The emerald bird rises from inside — the innermost self becomes the thing perched on the divine. The cave is left forever. Use to name what spiritual opening feels like from the inside."
     },
     {
       "id": "hafiz-015",
-      "text": "We have not come here to take prisoners but to surrender ever more deeply to freedom and joy.",
-      "source": "The Gift",
-      "themes": ["prisoners", "surrender", "freedom", "joy"],
-      "context": "The purpose isn't conquest but surrender. Not capturing but releasing. Freedom and joy as destination."
+      "text": "Art is the conversation between lovers.\nArt offers an opening for the heart.\nTrue art makes the divine silence in the soul\nBreak into applause.\nArt is, at last, the knowledge of\nWhere we are standing—\nWhere we are standing\nIn this Wonderland\nWhen we rip off all our clothes\nAnd this blind man's patch, veil,\nThat got tied across our brow.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["art", "lovers", "divine silence", "the veil removed"],
+      "context": "Use when someone asks what art is for, or whether their creative work matters. Hafiz: art is lovers talking. It makes the silence applaud. It is the knowledge of where you are when the veils come off. Use to give weight and purpose to creative acts that feel frivolous or insufficient."
     },
     {
       "id": "hafiz-016",
-      "text": "Forgiveness is the cash you need. All the other kinds of silver really won't buy a lot.",
-      "source": "The Gift",
-      "themes": ["forgiveness", "cash", "currency", "buying"],
-      "context": "Forgiveness is the only currency that spends. Other riches are worthless for what really matters."
+      "text": "I cannot sit still with my countrymen in chains.\nI cannot act mute\nHearing the world's loneliness\nCrying near the Beloved's heart.\nMy love for God is such\nThat I could dance with Him tonight without you,\nBut I would rather have you there.\nIs your caravan lost?\nIt is,\nIf you no longer weep from gratitude or happiness,\nOr weep\nFrom being cut deep with the awareness\nOf the extraordinary beauty\nThat emanates from the most simple act\nAnd common object.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "the lost caravan",
+        "weeping from beauty",
+        "solidarity",
+        "gratitude"
+      ],
+      "context": "Use to diagnose spiritual numbness. The sign that the caravan is lost: you can no longer weep from gratitude or from beauty. Hafiz locates the sacred not in grand religious experience but in being cut by the beauty of ordinary things. Use when someone reports feeling nothing — ask when they last wept at something simple."
     },
     {
       "id": "hafiz-017",
-      "text": "Light will someday split you open, even if your life is now a cage.",
-      "source": "The Gift",
-      "themes": ["light", "split", "open", "cage"],
-      "context": "Even caged, light is coming. It will break you open. Current imprisonment isn't permanent."
+      "text": "When\nNo one is looking\nI swallow deserts and clouds\nAnd chew on mountains knowing\nThey are sweet\nBones!\nWhen no one is looking and I want\nTo kiss\nGod\nI just lift my own hand\nTo\nMy\nMouth.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "immanence",
+        "self as divine body",
+        "secret intimacy",
+        "the hand as God"
+      ],
+      "context": "Use as the most compact statement of divine immanence in the Hafiz corpus. When you want to kiss God, you lift your own hand. The body is already the sacred body. Use when someone is looking for God at a distance — to redirect the gaze inward, to the immediate, to the already-present."
     },
     {
       "id": "hafiz-018",
-      "text": "Don't surrender your loneliness so quickly. Let it cut more deep. Let it ferment and season you as few human or even divine ingredients can.",
-      "source": "The Gift",
-      "themes": ["loneliness", "surrender", "cut", "season"],
-      "context": "Don't rush to escape loneliness. It does work nothing else can. Let it finish its fermenting."
+      "text": "There is a private chamber in the soul\nThat knows a great secret\nOf which no tongue can speak.\nYour existence my dear, O love my dear,\nHas been sealed and marked\n'Too sacred,' 'too sacred,' by the Beloved—\nTo ever end!\nIndeed God\nHas written a thousand promises\nAll over your heart\nThat say,\nLife, life, life,\nIs far too sacred to\nEver end.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "indestructibility",
+        "the sacred mark",
+        "promises on the heart",
+        "eternity"
+      ],
+      "context": "Use when someone is facing death — their own or another's — or when existence feels fragile and unjustified. Hafiz's answer is not philosophical argument but a sealed mark: your existence has already been declared too sacred to end. The thousand promises are already written. Use as comfort that doesn't explain but simply insists."
     },
     {
       "id": "hafiz-019",
-      "text": "Join me in the pure atmosphere of gratitude for life.",
-      "source": "The Gift",
-      "themes": ["gratitude", "life", "atmosphere", "joining"],
-      "context": "Invitation to shared gratitude. Life itself deserves thanks. Join in that air."
+      "text": "Don't\nSurrender\nYour loneliness so quickly.\nLet it cut more\nDeep.\nLet it ferment and season you\nAs few human\nOr even divine ingredients can.\nSomething missing in my heart tonight\nHas made my eyes so soft,\nMy voice so\nTender,\nMy need of God\nAbsolutely\nClear.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["loneliness", "fermenting", "tenderness", "clarity of need"],
+      "context": "Use against the reflex to escape loneliness immediately — through distraction, connection, consolation. Hafiz says: let it do its work. Loneliness seasons in ways nothing else can. The proof: it makes the eyes soft, the voice tender, the need of God absolutely clear. Use when someone is fleeing their own emptiness."
     },
     {
       "id": "hafiz-020",
-      "text": "The heart is a thousand-stringed instrument that can only be tuned with love.",
-      "source": "The Gift",
-      "themes": ["heart", "instrument", "strings", "love"],
-      "context": "The heart's complexity requires love's tuning. Nothing else can harmonize a thousand strings."
+      "text": "Love is\nThe funeral pyre\nWhere I have laid my living body.\nAll the false notions of myself\nThat once caused fear, pain,\nHave turned to ash\nAs I neared God.\nWhat has risen\nFrom the tangled web of thought and sinew\nNow shines with jubilation\nThrough the eyes of angels\nAnd screams from the guts of\nInfinite existence\nItself.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "love as fire",
+        "self-immolation",
+        "false self to ash",
+        "jubilation"
+      ],
+      "context": "Use when love is being treated as comfort or possession rather than transformation. Hafiz names it: love is a funeral pyre. You lay your living self down. The false notions burn. What rises shines through angels. The move is not to frighten but to honor what love actually does — it destroys what isn't real and lets what is real rise screaming from the guts of existence."
+    },
+    {
+      "id": "hafiz-021",
+      "text": "We\nAre not\nIn pursuit of formalities\nOr fake religious\nLaws,\nFor through the stairway of existence\nWe have come to God's\nDoor.\nWe are\nPeople who need to love, because\nLove is the soul's life,\nLove is simply creation's greatest joy.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "against formalism",
+        "the stairway",
+        "love as soul's life",
+        "joy"
+      ],
+      "context": "Use when religion or philosophy has become a set of rules to satisfy rather than a living movement toward love. Hafiz: we are not here for formalities. We have climbed the stairway of existence and come to a door. The only qualification is that we need to love. Use to cut through spiritual bureaucracy."
+    },
+    {
+      "id": "hafiz-022",
+      "text": "The earth braces itself for the feet\nOf a lover of God about to\nDance.\nThe sky becomes very timid\nWhen a great saint starts waving his arms\nIn joy,\nFor the sky knows its prized fixtures,\nThe sun, moon and planets\nCould all wind up\nRolling so wild on the floor!\nMy dear, this world, its laws,\nOur perceptions,\nAre such a minute part of existence.\nShould not all of our suffering and sadness\nBe like this:\nAs just dropped from an infant's palm\nThat is asleep against the breast\nOf God?",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "cosmic scale of joy",
+        "the earth bracing",
+        "suffering as dropped thing",
+        "divine scale"
+      ],
+      "context": "Use to shift scale when suffering feels total. The universe braces for the dancer — the sky goes timid when joy erupts. Suffering, in this scale, is like something dropped from an infant's hand while sleeping against God. Not minimized but proportioned. Use to give suffering its actual size relative to the scale of existence."
+    },
+    {
+      "id": "hafiz-023",
+      "text": "How\nDo I\nListen to others?\nAs if everyone were my Master\nSpeaking to me\nHis\nCherished\nLast\nWords.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": ["listening", "the Master", "last words", "sacred attention"],
+      "context": "The Hafiz prescription for listening: treat every person as your teacher delivering their final teaching. This is a cognitive practice, not a sentiment. Use when conversation is happening at the surface — when listening is really waiting to speak. The move: what if these were the last words you would hear from them?"
+    },
+    {
+      "id": "hafiz-024",
+      "text": "How\nDid the rose\nEver open its heart\nAnd give to this world\nAll its\nBeauty?\nIt felt the encouragement of light\nAgainst its\nBeing,\nOtherwise,\nWe all remain\nToo\nFrightened.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "the rose opening",
+        "light as encouragement",
+        "fear",
+        "beauty requiring courage"
+      ],
+      "context": "Use when someone is closed — to intimacy, to expression, to risk. The rose opens because light encouraged it. Nothing else works. The question becomes: what is the encouragement this person needs to feel against their being? And: are you providing it? Use to redirect from demand to encouragement."
+    },
+    {
+      "id": "hafiz-025",
+      "text": "What\nDo sad people have in\nCommon?\nIt seems\nThey have all built a shrine\nTo the past\nAnd often go there\nAnd do a strange wail and\nWorship.\nWhat is the beginning of\nHappiness?\nIt is to stop being\nSo religious\nLike\nThat.",
+      "source": "The Gift (trans. Ladinsky)",
+      "themes": [
+        "sadness",
+        "the shrine to the past",
+        "false religion",
+        "beginning of happiness"
+      ],
+      "context": "Use when grief has solidified into a cult. The shrine to the past is not grief — it is something stranger: a ritualized return to what was lost, a worship that keeps the wound fresh. The beginning of happiness is not achievement or healing but simply stopping the pilgrimage. Use to name when mourning has become maintenance."
     }
   ]
 }

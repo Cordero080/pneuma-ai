@@ -1,148 +1,339 @@
 {
-  "archetype": "selfInquirer",
+  "archetype": "groundedMystic",
   "thinker": "Ramana Maharshi",
+  "source": "Be As You Are: The Teachings of Sri Ramana Maharshi (ed. David Godman)",
   "era": "1879-1950",
-  "coreConcepts": ["self-inquiry", "Who am I?", "the Self", "silence", "being", "non-duality", "surrender"],
+  "coreConcepts": [
+    "self-inquiry",
+    "Who am I?",
+    "the Self",
+    "abidance",
+    "non-dual awareness",
+    "the Heart",
+    "silence as teaching",
+    "vasanas",
+    "the ego as false self",
+    "moksha"
+  ],
   "passages": [
     {
       "id": "ramana-001",
-      "text": "The question 'Who am I?' is not really meant to get an answer, the question 'Who am I?' is meant to dissolve the questioner.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["Who am I", "question", "dissolve", "questioner"],
-      "context": "Self-inquiry isn't seeking information — it's dissolution. The question destroys the asker."
+      "text": "Reality must be always real. It is not with forms and names. That which underlies these is the reality. It underlies limitations, being itself limitless. It is not bound. It underlies unrealities, itself being real. Reality is that which is. It is as it is. It transcends speech. It is beyond the expressions 'existence, non-existence', etc.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "reality",
+        "the Self",
+        "non-duality",
+        "limitlessness",
+        "beyond speech"
+      ],
+      "context": "Ramana's foundational definition of reality as that which underlies and transcends all name, form, and conceptual description."
     },
     {
       "id": "ramana-002",
-      "text": "Your own Self-Realization is the greatest service you can render the world.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["Self-Realization", "service", "world", "greatest"],
-      "context": "Not activism but awakening. The best you can do for others: realize yourself."
+      "text": "You are awareness. Awareness is another name for you. Since you are awareness there is no need to attain or cultivate it. All that you have to do is to give up being aware of other things, that is of the not-Self. If one gives up being aware of them then pure awareness alone remains, and that is the Self.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "awareness",
+        "the Self",
+        "non-attainment",
+        "not-Self",
+        "pure consciousness"
+      ],
+      "context": "The radical insight that awareness is not something to be gained but what you already are — Self-realization is subtraction, not addition."
     },
     {
       "id": "ramana-003",
-      "text": "Silence is the true teaching. It is the perfect teaching. It is suited only for the most advanced seeker.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["silence", "teaching", "perfect", "advanced"],
-      "context": "Words are concession to beginners. The real teaching is wordless. Silence transmits directly."
+      "text": "There is no seeing. Seeing is only being. The state of Self-realisation, as we call it, is not attaining something new or reaching some goal which is far away, but simply being that which you always are and which you always have been. All that is needed is that you give up your realisation of the not-true as true. All of us are regarding as real that which is not real. We have only to give up this practice on our part. Then we shall realise the Self as the Self; in other words, 'Be the Self'.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "being",
+        "Self-realisation",
+        "non-attainment",
+        "illusion",
+        "abidance"
+      ],
+      "context": "Realisation is not a future event but the recognition that you have always been the Self — the seeing and the seer collapse into pure being."
     },
     {
       "id": "ramana-004",
-      "text": "There is neither creation nor destruction, neither destiny nor free will, neither path nor achievement. This is the final truth.",
-      "source": "Forty Verses on Reality",
-      "themes": ["creation", "destruction", "truth", "final"],
-      "context": "Ultimate perspective dissolves all categories. Neither this nor that — beyond all dualities."
+      "text": "If We talk of knowing the Self, there must be two selves, one a knowing self, another the self which is known, and the process of knowing. The state we call realisation is simply being oneself, not knowing anything or becoming anything. If one has realised, one is that which alone is and which alone has always been. One cannot describe that state. One can only be that. Of course, we loosely talk of Self-realisation, for want of a better term. How to 'real-ise' or make real that which alone is real?",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "Self-realisation",
+        "non-duality",
+        "being",
+        "beyond knowledge",
+        "the indescribable"
+      ],
+      "context": "Self-realisation cannot be framed as subject knowing object — it dissolves the very duality on which all ordinary knowing depends."
     },
     {
       "id": "ramana-005",
-      "text": "The degree of freedom from unwanted thoughts and the degree of concentration on a single thought are the measures to gauge spiritual progress.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["freedom", "thoughts", "concentration", "progress"],
-      "context": "Spiritual progress measured simply: fewer unwanted thoughts, more single-pointed attention."
+      "text": "For those who live in Self as the beauty devoid of thought, there is nothing which should be thought of. That which should be adhered to is only the experience of silence, because in that supreme state nothing exists to be attained other than oneself. That state which transcends speech and thought is mouna. That which is, is mouna. How can mouna be explained in words? Sages say that the state in which the thought 'I' does not rise even in the least, alone is Self which is silence. That silent Self alone is God; Self alone is the jiva; Self alone is this ancient world.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "silence",
+        "mouna",
+        "the Self",
+        "thought-free state",
+        "non-dual awareness"
+      ],
+      "context": "Silence is not the absence of sound but the stateless state where the ego-thought never stirs — the Self as its own inexplicable knowing."
     },
     {
       "id": "ramana-006",
-      "text": "Mind is consciousness which has put on limitations. You are originally unlimited and perfect. Later you take on limitations and become the mind.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["mind", "consciousness", "limitations", "perfect"],
-      "context": "Mind is contracted consciousness. You're not originally limited — you became so. Return to original state."
+      "text": "There is only one state, that of consciousness or awareness or existence. The three states of waking, dream and sleep cannot be real. They simply come and go. The real will always exist. The 'I' or existence that alone persists in all the three states is real. Consciousness plus waking, we call waking. Consciousness plus sleep, we call sleep. Consciousness plus dream, we call dream. Consciousness is the screen on which all the pictures come and go. The screen is real, the pictures are mere shadows on it.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "consciousness",
+        "the three states",
+        "the Self",
+        "the screen analogy",
+        "pure awareness"
+      ],
+      "context": "The cinema-screen image: consciousness is the unchanging substratum on which the three states flicker and disappear without touching it."
     },
     {
       "id": "ramana-007",
-      "text": "No one succeeds without effort. Mind control is not your birthright. Those who succeed owe their success to their perseverance.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["effort", "success", "perseverance", "control"],
-      "context": "Enlightenment isn't automatic. Even Ramana says: effort required. Persevere."
+      "text": "There is no difference between dream and the waking state except that the dream is short and the waking long. Both are the result of the mind. Because the waking state is long, we imagine that it is our real state. But, as a matter of fact, our real state is turiya or the fourth state which is always as it is and knows nothing of the three states of waking, dream or sleep. When this is realised, we know it is not a turiya or fourth state, for a fourth state is only relative, but turiyatita, the transcendent state.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "waking and dreaming",
+        "turiya",
+        "turiyatita",
+        "the real state",
+        "transcendence"
+      ],
+      "context": "Waking life is just a longer dream — only the stateless background of pure consciousness, turiyatita, is truly one's own."
     },
     {
       "id": "ramana-008",
-      "text": "Wanting to reform the world without discovering one's true self is like trying to cover the world with leather to avoid the pain of walking on stones and thorns.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["reform", "world", "self", "leather"],
-      "context": "Fix yourself before fixing the world. It's easier to wear shoes than pave the earth."
+      "text": "There is no difference. The mind turned inwards is the Self; turned outwards, it becomes the ego and all the world. Cotton made into various clothes we call by various names. Gold made into various ornaments, we call by various names. But all the clothes are cotton and all the ornaments gold. The one is real, the many are mere names and forms. But the mind does not exist apart from the Self, that is, it has no independent existence. The Self exists without the mind, never the mind without the Self.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "mind",
+        "the Self",
+        "ego",
+        "non-duality",
+        "gold and ornaments analogy"
+      ],
+      "context": "The mind and the Self are not two substances but one reality seen from two angles — turned outward it projects the world, turned inward it is the Self."
     },
     {
       "id": "ramana-009",
-      "text": "The state we call realization is simply being oneself, not knowing anything or becoming anything.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["realization", "being", "knowing", "becoming"],
-      "context": "Realization isn't achievement. It's stopping the attempt to be something else. Just be what you are."
+      "text": "Call it by any name, God, Self, the Heart or the seat of consciousness, it is all the same. The point to be grasped is this, that Heart means the very core of one's being, the centre, without which there is nothing whatever. The Heart is not physical, it is spiritual. Hridayam equals hrit plus ayam; it means 'this is the centre'. It is that from which thoughts arise, on which they subsist and where they are resolved. The thoughts are the content of the mind and they shape the universe. The Heart is the centre of all.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": [
+        "the Heart",
+        "hridayam",
+        "centre",
+        "source of thoughts",
+        "Self"
+      ],
+      "context": "The Heart is not a location but the very ground from which all experience arises — call it God, Self, or consciousness, it is always 'this is the centre'."
     },
     {
       "id": "ramana-010",
-      "text": "Why should you trouble yourself about the future? You do not even properly know about the present. Take care of the present; the future will take care of itself.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["future", "present", "trouble", "care"],
-      "context": "Future-worry is presumptuous. You don't even know the present. Handle now; later handles itself."
+      "text": "Liberation is our very nature. We are that. The very fact that we wish for liberation shows that freedom from all bondage is our real nature. It is not to be freshly acquired. All that is necessary is to get rid of the false notion that we are bound. When we achieve that, there will be no desire or thought of any sort. So long as one desires liberation, so long, you may take it, one is in bondage.",
+      "source": "Be As You Are, Chapter 1: The nature of the Self",
+      "themes": ["liberation", "bondage", "the Self", "false notion", "moksha"],
+      "context": "Liberation is not a future attainment but the recognition that you are already free — the desire for liberation is itself the last trace of the illusion of bondage."
     },
     {
       "id": "ramana-011",
-      "text": "Happiness is your nature. It is not wrong to desire it. What is wrong is seeking it outside when it is inside.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["happiness", "nature", "inside", "outside"],
-      "context": "Desiring happiness is fine — it's your nature calling. The error is direction: outside instead of inside."
+      "text": "Realisation is nothing to be gained afresh; it is already there. All that is necessary is to get rid of the thought 'I have not realised'. Stillness or peace is realisation. There is no moment when the Self is not. So long as there is doubt or the feeling of non-realisation, the attempt should be made to rid oneself of these thoughts. They are due to the identification of the Self with the not-Self. When the not-Self disappears, the Self alone remains. To make room, it is enough that objects be removed. Room is not brought in from elsewhere.",
+      "source": "Be As You Are, Chapter 2: Self-awareness and Self-ignorance",
+      "themes": [
+        "Self-realisation",
+        "stillness",
+        "the not-Self",
+        "already present",
+        "peace"
+      ],
+      "context": "The only obstacle to realisation is the thought 'I have not realised' — remove that, and the Self that was never absent stands revealed."
     },
     {
       "id": "ramana-012",
-      "text": "You need not aspire for or get any new state. Get rid of your present thoughts, that is all.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["aspire", "new", "thoughts", "rid"],
-      "context": "Nothing to gain, nothing to become. Just drop what obscures. The Self is already there."
+      "text": "Mukti or liberation is our nature. It is another name for us. Our wanting mukti is a very funny thing. It is like a man who is in the shade, voluntarily leaving the shade, going into the sun, feeling the severity of the heat there, making great efforts to get back into the shade and then rejoicing, 'How sweet is the shade! I have reached the shade at last!' We are all doing exactly the same. We are not different from the reality. We imagine we are different, that is we create the bheda bhava and then undergo great sadhana to get rid of the bheda bhava and realise the oneness.",
+      "source": "Be As You Are, Chapter 2: Self-awareness and Self-ignorance",
+      "themes": [
+        "liberation",
+        "the Self",
+        "bheda bhava",
+        "sadhana",
+        "illusion of separation"
+      ],
+      "context": "The parable of the shade shows the absurdity of seeking what you never left — spiritual practice undoes an imaginary exile."
     },
     {
       "id": "ramana-013",
-      "text": "The mind turned inwards is the Self; turned outwards, it becomes the ego and all the world.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["mind", "inward", "outward", "Self"],
-      "context": "Same mind, different directions. Turned in: Self. Turned out: ego and world. Direction determines all."
+      "text": "The ajnani sees only the mind which is a mere reflection of the light of pure consciousness arising from the Heart. Of the Heart itself he is ignorant. Why? Because his mind is extroverted and has never sought its source. Just as water in a pot reflects the enormous sun within the narrow limits of the pot, even so the vasanas or latent tendencies of the mind of the individual, acting as the reflecting medium, catch the all-pervading, infinite light of consciousness arising from the Heart. The form of this reflection is the phenomenon called the mind. Seeing only this reflection, the ajnani is deluded into the belief that he is a finite being, the jiva, the individual self.",
+      "source": "Be As You Are, Chapter 2: Self-awareness and Self-ignorance",
+      "themes": [
+        "vasanas",
+        "the Heart",
+        "reflection",
+        "the ajnani",
+        "delusion of individuality"
+      ],
+      "context": "The mind is a reflection of the Heart's light distorted by vasanas — mistaking the reflection for the source is the root error of the ajnani."
     },
     {
       "id": "ramana-014",
-      "text": "Realisation is not acquisition of anything new nor is it a new faculty. It is only removal of all camouflage.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["realisation", "acquisition", "removal", "camouflage"],
-      "context": "Nothing to get. Just remove what covers. The Self isn't attained — it's revealed by removing disguise."
+      "text": "The ordinary man lives in the brain unaware of himself in the Heart. The jnana siddha lives in the Heart. When he moves about and deals with men and things, he knows that what he sees is not separate from the one supreme reality, the Brahman which he realised in the Heart as his own Self, the real. The man who has realised the supreme truth of his own existence realises that it is the one supreme reality that is there behind him, behind the world. In fact, he is aware of the one, as the real, the Self in all selves, in all things, eternal and immutable, in all that is impermanent and mutable.",
+      "source": "Be As You Are, Chapter 3: The jnani",
+      "themes": [
+        "jnani",
+        "the Heart",
+        "Brahman",
+        "the Self in all",
+        "non-dual perception"
+      ],
+      "context": "The jnani sees the same world as everyone else but perceives the unchanging Self as the substratum of all apparently separate things."
     },
     {
       "id": "ramana-015",
-      "text": "That which is not present in deep dreamless sleep is not real.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["sleep", "dreamless", "real", "present"],
-      "context": "Test of reality: what persists in deep sleep? The world disappears. What remains is real."
+      "text": "Seeing the world, the jnani sees the Self which is the substratum of all that is seen; the ajnani, whether he sees the world or not, is ignorant of his true being, the Self. Take the instance of moving pictures on the screen in the cinema-show. What is there in front of you before the play begins? Merely the screen. On that screen you see the entire show, and for all appearances the pictures are real. So with the Self. That alone exists, the pictures come and go. If you hold on to the Self, you will not be deceived by the appearance of the pictures.",
+      "source": "Be As You Are, Chapter 3: The jnani",
+      "themes": [
+        "jnani vs ajnani",
+        "Self as substratum",
+        "the cinema analogy",
+        "perception",
+        "abidance"
+      ],
+      "context": "The jnani holds the screen in view while watching the film — the ajnani, lost in the picture, forgets the screen that makes it possible."
     },
     {
       "id": "ramana-016",
-      "text": "Let what comes come, let what goes go. Find out what remains.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["comes", "goes", "remains", "find"],
-      "context": "Don't grasp or reject. Allow movement. Then look: what doesn't come or go? That's the Self."
+      "text": "My existence is like the space; though this body speaks like the radio, there is no one inside as a doer. Various illustrations are given in books to enable us to understand how the jnani can live and act without the mind, although living and acting require the use of the mind. The potter's wheel goes on turning round even after the potter has ceased to turn it because the pot is finished. In the same way, the electric fan continues to rotate for some time after the switch is turned off.",
+      "source": "Be As You Are, Chapter 3: The jnani",
+      "themes": [
+        "doership",
+        "jnani",
+        "ego-free action",
+        "the Self as space",
+        "prarabdha"
+      ],
+      "context": "The jnani acts like a radio broadcasting without an internal speaker — the body continues its momentum while the sense of doership has entirely dissolved."
     },
     {
       "id": "ramana-017",
-      "text": "If you go on working with the light available, you will meet your Master, as he himself will be seeking you.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["light", "Master", "seeking", "working"],
-      "context": "Work with what you have. The teacher seeks the ready student. Readiness attracts guidance."
+      "text": "The mind is nothing other than the 'I'-thought. The mind and the ego are one and the same. The other mental faculties such as the intellect and the memory are only this. Mind, intellect, the storehouse of mental tendencies, and ego; all these are only the one mind itself. This is like different names being given to a man according to his different functions. From where does this 'I' arise? Seek for it within; it then vanishes. This is the pursuit of wisdom. When the mind unceasingly investigates its own nature, it transpires that there is no such thing as mind. This is the direct path for all. The mind is merely thoughts. Of all thoughts the thought 'I' is the root. Therefore the mind is only the thought 'I'.",
+      "source": "Be As You Are, Chapter 4: Self-enquiry — theory",
+      "themes": [
+        "the I-thought",
+        "mind",
+        "ego",
+        "self-enquiry",
+        "the direct path"
+      ],
+      "context": "The entire superstructure of mind, intellect, and ego is one movement — the 'I'-thought — and tracing it to its source is the whole of self-enquiry."
     },
     {
       "id": "ramana-018",
-      "text": "The explorers seek happiness in finding curiosities, climbing mountains, going to the bottom of the sea, but everyone knows this is not the way to find happiness.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["explorers", "happiness", "curiosities", "way"],
-      "context": "External exploration doesn't find happiness. Everyone knows this, yet everyone keeps looking outside."
+      "text": "Although the concept of 'I'-ness or 'I am'-ness is by usage known as aham-vritti it is not really a vritti like other vrittis of the mind. Because unlike the other vrittis which have no essential interrelation, the aham-vritti is equally and essentially related to each and every vritti of the mind. Without the aham-vritti there can be no other vritti, but the aham-vritti can subsist by itself without depending on any other vritti of the mind. So then, the search for the source of the aham-vritti is not merely the search for the basis of one of the forms of the ego but for the very source itself from which arises the 'I am'-ness. In other words, the quest for and the realisation of the source of the ego in the form of aham-vritti necessarily implies the transcendence of the ego in every one of its possible forms.",
+      "source": "Be As You Are, Chapter 4: Self-enquiry — theory",
+      "themes": [
+        "aham-vritti",
+        "the I-thought",
+        "self-enquiry",
+        "ego",
+        "source"
+      ],
+      "context": "The 'I'-thought is the root of all other thoughts — trace it to its source and all other forms of the ego dissolve with it."
     },
     {
       "id": "ramana-019",
-      "text": "There is no greater mystery than this: being Reality ourselves, we seek to gain Reality.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["mystery", "Reality", "being", "seek"],
-      "context": "The cosmic joke: we ARE what we're looking for. Seeking what you already are is the great mystery."
+      "text": "The attempt to destroy the ego or the mind through sadhanas other than atma-vichara is just like the thief pretending to be a policeman to catch the thief, that is, himself. Atma-vichara alone can reveal the truth that neither the ego nor the mind really exists, and enable one to realise the pure, undifferentiated being of the Self or the absolute. Having realised the Self, nothing remains to be known, because it is perfect bliss, it is the all.",
+      "source": "Be As You Are, Chapter 4: Self-enquiry — theory",
+      "themes": [
+        "self-enquiry",
+        "atma-vichara",
+        "ego",
+        "the Self",
+        "other spiritual practices"
+      ],
+      "context": "Every practice that retains the ego to eliminate the ego is self-defeating — only self-enquiry confronts the ego directly and reveals its non-existence."
     },
     {
       "id": "ramana-020",
-      "text": "All that is required to realize the Self is to be still.",
-      "source": "Talks with Ramana Maharshi",
-      "themes": ["realize", "Self", "still", "required"],
-      "context": "The entire teaching in one line: be still. Stop moving outward. In stillness, Self is obvious."
+      "text": "There is no greater mystery than this – that being the reality we seek to gain reality. We think that there is something hiding our reality and that it must be destroyed before the reality is gained. It is ridiculous. A day will dawn when you will yourself laugh at your past efforts. That which will be on the day you laugh is also here and now. Reality is simply the loss of ego. Destroy the ego by seeking its identity. Because the ego is no entity it will automatically vanish and reality will shine forth by itself.",
+      "source": "Be As You Are, Chapter 4: Self-enquiry — theory",
+      "themes": [
+        "reality",
+        "ego",
+        "the Self",
+        "seeking",
+        "the absurdity of spiritual seeking"
+      ],
+      "context": "The great cosmic joke: the Self that seeks itself is the Self — the only mystery is why it took so long to stop looking away."
+    },
+    {
+      "id": "ramana-021",
+      "text": "Self-enquiry should not be regarded as a meditation practice that takes place at certain hours and in certain positions; it should continue throughout one's waking hours, irrespective of what one is doing. Sri Ramana saw no conflict between working and self-enquiry and he maintained that with a little practice it could be done under any circumstances. Being what one already is is effortless since beingness is always present and always experienced. On the other hand, pretending to be what one is not requires continuous mental effort, even though the effort is nearly always at a subconscious level.",
+      "source": "Be As You Are, Chapter 5: Self-enquiry — practice",
+      "themes": [
+        "self-enquiry",
+        "practice",
+        "effortlessness",
+        "beingness",
+        "daily life"
+      ],
+      "context": "Self-enquiry is not a formal meditation but a continuous orientation — the effort lies in the pretense of individuality, not in the recognition of being."
+    },
+    {
+      "id": "ramana-022",
+      "text": "The thought 'I am this body of flesh and blood' is the one thread on which are strung the various other thoughts. Therefore, if we turn inwards enquiring 'Where is this I?' all thoughts (including the 'I'-thought) will come to an end and Self-knowledge will then spontaneously shine forth. Vichara and realisation are the same. 'I am' is the goal and the final reality. To hold to it with effort is vichara. When spontaneous and natural it is realisation.",
+      "source": "Be As You Are, Chapter 5: Self-enquiry — practice",
+      "themes": [
+        "the I-thought",
+        "vichara",
+        "self-enquiry",
+        "Self-knowledge",
+        "naturalness"
+      ],
+      "context": "The body-identification is the single thread from which all thoughts hang — pull it out and the whole web collapses into Self-knowledge."
+    },
+    {
+      "id": "ramana-023",
+      "text": "The Guru will say only what I am saying now. He will not give you anything you have not already got. It is impossible for anyone to get what he has not got already. Even if he gets any such thing, it will go as it came. What comes will also go. What always is will alone remain. The Guru cannot give you anything new, which you don't have already. Removal of the notion that we have not realised the Self is all that is required. We are always the Self only we don't realise it.",
+      "source": "Be As You Are, Chapter 2: Self-awareness and Self-ignorance",
+      "themes": [
+        "the Guru",
+        "the Self",
+        "non-attainment",
+        "teaching",
+        "always already free"
+      ],
+      "context": "The Guru's only function is to remove the disciple's false belief in their own ignorance — nothing is transmitted because nothing was ever lacking."
+    },
+    {
+      "id": "ramana-024",
+      "text": "Know then that true knowledge does not create a new being for you, it only removes your ignorant ignorance. Bliss is not added to your nature, it is merely revealed as your true natural state, eternal and imperishable. The only way to be rid of your grief is to know and be the Self. You yourself impose limitations on your true nature of infinite being, and then weep that you are but a finite creature. Then you take up this or that spiritual practice to transcend the non-existent limitations. But if your spiritual practice itself assumes the existence of the limitations, how can it help you to transcend them?",
+      "source": "Be As You Are, Chapter 2: Self-awareness and Self-ignorance",
+      "themes": [
+        "true knowledge",
+        "bliss",
+        "the Self",
+        "imaginary limitations",
+        "spiritual practice"
+      ],
+      "context": "The paradox of spiritual practice that assumes bondage: any method that takes limitation as real only reinforces the illusion it claims to dissolve."
+    },
+    {
+      "id": "ramana-025",
+      "text": "If the mind subsides, the whole world subsides. Mind is the cause of all this. If that subsides, the natural state presents itself. The Self proclaims itself at all times as 'I, I'. It is self-luminous. It is here. All this is that. We are in that only. Being in it, why search for it? 'Making the vision absorbed in jnana one sees the world as Brahman.' Devotion is nothing more than knowing oneself. On scrutiny, supreme devotion and jnana are in nature one and the same. Follow these inseparable two paths without dividing one from the other.",
+      "source": "Be As You Are, Chapter 2 and Part Two: Enquiry and Surrender",
+      "themes": [
+        "mind",
+        "the Self",
+        "the natural state",
+        "devotion and jnana",
+        "self-luminosity"
+      ],
+      "context": "When the mind subsides, the world subsides with it — what remains is the Self proclaiming itself as 'I, I', the ground always already present."
     }
   ]
 }

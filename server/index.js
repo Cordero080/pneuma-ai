@@ -15,7 +15,7 @@ import { fileURLToPath } from "url";
 import { pneumaRespond } from "./pneuma/core/fusion.js";
 import { connectDB } from "./db.js";
 import { textToSpeech } from "./pneuma/services/tts.js";
-import { initializeArchetypeEmbeddings } from "./pneuma/intelligence/semanticRouter.js";
+import { initializeArchetypeEmbeddings } from "./pneuma/intelligence/archetypeSelector.js";
 import { initializeArchetypeRAG } from "./pneuma/intelligence/archetypeRAG.js";
 import {
   transcribeAudio,
@@ -178,33 +178,54 @@ app.delete("/conversations/:id", async (req, res) => {
   }
 });
 
-// -------------------------- CHAT ROUTE ------------------------------
-// ROLE: Primary text conversation handler — routes message through the full Pneuma pipeline
+// -------------------------- CHAT ROUTE (SSE STREAMING) -------------
+// ROLE: Primary text conversation handler — streams response word-by-word via SSE
 // INPUT FROM: POST /chat request from frontend with { message } body
-// OUTPUT TO: pneumaRespond() in fusion.js; returns { reply, engine, mode } to frontend; fires triggerDialecticDream() in background
+// OUTPUT TO: SSE stream with { type: "chunk"|"done"|"reset"|"error", ... } events
 app.post("/chat", async (req, res) => {
+  const { message } = req.body;
+
+  // Set SSE headers
+  res.set({
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
+    Connection: "keep-alive",
+  });
+  res.flushHeaders();
+
+  const modeToEngine = {
+    casual: null,
+    oracular: "archetype",
+    analytic: "reflection",
+    intimate: "memory",
+    shadow: "synthesis",
+    diagnostic: "reflection",
+    upgrade: "synthesis",
+  };
+
+  const sendEvent = (data) => {
+    res.write(`data: ${JSON.stringify(data)}\n\n`);
+  };
+
   try {
-    const { message } = req.body;
-
-    const { reply, monologue, mode } = await pneumaRespond(message);
-
-    // Map mode to engine for frontend visualization
-    const modeToEngine = {
-      casual: null,
-      oracular: "archetype",
-      analytic: "reflection",
-      intimate: "memory",
-      shadow: "synthesis",
-      diagnostic: "reflection",
-      upgrade: "synthesis",
+    const onChunk = (text) => {
+      if (text === "\x00RESET") {
+        sendEvent({ type: "reset" });
+      } else {
+        sendEvent({ type: "chunk", text });
+      }
     };
 
-    // Return reply + engine state for UI
-    res.json({
-      reply,
+    const { reply, mode } = await pneumaRespond(message, onChunk);
+
+    // Send final metadata so frontend knows streaming is complete
+    sendEvent({
+      type: "done",
       engine: modeToEngine[mode] || null,
       mode,
     });
+
+    res.end();
 
     // Fire-and-forget: run dialectic dream in background (throttled to 30min)
     triggerDialecticDream().catch((err) =>
@@ -212,11 +233,13 @@ app.post("/chat", async (req, res) => {
     );
   } catch (error) {
     console.error("[Pneuma] Error processing message:", error.message);
-    res.status(500).json({
+    sendEvent({
+      type: "error",
       reply: "Something went sideways. Give me a moment.",
       engine: null,
       mode: "error",
     });
+    res.end();
   }
 });
 
@@ -279,7 +302,7 @@ app.post("/voice", async (req, res) => {
     const voiceEmotions = await analyzeVoiceEmotion(audioBuffer);
     const combinedEmotions = combineEmotionSignals(
       transcription.text,
-      voiceEmotions
+      voiceEmotions,
     );
 
     // 3. Get archetype boosts from emotion
@@ -290,7 +313,7 @@ app.post("/voice", async (req, res) => {
       Object.entries(combinedEmotions)
         .filter(([k, v]) => v > 0.3 && k !== "confidence")
         .map(([k, v]) => `${k}: ${v.toFixed(2)}`)
-        .join(", ") || "neutral"
+        .join(", ") || "neutral",
     );
 
     // 4. Send to Pneuma with emotion context
@@ -386,9 +409,13 @@ app.get("/momentum", (req, res) => {
 // -------------------------- START SERVER ----------------------------
 app.listen(PORT, async () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-  // Connect to MongoDB
-  await connectDB();
-  // Initialize Semantic Router (load embeddings)
+  // Connect to MongoDB (optional — system works on local JSON if unavailable)
+  try {
+    await connectDB();
+  } catch (err) {
+    console.warn(`[DB] MongoDB unavailable — falling back to local JSON. (${err.message})`);
+  }
+  // Initialize Archetype Selector (load embeddings)
   await initializeArchetypeEmbeddings();
   // Initialize Archetype RAG (deep knowledge retrieval)
   await initializeArchetypeRAG();

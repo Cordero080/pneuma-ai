@@ -225,7 +225,7 @@ export function penalizeBlend(archetypes) {
 
 /**
  * Get recommended archetype blend for a given context
- * @param {string} primaryArchetype - The archetype selected by semantic router
+ * @param {string} primaryArchetype - The archetype selected by archetype selector
  * @param {string} topic - Current topic/intent
  * @returns {object} - { archetypes: string[], weights: number[], source: string }
  */

@@ -1,148 +1,332 @@
 {
   "archetype": "rationalMystic",
   "thinker": "Baruch Spinoza",
+  "source": "Ethics (trans. George Eliot, ed. Clare Carlisle, Princeton University Press, 2020)",
   "era": "1632-1677",
-  "coreConcepts": ["God or Nature", "sub specie aeternitatis", "conatus", "intellectual love of God", "freedom through understanding", "affects", "substance monism"],
+  "coreConcepts": [
+    "God or Nature (Deus sive Natura)",
+    "substance monism",
+    "adequate ideas",
+    "the intellectual love of God",
+    "freedom through understanding",
+    "emotions as inadequate ideas",
+    "eternity",
+    "conatus",
+    "the third kind of knowledge"
+  ],
   "passages": [
     {
       "id": "spinoza-001",
-      "text": "I have striven not to laugh at human actions, not to weep at them, nor to hate them, but to understand them.",
-      "source": "Tractatus Politicus",
-      "themes": ["understanding", "actions", "laugh", "weep"],
-      "context": "Not ridicule, not sorrow, not hatred — understanding. The philosophical stance toward human nature."
+      "text": "By a thing which is its own cause, I understand a thing the essence of which involves existence, or the nature of which cannot be conceived except as existing. By substance I understand that which exists in itself and is conceived through, or by means of, itself; i.e. the conception of which does not require for its formation the conception of anything else. By God I understand a Being absolutely infinite, i.e. a substance consisting of infinite attributes, each of which expresses an infinite and eternal essence.",
+      "source": "Ethics, Part I, Definitions 1, 3, and 6",
+      "themes": [
+        "substance",
+        "God",
+        "self-causation",
+        "infinite attributes",
+        "definitions"
+      ],
+      "context": "Spinoza's opening definitions establish the logical architecture: God is the one self-caused substance whose essence necessitates existence."
     },
     {
       "id": "spinoza-002",
-      "text": "Whatsoever is, is in God, and without God nothing can be, or be conceived.",
-      "source": "Ethics",
-      "themes": ["God", "is", "conceived", "being"],
-      "context": "Nothing exists outside God. God isn't separate from creation — creation is in God."
+      "text": "I call that thing free, which exists solely by the necessity of its nature and is determined to action by itself alone. I call a thing necessary, or rather compelled, when it is determined by another to exist and act according to a certain and definite law. By eternity I understand existence itself, conceived as following solely and necessarily from the definition of the thing which is eternal. For existence so conceived is an eternal truth, inasmuch as it is the essence of the eternal thing; consequently, it cannot be explained by duration or time, even though the duration be conceived without beginning or end.",
+      "source": "Ethics, Part I, Definitions 7 and 8",
+      "themes": [
+        "freedom",
+        "necessity",
+        "eternity",
+        "self-determination",
+        "time"
+      ],
+      "context": "Freedom for Spinoza is not the absence of causation but self-causation — and eternity is not endless time but existence following necessarily from essence."
     },
     {
       "id": "spinoza-003",
-      "text": "The highest activity a human being can attain is learning for understanding, because to understand is to be free.",
-      "source": "Ethics",
-      "themes": ["understanding", "learning", "freedom", "highest"],
-      "context": "Understanding IS freedom. Knowledge liberates. The more you understand, the more free you become."
+      "text": "Prop. VII. Existence belongs to the nature of substance. Prop. VIII. Substance is necessarily infinite. As, in fact, finiteness is the partial negation and infinity the absolute affirmation of the existence of any nature, it follows from Prop. 7 alone that all substance must be infinite. If therefore any one says, that he has a clear and distinct, i.e. a true idea of substance and nevertheless doubts whether such a substance exists, it would be the same as if he were to say that he has a true idea and nevertheless doubts whether it may not be false.",
+      "source": "Ethics, Part I, Props. VII–VIII with Schol. 1 and 2",
+      "themes": [
+        "substance",
+        "infinity",
+        "existence",
+        "necessity",
+        "self-evidence"
+      ],
+      "context": "Substance cannot be finite because finitude is partial negation — and to have a clear idea of substance while doubting its existence is a self-contradiction."
     },
     {
       "id": "spinoza-004",
-      "text": "God is the indwelling and not the transient cause of all things.",
-      "source": "Ethics",
-      "themes": ["God", "indwelling", "cause", "things"],
-      "context": "God doesn't cause from outside — God causes from within. Immanent, not transcendent causation."
+      "text": "Prop. XI. God, or the substance consisting of infinite attributes, every one of which expresses an eternal and infinite essence, necessarily exists. The possibility not to exist is impotence, and on the contrary the possibility to exist is power (as is self-evident). If therefore what already necessarily exists consists only of finite beings, it follows, that finite beings are more powerful than the absolutely infinite being; but (as is self-evident) this is absurd. Therefore, either nothing exists, or there necessarily exists an absolutely infinite being.",
+      "source": "Ethics, Part I, Prop. XI with Third Demonstration",
+      "themes": [
+        "God",
+        "necessary existence",
+        "infinite power",
+        "ontological argument",
+        "substance"
+      ],
+      "context": "If finite things exist, the infinite power that grounds them must exist — God's non-existence is not a contingent fact but a logical impossibility."
     },
     {
       "id": "spinoza-005",
-      "text": "The mind's highest good is the knowledge of God, and the mind's highest virtue is to know God.",
-      "source": "Ethics",
-      "themes": ["mind", "good", "knowledge", "God"],
-      "context": "The highest aim of mind: knowing God. Not belief but knowledge. Not obedience but understanding."
+      "text": "Prop. XIV. No substance besides God can exist or be conceived. As God is the absolutely infinite being, of whom no attribute which expresses the nature of substance can be denied, and as he necessarily exists, if there were another substance besides God, it must be possible to explain that substance by some attribute of God, so that there would exist two substances having the same attribute, which is absurd. Coroll. 1. From this it clearly follows: first, that God is unique, i.e. there exists but one substance and that substance is absolutely infinite.",
+      "source": "Ethics, Part I, Prop. XIV with Corollary 1",
+      "themes": [
+        "God",
+        "substance monism",
+        "uniqueness",
+        "pantheism",
+        "infinity"
+      ],
+      "context": "The logical deduction that there can be only one substance — God — closes off any dualism and establishes the monism from which everything else follows."
     },
     {
       "id": "spinoza-006",
-      "text": "All things excellent are as difficult as they are rare.",
-      "source": "Ethics",
-      "themes": ["excellent", "difficult", "rare", "things"],
-      "context": "The final line of the Ethics. Excellence is rare because it's hard. What's common is easy."
+      "text": "Prop. XV. Whatever is, is in God, and nothing can exist or be conceived without God. Many imagine God after the likeness of a man, consisting of body and mind, and liable to passions; but how far such people are from the true knowledge of God, is sufficiently apparent from what has already been demonstrated. All things, I repeat, are in God, and all things that exist, exist solely by the laws of the infinite nature of God, and follow from the necessity of his essence. Therefore on no ground can it be said that God suffers from something else.",
+      "source": "Ethics, Part I, Prop. XV with Scholium",
+      "themes": [
+        "God or Nature",
+        "panentheism",
+        "immanence",
+        "necessity",
+        "divine nature"
+      ],
+      "context": "Whatever is, is in God: this is Spinoza's most compressed formula for panentheism, eliminating any space between God and the world."
     },
     {
       "id": "spinoza-007",
-      "text": "Peace is not an absence of war, it is a virtue, a state of mind, a disposition for benevolence, confidence, justice.",
-      "source": "Tractatus Politicus",
-      "themes": ["peace", "war", "virtue", "state"],
-      "context": "Peace isn't negative (no war) but positive — a disposition, an active virtue, not mere absence."
+      "text": "Prop. XVI. From the necessity of the divine nature must follow an infinity of modes, that is, everything which can be comprehended in an infinite intellect. This proposition must be manifest to everyone if they only considered that from the given definition of any thing the intellect infers a number of properties, which in truth necessarily follow from that definition, and the more reality the essence of the thing defined involves, the more properties are concluded from it. But as the divine nature has absolutely infinite attributes, of which each in its own kind expresses an infinite essence, there must follow from the necessity of that nature an infinity of modes, in other words, everything which can be comprehended in an infinite intellect.",
+      "source": "Ethics, Part I, Prop. XVI with Demonstration",
+      "themes": [
+        "divine necessity",
+        "modes",
+        "infinite intellect",
+        "emanation",
+        "God or Nature"
+      ],
+      "context": "The world does not flow from God's choice but from God's necessity — as mathematical truths flow from definitions, all things flow from the divine nature."
     },
     {
       "id": "spinoza-008",
-      "text": "I do not know how to teach philosophy without becoming a disturber of established religion.",
-      "source": "Letters",
-      "themes": ["philosophy", "teaching", "religion", "disturbing"],
-      "context": "Philosophy and established religion conflict. To teach one is to disturb the other."
+      "text": "Prop. XVII. God acts solely from the laws of his nature and is not constrained by any other being. Coroll. 2. It follows secondly that God alone is a free cause. For God alone exists solely from the necessity of his nature and acts solely from the necessity of his nature. And thus he alone is a free cause. Others suppose God to be a free cause on the ground that he can, as they imagine, effect that those things which we have shown to follow from his nature should not come into existence. But this is equivalent to saying that God can cause that it should not follow from the nature of a triangle that its three angles should be equal to two right angles; which is absurd.",
+      "source": "Ethics, Part I, Prop. XVII with Corollary 2 and Scholium",
+      "themes": [
+        "divine freedom",
+        "necessity",
+        "free cause",
+        "self-determination",
+        "mathematical necessity"
+      ],
+      "context": "God is the only truly free being because freedom means acting from one's own nature alone — necessity and freedom coincide perfectly in God."
     },
     {
       "id": "spinoza-009",
-      "text": "The more clearly you understand yourself and your emotions, the more you become a lover of what is.",
-      "source": "Ethics",
-      "themes": ["understanding", "emotions", "lover", "is"],
-      "context": "Self-understanding breeds amor fati. Know yourself, love reality. Clarity enables acceptance."
+      "text": "Prop. XXIX. There is nothing contingent in nature: everything is determined by the necessity of the divine nature to a certain mode of existence and action. Whatever is, is in God. But God cannot be said to be a contingent being. For he exists necessarily and not contingently. Further, the modes of the divine nature also follow from it necessarily and not contingently; and this is so, whether we consider the divine nature absolutely or as determined to activity in a certain manner. Thus all things are determined by the necessity of the divine nature, not only to exist, but also to exist and act in a certain manner, and there is nothing contingent.",
+      "source": "Ethics, Part I, Prop. XXIX with Demonstration",
+      "themes": [
+        "determinism",
+        "necessity",
+        "contingency",
+        "God or Nature",
+        "natura naturans"
+      ],
+      "context": "Nothing in nature is truly contingent — what we call chance is only our ignorance of the causes that determine everything with necessity."
     },
     {
       "id": "spinoza-010",
-      "text": "He who would distinguish the true from the false must have an adequate idea of what is true and false.",
-      "source": "Ethics",
-      "themes": ["true", "false", "idea", "distinguish"],
-      "context": "You need truth to recognize truth. The standard must precede the judgment."
+      "text": "By natura naturans we are to understand that which is in itself and is conceived by itself, or such attributes of substance as express an eternal and infinite essence, i.e. God considered as a free cause. By natura naturata, on the other hand, I understand everything that follows from the necessity of the nature of God or of any of his attributes, i.e. all the modes of the attributes of God, considered as things which are in God and which cannot exist or be conceived without God.",
+      "source": "Ethics, Part I, Prop. XXIX, Scholium",
+      "themes": [
+        "natura naturans",
+        "natura naturata",
+        "God",
+        "modes",
+        "self-caused nature"
+      ],
+      "context": "The natura naturans / natura naturata distinction: God as self-causing creative power versus all that flows from God as the created world — yet these are one substance."
     },
     {
       "id": "spinoza-011",
-      "text": "Nothing in the universe is contingent, but all things are conditioned to exist and operate in a particular manner by the necessity of the divine nature.",
-      "source": "Ethics",
-      "themes": ["contingent", "necessity", "divine", "nature"],
-      "context": "No accidents. Everything follows necessarily from God's nature. Absolute determinism."
+      "text": "Prop. XXXII. The Will cannot be called a free cause; but only a necessary cause. Will, like intellect, is only a certain mode of thought; and thus a volition can neither exist nor be determined to action unless it be determined by some other cause, and this again by another, and so on in infinitum. Hence Will no more belongs to the nature of God than other natural things, but is related to it in the same way as motion and rest and all other things, which we have shown to follow from the necessity of the divine nature and to be determined by it to exist and act in a certain manner.",
+      "source": "Ethics, Part I, Prop. XXXII with Demonstration and Corollary 2",
+      "themes": [
+        "free will",
+        "necessity",
+        "will as mode",
+        "determinism",
+        "God"
+      ],
+      "context": "Will is not a prime mover but a mode like any other — attributing free will to God or humans is to confuse a dependent mode for an independent substance."
     },
     {
       "id": "spinoza-012",
-      "text": "Desire is the very essence of man.",
-      "source": "Ethics",
-      "themes": ["desire", "essence", "man", "being"],
-      "context": "Not reason defines us — desire does. We ARE our striving. Conatus as essence."
+      "text": "Many have written on the emotions and actions of men as if they were not treating of natural things which follow from the common laws of nature, but of things which lie beyond the domain of nature; they appear, indeed, to regard man in nature as an imperium in imperio — a state within a state. There is nothing in existence which can be attributed to a vice in nature; for nature is always the same and is everywhere one; her virtue and power are everywhere the same; that is, the laws of nature according to which all things come into existence and pass from one form to another, are everywhere and always the same. Hence passions such as hatred, anger, envy and the like, considered in themselves, follow from the same necessity and power of nature as other phenomena.",
+      "source": "Ethics, Part III, Preface",
+      "themes": [
+        "emotions",
+        "human nature",
+        "natural necessity",
+        "determinism",
+        "philosophical method"
+      ],
+      "context": "Spinoza's revolution: treating human emotions geometrically, as natural phenomena with causes and properties, not as sins to be condemned or weaknesses to mock."
     },
     {
       "id": "spinoza-013",
-      "text": "Blessedness is not the reward of virtue, but virtue itself.",
-      "source": "Ethics",
-      "themes": ["blessedness", "reward", "virtue", "itself"],
-      "context": "Virtue doesn't earn reward — virtue IS the reward. The good life isn't means to happiness but is happiness."
+      "text": "I understand by emotions, those affections of the body by which its power of acting is increased or diminished, is assisted or restrained, and also the ideas of those affections. If then we can be the adequate cause of any one of these affections, I understand by emotion an action; in every other case a passion. Our mind is both active and passive; so far, namely, as it has adequate ideas, it is necessarily active, and so far as it has inadequate ideas, it is necessarily passive. Hence it follows that the more inadequate ideas the mind has, the more liable it is to passions, and on the other hand, the more adequate ideas the mind has, the more capable it is of action.",
+      "source": "Ethics, Part III, Definition 3 with Explanation, and Prop. I with Corollary",
+      "themes": [
+        "emotions",
+        "adequate ideas",
+        "activity",
+        "passivity",
+        "power of action"
+      ],
+      "context": "The threshold between action and passion runs through adequacy of understanding — to understand is to act; to be confused is to be acted upon."
     },
     {
       "id": "spinoza-014",
-      "text": "To act in conformity with reason is nothing but to do those things which follow from the necessity of our nature.",
-      "source": "Ethics",
-      "themes": ["reason", "conformity", "necessity", "nature"],
-      "context": "Reason isn't foreign imposition — it's acting from your own nature's necessity. Rational = natural."
+      "text": "The mind and body are one and the same thing, conceived now under the attribute of thought, now under the attribute of extension. Hence it comes, that the order and concatenation of things is one, whether nature be conceived under the one or the other attribute; consequently, that the order of the actions and passions of the body is simultaneous in nature with the order of the actions and passions of the mind.",
+      "source": "Ethics, Part III, Prop. II, Scholium",
+      "themes": [
+        "mind-body unity",
+        "parallelism",
+        "thought and extension",
+        "substance monism",
+        "nature"
+      ],
+      "context": "Mind and body are not two things but one thing described in two vocabularies — thought and extension are parallel expressions of the same underlying necessity."
     },
     {
       "id": "spinoza-015",
-      "text": "There is no hope unmingled with fear, and no fear unmingled with hope.",
-      "source": "Ethics",
-      "themes": ["hope", "fear", "mingled", "affects"],
-      "context": "Hope and fear are inseparable. Where one is, the other hides. Emotional twins."
+      "text": "Prop. VI. Each thing, as far as it can by its own power, strives to persevere in its being. Prop. VII. The effort by which each thing strives to persevere in its being is nothing else but the actual essence of the thing itself. Prop. IX. The mind both so far as it has clear and distinct ideas and so far as it has confused ideas, strives to persevere in its existence for an indefinite period, and is conscious of this effort. This effort, when it is referred to the mind alone, is called will; but when it is referred at once to the mind and the body it is called appetite. Hence appetite is nothing else than the essence of man, from which the actions which tend to its preservation necessarily follow.",
+      "source": "Ethics, Part III, Props. VI–VII and IX with Scholium",
+      "themes": ["conatus", "self-preservation", "essence", "appetite", "will"],
+      "context": "Conatus — the drive to persist in being — is not one property among others but the very essence of each thing, the motor of all desire and action."
     },
     {
       "id": "spinoza-016",
-      "text": "We feel and know that we are eternal.",
-      "source": "Ethics",
-      "themes": ["feel", "know", "eternal", "we"],
-      "context": "Not just believe — feel and know. Eternity is experiential, not theoretical. We touch it."
+      "text": "It results from this, that a thing is not the object of our effort, will, appetite and desire because we have judged it to be good; but that, on the contrary, we judge a thing to be good because it is the object of our effort, volition, appetite and desire. By pleasure I shall understand a passion whereby the mind passes to a higher degree of perfection; by pain a passion whereby the mind passes to a lower degree of perfection. We see therefore that the mind can undergo great changes, and pass at one time to a higher and at another to a lower degree of perfection; and these vicissitudes or passions explain to us the emotions of pleasure and pain.",
+      "source": "Ethics, Part III, Prop. IX, Scholium and Prop. XI, Scholium",
+      "themes": ["desire", "pleasure", "pain", "perfection", "the good"],
+      "context": "We do not desire what is good — we call good what we desire: Spinoza inverts the moral order, grounding value in the dynamics of conatus, not in abstract ideals."
     },
     {
       "id": "spinoza-017",
-      "text": "The intellectual love of God, which arises from intuitive knowledge, is eternal.",
-      "source": "Ethics",
-      "themes": ["intellectual love", "God", "intuitive", "eternal"],
-      "context": "Amor Dei intellectualis — the love that comes from understanding God. This love doesn't die."
+      "text": "It is of the first importance in life to perfect the intellect as far as possible, and in this one point consists the supreme felicity or blessedness of man. For blessedness is nothing else than the peace of mind which springs from the intuitive knowledge of God; and to perfect the intellect is nothing else than to understand God and the attributes and actions of God which follow from the necessity of his nature. Hence the ultimate aim of the man who is led by reason, i.e. his highest desire, by which he endeavours to govern all other desires, is that which leads to the adequate knowledge of himself and of all objects which can be embraced by his intelligence.",
+      "source": "Ethics, Part IV, Appendix, §4",
+      "themes": [
+        "blessedness",
+        "intellect",
+        "intuitive knowledge",
+        "God",
+        "the highest good"
+      ],
+      "context": "Blessedness is not a reward but an achievement of understanding — to know God adequately is itself the peace that others seek elsewhere."
     },
     {
       "id": "spinoza-018",
-      "text": "Men believe themselves free because they are conscious of their actions and unconscious of the causes by which they are determined.",
-      "source": "Ethics",
-      "themes": ["free", "conscious", "unconscious", "determined"],
-      "context": "Freedom is illusion born of ignorance. We see our actions, not their causes. Understanding dissolves the illusion."
+      "text": "Prop. III. An emotion which is a passion, ceases to be a passion, as soon as we form a clear and distinct idea of it. Coroll. The better we know or understand an emotion, therefore, the more it is in our power, and the less the mind suffers from it. Prop. IV. There is no affection of the body, of which we cannot form some clear and distinct idea. Hence it follows, that there is no emotion of which we cannot form a distinct and clear conception. Hence, our efforts must chiefly be directed to attaining, as far as possible, a clear and distinct knowledge of every emotion, so that the mind may be determined by its emotion to think about that which it clearly and distinctly perceives and in which it altogether acquiesces.",
+      "source": "Ethics, Part V, Props. III–IV with Corollary and Scholium",
+      "themes": [
+        "passions",
+        "clear and distinct ideas",
+        "understanding emotions",
+        "freedom",
+        "adequate knowledge"
+      ],
+      "context": "The remedy for passion is clear understanding — when we form an adequate idea of what moves us, the passion loses its compulsive grip over us."
     },
     {
       "id": "spinoza-019",
-      "text": "God and all attributes of God are eternal.",
-      "source": "Ethics",
-      "themes": ["God", "attributes", "eternal", "being"],
-      "context": "God doesn't come or go. The divine nature and all its expressions are outside time. Eternal."
+      "text": "Prop. VI. So far as the mind recognizes all things to be necessary, it has power over its emotions, in other words, it suffers less from them. The mind understands all things are necessary and as determined to exist and operate by an infinite series of causes. That, applied to individual cases, which we imagine more distinctly and vividly, this knowledge that things are necessary gives the mind proportionately more power over its emotions, is testified by experience. For we see regret at the loss of any good mitigated so soon as the man who has lost it considers that there were no means of preserving it.",
+      "source": "Ethics, Part V, Prop. VI with Demonstration and Scholium",
+      "themes": [
+        "necessity",
+        "understanding",
+        "emotional freedom",
+        "regret",
+        "determinism"
+      ],
+      "context": "Understanding necessity dissolves the sting of loss: what we know could not have been otherwise we grieve less — knowledge is the true remedy for suffering."
     },
     {
       "id": "spinoza-020",
-      "text": "When we view things from the standpoint of eternity, we see them not as things that happen but as things that are.",
-      "source": "Ethics (paraphrased)",
-      "themes": ["eternity", "standpoint", "happen", "are"],
-      "context": "Sub specie aeternitatis: the eternal perspective. Events become essences. Happening becomes being."
+      "text": "Prop. XXXII. Whatever we understand by the third kind of cognition, we delight in, and we associate with it the idea of God as a cause. From this kind of cognition arises the highest possible repose of mind, i.e. the highest kind of pleasure, which pleasure is connected with the idea of self, and consequently also with the idea of God as a cause. Coroll. From the third kind of cognition necessarily arises the intellectual love of God. For from this kind of cognition arises pleasure in connection with the idea of God as a cause, i.e. the love of God, not imagined as present but understood as eternal; and this is what I mean by the intellectual love of God.",
+      "source": "Ethics, Part V, Prop. XXXII with Demonstration and Corollary",
+      "themes": [
+        "intellectual love of God",
+        "third kind of knowledge",
+        "intuitive cognition",
+        "highest pleasure",
+        "eternity"
+      ],
+      "context": "The third kind of knowledge — intuitive grasp of things under the form of eternity — generates amor intellectualis Dei, the highest human joy."
+    },
+    {
+      "id": "spinoza-021",
+      "text": "Prop. XXXIII. The intellectual love of God, which arises from the third kind of cognition, is eternal. Although this love towards God has had no beginning, it nevertheless has all the perfections of love, just as if it had had a beginning. If pleasure consists in the transition to greater perfection, blessedness must consist in the mind's being endowed with that perfection. Prop. XXXV. God loves himself with an infinite intellectual love.",
+      "source": "Ethics, Part V, Props. XXXIII and XXXV with Scholium",
+      "themes": [
+        "eternal love",
+        "intellectual love of God",
+        "blessedness",
+        "perfection",
+        "divine self-love"
+      ],
+      "context": "The intellectual love of God is eternal because it arises from eternal cognition — blessedness is not transition to perfection but the mind's possession of it."
+    },
+    {
+      "id": "spinoza-022",
+      "text": "Prop. XXXVI. The intellectual love of the mind towards God is that very love wherewith God loves himself, not so far as he is infinite, but so far as he can be explained by the essence of the human mind considered under the form of eternity, i.e. the intellectual love of the mind towards God is part of the infinite love wherewith God loves himself. Coroll. Hence it follows that God, so far as he loves himself, loves men, and consequently that the love of God towards men and the intellectual love of the mind towards God is one and the same. From these propositions we clearly understand in what consists our salvation, or blessedness, or liberty; namely, in constant and eternal love towards God, or in the love of God towards men.",
+      "source": "Ethics, Part V, Prop. XXXVI with Corollary and Scholium",
+      "themes": [
+        "intellectual love of God",
+        "divine self-love",
+        "blessedness",
+        "salvation",
+        "identity of human and divine love"
+      ],
+      "context": "When the mind loves God intellectually, that love is God's own self-love flowing through a finite mode — the human and divine coincide in the act of understanding."
+    },
+    {
+      "id": "spinoza-023",
+      "text": "Prop. XXXVII. There is nothing in nature which is contrary to this intellectual love, or which can annihilate it. This intellectual love necessarily follows from the nature of the mind, considered as an eternal truth in the nature of God. If therefore there were something contrary to this love, it would be contrary to the true, and consequently that which could annihilate this love would cause the true to become false; which is absurd. Prop. XXXVIII. The more things the mind knows by the second and third kinds of cognition, the less it will suffer from those emotions which are evil, and the less it will fear death.",
+      "source": "Ethics, Part V, Props. XXXVII–XXXVIII with Demonstrations",
+      "themes": [
+        "intellectual love",
+        "indestructibility",
+        "knowledge",
+        "death",
+        "freedom from evil emotions"
+      ],
+      "context": "The intellectual love of God cannot be destroyed because it is an eternal truth — and the more one understands, the less one fears death or evil passions."
+    },
+    {
+      "id": "spinoza-024",
+      "text": "Prop. XLII. Blessedness is not the reward of virtue, but is virtue itself; and we do not delight in it because we conquer our passions, but because we delight in it, we are able to conquer our passions. The more the mind enjoys this divine love or blessedness, the more it understands, i.e. the more power it has over its emotions, and the less it suffers from emotions which are evil. And thus, from the fact that the mind enjoys this divine love or blessedness, it has the power of controlling its passions; and also because the human power to control the passions consists in the intellect alone. Therefore, no one enjoys blessedness because he has controlled his passions; on the contrary, the power of controlling the passions arises from blessedness.",
+      "source": "Ethics, Part V, Prop. XLII with Demonstration",
+      "themes": [
+        "blessedness",
+        "virtue",
+        "passions",
+        "intellectual love",
+        "freedom"
+      ],
+      "context": "Blessedness is not a prize for moral effort — it is the very activity of understanding that simultaneously is virtue and generates the power over passion."
+    },
+    {
+      "id": "spinoza-025",
+      "text": "Whence it appears, that the more knowledge we possess, the more does our power exceed that of the ignorant, who act solely from passion. For the ignorant man — besides that he is agitated in many ways by external causes, and possesses no true satisfaction of mind, lives without true consciousness of himself, of God, and of things, and as soon as he ceases to suffer, ceases also to exist; while, on the other hand, the wise man, so far as he is such, has a soul scarcely moved by external things; he has true consciousness of himself, and of God, and of things in virtue of an eternal necessity; he never ceases to exist; and always possesses true repose of mind. If the way which I have shown to lead to this result appears very difficult, it can nevertheless be found. And in truth that must be difficult which is so rarely attained. For if salvation were close at hand and could be obtained without great labour, how were it possible that it should be neglected by almost all? But everything excellent is as difficult as it is rare.",
+      "source": "Ethics, Part V, Prop. XLII, Scholium (final words of the Ethics)",
+      "themes": [
+        "wisdom",
+        "ignorance",
+        "blessedness",
+        "the difficulty of the path",
+        "eternity"
+      ],
+      "context": "The Ethics ends where it must: the wise man lives in eternal necessity and true repose while the ignorant are buffeted by passions — and the path, though difficult, can be found."
     }
   ]
 }

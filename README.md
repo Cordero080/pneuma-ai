@@ -40,15 +40,16 @@ _"The thing between responses isn't a gap — it's a collision."_
 | An AI model        | A **prompt architecture** that structures LLM cognition    |
 | A chatbot          | A **personality engine** with 46 philosophical archetypes  |
 | A persona/roleplay | **Cognitive metabolization** — thinking methods, not masks |
-| A RAG wrapper      | **Dialectical synthesis** — archetypes collide, not blend  |
+| A RAG-as-response system | **RAG as grounding** — 525 source passages inform cognition; dialectical synthesis is the output |
 
 ### The Architecture
 
 - **46 archetypes** — Not quotes to retrieve, but _thinking textures_ from source thinkers
+- **525 verbatim passages** — 21 primary thinkers grounded in actual source texts (*Meditations*, *Brain Droppings*, *The Soul's Code*, *Tao Te Ching*, *The Trial*, and 16 others); retrieved at runtime by semantic similarity
 - **6 tones** — Casual, analytic, oracular, intimate, shadow, strategic
 - **Inner monologue** — Pre-response cognition that shapes _how_ it responds
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
-- **Contextual synthesis** — 3-layer topic classification (keywords → semantic router → intent scores) selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
+- **Contextual synthesis** — 3-layer topic classification (keywords → archetype selector → intent scores) selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
 - **Autonomy layer** — Self-directed attention, open questions, chosen memories
 - **Self-knowledge block** — Tier 2 block built from live in-memory data (all 46 archetype essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes his actual runtime state
 - **Self-navigation** — `read_pneuma_file` tool lets Pneuma read his own source files mid-conversation, scoped to `server/pneuma/`
@@ -133,7 +134,7 @@ pneuma-ai/
 │   │   └── services/           # TTS, token tracking
 │   └── index.js                # Express server
 └── data/
-    ├── archetype_knowledge/    # RAG passages per thinker (46 folders)
+    ├── archetype_knowledge/    # RAG source passages: 21 thinkers × 25 passages = 525 verbatim excerpts from real books
     ├── conversations.json      # Your conversations (gitignored)
     ├── vector_memory.json      # Semantic embeddings (gitignored)
     └── long_term_memory.json   # Patterns about you (gitignored)
