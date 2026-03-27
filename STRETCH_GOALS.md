@@ -1,5 +1,35 @@
 # Pneuma Stretch Goals
 
+## Dynamic RAG Window (topK Scaling)
+Status: Idea, not started
+Priority: Medium — depth improvement, not cost savings
+
+### The problem:
+- archetypeRAG.js retrieves topK=5 passages per message
+- That's a fixed window across 1,385 passages from 48 thinkers
+- Most of the knowledge base never fires in a given conversation
+- A casual greeting and a deep existential question get the same
+  5-passage budget
+
+### Where to change it:
+- retrieveArchetypeKnowledge() in archetypeRAG.js (topK default)
+- getArchetypeContext() call in llm.js — pass topK based on intent
+
+### Approach:
+- Read intent scores already computed by responseEngine.js
+- Scale topK dynamically:
+  - casual/greeting → topK=3 (save tokens)
+  - philosophical/numinous/emotional → topK=8-10 (full depth)
+- CONTRAST_MAP contrastSlots can scale proportionally (1 → 2)
+
+### Why it matters:
+- Deep questions currently get the same retrieval depth as "hey"
+- 1,385 passages exist — the architecture supports much richer
+  retrieval than the current fixed window allows
+- Token cost scales linearly, so only pay for depth when earned
+
+---
+
 ## Extended Thinking Integration
 Status: Waiting on eval data
 Priority: After Anthropic Academy certification complete

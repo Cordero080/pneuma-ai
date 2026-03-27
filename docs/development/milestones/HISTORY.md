@@ -137,6 +137,21 @@ The architecture rewards reflection and self-awareness, but this can become a tr
 
 ---
 
+## Hierarchy of Memory (Progression)
+
+The memory system evolved in four distinct levels across the project's lifetime. Each level solved the previous one's core limitation.
+
+| Level | Tech | Limitation |
+|---|---|---|
+| **Level 1** | `conversations.json` | Hard to search; got overloaded as history grew |
+| **Level 2** | MongoDB (Basic) | Better storage, but no "meaning" search — only exact/structured queries |
+| **Level 3** | MongoDB Vector Search | **Current state.** Semantic search via embeddings — finds meaning, not just keywords |
+| **Level 4** | MCP Decoupling | **The goal.** Memory becomes a plug-and-play brain — provider-agnostic, fully decoupled from the AI loop |
+
+Level 3 is where the system currently lives. Level 4 is the planned MCP migration (see `STRETCH_GOALS.md` — Pneuma-Cognition Server).
+
+---
+
 ## Phase 1: Foundation (Nov 30, 2025)
 
 ### What Was Built

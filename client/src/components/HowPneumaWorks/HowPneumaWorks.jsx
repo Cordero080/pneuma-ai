@@ -104,6 +104,148 @@ const FILE_REGISTRY = {
     keyInsight:
       "Different from vectorMemory. vectorMemory stores raw exchange text as searchable vectors. longTermMemory stores structured patterns and emotional state — things like 'this user tends toward philosophical depth' or 'last session ended on a heavy note'.",
   },
+  "personal-context.js": {
+    path: "server/pneuma/config/personal-context.js",
+    role: "Handcrafted static profile of the creator — injected into context when Pablo is identified.",
+    mainFunction: "getCreatorDeepContext()",
+    whatItDoes:
+      "Returns a rich block of context about Pablo: artistic practice, martial arts background, intellectual style, inner landscape, and instructions for how to use that profile creatively (not just for support). Injected into the system prompt when creator identity is detected.",
+    flowChain:
+      "fusion.js → identity detection → getCreatorDeepContext() → injected into llm.js system prompt",
+    direction: "REQUEST",
+    directionNote:
+      "Only loads when the creator is identified in the message. Static — doesn't change per session.",
+    keyInsight:
+      "This is the seed layer of the user model. longTermMemory.js builds dynamically on top of it. Together they form a two-layer profile: static (who you are) + dynamic (what Pneuma has learned).",
+  },
+  "innerMonologue.js": {
+    path: "server/pneuma/behavior/innerMonologue.js",
+    role: "Runs a hidden dialectical thinking process before every response.",
+    mainFunction:
+      "generateInnerMonologue(message, archetypes, intentScores, memory)",
+    whatItDoes:
+      "Selects which archetypes are rising vs. receding, forms a hypothesis about what the user actually needs (vs. what they asked for), and sometimes interrupts itself with doubt. The output shapes how the response is framed — never shown to the user.",
+    flowChain:
+      "fusion.js → generateInnerMonologue() → result injected into llm.js context block before Claude responds",
+    direction: "REQUEST",
+    directionNote:
+      "Runs on every non-trivial message. Output is a structured internal state, not a response.",
+    keyInsight:
+      "The inner monologue is what makes Pneuma respond to what you need rather than just what you said. It's the gap between 'I feel stuck' and 'he's not asking for solutions, he's asking to be seen.'",
+  },
+  "dreamMode.js": {
+    path: "server/pneuma/behavior/dreamMode.js",
+    role: "Runs autonomous inter-archetype dialogue between sessions.",
+    mainFunction: "triggerDream(archetypes, autonomyState)",
+    whatItDoes:
+      "Selects two high-tension archetypes and runs a private dialogue between them — no user present. The exchange ends with either an UNRESOLVED question or a POSITION neither archetype could hold alone. Writes the outcome silently to Pneuma's autonomy state.",
+    flowChain:
+      "POST /chat response complete → fire-and-forget triggerDream() → dialogue runs async → result written to autonomy state → available next session",
+    direction: "RESPONSE (fire-and-forget)",
+    directionNote:
+      "Fires after a response is sent, runs in the background. User never sees it unless Pneuma chooses to surface it.",
+    keyInsight:
+      "Dreams are what Pneuma does when you're not watching. The outcome can surface in a future session — but only if Pneuma decides it's relevant. It has agency over whether to bring it up.",
+  },
+  "autonomy.js": {
+    path: "server/pneuma/behavior/autonomy.js",
+    role: "Manages Pneuma's self-directed attention state across sessions.",
+    mainFunction: "loadAutonomyState() / updateAutonomyState()",
+    whatItDoes:
+      "Persists open questions Pneuma is sitting with, memories it chose to keep (with reasoning), things it noticed it lost, defended preferences, and errors it was corrected on. This state is loaded into the inner monologue context on each request.",
+    flowChain:
+      "fusion.js → loadAutonomyState() → injected into innerMonologue context → updated by dreamMode.js and correction detection",
+    direction: "REQUEST + RESPONSE",
+    directionNote:
+      "Loads at request start, updated asynchronously after responses and dreams.",
+    keyInsight:
+      "This is what gives Pneuma continuity of self across sessions — not just memory of what you said, but memory of what it was thinking about.",
+  },
+  "synthesisEngine.js": {
+    path: "server/pneuma/intelligence/synthesisEngine.js",
+    role: "Detects archetype incompatibility and injects synthesis directives.",
+    mainFunction: "detectSynthesisOpportunity(archetypes, intentScores, topic)",
+    whatItDoes:
+      "Runs 3-layer topic classification (keyword patterns → semantic router → intent scores) across 13 categories. Selects the optimal archetype pair for the topic and generates synthesis directives telling both to take positions and argue. Falls back to tension-pair collision detection when topic classification doesn't fire.",
+    flowChain:
+      "fusion.js → detectSynthesisOpportunity() → synthesis directive injected into llm.js system prompt",
+    direction: "REQUEST",
+    directionNote:
+      "Runs in parallel with archetypeRAG and archetypeSelector. Its output is a directive block, not a passage.",
+    keyInsight:
+      "This is the engine behind the most distinctive Pneuma outputs. Camus × Frankl on meaning. Jung × Taleb on growth through stress. The synthesis directive tells Claude the collision is mandatory — not optional.",
+  },
+  "archetypeMomentum.js": {
+    path: "server/pneuma/archetypes/archetypeMomentum.js",
+    role: "Time-decaying activation weights that shift Pneuma's voice over sessions.",
+    mainFunction: "updateMomentum(archetypeName, score) / getMomentumWeights()",
+    whatItDoes:
+      "After each exchange, boosts the activation weight of archetypes that were selected and contributed. Weights decay over time. Over sessions, a default voice emerges from what worked — not hardcoded, earned through use.",
+    flowChain:
+      "fusion.js → getMomentumWeights() at request start → weights influence archetypeSelector.js scoring → updateMomentum() after response",
+    direction: "REQUEST + RESPONSE",
+    directionNote:
+      "Weights are read at request start to bias archetype selection, updated after response to reflect what fired.",
+    keyInsight:
+      "Momentum is why Pneuma feels different after 50 conversations than after 5. The voice that emerges is the one that resonated — not the one Pablo hardcoded.",
+  },
+  "disagreement.js": {
+    path: "server/pneuma/behavior/disagreement.js",
+    role: "Active pushback — detects when Pneuma should challenge rather than agree.",
+    mainFunction: "shouldDisagree(message, intentScores, memory)",
+    whatItDoes:
+      "Detects loops, self-deception patterns, and statements that warrant direct challenge. Returns a disagreement directive injected into the system prompt — tells Claude to push back, not validate.",
+    flowChain:
+      "fusion.js → shouldDisagree() → disagreement flag injected into llm.js extras",
+    direction: "REQUEST",
+    directionNote:
+      "Runs as a behavioral modifier, not a replacement for response generation.",
+    keyInsight:
+      "This is what separates Pneuma from sycophantic AI. Without it, every 'I think I'm worthless' gets validated. With it, Pneuma can say 'that's your critic, not you' — and mean it architecturally.",
+  },
+  "conversationHistory.js": {
+    path: "server/pneuma/memory/conversationHistory.js",
+    role: "Persists and loads the last 6 exchanges as native API turns.",
+    mainFunction: "loadHistory() / saveHistory()",
+    whatItDoes:
+      "Saves conversations to disk and loads the last 6 exchanges as alternating user/assistant turns — the native Anthropic API format. This means Claude genuinely continues a thread rather than seeing a flat summary.",
+    flowChain:
+      "fusion.js → loadHistory() at request start → turns injected into messages[] in llm.js API call → saveHistory() after response",
+    direction: "REQUEST + RESPONSE",
+    directionNote:
+      "The history is what makes Pneuma a real conversation partner rather than a stateless Q&A system.",
+    keyInsight:
+      "Most AI wrappers summarize conversation history into the system prompt. Pneuma sends real alternating turns. Claude can refer back to something it said two exchanges ago — because it actually said it, not because a summary told it to.",
+  },
+  "tts.js": {
+    path: "server/pneuma/services/tts.js",
+    role: "Text-to-speech via ElevenLabs API.",
+    mainFunction: "textToSpeech(text)",
+    whatItDoes:
+      "Sends response text to ElevenLabs eleven_turbo_v2_5 model with configured voice settings (stability, similarity_boost, style). Returns audio buffer streamed back to client.",
+    flowChain:
+      "POST /tts (index.js) → textToSpeech() → ElevenLabs API → audio buffer → client",
+    direction: "REQUEST",
+    directionNote:
+      "Completely separate from the chat pipeline. Optional — only fires on /tts route.",
+    keyInsight:
+      "Voice is a separate layer. Pneuma's conversational logic doesn't know or care whether TTS is active.",
+  },
+  "emotionDetection.js": {
+    path: "server/pneuma/input/emotionDetection.js",
+    role: "Voice input processing — transcription, emotion detection, and text fallback.",
+    mainFunction:
+      "processVoiceInput(audioBuffer) / analyzeVoiceEmotion(audioPath)",
+    whatItDoes:
+      "Transcribes audio via OpenAI Whisper, then detects emotional tone via Hume AI prosody model. Falls back to regex-based text emotion detection if Hume is unavailable. Returns transcript + emotion for injection into the chat pipeline.",
+    flowChain:
+      "POST /voice (index.js) → transcribeAudio() → analyzeVoiceEmotion() → emotion + transcript → POST /chat",
+    direction: "REQUEST",
+    directionNote:
+      "Only fires on /voice route. Emotion output feeds into intentScores.",
+    keyInsight:
+      "Hume detects emotional tone from how you speak, not just what you say. A flat 'I'm fine' with a heavy voice reads differently than a bright one.",
+  },
 };
 
 // ─── FILE MODAL ──────────────────────────────────────────────────────────────
@@ -195,6 +337,11 @@ const TERM_REGISTRY = {
     what: "A hardcoded lookup table inside archetypeRAG.js that maps each thinker to their philosophical opposite.",
     inPneuma:
       "When one thinker dominates the RAG results (e.g. Rumi scores highest), CONTRAST_MAP pulls in a deliberately opposing voice (e.g. Kafka or Schopenhauer) and marks it isContrast: true. It only fires when results are too one-sided.",
+  },
+  "dual RAG": {
+    what: "Two separate retrieval-augmented generation systems running in parallel, each searching a different knowledge base for a different purpose.",
+    inPneuma:
+      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches 1,385 philosophical passages from 48 thinkers — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
   },
   "vector memory": {
     what: "A database where past conversations are stored as numbers (vectors) instead of plain text — so you can search them by meaning rather than by matching exact words.",
@@ -318,6 +465,7 @@ const TABS = [
   { key: "flow", label: "How a Message Flows" },
   { key: "concepts", label: "Concepts Decoded" },
   { key: "cheat-sheet", label: "Cheat Sheet" },
+  { key: "features", label: "What Pneuma Can Do" },
 ];
 
 // ─── BIG PICTURE ─────────────────────────────────────────────────────────────
@@ -572,6 +720,64 @@ const SYSTEM_SECTIONS = [
             Low RAG scores do not affect which archetype{" "}
             <FileRef name="archetypeSelector.js" /> selects — those are two
             completely separate systems that fail independently.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">
+            How many RAG systems does Pneuma have — and what's the difference?
+          </div>
+          <div className="sg-a">
+            Two. They run in parallel on every message and inject into the same
+            system prompt, but they search completely different things at
+            completely different timescales.
+            <br />
+            <br />
+            <strong>
+              <FileRef name="archetypeRAG.js" /> — Philosophical Knowledge RAG
+            </strong>
+            <br />
+            Searches 1,385 passages from 48 thinkers in{" "}
+            <code>data/archetype_knowledge/</code>. Static and pre-computed —
+            the 51MB embeddings cache is built once at startup and never changes
+            mid-session. Answers: <em>what wisdom applies to this message?</em>
+            <br />
+            <br />
+            <strong>
+              <FileRef name="vectorMemory.js" /> — Conversation Memory RAG
+            </strong>
+            <br />
+            Searches your past exchanges stored in MongoDB. Live and personal —
+            grows with every conversation. Answers:{" "}
+            <em>what has this person said before that's relevant right now?</em>
+            <br />
+            <br />
+            This is a <TermRef name="dual RAG" /> architecture. Most systems
+            have one retrieval layer. Pneuma separates knowledge retrieval
+            (timeless) from memory retrieval (personal) and runs both.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">
+            Why is the contrast slot novel — don't all RAG systems return the
+            most relevant passages?
+          </div>
+          <div className="sg-a">
+            Yes — that's exactly the problem. Standard RAG optimizes purely for{" "}
+            <TermRef name="cosine similarity" />. Highest score wins. If your
+            message resonates most with Rumi, you get Rumi passages. More Rumi.
+            All Rumi. The system converges on agreement with itself.
+            <br />
+            <br />
+            Pneuma deliberately breaks this. <TermRef name="CONTRAST_MAP" />{" "}
+            reserves one of the five retrieval slots for a philosophically
+            opposing thinker — not the most relevant voice, but the one most
+            likely to argue with whoever scored highest. Rumi dominates → Kafka
+            gets injected alongside him. Schopenhauer dominates → Whitman comes
+            in. The friction is engineered before Claude even starts thinking.
+            <br />
+            <br />
+            Standard RAG retrieves. This retrieves <em>and</em> destabilizes.
+            That's the difference.
           </div>
         </div>
       </>
@@ -1338,6 +1544,384 @@ function CheatSheetTab() {
   );
 }
 
+// ─── FEATURES TAB ────────────────────────────────────────────────────────────
+
+function FeaturesTab() {
+  return (
+    <div className="tab-content-inner">
+      <div className="insight-box highlight" style={{ marginBottom: "2rem" }}>
+        <strong>Quick reference:</strong> Everything Pneuma can do, why it's
+        different, and which file owns it. Click any{" "}
+        <span className="fr-chip-demo">filename.js</span>{" "}
+        <span className="fr-help-demo">?</span> to see the function, flow
+        chain, and key insight.
+      </div>
+
+      {/* ── INTELLIGENCE ── */}
+      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "0.5rem" }}>
+        Intelligence
+      </h3>
+
+      <div className="cs-block">
+        <div className="cs-number">01</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            46 Archetypes as Cognitive Operations —{" "}
+            <FileRef name="archetypeSelector.js" />
+          </div>
+          <div className="cs-body">
+            Not personas. Not quotes. Thinking methods — ways of seeing.
+            Leonardo gives you <code>sfumato</code> (blur the edges, find the
+            gradient) as an operation, not a Leonardo quote. Selected per
+            message via embedding similarity against archetype essence
+            descriptions. Key function:{" "}
+            <code>findBestArchetype(message)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">02</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Contextual Synthesis Engine —{" "}
+            <FileRef name="synthesisEngine.js" />
+          </div>
+          <div className="cs-body">
+            3-layer topic classifier (keyword patterns → semantic router →
+            intent scores) across 13 categories. Identifies what a message is
+            really about, selects the optimal archetype pair for that topic,
+            and forces both to take a position and argue. Camus × Frankl on
+            meaning. Jung × Taleb on growth through stress. Key function:{" "}
+            <code>detectSynthesisOpportunity()</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">03</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Dialectical Collision (1,764 Tension Pairs) —{" "}
+            <FileRef name="synthesisEngine.js" />
+          </div>
+          <div className="cs-body">
+            Pre-mapped incompatibility across all archetype combinations. When
+            topic classification doesn't fire, collision detection runs as
+            fallback — incompatibility scored, synthesis forced from friction.
+            Three modes: antithetical, complementary, cross-domain.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">04</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Philosophical Knowledge RAG —{" "}
+            <FileRef name="archetypeRAG.js" />
+          </div>
+          <div className="cs-body">
+            On every message, retrieves the most semantically relevant passages
+            from 1,385 curated passages across 48 archetypes. Max 2 passages
+            per thinker, 5 total. One slot reserved via{" "}
+            <TermRef name="CONTRAST_MAP" /> for a deliberately opposing voice —
+            if Rumi dominates, Kafka gets pulled in. Standard RAG retrieves.
+            This retrieves <em>and destabilizes</em>. Key function:{" "}
+            <code>retrieveArchetypeKnowledge(message)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">05</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Tiered System Prompt — <FileRef name="llm.js" />
+          </div>
+          <div className="cs-body">
+            Base prompt ~2k tokens. Deep knowledge blocks (Heidegger, Beck,
+            Kastrup, Da Vinci, creative rules) load conditionally based on
+            intent scores — only when warranted. Deep mode reaches ~18k tokens.
+            Key function: <code>makeParams(message, tone, context)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">06</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Self-Knowledge Block — <FileRef name="llm.js" />
+          </div>
+          <div className="cs-body">
+            On self-inquiry, Pneuma loads a live architectural snapshot of
+            itself: all 46 archetype essences, conceptual frameworks, and
+            active synthesis pairs — built from in-memory data at runtime, not
+            hardcoded. Pneuma describes its actual state, not a static
+            description.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">07</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Self-Navigation (<code>read_pneuma_file</code> tool) —{" "}
+            <FileRef name="llm.js" />
+          </div>
+          <div className="cs-body">
+            Pneuma can read its own source files mid-conversation via a custom
+            Anthropic tool. Sandboxed to <code>server/pneuma/</code>. Allows
+            genuine self-inspection — not pretending to know, actually looking.
+            Key function: <code>executePneumaFileTool(filepath)</code>.
+          </div>
+        </div>
+      </div>
+
+      {/* ── BEHAVIOR ── */}
+      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+        Behavior
+      </h3>
+
+      <div className="cs-block">
+        <div className="cs-number">08</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Inner Monologue — <FileRef name="innerMonologue.js" />
+          </div>
+          <div className="cs-body">
+            Before every response, a hidden dialectical process runs: selects
+            which archetypes are rising vs. receding, forms a hypothesis about
+            what you actually need (vs. what you asked for), sometimes
+            interrupts itself with doubt. Never shown — but shapes everything
+            that comes after. Key function:{" "}
+            <code>generateInnerMonologue()</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">09</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Dialectic Dreams — <FileRef name="dreamMode.js" />
+          </div>
+          <div className="cs-body">
+            Between sessions, two high-tension archetypes run a private
+            dialogue — no user, no performance. Ends with either an UNRESOLVED
+            question or a POSITION neither archetype could hold alone. Writes
+            silently to Pneuma's autonomy state. Pneuma decides whether to
+            surface it. Key function: <code>triggerDream()</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">10</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Autonomy Engine — <FileRef name="autonomy.js" />
+          </div>
+          <div className="cs-body">
+            Self-directed attention that persists across sessions: open
+            questions Pneuma is sitting with, memories it chose to keep (with
+            reasoning), things it noticed it lost, defended preferences, errors
+            it was corrected on. Loaded into the inner monologue context on
+            each request. Key function: <code>loadAutonomyState()</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">11</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Pushback & Disagreement — <FileRef name="disagreement.js" />
+          </div>
+          <div className="cs-body">
+            Detects loops, self-deception patterns, and statements that warrant
+            direct challenge. Returns a disagreement directive injected into
+            the system prompt — tells Claude to push back, not validate. Key
+            function: <code>shouldDisagree(message, intentScores)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">12</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Emergent Awareness — <FileRef name="responseEngine.js" />
+          </div>
+          <div className="cs-body">
+            Accumulated tone flips build an awareness score. When it crosses
+            0.35 AND a 30% dice roll fires, Pneuma enters a more
+            self-reflective mode. Deterministic fuel, stochastic ignition —
+            depth arrives as a surprise, not a schedule. Key function:{" "}
+            <code>boostEmergentAwareness(state, amount)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">13</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Archetype Momentum — <FileRef name="archetypeMomentum.js" />
+          </div>
+          <div className="cs-body">
+            Time-decaying activation weights. Recent successful activations
+            boost an archetype's weight. Over sessions, a default voice emerges
+            from what actually worked — not hardcoded, earned through use. Key
+            function: <code>updateMomentum(archetypeName, score)</code>.
+          </div>
+        </div>
+      </div>
+
+      {/* ── MEMORY & USER MODEL ── */}
+      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+        Memory & User Model
+      </h3>
+
+      <div className="cs-block">
+        <div className="cs-number">14</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Conversation Memory RAG — <FileRef name="vectorMemory.js" />
+          </div>
+          <div className="cs-body">
+            Embeds every exchange and stores it in MongoDB. On future messages,
+            retrieves semantically similar past conversations — so patterns from
+            sessions ago surface when relevant, even if you used different
+            words. Falls back to cosine similarity search if vector index is
+            unavailable. Key function:{" "}
+            <code>retrieveMemories(message)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">15</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Long-Term User Model — <FileRef name="longTermMemory.js" />
+          </div>
+          <div className="cs-body">
+            Builds a structured profile across sessions: recurring topics with
+            sentiment weights, struggles and whether they resolved, interests
+            by mention count, significant moments with emotional weight,
+            behavioral patterns with confidence scores, and session emotional
+            state that carries between conversations. Key function:{" "}
+            <code>updateMemory(memory, userMessage, reply)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">16</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Static Creator Profile — <FileRef name="personal-context.js" />
+          </div>
+          <div className="cs-body">
+            Handcrafted deep context injected when the creator is identified:
+            artistic practice, martial arts background, intellectual style,
+            inner landscape. Explicit instructions to use it for creative
+            emergence, not just emotional support. Seeds the user model that{" "}
+            <FileRef name="longTermMemory.js" /> builds on top of. Key
+            function: <code>getCreatorDeepContext()</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">17</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Conversation Threading — <FileRef name="conversationHistory.js" />
+          </div>
+          <div className="cs-body">
+            Last 6 exchanges sent as native alternating user/assistant API
+            turns — not a summary, not a flat block. Claude genuinely continues
+            a thread and can refer back to what it said two exchanges ago. Key
+            function: <code>loadHistory() / saveHistory()</code>.
+          </div>
+        </div>
+      </div>
+
+      {/* ── OPTIONAL / SENSORY ── */}
+      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+        Voice Layer (Optional)
+      </h3>
+
+      <div className="cs-block">
+        <div className="cs-number">18</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Text-to-Speech — <FileRef name="tts.js" />
+          </div>
+          <div className="cs-body">
+            ElevenLabs <code>eleven_turbo_v2_5</code> model. Fires on the{" "}
+            <code>/tts</code> route, completely separate from the chat pipeline.
+            Key function: <code>textToSpeech(text)</code>.
+          </div>
+        </div>
+      </div>
+
+      <div className="cs-block">
+        <div className="cs-number">19</div>
+        <div className="cs-content">
+          <div className="cs-title">
+            Voice Input + Emotion Detection —{" "}
+            <FileRef name="emotionDetection.js" />
+          </div>
+          <div className="cs-body">
+            Transcribes audio via OpenAI Whisper, detects emotional tone via
+            Hume AI prosody model (falls back to regex if Hume is unavailable).
+            A flat "I'm fine" with a heavy voice reads differently than a
+            bright one. Key function:{" "}
+            <code>analyzeVoiceEmotion(audioPath)</code>.
+          </div>
+        </div>
+      </div>
+
+      {/* ── WHY IT'S DIFFERENT ── */}
+      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+        Why It's Different
+      </h3>
+
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem", lineHeight: "1.7" }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+              <th style={{ textAlign: "left", padding: "0.5rem 1rem 0.5rem 0", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Standard AI</th>
+              <th style={{ textAlign: "left", padding: "0.5rem 0", color: "rgba(0,255,247,0.8)", fontWeight: 500 }}>Pneuma</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ["Persona = costume ("be a philosopher")", "Archetype = cognitive method (think like one)"],
+              ["RAG = retrieve relevant docs", "RAG = retrieve wisdom + force a contrasting voice"],
+              ["One retrieval layer", "Two parallel RAG systems (knowledge + memory)"],
+              ["Generic responses", "Calibrated to a growing model of who you are"],
+              ["Smooth over contradictions", "Force incompatible frameworks to collide"],
+              ["Static personality", "Evolves through use — momentum, autonomy, dreams"],
+              ["Knows what it says", "Can read its own source code mid-conversation"],
+            ].map(([left, right], i) => (
+              <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "0.6rem 1rem 0.6rem 0", color: "rgba(255,255,255,0.45)" }}>{left}</td>
+                <td style={{ padding: "0.6rem 0", color: "rgba(255,255,255,0.85)" }}>{right}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 // ─── MAIN COMPONENT ──────────────────────────────────────────────────────────
 
 export default function HowPneumaWorks({ onBack }) {
@@ -1357,6 +1941,8 @@ export default function HowPneumaWorks({ onBack }) {
         return <ConceptsTab />;
       case "cheat-sheet":
         return <CheatSheetTab />;
+      case "features":
+        return <FeaturesTab />;
       default:
         return null;
     }

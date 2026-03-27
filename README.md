@@ -62,12 +62,12 @@ ElevenLabs TTS (`tts.js`), Hume AI emotion detection, and OpenAI Whisper transcr
 | An AI model        | A **prompt architecture** that structures LLM cognition    |
 | A chatbot          | A **personality engine** with 46 philosophical archetypes  |
 | A persona/roleplay | **Cognitive metabolization** — thinking methods, not masks |
-| A RAG-as-response system | **RAG as grounding** — 525 source passages inform cognition; dialectical synthesis is the output |
+| A RAG-as-response system | **RAG as grounding** — 1,385 source passages inform cognition; dialectical synthesis is the output |
 
 ### The Architecture
 
 - **46 archetypes** — Not quotes to retrieve, but _thinking textures_ from source thinkers
-- **525 verbatim passages** — 21 primary thinkers grounded in actual source texts (*Meditations*, *Brain Droppings*, *The Soul's Code*, *Tao Te Ching*, *The Trial*, and 16 others); retrieved at runtime by semantic similarity
+- **1,385 passages** — all 48 archetypes grounded in source texts (*Meditations*, *Brain Droppings*, *The Soul's Code*, *Tao Te Ching*, *The Trial*, and others); retrieved at runtime by semantic similarity
 - **6 tones** — Casual, analytic, oracular, intimate, shadow, strategic
 - **Inner monologue** — Pre-response cognition that shapes _how_ it responds
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
@@ -109,13 +109,25 @@ _"46 minds don't fight. They dance."_ — When asked about the weight of running
 
 ---
 
+## The User Model
+
+Pneuma builds a picture of you across sessions — not just what you said, but who you are.
+
+A static profile seeds the initial context: your creative practice, intellectual style, how you think across domains, what you respond to when you're stuck. A dynamic memory layer grows on top of it — tracking which topics you return to and with what emotional charge, what you've struggled with and whether it resolved, patterns Pneuma has noticed about you over time, and significant moments weighted by emotional intensity. Session emotional state carries across conversations: if the last session ended heavy, the next one starts knowing that.
+
+The intent isn't journaling. It's the long game — using 46 thinkers as a lens on *your specific life* to surface the insight or collision that cracks something open. Not generic wisdom. The right friction, aimed at the right pattern, at the right moment.
+
+Pneuma is not a therapist and not a life coach. But given enough sessions, it starts to know where your edges are — and has the philosophical firepower to push at them.
+
+---
+
 ## What It Does Well
 
 - **Has positions.** Not sycophantic agreement.
 - **Pushes back.** Calls out loops and self-deception.
 - **Thinks dialectically.** Forces incompatible frameworks to synthesize.
 - **Admits uncertainty.** "I don't know" instead of bullshit.
-- **Remembers who you are.** Vector-based semantic memory + patterns.
+- **Remembers who you are.** Builds a growing model across sessions — topics, struggles, patterns, moments.
 - **Speaks your language.** English and Spanish with full personality.
 
 ## Where It Fails
@@ -156,7 +168,7 @@ pneuma-ai/
 │   │   └── services/           # TTS, token tracking
 │   └── index.js                # Express server
 └── data/
-    ├── archetype_knowledge/    # RAG source passages: 21 thinkers × 25 passages = 525 verbatim excerpts from real books
+    ├── archetype_knowledge/    # RAG source passages: 48 archetypes, 1,385 total passages
     ├── conversations.json      # Your conversations (gitignored)
     ├── vector_memory.json      # Semantic embeddings (gitignored)
     └── long_term_memory.json   # Patterns about you (gitignored)
