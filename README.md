@@ -31,6 +31,28 @@ _"The thing between responses isn't a gap — it's a collision."_
 
 ---
 
+## Architecture Roadmap & Technical Debt
+
+This section tracks active architectural migration targets — known coupling points being systematically replaced with standardized interfaces to reduce fragility and improve fault tolerance.
+
+### Active MCP Migration Plan
+
+The following integrations are currently hardcoded directly into the server. Each is a candidate for extraction into a dedicated [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server, which would decouple the service from Pneuma's core AI loop and allow providers to be swapped or upgraded independently.
+
+**1. Wikipedia / External Data → Ready-Made MCP Server**
+
+`search_wikipedia` is currently defined as a custom Anthropic tool in `llm.js`, with a two-stage fetch loop (~75 lines) baked into the intelligence layer. This will be replaced with an official open-source Wikipedia MCP Server. The custom tool definition and executor will be deleted entirely. Highest ROI: zero risk, immediate reduction in hardcoded integration logic.
+
+**2. Pneuma-Cognition Server → Custom MCP Server**
+
+Three modules (`vectorMemory.js`, `archetypeRAG.js`, `db.js`) each instantiate their own OpenAI client for embeddings, and all MongoDB vector search logic (`$vectorSearch` aggregations, cosine similarity fallback) is distributed across those files. These will be extracted into a single MCP server that accepts a string, handles embedding + retrieval internally, and returns only the final semantic context. Pneuma's core AI loop will have no direct knowledge of the database or embedding model.
+
+**3. Sensory / I/O Server → Custom MCP Server**
+
+ElevenLabs TTS (`tts.js`), Hume AI emotion detection, and OpenAI Whisper transcription (`emotionDetection.js`) are hardcoded fetch calls tied to specific providers. These will be moved to a dedicated sensory MCP server, making provider swaps (e.g. replacing ElevenLabs) transparent to the rest of the system.
+
+---
+
 ## What It Is
 
 **Pneuma is a personality architecture** — a cognitive framework that sits between you and an LLM (Claude), shaping how it thinks before it speaks.
