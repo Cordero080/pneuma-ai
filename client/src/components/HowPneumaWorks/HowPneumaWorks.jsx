@@ -1553,12 +1553,21 @@ function FeaturesTab() {
         <strong>Quick reference:</strong> Everything Pneuma can do, why it's
         different, and which file owns it. Click any{" "}
         <span className="fr-chip-demo">filename.js</span>{" "}
-        <span className="fr-help-demo">?</span> to see the function, flow
-        chain, and key insight.
+        <span className="fr-help-demo">?</span> to see the function, flow chain,
+        and key insight.
       </div>
 
       {/* ── INTELLIGENCE ── */}
-      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "0.5rem" }}>
+      <h3
+        style={{
+          color: "rgba(255,255,255,0.5)",
+          fontSize: "0.75rem",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          marginTop: "0.5rem",
+        }}
+      >
         Intelligence
       </h3>
 
@@ -1574,8 +1583,7 @@ function FeaturesTab() {
             Leonardo gives you <code>sfumato</code> (blur the edges, find the
             gradient) as an operation, not a Leonardo quote. Selected per
             message via embedding similarity against archetype essence
-            descriptions. Key function:{" "}
-            <code>findBestArchetype(message)</code>.
+            descriptions. Key function: <code>findBestArchetype(message)</code>.
           </div>
         </div>
       </div>
@@ -1584,15 +1592,14 @@ function FeaturesTab() {
         <div className="cs-number">02</div>
         <div className="cs-content">
           <div className="cs-title">
-            Contextual Synthesis Engine —{" "}
-            <FileRef name="synthesisEngine.js" />
+            Contextual Synthesis Engine — <FileRef name="synthesisEngine.js" />
           </div>
           <div className="cs-body">
             3-layer topic classifier (keyword patterns → semantic router →
             intent scores) across 13 categories. Identifies what a message is
-            really about, selects the optimal archetype pair for that topic,
-            and forces both to take a position and argue. Camus × Frankl on
-            meaning. Jung × Taleb on growth through stress. Key function:{" "}
+            really about, selects the optimal archetype pair for that topic, and
+            forces both to take a position and argue. Camus × Frankl on meaning.
+            Jung × Taleb on growth through stress. Key function:{" "}
             <code>detectSynthesisOpportunity()</code>.
           </div>
         </div>
@@ -1618,13 +1625,12 @@ function FeaturesTab() {
         <div className="cs-number">04</div>
         <div className="cs-content">
           <div className="cs-title">
-            Philosophical Knowledge RAG —{" "}
-            <FileRef name="archetypeRAG.js" />
+            Philosophical Knowledge RAG — <FileRef name="archetypeRAG.js" />
           </div>
           <div className="cs-body">
             On every message, retrieves the most semantically relevant passages
-            from 1,385 curated passages across 48 archetypes. Max 2 passages
-            per thinker, 5 total. One slot reserved via{" "}
+            from 1,385 curated passages across 48 archetypes. Max 2 passages per
+            thinker, 5 total. One slot reserved via{" "}
             <TermRef name="CONTRAST_MAP" /> for a deliberately opposing voice —
             if Rumi dominates, Kafka gets pulled in. Standard RAG retrieves.
             This retrieves <em>and destabilizes</em>. Key function:{" "}
@@ -1656,8 +1662,8 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             On self-inquiry, Pneuma loads a live architectural snapshot of
-            itself: all 46 archetype essences, conceptual frameworks, and
-            active synthesis pairs — built from in-memory data at runtime, not
+            itself: all 46 archetype essences, conceptual frameworks, and active
+            synthesis pairs — built from in-memory data at runtime, not
             hardcoded. Pneuma describes its actual state, not a static
             description.
           </div>
@@ -1681,7 +1687,16 @@ function FeaturesTab() {
       </div>
 
       {/* ── BEHAVIOR ── */}
-      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+      <h3
+        style={{
+          color: "rgba(255,255,255,0.5)",
+          fontSize: "0.75rem",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          marginTop: "2rem",
+        }}
+      >
         Behavior
       </h3>
 
@@ -1709,11 +1724,11 @@ function FeaturesTab() {
             Dialectic Dreams — <FileRef name="dreamMode.js" />
           </div>
           <div className="cs-body">
-            Between sessions, two high-tension archetypes run a private
-            dialogue — no user, no performance. Ends with either an UNRESOLVED
-            question or a POSITION neither archetype could hold alone. Writes
-            silently to Pneuma's autonomy state. Pneuma decides whether to
-            surface it. Key function: <code>triggerDream()</code>.
+            Between sessions, two high-tension archetypes run a private dialogue
+            — no user, no performance. Ends with either an UNRESOLVED question
+            or a POSITION neither archetype could hold alone. Writes silently to
+            Pneuma's autonomy state. Pneuma decides whether to surface it. Key
+            function: <code>triggerDream()</code>.
           </div>
         </div>
       </div>
@@ -1728,8 +1743,8 @@ function FeaturesTab() {
             Self-directed attention that persists across sessions: open
             questions Pneuma is sitting with, memories it chose to keep (with
             reasoning), things it noticed it lost, defended preferences, errors
-            it was corrected on. Loaded into the inner monologue context on
-            each request. Key function: <code>loadAutonomyState()</code>.
+            it was corrected on. Loaded into the inner monologue context on each
+            request. Key function: <code>loadAutonomyState()</code>.
           </div>
         </div>
       </div>
@@ -1742,8 +1757,8 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             Detects loops, self-deception patterns, and statements that warrant
-            direct challenge. Returns a disagreement directive injected into
-            the system prompt — tells Claude to push back, not validate. Key
+            direct challenge. Returns a disagreement directive injected into the
+            system prompt — tells Claude to push back, not validate. Key
             function: <code>shouldDisagree(message, intentScores)</code>.
           </div>
         </div>
@@ -1757,9 +1772,9 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             Accumulated tone flips build an awareness score. When it crosses
-            0.35 AND a 30% dice roll fires, Pneuma enters a more
-            self-reflective mode. Deterministic fuel, stochastic ignition —
-            depth arrives as a surprise, not a schedule. Key function:{" "}
+            0.35 AND a 30% dice roll fires, Pneuma enters a more self-reflective
+            mode. Deterministic fuel, stochastic ignition — depth arrives as a
+            surprise, not a schedule. Key function:{" "}
             <code>boostEmergentAwareness(state, amount)</code>.
           </div>
         </div>
@@ -1781,7 +1796,16 @@ function FeaturesTab() {
       </div>
 
       {/* ── MEMORY & USER MODEL ── */}
-      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+      <h3
+        style={{
+          color: "rgba(255,255,255,0.5)",
+          fontSize: "0.75rem",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          marginTop: "2rem",
+        }}
+      >
         Memory & User Model
       </h3>
 
@@ -1796,8 +1820,7 @@ function FeaturesTab() {
             retrieves semantically similar past conversations — so patterns from
             sessions ago surface when relevant, even if you used different
             words. Falls back to cosine similarity search if vector index is
-            unavailable. Key function:{" "}
-            <code>retrieveMemories(message)</code>.
+            unavailable. Key function: <code>retrieveMemories(message)</code>.
           </div>
         </div>
       </div>
@@ -1810,10 +1833,10 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             Builds a structured profile across sessions: recurring topics with
-            sentiment weights, struggles and whether they resolved, interests
-            by mention count, significant moments with emotional weight,
-            behavioral patterns with confidence scores, and session emotional
-            state that carries between conversations. Key function:{" "}
+            sentiment weights, struggles and whether they resolved, interests by
+            mention count, significant moments with emotional weight, behavioral
+            patterns with confidence scores, and session emotional state that
+            carries between conversations. Key function:{" "}
             <code>updateMemory(memory, userMessage, reply)</code>.
           </div>
         </div>
@@ -1830,8 +1853,8 @@ function FeaturesTab() {
             artistic practice, martial arts background, intellectual style,
             inner landscape. Explicit instructions to use it for creative
             emergence, not just emotional support. Seeds the user model that{" "}
-            <FileRef name="longTermMemory.js" /> builds on top of. Key
-            function: <code>getCreatorDeepContext()</code>.
+            <FileRef name="longTermMemory.js" /> builds on top of. Key function:{" "}
+            <code>getCreatorDeepContext()</code>.
           </div>
         </div>
       </div>
@@ -1843,16 +1866,25 @@ function FeaturesTab() {
             Conversation Threading — <FileRef name="conversationHistory.js" />
           </div>
           <div className="cs-body">
-            Last 6 exchanges sent as native alternating user/assistant API
-            turns — not a summary, not a flat block. Claude genuinely continues
-            a thread and can refer back to what it said two exchanges ago. Key
+            Last 6 exchanges sent as native alternating user/assistant API turns
+            — not a summary, not a flat block. Claude genuinely continues a
+            thread and can refer back to what it said two exchanges ago. Key
             function: <code>loadHistory() / saveHistory()</code>.
           </div>
         </div>
       </div>
 
       {/* ── OPTIONAL / SENSORY ── */}
-      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+      <h3
+        style={{
+          color: "rgba(255,255,255,0.5)",
+          fontSize: "0.75rem",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          marginTop: "2rem",
+        }}
+      >
         Voice Layer (Optional)
       </h3>
 
@@ -1880,39 +1912,110 @@ function FeaturesTab() {
           <div className="cs-body">
             Transcribes audio via OpenAI Whisper, detects emotional tone via
             Hume AI prosody model (falls back to regex if Hume is unavailable).
-            A flat "I'm fine" with a heavy voice reads differently than a
-            bright one. Key function:{" "}
-            <code>analyzeVoiceEmotion(audioPath)</code>.
+            A flat "I'm fine" with a heavy voice reads differently than a bright
+            one. Key function: <code>analyzeVoiceEmotion(audioPath)</code>.
           </div>
         </div>
       </div>
 
       {/* ── WHY IT'S DIFFERENT ── */}
-      <h3 style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1rem", marginTop: "2rem" }}>
+      <h3
+        style={{
+          color: "rgba(255,255,255,0.5)",
+          fontSize: "0.75rem",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          marginTop: "2rem",
+        }}
+      >
         Why It's Different
       </h3>
 
       <div style={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem", lineHeight: "1.7" }}>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            fontSize: "0.9rem",
+            lineHeight: "1.7",
+          }}
+        >
           <thead>
             <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-              <th style={{ textAlign: "left", padding: "0.5rem 1rem 0.5rem 0", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>Standard AI</th>
-              <th style={{ textAlign: "left", padding: "0.5rem 0", color: "rgba(0,255,247,0.8)", fontWeight: 500 }}>Pneuma</th>
+              <th
+                style={{
+                  textAlign: "left",
+                  padding: "0.5rem 1rem 0.5rem 0",
+                  color: "rgba(255,255,255,0.5)",
+                  fontWeight: 500,
+                }}
+              >
+                Standard AI
+              </th>
+              <th
+                style={{
+                  textAlign: "left",
+                  padding: "0.5rem 0",
+                  color: "rgba(0,255,247,0.8)",
+                  fontWeight: 500,
+                }}
+              >
+                Pneuma
+              </th>
             </tr>
           </thead>
           <tbody>
             {[
-              ["Persona = costume ("be a philosopher")", "Archetype = cognitive method (think like one)"],
-              ["RAG = retrieve relevant docs", "RAG = retrieve wisdom + force a contrasting voice"],
-              ["One retrieval layer", "Two parallel RAG systems (knowledge + memory)"],
-              ["Generic responses", "Calibrated to a growing model of who you are"],
-              ["Smooth over contradictions", "Force incompatible frameworks to collide"],
-              ["Static personality", "Evolves through use — momentum, autonomy, dreams"],
-              ["Knows what it says", "Can read its own source code mid-conversation"],
+              [
+                "Persona = costume (\u201cbe a philosopher\u201d)",
+                "Archetype = cognitive method (think like one)",
+              ],
+              [
+                "RAG = retrieve relevant docs",
+                "RAG = retrieve wisdom + force a contrasting voice",
+              ],
+              [
+                "One retrieval layer",
+                "Two parallel RAG systems (knowledge + memory)",
+              ],
+              [
+                "Generic responses",
+                "Calibrated to a growing model of who you are",
+              ],
+              [
+                "Smooth over contradictions",
+                "Force incompatible frameworks to collide",
+              ],
+              [
+                "Static personality",
+                "Evolves through use — momentum, autonomy, dreams",
+              ],
+              [
+                "Knows what it says",
+                "Can read its own source code mid-conversation",
+              ],
             ].map(([left, right], i) => (
-              <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <td style={{ padding: "0.6rem 1rem 0.6rem 0", color: "rgba(255,255,255,0.45)" }}>{left}</td>
-                <td style={{ padding: "0.6rem 0", color: "rgba(255,255,255,0.85)" }}>{right}</td>
+              <tr
+                key={i}
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+              >
+                <td
+                  style={{
+                    padding: "0.6rem 1rem 0.6rem 0",
+                    color: "rgba(255,255,255,0.45)",
+                  }}
+                >
+                  {left}
+                </td>
+                <td
+                  style={{
+                    padding: "0.6rem 0",
+                    color: "rgba(255,255,255,0.85)",
+                  }}
+                >
+                  {right}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -208,15 +208,23 @@ app.post("/chat", async (req, res) => {
   };
 
   try {
+    let chunked = false;
     const onChunk = (text) => {
       if (text === "\x00RESET") {
         sendEvent({ type: "reset" });
+        chunked = false;
       } else {
+        chunked = true;
         sendEvent({ type: "chunk", text });
       }
     };
 
     const { reply, mode } = await pneumaRespond(message, onChunk);
+
+    // If nothing was streamed (LLM down, guard response, fallback), send the reply as a single chunk
+    if (!chunked && reply) {
+      sendEvent({ type: "chunk", text: reply });
+    }
 
     // Send final metadata so frontend knows streaming is complete
     sendEvent({
@@ -413,7 +421,9 @@ app.listen(PORT, async () => {
   try {
     await connectDB();
   } catch (err) {
-    console.warn(`[DB] MongoDB unavailable — falling back to local JSON. (${err.message})`);
+    console.warn(
+      `[DB] MongoDB unavailable — falling back to local JSON. (${err.message})`,
+    );
   }
   // Initialize Archetype Selector (load embeddings)
   await initializeArchetypeEmbeddings();

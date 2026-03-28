@@ -3088,6 +3088,7 @@ export async function getLLMContent(
 
     if (typeof onChunk === "function") {
       // Streaming path: tool loop handled inside streamGeneration, final response streamed
+      console.log("[LLM] Streaming path active — onChunk is a function");
       [finalText, usage, toolMessages] = await streamGeneration(
         toolMessages,
         systemPrompt,
