@@ -1,0 +1,585 @@
+/* InterviewPrep.css */
+
+.interview-prep {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
+  color: #e0e6ed;
+  padding: 2rem;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* ─── Top Bar ──────────────────────────────────────────────────────────────── */
+
+.ip-topbar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.ip-back-btn {
+  flex-shrink: 0;
+  background: rgba(255, 170, 0, 0.1);
+  border: 1px solid #ffaa00;
+  color: #ffaa00;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.ip-back-btn:hover {
+  background: rgba(255, 170, 0, 0.2);
+  transform: translateX(-5px);
+}
+
+.ip-header-text {
+  flex: 1;
+}
+
+.ip-title {
+  font-size: 2.2rem;
+  margin: 0 0 0.3rem 0;
+  background: linear-gradient(90deg, #00fff2, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.ip-subtitle {
+  font-size: 1rem;
+  color: #8a93a6;
+  margin: 0;
+}
+
+/* ─── Tier Filter Pills ───────────────────────────────────────────────────── */
+
+.ip-tier-filters {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.ip-tier-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(26, 31, 53, 0.6);
+  color: #8a93a6;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.ip-tier-pill:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #e0e6ed;
+}
+
+.ip-tier-pill.active {
+  color: #0a0e1a;
+  border-color: transparent;
+}
+
+/* ALL pill */
+.ip-tier-pill:first-child.active {
+  background: #e0e6ed;
+  color: #0a0e1a;
+}
+
+.ip-tier-pill.junior.active {
+  background: #22c55e;
+}
+
+.ip-tier-pill.mid.active {
+  background: #3b82f6;
+}
+
+.ip-tier-pill.senior.active {
+  background: #f59e0b;
+}
+
+.ip-tier-pill.staff.active {
+  background: #a855f7;
+}
+
+/* ─── Questions List ──────────────────────────────────────────────────────── */
+
+.ip-questions-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-bottom: 4rem;
+}
+
+/* ─── Question Card ───────────────────────────────────────────────────────── */
+
+.ip-question-card {
+  border: 1px solid rgba(0, 255, 242, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ip-question-card.open {
+  border-color: rgba(0, 255, 242, 0.45);
+  box-shadow: 0 0 18px rgba(0, 255, 242, 0.08);
+}
+
+/* ─── Question Header ─────────────────────────────────────────────────────── */
+
+.ip-question-header {
+  width: 100%;
+  background: rgba(26, 31, 53, 0.7);
+  border: none;
+  color: #b8c0d0;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.ip-question-header:hover {
+  background: rgba(0, 255, 242, 0.07);
+}
+
+.ip-question-card.open .ip-question-header {
+  background: rgba(0, 255, 242, 0.06);
+}
+
+.ip-q-number {
+  font-size: 0.7rem;
+  opacity: 0.35;
+  min-width: 28px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* ─── Tier Badge ──────────────────────────────────────────────────────────── */
+
+.ip-tier-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.ip-tier-badge.junior {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.ip-tier-badge.mid {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.ip-tier-badge.senior {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.ip-tier-badge.staff {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* ─── Concept Tag ─────────────────────────────────────────────────────────── */
+
+.ip-concept-tag {
+  font-size: 0.7rem;
+  color: #ffaa00;
+  opacity: 0.7;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ─── Question Text ───────────────────────────────────────────────────────── */
+
+.ip-question-text {
+  font-size: 0.95rem;
+  color: #c8d0df;
+  flex: 1;
+  line-height: 1.45;
+}
+
+.ip-chevron {
+  font-size: 0.65rem;
+  opacity: 0.4;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.ip-question-card.open .ip-chevron {
+  transform: rotate(180deg);
+}
+
+/* ─── Answer Body ─────────────────────────────────────────────────────────── */
+
+.ip-question-body {
+  padding: 1.2rem 1.4rem 1.4rem;
+  background: rgba(10, 14, 26, 0.55);
+  border-top: 1px solid rgba(0, 255, 242, 0.1);
+  animation: ip-fadein 0.25s ease;
+}
+
+@keyframes ip-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ip-answer-text {
+  font-size: 0.92rem;
+  color: #b8c0d0;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin: 0 0 1.2rem 0;
+}
+
+/* ─── Key Phrases ─────────────────────────────────────────────────────────── */
+
+.ip-key-phrases {
+  margin: 0 0 1.1rem 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ip-key-phrase {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(0, 255, 242, 0.3);
+  line-height: 1.5;
+}
+
+/* ─── Files Row ───────────────────────────────────────────────────────────── */
+
+.ip-files-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.ip-files-label {
+  font-size: 0.72rem;
+  color: #8a93a6;
+  margin-bottom: 0.4rem;
+}
+
+.ip-file-chip {
+  font-size: 0.78rem;
+  color: #00fff2;
+  background: rgba(0, 255, 242, 0.08);
+  border: 1px solid rgba(0, 255, 242, 0.3);
+  border-radius: 5px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Courier New", monospace;
+}
+
+.ip-file-chip:hover {
+  background: rgba(0, 255, 242, 0.18);
+  border-color: #00fff2;
+  box-shadow: 0 0 8px rgba(0, 255, 242, 0.2);
+}
+
+/* ─── File Modal ──────────────────────────────────────────────────────────── */
+
+.ip-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.ip-modal-card {
+  background: #131828;
+  border: 1px solid rgba(0, 255, 242, 0.35);
+  border-radius: 14px;
+  padding: 1.8rem;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 255, 242, 0.1);
+  animation: ip-fadein 0.2s ease;
+}
+
+.ip-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #8a93a6;
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ip-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #e0e6ed;
+}
+
+.ip-modal-title {
+  font-family: "Courier New", monospace;
+  font-size: 1.15rem;
+  color: #00fff2;
+  margin: 0 0 0.3rem 0;
+}
+
+.ip-modal-path {
+  font-size: 0.75rem;
+  color: #8a93a6;
+  margin-bottom: 1rem;
+  font-family: "Courier New", monospace;
+}
+
+.ip-modal-role {
+  font-size: 0.9rem;
+  color: #e0e6ed;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ip-modal-section {
+  margin-bottom: 1rem;
+}
+
+.ip-modal-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffaa00;
+  margin-bottom: 0.35rem;
+}
+
+.ip-modal-value {
+  font-size: 0.88rem;
+  color: #b8c0d0;
+  line-height: 1.55;
+}
+
+.ip-modal-value code {
+  background: rgba(0, 255, 242, 0.1);
+  color: #00fff2;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.ip-modal-insight {
+  margin-top: 1.2rem;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 255, 242, 0.06);
+  border-left: 3px solid rgba(0, 255, 242, 0.4);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.87rem;
+  color: #b8c0d0;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .interview-prep {
+    padding: 1rem;
+  }
+
+  .ip-topbar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ip-title {
+    font-size: 1.6rem;
+  }
+
+  .ip-tier-filters {
+    gap: 0.4rem;
+  }
+
+  .ip-tier-pill {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .ip-question-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .ip-concept-tag {
+    display: none;
+  }
+
+  .ip-modal-card {
+    padding: 1.2rem;
+  }
+}
+
+/* ─── HIGHLIGHTS ─────────────────────────────────────────────────────────── */
+
+.ip-highlights-section {
+  padding: 1.5rem 2rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 0.5rem;
+}
+
+.ip-highlights-heading {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 0.2rem;
+  font-weight: 500;
+}
+
+.ip-highlights-subheading {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 1rem;
+}
+
+.ip-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ip-highlight-card {
+  border: 1px solid rgba(180, 0, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.ip-highlight-card.open {
+  border-color: rgba(180, 0, 255, 0.5);
+}
+
+.ip-highlight-header {
+  width: 100%;
+  background: rgba(180, 0, 255, 0.05);
+  border: none;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.ip-highlight-header:hover {
+  background: rgba(180, 0, 255, 0.1);
+}
+
+.ip-highlight-num {
+  font-size: 0.65rem;
+  color: rgba(180, 0, 255, 0.6);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 20px;
+}
+
+.ip-highlight-title {
+  flex: 1;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.ip-highlight-body {
+  padding: 1rem 1.25rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ip-highlight-when {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+.ip-highlight-when strong {
+  color: rgba(180, 0, 255, 0.7);
+  font-weight: 600;
+}
+
+.ip-highlight-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ip-highlight-keyline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  border-left: 2px solid rgba(180, 0, 255, 0.5);
+  padding-left: 0.75rem;
+  margin: 0;
+}
