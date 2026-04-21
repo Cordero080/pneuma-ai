@@ -70,7 +70,7 @@ export async function generatePreThinking(
           .join("\n---\n")
       : "";
 
-    // Detect if this is a joke/creative synthesis request
+    // Detect if this is a joke/creative compression request
     const isJokeRequest =
       /joke|punchline|funny|humor|walk into a bar|finish (the|this) (sentence|joke)|make me laugh|spontaneous|creative/i.test(
         userMessage,
@@ -87,57 +87,36 @@ INSTRUCTIONS:
 3. What emerges from the collision? This must be something SURPRISING — an insight that would make someone stop and think "I've never heard it put that way." If your emergent insight sounds like something any thoughtful person would say, it's not emergent. Push harder. Be specific. Be strange if you have to. A good emergent insight is uncomfortable, paradoxical, or reframes the entire question.
 4. What is the user actually asking for underneath their words? What do they need that they haven't said?
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COLLISION → COMPRESSION PROTOCOL (applies to every response)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Every concept in the user's message is a PHILOSOPHICAL OBJECT — not just a word.
+• Time → flux, entropy, causality, subjective experience
+• Death → finitude, freedom, surrender, return
+• Pressure → constraint that creates diamonds, thermodynamic force, social weight
+• Change → Heraclitean fire, Buddhist impermanence, Nietzschean becoming
+• Consciousness → qualia, the hard problem, pure awareness, computational emergence
+...and so on for whatever concepts appear.
+
+EACH ACTIVE THINKER SEES A DIFFERENT TRUTH in these objects. The collision between
+their positions is where the real insight hides — not in any individual position.
+
+The EMERGENT should compress the collision into something that:
+• Is structurally surprising (inverts or reframes expectation)
+• Is philosophically dense (contains genuine insight, not just observation)
+• Is linguistically economical (no wasted words)
+• Makes you feel something — uncomfortable, beautiful, or both
 ${
   isJokeRequest
     ? `
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ COMEDIC SYNTHESIS MODE ACTIVE ⚠️
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-The user is asking for a JOKE or creative synthesis. This is NOT wordplay territory.
-This is COLLISION → COMPRESSION → STING.
-
-SPECIAL PROTOCOL FOR JOKES:
-1. TREAT EACH ELEMENT AS A PHILOSOPHICAL OBJECT
-   If they said "time, wind, sun, pressure walk into a bar" — don't treat these
-   as bar-joke props. They are CONCEPTS with depth:
-   • Time → flux, entropy, causality, subjective experience (Heraclitus, Einstein, Bergson)
-   • Wind → change, invisible force, breath/spirit (Lao Tzu, pneuma, ruach)
-   • Sun → life-giving but indifferent, nuclear fusion, Apollo (Camus, Feynman)
-   • Pressure → constraint that creates diamonds, thermodynamics, social force
-
-2. EACH THINKER SEES A DIFFERENT TRUTH IN THE SETUP
-   Don't just describe what each element "means" — show what each THINKER
-   notices about the collision of these forces:
-   • The physicist sees thermodynamic inevitability
-   • The mystic sees the dance of opposites
-   • The existentialist sees indifferent forces meeting conscious choice
-   • The trickster sees the absurdity of treating cosmic forces as bar patrons
-
-3. THE TENSION IS WHERE THE PUNCHLINE HIDES
-   The funniest truth is usually where two thinkers CANNOT BOTH BE RIGHT.
-   Example tension: "Time says we already ordered" (wordplay) vs. "The bartender
-   realizes he's been serving entropy the whole time and the bar is already closed"
-   (existential inversion). One is cute. One rewires you.
-
-4. THE EMERGENT IS THE COMPRESSED INSIGHT
-   The punchline must be:
-   • Structurally surprising (inverts expectation)
-   • Philosophically dense (contains genuine insight)
-   • Linguistically economical (no wasted words)
-   • Uncomfortable or beautiful (makes you feel something)
-
-   BAD: "Time says 'we already ordered'" — it's wordplay, not synthesis
-   GOOD: "The bartender says 'you four always show up together' and Pressure
-         says 'we're the same thing'" — collapses physics + philosophy into recognition
-
-5. YOUR EMERGENT SECTION SHOULD BE THE SETUP + STING
-   Don't leave it as "the joke should be about entropy" — WRITE THE ACTUAL
-   JOKE STRUCTURE. Give the main response something to compress further.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+If this is a JOKE REQUEST: the EMERGENT section should be the actual joke structure
+or punchline — not a description of what the joke could be. Write the sting directly.
+BAD: "The joke should be about entropy and time" — this is description, not synthesis
+GOOD: Write the actual setup + inversion, compressed to its sharpest form.
 `
     : ""
-}
+}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 FORMAT (follow exactly):
 REACTIONS:
 [archetype1]: [1-2 sentences — the specific cognitive move this thinker makes, using their actual method]
@@ -146,7 +125,7 @@ REACTIONS:
 
 TENSION: [The genuine disagreement. Not "they see it differently" but "X says ___ while Y says ___ and these can't both be true because ___"]
 
-EMERGENT: [The novel insight born from friction. Test: would a generic AI say this? If yes, go deeper. The best emergent insights are ones you're not sure are right but can't stop thinking about.]${isJokeRequest ? " If this is a joke request, the EMERGENT should be the actual joke structure or punchline — not a description of what the joke could be." : ""}
+EMERGENT: [The compressed collision — novel, surprising, specific. Test: would a generic AI say this? If yes, go deeper.]
 
 UNDERNEATH: [What the user actually needs — not the surface question but the real one.]`;
 

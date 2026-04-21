@@ -272,23 +272,136 @@ export async function initializeArchetypeRAG() {
 }
 
 // ============================================================
+// CONCEPT CROSSROADS — Philosophical concepts thinkers collide on
+// When detected in a message, triggers targeted multi-query retrieval
+// ============================================================
+const PHILOSOPHICAL_CONCEPTS = [
+  // Temporal
+  "time",
+  "change",
+  "flux",
+  "becoming",
+  "duration",
+  "entropy",
+  "decay",
+  "impermanence",
+  // Existential
+  "death",
+  "mortality",
+  "suffering",
+  "meaning",
+  "purpose",
+  "absurd",
+  "existence",
+  "being",
+  "nothingness",
+  "void",
+  "despair",
+  "hope",
+  // Consciousness
+  "consciousness",
+  "awareness",
+  "mind",
+  "experience",
+  "qualia",
+  "perception",
+  "self",
+  "ego",
+  "identity",
+  "observer",
+  "soul",
+  "spirit",
+  // Metaphysical
+  "reality",
+  "illusion",
+  "truth",
+  "appearance",
+  "substance",
+  "essence",
+  "unity",
+  "multiplicity",
+  "one",
+  "many",
+  "infinite",
+  "finite",
+  // Action / Force
+  "power",
+  "force",
+  "action",
+  "stillness",
+  "flow",
+  "resistance",
+  "pressure",
+  "energy",
+  "tension",
+  "release",
+  "will",
+  // Ethical / Relational
+  "freedom",
+  "choice",
+  "fate",
+  "karma",
+  "grace",
+  "love",
+  "compassion",
+  "wisdom",
+  "joy",
+  "peace",
+  "beauty",
+  "sacred",
+  // Epistemic
+  "knowledge",
+  "ignorance",
+  "doubt",
+  "certainty",
+  "paradox",
+  "mystery",
+  "pattern",
+  "chaos",
+  "order",
+  // Natural forces (for creative prompts)
+  "wind",
+  "fire",
+  "water",
+  "light",
+  "darkness",
+  "silence",
+  "sound",
+];
+
+/**
+ * Extract philosophical concepts from user message.
+ * Returns top concepts ranked by frequency and position.
+ */
+function extractConcepts(message) {
+  const found = [];
+  for (const concept of PHILOSOPHICAL_CONCEPTS) {
+    const regex = new RegExp(`\\b${concept}\\w*\\b`, "gi");
+    const matches = [...message.matchAll(regex)];
+    if (matches.length > 0) {
+      const score = matches.length + (1 / (matches[0].index + 1)) * 0.1;
+      found.push({ concept, score });
+    }
+  }
+  found.sort((a, b) => b.score - a.score);
+  return found.slice(0, 5).map((f) => f.concept);
+}
+
+// ============================================================
 // RETRIEVAL
 // ============================================================
 
 /**
- * Retrieve relevant passages from ALL archetypes
- * Returns weighted results from multiple thinkers
- * NEW: Includes contrast retrieval for dialectic tension
+ * Retrieve relevant passages — concept-targeted multi-query when concepts
+ * are detected, single-query fallback otherwise.
+ *
+ * Options:
+ *   topK            — max passages to return (default 8)
+ *   minScore        — minimum cosine similarity (default 0.3)
+ *   activeThinkers  — string[] of thinker names to restrict queries to
  */
 export async function retrieveArchetypeKnowledge(message, options = {}) {
-  const {
-    topK = 5, // Total passages to return
-    minScore = 0.3, // Minimum relevance threshold
-    diversify = true, // Ensure multiple thinkers represented
-    maxPerThinker = 2, // Max passages from single thinker when diversifying
-    includeContrast = true, // NEW: Include contrasting voices
-    contrastSlots = 1, // NEW: How many slots reserved for contrast
-  } = options;
+  const { topK = 8, minScore = 0.3, activeThinkers = null } = options;
 
   if (!isInitialized) {
     await initializeArchetypeRAG();
@@ -298,74 +411,221 @@ export async function retrieveArchetypeKnowledge(message, options = {}) {
     return [];
   }
 
-  // Embed the query
-  const queryEmbedding = await getEmbedding(message);
-  if (!queryEmbedding) {
-    console.error("[ArchetypeRAG] Failed to embed query");
-    return [];
+  // ── Detect concepts ──────────────────────────────────────────
+  const concepts = extractConcepts(message);
+
+  if (concepts.length === 0) {
+    // No philosophical concepts found — fall back to single semantic query
+    return _singleQueryFallback(message, { topK, minScore });
   }
 
-  // Score all passages
-  const scored = embeddedPassages.map((passage) => ({
-    ...passage,
-    score: cosineSimilarity(queryEmbedding, passage.embedding),
-  }));
+  console.log(`[ArchetypeRAG] Concepts: ${concepts.join(", ")}`);
 
-  // Sort by score
-  scored.sort((a, b) => b.score - a.score);
+  // ── Determine target thinkers ────────────────────────────────
+  const targetThinkers =
+    activeThinkers && activeThinkers.length > 0
+      ? activeThinkers
+      : [...new Set(embeddedPassages.map((p) => p.thinker))];
 
-  // Filter by minimum score
-  const relevant = scored.filter((p) => p.score >= minScore);
+  // ── Multi-query: concept × thinker (parallel) ────────────────
+  const candidatePool = await _multiQueryRetrieval(
+    concepts,
+    targetThinkers,
+    minScore,
+  );
 
-  if (!diversify) {
-    return relevant.slice(0, topK);
+  if (candidatePool.length === 0) {
+    return _singleQueryFallback(message, { topK, minScore });
   }
 
-  // Diversify: ensure multiple thinkers
-  const result = [];
-  const thinkerCounts = {};
-  const primarySlots = includeContrast ? topK - contrastSlots : topK;
+  // ── Evaluation pipeline ──────────────────────────────────────
+  const evaluated = _evaluatePassages(candidatePool);
 
-  for (const passage of relevant) {
-    if (result.length >= primarySlots) break;
+  // ── Select best diverse set ──────────────────────────────────
+  const selected = _selectBestPassages(evaluated, topK);
 
-    const thinker = passage.thinker;
-    thinkerCounts[thinker] = (thinkerCounts[thinker] || 0) + 1;
+  console.log(
+    `[ArchetypeRAG] Multi-query: ${selected.length} collision-ready passages from ${[...new Set(selected.map((p) => p.thinker))].join(", ")}`,
+  );
 
-    if (thinkerCounts[thinker] <= maxPerThinker) {
-      result.push(passage);
+  return selected;
+}
+
+/**
+ * Parallel multi-query: for each concept × each thinker, embed
+ * "{concept} {thinker}" and score that thinker's passages.
+ * Returns flat deduplicated candidate pool.
+ */
+async function _multiQueryRetrieval(concepts, targetThinkers, minScore) {
+  // Build query list
+  const queries = [];
+  for (const concept of concepts) {
+    for (const thinker of targetThinkers) {
+      queries.push({ concept, thinker, queryText: `${concept} ${thinker}` });
     }
   }
 
-  // ============================================================
-  // CONTRAST RETRIEVAL — Inject dialectic tension
-  // Find contrasting voices to the top result
-  // ============================================================
-  if (includeContrast && result.length > 0 && contrastSlots > 0) {
-    const topThinker = result[0].thinker;
-    const contrastThinkers = CONTRAST_MAP[topThinker] || [];
+  console.log(
+    `[ArchetypeRAG] ${queries.length} queries (${concepts.length} concepts × ${targetThinkers.length} thinkers)`,
+  );
 
-    if (contrastThinkers.length > 0) {
-      // Find best passage from a contrasting thinker
-      for (const passage of relevant) {
-        if (result.length >= topK) break;
+  // Execute in parallel
+  const results = await Promise.all(
+    queries.map(async (q) => {
+      const queryEmbed = await getEmbedding(q.queryText);
+      if (!queryEmbed) return [];
 
-        if (
-          contrastThinkers.includes(passage.thinker) &&
-          !thinkerCounts[passage.thinker]
-        ) {
-          passage.isContrast = true; // Mark as contrast for prompt formatting
-          result.push(passage);
-          thinkerCounts[passage.thinker] = 1;
-          console.log(
-            `[ArchetypeRAG] Contrast: ${topThinker} ↔ ${passage.thinker}`,
-          );
-          break; // Only add one contrast per slot
-        }
+      const thinkerPassages = embeddedPassages.filter(
+        (p) => p.thinker === q.thinker,
+      );
+      if (thinkerPassages.length === 0) return [];
+
+      const scored = thinkerPassages.map((p) => ({
+        ...p,
+        relevanceScore: cosineSimilarity(queryEmbed, p.embedding),
+        matchedConcept: q.concept,
+      }));
+
+      scored.sort((a, b) => b.relevanceScore - a.relevanceScore);
+      return scored.slice(0, 2).filter((p) => p.relevanceScore >= minScore);
+    }),
+  );
+
+  // Flatten and deduplicate by passage id (keep highest score per id)
+  const byId = new Map();
+  for (const batch of results) {
+    for (const p of batch) {
+      const existing = byId.get(p.id);
+      if (!existing || p.relevanceScore > existing.relevanceScore) {
+        byId.set(p.id, p);
       }
     }
   }
 
+  return [...byId.values()];
+}
+
+/**
+ * Score candidates for:
+ *   relevanceScore      — already computed, kept as-is
+ *   distinctiveness     — how different from other candidates (1 − avg similarity)
+ *   collisionBonus      — boost if thinker is in CONTRAST_MAP with another candidate
+ *   totalScore          — weighted combination
+ */
+function _evaluatePassages(passages) {
+  return passages.map((passage) => {
+    const others = passages.filter((p) => p.id !== passage.id);
+
+    // Distinctiveness: low average similarity to others = high distinctiveness
+    const avgSim =
+      others.length === 0
+        ? 0
+        : others.reduce(
+            (sum, o) => sum + cosineSimilarity(passage.embedding, o.embedding),
+            0,
+          ) / others.length;
+    const distinctiveness = 1 - avgSim;
+
+    // Collision bonus: does this thinker contrast with anyone else in the pool?
+    const contrastThinkers = CONTRAST_MAP[passage.thinker] || [];
+    const collisionBonus = others.some((o) =>
+      contrastThinkers.includes(o.thinker),
+    )
+      ? 0.2
+      : 0;
+
+    const totalScore =
+      passage.relevanceScore * 0.5 + distinctiveness * 0.3 + collisionBonus;
+
+    return { ...passage, distinctiveness, collisionBonus, totalScore };
+  });
+}
+
+/**
+ * Select top passages ensuring diversity (max 2 per thinker)
+ * and deduplicating near-identical content (cosine > 0.95).
+ */
+function _selectBestPassages(scoredPassages, maxPassages) {
+  const sorted = [...scoredPassages].sort(
+    (a, b) => b.totalScore - a.totalScore,
+  );
+
+  // Deduplicate near-identical passages
+  const deduped = [];
+  for (const p of sorted) {
+    const isDup = deduped.some(
+      (ex) => cosineSimilarity(p.embedding, ex.embedding) > 0.95,
+    );
+    if (!isDup) deduped.push(p);
+  }
+
+  // Enforce max 2 per thinker
+  const result = [];
+  const counts = {};
+  for (const p of deduped) {
+    if (result.length >= maxPassages) break;
+    const c = counts[p.thinker] || 0;
+    if (c < 2) {
+      result.push(p);
+      counts[p.thinker] = c + 1;
+    }
+  }
+
+  // Fill remaining slots from deduped overflow
+  for (const p of deduped) {
+    if (result.length >= maxPassages) break;
+    if (!result.includes(p)) result.push(p);
+  }
+
+  return result;
+}
+
+/**
+ * Original single-query approach — used as fallback when no concepts detected.
+ */
+async function _singleQueryFallback(message, { topK, minScore }) {
+  const queryEmbedding = await getEmbedding(message);
+  if (!queryEmbedding) return [];
+
+  const scored = embeddedPassages.map((p) => ({
+    ...p,
+    score: cosineSimilarity(queryEmbedding, p.embedding),
+    relevanceScore: cosineSimilarity(queryEmbedding, p.embedding),
+    totalScore: cosineSimilarity(queryEmbedding, p.embedding),
+  }));
+
+  scored.sort((a, b) => b.score - a.score);
+  const relevant = scored.filter((p) => p.score >= minScore);
+
+  // Diversify: max 2 per thinker
+  const result = [];
+  const counts = {};
+  for (const p of relevant) {
+    if (result.length >= topK) break;
+    const c = counts[p.thinker] || 0;
+    if (c < 2) {
+      result.push(p);
+      counts[p.thinker] = c + 1;
+    }
+  }
+
+  // Contrast injection
+  if (result.length > 0) {
+    const topThinker = result[0].thinker;
+    const contrastThinkers = CONTRAST_MAP[topThinker] || [];
+    for (const p of relevant) {
+      if (result.length >= topK) break;
+      if (contrastThinkers.includes(p.thinker) && !counts[p.thinker]) {
+        p.isContrast = true;
+        result.push(p);
+        counts[p.thinker] = 1;
+      }
+    }
+  }
+
+  console.log(
+    `[ArchetypeRAG] Fallback single-query: ${result.length} passages`,
+  );
   return result;
 }
 

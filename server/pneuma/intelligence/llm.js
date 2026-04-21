@@ -5813,10 +5813,9 @@ WHAT TO DO:
   let archetypeKnowledgeBlock = "";
   try {
     const ragResult = await getArchetypeContext(message, {
-      topK: 5,
-      minScore: 0.35,
-      diversify: true,
-      maxPerThinker: 2,
+      topK: 8,
+      minScore: 0.3,
+      activeThinkers: selectedArchetypes.length > 0 ? selectedArchetypes : null,
     });
 
     if (ragResult && ragResult.passages.length > 0) {
