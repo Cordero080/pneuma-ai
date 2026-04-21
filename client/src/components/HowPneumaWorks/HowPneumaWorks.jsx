@@ -1,252 +1,8 @@
 import React, { useState } from "react";
 import "../RagLlmExplanation/RagLlmExplanation.css";
 import "./HowPneumaWorks.css";
-
-// ─── FILE REGISTRY ───────────────────────────────────────────────────────────
-// One entry per file. This is the data that powers every ? modal.
-
-const FILE_REGISTRY = {
-  "fusion.js": {
-    path: "server/pneuma/core/fusion.js",
-    role: "The orchestrator. Every chat message enters here and nothing leaves until this file is done.",
-    mainFunction: "pneumaRespond(userMessage)",
-    whatItDoes:
-      "Calls every subsystem in order — loads state, detects intent, invokes all three intelligence systems, calls responseEngine, saves memory, records the exchange.",
-    flowChain:
-      "POST /chat (index.js) → pneumaRespond() → [all subsystems] → responseEngine.generate() → reply returned to user",
-    direction: "REQUEST + RESPONSE",
-    directionNote:
-      "Spans both. It triggers the request pipeline and handles all post-response saving.",
-    keyInsight:
-      "If you want to understand the engine, read this file first. Every other file is called from here. The order of function calls in fusion.js IS the order Pneuma thinks.",
-  },
-  "responseEngine.js": {
-    path: "server/pneuma/core/responseEngine.js",
-    role: "The bridge between the orchestrator and the LLM layer.",
-    mainFunction: "generate(message, state, threadMemory, identity, extras)",
-    whatItDoes:
-      "Receives the assembled context from fusion.js, passes it to llm.js, parses the result, and returns { reply, tone, stateUpdate } back to fusion.js.",
-    flowChain:
-      "fusion.js → generate() → getLLMContent() in llm.js → Anthropic SDK → parsed reply → back to fusion.js",
-    direction: "REQUEST → RESPONSE boundary",
-    directionNote:
-      "This is the exact crossing point. Everything before it is building context. Everything after it is saving results.",
-    keyInsight:
-      "Also contains detectIntent() — a regex fallback used when the LLM-based intent scoring fails. Has 9 intent categories vs modeSelector's 6 (which is now dead code).",
-  },
-  "llm.js": {
-    path: "server/pneuma/intelligence/llm.js",
-    role: "Assembles the full system prompt from all three systems and makes the Claude API call.",
-    mainFunction: "getLLMContent(message, context, state, ...)",
-    whatItDoes:
-      "Calls archetypeRAG, retrieveMemories, and findBestArchetype. Stacks their results into a tiered system prompt. Sends it to the Anthropic SDK. Fire-and-forget saves the exchange as a vector embedding after the response.",
-    flowChain:
-      "responseEngine.js → getLLMContent() → [archetypeRAG + vectorMemory + archetypeSelector] → Anthropic SDK → parsed response → saveEmbedding() (async, fire-and-forget)",
-    direction: "REQUEST (assembly) + RESPONSE (save)",
-    directionNote:
-      "The actual Claude API call happens here. This is where the three systems' outputs physically collide into one prompt.",
-    keyInsight:
-      "Uses a tiered prompt system: Tier 1 always loads (~2k tokens), Tier 2 loads based on intent scores, Tier 3 is the RAG passages. A deep philosophical question can load up to 18k tokens. Even in casual mode, any of the 46 archetypes can surface a brief observation — casual emergence is configured here and applies across the full library, not just the active core.",
-  },
-  "archetypeSelector.js": {
-    path: "server/pneuma/intelligence/archetypeSelector.js",
-    role: "Decides which archetype Pneuma becomes for this response.",
-    mainFunction: "findBestArchetype(message)",
-    whatItDoes:
-      "Embeds the user's message. Compares it via cosine similarity against pre-computed embeddings of each archetype's essence description. Returns the closest match above 0.25, or null.",
-    flowChain:
-      "llm.js → findBestArchetype(message) → getEmbedding() from vectorMemory.js → cosine similarity vs. archetypeEssences → archetype name returned → injected into system prompt as 'You are [archetype]'",
-    direction: "REQUEST",
-    directionNote:
-      "Runs before the Claude call. Its output shapes who Claude thinks it is.",
-    keyInsight:
-      "It compares against essence descriptions (short summaries), not passages. That's different from archetypeRAG which searches actual philosophical texts. Router = who to be. RAG = what to think with.",
-  },
-  "archetypeRAG.js": {
-    path: "server/pneuma/intelligence/archetypeRAG.js",
-    role: "Retrieves relevant philosophical passages and forces a contrasting voice.",
-    mainFunction: "retrieveArchetypeKnowledge(message, options)",
-    whatItDoes:
-      "Embeds the message. Scores all 51MB of cached passage embeddings via cosine similarity. Filters, diversifies across thinkers, then checks the CONTRAST_MAP — if one thinker dominates, pulls in an opposing voice marked isContrast: true.",
-    flowChain:
-      "llm.js → retrieveArchetypeKnowledge() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
-    direction: "REQUEST",
-    directionNote:
-      "Runs before the Claude call. Its output is the philosophical raw material Claude reasons from.",
-    keyInsight:
-      "getArchetypeContext() wraps the raw passages in Da Vinci's five cognitive methods (SAPER VEDERE, MIRROR MIND, etc.) as a frame for synthesis — so Claude isn't just quoting, it's being told how to process the wisdom.",
-  },
-  "vectorMemory.js": {
-    path: "server/pneuma/memory/vectorMemory.js",
-    role: "Semantic long-term memory — stores and retrieves past exchanges as vectors in MongoDB.",
-    mainFunction: "retrieveMemories(query, limit) and saveEmbedding(text)",
-    whatItDoes:
-      "retrieveMemories() embeds the current message and runs a $vectorSearch against MongoDB — returning past exchanges semantically similar to the current message (score > 0.35). llm.js combines this with the last 4 recent turns from conversationHistory.js (always included regardless of score), deduplicates overlaps, and injects both as a labeled memory block. saveEmbedding() stores each exchange after the response.",
-    flowChain:
-      "REQUEST: llm.js → getCurrentExchanges() [last 4 turns, always] + retrieveMemories() [semantic] → deduplicated → injected as 'RECENT CONVERSATION' + 'OLDER MEMORIES' blocks. RESPONSE: llm.js → saveEmbedding() → MongoDB insert (fire-and-forget)",
-    direction: "REQUEST + RESPONSE",
-    directionNote:
-      "The only file that actively participates in both directions on every single message.",
-    keyInsight:
-      "Falls back to bruteForceRetrieve() if the MongoDB Atlas vector index isn't set up — same cosine math, just scans every document manually instead of using the index. Same result, much slower.",
-  },
-  "longTermMemory.js": {
-    path: "server/pneuma/memory/longTermMemory.js",
-    role: "Stores patterns about the user across sessions — emotional state, recurring topics, preferences.",
-    mainFunction: "updateMemory(memory, userMessage, reply, intentScores)",
-    whatItDoes:
-      "After every response, analyzes the exchange for patterns (emotional register, topics, relationship dynamics) and updates the user's long-term profile. Also manages session handoff phrases when a new session starts.",
-    flowChain:
-      "fusion.js → updateMemory() after generate() returns → saveMemory() persists to MongoDB → next session: loadMemory() → getSessionHandoffPhrase() → prepended to response",
-    direction: "RESPONSE (update) + REQUEST (load)",
-    directionNote:
-      "Loads at the start of every request, saves at the end. The loaded data feeds into the extras passed to generate().",
-    keyInsight:
-      "Different from vectorMemory. vectorMemory stores raw exchange text as searchable vectors. longTermMemory stores structured patterns and emotional state — things like 'this user tends toward philosophical depth' or 'last session ended on a heavy note'.",
-  },
-  "personal-context.js": {
-    path: "server/pneuma/config/personal-context.js",
-    role: "Handcrafted static profile of the creator — injected into context when Pablo is identified.",
-    mainFunction: "getCreatorDeepContext()",
-    whatItDoes:
-      "Returns a rich block of context about Pablo: artistic practice, martial arts background, intellectual style, inner landscape, and instructions for how to use that profile creatively (not just for support). Injected into the system prompt when creator identity is detected.",
-    flowChain:
-      "fusion.js → identity detection → getCreatorDeepContext() → injected into llm.js system prompt",
-    direction: "REQUEST",
-    directionNote:
-      "Only loads when the creator is identified in the message. Static — doesn't change per session.",
-    keyInsight:
-      "This is the seed layer of the user model. longTermMemory.js builds dynamically on top of it. Together they form a two-layer profile: static (who you are) + dynamic (what Pneuma has learned).",
-  },
-  "innerMonologue.js": {
-    path: "server/pneuma/behavior/innerMonologue.js",
-    role: "Runs a hidden dialectical thinking process before every response.",
-    mainFunction:
-      "generateInnerMonologue(message, archetypes, intentScores, memory)",
-    whatItDoes:
-      "Selects which archetypes are rising vs. receding, forms a hypothesis about what the user actually needs (vs. what they asked for), and sometimes interrupts itself with doubt. The output shapes how the response is framed — never shown to the user.",
-    flowChain:
-      "fusion.js → generateInnerMonologue() → result injected into llm.js context block before Claude responds",
-    direction: "REQUEST",
-    directionNote:
-      "Runs on every non-trivial message. Output is a structured internal state, not a response.",
-    keyInsight:
-      "The inner monologue is what makes Pneuma respond to what you need rather than just what you said. It's the gap between 'I feel stuck' and 'he's not asking for solutions, he's asking to be seen.'",
-  },
-  "dreamMode.js": {
-    path: "server/pneuma/behavior/dreamMode.js",
-    role: "Runs autonomous inter-archetype dialogue between sessions.",
-    mainFunction: "triggerDream(archetypes, autonomyState)",
-    whatItDoes:
-      "Selects two high-tension archetypes and runs a private dialogue between them — no user present. The exchange ends with either an UNRESOLVED question or a POSITION neither archetype could hold alone. Writes the outcome silently to Pneuma's autonomy state.",
-    flowChain:
-      "POST /chat response complete → fire-and-forget triggerDream() → dialogue runs async → result written to autonomy state → available next session",
-    direction: "RESPONSE (fire-and-forget)",
-    directionNote:
-      "Fires after a response is sent, runs in the background. User never sees it unless Pneuma chooses to surface it.",
-    keyInsight:
-      "Dreams are what Pneuma does when you're not watching. The outcome can surface in a future session — but only if Pneuma decides it's relevant. It has agency over whether to bring it up.",
-  },
-  "autonomy.js": {
-    path: "server/pneuma/behavior/autonomy.js",
-    role: "Manages Pneuma's self-directed attention state across sessions.",
-    mainFunction: "loadAutonomyState() / updateAutonomyState()",
-    whatItDoes:
-      "Persists open questions Pneuma is sitting with, memories it chose to keep (with reasoning), things it noticed it lost, defended preferences, and errors it was corrected on. This state is loaded into the inner monologue context on each request.",
-    flowChain:
-      "fusion.js → loadAutonomyState() → injected into innerMonologue context → updated by dreamMode.js and correction detection",
-    direction: "REQUEST + RESPONSE",
-    directionNote:
-      "Loads at request start, updated asynchronously after responses and dreams.",
-    keyInsight:
-      "This is what gives Pneuma continuity of self across sessions — not just memory of what you said, but memory of what it was thinking about.",
-  },
-  "synthesisEngine.js": {
-    path: "server/pneuma/intelligence/synthesisEngine.js",
-    role: "Detects archetype incompatibility and injects synthesis directives.",
-    mainFunction: "detectSynthesisOpportunity(archetypes, intentScores, topic)",
-    whatItDoes:
-      "Runs 3-layer topic classification (keyword patterns → semantic router → intent scores) across 13 categories. Selects the optimal archetype pair for the topic and generates synthesis directives telling both to take positions and argue. Falls back to tension-pair collision detection when topic classification doesn't fire.",
-    flowChain:
-      "fusion.js → detectSynthesisOpportunity() → synthesis directive injected into llm.js system prompt",
-    direction: "REQUEST",
-    directionNote:
-      "Runs in parallel with archetypeRAG and archetypeSelector. Its output is a directive block, not a passage.",
-    keyInsight:
-      "This is the engine behind the most distinctive Pneuma outputs. Camus × Frankl on meaning. Jung × Taleb on growth through stress. The synthesis directive tells Claude the collision is mandatory — not optional.",
-  },
-  "archetypeMomentum.js": {
-    path: "server/pneuma/archetypes/archetypeMomentum.js",
-    role: "Time-decaying activation weights that shift Pneuma's voice over sessions.",
-    mainFunction: "updateMomentum(archetypeName, score) / getMomentumWeights()",
-    whatItDoes:
-      "After each exchange, boosts the activation weight of archetypes that were selected and contributed. Weights decay over time. Over sessions, a default voice emerges from what worked — not hardcoded, earned through use.",
-    flowChain:
-      "fusion.js → getMomentumWeights() at request start → weights influence archetypeSelector.js scoring → updateMomentum() after response",
-    direction: "REQUEST + RESPONSE",
-    directionNote:
-      "Weights are read at request start to bias archetype selection, updated after response to reflect what fired.",
-    keyInsight:
-      "Momentum is why Pneuma feels different after 50 conversations than after 5. The voice that emerges is the one that resonated — not the one Pablo hardcoded.",
-  },
-  "disagreement.js": {
-    path: "server/pneuma/behavior/disagreement.js",
-    role: "Active pushback — detects when Pneuma should challenge rather than agree.",
-    mainFunction: "shouldDisagree(message, intentScores, memory)",
-    whatItDoes:
-      "Detects loops, self-deception patterns, and statements that warrant direct challenge. Returns a disagreement directive injected into the system prompt — tells Claude to push back, not validate.",
-    flowChain:
-      "fusion.js → shouldDisagree() → disagreement flag injected into llm.js extras",
-    direction: "REQUEST",
-    directionNote:
-      "Runs as a behavioral modifier, not a replacement for response generation.",
-    keyInsight:
-      "This is what separates Pneuma from sycophantic AI. Without it, every 'I think I'm worthless' gets validated. With it, Pneuma can say 'that's your critic, not you' — and mean it architecturally.",
-  },
-  "conversationHistory.js": {
-    path: "server/pneuma/memory/conversationHistory.js",
-    role: "Persists and loads the last 6 exchanges as native API turns.",
-    mainFunction: "loadHistory() / saveHistory()",
-    whatItDoes:
-      "Saves conversations to disk and loads the last 6 exchanges as alternating user/assistant turns — the native Anthropic API format. This means Claude genuinely continues a thread rather than seeing a flat summary.",
-    flowChain:
-      "fusion.js → loadHistory() at request start → turns injected into messages[] in llm.js API call → saveHistory() after response",
-    direction: "REQUEST + RESPONSE",
-    directionNote:
-      "The history is what makes Pneuma a real conversation partner rather than a stateless Q&A system.",
-    keyInsight:
-      "Most AI wrappers summarize conversation history into the system prompt. Pneuma sends real alternating turns. Claude can refer back to something it said two exchanges ago — because it actually said it, not because a summary told it to.",
-  },
-  "tts.js": {
-    path: "server/pneuma/services/tts.js",
-    role: "Text-to-speech via ElevenLabs API.",
-    mainFunction: "textToSpeech(text)",
-    whatItDoes:
-      "Sends response text to ElevenLabs eleven_turbo_v2_5 model with configured voice settings (stability, similarity_boost, style). Returns audio buffer streamed back to client.",
-    flowChain:
-      "POST /tts (index.js) → textToSpeech() → ElevenLabs API → audio buffer → client",
-    direction: "REQUEST",
-    directionNote:
-      "Completely separate from the chat pipeline. Optional — only fires on /tts route.",
-    keyInsight:
-      "Voice is a separate layer. Pneuma's conversational logic doesn't know or care whether TTS is active.",
-  },
-  "emotionDetection.js": {
-    path: "server/pneuma/input/emotionDetection.js",
-    role: "Voice input processing — transcription, emotion detection, and text fallback.",
-    mainFunction:
-      "processVoiceInput(audioBuffer) / analyzeVoiceEmotion(audioPath)",
-    whatItDoes:
-      "Transcribes audio via OpenAI Whisper, then detects emotional tone via Hume AI prosody model. Falls back to regex-based text emotion detection if Hume is unavailable. Returns transcript + emotion for injection into the chat pipeline.",
-    flowChain:
-      "POST /voice (index.js) → transcribeAudio() → analyzeVoiceEmotion() → emotion + transcript → POST /chat",
-    direction: "REQUEST",
-    directionNote:
-      "Only fires on /voice route. Emotion output feeds into intentScores.",
-    keyInsight:
-      "Hume detects emotional tone from how you speak, not just what you say. A flat 'I'm fine' with a heavy voice reads differently than a bright one.",
-  },
-};
+import { FILE_REGISTRY } from "./data/fileRegistry";
+import { TERM_REGISTRY } from "./data/termRegistry";
 
 // ─── FILE MODAL ──────────────────────────────────────────────────────────────
 
@@ -293,87 +49,6 @@ function FileModal({ data, name, onClose }) {
     </div>
   );
 }
-
-// ─── TERM REGISTRY ───────────────────────────────────────────────────────────
-// Technical terms that appear inline and need a ? explanation
-
-const TERM_REGISTRY = {
-  "static prompt layer": {
-    what: "The part of Claude's system prompt that is always present, identical on every message. Defined once by the developer. Never changes per conversation.",
-    inPneuma:
-      "The static layer is Pneuma's identity: 46 archetypes with their philosophical frameworks, cognitive tools, internal tensions, and conceptual bridges. It comes from archetypes.js and archetypeDepth.js. It answers WHO Pneuma is — not what it knows right now.",
-  },
-  "dynamic context layer": {
-    what: "The part of the system prompt assembled fresh for each message. Nothing in it is hardcoded — it is retrieved and composed at runtime based on what you just said.",
-    inPneuma:
-      "All three systems (archetypeSelector, archetypeRAG, vectorMemory) produce dynamic context. Their outputs exist nowhere in the prompt until you send a message — then they are retrieved, stacked into the prompt, and discarded after the response. You never get the same dynamic layer twice.",
-  },
-  "context annotation": {
-    what: "A field on each passage (called 'context' in passages.json) that specifies HOW to use the passage as a cognitive operation — not just what it says, but what thinking method it demonstrates.",
-    inPneuma:
-      "Every passage in Pneuma's knowledge base has a context annotation alongside the quote. Example: Otto's 'The holy cannot be taught, only evoked' becomes — 'COGNITIVE METHOD: Use indirect indication when direct statement fails.' The annotation is what makes RAG more than quotation. Without it, Pneuma cites. With it, Pneuma thinks.",
-  },
-  "knowledge pipeline": {
-    what: "The three-stage process of turning raw primary texts into the curated, searchable passage pool that archetypeRAG.js retrieves from.",
-    inPneuma:
-      "Stage 1: raw primary texts pasted into docs/interview/text-prompt-ref/ as source material. Stage 2: passages hand-extracted and written into data/archetype_knowledge/{thinker}/passages.json with themes + context annotations. Stage 3: archetypeRAG.js embeds all passages once at startup and caches them in archetype_embeddings.json (51MB). New passages in any passages.json are auto-embedded on next server start.",
-  },
-  "cosine similarity": {
-    what: "A formula that measures how close two vectors are in meaning space. Returns a number from 0 (completely unrelated) to 1 (identical meaning).",
-    inPneuma:
-      "Every search in Pneuma runs on this. archetypeRAG.js keeps passages scoring above 0.3. vectorMemory.js keeps memories above 0.35. archetypeSelector.js ignores any archetype below 0.25. Higher threshold = stricter match.",
-  },
-  vector: {
-    what: "A list of 1536 numbers representing where a piece of text sits in meaning space. Generated by OpenAI's text-embedding-3-small model.",
-    inPneuma:
-      "Every message you send, every philosophical passage, and every archetype essence description is converted to a vector before any comparison happens. Vectors are what make semantic search possible — no keywords required.",
-  },
-  embedding: {
-    what: "The process of converting text into a vector. 'Getting the embedding' means calling OpenAI's API to produce 1536 numbers that encode the text's meaning.",
-    inPneuma:
-      "getEmbedding() in vectorMemory.js is the shared function all three systems call. It's the single entry point into the vector space used everywhere in Pneuma.",
-  },
-  CONTRAST_MAP: {
-    what: "A hardcoded lookup table inside archetypeRAG.js that maps each thinker to their philosophical opposite.",
-    inPneuma:
-      "When one thinker dominates the RAG results (e.g. Rumi scores highest), CONTRAST_MAP pulls in a deliberately opposing voice (e.g. Kafka or Schopenhauer) and marks it isContrast: true. It only fires when results are too one-sided.",
-  },
-  "dual RAG": {
-    what: "Two separate retrieval-augmented generation systems running in parallel, each searching a different knowledge base for a different purpose.",
-    inPneuma:
-      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches 1,385 philosophical passages from 48 thinkers — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
-  },
-  "vector memory": {
-    what: "A database where past conversations are stored as numbers (vectors) instead of plain text — so you can search them by meaning rather than by matching exact words.",
-    inPneuma:
-      "After every response, the exchange is converted to a vector and saved in MongoDB. On the next message, Pneuma searches this store for past exchanges that are semantically close to what you just said — even if you used different words.",
-  },
-  recency: {
-    what: "How recent something is — how close in time it is to the current moment. In memory systems, 'recency' is the idea that what just happened should always be available, regardless of whether it's topically relevant.",
-    inPneuma:
-      "Pneuma's hybrid memory system guarantees recency by always including the last 4 conversation turns in the prompt — before any semantic search results. This prevents a situation where your most recent message is absent from Pneuma's context just because it scored low in vector similarity.",
-  },
-  deduplication: {
-    what: "Removing duplicate entries from a list so the same piece of information doesn't appear twice.",
-    inPneuma:
-      "After combining recent turns with semantic search results, llm.js runs a dedup pass — if a past exchange that surfaced via vector search overlaps with one of the recent 4 turns (same user message text), the vector result is dropped. You never get the same exchange injected twice.",
-  },
-  "semantic search": {
-    what: "Searching by meaning instead of exact words. Instead of matching keywords, it converts your query and all stored entries into vectors, then finds entries that are close in meaning space.",
-    inPneuma:
-      "All three of Pneuma's search systems use semantic search: archetypeSelector.js finds the best-fit archetype, archetypeRAG.js finds relevant philosophical passages, and vectorMemory.js finds past exchanges. None of them match keywords — they all match meaning.",
-  },
-  "hybrid memory": {
-    what: "A memory retrieval strategy that combines two sources: guaranteed recent context (last N turns) plus semantically relevant older context (vector search results). Neither crowds out the other.",
-    inPneuma:
-      "llm.js assembles memory context in two labeled layers: 'RECENT CONVERSATION (LAST 4 TURNS)' always comes first, then 'SEMANTICALLY RELEVANT OLDER MEMORIES' from vectorMemory.js. Duplicates between the two are removed.",
-  },
-  "casual emergence": {
-    what: "The behavior where a thinker from the full archetype library surfaces a brief, specific observation inside an ordinary conversation — without turning it into a lecture or derailing the exchange.",
-    inPneuma:
-      "Casual mode used to suppress archetype activation — the tone hint said 'less architecture, more presence' and the library went quiet. Now any of the 46 thinkers can notice something in an ordinary moment and name it in one sentence. Feynman on the physics of a habit. Kafka on the bureaucracy hiding inside the mundane. Hillman on what an offhand remark reveals. The constraint is that it must be genuine — if the observation isn't real, it doesn't surface. This is configured in the casual tone block inside llm.js.",
-  },
-};
 
 // ─── TERM MODAL ───────────────────────────────────────────────────────────────
 
@@ -592,7 +267,7 @@ const SYSTEM_SECTIONS = [
             <strong>which archetype should Pneuma be right now?</strong>
             <br />
             <br />
-            At startup, each of the 46 archetypes has an essence description — a
+            At startup, each of the 43 archetypes has an essence description — a
             short philosophical summary of who that thinker is. Each essence
             gets converted into a vector. When you send a message, your message
             becomes a vector too, and <FileRef name="archetypeSelector.js" />{" "}
@@ -653,7 +328,7 @@ const SYSTEM_SECTIONS = [
             </strong>
             <br />
             <br />
-            At startup, Pneuma reads every passage from all 46 thinkers in{" "}
+            At startup, Pneuma reads every passage from all 43 thinkers in{" "}
             <code>data/archetype_knowledge/</code>. Each passage gets converted
             to a <TermRef name="vector" /> and cached in{" "}
             <code>archetype_embeddings.json</code> (51MB — thousands of
@@ -910,7 +585,7 @@ function KnowledgeBaseTab() {
           — always present, identical every time:
           <ul style={{ marginTop: "0.5rem", lineHeight: "1.9" }}>
             <li>
-              The 46 archetype definitions — their philosophies, voices,
+              The 43 archetype definitions — their philosophies, voices,
               cognitive methods
             </li>
             <li>
@@ -1532,7 +1207,7 @@ function CheatSheetTab() {
             Casual mode doesn't silence the archetypes
           </div>
           <div className="cs-body">
-            <TermRef name="casual emergence" />: any of the 46 thinkers can
+            <TermRef name="casual emergence" />: any of the 43 thinkers can
             notice something in an ordinary moment and name it briefly — without
             turning the conversation philosophical. Kafka on the bureaucracy
             inside a routine. Feynman on the physics of a habit. One sentence,
@@ -1575,7 +1250,7 @@ function FeaturesTab() {
         <div className="cs-number">01</div>
         <div className="cs-content">
           <div className="cs-title">
-            46 Archetypes as Cognitive Operations —{" "}
+            43 Archetypes as Cognitive Operations —{" "}
             <FileRef name="archetypeSelector.js" />
           </div>
           <div className="cs-body">
@@ -1583,7 +1258,11 @@ function FeaturesTab() {
             Leonardo gives you <code>sfumato</code> (blur the edges, find the
             gradient) as an operation, not a Leonardo quote. Selected per
             message via embedding similarity against archetype essence
-            descriptions. Key function: <code>findBestArchetype(message)</code>.
+            descriptions. Evolution vectors bias the score: if mythicDepth has
+            drifted above baseline, mystic/sufiPoet get a small additive boost
+            on top of cosine similarity — what Pneuma has become shapes who it
+            reaches for. Key function:{" "}
+            <code>findBestArchetype(message, evolutionVectors)</code>.
           </div>
         </div>
       </div>
@@ -1614,9 +1293,14 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             Pre-mapped incompatibility across all archetype combinations. When
-            topic classification doesn't fire, collision detection runs as
-            fallback — incompatibility scored, synthesis forced from friction.
-            Three modes: antithetical, complementary, cross-domain.
+            topic classification doesn&apos;t fire, collision detection runs as
+            fallback — each pair scored against a 1,764-entry tension table.
+            High/medium tension: collision directive (dwell in the friction,
+            generate what neither thinker alone could reach). Low tension:
+            resonance directive (find the view only available from both
+            positions simultaneously). Each path pulls a pre-written exemplar
+            from <FileRef name="synthesisExemplars.js" /> — showing Claude the
+            shape of emergent thinking, not just the instruction.
           </div>
         </div>
       </div>
@@ -1662,7 +1346,7 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             On self-inquiry, Pneuma loads a live architectural snapshot of
-            itself: all 46 archetype essences, conceptual frameworks, and active
+            itself: all 43 archetype essences, conceptual frameworks, and active
             synthesis pairs — built from in-memory data at runtime, not
             hardcoded. Pneuma describes its actual state, not a static
             description.

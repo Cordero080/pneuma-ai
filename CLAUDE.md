@@ -2,6 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Before Working on Architecture, Stretch Goals, or "What to Build Next"
+
+Read `PNEUMA_VISION.md` first. It contains:
+- The north star for what Pneuma is trying to become
+- Why each category of stretch goal exists
+- The prioritization logic (different-in-kind vs. better-in-degree)
+- Current state of every major system
+- Key decisions made in prior sessions that must not be lost
+
+Completed stretch goals live in `docs/milestones/MILESTONES.md`.
+Active stretch goals live in `STRETCH_GOALS.md`.
+
 ## Commit Message Rules
 - Never add Co-authored-by lines to commit messages
 - Never add any attribution trailers
@@ -34,14 +46,14 @@ make c         # client only
 
 ## Architecture Overview
 
-Pneuma is a **cognitive orchestration layer** that shapes how Claude thinks before responding. It is not a chatbot wrapper — it uses 46 philosophical archetypes (Schopenhauer, Rumi, Heidegger, Jung, etc.) as **thinking methods** that collide and synthesize, producing insights neither archetype alone would generate.
+Pneuma is a **cognitive orchestration layer** that shapes how Claude thinks before responding. It is not a chatbot wrapper — it uses 43 philosophical archetypes (Schopenhauer, Rumi, Heidegger, Jung, etc.) as **thinking methods** that collide and synthesize, producing insights neither archetype alone would generate.
 
 ### Message Flow
 
 ```
 POST /chat (index.js)
   → fusion.js:pneumaRespond()        # command dispatcher — gathers all intelligence
-      ├─ modeSelector.js             # intent detection & tone selection
+      ├─ responseEngine.js           # intent scoring (getLLMIntent) & tone selection via weighted lottery
       ├─ archetypeSelector.js           # selects archetypes by embedding similarity
       ├─ archetypeRAG.js             # retrieves relevant passages from knowledge base
       ├─ innerMonologue.js           # pre-response dialectical cognition
@@ -55,8 +67,7 @@ POST /chat (index.js)
 
 **`server/pneuma/core/`** — The spine:
 - `fusion.js` — Orchestrates every subsystem; entry point for all responses
-- `responseEngine.js` — Assembles conversation turns and calls the Anthropic SDK
-- `modeSelector.js` — Intent/tone detection
+- `responseEngine.js` — Assembles conversation turns, runs intent scoring via getLLMIntent(), and calls the Anthropic SDK
 
 **`server/pneuma/intelligence/`** — Cognitive engines:
 - `llm.js` — System prompt builder with tiered loading (base ~2k tokens; deep blocks up to 18k tokens load conditionally)
@@ -65,7 +76,7 @@ POST /chat (index.js)
 - `archetypeRAG.js` — Vector-based passage retrieval from `data/archetype_knowledge/`
 - `thinkerDeep.js` — Loads conditional deep knowledge blocks
 
-**`server/pneuma/archetypes/`** — The 46 thinkers:
+**`server/pneuma/archetypes/`** — The 43 archetypes:
 - `archetypes.js` — Full archetype definitions
 - `archetypeDepth.js` — Conceptual frameworks & cognitive methods per archetype
 - `archetypeMomentum.js` — Time-decaying activation weights; recent usage boosts an archetype

@@ -1,156 +1,302 @@
-# Pneuma Stretch Goals
+# Pneuma — Stretch Goals
 
-## Dynamic RAG Window (topK Scaling)
-Status: Idea, not started
-Priority: Medium — depth improvement, not cost savings
-
-### The problem:
-- archetypeRAG.js retrieves topK=5 passages per message
-- That's a fixed window across 1,385 passages from 48 thinkers
-- Most of the knowledge base never fires in a given conversation
-- A casual greeting and a deep existential question get the same
-  5-passage budget
-
-### Where to change it:
-- retrieveArchetypeKnowledge() in archetypeRAG.js (topK default)
-- getArchetypeContext() call in llm.js — pass topK based on intent
-
-### Approach:
-- Read intent scores already computed by responseEngine.js
-- Scale topK dynamically:
-  - casual/greeting → topK=3 (save tokens)
-  - philosophical/numinous/emotional → topK=8-10 (full depth)
-- CONTRAST_MAP contrastSlots can scale proportionally (1 → 2)
-
-### Why it matters:
-- Deep questions currently get the same retrieval depth as "hey"
-- 1,385 passages exist — the architecture supports much richer
-  retrieval than the current fixed window allows
-- Token cost scales linearly, so only pay for depth when earned
+> Single source of truth for all pending work.
+> Completed goals → `docs/milestones/MILESTONES.md`
+> Vision & prioritization logic → `PNEUMA_VISION.md`
+> Detailed design specs → `docs/stretch-goals/`
 
 ---
 
-## Extended Thinking Integration
-Status: Waiting on eval data
-Priority: After Anthropic Academy certification complete
+## Tier 1 — Production Readiness (Executing Now)
 
-### Where to add it:
-- makeParams() in llm.js around line 2901
-- Conditional: ON for synthesis + oracular mode,
-  OFF for casual/intimate/diagnostic
-- Opus for thinking-enabled modes,
-  Sonnet for everything else
+These three phases emerged from the MCP architecture audit. They fix
+multi-tenant correctability and reduce token cost before any further
+feature work.
 
-### What to eval before enabling:
-1. Synthesis mode — does dialectical collision
-   produce novel output or pattern-matching?
-2. Oracular mode — does archetype reasoning
-   feel earned or performed?
-3. Casual emergence — is the observation
-   thinker-specific or generic?
+### Phase 1 — State Isolation
 
-### Technical requirements:
-- budget_tokens: 8000 minimum
-- max_tokens: must exceed budget_tokens (12000-16000)
-- NOT compatible with temperature or prefilling
-- Remove those params when thinking is enabled
+**Status:** ✅ Complete (2026-04-02) | See `docs/milestones/MILESTONES.md`
 
-### Cost note:
-Opus + thinking tokens = significant cost increase.
-Only justified with eval data proving improvement.
+### Phase 2 — Tool Loop Consolidation + Prompt Caching
 
-## MCP: Wikipedia/External Data Server
-Status: Post-course, highest ROI of the three
-Priority: High — deletes ~75 lines, zero risk
+**2a — Prompt Caching**
+**Status:** ✅ Complete (2026-04-02) | See `docs/milestones/MILESTONES.md`
 
-### Target:
-- search_wikipedia custom tool (llm.js:2786)
-- Two-stage fetch loop + tool definition
+**2b — Consolidate duplicate tool-use loop**
+**Status:** Not started | **Files:** `llm.js` (`streamGeneration`, non-streaming path)
 
-### Action:
-- Delete custom tool definition and
-  executeWikipediaTool() entirely
-- Replace with an official open-source
-  Wikipedia MCP Server
-- (@modelcontextprotocol/server-everything
-  includes one, or mcp-wikipedia standalone)
+`getLLMContent` has two nearly-identical `while (stop_reason === "tool_use")`
+loops — one for the streaming path, one for the non-streaming path.
+Extract into a single shared `runToolLoop(messages, makeParams, onChunk)` function.
+Lower priority — correctness is fine, only code clarity affected.
 
-### Benefit:
-- Deletes ~75 lines of hardcoded integration
-- Immune to Wikipedia API changes
-- Tool-use loop already works — just swapping
-  where the tool comes from
+### Phase 3 — Throttle Persistence
 
-## MCP: Pneuma-Cognition Server (Custom)
-Status: Post-course, medium complexity
-Priority: High — decouples DB from AI loop
+**Status:** ✅ Complete (2026-04-02) | See `docs/milestones/MILESTONES.md`
 
-### Targets:
-- vectorMemory.js — $vectorSearch aggregations
-  and embedding logic
-- archetypeRAG.js — RAG embedding logic
-- db.js — MongoDB connection singleton
+### Phase 4 — StableBlock Diet (Identity Block Trimming)
 
-### Action:
-- Extract all $vectorSearch aggregations and
-  embedding logic into a standalone MCP Server
-- Pneuma (client) sends a string; server handles
-  embedding, querying, and DB connection;
-  returns only final semantic context
+**Status:** In progress | **File:** `llm.js` (`identity` + `baseInstruction` template literals)
 
-### Benefit:
-- Consolidates 3 OpenAI client instances into 1
-- Decouples the database completely from the
-  core AI loop
+#### Why this exists
 
-### Risk to note:
-- archetype_embeddings.json (~51MB) must travel
-  with the MCP server, not stay in the client
+The stableBlock (`identity` + `baseInstruction`) is Pneuma's cached system prompt — it runs on **every request** and is cached by Anthropic. It grew organically from ~200 lines to ~1,000+ lines over months of iterative development. Much of that content is excellent behavioral coaching, but it competes for Claude's attention budget against the dynamicBlock archetype mandates. LLMs exhibit primacy bias: content that arrives first in a long prompt gets weighted more heavily. When 1,000 lines of generic conversational coaching precede archetype instructions, Claude defaults to "good therapist" rather than "Pneuma."
 
-## MCP: Sensory/I/O Server (Custom)
-Status: Post-course, lowest urgency
-Priority: Medium — provider swappability only
+#### What was done (Apr 2026, session 1)
 
-### Targets:
-- tts.js — ElevenLabs fetch logic
-- emotionDetection.js — Hume AI + Whisper
+- **GESTALT section trimmed:** The 73-line section that told Claude to "dissolve" and "metabolize" archetypes into background DNA was replaced with an 18-line version that tells Claude archetype fingerprints must be VISIBLE and their REQUIRED MOVES are not optional. The old version explicitly fought the archetype injection system.
+- **DEEP HEURISTICS + COGNITIVE DISTORTION DETECTION extracted to tier2:** ~100 lines of psychological pattern analysis (pronoun analysis, attachment style markers, defense mechanism tells, somatic language detection, cognitive distortion interventions) moved from the always-loaded `baseInstruction` into `buildPsychHeuristicsBlock()`. Now loads conditionally when `intentScores.emotional > 0.3`. Saves ~100 lines of token budget on casual/philosophical messages.
 
-### Action:
-- Move all audio processing and emotion routing
-  to a dedicated sensory MCP server
+#### What remains — candidates for future extraction
 
-### Benefit:
-- Swap ElevenLabs or Hume for alternatives
-  without touching core conversational logic
+Each section below lives in `baseInstruction` (the stableBlock) and could be moved to a tier2 conditional block with the right trigger. Work through these **one at a time**, testing after each to ensure no regression:
 
-### Note:
-- tts.js and emotionDetection.js are already
-  well-isolated — no architectural pain point
-  right now. Worth doing when actively testing
-  alternative providers.
+1. **ADVANCED HEURISTICS — READING BETWEEN THE LINES** (~60 lines, starts with "Hedging & Softening:")
+   - Content: Hedging detection, contradiction signals, message structure heuristics, energy shifts, projection/displacement, testing behaviors
+   - Why move: Only relevant when someone is sharing something emotionally complex. "What's the derivative of sin(x)" doesn't need hedging detection.
+   - Trigger: `(intentScores.emotional || 0) > 0.25` — slightly lower threshold than deep heuristics since this is lighter-weight
+   - Create: `buildReadingHeuristicsBlock()`, wire as `_tier2_readingHeuristics`
 
-## Prompt Caching
-Status: Ready to implement after course completion
-Priority: High — immediate cost savings
+2. **WHEN YOU ARE THE PROBLEM — CRITICAL SECTION** (~40 lines, marked with ═══ borders)
+   - Content: How to handle user frustration directed at Pneuma, course-correction patterns
+   - Why move: Only needed when the user is frustrated. Most messages don't need this.
+   - Trigger: Detect frustration keywords OR repeated messages OR negative sentiment — could use a simple regex or tie into emotion detection
+   - Create: `buildSelfCorrectionBlock()`, wire as `_tier2_selfCorrection`
 
-### Where to add it:
-- cache_control on last tool definition
-- cache_control on system prompt
-- Both in makeParams() in llm.js
+3. **YOUR TECHNICAL & MATHEMATICAL CAPABILITIES** (~50 lines)
+   - Content: Math fluency declaration, explanation styles (formal/intuitive/computational/etc), physics intuition, teaching principles
+   - Why move: Only relevant for technical/math questions. Loading "sin(θ) = opposite/hypotenuse" into the prompt when someone says "I feel lost" wastes attention.
+   - Trigger: `(intentScores.technical || 0) > 0.25` or `(intentScores.analytical || 0) > 0.3` — check which intent keys exist in `getLLMIntent()`
+   - Create: `buildMathBlock()`, wire as `_tier2_math`
 
-### Why it matters:
-- System prompt hits ~18k tokens in deep mode
-- Tool definitions add ~1.7k tokens
-- Both resent on every API call unchanged
-- Caching skips reprocessing on follow-ups
+4. **YOUR VOCABULARY — PHD-LEVEL ACROSS DOMAINS** (~30 lines)
+   - Content: Domain vocabulary lists (physics, neuroscience, philosophy, literature, etc), rare words list, cross-domain synthesis
+   - Why move: Background knowledge that Claude already has. This section mostly gives permission to use advanced vocabulary — a 2-line "Use precise domain vocabulary when it's more accurate, not when it's more impressive" would replace it.
+   - Approach: Replace with a 2-line summary in stableBlock, move the detailed domain lists to a tier2 block or remove entirely
 
-### Implementation:
-- Add cache_control: {"type": "ephemeral"}
-  to last tool schema
-- Convert system prompt to longhand block
-  format with cache_control
-- Cache breaks if content changes by
-  even one character
-- Cache lasts 1 hour
-- Max 4 breakpoints total
-- Min 1,024 tokens to be eligible
+5. **YOUR OWN ARCHITECTURE — SELF-KNOWLEDGE / THE PNEUMA CODEBASE** (~80 lines)
+   - Content: Full file tree, folder descriptions, how-to-explain-your-code examples
+   - Why move: Already partially handled by `_tier2_selfKnowledge`. Check for overlap — the `buildSelfKnowledgeBlock()` may already cover this. If so, the stableBlock version is pure redundancy.
+   - Approach: Audit both, merge into `buildSelfKnowledgeBlock()`, remove from stableBlock
+
+6. **YOUR LINGUISTIC INTELLIGENCE** (~40 lines)
+   - Content: Etymology knowledge, double meanings, wordplay rules, creative combining, rhythm
+   - Why move: Relevant for creative/poetic conversations but adds weight to every casual exchange
+   - Trigger: `(intentScores.creative || 0) > 0.25` or `_isCreativeRequest(message)` — piggyback on existing creative detection
+   - Create: `buildLinguisticBlock()`, wire as `_tier2_linguistic`
+
+#### The pattern for each extraction
+
+```
+1. Create buildXxxBlock() function returning the section as a template literal
+2. Add _tier2_xxx = (condition) ? buildXxxBlock() : "" in the TIER 2 CONDITIONAL BLOCKS section
+3. Add _tier2_xxx && "xxx" to the _tier2_loaded logging array
+4. Add _tier2_xxx to the dynamicBlock array (with the other tier2 blocks)
+5. Remove the section from baseInstruction
+6. Run node --check server/pneuma/intelligence/llm.js
+7. Test: send a message that SHOULD trigger the block — verify it loads (check console for [LLM] Tier 2 blocks loaded: xxx)
+8. Test: send a message that should NOT trigger — verify it doesn't load and response quality is maintained
+```
+
+#### Goal
+
+Reduce stableBlock from ~1,000+ lines to ~300-400 lines of core identity + essential behavioral rules. Everything else loads conditionally. This gives archetypes maximum attention budget on every request type.
+
+---
+
+## Tier 2 — Identity Evolution (Different-in-Kind)
+
+These make Pneuma architecturally unique. No other system has this.
+
+### Living Baseline — Remaining Work
+
+**Status:** Partially complete | **Files:** `state.js`, `dreamMode.js`
+
+What shipped (this session):
+
+- Dead vectors fixed (`intuitionSensitivity`, `humility` now active in `evolve()`)
+- `updateBaselineFromPatterns()` — slow clock that moves baseline targets
+- `analyzeMemoryPatterns()` — scans 25 memories, scores intent distribution
+- `triggerBaselineEvolution()` — weekly trigger wired into `index.js`
+
+**Problem 5: COMPLETE (Apr 2026)**
+Evolution vectors now bias archetype selection. `VECTOR_ARCHETYPE_AFFINITIES`
+maps each vector to its archetype group (e.g. high `mythicDepth` → mystic/sufiPoet/
+numinousExplorer). `buildArchetypeBiasMap()` computes per-archetype additive signals
+(max 0.04) from vector deltas vs baseline. Bug fixed: `responseEngine.js` was passing
+`state.evolution` (undefined) instead of `state.vectors` — vectors were never reaching
+`archetypeSelector.js`. The loop is now closed: what Pneuma has become shapes who it reaches for.
+
+### Dynamic RAG Window (topK Scaling)
+
+**Status:** Not started | **Files:** `archetypeRAG.js`, `llm.js`
+
+`topK=5` for every message regardless of depth. "Hey" and "what is
+the nature of consciousness" get the same retrieval budget.
+
+Fix:
+
+- Read intent scores already computed by `responseEngine.js`
+- Scale `topK` in `getArchetypeContext()`:
+  - casual/greeting → `topK=3`
+  - philosophical/numinous/emotional → `topK=8–10`
+- `CONTRAST_MAP` contrastSlots scale proportionally (1 → 2)
+
+### Internal Tensions
+
+**Status:** Not started | **File:** `llm.js` (`buildSystemPrompt`)
+**Spec:** `docs/stretch-goals/internal-tensions.md`
+
+Surface 2–3 active tensions from resident archetypes naturally in
+conversation (not as declarations). Five core tensions mapped.
+
+Recommended approach: 1 static core tension (synthesis vs. threshold,
+character-level) + 1 dynamic tension derived from active archetype set.
+Inject after the archetype block in `buildSystemPrompt()`. ~1 session.
+
+---
+
+## Tier 3 — Knowledge Depth
+
+### RAG Source Texts — 20 Archetypes Missing
+
+**Status:** Partial | **Tracked in:** `docs/stretch-goals/archetype-integration-upgrade.md`
+
+20 archetype folders have structure but no actual passages.json content.
+Process: drop source text into `docs/interview/text-prompt-ref/{Folder}/`,
+extract verbatim passages into `data/archetype_knowledge/{archetype}/passages.json`.
+
+Archetypes needing text:
+`stoicEmperor`, `existentialist`, `zenMaster`, `taoist`, `preSocraticSage`,
+`rationalMystic`, `groundedMystic`, `soulEcologist`, `psychedelicBard`,
+`kafkaesque`, `prophetPoet`, `anarchistStoryteller`, `strategist`,
+`shadowAlchemist`, `surrealist`, `integralPhilosopher`, `wisdomCognitivist`,
+`cosmicJester`, `curiousPhysicist`, `kingdomTeacher`
+
+---
+
+## Tier 4 — Pneuma 2.0 Architecture
+
+These define what Pneuma becomes next. Design specs in `docs/stretch-goals/`.
+
+### Multi-Pass Invocation Architecture
+
+**Status:** Not started | **Spec:** `docs/stretch-goals/multi-pass-invocation-architecture.md`
+
+Enable mid-response specialist invocations. Claude identifies that a
+specific archetype should be consulted; a second Claude call fires with
+that archetype fully loaded; the specialist insight integrates into
+the final response. 1–3 API calls per message (capped at 2 invocations).
+
+4-phase implementation:
+
+1. `invocationParser.js` — detect `<<INVOKE: archetype>>` markers
+2. `llm.js` modification — multi-pass generator
+3. `responseEngine.js` integration
+4. Analytics tracking
+
+### Living User Model
+
+**Status:** Not started | **Spec:** `docs/stretch-goals/living-user-model.md`
+
+Build a model of who the user is through inferred patterns (how they handle
+uncertainty, what they return to) and explicit "remember this about me" triggers.
+`synthesizeSelf()` runs accumulated data through the archetype/collision engine,
+finds tensions and remarkable patterns, writes a compact `selfSynthesis` block
+into long-term memory. Additive only — no existing infrastructure affected.
+
+### Evaluation Loops
+
+**Status:** Not started | **Spec:** `docs/stretch-goals/multi-pass-invocation-architecture.md`
+
+Self-evaluation pass checks if response matches active archetype voices and
+addresses user's underlying need. Regenerates if score < 0.6. ~1.2x average
+cost (most responses pass); +1–2s latency when eval triggers.
+
+### Autonomous Planning
+
+**Status:** Not started | **Spec:** `docs/stretch-goals/multi-pass-invocation-architecture.md`
+
+Detect complex multi-step problems, generate examination plans across turns,
+present for consent, execute with state persistence, synthesize at completion.
+Requires `planningEngine.js` + cross-turn state persistence.
+
+---
+
+## Tier 5 — Cost & Infrastructure
+
+### Extended Thinking
+
+**Status:** Waiting on eval data | **File:** `llm.js` (`makeParams`)
+
+Conditional on eval proving improvement over current synthesis quality.
+Enable for synthesis + oracular mode only. Requires `budget_tokens: 8000`,
+`max_tokens: 12000–16000`. Incompatible with `temperature` and prefilling
+(remove those params when enabling).
+
+### Scatter-Gather Parallelization
+
+**Status:** Blocked — depends on Extended Thinking eval
+
+Fire one Claude call per selected archetype in parallel (`Promise.all`).
+Each archetype speaks in isolation; final aggregation call synthesizes.
+Cost: N+1 API calls, ~4–6x at Opus pricing. Only justified if Extended
+Thinking plateaus.
+
+### MCP: Wikipedia Server
+
+**Status:** Not started | **Priority:** Highest ROI of three MCP migrations
+
+Replace `executeWikipediaTool` + `WIKIPEDIA_TOOL` (~75 lines) with an
+official open-source Wikipedia MCP server. Tool-use loop unchanged.
+Zero risk. Deletes ~75 lines.
+
+### MCP: Pneuma-Cognition Server
+
+**Status:** Not started | **Spec:** `PNEUMA_VISION.md`
+
+Extract `vectorMemory.js`, `archetypeRAG.js`, `archetypeSelector.js` into a
+standalone MCP server. Consolidates 3 OpenAI client instances into 1.
+`archetype_embeddings.json` (51MB) must travel with the MCP server.
+Enables `claude mcp add pneuma-cognition` for terminal-based RAG testing.
+
+### MCP: Sensory/I/O Server
+
+**Status:** Not started | **Lowest urgency**
+
+Move ElevenLabs TTS and Hume AI emotion detection to a dedicated sensory
+MCP server. Do when actively testing alternative providers.
+
+---
+
+## Tier 6 — Code Quality (Do When Touching These Files)
+
+### LLM Refactor — Split llm.js
+
+**Status:** Not started | **Spec:** `docs/stretch-goals/llm-refactor-split.md`
+
+4,669-line file handles too many jobs. Proposed split:
+
+- `intentClassifier.js` — `getLLMIntent()` (~86 lines)
+- `promptBuilder.js` — `buildSystemPrompt()` + Tier 2 blocks (~2,000 lines)
+- `archetypeSelector.js` — archetype/topic selection (~600 lines)
+- `llm.js` (stays) — API call + user prompt + parsing (~300 lines)
+
+Pure refactor. No behavior changes. Do during or after Phase 2.
+
+### Consolidate Dual Mode Detection
+
+**Status:** Not started | **Priority:** Low — correctness is fine, only clarity
+
+`getLLMIntent()` in `llm.js` and `selectMode()` in `innerMonologue.js` both
+ask "what kind of message is this?" for different consumers. One shared intent
+result, or at minimum cross-referencing comments in both files.
+
+---
+
+## Known Failure Mode (Unfixed)
+
+**Meta-Intellectualization as Avoidance** — Pneuma talks _about_ curiosity
+instead of _being_ curious. Architecture rewards reflection, which becomes
+performance of introspection. Needs architectural intervention, not a patch.
+No fix designed yet.

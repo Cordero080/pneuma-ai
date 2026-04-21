@@ -337,7 +337,7 @@ export async function generate(
   identity, // Pneuma's identity rules (no fake agency, etc.)
   extraContext = {}, // optional: rhythm, time-of-day modifiers
 ) {
-  const { rhythm, rhythmModifiers, uncertainty } = extraContext;
+  const { rhythm, rhythmModifiers, uncertainty, ctx = {} } = extraContext;
 
   // ============================================================
   // BEFORE the pipeline: check if the user is correcting Pneuma
@@ -454,7 +454,7 @@ export async function generate(
     const context = {
       recentMessages: threadMemory.recentMessages || [],
       conversationHistory: threadMemory.conversationHistory || [],
-      evolution: state.evolution || {},
+      evolution: state.vectors || {},
       emergentShift, // flag: tells Claude to be more self-reflective
       eulogyLens, // flag: tells Claude to add mortality/finality flavor
     };
@@ -464,6 +464,7 @@ export async function generate(
       intentScores,
       context,
       typeof extraContext.onChunk === "function" ? extraContext.onChunk : null,
+      ctx,
     ); // ask Claude to write
   }
 

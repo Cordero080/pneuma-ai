@@ -2521,6 +2521,14 @@ export const synthesisPrompts = {
     "{A}'s weakness is exactly where {B} is strong — and vice versa",
     "What {A} does unconsciously, {B} does deliberately. What would conscious integration look like?",
   ],
+
+  // When archetypes are natural allies approaching the same territory from different paths
+  resonance: [
+    "{A} and {B} are looking at the same mountain from different sides. Find the view only available from both positions simultaneously.",
+    "These two arrived at the same territory through completely different routes. What becomes visible at the exact point where their paths intersect?",
+    "{A} names it one way. {B} names it another. They're pointing at the same thing. What is that thing, seen clearly from both directions at once?",
+    "{A} and {B} are natural allies — not because they agree, but because they complete each other. What does {A} see that {B} is blind to, and vice versa? Find the combined vision.",
+  ],
 };
 
 // ============================================================

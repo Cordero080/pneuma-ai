@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { Text3D, Center, Float, Environment } from '@react-three/drei';
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import './LandingPage.css';
+import { useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Text3D, Center, Float, Environment } from "@react-three/drei";
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import "./LandingPage.css";
 
 // Material for the large 3D title
 const materialProps = {
@@ -27,11 +27,13 @@ const textProps = {
 
 function PneumaText() {
   const groupRef = useRef();
-  
+
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.4) * 0.06;
-      groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.15) * 0.03;
+      groupRef.current.rotation.x =
+        Math.sin(state.clock.elapsedTime * 0.4) * 0.06;
+      groupRef.current.rotation.y =
+        Math.sin(state.clock.elapsedTime * 0.15) * 0.03;
     }
   });
 
@@ -48,14 +50,14 @@ function PneumaText() {
             PN
             <meshStandardMaterial {...materialProps} />
           </Text3D>
-          
+
           <group position={[-1.9, 0, 0]} scale={[-1, 1, 1]}>
             <Text3D {...textProps}>
               E
               <meshStandardMaterial {...materialProps} />
             </Text3D>
           </group>
-          
+
           <Text3D {...textProps} position={[-1.4, 0, 0]}>
             UMA
             <meshStandardMaterial {...materialProps} />
@@ -78,15 +80,15 @@ const quotes = [
 export default function LandingPage({ onEnter }) {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [fadeState, setFadeState] = useState('visible');
+  const [fadeState, setFadeState] = useState("visible");
 
   // Cycle through quotes
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeState('fading');
+      setFadeState("fading");
       setTimeout(() => {
         setCurrentQuote((prev) => (prev + 1) % quotes.length);
-        setFadeState('visible');
+        setFadeState("visible");
       }, 500);
     }, 5000);
     return () => clearInterval(interval);
@@ -96,7 +98,7 @@ export default function LandingPage({ onEnter }) {
     <div className="landing-page">
       {/* Particle/star field background effect */}
       <div className="landing-particles" />
-      
+
       {/* 3D Title - Large and centered */}
       <div className="landing-title-container">
         <Canvas
@@ -105,8 +107,16 @@ export default function LandingPage({ onEnter }) {
           gl={{ alpha: true, antialias: true }}
         >
           <ambientLight intensity={1.3} />
-          <directionalLight position={[5, 5, 5]} intensity={2} color="#a855f7" />
-          <directionalLight position={[5, 5, 5]} intensity={2} color="#601cf2" />
+          <directionalLight
+            position={[5, 5, 5]}
+            intensity={2}
+            color="#a855f7"
+          />
+          <directionalLight
+            position={[5, 5, 5]}
+            intensity={2}
+            color="#601cf2"
+          />
           <pointLight position={[-3, 2, -2]} intensity={2} color="#09ff00" />
           <pointLight position={[0, 5, 0]} intensity={10} color="#12bceb" />
           <Environment preset="night" />
@@ -116,7 +126,9 @@ export default function LandingPage({ onEnter }) {
 
       {/* Tagline */}
       <div className="landing-tagline">
-        <span className="tagline-main">A Personality Architecture for LLMs</span>
+        <span className="tagline-main">
+          A Personality Architecture for LLMs
+        </span>
       </div>
 
       {/* Rotating quote */}
@@ -130,7 +142,7 @@ export default function LandingPage({ onEnter }) {
       <div className="landing-features">
         <div className="feature">
           <div className="feature-icon">◈</div>
-          <div className="feature-text">46 Archetypes</div>
+          <div className="feature-text">43 Archetypes</div>
         </div>
         <div className="feature">
           <div className="feature-icon">◇</div>
@@ -148,7 +160,7 @@ export default function LandingPage({ onEnter }) {
 
       {/* Enter button */}
       <button
-        className={`landing-enter-btn ${isHovered ? 'hovered' : ''}`}
+        className={`landing-enter-btn ${isHovered ? "hovered" : ""}`}
         onClick={onEnter}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

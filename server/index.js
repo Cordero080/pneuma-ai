@@ -7,6 +7,7 @@
 import "dotenv/config"; // Loads .env before any other imports
 
 // ------------------------- IMPORTS ---------------------------------
+import { randomUUID } from "crypto";
 import express from "express";
 import cors from "cors";
 import fs from "fs/promises";
@@ -35,6 +36,7 @@ import {
   formatDreamForDelivery,
   triggerDreaming,
   triggerDialecticDream,
+  triggerBaselineEvolution,
 } from "./pneuma/behavior/dreamMode.js";
 // ^ Your Pneuma fusion engine + TTS + Voice + Emotion + Dreams
 
@@ -183,7 +185,23 @@ app.delete("/conversations/:id", async (req, res) => {
 // INPUT FROM: POST /chat request from frontend with { message } body
 // OUTPUT TO: SSE stream with { type: "chunk"|"done"|"reset"|"error", ... } events
 app.post("/chat", async (req, res) => {
-  const { message } = req.body;
+  const { message, sessionId: clientSessionId } = req.body;
+  // Client owns the sessionId — fall back to a server-generated UUID if missing.
+  // The sessionId is what lets us scope per-session state (language, mode flags,
+  // conversation) without module-level singletons bleeding across users.
+  const sessionId = clientSessionId ?? randomUUID();
+  // requestContext = the "backpack" — created fresh each request, carries all
+  // per-request state so nothing has to live in module-level variables.
+  const requestContext = {
+    sessionId,
+    currentLanguage: "en", // default; processLanguage() updates this per message
+    currentUser: null, // set by detectKnownUser() when a known user is identified
+    diagnosticMode: false, // toggled by "enter diagnostics" / "exit diagnostics" commands
+    directMode: false, // toggled by "drop the quotes" / "be yourself" commands
+    lastUsedArchetypes: [], // prevents archetype repetition within one response
+    // currentLLMContent intentionally omitted — personality.js uses a synchronous
+    // module-level bridge that is safe in Node.js (no concurrent hazard). See personality.js.
+  };
 
   // Set SSE headers
   res.set({
@@ -219,18 +237,24 @@ app.post("/chat", async (req, res) => {
       }
     };
 
-    const { reply, mode } = await pneumaRespond(message, onChunk);
+    const { reply, mode } = await pneumaRespond(
+      message,
+      onChunk,
+      requestContext,
+    );
 
     // If nothing was streamed (LLM down, guard response, fallback), send the reply as a single chunk
     if (!chunked && reply) {
       sendEvent({ type: "chunk", text: reply });
     }
 
-    // Send final metadata so frontend knows streaming is complete
+    // Send final metadata so frontend knows streaming is complete.
+    // sessionId is included so the frontend can store it and send it back next request.
     sendEvent({
       type: "done",
       engine: modeToEngine[mode] || null,
       mode,
+      sessionId,
     });
 
     res.end();
@@ -238,6 +262,11 @@ app.post("/chat", async (req, res) => {
     // Fire-and-forget: run dialectic dream in background (throttled to 30min)
     triggerDialecticDream().catch((err) =>
       console.error("[Dream] Background dialectic failed:", err.message),
+    );
+
+    // Fire-and-forget: weekly baseline evolution from vector memory patterns
+    triggerBaselineEvolution().catch((err) =>
+      console.error("[Dream] Baseline evolution failed:", err.message),
     );
   } catch (error) {
     console.error("[Pneuma] Error processing message:", error.message);
@@ -288,6 +317,16 @@ app.post("/tts", async (req, res) => {
 // INPUT FROM: POST /voice request from frontend with raw audio buffer
 // OUTPUT TO: transcribeAudio(), analyzeVoiceEmotion(), pneumaRespond() in fusion.js; returns { reply, transcription, emotions, engine, mode, language } to frontend
 app.post("/voice", async (req, res) => {
+  // Voice body is a raw audio buffer — sessionId comes from a header instead.
+  const sessionId = req.headers["x-session-id"] ?? randomUUID();
+  const requestContext = {
+    sessionId,
+    currentLanguage: "en",
+    currentUser: null,
+    diagnosticMode: false,
+    directMode: false,
+    lastUsedArchetypes: [],
+  };
   try {
     const audioBuffer = req.body;
 
@@ -325,12 +364,16 @@ app.post("/voice", async (req, res) => {
     );
 
     // 4. Send to Pneuma with emotion context
-    const { reply, monologue, mode } = await pneumaRespond(transcription.text, {
-      emotions: combinedEmotions,
-      archetypeBoosts,
-      inputType: "voice",
-      language: transcription.language,
-    });
+    const { reply, monologue, mode } = await pneumaRespond(
+      transcription.text,
+      {
+        emotions: combinedEmotions,
+        archetypeBoosts,
+        inputType: "voice",
+        language: transcription.language,
+      },
+      requestContext,
+    );
 
     // Map mode to engine for frontend visualization
     const modeToEngine = {
@@ -350,6 +393,7 @@ app.post("/voice", async (req, res) => {
       engine: modeToEngine[mode] || null,
       mode,
       language: transcription.language,
+      sessionId,
     });
   } catch (error) {
     console.error("[Voice] Error:", error.message);

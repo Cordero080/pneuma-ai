@@ -307,6 +307,7 @@ function ChatBox({
   const isLoadingConversation = useRef(false);
   // Prevent loadConversation from wiping messages while a stream is active
   const isStreaming = useRef(false);
+  const sessionIdRef = useRef(null);
   // Whether the user has scrolled up away from the bottom
   const userScrolledUp = useRef(false);
   const messagesContainerRef = useRef(null);
@@ -422,7 +423,10 @@ function ChatBox({
       const response = await fetch(API_ENDPOINTS.chat, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: messageText }),
+        body: JSON.stringify({
+          message: messageText,
+          sessionId: sessionIdRef.current,
+        }),
       });
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -471,6 +475,7 @@ function ChatBox({
             isStreaming.current = false;
             clearInterval(engineCycle);
             onEngineChange?.(event.engine || null);
+            if (event.sessionId) sessionIdRef.current = event.sessionId;
             // Mark streaming complete
             setMessages((prev) => {
               const next = [...prev];

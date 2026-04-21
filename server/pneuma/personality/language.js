@@ -8,6 +8,9 @@
 // ============================================================
 // SESSION LANGUAGE STATE
 // ============================================================
+// Fallback for callers that don't yet carry ctx (personality.js, userContext.js).
+// Once every caller threads ctx through, this variable and the fallback branches
+// below can be deleted. New callers must use ctx.currentLanguage instead.
 let currentLanguage = "en"; // 'en' or 'es'
 
 // ============================================================
@@ -99,14 +102,15 @@ function detectLanguageSwitch(message) {
  * @param {string} message - User input
  * @returns {{ language: 'en' | 'es', isSwitch: boolean, switchResponse: string | null }}
  */
-export function processLanguage(message) {
+export function processLanguage(message, ctx = null) {
   // Check for explicit switch first
   const explicitSwitch = detectLanguageSwitch(message);
 
   if (explicitSwitch) {
-    currentLanguage = explicitSwitch;
+    if (ctx) ctx.currentLanguage = explicitSwitch;
+    else currentLanguage = explicitSwitch;
     return {
-      language: currentLanguage,
+      language: ctx ? ctx.currentLanguage : currentLanguage,
       isSwitch: true,
       switchResponse:
         explicitSwitch === "es"
@@ -117,14 +121,15 @@ export function processLanguage(message) {
 
   // Auto-detect based on input
   if (isSpanishInput(message)) {
-    currentLanguage = "es";
+    if (ctx) ctx.currentLanguage = "es";
+    else currentLanguage = "es";
   }
   // Note: We don't auto-switch back to English easily
   // Once in Spanish mode, stay there unless user writes mostly English
   // or explicitly switches
 
   return {
-    language: currentLanguage,
+    language: ctx ? ctx.currentLanguage : currentLanguage,
     isSwitch: false,
     switchResponse: null,
   };
@@ -134,17 +139,18 @@ export function processLanguage(message) {
  * Get current language setting
  * @returns {'en' | 'es'}
  */
-export function getCurrentLanguage() {
-  return currentLanguage;
+export function getCurrentLanguage(ctx = null) {
+  return ctx ? ctx.currentLanguage : currentLanguage;
 }
 
 /**
  * Set language explicitly (for testing or API use)
  * @param {'en' | 'es'} lang
  */
-export function setLanguage(lang) {
+export function setLanguage(lang, ctx = null) {
   if (lang === "en" || lang === "es") {
-    currentLanguage = lang;
+    if (ctx) ctx.currentLanguage = lang;
+    else currentLanguage = lang;
   }
 }
 
@@ -152,8 +158,9 @@ export function setLanguage(lang) {
  * Get language context for system prompt injection
  * @returns {string}
  */
-export function getLanguageContext() {
-  if (currentLanguage === "es") {
+export function getLanguageContext(ctx = null) {
+  const lang = ctx ? ctx.currentLanguage : currentLanguage;
+  if (lang === "es") {
     return `
 LANGUAGE MODE: SPANISH (Español)
 Respond in Spanish. Your personality, archetypes, and depth remain identical — only the language changes.
@@ -202,7 +209,7 @@ export function isLanguageSwitchRequest(message) {
  * @param {string} message
  * @returns {string | null}
  */
-export function getLanguageSwitchResponse(message) {
-  const result = processLanguage(message);
+export function getLanguageSwitchResponse(message, ctx = null) {
+  const result = processLanguage(message, ctx);
   return result.switchResponse;
 }

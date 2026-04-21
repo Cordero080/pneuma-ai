@@ -83,6 +83,7 @@ const DEFAULT_MOMENTUM = {
 
 let momentumState = null;
 
+// loadMomentum — reads momentum state from disk or initializes defaults. No deps.
 function loadMomentum() {
   if (momentumState) return momentumState;
 
@@ -103,6 +104,7 @@ function loadMomentum() {
   return momentumState;
 }
 
+// saveMomentum — writes current momentum state to disk. No deps.
 function saveMomentum() {
   try {
     momentumState.lastUpdated = Date.now();
@@ -116,12 +118,25 @@ function saveMomentum() {
 // MOMENTUM UPDATES
 // ============================================================
 
+// [1] startSession — decays all inactive archetypes and increments session counter at session start. Waits for: loadMomentum.
+export function startSession() {
+  decayInactiveArchetypes();
+
+  const state = loadMomentum();
+  state.sessionCount += 1;
+  saveMomentum();
+
+  console.log(`[Momentum] Session ${state.sessionCount} started`);
+  return state.sessionCount;
+}
+
 /**
  * Boost archetypes that were active in a response
  * Called after each Pneuma response
  * @param {string[]} activeArchetypes - Archetypes used in this response
- * @param {number} userEngagement - How much user engaged (0-1) 
+ * @param {number} userEngagement - How much user engaged (0-1)
  */
+// [2] boostActiveArchetypes — boosts momentum for selected archetypes after each response. Waits for: loadMomentum.
 export function boostActiveArchetypes(activeArchetypes, userEngagement = 0.5) {
   const state = loadMomentum();
   const boostAmount = 0.02 * (1 + userEngagement); // 0.02 to 0.04 per activation means strong engagement can double the boost
@@ -154,6 +169,7 @@ export function boostActiveArchetypes(activeArchetypes, userEngagement = 0.5) {
  * Decay archetypes that haven't been used recently
  * Called periodically (e.g., start of session)
  */
+// [3] decayInactiveArchetypes — decays non-selected archetypes toward neutral (0.5) based on a 24h inactivity window. Waits for: loadMomentum.
 export function decayInactiveArchetypes() {
   const state = loadMomentum();
   const now = Date.now();
@@ -189,6 +205,7 @@ export function decayInactiveArchetypes() {
  * @param {string} archetype
  * @param {number} affinity - -1 to 1 (negative = dislike)
  */
+// [4] recordUserAffinity — records a user preference signal for an archetype as a running average. Waits for: loadMomentum.
 export function recordUserAffinity(archetype, affinity) {
   const state = loadMomentum();
 
@@ -209,6 +226,7 @@ export function recordUserAffinity(archetype, affinity) {
  * Get momentum-adjusted archetype weights
  * @returns {Object} - Archetype weights adjusted by momentum
  */
+// [5] getMomentumWeights — returns a copy of the current archetype weight map. Waits for: loadMomentum.
 export function getMomentumWeights() {
   const state = loadMomentum();
   return { ...state.archetypes };
@@ -219,6 +237,7 @@ export function getMomentumWeights() {
  * @param {number} n - Number of top archetypes to return
  * @returns {string[]}
  */
+// [6] getTopArchetypes — returns the top N archetype names sorted by current weight. Waits for: [5].
 export function getTopArchetypes(n = 5) {
   const state = loadMomentum();
 
@@ -232,6 +251,7 @@ export function getTopArchetypes(n = 5) {
  * Get user's preferred archetypes based on affinity history
  * @returns {string[]}
  */
+// [7] getUserPreferredArchetypes — returns archetypes the user has positively engaged with above the affinity threshold. Waits for: loadMomentum.
 export function getUserPreferredArchetypes() {
   const state = loadMomentum();
 
@@ -242,22 +262,30 @@ export function getUserPreferredArchetypes() {
 }
 
 /**
- * Start new session — apply decay and increment counter
+ * Apply momentum to archetype selection
+ * Modifies selection probabilities based on accumulated momentum
+ * @param {Object} baseWeights - Original archetype weights
+ * @returns {Object} - Momentum-adjusted weights
  */
-export function startSession() {
-  decayInactiveArchetypes();
+// [8] applyMomentumToSelection — multiplies base selection scores by a momentum factor to bias toward high-momentum archetypes. Waits for: [5].
+export function applyMomentumToSelection(baseWeights) {
+  const momentum = getMomentumWeights();
+  const adjusted = {};
 
-  const state = loadMomentum();
-  state.sessionCount += 1;
-  saveMomentum();
+  for (const [archetype, baseWeight] of Object.entries(baseWeights)) {
+    const momentumWeight = momentum[archetype] || 0.5;
+    // Momentum acts as a multiplier: 0.5 = neutral, 1.0 = double, 0.0 = suppress
+    const multiplier = 0.5 + momentumWeight; // Range: 0.5 to 1.5
+    adjusted[archetype] = baseWeight * multiplier;
+  }
 
-  console.log(`[Momentum] Session ${state.sessionCount} started`);
-  return state.sessionCount;
+  return adjusted;
 }
 
 /**
  * Get momentum statistics for debugging/display
  */
+// [9] getMomentumStats — returns a diagnostic snapshot of session count, top/dormant archetypes, recent activations, and user affinities. Waits for: loadMomentum.
 export function getMomentumStats() {
   const state = loadMomentum();
 
@@ -274,26 +302,6 @@ export function getMomentumStats() {
     recentActivations: state.recentActivations.slice(-10),
     userAffinities: state.userAffinities,
   };
-}
-
-/**
- * Apply momentum to archetype selection
- * Modifies selection probabilities based on accumulated momentum
- * @param {Object} baseWeights - Original archetype weights
- * @returns {Object} - Momentum-adjusted weights
- */
-export function applyMomentumToSelection(baseWeights) {
-  const momentum = getMomentumWeights();
-  const adjusted = {};
-
-  for (const [archetype, baseWeight] of Object.entries(baseWeights)) {
-    const momentumWeight = momentum[archetype] || 0.5;
-    // Momentum acts as a multiplier: 0.5 = neutral, 1.0 = double, 0.0 = suppress
-    const multiplier = 0.5 + momentumWeight; // Range: 0.5 to 1.5
-    adjusted[archetype] = baseWeight * multiplier;
-  }
-
-  return adjusted;
 }
 
 // ============================================================

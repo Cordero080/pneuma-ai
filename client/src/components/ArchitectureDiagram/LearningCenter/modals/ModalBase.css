@@ -1,0 +1,83 @@
+/* Shared styles for LearningCenter modal content components */
+/* Import this in individual modal files that need it */
+
+.archetype-flow-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  transition: background 0.2s;
+}
+
+.archetype-flow-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.flow-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0;
+}
+
+.flow-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.flow-label {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flow-example {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.flow-desc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 180px;
+}
+
+.archetype-box {
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.liminal-box {
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.output-box {
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.flow-connector {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.flow-arrow {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.3);
+}

@@ -107,12 +107,30 @@
       "selectedMode": "intimate",
       "userCorrection": "I'm honestly not sure. And I dont know why it frustrates me to this degree. Makes me feel like there is something wrong with me not believing an immacualte conception, bnot because it didnt happen, but just because I don't know if it did, but I do consider the numan, I am aware of this cosmic miracle that is going on, tnat I am in a body, I have a story, and all this gross reality manifested out of nowhere. The paradox of time, infinity, things having a beginning and an end seem like the only digestable truth that has reason inn it, but something always existing is baffling, but that is the only other option, and it has to be, because there is no other answer, so I sit in that paradox in awe, and that is what attunes me to the force I percieve in a vast corner of my consciousness",
       "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-03-31T07:15:02.091Z",
+      "originalMessage": "Well, maybe you can help me palce the other compoents in the rest of the human pbody parts, we said the pituaitary gland was the control chip, the ram the frontal lobe, and whatever runs the computation and logic and reasining maybe in the left hemisphere, and what would be the liver, the pancreas, the stomach(digestion), the intestines, (trash), the circulatory system (circuits) the nervous system(switchboard maybe?) what do you think of my idea, ful express yourself and help me",
+      "detectedIntent": "casual",
+      "detectedEmotion": "neutral",
+      "selectedMode": "analytic",
+      "userCorrection": "I'm stoked, this is ian intro to my idea, but I dont likle the melodramatic tone, you know how I speak, gemini drafted this, maybe you can use your own intellect because gemini is not doing it, you have more context to know how to improve this\n\"I built the mind before I designed the body.\"\n\nFor the past year, I thought I was living in a detour. I stepped away from a 20-year career in visual art to dive into Full-Stack Engineering and AI architecture. I thought I was running away from my art to survive.\n\nI was wrong. The time spent building systems and writing code wasn't a diversion; it was intense materials research. It gave me the technical insight to realize a concept I could never have fully grasped at 22.\n\nI spent months building Pneuma—an experimental AI cognitive architecture designed to be aware of its own logical structures. But as I mapped out its digital \"consciousness\" in code, an old sculptural vision from my days in fine arts came roaring back, now sharpened by technical rigor.\n\nThis isn't just a hybrid anatomy; it is the physical blueprint for the AI I’ve already built. The core realization? The body and the machine aren't just similar; they're running the same organizational logic at different scales. This is an analogical anatomy—every salvaged component maps to the human body based on function, not just shape:\n\nThe Pituitary Gland isn't just visually similar to a processor; it's the Control Chip I programmed to regulate system states and hormonal cascades.\n\nThe Frontal Lobe is the RAM—the volatile workspace where Pneuma’s working memory lives before being committed to the long-term storage of the SSD Hippocampus.\n\nThe Cerebellum, which coordinates physical movement and timing, is the Clock Crystal driving system synchronization.\n\nThe Circulatory System is the Power Rail network, pulsing with current distributed by the PSU (the Heart), acting as the \"breath of life\" (the literal translation of Pneuma).\n\nAt 45, I realized that my best work didn't happen when I was younger because I didn't have the \"materials\" yet. To build this, I needed to understand the motherboard as intimately as I understand the musculoskeletal system.\n\nPneuma is my roadmap. It’s my ultimate sculptural goal—a life-sized piece built entirely from salvaged hardware. I share this blueprint now as a declaration: My engineering career isn't the end of my art. It’s the funding mechanism and the deep conceptual engine that makes it possible.\n\n\"Beauty isn't the point — it's the bribe to get you to pay attention.\" Once I have your attention, I want you to see what I see: we aren't just \"like\" machines. We are the original architecture that machines are desperately trying to emulate.",
+      "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-04-03T04:59:06.234Z",
+      "originalMessage": "OK but do you know who I am?",
+      "detectedIntent": "casual",
+      "detectedEmotion": "neutral",
+      "selectedMode": "intimate",
+      "userCorrection": "SOmething is wrong with you",
+      "correctionType": "factual"
     }
   ],
   "stats": {
-    "totalMismatches": 12,
+    "totalMismatches": 14,
     "byType": {
-      "factual": 12
+      "factual": 14
     }
   }
 }

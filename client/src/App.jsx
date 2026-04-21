@@ -20,6 +20,7 @@ import CreativeBreakthrough from "./components/ArchitectureDiagram/CaseStudy/Cre
 import LandingPage from "./components/LandingPage/LandingPage";
 import RagLlmExplanation from "./components/RagLlmExplanation/RagLlmExplanation";
 import HowPneumaWorks from "./components/HowPneumaWorks/HowPneumaWorks";
+import InterviewPrep from "./components/InterviewPrep/InterviewPrep";
 
 function App() {
   const navigate = useNavigate();
@@ -136,6 +137,10 @@ function App() {
       <Route
         path="/docs/how-pneuma-works"
         element={<HowPneumaWorks onBack={() => navigate("/")} />}
+      />
+      <Route
+        path="/docs/interview-prep"
+        element={<InterviewPrep onBack={() => navigate("/")} />}
       />
       <Route
         path="*"

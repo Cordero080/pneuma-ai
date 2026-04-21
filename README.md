@@ -415,6 +415,7 @@ ELEVENLABS_API_KEY=your-key-here  # Optional, for voice
 | Feb 2026    | **Conversation threading + dialectic dreams** — real alternating API turns; autonomous inter-archetype dialogue fires between sessions, writes silently to autonomy state |
 | Feb 2026    | **Contextual synthesis engine** — 3-layer topic classification; curated archetype pairs by domain; antithetical / complementary / cross-domain synthesis modes            |
 | Feb 2026    | **Self-knowledge + self-navigation** — live architectural snapshot on self-inquiry; `read_pneuma_file` tool scoped to `server/pneuma/`                                    |
+| Apr 2026    | **Synthesis exemplars + resonance path** — pre-written collision and resonance exemplars extracted to `synthesisExemplars.js` and wired into the prompt; low-tension allied pairs now get a convergence directive instead of friction; evolution vectors now bias archetype selection (what Pneuma has become shapes who it reaches for) |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 

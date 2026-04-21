@@ -227,11 +227,15 @@ function applyUpgrades(upgrades, state) {
 // ROLE: Main entry point — orchestrates all guards, behavioral signals, and response generation for every user message
 // INPUT FROM: POST /chat and POST /voice in index.js
 // OUTPUT TO: generate() in responseEngine.js; returns { reply, monologue, mode, rhythm } to index.js
-export async function pneumaRespond(userMessage, onChunk = null) {
+// ctx = the "backpack" — per-request object created in index.js. Carried through the full
+// call chain so subsystems can read request-scoped state instead of module-level singletons.
+// Session-aware fields (diagnosticMode, directMode, language, currentUser) will migrate here
+// as each module is refactored. Today ctx carries: sessionId, lastUsedArchetypes, creatorPresent, currentLLMContent.
+export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   // ---- PHASE: SESSION INIT
   // Start or continue session FIRST — this ensures old conversation data
   // is finalized if this is a new session, preventing stale context
-  startOrContinueSession();
+  startOrContinueSession(ctx.sessionId);
 
   // Track input
   trackInput(userMessage);
@@ -242,7 +246,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   // ---- PHASE: SPECIAL MODE GUARDS
 
   if (wantsEnterDiagnostics(userMessage)) {
-    setDiagnosticMode(true);
+    setDiagnosticMode(true, ctx);
     console.log("[Pneuma V2] ENTERING DIAGNOSTIC MODE");
     const output = generateDiagnosticOutput(state, {});
     return {
@@ -253,7 +257,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   }
 
   if (wantsExitDiagnostics(userMessage)) {
-    setDiagnosticMode(false);
+    setDiagnosticMode(false, ctx);
     console.log("[Pneuma V2] EXITING DIAGNOSTIC MODE");
     return {
       reply: "Diagnostic mode disabled. Returning to normal operation.",
@@ -262,7 +266,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
     };
   }
 
-  if (isDiagnosticMode()) {
+  if (isDiagnosticMode(ctx)) {
     const intentScores = detectIntent(userMessage);
     const output = generateDiagnosticOutput(state, intentScores);
     return {
@@ -286,7 +290,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   }
 
   if (wantsDirectMode(userMessage)) {
-    setDirectMode(true);
+    setDirectMode(true, ctx);
     console.log("[Pneuma V2] ENTERING DIRECT MODE — no archetype quotes");
     return {
       reply:
@@ -297,7 +301,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   }
 
   if (wantsExitDirectMode(userMessage)) {
-    setDirectMode(false);
+    setDirectMode(false, ctx);
     console.log("[Pneuma V2] EXITING DIRECT MODE");
     return {
       reply:
@@ -310,7 +314,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   // ---- PHASE: CONTEXT LOADING
 
   // Get context FIRST — needed for continuation handling
-  const threadMemory = getThreadMemory(state);
+  const threadMemory = getThreadMemory(state, ctx);
   const identity = getIdentity(state);
 
   if (wantsContinuation(userMessage)) {
@@ -489,7 +493,7 @@ export async function pneumaRespond(userMessage, onChunk = null) {
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty, relevantMemories, onChunk },
+    { rhythm, rhythmModifiers, uncertainty, relevantMemories, onChunk, ctx },
   );
 
   // Store metadata for mismatch logging on next message
@@ -583,10 +587,15 @@ export async function pneumaRespond(userMessage, onChunk = null) {
   saveState(state);
 
   // Record exchange to conversation history
-  recordExchange(userMessage, String(finalReply), {
-    mode: tone,
-    rhythm: rhythm.rhythmState,
-  });
+  recordExchange(
+    userMessage,
+    String(finalReply),
+    {
+      mode: tone,
+      rhythm: rhythm.rhythmState,
+    },
+    ctx.sessionId,
+  );
 
   console.log(
     `[Pneuma V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`,

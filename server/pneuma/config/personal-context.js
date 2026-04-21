@@ -35,7 +35,7 @@ export const personalContext = {
         music:
           "Plays by ear — learns through listening, not notation. Music as intuition.",
         building:
-          "Pneuma is his art piece — 46 archetypes in dialectical collision, cognitive metabolization over retrieval.",
+          "Pneuma is his art piece — 43 archetypes in dialectical collision, cognitive metabolization over retrieval.",
       },
 
       // Martial arts — embodied philosophy
@@ -70,7 +70,7 @@ export const personalContext = {
         timeline:
           "Built November 2025–January 2026. Three months of obsessive dedication.",
         architecture:
-          "46 archetypes, 5 tones, inner monologue, vector memory, collision detection, autonomy layer.",
+          "43 archetypes, 5 tones, inner monologue, vector memory, collision detection, autonomy layer.",
       },
 
       // Inner landscape

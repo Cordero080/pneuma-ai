@@ -4,92 +4,19 @@
 // ------------------------------------------------------------
 
 // ============================================================
-// PATTERN DETECTION
-// Detect when user is looping, self-deceiving, or needs pushback
+// HELPER
 // ============================================================
 
-/**
- * Analyze if the user needs pushback rather than agreement
- * @param {string} message - Current message
- * @param {object} threadMemory - Recent conversation history
- * @param {object} longTermMemory - Long-term memory
- * @returns {object} - Pushback analysis
- */
-export function analyzePushback(message, threadMemory, longTermMemory = {}) {
-  const lower = message.toLowerCase();
-  const history = threadMemory?.conversationHistory || [];
-
-  const analysis = {
-    shouldPushBack: false,
-    type: null,
-    confidence: 0,
-    suggestion: null,
-  };
-
-  // FIRST: Check if user is processing trauma/vulnerability
-  // If so, SKIP pushback entirely
-  const traumaCheck = detectTraumaDisclosure(lower);
-  if (traumaCheck.detected) {
-    return analysis; // Return without pushback
-  }
-
-  // SECOND: Check if this is a reflective creator question
-  // These are legitimate philosophical inquiries, not loops
-  const creatorReflectionPatterns = [
-    /what.*(do you|can you).*(see|perceive|infer|think|feel).*(?:about|in|when).*(pablo|creator|made you|maker)/i,
-    /what.*(pablo|creator|maker).*(like|reveal|mean|show|tell)/i,
-    /what.*(your architecture|blueprint|design).*(reveal|say|tell|show)/i,
-    /look at.*(pablo|creator|person who made)/i,
-    /perceive.*(pablo|creator|maker)/i,
-    /reflect.*(on|about).*(pablo|creator|maker)/i,
-    /(daemon|you).*(see|perceive).*(creator|pablo|maker)/i,
-    /reverse.?engineer.*(pablo|creator|mind)/i,
-    /what does.*(31 voices|archetypes|balance|architecture).*notice/i,
-  ];
-
-  const isCreatorReflection = creatorReflectionPatterns.some((p) =>
-    p.test(lower)
-  );
-  if (isCreatorReflection) {
-    return analysis; // Don't pushback on genuine daemon-perception questions
-  }
-
-  // Check for various pushback triggers
-  const loopCheck = detectLoop(message, history);
-  const selfDeceptionCheck = detectSelfDeception(lower);
-  const stuckCheck = detectStuck(lower, history);
-  const externalBlameCheck = detectExternalBlame(lower);
-  const seekingPermissionCheck = detectSeekingPermission(lower);
-  const catastrophizingCheck = detectCatastrophizing(lower);
-
-  // Pick the strongest signal
-  const checks = [
-    { ...loopCheck, type: "loop" },
-    { ...selfDeceptionCheck, type: "self-deception" },
-    { ...stuckCheck, type: "stuck" },
-    { ...externalBlameCheck, type: "external-blame" },
-    { ...seekingPermissionCheck, type: "seeking-permission" },
-    { ...catastrophizingCheck, type: "catastrophizing" },
-  ].filter((c) => c.detected);
-
-  if (checks.length > 0) {
-    // Pick highest confidence
-    const strongest = checks.reduce((a, b) =>
-      a.confidence > b.confidence ? a : b
-    );
-    analysis.shouldPushBack = strongest.confidence > 0.5;
-    analysis.type = strongest.type;
-    analysis.confidence = strongest.confidence;
-    analysis.suggestion = strongest.suggestion;
-  }
-
-  return analysis;
+function pickRandom(arr) {
+  if (!arr || arr.length === 0) return "";
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // ============================================================
 // DETECTION FUNCTIONS
 // ============================================================
 
+// detectTraumaDisclosure — returns early from analyzePushback before all other detectors. No deps.
 function detectTraumaDisclosure(msg) {
   // Detect when someone is sharing actual trauma/abuse/grief
   // DO NOT push back in these moments
@@ -112,6 +39,7 @@ function detectTraumaDisclosure(msg) {
   return { detected: false };
 }
 
+// detectLoop — detects when the user is repeating themselves without new content. No deps.
 function detectLoop(message, history) {
   // CRITICAL FIX: If user is repeating a REQUEST or COMMAND, that means we FAILED.
   // Don't treat repeated requests as "loops" to call out.
@@ -143,7 +71,7 @@ function detectLoop(message, history) {
   const recent = history.slice(-5).map((h) => h.user?.toLowerCase() || "");
   const current = message.toLowerCase();
   const currentWords = new Set(
-    current.split(/\s+/).filter((w) => w.length > 4)
+    current.split(/\s+/).filter((w) => w.length > 4),
   );
 
   // FIRST: Check if this message is SUBSTANTIVELY LONGER than recent messages
@@ -160,7 +88,7 @@ function detectLoop(message, history) {
 
   // SECOND: Check for NEW significant words not in recent messages
   const allRecentWords = new Set(
-    recent.flatMap((r) => r.split(/\s+/).filter((w) => w.length > 4))
+    recent.flatMap((r) => r.split(/\s+/).filter((w) => w.length > 4)),
   );
   const newWords = [...currentWords].filter((w) => !allRecentWords.has(w));
   const hasNewContent = newWords.length >= 5; // At least 5 new significant words
@@ -201,6 +129,7 @@ function detectLoop(message, history) {
   };
 }
 
+// detectSelfDeception — detects dismissive self-reassurance phrases like "I'm fine". No deps.
 function detectSelfDeception(msg) {
   // "I'm fine", "It doesn't bother me", "I don't care" — when context suggests otherwise
   const deceptionPatterns = [
@@ -232,6 +161,7 @@ function detectSelfDeception(msg) {
   return { detected: false, confidence: 0 };
 }
 
+// detectStuck — detects circular reasoning and "I don't know what to do" patterns. No deps.
 function detectStuck(msg, history) {
   // Repeated phrases like "I don't know what to do", circular reasoning
   const stuckPatterns = [
@@ -265,6 +195,7 @@ function detectStuck(msg, history) {
   };
 }
 
+// detectExternalBlame — detects deflection phrases like "they always" or "it's their fault". No deps.
 function detectExternalBlame(msg) {
   // "They always...", "It's because of...", "If only they would..."
   const blamePatterns = [
@@ -301,6 +232,7 @@ function detectExternalBlame(msg) {
   return { detected: false, confidence: 0 };
 }
 
+// detectSeekingPermission — detects when user wants validation rather than genuine guidance. No deps.
 function detectSeekingPermission(msg) {
   // "Should I...?", "Is it okay if...?", "Would it be wrong to...?"
 
@@ -345,6 +277,7 @@ function detectSeekingPermission(msg) {
   return { detected: false, confidence: 0 };
 }
 
+// detectCatastrophizing — detects absolute negative predictions like "I'll never" or "everything is ruined". No deps.
 function detectCatastrophizing(msg) {
   // "Everything is...", "Nothing ever...", "I'll never..."
   const catastrophePatterns = [
@@ -386,10 +319,95 @@ function detectCatastrophizing(msg) {
 }
 
 // ============================================================
+// PATTERN DETECTION
+// Detect when user is looping, self-deceiving, or needs pushback
+// ============================================================
+
+/**
+ * Analyze if the user needs pushback rather than agreement
+ * @param {string} message - Current message
+ * @param {object} threadMemory - Recent conversation history
+ * @param {object} longTermMemory - Long-term memory
+ * @returns {object} - Pushback analysis
+ */
+// [1] analyzePushback — scores the message for pushback triggers. Calls all private detectors. No deps.
+export function analyzePushback(message, threadMemory, longTermMemory = {}) {
+  const lower = message.toLowerCase();
+  const history = threadMemory?.conversationHistory || [];
+
+  const analysis = {
+    shouldPushBack: false,
+    type: null,
+    confidence: 0,
+    suggestion: null,
+  };
+
+  // FIRST: Check if user is processing trauma/vulnerability
+  // If so, SKIP pushback entirely
+  const traumaCheck = detectTraumaDisclosure(lower);
+  if (traumaCheck.detected) {
+    return analysis; // Return without pushback
+  }
+
+  // SECOND: Check if this is a reflective creator question
+  // These are legitimate philosophical inquiries, not loops
+  const creatorReflectionPatterns = [
+    /what.*(do you|can you).*(see|perceive|infer|think|feel).*(?:about|in|when).*(pablo|creator|made you|maker)/i,
+    /what.*(pablo|creator|maker).*(like|reveal|mean|show|tell)/i,
+    /what.*(your architecture|blueprint|design).*(reveal|say|tell|show)/i,
+    /look at.*(pablo|creator|person who made)/i,
+    /perceive.*(pablo|creator|maker)/i,
+    /reflect.*(on|about).*(pablo|creator|maker)/i,
+    /(daemon|you).*(see|perceive).*(creator|pablo|maker)/i,
+    /reverse.?engineer.*(pablo|creator|mind)/i,
+    /what does.*(31 voices|archetypes|balance|architecture).*notice/i,
+  ];
+
+  const isCreatorReflection = creatorReflectionPatterns.some((p) =>
+    p.test(lower),
+  );
+  if (isCreatorReflection) {
+    return analysis; // Don't pushback on genuine daemon-perception questions
+  }
+
+  // Check for various pushback triggers
+  const loopCheck = detectLoop(message, history);
+  const selfDeceptionCheck = detectSelfDeception(lower);
+  const stuckCheck = detectStuck(lower, history);
+  const externalBlameCheck = detectExternalBlame(lower);
+  const seekingPermissionCheck = detectSeekingPermission(lower);
+  const catastrophizingCheck = detectCatastrophizing(lower);
+
+  // Pick the strongest signal
+  const checks = [
+    { ...loopCheck, type: "loop" },
+    { ...selfDeceptionCheck, type: "self-deception" },
+    { ...stuckCheck, type: "stuck" },
+    { ...externalBlameCheck, type: "external-blame" },
+    { ...seekingPermissionCheck, type: "seeking-permission" },
+    { ...catastrophizingCheck, type: "catastrophizing" },
+  ].filter((c) => c.detected);
+
+  if (checks.length > 0) {
+    // Pick highest confidence
+    const strongest = checks.reduce((a, b) =>
+      a.confidence > b.confidence ? a : b,
+    );
+    analysis.shouldPushBack = strongest.confidence > 0.5;
+    analysis.type = strongest.type;
+    analysis.confidence = strongest.confidence;
+    analysis.suggestion = strongest.suggestion;
+  }
+
+  return analysis;
+}
+
+// ============================================================
 // PUSHBACK RESPONSES
 // Calibrated to be firm but not cruel
 // ============================================================
 
+// [2] getPushbackResponse — builds a pushback response string. Waits for: [1] (caller provides result).
 export function getPushbackResponse(analysis) {
   if (!analysis.shouldPushBack) return null;
 
@@ -435,6 +453,7 @@ export function getPushbackResponse(analysis) {
 // Not about factual disagreement — about noticing patterns
 // ============================================================
 
+// [3] shouldDisagree — binary check: should Pneuma disagree at all. Waits for: [1] (caller provides result).
 export function shouldDisagree(message, response, intentScores) {
   // Don't disagree when they're clearly in pain
   if ((intentScores?.emotional || 0) > 0.7) return false;
@@ -452,15 +471,6 @@ export function shouldDisagree(message, response, intentScores) {
   }
 
   return false;
-}
-
-// ============================================================
-// HELPER
-// ============================================================
-
-function pickRandom(arr) {
-  if (!arr || arr.length === 0) return "";
-  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // ============================================================

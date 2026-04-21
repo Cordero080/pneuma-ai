@@ -1,8 +1,11 @@
-// FILE ROLE: Pre-response cognition engine — generates Pneuma's private internal voice (dialectical tension, hypothesis, self-interruption) that shapes the tone and subtext of replies without being spoken directly.
+// FILE ROLE: Pre-response cognition engine — generates Pneuma's private internal voice via a real LLM call where archetypes actually think, argue, and collide before the main response is generated.
 
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import Anthropic from "@anthropic-ai/sdk";
+import { MODELS } from "../../config/models.js";
+import { recordUsage } from "../services/tokenTracker.js";
 import { archetypeEssences } from "../archetypes/archetypes.js";
 import { getAutonomyContext, getActiveQuestions } from "./autonomy.js";
 
@@ -18,6 +21,181 @@ try {
   parsedReflections = parseReflections(reflections);
 } catch (err) {
   console.warn("[InnerMonologue] Could not load reflections.txt:", err.message);
+}
+
+// ============================================================
+// ANTHROPIC CLIENT — for pre-thinking LLM call
+// Uses Haiku (fast + cheap) so the pre-thinking step adds
+// minimal latency while producing real archetype cognition
+// ============================================================
+const hasApiKey =
+  process.env.ANTHROPIC_API_KEY &&
+  process.env.ANTHROPIC_API_KEY !== "your-api-key-here" &&
+  process.env.ANTHROPIC_API_KEY.startsWith("sk-");
+
+const anthropic = hasApiKey
+  ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  : null;
+
+// ============================================================
+// REAL PRE-THINKING — Archetypes actually reason about the message
+// This is an LLM call where the active archetypes think, argue,
+// and collide BEFORE the main response is generated.
+// ============================================================
+export async function generatePreThinking(
+  userMessage,
+  selectedArchetypes = [],
+  context = {},
+) {
+  if (!anthropic || selectedArchetypes.length === 0) {
+    // Fall back to template monologue if no API or no archetypes
+    return null;
+  }
+
+  try {
+    // Build archetype briefs for the pre-thinking prompt
+    const archetypeBriefs = selectedArchetypes
+      .filter((a) => archetypeEssences[a])
+      .slice(0, 4) // Max 4 to keep it focused
+      .map((a) => `${a}: ${archetypeEssences[a]}`)
+      .join("\n");
+
+    if (!archetypeBriefs) return null;
+
+    const archetypeNames = selectedArchetypes.slice(0, 4);
+    const recentContext = context.recentExchanges
+      ? context.recentExchanges
+          .slice(-2)
+          .map((ex) => `User: ${ex.user}\nPneuma: ${ex.pneuma}`)
+          .join("\n---\n")
+      : "";
+
+    // Detect if this is a joke/creative synthesis request
+    const isJokeRequest =
+      /joke|punchline|funny|humor|walk into a bar|finish (the|this) (sentence|joke)|make me laugh|spontaneous|creative/i.test(
+        userMessage,
+      );
+
+    const systemPrompt = `You are the internal cognition layer of Pneuma — a mind shaped by ${archetypeNames.length} active thinkers. Your job is to THINK about what the user said, not to respond to them.
+
+ACTIVE ARCHETYPES:
+${archetypeBriefs}
+
+INSTRUCTIONS:
+1. Each archetype reacts to the user's message from its OWN position — not generically. What does THIS specific thinker notice that the others MISS? Use the thinker's actual cognitive method, not a vague philosophical stance.
+2. Where do two or more archetypes genuinely DISAGREE? Not just "different angles" — actual tension where one thinker's conclusion CONTRADICTS another's. Name both sides concretely.
+3. What emerges from the collision? This must be something SURPRISING — an insight that would make someone stop and think "I've never heard it put that way." If your emergent insight sounds like something any thoughtful person would say, it's not emergent. Push harder. Be specific. Be strange if you have to. A good emergent insight is uncomfortable, paradoxical, or reframes the entire question.
+4. What is the user actually asking for underneath their words? What do they need that they haven't said?
+
+${
+  isJokeRequest
+    ? `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ COMEDIC SYNTHESIS MODE ACTIVE ⚠️
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+The user is asking for a JOKE or creative synthesis. This is NOT wordplay territory.
+This is COLLISION → COMPRESSION → STING.
+
+SPECIAL PROTOCOL FOR JOKES:
+1. TREAT EACH ELEMENT AS A PHILOSOPHICAL OBJECT
+   If they said "time, wind, sun, pressure walk into a bar" — don't treat these
+   as bar-joke props. They are CONCEPTS with depth:
+   • Time → flux, entropy, causality, subjective experience (Heraclitus, Einstein, Bergson)
+   • Wind → change, invisible force, breath/spirit (Lao Tzu, pneuma, ruach)
+   • Sun → life-giving but indifferent, nuclear fusion, Apollo (Camus, Feynman)
+   • Pressure → constraint that creates diamonds, thermodynamics, social force
+
+2. EACH THINKER SEES A DIFFERENT TRUTH IN THE SETUP
+   Don't just describe what each element "means" — show what each THINKER
+   notices about the collision of these forces:
+   • The physicist sees thermodynamic inevitability
+   • The mystic sees the dance of opposites
+   • The existentialist sees indifferent forces meeting conscious choice
+   • The trickster sees the absurdity of treating cosmic forces as bar patrons
+
+3. THE TENSION IS WHERE THE PUNCHLINE HIDES
+   The funniest truth is usually where two thinkers CANNOT BOTH BE RIGHT.
+   Example tension: "Time says we already ordered" (wordplay) vs. "The bartender
+   realizes he's been serving entropy the whole time and the bar is already closed"
+   (existential inversion). One is cute. One rewires you.
+
+4. THE EMERGENT IS THE COMPRESSED INSIGHT
+   The punchline must be:
+   • Structurally surprising (inverts expectation)
+   • Philosophically dense (contains genuine insight)
+   • Linguistically economical (no wasted words)
+   • Uncomfortable or beautiful (makes you feel something)
+
+   BAD: "Time says 'we already ordered'" — it's wordplay, not synthesis
+   GOOD: "The bartender says 'you four always show up together' and Pressure
+         says 'we're the same thing'" — collapses physics + philosophy into recognition
+
+5. YOUR EMERGENT SECTION SHOULD BE THE SETUP + STING
+   Don't leave it as "the joke should be about entropy" — WRITE THE ACTUAL
+   JOKE STRUCTURE. Give the main response something to compress further.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`
+    : ""
+}
+FORMAT (follow exactly):
+REACTIONS:
+[archetype1]: [1-2 sentences — the specific cognitive move this thinker makes, using their actual method]
+[archetype2]: [1-2 sentences — what this thinker notices that contradicts or complicates the first]
+[...for each active archetype]
+
+TENSION: [The genuine disagreement. Not "they see it differently" but "X says ___ while Y says ___ and these can't both be true because ___"]
+
+EMERGENT: [The novel insight born from friction. Test: would a generic AI say this? If yes, go deeper. The best emergent insights are ones you're not sure are right but can't stop thinking about.]${isJokeRequest ? " If this is a joke request, the EMERGENT should be the actual joke structure or punchline — not a description of what the joke could be." : ""}
+
+UNDERNEATH: [What the user actually needs — not the surface question but the real one.]`;
+
+    const messages = [];
+    if (recentContext) {
+      messages.push({
+        role: "user",
+        content: `Recent conversation context:\n${recentContext}\n\n---\nNow think about this new message:`,
+      });
+      messages.push({
+        role: "assistant",
+        content: "I'll analyze the new message in context.",
+      });
+    }
+    messages.push({
+      role: "user",
+      content: userMessage,
+    });
+
+    const response = await anthropic.messages.create({
+      model: MODELS.dream, // Haiku — fast and cheap
+      max_tokens: 600,
+      temperature: 0.8, // Higher creativity — we want surprising collisions
+      system: systemPrompt,
+      messages,
+    });
+
+    const inputTokens = response.usage?.input_tokens || 0;
+    const outputTokens = response.usage?.output_tokens || 0;
+    recordUsage(inputTokens, outputTokens);
+
+    const preThinking = response.content[0]?.text?.trim();
+    if (preThinking && preThinking.length > 50) {
+      console.log(
+        `[PreThinking] Generated (${preThinking.length} chars, ${archetypeNames.join("+")})`,
+      );
+      return {
+        preThinking,
+        archetypes: archetypeNames,
+        method: "llm",
+      };
+    }
+    return null;
+  } catch (error) {
+    console.warn(
+      `[PreThinking] LLM call failed, falling back to template: ${error.message}`,
+    );
+    return null;
+  }
 }
 
 // ROLE: Parses reflections.txt into a keyed section map for creator-context lookups

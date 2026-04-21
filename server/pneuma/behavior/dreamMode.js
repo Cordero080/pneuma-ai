@@ -16,6 +16,11 @@ import {
   getHighTensionPairs,
 } from "../archetypes/archetypeDepth.js";
 import { poseQuestion, chooseToRemember } from "./autonomy.js";
+import {
+  loadState,
+  saveState,
+  updateBaselineFromPatterns,
+} from "../state/state.js";
 import { PNEUMA_DREAMS_FILE } from "../../config/paths.js";
 import { MODELS } from "../../config/models.js";
 
@@ -150,11 +155,8 @@ What is it? Keep it brief and real. This is for you, not performance.`,
 // DREAM GENERATION
 // ============================================================
 
-/**
- * Generate a dream based on recent memories and archetype state
- * @param {string} dreamType - Type of dream to generate (optional, random if not specified)
- * @returns {Promise<Dream>}
- */
+// [1] generateDream — picks a dream type, retrieves 5 memories, calls Haiku, saves result.
+//     Waits for: retrieveMemories(), getTopArchetypes().
 export async function generateDream(dreamType = null) {
   // Select dream type
   const types = Object.keys(DREAM_TYPES);
@@ -170,7 +172,7 @@ export async function generateDream(dreamType = null) {
   // Gather context
   const memories = await retrieveMemories(
     "recent conversations meaning pattern",
-    5
+    5,
   );
   const memoriesText =
     memories.length > 0
@@ -225,19 +227,13 @@ export async function generateDream(dreamType = null) {
   }
 }
 
-/**
- * Get undelivered dreams to share with user
- * @returns {Dream[]}
- */
+// [2] getUndeliveredDreams — returns dreams not yet surfaced to user. Waits for: loadDreams().
 export function getUndeliveredDreams() {
   loadDreams();
   return dreams.filter((d) => !d.delivered);
 }
 
-/**
- * Mark dream as delivered
- * @param {string} dreamId
- */
+// [3] markDreamDelivered — flips delivered flag on a dream. Waits for: [2] getUndeliveredDreams (caller has dreamId).
 export function markDreamDelivered(dreamId) {
   loadDreams();
   const dream = dreams.find((d) => d.id === dreamId);
@@ -247,11 +243,7 @@ export function markDreamDelivered(dreamId) {
   }
 }
 
-/**
- * Format dream for delivery to user
- * @param {Dream} dream
- * @returns {string}
- */
+// [4] formatDreamForDelivery — wraps dream content with a mode-appropriate intro. Waits for: [2] getUndeliveredDreams.
 export function formatDreamForDelivery(dream) {
   const typeIntros = {
     synthesis: "While you were away, something connected...",
@@ -269,13 +261,11 @@ export function formatDreamForDelivery(dream) {
 }
 
 // Throttle: only one dialectic dream per 30 minutes
-let lastDialecticTime = 0;
+// Initialized from persisted state so server restarts don't reset the clock
+let lastDialecticTime = loadState().lastDialecticTime ?? 0;
 
-/**
- * Run a private inter-archetype dialogue and write the outcome silently
- * to autonomy state. Nothing is delivered to the user — Pneuma may choose
- * to surface the origin of these positions, or not.
- */
+// [5] triggerDialecticDream — fires a private archetype debate, writes outcome to autonomy state.
+//     Throttled: 30 min. Waits for: getTopArchetypes(), retrieveMemories(), poseQuestion()/chooseToRemember().
 export async function triggerDialecticDream() {
   const now = Date.now();
   if (now - lastDialecticTime < 30 * 60 * 1000) {
@@ -291,13 +281,18 @@ export async function triggerDialecticDream() {
   const antagonists = getHighTensionPairs(archetypeA);
   if (antagonists.length === 0) return null;
 
-  const archetypeB = antagonists[Math.floor(Math.random() * antagonists.length)];
+  const archetypeB =
+    antagonists[Math.floor(Math.random() * antagonists.length)];
 
   // Get topic from recent memories
-  const memories = await retrieveMemories("recent conversation themes questions meaning", 3);
-  const topic = memories.length > 0
-    ? memories[0].text.slice(0, 120)
-    : "the relationship between suffering and meaning";
+  const memories = await retrieveMemories(
+    "recent conversation themes questions meaning",
+    3,
+  );
+  const topic =
+    memories.length > 0
+      ? memories[0].text.slice(0, 120)
+      : "the relationship between suffering and meaning";
 
   const essenceA = archetypeDepth[archetypeA]?.essence || archetypeA;
   const essenceB = archetypeDepth[archetypeB]?.essence || archetypeB;
@@ -329,7 +324,9 @@ Stay in voice. Actually argue. Don't explain the format.`;
     const text = response.content[0].text;
 
     // Parse outcome
-    const outcomeMatch = text.match(/\[OUTCOME\]:\s*(UNRESOLVED|POSITION):\s*(.+)/s);
+    const outcomeMatch = text.match(
+      /\[OUTCOME\]:\s*(UNRESOLVED|POSITION):\s*(.+)/s,
+    );
     if (!outcomeMatch) {
       console.log("[Dream] Dialectic: could not parse outcome");
       return null;
@@ -356,7 +353,12 @@ Stay in voice. Actually argue. Don't explain the format.`;
     }
 
     lastDialecticTime = now;
-    console.log(`[Dream] Dialectic: ${archetypeA} × ${archetypeB} → ${outcomeType}: "${outcomeContent.slice(0, 70)}..."`);
+    const dialecticState = loadState();
+    dialecticState.lastDialecticTime = now;
+    saveState(dialecticState);
+    console.log(
+      `[Dream] Dialectic: ${archetypeA} × ${archetypeB} → ${outcomeType}: "${outcomeContent.slice(0, 70)}..."`,
+    );
 
     return { archetypeA, archetypeB, outcomeType, outcomeContent };
   } catch (err) {
@@ -365,10 +367,7 @@ Stay in voice. Actually argue. Don't explain the format.`;
   }
 }
 
-/**
- * Trigger dreaming (call this on session end or via cron)
- * @param {number} count - Number of dreams to generate
- */
+// [6] triggerDreaming — generates N dreams in sequence. Waits for: [1] generateDream.
 export async function triggerDreaming(count = 1) {
   console.log(`[Dream] Entering dream state (${count} dreams)...`);
 
@@ -390,9 +389,139 @@ export async function triggerDreaming(count = 1) {
   return generatedDreams;
 }
 
-/**
- * Get dream statistics
- */
+// Throttle: only one baseline evolution per week
+// Initialized from persisted state so server restarts don't reset the clock
+let lastBaselineEvolutionTime = loadState().lastBaselineEvolutionTime ?? 0;
+
+// ============================================================
+// BASELINE EVOLUTION (slow clock — weekly)
+//
+// The problem these two functions solve:
+// evolve() in state.js nudges live vectors per message, but decays them
+// back toward hardcoded baselineTargets every time. No matter how many
+// philosophical conversations accumulate, Pneuma wakes up the same.
+// The vectors move; the resting state never does.
+//
+// analyzeMemoryPatterns() reads the actual evidence — 25 semantically
+// broad memories from MongoDB — and asks Claude to score which intent
+// categories dominate across all of them. This is the only function
+// in the system that looks at the vector memory pool and produces a
+// signal about who Pneuma has actually been talking to.
+//
+// triggerBaselineEvolution() is the trigger: throttled to once per week,
+// it calls analyzeMemoryPatterns, then passes the result to
+// updateBaselineFromPatterns() in state.js, which moves the baseline
+// targets by 0.005 in the evidenced direction.
+//
+// The loop this closes:
+//   Vector memory (what happened)
+//   → analyzeMemoryPatterns (what patterns dominate)
+//   → updateBaselineFromPatterns (resting state drifts)
+//   → evolve() decays toward a new baseline
+//   → tone and archetype selection shift accordingly
+// ============================================================
+
+// [7] analyzeMemoryPatterns — retrieves 25 broad memories, asks Haiku to score all 10 intent categories.
+//     Waits for: retrieveMemories() (MongoDB), Anthropic Haiku API.
+export async function analyzeMemoryPatterns() {
+  const memories = await retrieveMemories(
+    "conversation themes meaning philosophy emotion curiosity depth",
+    25,
+  );
+
+  if (memories.length < 5) {
+    console.log("[Dream] Baseline evolution: not enough memories to analyze");
+    return null;
+  }
+
+  const memoriesText = memories
+    .map((m, i) => `${i + 1}. ${m.text.slice(0, 150)}`)
+    .join("\n");
+
+  const prompt = `You are analyzing a set of conversation memories to identify dominant intent patterns.
+
+MEMORIES:
+${memoriesText}
+
+Score the dominant intent patterns across ALL of these memories combined.
+Return ONLY a JSON object with these exact keys (values 0.0–1.0, must sum to approximately 1.0):
+
+{
+  "casual": <score>,
+  "emotional": <score>,
+  "philosophical": <score>,
+  "numinous": <score>,
+  "conflict": <score>,
+  "intimacy": <score>,
+  "humor": <score>,
+  "confusion": <score>,
+  "paradox": <score>,
+  "art": <score>
+}
+
+No explanation. JSON only.`;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: MODELS.dream,
+      max_tokens: 200,
+      temperature: 0.2,
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const text = response.content[0].text.trim();
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      console.error("[Dream] Pattern analysis: could not parse JSON");
+      return null;
+    }
+
+    const patterns = JSON.parse(jsonMatch[0]);
+    console.log(
+      "[Dream] Memory patterns:",
+      JSON.stringify(
+        Object.fromEntries(
+          Object.entries(patterns).map(([k, v]) => [k, +v.toFixed(2)]),
+        ),
+      ),
+    );
+    return patterns;
+  } catch (err) {
+    console.error("[Dream] Pattern analysis error:", err.message);
+    return null;
+  }
+}
+
+// [8] triggerBaselineEvolution — weekly: calls [7] → updateBaselineFromPatterns → saveState.
+//     Throttled: 1 week. Waits for: [7] analyzeMemoryPatterns, state.js loadState/saveState.
+export async function triggerBaselineEvolution() {
+  const now = Date.now();
+  const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
+  if (now - lastBaselineEvolutionTime < ONE_WEEK) {
+    return null;
+  }
+
+  console.log("[Dream] Running baseline evolution analysis...");
+
+  try {
+    const patterns = await analyzeMemoryPatterns();
+    if (!patterns) return null;
+
+    const state = loadState();
+    const updatedState = updateBaselineFromPatterns(state, patterns);
+    updatedState.lastBaselineEvolutionTime = now;
+    saveState(updatedState);
+
+    lastBaselineEvolutionTime = now;
+    console.log("[Dream] Baseline evolution complete");
+    return patterns;
+  } catch (err) {
+    console.error("[Dream] Baseline evolution error:", err.message);
+    return null;
+  }
+}
+
+// [9] getDreamStats — diagnostic snapshot: total, undelivered, by type. Waits for: loadDreams().
 export function getDreamStats() {
   loadDreams();
 
@@ -424,6 +553,8 @@ export default {
   formatDreamForDelivery,
   triggerDreaming,
   triggerDialecticDream,
+  analyzeMemoryPatterns,
+  triggerBaselineEvolution,
   getDreamStats,
   DREAM_TYPES,
 };

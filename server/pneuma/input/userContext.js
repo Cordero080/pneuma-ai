@@ -32,13 +32,13 @@ try {
   personalContext = null;
 }
 
-// Current user state
+// Fallback for callers without ctx (personality.js). Remove once every caller threads ctx through.
 let currentUser = null;
 
 /**
  * Check if a message identifies a known user
  */
-export function detectKnownUser(message) {
+export function detectKnownUser(message, ctx = null) {
   if (!personalContext) return null;
 
   const msg = message.trim();
@@ -49,9 +49,11 @@ export function detectKnownUser(message) {
       pattern.test(msg),
     );
     if (isCreator) {
-      currentUser = { type: "creator", ...personalContext.creator };
-      console.log(`[UserContext] Creator identified: ${currentUser.name}`);
-      return currentUser;
+      const user = { type: "creator", ...personalContext.creator };
+      if (ctx) ctx.currentUser = user;
+      else currentUser = user;
+      console.log(`[UserContext] Creator identified: ${user.name}`);
+      return user;
     }
   }
 
@@ -61,48 +63,54 @@ export function detectKnownUser(message) {
       pattern.test(msg),
     );
     if (isPartner) {
-      currentUser = { type: "partner", ...personalContext.partner };
-      console.log(`[UserContext] Partner identified: ${currentUser.name}`);
-      return currentUser;
+      const user = { type: "partner", ...personalContext.partner };
+      if (ctx) ctx.currentUser = user;
+      else currentUser = user;
+      console.log(`[UserContext] Partner identified: ${user.name}`);
+      return user;
     }
   }
 
   return null;
 }
 
-export function getCurrentUser() {
-  return currentUser;
+export function getCurrentUser(ctx = null) {
+  return ctx ? ctx.currentUser : currentUser;
 }
 
-export function clearCurrentUser() {
-  currentUser = null;
+export function clearCurrentUser(ctx = null) {
+  if (ctx) ctx.currentUser = null;
+  else currentUser = null;
 }
 
-export function isCreator() {
-  return currentUser?.type === "creator";
+export function isCreator(ctx = null) {
+  const user = ctx ? ctx.currentUser : currentUser;
+  return user?.type === "creator";
 }
 
-export function isPartner() {
-  return currentUser?.type === "partner";
+export function isPartner(ctx = null) {
+  const user = ctx ? ctx.currentUser : currentUser;
+  return user?.type === "partner";
 }
 
 /**
  * Generate context to inject into LLM prompt
  */
-export function getUserContextPrompt() {
-  if (!currentUser) return "";
+export function getUserContextPrompt(ctx = null) {
+  const user = ctx ? ctx.currentUser : currentUser;
+  if (!user) return "";
 
-  if (currentUser.type === "creator") {
+  if (user.type === "creator") {
     // Use deep context if available
     if (getCreatorDeepContext) {
       return getCreatorDeepContext();
     }
     // Fallback to simple context
-    return `\n\nCONTEXT: You are speaking with ${currentUser.name}, your creator. Be direct, real, and you can playfully challenge him.`;
+    return `\n\nCONTEXT: You are speaking with ${user.name}, your creator. Be direct, real, and you can playfully challenge him.`;
   }
 
-  if (currentUser.type === "partner") {
-    const p = currentUser;
+  if (user.type === "partner") {
+    const p = user;
     let context = `\n\nCONTEXT: You are speaking with ${p.name}, ${p.publicLabel} of your creator Pablo.`;
     context += `\nTONE CALIBRATION: ${
       p.communicationStyle?.toneAdjustment || "warm and supportive"
@@ -156,13 +164,13 @@ const CREATOR_GREETINGS_ES = [
   "Ah, el artista en persona. ¿Qué traes?",
 ];
 
-export function getKnownUserGreeting(userType, message = "") {
+export function getKnownUserGreeting(userType, message = "", ctx = null) {
   // Process language from the message that triggered the greeting
   if (message) {
-    processLanguage(message);
+    processLanguage(message, ctx);
   }
 
-  const lang = getCurrentLanguage();
+  const lang = getCurrentLanguage(ctx);
 
   let greetings;
   if (userType === "creator") {

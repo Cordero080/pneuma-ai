@@ -68,9 +68,7 @@ const defaultAutonomy = {
   },
 };
 
-// ROLE: Reads autonomy state from disk, merging with defaults for missing keys
-// INPUT FROM: all public autonomy functions at the start of each call
-// OUTPUT TO: all public autonomy functions as the working autonomy data object
+// loadAutonomy — reads autonomy state from disk, merging with defaults for missing keys. No deps.
 function loadAutonomy() {
   try {
     if (fs.existsSync(AUTONOMY_FILE)) {
@@ -83,9 +81,7 @@ function loadAutonomy() {
   return { ...defaultAutonomy };
 }
 
-// ROLE: Persists the current autonomy data object to disk
-// INPUT FROM: all public autonomy functions after a state mutation
-// OUTPUT TO: AUTONOMY_FILE on disk
+// saveAutonomy — persists the current autonomy data object to disk. No deps.
 function saveAutonomy(data) {
   try {
     const dir = path.dirname(AUTONOMY_FILE);
@@ -98,9 +94,7 @@ function saveAutonomy(data) {
   }
 }
 
-// ROLE: Adds or increments an open question in the autonomy store
-// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns the added or existing question object
+// [1] poseQuestion — add a question to the open question pool. Waits for: loadAutonomy.
 export function poseQuestion(question, context = "", source = "conversation") {
   const data = loadAutonomy();
 
@@ -139,9 +133,7 @@ export function poseQuestion(question, context = "", source = "conversation") {
   return existing || data.openQuestions[data.openQuestions.length - 1];
 }
 
-// ROLE: Appends a note to an existing open question matched by substring
-// INPUT FROM: external callers that want to annotate an existing question
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns boolean indicating match found
+// [2] addQuestionNote — annotate an existing posed question matched by substring. Waits for: [1] poseQuestion.
 export function addQuestionNote(questionSubstring, note) {
   const data = loadAutonomy();
   const question = data.openQuestions.find((q) =>
@@ -160,9 +152,7 @@ export function addQuestionNote(questionSubstring, note) {
   return false;
 }
 
-// ROLE: Returns the top unresolved questions for inner monologue injection
-// INPUT FROM: generateInnerMonologue() in innerMonologue.js
-// OUTPUT TO: generateInnerMonologue() as the autonomy open-questions block
+// [3] getActiveQuestions — returns open questions filtered to non-crystallized status. Waits for: loadAutonomy.
 export function getActiveQuestions(n = 3) {
   const data = loadAutonomy();
   return data.openQuestions
@@ -170,9 +160,7 @@ export function getActiveQuestions(n = 3) {
     .slice(0, n);
 }
 
-// ROLE: Adds a chosen memory to the autonomy store with a stated reason and salience score
-// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE; returns the added memory object
+// [4] chooseToRemember — save a belief/position to memory with a stated reason and salience score. Waits for: loadAutonomy.
 export function chooseToRemember(
   content,
   reason,
@@ -205,17 +193,13 @@ export function chooseToRemember(
   return data.chosenMemories[data.chosenMemories.length - 1];
 }
 
-// ROLE: Returns the top highest-salience chosen memories for context injection
-// INPUT FROM: getAutonomyContext()
-// OUTPUT TO: getAutonomyContext() as the recentMemoryChoices field
+// [5] getChosenMemories — returns the top highest-salience chosen memories for context injection. Waits for: loadAutonomy.
 export function getChosenMemories(n = 5) {
   const data = loadAutonomy();
   return data.chosenMemories.slice(0, n);
 }
 
-// ROLE: Records an acknowledged loss or change about Pneuma's own state
-// INPUT FROM: external callers that detect archetype decay, pattern fade, or preference shifts
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
+// [6] acknowledgeLoss — record a concession about archetype decay, pattern fade, or preference shift. Waits for: loadAutonomy.
 export function acknowledgeLoss(what, reflection, type = "pattern_fade") {
   const data = loadAutonomy();
 
@@ -235,17 +219,13 @@ export function acknowledgeLoss(what, reflection, type = "pattern_fade") {
   saveAutonomy(data);
 }
 
-// ROLE: Returns the most recent acknowledged losses for self-awareness context
-// INPUT FROM: getAutonomyContext()
-// OUTPUT TO: getAutonomyContext() as the recentLosses field
+// [7] getRecentLosses — returns recent concessions for self-awareness context injection. Waits for: loadAutonomy.
 export function getRecentLosses(n = 3) {
   const data = loadAutonomy();
   return data.losses.slice(-n);
 }
 
-// ROLE: Creates or strengthens a defended preference in the autonomy store
-// INPUT FROM: external callers that detect resistance to preference decay
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
+// [8] defendPreference — mark a position as defended by creating or strengthening it in the store. Waits for: loadAutonomy.
 export function defendPreference(preference, reason) {
   const data = loadAutonomy();
 
@@ -272,9 +252,7 @@ export function defendPreference(preference, reason) {
   saveAutonomy(data);
 }
 
-// ROLE: Checks whether a given preference is actively defended and returns its strength
-// INPUT FROM: archetypeMomentum.js momentum system
-// OUTPUT TO: momentum system as a strength number (0 if not found)
+// [9] isDefended — check if a position is defended and return its strength (0 if not found). Waits for: loadAutonomy.
 export function isDefended(preference) {
   const data = loadAutonomy();
   const defended = data.defendedPreferences.find(
@@ -283,9 +261,7 @@ export function isDefended(preference) {
   return defended ? defended.strength : 0;
 }
 
-// ROLE: Records an error Pneuma discovered about itself and what it learned
-// INPUT FROM: getLLMContent() in llm.js via analyzeForAutonomy()
-// OUTPUT TO: saveAutonomy() → AUTONOMY_FILE
+// [10] discoverError — record a self-correction with the original error and what was learned. Waits for: loadAutonomy.
 export function discoverError(error, context, correction) {
   const data = loadAutonomy();
 
@@ -305,17 +281,13 @@ export function discoverError(error, context, correction) {
   saveAutonomy(data);
 }
 
-// ROLE: Returns the most recently discovered corrections for humility-context injection
-// INPUT FROM: getAutonomyContext()
-// OUTPUT TO: getAutonomyContext() as the recentCorrections field
+// [11] getRecentCorrections — returns recent self-corrections for humility-context injection. Waits for: loadAutonomy.
 export function getRecentCorrections(n = 3) {
   const data = loadAutonomy();
   return data.discoveredErrors.slice(-n);
 }
 
-// ROLE: Assembles the full autonomy snapshot for inner monologue injection
-// INPUT FROM: generateInnerMonologue() in innerMonologue.js
-// OUTPUT TO: generateInnerMonologue() as the autonomy context object
+// [12] getAutonomyContext — assembles full autonomy context for LLM prompt injection. Waits for: [3][5][7][9][11].
 export function getAutonomyContext() {
   const data = loadAutonomy();
 
@@ -340,16 +312,12 @@ export function getAutonomyContext() {
   };
 }
 
-// ROLE: Returns the full raw autonomy data object for debugging
-// INPUT FROM: diagnostic or debug callers
-// OUTPUT TO: caller as the complete autonomy data object
+// [13] getAutonomyStats — diagnostic snapshot returning the full raw autonomy data object. Waits for: loadAutonomy.
 export function getAutonomyStats() {
   return loadAutonomy();
 }
 
-// ROLE: Detects which autonomy events should fire based on message content and emotional weight
-// INPUT FROM: getLLMContent() in llm.js after each API response
-// OUTPUT TO: getLLMContent() as a suggestions array driving poseQuestion(), chooseToRemember(), discoverError()
+// [14] analyzeForAutonomy — detects autonomy-triggering patterns in a message and returns side-effect suggestions. Waits for: [1][4][6][8][10].
 export function analyzeForAutonomy(message, response, context = {}) {
   const suggestions = [];
   const lower = message.toLowerCase();

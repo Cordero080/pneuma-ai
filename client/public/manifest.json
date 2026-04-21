@@ -1,7 +1,7 @@
 {
   "name": "Pneuma AI Architecture",
   "short_name": "Pneuma Arch",
-  "description": "Interactive architecture diagram for Pneuma AI - 46 archetypes, RAG, and dialectical synthesis",
+  "description": "Interactive architecture diagram for Pneuma AI - 43 archetypes, RAG, and dialectical synthesis",
   "start_url": "/architecture",
   "display": "standalone",
   "background_color": "#0a0a0f",

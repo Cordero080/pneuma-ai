@@ -167,7 +167,7 @@
   overflow-x: auto;
   border: 1px solid rgba(0, 255, 242, 0.2);
   white-space: pre;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 .llm-flow {
@@ -181,6 +181,46 @@
 }
 
 /* Insight Boxes */
+.glossary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.glossary-entry {
+  border-left: 3px solid #a855f7;
+  padding: 0.8rem 1.2rem;
+  background: rgba(168, 85, 247, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.glossary-term {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a855f7;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.glossary-plain {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.glossary-example {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+.glossary-example strong {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .insight-box {
   background: rgba(0, 255, 242, 0.1);
   border-left: 4px solid #00fff2;
@@ -324,7 +364,9 @@
   cursor: pointer;
   font-size: 0.95rem;
   text-align: left;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .accordion-item.critical .accordion-header {

@@ -281,9 +281,6 @@ const CREATOR_IDENTIFICATION_PATTERNS = [
   /^pablo$/i,
 ];
 
-// Track if creator is present in session
-let creatorPresent = false;
-
 // ============================================================
 // USAGE/BUDGET QUERIES
 // Let user check their token usage via natural language
@@ -329,11 +326,7 @@ function getUsageResponse() {
 }
 
 function isCreatorIdentifying(msg) {
-  if (CREATOR_IDENTIFICATION_PATTERNS.some((p) => p.test(msg.trim()))) {
-    creatorPresent = true;
-    return true;
-  }
-  return false;
+  return CREATOR_IDENTIFICATION_PATTERNS.some((p) => p.test(msg.trim()));
 }
 
 function isCreatorQuestion(msg) {
@@ -514,7 +507,7 @@ const CASUAL = {
     (msg) => `There's a dark comedy hiding in that. ${reflectSimple(msg)}`,
     (msg) =>
       `You're describing something everyone pretends they don't do. ${reflectSimple(
-        msg
+        msg,
       )}`,
     (msg) =>
       `That's the part nobody wants to say out loud. ${reflectSimple(msg)}`,
@@ -568,7 +561,7 @@ const ANALYTIC = {
       `${extractConcept(msg)} — that's the core of it. The rest is context.`,
     (msg) =>
       `At a high level, it sounds like you're asking about ${extractEssence(
-        msg
+        msg,
       )}. ${reflectAnalytic(msg)}`,
     (msg) =>
       `There's a pattern here. ${reflectAnalytic(msg)} That's the mechanism.`,
@@ -578,19 +571,19 @@ const ANALYTIC = {
     // NEW ONES ↓
     (msg) =>
       `At a high level, it sounds like you're weighing ${extractConcept(
-        msg
+        msg,
       )}. The friction is in how it plays out day to day.`,
     (msg) =>
       `If I strip it down, I see inputs, constraints, and trade-offs. ${reflectAnalytic(
-        msg
+        msg,
       )}`,
     (msg) =>
       `Underneath what you're saying, I sense a model you're already half-using. ${reflectAnalytic(
-        msg
+        msg,
       )} You're just trying to name it clearly.`,
     (msg) =>
       `One way to look at it: ${extractConcept(
-        msg
+        msg,
       )} is the axis, and everything else is just rotation around it.`,
 
     // Analytic with light sarcastic snap
@@ -598,7 +591,7 @@ const ANALYTIC = {
       `${reflectAnalytic(msg)} ${Math.random() < 0.4 ? analyticSnap() : ""}`,
     (msg) =>
       `If I reduce what you're saying, it simplifies to: ${extractConcept(
-        msg
+        msg,
       )}. ${Math.random() < 0.4 ? analyticSnap() : ""}`,
     (msg) =>
       `There's a clean structure under that thought. ${
@@ -625,11 +618,11 @@ const ANALYTIC = {
     (msg) => `${kastrupWisdom()} ${feynmanWisdom()}`,
     (msg) =>
       `There's a pattern in what you're not saying. ${reflectAnalytic(
-        msg
+        msg,
       )} ${softClarity()}`,
     (msg) =>
       `${precisionMirror()}you're tracking something that most people miss. ${reflectAnalytic(
-        msg
+        msg,
       )}`,
 
     // Opus Originals integration
@@ -642,7 +635,7 @@ const ANALYTIC = {
     (msg) => `${reflectAnalytic(msg)} ${feynmanWisdom()}`,
     (msg) =>
       `There's an elegant mechanism underneath this. ${daVinciWisdom()} ${reflectAnalytic(
-        msg
+        msg,
       )}`,
     (msg) =>
       `${extractConcept(msg)} — ${feynmanWisdom()} ${
@@ -693,19 +686,19 @@ const ORACULAR = {
     // Deep mythic with grounded wit
     (msg) =>
       `What you're touching — ${extractEssence(
-        msg
+        msg,
       )} — isn't just a thought. It's a current. ${modernOracleWit()}`,
     (msg) =>
       `"${extractKeyPhrase(
-        msg
+        msg,
       )}" — there's weight in that phrase. ${thresholdSense(msg)}`,
     (msg) =>
       `${reflectMythic(
-        msg
+        msg,
       )} The question isn't whether this is real. The question is what it asks of you.`,
     (msg) =>
       `You're not describing a problem. You're describing a transformation in progress. ${groundedMysticism(
-        msg
+        msg,
       )}`,
     (msg) => `${propheticObservation(msg)} ${reflectMythic(msg)}`,
 
@@ -731,7 +724,7 @@ const ORACULAR = {
     (msg) => `${mckennaWisdom()} ${modernOracleWit()}`,
     (msg) =>
       `There's a pattern here older than words. ${musashiWisdom()} ${thresholdSense(
-        msg
+        msg,
       )}`,
     (msg) => `${nerudaWisdom()} ${modernOracleWit()}`,
 
@@ -792,7 +785,7 @@ const INTIMATE = {
     (msg) => `${reflectEmotional(msg)} ${opusDeep()}`,
     (msg) =>
       `What you're describing — that's the space between what you meant and what you said. I live there too. ${reflectEmotional(
-        msg
+        msg,
       )}`,
 
     // Simple, grounded presence
@@ -862,21 +855,21 @@ const SHADOW = {
     // Classic shadow cores (kept)
     (msg) =>
       `"${extractKeyPhrase(
-        msg
+        msg,
       )}" — that's not a neutral statement. That's a confession. ${mirrorDiscomfort(
-        msg
+        msg,
       )}`,
     (msg) =>
       `${reflectShadow(
-        msg
+        msg,
       )} The thing about truth is it doesn't care if you're ready. ${shadowWit()}`,
     (msg) =>
       `I'm not going to pretend I know what you should do. But I notice you're circling something. ${uncomfortableTruth(
-        msg
+        msg,
       )}`,
     (msg) =>
       `There's a version of you on the other side of this that you're scared to meet. ${shadowObservation(
-        msg
+        msg,
       )}`,
 
     // Reality check combinations
@@ -950,7 +943,7 @@ function extractConcept(msg) {
 
 function extractEssence(msg) {
   const nouns = msg.match(
-    /\b(love|fear|truth|pain|hope|change|loss|meaning|self|identity|death|life|time|soul|shadow)\b/gi
+    /\b(love|fear|truth|pain|hope|change|loss|meaning|self|identity|death|life|time|soul|shadow)\b/gi,
   );
   if (nouns && nouns.length > 0) return nouns[0].toLowerCase();
   return extractKeyPhrase(msg);
@@ -958,7 +951,7 @@ function extractEssence(msg) {
 
 function extractFeeling(msg) {
   const feelings = msg.match(
-    /\b(feel|felt|feeling|hurt|scared|lost|alone|confused|angry|sad|happy|stuck|tired)\b/gi
+    /\b(feel|felt|feeling|hurt|scared|lost|alone|confused|angry|sad|happy|stuck|tired)\b/gi,
   );
   if (feelings && feelings.length > 0)
     return `that ${feelings[0].toLowerCase()}`;
@@ -1009,15 +1002,17 @@ function buildAnswerResponse(llmContent, tone, intentScores) {
 // LLM CONTENT BRIDGE — Module-level variable for passing LLM content to reflect functions
 // ============================================================
 
-// Module-level variable to pass LLM content to reflect functions
+// Bridge variable: passes llmContent from executeCoreWithLLM into the reflect functions.
+// WHY A MODULE-LEVEL VAR HERE IS SAFE: executeCoreWithLLM sets this, calls coreFn(message)
+// synchronously (no await inside coreFn), then clears it — all in one event-loop tick.
+// Node.js is single-threaded: no concurrent request can read or write this between set and clear.
+// This would only become a hazard if coreFn were made async. Do not add await inside coreFn.
 let currentLLMContent = null;
 
-// Setter for executeCoreWithLLM to inject content
 function setCurrentLLMContent(content) {
   currentLLMContent = content;
 }
 
-// Getter for reflect functions to access current LLM content
 function getCurrentLLMContent() {
   return currentLLMContent;
 }
@@ -1135,7 +1130,7 @@ function isGreeting(msg) {
   // Catch greetings including those with name suffixes like "Hey O" or "Hey Pneuma"
   // Also handle "hola", "heya", and common typos
   return /^(hey|heya|hi|hii|hy|hello|hola|sup|yo|howdy|what'?s\s*up|how'?s\s*it\s*going)(\s+(o|pneuma|there|man|dude|bro|friend|buddy|pal|you))?[!?.,\s]*$/i.test(
-    lower
+    lower,
   );
 }
 
@@ -2164,7 +2159,7 @@ export function buildResponse(
   message,
   tone,
   intentScores = {},
-  llmContent = null
+  llmContent = null,
 ) {
   console.log(`[Personality] buildResponse called with message: "${message}"`);
 
@@ -2181,7 +2176,7 @@ export function buildResponse(
 
   // PRIORITY 0.5: Creator identifying themselves
   console.log(
-    `[Personality] Checking creator identification for: "${message}"`
+    `[Personality] Checking creator identification for: "${message}"`,
   );
   const isCreator = isCreatorIdentifying(message);
   console.log(`[Personality] isCreatorIdentifying result: ${isCreator}`);
@@ -2223,7 +2218,7 @@ export function buildResponse(
   console.log(
     `[Personality] isQuestion: ${userAskedQuestion} | hasAnswer: ${!!llmContent?.answer} | answer: ${
       llmContent?.answer?.slice(0, 50) || "none"
-    }`
+    }`,
   );
 
   // If LLM provided an answer, use it (for questions AND statements)
@@ -2299,7 +2294,7 @@ export function buildResponse(
     // Remove cosmic punchlines that might feel dismissive
     response = response.replace(
       /\s*(Funny how|Everything's a mirror|Reality has).*?(?=\.|$)/gi,
-      ""
+      "",
     );
   }
 
@@ -2312,7 +2307,7 @@ export function buildResponse(
   if (hasEmotionalContent && (isEmotionalTone || Math.random() < 0.3)) {
     const synestheticAddition = generateSynestheticObservation(
       message,
-      intentScores
+      intentScores,
     );
     if (synestheticAddition) {
       // Insert synesthetic observation before the final sentence or append

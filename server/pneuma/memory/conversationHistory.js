@@ -42,12 +42,22 @@ const defaultHistory = {
 };
 
 // ============================================================
-// IN-MEMORY STATE
+// IN-MEMORY STATE — keyed by sessionId
 // ============================================================
-
-let currentConversation = null;
-let lastActivityTime = null;
+// Each entry: { conversation: object|null, lastActivityTime: number|null }
+// Callers without a sessionId resolve to DEFAULT_SESSION (backward-compat for
+// process.on handlers and any module that doesn't yet carry ctx).
+const sessions = new Map();
+const DEFAULT_SESSION = "_default";
 const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes of inactivity = new session
+
+function getOrCreateSession(sessionId) {
+  const key = sessionId ?? DEFAULT_SESSION;
+  if (!sessions.has(key)) {
+    sessions.set(key, { conversation: null, lastActivityTime: null });
+  }
+  return sessions.get(key);
+}
 
 // ============================================================
 // STARTUP: RESTORE RECENT SESSION
@@ -67,16 +77,14 @@ function restoreRecentSession() {
     return false;
   }
 
-  // Restore the conversation (no timeout check - always continue)
-  currentConversation = {
-    ...mostRecent,
-    endedAt: null, // Reopen it
-  };
-  lastActivityTime = mostRecent.endedAt
+  // Restore into the default session slot (no sessionId available at module load)
+  const s = getOrCreateSession(DEFAULT_SESSION);
+  s.conversation = { ...mostRecent, endedAt: null };
+  s.lastActivityTime = mostRecent.endedAt
     ? new Date(mostRecent.endedAt).getTime()
     : Date.now();
   console.log(
-    `[ConversationHistory] Restored session: ${mostRecent.id} (${mostRecent.messageCount} exchanges)`
+    `[ConversationHistory] Restored session: ${mostRecent.id} (${mostRecent.messageCount} exchanges)`,
   );
   return true;
 }
@@ -97,7 +105,7 @@ export function loadHistory() {
   } catch (err) {
     console.warn(
       "[ConversationHistory] Failed to load, using default:",
-      err.message
+      err.message,
     );
   }
   return { ...defaultHistory };
@@ -111,7 +119,7 @@ export function saveHistory(history) {
     // Graceful degradation: conversations work but don't persist
     console.warn("[ConversationHistory] Persistence disabled:", err.message);
     console.warn(
-      "[ConversationHistory] Conversations will not be saved between sessions."
+      "[ConversationHistory] Conversations will not be saved between sessions.",
     );
   }
 }
@@ -120,22 +128,20 @@ export function saveHistory(history) {
 // SESSION MANAGEMENT
 // ============================================================
 
-function isNewSession() {
-  if (!lastActivityTime) return true;
-  const elapsed = Date.now() - lastActivityTime;
-  return elapsed > SESSION_TIMEOUT;
+function isNewSession(sessionId) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.lastActivityTime) return true;
+  return Date.now() - s.lastActivityTime > SESSION_TIMEOUT;
 }
 
 function generateConversationId() {
   return `conv-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export function startOrContinueSession() {
-  // Only start new if there's no current conversation
-  // Session timeout no longer creates new sessions automatically
-  if (!currentConversation) {
-    // Start new conversation
-    currentConversation = {
+export function startOrContinueSession(sessionId = null) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.conversation) {
+    s.conversation = {
       id: generateConversationId(),
       startedAt: new Date().toISOString(),
       endedAt: null,
@@ -145,20 +151,25 @@ export function startOrContinueSession() {
       topics: [],
     };
     console.log(
-      `[ConversationHistory] New session started: ${currentConversation.id}`
+      `[ConversationHistory] New session started: ${s.conversation.id}`,
     );
   }
-
-  lastActivityTime = Date.now();
-  return currentConversation;
+  s.lastActivityTime = Date.now();
+  return s.conversation;
 }
 
 // ============================================================
 // RECORDING EXCHANGES
 // ============================================================
 
-export function recordExchange(userMessage, pneumaReply, metadata = {}) {
-  startOrContinueSession();
+export function recordExchange(
+  userMessage,
+  pneumaReply,
+  metadata = {},
+  sessionId = null,
+) {
+  const s = getOrCreateSession(sessionId);
+  startOrContinueSession(sessionId);
 
   const exchange = {
     user: userMessage,
@@ -167,12 +178,12 @@ export function recordExchange(userMessage, pneumaReply, metadata = {}) {
     ...metadata, // Can include mood, mode, etc.
   };
 
-  currentConversation.exchanges.push(exchange);
-  currentConversation.messageCount++;
-  lastActivityTime = Date.now();
+  s.conversation.exchanges.push(exchange);
+  s.conversation.messageCount++;
+  s.lastActivityTime = Date.now();
 
   // Save after EVERY exchange — don't risk losing conversations
-  saveCurrentConversation();
+  saveCurrentConversation(sessionId);
 
   return exchange;
 }
@@ -181,34 +192,35 @@ export function recordExchange(userMessage, pneumaReply, metadata = {}) {
 // FINALIZING & SAVING
 // ============================================================
 
-function finalizeConversation() {
-  if (!currentConversation || currentConversation.exchanges.length === 0) {
+function finalizeConversation(sessionId = null) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.conversation || s.conversation.exchanges.length === 0) {
     return;
   }
 
-  currentConversation.endedAt = new Date().toISOString();
+  s.conversation.endedAt = new Date().toISOString();
 
   // Extract topics from conversation
-  currentConversation.topics = extractTopics(currentConversation.exchanges);
+  s.conversation.topics = extractTopics(s.conversation.exchanges);
 
   // Determine overall mood
-  currentConversation.mood = determineMood(currentConversation.exchanges);
+  s.conversation.mood = determineMood(s.conversation.exchanges);
 
   // Analyze advanced patterns
-  currentConversation.patterns = analyzeConversationPatterns(
-    currentConversation.exchanges
+  s.conversation.patterns = analyzeConversationPatterns(
+    s.conversation.exchanges,
   );
 
   // DISTILLATION: Extract meaning into long-term memory
   // "The river is shaped by stones but doesn't remember each one"
   try {
     const memory = loadMemory();
-    const updatedMemory = distillConversation(memory, currentConversation);
+    const updatedMemory = distillConversation(memory, s.conversation);
     saveMemory(updatedMemory);
   } catch (err) {
     console.error(
       "[ConversationHistory] Failed to distill to memory:",
-      err.message
+      err.message,
     );
   }
 
@@ -217,12 +229,12 @@ function finalizeConversation() {
 
   // Upsert: update existing entry if same ID already saved, otherwise push
   const existingIdx = history.conversations.findIndex(
-    (c) => c.id === currentConversation.id
+    (c) => c.id === s.conversation.id,
   );
   if (existingIdx >= 0) {
-    history.conversations[existingIdx] = currentConversation;
+    history.conversations[existingIdx] = s.conversation;
   } else {
-    history.conversations.push(currentConversation);
+    history.conversations.push(s.conversation);
   }
 
   // Keep last 100 conversations (prevent unbounded growth)
@@ -232,31 +244,32 @@ function finalizeConversation() {
 
   saveHistory(history);
   console.log(
-    `[ConversationHistory] Saved conversation ${currentConversation.id} (${currentConversation.messageCount} exchanges)`
+    `[ConversationHistory] Saved conversation ${s.conversation.id} (${s.conversation.messageCount} exchanges)`,
   );
 
-  currentConversation = null;
+  s.conversation = null;
 }
 
-export function saveCurrentConversation() {
-  if (!currentConversation || currentConversation.exchanges.length === 0) {
+export function saveCurrentConversation(sessionId = null) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.conversation || s.conversation.exchanges.length === 0) {
     return;
   }
 
   // Update endedAt for partial save
   const toSave = {
-    ...currentConversation,
+    ...s.conversation,
     endedAt: new Date().toISOString(),
-    topics: extractTopics(currentConversation.exchanges),
-    mood: determineMood(currentConversation.exchanges),
-    patterns: analyzeConversationPatterns(currentConversation.exchanges),
+    topics: extractTopics(s.conversation.exchanges),
+    mood: determineMood(s.conversation.exchanges),
+    patterns: analyzeConversationPatterns(s.conversation.exchanges),
   };
 
   const history = loadHistory();
 
   // Find and update existing, or add new
   const existingIndex = history.conversations.findIndex(
-    (c) => c.id === toSave.id
+    (c) => c.id === toSave.id,
   );
   if (existingIndex >= 0) {
     history.conversations[existingIndex] = toSave;
@@ -313,7 +326,7 @@ function determineMood(exchanges) {
   }
 
   const topMood = Object.entries(scores).reduce((a, b) =>
-    a[1] > b[1] ? a : b
+    a[1] > b[1] ? a : b,
   );
   return topMood[1] > 0 ? topMood[0] : "neutral";
 }
@@ -557,12 +570,13 @@ function detectTopicsInText(text) {
  * @param {number} count - Number of exchanges to return
  * @returns {Array<{user: string, pneuma: string, timestamp: number}>}
  */
-export function getCurrentExchanges(count = 5) {
-  if (!currentConversation || !currentConversation.exchanges) {
+export function getCurrentExchanges(count = 5, sessionId = null) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.conversation || !s.conversation.exchanges) {
     return [];
   }
 
-  return currentConversation.exchanges.slice(-count).map((ex) => ({
+  return s.conversation.exchanges.slice(-count).map((ex) => ({
     user: ex.user.slice(0, 200),
     pneuma: (ex.pneuma || ex.orpheus || "").slice(0, 200),
     timestamp: new Date(ex.timestamp).getTime(),
@@ -573,11 +587,12 @@ export function getCurrentExchanges(count = 5) {
  * Check if we have a restored session with history
  * @returns {boolean}
  */
-export function hasRestoredHistory() {
+export function hasRestoredHistory(sessionId = null) {
+  const s = getOrCreateSession(sessionId);
   return (
-    currentConversation &&
-    currentConversation.exchanges &&
-    currentConversation.exchanges.length > 0
+    s.conversation !== null &&
+    s.conversation.exchanges !== undefined &&
+    s.conversation.exchanges.length > 0
   );
 }
 
@@ -588,18 +603,19 @@ export function hasRestoredHistory() {
 /**
  * Get pattern insights for the current conversation
  */
-export function getCurrentPatterns() {
-  if (!currentConversation || currentConversation.exchanges.length < 2) {
+export function getCurrentPatterns(sessionId = null) {
+  const s = getOrCreateSession(sessionId);
+  if (!s.conversation || s.conversation.exchanges.length < 2) {
     return null;
   }
-  return analyzeConversationPatterns(currentConversation.exchanges);
+  return analyzeConversationPatterns(s.conversation.exchanges);
 }
 
 /**
  * Check if user is repeating a specific concern
  */
-export function isRepeatingConcern(threshold = 2) {
-  const patterns = getCurrentPatterns();
+export function isRepeatingConcern(threshold = 2, sessionId = null) {
+  const patterns = getCurrentPatterns(sessionId);
   if (!patterns) return { repeating: false };
 
   const repeated = patterns.repeatedPhrases.filter((p) => p.count >= threshold);
@@ -617,8 +633,8 @@ export function isRepeatingConcern(threshold = 2) {
 /**
  * Check if user is circling back to a topic
  */
-export function isCirclingBack() {
-  const patterns = getCurrentPatterns();
+export function isCirclingBack(sessionId = null) {
+  const patterns = getCurrentPatterns(sessionId);
   if (!patterns) return { circling: false };
 
   if (patterns.topicCircles.length > 0) {
@@ -634,8 +650,8 @@ export function isCirclingBack() {
 /**
  * Check for recent emotional shifts
  */
-export function getEmotionalShifts() {
-  const patterns = getCurrentPatterns();
+export function getEmotionalShifts(sessionId = null) {
+  const patterns = getCurrentPatterns(sessionId);
   if (!patterns) return { shifted: false };
 
   if (patterns.emotionalShifts.length > 0) {
@@ -672,7 +688,7 @@ export function searchConversations(query) {
     return conv.exchanges.some(
       (ex) =>
         ex.user.toLowerCase().includes(lower) ||
-        (ex.pneuma || ex.orpheus || "").toLowerCase().includes(lower)
+        (ex.pneuma || ex.orpheus || "").toLowerCase().includes(lower),
     );
   });
 }
@@ -680,7 +696,7 @@ export function searchConversations(query) {
 export function getConversationsByTopic(topic) {
   const history = loadHistory();
   return history.conversations.filter(
-    (conv) => conv.topics && conv.topics.includes(topic)
+    (conv) => conv.topics && conv.topics.includes(topic),
   );
 }
 
@@ -698,7 +714,7 @@ export function getHistoryStats() {
 
   const totalExchanges = convos.reduce(
     (sum, c) => sum + (c.messageCount || 0),
-    0
+    0,
   );
   const allTopics = convos.flatMap((c) => c.topics || []);
   const topicCounts = {};
@@ -726,15 +742,21 @@ export function getHistoryStats() {
 // ============================================================
 
 process.on("beforeExit", () => {
-  saveCurrentConversation();
+  for (const sessionId of sessions.keys()) {
+    saveCurrentConversation(sessionId);
+  }
 });
 
 process.on("SIGINT", () => {
-  saveCurrentConversation();
+  for (const sessionId of sessions.keys()) {
+    saveCurrentConversation(sessionId);
+  }
   process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-  saveCurrentConversation();
+  for (const sessionId of sessions.keys()) {
+    saveCurrentConversation(sessionId);
+  }
   process.exit(0);
 });
