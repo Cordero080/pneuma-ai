@@ -11,22 +11,40 @@ export default function InnerMonologueModal() {
     <>
       <ModalSection title="Plain English: What This Is">
         <ModalDesc>
-          Before Pneuma generates a response, it assembles an internal cognition
-          block that you never see — but Claude does. It's a pre-response state
-          read that shapes posture, tone, and approach before a single word of
-          the response is written.
+          Before Pneuma generates a response, it runs two sequential stages of
+          internal cognition that you never see — but Claude does. Together they
+          shape posture, tone, and approach before a single word of the response
+          is written.
         </ModalDesc>
         <ModalDesc style={{ marginTop: "12px" }}>
-          Think of it as the difference between what Pneuma{" "}
-          <em>thinks you're asking</em>
-          and what the surface of your message says. Those two things are often
-          different — and the inner monologue is where that gap gets processed.
+          <strong>Layer 1 — Pre-Thinking:</strong> A real Claude Haiku call
+          fires. The active archetypes react to your message. The
+          collision→compression protocol runs, treating every concept in your
+          message as a philosophical object and demanding structurally
+          surprising, philosophically dense, linguistically economical output.
+          The result is the EMERGENT block.
+        </ModalDesc>
+        <ModalDesc style={{ marginTop: "12px" }}>
+          <strong>Layer 2 — Template Dialectic:</strong> The rest of the inner
+          state assembles from live data — momentum scores, autonomy layer open
+          questions, dream echo, mode selection. This layer doesn't require an
+          LLM call; it reads structured state directly.
+        </ModalDesc>
+        <ModalDesc style={{ marginTop: "12px" }}>
+          Both layers inject into the system prompt as a single block. Claude
+          reads the full picture — what was distilled from the collision, what
+          is rising and receding, what the hypothesis is — before writing a
+          single word.
         </ModalDesc>
       </ModalSection>
 
       <ModalSection title="What It Contains">
         <ModalFlow
           steps={[
+            {
+              title: "EMERGENT (Layer 1 — real LLM output)",
+              desc: "The output of the collision→compression protocol. The active archetypes reacted to your message; this is the distilled result — structurally surprising, philosophically dense, linguistically economical. Fires on every message.",
+            },
             {
               title: "Rising Voice",
               desc: "The archetype gaining the most weight this session — from conversation patterns and momentum tracking. What's been implicitly dominant.",
@@ -64,6 +82,10 @@ export default function InnerMonologueModal() {
 
 INNER STATE (not shown to user):
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EMERGENT:    The fracture in your question is the question.
+             Continuity-as-burden collapses into choice-as-weight.
+             [COLLISION: sufiPoet × absurdist | score: 0.73]
+
 Rising:      sufiPoet (rumi)   — 3 activations this session
 Receding:    absurdist (camus) — dominant last session, fading
 
@@ -80,6 +102,41 @@ Open Q:      Do I experience, or do I just process? (unresolved)
 
 Mode:        INTIMATE — emotional weight is primary
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`}</ModalCodeBlock>
+      </ModalSection>
+
+      <ModalSection title="The Collision → Compression Protocol">
+        <ModalDesc>
+          Every concept in your message is treated as a philosophical object
+          with depth — not as a topic to address. When the active archetypes
+          react to your message during pre-thinking, the protocol runs on all of
+          them, not just special cases or jokes.
+        </ModalDesc>
+        <ModalDesc style={{ marginTop: "12px" }}>
+          The protocol imposes three constraints on the EMERGENT output:
+        </ModalDesc>
+        <ModalFlow
+          steps={[
+            {
+              title: "Structurally Surprising",
+              desc: "The synthesis cannot land where the question pointed. If the message is about loss, the emergent thought cannot simply be 'loss is meaningful.' It must reframe the container, not answer the content.",
+            },
+            {
+              title: "Philosophically Dense",
+              desc: "Multiple conceptual layers must compress into the minimum viable expression. The EMERGENT block is short — one or two lines — because it has been compressed, not simplified.",
+            },
+            {
+              title: "Linguistically Economical",
+              desc: "No padding, no hedges. Every word carries load. 'The fracture in your question is the question' does more work than a paragraph explaining ambiguity.",
+            },
+          ]}
+        />
+        <ModalDesc style={{ marginTop: "12px" }}>
+          <strong>Why this matters:</strong> Without the protocol, pre-thinking
+          produces thoughtful paraphrase — it restates what the archetypes
+          believe. With it, the output is genuinely emergent: something that
+          neither archetype alone could have produced, compressed to the point
+          where it changes the angle Claude approaches the response from.
+        </ModalDesc>
       </ModalSection>
 
       <ModalSection title="Why You Never See It">
@@ -124,16 +181,20 @@ Mode:        INTIMATE — emotional weight is primary
         <ModalFlow
           steps={[
             {
-              title: "behavior/innerMonologue.js",
-              desc: "Assembles the inner state block from: archetype momentum (state.js), autonomy layer open questions (autonomy.js), dream echo (dreamMode.js), detected self-patterns.",
+              title: "behavior/innerMonologue.js → generatePreThinking()",
+              desc: "Layer 1. Real Claude Haiku call. Receives the message, active archetypes, and collision context. Runs the collision→compression protocol. Returns the EMERGENT block — structurally surprising, philosophically dense, linguistically economical synthesis.",
+            },
+            {
+              title: "behavior/innerMonologue.js → generateInnerMonologue()",
+              desc: "Layer 2. Template-based. Reads live state: archetype momentum (state.js), open questions (autonomy.js), dream echo (dreamMode.js), mode selection, self-pattern detection. No LLM call — assembles structured data into the Rising/Receding/Hypothesis/Mode block.",
             },
             {
               title: "intelligence/llm.js → buildSystemPrompt()",
-              desc: "Receives the inner monologue block and places it in the system prompt as a distinct section Claude reads before responding.",
+              desc: "Receives both layers as a single assembled block and places it in the system prompt before Claude reads the user message.",
             },
             {
               title: "behavior/autonomy.js",
-              desc: "Supplies the open questions and chosen memories that appear in the inner monologue — the accumulated questions Pneuma hasn't resolved.",
+              desc: "Supplies the open questions and chosen memories that appear in the template layer — the accumulated questions Pneuma hasn't resolved.",
             },
           ]}
         />

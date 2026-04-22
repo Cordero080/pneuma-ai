@@ -37,12 +37,12 @@ export const TERM_REGISTRY = {
   CONTRAST_MAP: {
     what: "A hardcoded lookup table inside archetypeRAG.js that maps each thinker to their philosophical opposite.",
     inPneuma:
-      "When one thinker dominates the RAG results (e.g. Rumi scores highest), CONTRAST_MAP pulls in a deliberately opposing voice (e.g. Kafka or Schopenhauer) and marks it isContrast: true. It only fires when results are too one-sided.",
+      "CONTRAST_MAP is now a secondary tiebreaker in the Concept Crossroads evaluation pipeline. The primary contrast mechanism is the collision bonus in _evaluatePassages(): passages from thinkers in known tension score 20% higher together, regardless of which thinker scored highest. CONTRAST_MAP only activates after that scoring pass, as a final diversity check.",
   },
   "dual RAG": {
     what: "Two separate retrieval-augmented generation systems running in parallel, each searching a different knowledge base for a different purpose.",
     inPneuma:
-      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches 1,385 philosophical passages from 48 thinkers — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
+      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches philosophical passages from 46 thinker folders using the Concept Crossroads pipeline: detects ~60 philosophical concepts, fires parallel '{concept} {thinker}' queries, scores on relevance + distinctiveness + collision potential, returns topK=8 — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
   },
   "vector memory": {
     what: "A database where past conversations are stored as numbers (vectors) instead of plain text — so you can search them by meaning rather than by matching exact words.",
@@ -105,9 +105,9 @@ export const TERM_REGISTRY = {
       "Each of the 43 archetypes now has a signatureMove in archetypes.js. Examples: Feynman's is 'find the simplest possible example that captures the principle'; Rumi's is 'locate the paradox inside the feeling and name it with an image.' Without signatureMoves, archetypes collapsed into generic 'wise philosopher' output. The signatureMove is injected into the system prompt alongside the archetype identity.",
   },
   "pre-thinking": {
-    what: "A hidden LLM call that runs before the main response — archetypes react to the message, identify tensions, and form emergent insights that shape how the final response is framed.",
+    what: "A real LLM call that runs before the main response — archetypes react to the message under the collision→compression protocol and produce an emergent insight that shapes how the final response is framed.",
     inPneuma:
-      "generatePreThinking() in innerMonologue.js calls Claude Haiku with the active archetypes and the user's message. Each archetype reacts, a core tension is identified, and an emergent insight forms. This output is injected into the main Claude call as context — the user never sees it, but it changes what Claude writes. Falls back to template-based monologue if the LLM call fails.",
+      "generatePreThinking() in innerMonologue.js calls Claude Haiku with active archetypes and the user's message. The collision→compression protocol runs on every message — every concept is treated as a philosophical object, and the output (called the EMERGENT block) must be structurally surprising, philosophically dense, and linguistically economical. A second layer, generateInnerMonologue(), always runs after and adds the template-based dialectic (rising/receding voices, hypothesis, mode). Both layers inject into the main Claude call — the user never sees them, but they change what Claude writes.",
   },
   "archetype integration": {
     what: "The system prompt block that tells the LLM how to weave archetype thinking into responses — not as quotes or personas, but as cognitive methods that shape reasoning.",

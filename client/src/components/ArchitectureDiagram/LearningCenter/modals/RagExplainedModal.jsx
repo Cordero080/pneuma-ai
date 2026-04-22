@@ -55,7 +55,16 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
         </ModalDesc>
       </ModalSection>
 
-      <ModalSection title="How Vector Search Finds Relevant Quotes">
+      <ModalSection title="How Pneuma Finds the Right Quotes (Concept Crossroads)">
+        <ModalDesc>
+          Pneuma doesn&apos;t just search for passages similar to your message.
+          It first asks:{" "}
+          <strong>what philosophical concepts are in this message?</strong> It
+          tracks ~60 concepts — time, death, consciousness, change, freedom,
+          love, paradox, suffering, and others. If it finds any, it runs a
+          separate search for <em>each concept × each active thinker</em> in
+          parallel.
+        </ModalDesc>
         <ModalFlow
           steps={[
             {
@@ -63,47 +72,59 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
               desc: '"I feel broken after what happened"',
             },
             {
-              title: "Convert to Vector",
-              desc: "Message becomes [0.2, -0.5, 0.8, ...] (1500+ numbers)",
+              title: "Concept Detection",
+              desc: 'Finds philosophical concepts: "suffering", "change" — both tracked',
             },
             {
-              title: "Compare",
-              desc: "Check distance to every stored passage's vector",
+              title: "Parallel Queries",
+              desc: '"suffering Rumi", "suffering Frankl", "change Rumi", "change Frankl" — all run at once',
             },
             {
-              title: "Match Found",
-              desc: 'Rumi\'s "wound where Light enters" is mathematically close',
+              title: "Score Each Passage",
+              desc: "Relevance (50%) + how different it is from the others (30%) + collision bonus if thinkers disagree (20%)",
             },
-            { title: "Inject", desc: "Paste quote + context into prompt" },
+            {
+              title: "Deduplicate & Select",
+              desc: "Near-identical passages removed, max 2 per thinker, best 8 kept",
+            },
+            {
+              title: "Inject",
+              desc: "8 passages from thinkers likely to disagree pasted into prompt",
+            },
             {
               title: "Generate",
-              desc: "NOW Claude responds, seeing the relevant wisdom",
+              desc: "Claude responds having read passages optimized for productive tension",
             },
           ]}
         />
       </ModalSection>
 
-      <ModalSection title="What Claude Does With It">
+      <ModalSection title="Why Score for Distinctiveness and Collision?">
         <ModalDesc>
-          Claude is a pattern-completion machine. It sees the system prompt
-          (including injected quotes), then your message, then generates text
-          that "fits" that context. The quotes aren't magic—they're just text
-          Claude reads and can reference in its response.
+          Standard RAG just picks the most relevant passages. The problem: if
+          your question is about suffering, you might get five Rumi passages
+          that all say roughly the same thing. Pneuma scores passages on how{" "}
+          <strong>different</strong> they are from each other and whether they
+          come from thinkers known to <strong>disagree</strong>. A Rumi passage
+          and a Schopenhauer passage on suffering score higher together than two
+          Rumi passages — because the tension between them is where the
+          interesting thinking happens.
         </ModalDesc>
         <ModalDesc style={{ marginTop: "12px" }}>
-          <strong>The key insight:</strong> RAG doesn't make Claude "understand"
-          the quotes differently. It just ensures Claude has ACCURATE source
-          material to work with instead of relying on fuzzy training memories.
+          <strong>The key insight:</strong> The goal isn&apos;t accurate
+          quotation — it&apos;s productive friction. Passages are selected to
+          make Claude&apos;s synthesis harder and more interesting, not just
+          more accurate.
         </ModalDesc>
       </ModalSection>
 
       <ModalSection title="The Analogy">
         <ModalDesc>
-          Imagine you're taking an essay test. <strong>Without RAG:</strong> You
-          write from memory—might get quotes wrong. <strong>With RAG:</strong>{" "}
-          You're allowed to have a reference book open. You can look up exact
-          quotes and cite them correctly. You still write the essay; the book
-          just ensures accuracy.
+          Imagine you&apos;re preparing a debate on suffering. A bad research
+          assistant gives you five sources that all agree. A good one gives you
+          sources that contradict each other — a mystic, a pessimist, a
+          therapist, a stoic — and forces you to synthesize across them.
+          Pneuma&apos;s RAG pipeline is the good research assistant.
         </ModalDesc>
       </ModalSection>
     </>

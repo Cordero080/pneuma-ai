@@ -63,17 +63,17 @@ const FILE_REGISTRY = {
   },
   "archetypeRAG.js": {
     path: "server/pneuma/intelligence/archetypeRAG.js",
-    role: "Retrieves relevant philosophical passages and forces a contrasting voice.",
+    role: "Concept Crossroads multi-query RAG — detects philosophical concepts and retrieves passages optimized for dialectical tension.",
     mainFunction: "retrieveArchetypeKnowledge(message, options)",
     whatItDoes:
-      "Embeds the message. Scores all 51MB of cached passage embeddings via cosine similarity. Filters, diversifies across thinkers, then checks the CONTRAST_MAP — if one thinker dominates, pulls in an opposing voice marked isContrast: true.",
+      "Concept Crossroads pipeline: detects which of ~60 philosophical concepts are in the message (time, suffering, death, consciousness, etc.), fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical passages (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine search for non-philosophical messages.",
     flowChain:
-      "llm.js → retrieveArchetypeKnowledge() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
+      "llm.js → retrieveArchetypeKnowledge() → extractConcepts() → _multiQueryRetrieval() [parallel] → _evaluatePassages() → _selectBestPassages() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
     direction: "REQUEST",
     directionNote:
       "Runs before the Claude call. Its output is the philosophical raw material Claude reasons from.",
     keyInsight:
-      "getArchetypeContext() wraps the raw passages in Da Vinci's five cognitive methods (SAPER VEDERE, MIRROR MIND, etc.) as a frame for synthesis — so Claude isn't just quoting, it's being told how to process the wisdom.",
+      "The passages injected are not just the most relevant — they are the most tension-optimized. A Rumi passage and a Schopenhauer passage on suffering score higher together than two Rumi passages, because the collision between them is where synthesis happens.",
   },
   "vectorMemory.js": {
     path: "server/pneuma/memory/vectorMemory.js",
@@ -264,7 +264,7 @@ const HIGHLIGHTS = [
     id: 2,
     title: "You Understand the Tradeoffs, Not Just the Code",
     when: "Walk me through a technical decision you made.",
-    body: "You made concrete architectural decisions and can defend each one: JSON flat files over ChromaDB (no Docker dependency, cosine similarity on ~1000 entries is fast enough for single user). Haiku for dreams, Sonnet for chat (background tasks don't need quality, they need cost efficiency). Tiered prompt loading (prompt caching only works if the stable part is stable). topK=5 hardcoded first (validate retrieval quality at fixed budget before optimizing).",
+    body: "You made concrete architectural decisions and can defend each one: JSON flat files over ChromaDB (no Docker dependency, cosine similarity on ~1000 entries is fast enough for single user). Haiku for dreams, Sonnet for chat (background tasks don't need quality, they need cost efficiency). Tiered prompt loading (prompt caching only works if the stable part is stable). topK=5 hardcoded first (validate retrieval quality at fixed budget before optimizing) — then shipped Concept Crossroads: multi-query RAG with collision-optimized passage selection, topK raised to 8.",
     keyLine:
       "I made each of these decisions consciously and can tell you what would break if I had gone the other way.",
   },
@@ -272,7 +272,7 @@ const HIGHLIGHTS = [
     id: 3,
     title: "You Know What's Missing and Why",
     when: "What would you improve? or What's next for this project?",
-    body: "Dynamic RAG Window: two files, immediate quality impact, already scoped — topK=3 for greetings, topK=8-10 for philosophical questions. Internal Tensions: the data exists in archetypeDepth.js, the injection point is identified in buildSystemPrompt(). MCP migration: three servers planned — Wikipedia is a 75-line delete, Cognition consolidates three OpenAI clients into one.",
+    body: "Concept Crossroads shipped (Apr 2026) — multi-query RAG with ~60 concept detection, collision-optimized passage scoring, topK raised to 8 for philosophical queries. Internal Tensions: the data exists in archetypeDepth.js, the injection point is identified in buildSystemPrompt(). MCP migration: three servers planned — Wikipedia is a 75-line delete, Cognition consolidates three OpenAI clients into one.",
     keyLine:
       "I didn't just build it — I know the architectural gaps and exactly where the fixes go.",
   },
@@ -335,14 +335,14 @@ If the message passes the behavioral signal checks (pushback, uncertainty, quiet
     tier: "junior",
     concept: "Advanced RAG",
     question: "What is the knowledge base and how does it get used?",
-    answer: `The knowledge base lives in data/archetype_knowledge/, organized as one folder per thinker — aurelius, feynman, kastrup, rumi, and so on, for 48 folders total. Each folder contains a passages.json file with structured text passages: the passage text, its source, thematic tags, and contextual notes.
+    answer: `The knowledge base lives in data/archetype_knowledge/, organized as one folder per thinker — aurelius, feynman, kastrup, rumi, and so on, for 46 folders total. Each folder contains a passages.json file with structured text passages: the passage text, its source, thematic tags, and contextual notes.
 
 The retrieval system is in archetypeRAG.js. At startup, initializeArchetypeRAG() loads all passages and generates embeddings using OpenAI's text-embedding-3-small model, caching them to data/archetype_embeddings.json — a 51MB file — so recomputation is avoided on subsequent runs.
 
-When a message comes in, retrieveArchetypeKnowledge() embeds the query, scores all passages with cosine similarity, filters by a minimum threshold of 0.3, diversifies to at most two passages per thinker, and returns the top five. Those passages — along with a contrasting voice from the CONTRAST_MAP — get injected directly into the system prompt under a "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE" section.`,
+When a message comes in, the Concept Crossroads pipeline runs: it detects philosophical concepts in the message (~60 tracked concepts like suffering, consciousness, time), fires parallel embedding queries as "{concept} {thinker}" pairs for each concept × active thinker, scores passages on relevance + distinctiveness + collision potential, deduplicates near-identical results, and returns the top eight. For non-philosophical messages, it falls back to single-query cosine retrieval. All selected passages get injected into the system prompt under a "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE" section.`,
     keyPhrases: [
-      "48 thinker folders, pre-embedded and cached to avoid recomputation.",
-      "topK=5, minScore=0.3, max 2 per thinker, plus a forced contrast voice.",
+      "46 thinker folders, pre-embedded and cached to avoid recomputation.",
+      "topK=8, minScore=0.3, max 2 per thinker — passages selected for dialectical tension, not just relevance.",
     ],
     files: ["archetypeRAG.js"],
   },
@@ -437,14 +437,16 @@ This means the right tone usually wins — intent boosts ensure alignment with w
     concept: "Advanced RAG",
     question:
       "How does the archetype RAG retrieval work, and what design choices did you make in it?",
-    answer: `The retrieval pipeline in archetypeRAG.js runs through four steps. Initialization loads all passage files and generates OpenAI text-embedding-3-small embeddings, caching them in archetype_embeddings.json so we only pay that cost once. Query time embeds the user's message, runs cosine similarity against all cached passage embeddings, filters by a minimum score of 0.3, then applies diversification.
+    answer: `The retrieval pipeline in archetypeRAG.js has a two-path architecture: a Concept Crossroads multi-query pipeline for philosophical messages, and a single-query cosine fallback for everything else.
 
-The diversification logic is where I made the most deliberate choices. Without it, if the user asks about consciousness, you'd get five Kastrup passages, all saying essentially the same thing. I cap at two passages per thinker, so the five slots span at least three different perspectives. I also reserve one slot for a contrast voice from the CONTRAST_MAP — pre-computed pairs of thinkers who fundamentally disagree. If Kastrup is the top match, the contrast slot pulls from Feynman or Faggin. That contrast passage is marked isContrast: true and formatted separately in the prompt with an explicit instruction: "The voices disagree. Hold the tension. Don't resolve it cheaply."
+Initialization loads all passage files and generates OpenAI text-embedding-3-small embeddings, caching them in archetype_embeddings.json so we only pay that cost once.
 
-The brute-force fallback is worth mentioning — if MongoDB's vector index is unavailable, the system loads all embedded passages into memory and scores them sequentially. It's slower but the semantic quality is identical, because we're using the same cosine similarity math either way.`,
+For philosophical messages, the Concept Crossroads path runs: extractConcepts() detects which of ~60 tracked philosophical concepts are present in the message — time, death, suffering, consciousness, freedom, love, paradox, and others. For each detected concept, it fires a parallel embedding query formatted as "{concept} {thinker}" for each active thinker via Promise.all(). _evaluatePassages() then scores every result on three dimensions: relevance to the message (50%), distinctiveness from the other selected passages (30%), and a collision bonus if the thinker pair is known to disagree (20%). _selectBestPassages() deduplicates near-identical results (cosine > 0.95), caps at two passages per thinker, and fills to topK=8.
+
+The key design decision was scoring for distinctiveness and collision, not just relevance. Without it, you'd get the most relevant passages — which for a question about suffering might all be Rumi, saying essentially the same thing. Scoring passages on how different they are from each other, and whether they come from thinkers in known tension, produces a set optimized for productive friction. The CONTRAST_MAP still exists as a secondary tiebreaker but is no longer the primary contrast mechanism.`,
     keyPhrases: [
-      "Two passages max per thinker — diversity is enforced, not hoped for.",
-      "CONTRAST_MAP is pre-computed — the opposition is intentional, not incidental.",
+      "Multi-query fires '{concept} × {thinker}' in parallel — the query is not the message, it's a philosophical object.",
+      "Scored for relevance + distinctiveness + collision — passages optimized for tension, not just accuracy.",
     ],
     files: ["archetypeRAG.js", "vectorMemory.js"],
   },
@@ -560,14 +562,14 @@ The exception is the Wikipedia tool and the file reader. Those genuinely require
     tier: "senior",
     concept: "Advanced RAG",
     question: "What are the weaknesses of the current RAG implementation?",
-    answer: `There are three meaningful weaknesses I've already identified. First, the topK is fixed at 5 regardless of message complexity. A greeting like "hey" and a deep question about consciousness get the same retrieval budget. That means shallow messages waste the token slot on unnecessary depth, and deep messages are artificially capped at five passages. I've documented a dynamic topK stretch goal in STRETCH_GOALS.md: scale from topK=3 for casual to topK=8-10 for philosophical and numinous intent — the intent scores are already computed by the time RAG runs, so passing them in would be a small change.
+    answer: `The fixed topK weakness I documented earlier is now shipped — Concept Crossroads (Apr 2026) replaced the single-query pipeline with concept-targeted multi-query retrieval. topK is now 8 for philosophical messages; the fallback for non-philosophical messages still runs single-query. That closes the most immediate gap.
 
-Second, the brute-force cosine fallback — which runs when MongoDB is unavailable — scores all passages sequentially. With 1,385 passages, that's fast enough right now, but it scales linearly. At 10,000 passages it becomes a latency problem. The fix is ensuring MongoDB Atlas vector search is always the primary path, with the brute-force fallback only for development.
+Two meaningful weaknesses remain. First, the brute-force cosine fallback — which runs when MongoDB is unavailable — scores all passages sequentially. With the current passage count, that's fast enough, but it scales linearly. At 10,000 passages it becomes a latency problem. The fix is ensuring MongoDB Atlas vector search is always the primary path, with brute-force only for development environments.
 
-Third, there's no query expansion or re-ranking. The query is the raw user message, embedded as-is. A question like "do you think suffering is avoidable?" might miss Schopenhauer passages that talk about "will" and "denial" even though they're highly relevant — because the surface-level vocabulary doesn't overlap with the query embedding. A hypothetical document generation step or a re-ranking pass would improve recall, but at the cost of additional API calls and complexity I haven't needed yet.`,
+Second, there's no re-ranking pass. Concept Crossroads improves recall by querying on philosophical concepts rather than raw message text, but the final scoring is still based on embedding similarity + diversity + collision bonus — it doesn't involve a second model reading the passage and asking "does this actually respond to what was asked?" A cross-encoder re-ranker or a lightweight LLM re-ranking call would further improve precision, especially for passages where the vocabulary is technically close but philosophically misaligned.`,
     keyPhrases: [
-      "Fixed topK is the most immediate improvement — dynamic scaling based on intent scores is already designed, just not implemented.",
-      "No query expansion means vocabulary mismatch can hide relevant passages — known tradeoff, accepted for simplicity.",
+      "Fixed topK is shipped — Concept Crossroads raised topK to 8 with concept-targeted multi-query.",
+      "Re-ranking is the next quality lever — concept detection improves recall; a re-ranker would improve precision.",
     ],
     files: ["archetypeRAG.js", "vectorMemory.js"],
   },
@@ -892,9 +894,9 @@ The value of this separation: the codename layer is stable and can be tuned as a
       "What would you build next if you had two weeks and no other constraints?",
     answer: `Two weeks with no constraints — I'd build the eval pipeline first, because every other decision depends on it. Right now I make architectural choices based on intuition: "I think extended thinking would improve synthesis quality." That's an educated guess, not a measurement. A structured eval pipeline would change the entire foundation of the roadmap.
 
-Concretely: I'd extend the mismatch logger in mismatchLogger.js into a full eval harness. A test set of 50-100 representative messages spanning all intent categories — philosophical, emotional, casual, numinous, conflict. For each message, I'd generate responses under multiple configurations: current architecture, extended thinking enabled, scatter-gather enabled, different topK settings. I'd score outputs on three dimensions: dialectical novelty (does the response say something the archetypes alone wouldn't?), alignment with detected intent (does oracular mode produce oracular responses?), and voice consistency (does the same user get recognizable continuity across sessions?).
+Concretely: I'd extend the mismatch logger in mismatchLogger.js into a full eval harness. A test set of 50-100 representative messages spanning all intent categories — philosophical, emotional, casual, numinous, conflict. For each message, I'd generate responses under multiple configurations: current architecture, extended thinking enabled, scatter-gather enabled. I'd score outputs on three dimensions: dialectical novelty (does the response say something the archetypes alone wouldn't?), alignment with detected intent (does oracular mode produce oracular responses?), and voice consistency (does the same user get recognizable continuity across sessions?).
 
-With that data, the roadmap writes itself. If extended thinking scores higher on dialectical novelty, it's worth the cost. If scatter-gather adds no quality delta over extended thinking, it stays in the backlog indefinitely. If topK=8 for philosophical messages consistently outperforms topK=5, the dynamic RAG window stretch goal becomes a high priority. Eval infrastructure is the force multiplier — it converts every other architectural decision from opinion into evidence.`,
+With that data, the roadmap writes itself. If extended thinking scores higher on dialectical novelty, it's worth the cost. If scatter-gather adds no quality delta over extended thinking, it stays in the backlog indefinitely. The Concept Crossroads eval question has a new angle too: does concept-targeted multi-query retrieval actually produce higher dialectical novelty in responses versus single-query? I have intuition that it does, but instrumented measurement would confirm it and determine whether the collision scoring formula (50/30/20) is optimally weighted. Eval infrastructure is the force multiplier — it converts every other architectural decision from opinion into evidence.`,
     keyPhrases: [
       "Every architectural decision is currently an educated guess — eval converts that to evidence.",
       "Eval harness first, then let the data sequence the roadmap.",
@@ -924,6 +926,25 @@ The whole system is built around the conviction that philosophical AI assistants
       "responseEngine.js",
       "conversationHistory.js",
     ],
+  },
+  {
+    id: 36,
+    tier: "senior",
+    concept: "Advanced RAG",
+    question:
+      "Walk me through the Concept Crossroads RAG pipeline and why you chose to score for collision rather than just relevance.",
+    answer: `The Concept Crossroads pipeline starts with concept detection. I maintain a list of ~60 philosophical concepts — suffering, consciousness, time, death, freedom, love, paradox, identity, and others. extractConcepts() scans the user's message for these terms using keyword matching plus position scoring (terms in the first or last third of a message score higher, as they tend to frame or conclude the question). The function returns up to 5 concepts per message.
+
+For each detected concept, the system fires parallel embedding queries via Promise.all() — one per "{concept} {thinker}" combination for each active thinker. So if the message surfaces "suffering" and "change" with Rumi and Frankl active, you get four parallel queries: "suffering Rumi", "suffering Frankl", "change Rumi", "change Frankl". Each query returns candidate passages from the embedding cache.
+
+_evaluatePassages() then scores all candidates on three dimensions: relevance to the original message embedding (weighted 50%), distinctiveness from the other passages already selected (weighted 30%), and a collision bonus if this passage's thinker is in known tension with another already-selected thinker (weighted 20%). _selectBestPassages() deduplicates near-identical passages (cosine similarity > 0.95), caps at two per thinker, and fills to topK=8.
+
+The scoring decision — particularly the 30% distinctiveness weight and 20% collision bonus — was the key design choice. Pure relevance retrieval for a question about suffering would likely return five Rumi passages that all say the same thing about pain as transformation. That's accurate but useless for synthesis. By penalizing similarity between selected passages and rewarding thinker tension, the pipeline produces a set where Rumi and Schopenhauer on suffering score higher together than Rumi and Rumi — because their disagreement is where the interesting synthesis lives. The goal isn't accurate quotation; it's productive friction.`,
+    keyPhrases: [
+      "Parallel queries: '{concept} {thinker}' — the RAG query is a philosophical object, not the raw user message.",
+      "Scoring for collision: 50% relevance + 30% distinctiveness + 20% collision bonus — passage selection optimized for tension, not accuracy.",
+    ],
+    files: ["archetypeRAG.js"],
   },
 ];
 

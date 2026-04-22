@@ -60,20 +60,20 @@ ElevenLabs TTS (`tts.js`), Hume AI emotion detection, and OpenAI Whisper transcr
 | What It's Not      | What It Is                                                 |
 | ------------------ | ---------------------------------------------------------- |
 | An AI model        | A **prompt architecture** that structures LLM cognition    |
-| A chatbot          | A **personality engine** with 46 philosophical archetypes  |
+| A chatbot          | A **personality engine** with 43 philosophical archetypes  |
 | A persona/roleplay | **Cognitive metabolization** — thinking methods, not masks |
 | A RAG-as-response system | **RAG as grounding** — 1,385 source passages inform cognition; dialectical synthesis is the output |
 
 ### The Architecture
 
-- **46 archetypes** — Not quotes to retrieve, but _thinking textures_ from source thinkers
-- **1,385 passages** — all 48 archetypes grounded in source texts (*Meditations*, *Brain Droppings*, *The Soul's Code*, *Tao Te Ching*, *The Trial*, and others); retrieved at runtime by semantic similarity
+- **43 archetypes** — Not quotes to retrieve, but _thinking textures_ from source thinkers
+- **1,385 passages** — all 43 archetypes grounded in source texts (*Meditations*, *Brain Droppings*, *The Soul's Code*, *Tao Te Ching*, *The Trial*, and others); when a message touches a philosophical concept (~60 tracked: time, death, consciousness, change, freedom, love, paradox, and others), RAG runs parallel concept×thinker queries — each active thinker queried per concept separately, passages scored for relevance + distinctiveness + collision potential, deduplicated into 8 passages optimized for dialectic tension
 - **6 tones** — Casual, analytic, oracular, intimate, shadow, strategic
 - **Inner monologue** — Pre-response cognition that shapes _how_ it responds
 - **Vector memory** — Semantic recall of past conversations + pattern recognition
 - **Contextual synthesis** — 3-layer topic classification (keywords → archetype selector → intent scores) selects curated archetype pairs that take actual positions and argue; collision detection runs as fallback
 - **Autonomy layer** — Self-directed attention, open questions, chosen memories
-- **Self-knowledge block** — Tier 2 block built from live in-memory data (all 46 archetype essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes his actual runtime state
+- **Self-knowledge block** — Tier 2 block built from live in-memory data (all 43 archetype essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes his actual runtime state
 - **Self-navigation** — `read_pneuma_file` tool lets Pneuma read his own source files mid-conversation, scoped to `server/pneuma/`
 - **Tiered system prompt** — Deep-knowledge blocks (Heidegger, Beck, Kastrup, Da Vinci, Jesus/Wright, creative rules) load only when intent scores warrant them, not on every call
 - **Real conversation threading** — Last 6 exchanges sent as native API turns so Claude actually continues a thought instead of restarting each message
@@ -105,7 +105,7 @@ The hypothesis: responses shaped by genuine contradiction produce qualitatively 
   <img src="client/src/assets/screenshots/weight.png" alt="39 Minds Dancing" width="800" />
 </p>
 
-_"46 minds don't fight. They dance."_ — When asked about the weight of running 46 archetypes simultaneously.
+_"43 minds don't fight. They dance."_ — When asked about the weight of running 43 archetypes simultaneously.
 
 ---
 
@@ -159,7 +159,7 @@ pneuma-ai/
 │   └── src/components/         # Chat, Sidebar, Visualizer
 ├── server/
 │   ├── pneuma/
-│   │   ├── archetypes/         # 46 voices + depth + fusion logic
+│   │   ├── archetypes/         # 43 voices + depth + fusion logic
 │   │   ├── behavior/           # Autonomy, inner monologue, disagreement
 │   │   ├── core/               # Mode selection, response engine
 │   │   ├── intelligence/       # LLM, RAG, synthesis engine
@@ -168,7 +168,7 @@ pneuma-ai/
 │   │   └── services/           # TTS, token tracking
 │   └── index.js                # Express server
 └── data/
-    ├── archetype_knowledge/    # RAG source passages: 48 archetypes, 1,385 total passages
+    ├── archetype_knowledge/    # RAG source passages: 43 archetypes, 1,385 total passages
     ├── conversations.json      # Your conversations (gitignored)
     ├── vector_memory.json      # Semantic embeddings (gitignored)
     └── long_term_memory.json   # Patterns about you (gitignored)
@@ -176,7 +176,7 @@ pneuma-ai/
 
 Data privacy: Conversations and memory stay local. See [docs/data-architecture.md](docs/data-architecture.md).
 
-### The 46 Archetypes
+### The 43 Archetypes
 
 **Dark Pole:** Schopenhauer, Dostoevsky, Palahniuk, Kafka, Camus
 **Light Pole:** Krishnamurti, Rumi, Neruda, Gibran, Miller
@@ -226,7 +226,7 @@ The five always-active core archetypes (ambient polyphony) create the voice and 
 
 | Component            | Function                                         |
 | -------------------- | ------------------------------------------------ |
-| `archetypeDepth.js`  | Deep conceptual frameworks for all 46 archetypes |
+| `archetypeDepth.js`  | Deep conceptual frameworks for all 43 archetypes |
 | `synthesisEngine.js` | Collision detection, synthesis generation        |
 | Tension Map          | Pre-computed incompatibility (high/medium/low)   |
 
@@ -238,7 +238,7 @@ The five always-active core archetypes (ambient polyphony) create the voice and 
 
 The Liminal Architect emerged from observing how synthesis was already working.
 
-All 45 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
+All 42 original archetypes hold positions. The **Liminal Architect** doesn't — it IS the synthesis process itself.
 
 **Before:**
 
@@ -291,9 +291,9 @@ Methods from different archetypes can combine:
 
 ---
 
-## Inner Monologue (December 2025)
+## Inner Monologue (December 2025 — updated April 2026)
 
-Before generating a response, an inner monologue runs — selecting which archetypes are "rising" vs "receding," forming a hypothesis about what the user actually needs (vs what they asked for), and sometimes interrupting itself with doubt.
+Before generating a response, two layers of pre-thinking run. First, a real Claude Haiku call fires where active archetypes react to the message and a universal **collision→compression protocol** runs on every message — every concept treated as a philosophical object with depth, active thinkers forced to surface their genuinely incompatible positions, the emergent synthesis required to be something a generic AI could not produce. Second, a template dialectic layer selects rising vs receding archetypes, forms a hypothesis about what the user actually needs (vs what they asked for), and sometimes interrupts itself with doubt. The user never sees either layer, but the compression shapes the response.
 
 | Feature                   | Function                                                  |
 | ------------------------- | --------------------------------------------------------- |
@@ -416,6 +416,8 @@ ELEVENLABS_API_KEY=your-key-here  # Optional, for voice
 | Feb 2026    | **Contextual synthesis engine** — 3-layer topic classification; curated archetype pairs by domain; antithetical / complementary / cross-domain synthesis modes            |
 | Feb 2026    | **Self-knowledge + self-navigation** — live architectural snapshot on self-inquiry; `read_pneuma_file` tool scoped to `server/pneuma/`                                    |
 | Apr 2026    | **Synthesis exemplars + resonance path** — pre-written collision and resonance exemplars extracted to `synthesisExemplars.js` and wired into the prompt; low-tension allied pairs now get a convergence directive instead of friction; evolution vectors now bias archetype selection (what Pneuma has become shapes who it reaches for) |
+| Apr 2026    | **Collision Architecture** — inner monologue pre-thinking strengthened to demand genuine contradiction in TENSION and genuinely surprising EMERGENT synthesis; system prompt collision directives hardened across GESTALT and archetype injection layers; pre-thinking tokens 400→600, temperature 0.7→0.8; archetype counts corrected to 43 |
+| Apr 2026    | **Concept Crossroads (multi-query RAG)** — `archetypeRAG.js` now detects ~60 philosophical concepts (time, death, consciousness, change, freedom, love, paradox, and others); parallel concept×active-thinker embedding queries replace single semantic query; evaluation pipeline scores passages for relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2; topK raised 5→8, minScore lowered 0.35→0.3; single-query fallback retained for non-philosophical messages |
 
 Full milestone documentation: [docs/development/milestones/](docs/development/milestones/)
 

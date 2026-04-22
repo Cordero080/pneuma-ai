@@ -55,7 +55,7 @@ const STUDY_SECTIONS = [
               </li>
               <li>
                 <strong>Archetype selection</strong> — picks the most relevant
-                3–5 archetypes from 46 based on intent
+                3–5 archetypes from 43 based on intent
               </li>
               <li>
                 <strong>Contextual synthesis</strong> — classifies message
@@ -470,10 +470,15 @@ const STUDY_SECTIONS = [
           <div className="sg-q">Q: What is RAG and how does Pneuma use it?</div>
           <div className="sg-a">
             RAG = Retrieval-Augmented Generation. Pneuma has 46 vector knowledge
-            bases — one per archetype. When a message comes in, it's embedded
-            and compared by cosine similarity against the archetype's knowledge
-            base. The most relevant passages are literally injected into the
-            system prompt as Tier 3 context.
+            bases — one per thinker folder. The Concept Crossroads pipeline
+            (shipped Apr 2026) replaced single-query cosine retrieval with
+            concept-targeted multi-query retrieval: it detects which of ~60
+            philosophical concepts are in your message, fires parallel embedding
+            queries formatted as "{"{concept} {thinker}"}" for each concept ×
+            active thinker, scores passages on relevance (50%) + distinctiveness
+            (30%) + collision bonus if thinkers disagree (20%), deduplicates,
+            and injects the top 8 as Tier 3 context. For non-philosophical
+            messages, single-query cosine fallback still runs.
           </div>
         </div>
         <div className="sg-qa">
@@ -1086,7 +1091,7 @@ const STUDY_SECTIONS = [
                 wrong read = wrong archetypes downstream
               </li>
               <li>
-                RAG quality depends on the knowledge bases — 46 bases is a lot
+                RAG quality depends on the knowledge bases — 46 thinker folders
                 to maintain; passage quality varies
               </li>
               <li>

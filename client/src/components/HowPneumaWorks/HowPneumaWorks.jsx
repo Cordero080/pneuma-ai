@@ -328,13 +328,16 @@ const SYSTEM_SECTIONS = [
             </strong>
             <br />
             <br />
-            At startup, Pneuma reads every passage from all 43 thinkers in{" "}
+            At startup, Pneuma reads every passage from 46 thinker folders in{" "}
             <code>data/archetype_knowledge/</code>. Each passage gets converted
             to a <TermRef name="vector" /> and cached in{" "}
             <code>archetype_embeddings.json</code> (51MB — thousands of
-            passages, computed once). When you send a message, your message
-            becomes a <TermRef name="vector" /> and gets compared against every
-            cached passage. The closest ones come back.
+            passages, computed once). When you send a message, Pneuma first
+            checks whether it contains any of ~60 philosophical concepts. If it
+            does, the Concept Crossroads pipeline fires — querying in parallel
+            on each concept × active thinker and scoring passages for tension,
+            not just relevance. If not, a single-query cosine search runs as
+            fallback.
           </div>
         </div>
         <div className="sg-qa">
@@ -345,22 +348,31 @@ const SYSTEM_SECTIONS = [
           <div className="sg-a">
             <ol style={{ lineHeight: "2" }}>
               <li>
-                Your message → converted to a <TermRef name="vector" /> via{" "}
-                <TermRef name="embedding" />
+                Your message is scanned for philosophical concepts — suffering,
+                consciousness, time, death, freedom, and ~55 others. If any are
+                found, the Concept Crossroads path runs.
               </li>
               <li>
-                Compared against every cached passage via{" "}
-                <TermRef name="cosine similarity" />
-              </li>
-              <li>Any passage scoring below 0.3 → thrown out</li>
-              <li>
-                Max 2 passages per thinker, 5 total — no single philosopher
-                dominates
+                Parallel queries fire: one <TermRef name="embedding" /> query
+                formatted as &ldquo;{"{concept} {thinker}"}&rdquo; for each
+                detected concept × each active thinker, all at once via
+                Promise.all.
               </li>
               <li>
-                <TermRef name="CONTRAST_MAP" /> kicks in — if one thinker
-                dominates, pulls in an opposing voice marked{" "}
-                <code>isContrast: true</code>
+                Each candidate passage is scored: relevance to your message
+                (50%) + how different it is from other already-selected passages
+                (30%) + collision bonus if the thinker disagrees with another
+                already-selected thinker (20%).
+              </li>
+              <li>
+                Near-identical passages removed (
+                <TermRef name="cosine similarity" /> &gt; 0.95), max 2 per
+                thinker, best 8 kept.
+              </li>
+              <li>
+                <TermRef name="CONTRAST_MAP" /> runs as a final secondary check
+                — any thinker dominance that the collision scoring didn&apos;t
+                catch gets corrected here.
               </li>
             </ol>
           </div>
@@ -370,21 +382,20 @@ const SYSTEM_SECTIONS = [
             When does the CONTRAST_MAP trigger — is it always on?
           </div>
           <div className="sg-a">
-            No — it only triggers when one thinker clearly dominates the
-            results.
+            <TermRef name="CONTRAST_MAP" /> is now a secondary check. The
+            primary contrast mechanism is the collision bonus in the evaluation
+            scoring (step 3 above): passages from thinkers in known tension
+            score higher together, so diversity is built into selection before
+            CONTRAST_MAP runs.
             <br />
             <br />
-            If Rumi's passages score highest → <TermRef name="CONTRAST_MAP" />{" "}
-            looks up Rumi → pulls in Kafka or Schopenhauer as a deliberate
-            opposing voice.
+            CONTRAST_MAP runs after scoring as a final safety pass — if one
+            thinker still dominates despite the collision scoring, it pulls in a
+            deliberately opposing voice (e.g. Rumi dominates → Kafka or
+            Schopenhauer added).
             <br />
             <br />
-            If scores are already spread across multiple thinkers → contrast is
-            naturally there, <TermRef name="CONTRAST_MAP" /> doesn't need to
-            intervene.
-            <br />
-            <br />
-            Think of it as a balancer. It fires when results are too one-sided.
+            Think of it as a final balancer that backs up the primary mechanism.
           </div>
         </div>
         <div className="sg-qa">
@@ -411,10 +422,14 @@ const SYSTEM_SECTIONS = [
               <FileRef name="archetypeRAG.js" /> — Philosophical Knowledge RAG
             </strong>
             <br />
-            Searches 1,385 passages from 48 thinkers in{" "}
-            <code>data/archetype_knowledge/</code>. Static and pre-computed —
-            the 51MB embeddings cache is built once at startup and never changes
-            mid-session. Answers: <em>what wisdom applies to this message?</em>
+            Searches passages from 46 thinker folders in{" "}
+            <code>data/archetype_knowledge/</code> using the Concept Crossroads
+            pipeline — concept detection, parallel queries, collision-optimized
+            scoring, topK=8. Static and pre-computed — the 51MB embeddings cache
+            is built once at startup and never changes mid-session. Answers:{" "}
+            <em>
+              what wisdom, optimized for tension, applies to this message?
+            </em>
             <br />
             <br />
             <strong>
@@ -433,26 +448,29 @@ const SYSTEM_SECTIONS = [
         </div>
         <div className="sg-qa">
           <div className="sg-q">
-            Why is the contrast slot novel — don't all RAG systems return the
-            most relevant passages?
+            Why is Concept Crossroads novel — don&apos;t all RAG systems return
+            the most relevant passages?
           </div>
           <div className="sg-a">
-            Yes — that's exactly the problem. Standard RAG optimizes purely for{" "}
-            <TermRef name="cosine similarity" />. Highest score wins. If your
-            message resonates most with Rumi, you get Rumi passages. More Rumi.
-            All Rumi. The system converges on agreement with itself.
+            Yes — that&apos;s exactly the problem. Standard RAG optimizes purely
+            for <TermRef name="cosine similarity" />. Highest score wins. If
+            your message resonates most with Rumi, you get Rumi passages. More
+            Rumi. All Rumi. The system converges on agreement with itself.
             <br />
             <br />
-            Pneuma deliberately breaks this. <TermRef name="CONTRAST_MAP" />{" "}
-            reserves one of the five retrieval slots for a philosophically
-            opposing thinker — not the most relevant voice, but the one most
-            likely to argue with whoever scored highest. Rumi dominates → Kafka
-            gets injected alongside him. Schopenhauer dominates → Whitman comes
-            in. The friction is engineered before Claude even starts thinking.
+            Concept Crossroads breaks this at the query level — not by adding a
+            contrast slot after retrieval, but by scoring passages for
+            distinctiveness and thinker collision <em>during</em> selection. A
+            Rumi passage and a Schopenhauer passage on suffering score higher{" "}
+            <em>together</em> than two Rumi passages, because the collision
+            between them is where synthesis happens. The friction is baked into
+            the scoring function — it doesn&apos;t rely on CONTRAST_MAP to clean
+            up after.
             <br />
             <br />
-            Standard RAG retrieves. This retrieves <em>and</em> destabilizes.
-            That's the difference.
+            Standard RAG retrieves. Concept Crossroads retrieves{" "}
+            <em>and optimizes for productive tension</em>. That&apos;s the
+            difference.
           </div>
         </div>
       </>
@@ -1131,9 +1149,11 @@ function CheatSheetTab() {
           </div>
           <div className="cs-body">
             <FileRef name="archetypeSelector.js" /> picks ONE voice. The
-            philosophical collision comes from the CONTRAST_MAP inside{" "}
-            <FileRef name="archetypeRAG.js" />. Pneuma can speak as Nietzsche
-            while wrestling with Rumi and Kafka's passages simultaneously.
+            philosophical tension comes from <FileRef name="archetypeRAG.js" />{" "}
+            — the Concept Crossroads pipeline selects passages optimized for
+            collision between thinkers, not just relevance. Pneuma can speak as
+            Nietzsche while wrestling with Rumi and Kafka&apos;s passages
+            simultaneously.
           </div>
         </div>
       </div>

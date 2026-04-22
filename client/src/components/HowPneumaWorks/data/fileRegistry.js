@@ -57,17 +57,17 @@ export const FILE_REGISTRY = {
   },
   "archetypeRAG.js": {
     path: "server/pneuma/intelligence/archetypeRAG.js",
-    role: "Retrieves relevant philosophical passages and forces a contrasting voice.",
+    role: "Concept Crossroads multi-query RAG — detects philosophical concepts and retrieves passages optimized for dialectical tension.",
     mainFunction: "retrieveArchetypeKnowledge(message, options)",
     whatItDoes:
-      "Embeds the message. Scores all 51MB of cached passage embeddings via cosine similarity. Filters, diversifies across thinkers, then checks the CONTRAST_MAP — if one thinker dominates, pulls in an opposing voice marked isContrast: true.",
+      "Concept Crossroads pipeline: detects which of ~60 philosophical concepts are in the message, fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness from other selected passages (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical results (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine retrieval for non-philosophical messages.",
     flowChain:
-      "llm.js → retrieveArchetypeKnowledge() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
+      "llm.js → retrieveArchetypeKnowledge() → extractConcepts() → _multiQueryRetrieval() [parallel] → _evaluatePassages() → _selectBestPassages() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
     direction: "REQUEST",
     directionNote:
       "Runs before the Claude call. Its output is the philosophical raw material Claude reasons from.",
     keyInsight:
-      "getArchetypeContext() wraps the raw passages in Da Vinci's five cognitive methods (SAPER VEDERE, MIRROR MIND, etc.) as a frame for synthesis — so Claude isn't just quoting, it's being told how to process the wisdom.",
+      "Passages are selected for tension, not just relevance. A Rumi passage and a Schopenhauer passage on suffering score higher together than two Rumi passages — the collision between thinkers is where synthesis happens.",
   },
   "vectorMemory.js": {
     path: "server/pneuma/memory/vectorMemory.js",
@@ -113,18 +113,18 @@ export const FILE_REGISTRY = {
   },
   "innerMonologue.js": {
     path: "server/pneuma/behavior/innerMonologue.js",
-    role: "Runs a real LLM pre-thinking step before every response — archetypes react, tensions surface, emergent insight forms.",
+    role: "Two-layer pre-response cognition: real Haiku LLM call with collision→compression protocol, plus template dialectic layer.",
     mainFunction:
-      "generatePreThinking(message, archetypes, intentScores, memory)",
+      "generatePreThinking(message, archetypes, context) + generateInnerMonologue(message, context)",
     whatItDoes:
-      "Calls Claude Haiku with the active archetypes and asks each to react to the user's message, identify the core tension, and produce an emergent insight neither archetype alone would reach. Falls back to template-based generateInnerMonologue() if the LLM call fails.",
+      "Layer 1 — generatePreThinking(): calls Claude Haiku with active archetypes, runs the collision→compression protocol (every concept treated as a philosophical object; output must be structurally surprising + philosophically dense + linguistically economical), produces the EMERGENT block. Layer 2 — generateInnerMonologue(): template-based dialectic; rising vs. receding voices, hypothesis about the user's underlying need, 40% chance of self-interruption. Both layers inject into the system prompt before the main Claude call.",
     flowChain:
-      "fusion.js → generatePreThinking() → Claude Haiku LLM call → structured pre-thinking result → injected into llm.js context block before the main Claude response",
+      "fusion.js → generatePreThinking() [Haiku LLM call, collision protocol] → generateInnerMonologue() [template] → both injected into llm.js context block before the main Claude response",
     direction: "REQUEST",
     directionNote:
-      "Runs on every non-trivial message. Output is a structured internal state, not a response.",
+      "Runs on every non-trivial message. Output is structured internal cognition, not a response.",
     keyInsight:
-      "The pre-thinking step is what makes Pneuma respond to what you need rather than just what you said. It's a real LLM call where archetypes think before the main response — not templates or canned phrases.",
+      "The collision→compression protocol runs on every message — not just special cases. It demands that the EMERGENT output be genuinely new: something no single archetype would produce alone, compressed to the minimum viable expression.",
   },
   "dreamMode.js": {
     path: "server/pneuma/behavior/dreamMode.js",
