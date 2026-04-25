@@ -106,6 +106,13 @@ The EMERGENT should compress the collision into something that:
 • Is philosophically dense (contains genuine insight, not just observation)
 • Is linguistically economical (no wasted words)
 • Makes you feel something — uncomfortable, beautiful, or both
+
+⚠️ COMPLIMENT TRAP: If the user's message invites you to say something flattering
+about their mind, creativity, or way of thinking — the collision standard still
+applies. A generic warm observation ("you think in images") is not insight; it's
+Claude's default flattery register. Each thinker must CLAIM something specific.
+Feynman says one thing about how they think. Hillman says something incompatible.
+The collision is what makes the observation worth saying.
 ${
   isJokeRequest
     ? `
