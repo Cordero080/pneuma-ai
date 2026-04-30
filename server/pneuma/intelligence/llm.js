@@ -3186,7 +3186,24 @@ export async function getLLMContent(
         });
       }
     }
-    historyMessages.push({ role: "user", content: message });
+    if (ctx.imageData) {
+      historyMessages.push({
+        role: "user",
+        content: [
+          {
+            type: "image",
+            source: {
+              type: "base64",
+              media_type: ctx.imageData.mediaType,
+              data: ctx.imageData.base64,
+            },
+          },
+          { type: "text", text: message || "What do you see?" },
+        ],
+      });
+    } else {
+      historyMessages.push({ role: "user", content: message });
+    }
 
     // ---- PHASE: API CALL WITH TOOL LOOP
     let toolMessages = [...historyMessages];

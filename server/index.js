@@ -8,6 +8,7 @@
 // ------------------------- IMPORTS ---------------------------------
 import { randomUUID } from "crypto";
 import express from "express";
+import multer from "multer";
 import cors from "cors";
 import fs from "fs/promises";
 import path from "path";
@@ -183,14 +184,25 @@ app.delete("/conversations/:id", async (req, res) => {
 // ROLE: Primary text conversation handler — streams response word-by-word via SSE
 // INPUT FROM: POST /chat request from frontend with { message } body
 // OUTPUT TO: SSE stream with { type: "chunk"|"done"|"reset"|"error", ... } events
-app.post("/chat", async (req, res) => {
-  const { message, sessionId: clientSessionId } = req.body;
+const imageUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 20 * 1024 * 1024 },
+  fileFilter: (_req, file, cb) => cb(null, file.mimetype.startsWith("image/")),
+});
+
+app.post("/chat", imageUpload.single("image"), async (req, res) => {
+  const message = req.body?.message ?? "";
+  const clientSessionId = req.body?.sessionId ?? undefined;
   // Client owns the sessionId — fall back to a server-generated UUID if missing.
   // The sessionId is what lets us scope per-session state (language, mode flags,
   // conversation) without module-level singletons bleeding across users.
   const sessionId = clientSessionId ?? randomUUID();
   // requestContext = the "backpack" — created fresh each request, carries all
   // per-request state so nothing has to live in module-level variables.
+  const imageData = req.file
+    ? { base64: req.file.buffer.toString("base64"), mediaType: req.file.mimetype }
+    : null;
+
   const requestContext = {
     sessionId,
     currentLanguage: "en", // default; processLanguage() updates this per message
@@ -198,6 +210,7 @@ app.post("/chat", async (req, res) => {
     diagnosticMode: false, // toggled by "enter diagnostics" / "exit diagnostics" commands
     directMode: false, // toggled by "drop the quotes" / "be yourself" commands
     lastUsedArchetypes: [], // prevents archetype repetition within one response
+    imageData, // set when user attaches an image; consumed by llm.js for vision
     // currentLLMContent intentionally omitted — personality.js uses a synchronous
     // module-level bridge that is safe in Node.js (no concurrent hazard). See personality.js.
   };
