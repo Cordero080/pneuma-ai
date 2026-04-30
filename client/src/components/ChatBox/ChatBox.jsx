@@ -402,12 +402,14 @@ function ChatBox({
   */
   function attachImageFile(file) {
     if (!file || !file.type.startsWith("image/")) return;
-    if (attachedImage?.previewUrl) URL.revokeObjectURL(attachedImage.previewUrl);
+    if (attachedImage?.previewUrl)
+      URL.revokeObjectURL(attachedImage.previewUrl);
     setAttachedImage({ file, previewUrl: URL.createObjectURL(file) });
   }
 
   function clearAttachedImage() {
-    if (attachedImage?.previewUrl) URL.revokeObjectURL(attachedImage.previewUrl);
+    // Do NOT revoke here — the blob URL may still be needed by a message bubble
+    // in the messages array. It will be GC'd when the page unloads.
     setAttachedImage(null);
     if (imageInputRef.current) imageInputRef.current.value = "";
   }
@@ -481,7 +483,8 @@ function ChatBox({
       if (imageToSend) {
         const form = new FormData();
         form.append("message", messageText ?? "");
-        if (sessionIdRef.current) form.append("sessionId", sessionIdRef.current);
+        if (sessionIdRef.current)
+          form.append("sessionId", sessionIdRef.current);
         form.append("image", imageToSend.file);
         fetchOptions = { method: "POST", body: form };
       } else {
