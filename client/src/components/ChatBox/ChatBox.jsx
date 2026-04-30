@@ -384,17 +384,13 @@ function ChatBox({
     }
   }, [messages]);
 
-  // Block browser from opening dragged files as a new page
+  // Prevent browser navigating away when file is dropped outside the drop zone
   useEffect(() => {
-    const prevent = (e) => {
+    const preventNav = (e) => {
       if (e.dataTransfer?.types?.includes("Files")) e.preventDefault();
     };
-    document.addEventListener("dragover", prevent);
-    document.addEventListener("drop", prevent);
-    return () => {
-      document.removeEventListener("dragover", prevent);
-      document.removeEventListener("drop", prevent);
-    };
+    document.addEventListener("dragover", preventNav);
+    return () => document.removeEventListener("dragover", preventNav);
   }, []);
 
   /*
