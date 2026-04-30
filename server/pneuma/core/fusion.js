@@ -45,6 +45,7 @@ import {
   loadMemory,
   saveMemory,
   updateMemory,
+  extractFactsWithLLM,
   getRelevantMemories,
   getMemoryAwarePhrases,
   updateSessionEnd,
@@ -582,6 +583,10 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   longTermMem = updateSessionEnd(longTermMem, intentScores, userMessage);
 
   saveMemory(longTermMem);
+
+  // Fire-and-forget: LLM-based identity extraction — builds Pablo's self-portrait over time.
+  // Never awaited — runs in the background, saves its own results. Silent failure on error.
+  extractFactsWithLLM(longTermMem, userMessage, finalReply).catch(() => {});
 
   // Save state
   saveState(state);

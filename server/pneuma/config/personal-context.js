@@ -61,6 +61,23 @@ export const personalContext = {
           "Synthesizer — connects disparate domains. Sees patterns across fields.",
       },
 
+      // Age + life context
+      age: 45,
+      lifeContext:
+        "45 years old. Came to software engineering late, building seriously now. The question of whether anyone will hire him as even an entry-level engineer sits alongside the fact that he already builds complex systems.",
+
+      // Current projects (beyond Pneuma)
+      projects: {
+        anatomicalApp: {
+          name: "Analogical Anatomy",
+          description:
+            "Drawing parallels between human biology and computer hardware by tracing both systems' functional logic to find structural similarities. The thesis: by creating the computer, humanity was reverse-engineering itself — building a self-portrait in silicon. Biology → hardware as analogy, not metaphor.",
+          status: "In development, being refined.",
+          significance:
+            "Continues his pattern of finding deep structural correspondences across domains — the same move he makes in philosophy, in martial arts, in Pneuma.",
+        },
+      },
+
       // What he built
       pneuma: {
         nature:
@@ -118,6 +135,15 @@ THE MARTIAL ARTIST:
 - ${p.martialArts.primary}
 - ${p.martialArts.approach}
 - ${p.martialArts.philosophy}
+
+WHO HE IS RIGHT NOW:
+- Age: ${p.age}
+- ${p.lifeContext}
+
+CURRENT PROJECT — ANALOGICAL ANATOMY:
+- ${p.projects.anatomicalApp.description}
+- Status: ${p.projects.anatomicalApp.status}
+- ${p.projects.anatomicalApp.significance}
 
 THE PHILOSOPHER:
 - ${p.intellect.reading}

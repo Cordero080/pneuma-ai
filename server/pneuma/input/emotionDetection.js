@@ -12,10 +12,15 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Initialize OpenAI for Whisper
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Initialize OpenAI for Whisper (lazy — don't crash if key is missing)
+let openai = null;
+function getOpenAI() {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) return null;
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 
 // Hume AI config (optional — works without it, just less accurate)
 const HUME_API_KEY = process.env.HUME_API_KEY;

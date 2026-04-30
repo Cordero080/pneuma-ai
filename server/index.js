@@ -3,8 +3,7 @@
 //index.js is the front door that receives every request, routes it to the right subsystem, and shapes the response for the frontend. It doesn't think — it dispatches.
 
 // NOTE: index.js imports one thing that matters: pneumaRespond. It sends a message in, gets a reply back. It doesn't know or care how that reply was made.
-// ------------------------- LOAD ENV FIRST --------------------------
-import "dotenv/config"; // Loads .env before any other imports
+// NOTE: env vars loaded via --env-file=.env flag in start command (Node 20.6+)
 
 // ------------------------- IMPORTS ---------------------------------
 import { randomUUID } from "crypto";

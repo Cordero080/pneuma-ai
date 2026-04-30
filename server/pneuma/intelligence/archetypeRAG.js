@@ -55,10 +55,15 @@ const CONTRAST_MAP = {
   "Albert Camus": ["Viktor Frankl", "Rumi"],
 };
 
-// Initialize OpenAI for embeddings
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Initialize OpenAI for embeddings (lazy — don't crash if key is missing)
+let openai = null;
+function getOpenAI() {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) return null;
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 
 // Paths - data folder is at project root (../../.. from intelligence folder)
 const KNOWLEDGE_DIR = path.join(

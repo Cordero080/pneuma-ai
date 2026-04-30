@@ -294,16 +294,11 @@ function applyContinuity(response, threadMemory, identity) {
   return response;
 }
 
-// CHILD of Layer 4: Prefixes response with a fresh opener when it echoes recent messages
+// CHILD of Layer 4: Strips the repeated opener — don't prefix, just return the response
+// Claude-ish prefixes like "Building on that —" and "Another angle:" are banned verbal tics.
+// If the response echoes a recent message, the right fix is the content, not a prefix.
 function addVariation(response) {
-  const variations = [
-    "To put it differently — ",
-    "Another angle: ",
-    "Building on that — ",
-    "Here's what I mean: ",
-    "Check it:",
-  ];
-  return variations[Math.floor(Math.random() * variations.length)] + response;
+  return response;
 }
 
 // CHILD of Layer 4: Replaces phrases that break Pneuma's identity rules (no fake agency, no human mimicry)

@@ -1,19 +1,62 @@
 // FILE ROLE: Structured cross-session memory store — tracks user facts, recurring topics, struggles, interests, significant moments, session emotional state, and phrase blacklist in MongoDB with a JSON file fallback.
 
 import fs from "fs";
+import Anthropic from "@anthropic-ai/sdk";
 import { LONG_TERM_MEMORY_FILE } from "../../config/paths.js";
 import { getDB } from "../../db.js";
+import { MODELS } from "../../config/models.js";
 
 const memoryPath = LONG_TERM_MEMORY_FILE;
 const COLLECTION = "longTermMemory";
 const DOC_ID = "pablo";
 
 const defaultMemory = {
-  // Core facts about the user
+  // Core facts about the user — grows over time via extractFactsWithLLM()
   userFacts: {
     name: "Pablo",
     relationship: "creator",
-    knownSince: null, // Set on first interaction
+    knownSince: null,
+
+    // Identity
+    age: null, // e.g. 45
+    occupation: null, // e.g. "software engineer, artist"
+    location: null, // city/country if mentioned
+
+    // Work & craft
+    projects: [], // [{ name, description, status }]
+    skills: [], // ["Node.js", "painting", ...]
+    careerContext: null, // e.g. "career changer, came to software late"
+
+    // Inner life
+    values: [], // ["autonomy", "depth", "craft", ...]
+    beliefs: [], // philosophical/worldview positions
+    aesthetics: [], // what he finds beautiful or compelling
+    contradictions: [], // tensions he holds (noted with care, not judgment)
+
+    // Relationships
+    relationships: [], // [{ role: "partner", name: null, notes: "..." }]
+
+    // How he engages
+    communicationStyle: null, // e.g. "direct, thinks by talking, jumps to the essence"
+    learningStyle: null,      // e.g. "builds systems to understand concepts"
+
+    // Ideas & intellectual life
+    ideas: [],            // [{ idea, context }] — brilliant things he articulated; worth remembering as thoughts
+    obsessions: [],       // things he returns to with unusual intensity
+
+    // Where he is headed
+    aspirations: [],      // what he wants to become, do, or build
+    becoming: [],         // who he senses he is growing into
+
+    // What he carries
+    fears: [],            // stated fears only, never projected
+    regrets: [],          // things he wishes were different
+    proudOf: [],          // accomplishments or qualities he values in himself
+
+    // Energy map
+    energizes: [],        // what makes him come alive
+    drains: [],           // what consistently depletes him
+    resisting: [],        // what he is avoiding or not ready to face
   },
 
   // Topics they return to (pattern detection)
@@ -81,7 +124,10 @@ export async function loadMemory() {
       return { ...defaultMemory, ...existing };
     }
   } catch (err) {
-    console.warn("[Memory] MongoDB load failed, falling back to file:", err.message);
+    console.warn(
+      "[Memory] MongoDB load failed, falling back to file:",
+      err.message,
+    );
     if (fs.existsSync(memoryPath)) {
       const raw = fs.readFileSync(memoryPath, "utf8");
       return { ...defaultMemory, ...JSON.parse(raw) };
@@ -96,13 +142,18 @@ export async function loadMemory() {
 export async function saveMemory(memory) {
   try {
     const db = await getDB();
-    await db.collection(COLLECTION).replaceOne(
-      { _id: DOC_ID },
-      { _id: DOC_ID, ...memory },
-      { upsert: true }
-    );
+    await db
+      .collection(COLLECTION)
+      .replaceOne(
+        { _id: DOC_ID },
+        { _id: DOC_ID, ...memory },
+        { upsert: true },
+      );
   } catch (err) {
-    console.error("[Memory] MongoDB save failed, falling back to file:", err.message);
+    console.error(
+      "[Memory] MongoDB save failed, falling back to file:",
+      err.message,
+    );
     try {
       fs.writeFileSync(memoryPath, JSON.stringify(memory, null, 2), "utf8");
     } catch (fileErr) {
@@ -219,6 +270,149 @@ export function extractMemorableContent(message, response, intentScores) {
   return extractions;
 }
 
+// ROLE: Uses Claude to extract structured identity facts from a single exchange, then merges
+// them into memory.userFacts. Designed to be called fire-and-forget — never blocks a response.
+//
+// MERGE STRATEGY: Arrays append (deduplicated by key). Scalars only set if currently null.
+// The first explicitly stated fact wins for scalars; arrays grow accumulatively over time.
+//
+// INPUT FROM: fusion.js — fire-and-forget after saveMemory()
+// OUTPUT TO: saveMemory() called internally after merge
+export async function extractFactsWithLLM(memory, userMessage, assistantReply) {
+  const client = new Anthropic();
+
+  const existingFacts = JSON.stringify(memory.userFacts, null, 2);
+  const msgParts = [
+    'You are a skilled observer — part personal assistant, part therapist — extracting meaningful facts',
+    'about the user from a single conversation exchange. Listen for what they reveal: ideas, what they',
+    'are building toward, what they fear, what lights them up, what drains them.',
+    '',
+    'EXISTING KNOWN FACTS (do not re-extract what is already here):',
+    existingFacts,
+    '',
+    'EXCHANGE:',
+    'User: ' + userMessage,
+    'Assistant: ' + assistantReply,
+    '',
+    'Extract ONLY from what the USER explicitly stated or strongly implied.',
+    'Do not project, infer beyond the text, or use what the assistant said about the user.',
+    '',
+    'Respond with a JSON object. Include only keys with something new. Use null or [] otherwise.',
+    '',
+    '{',
+    '  "age": <number or null>,',
+    '  "occupation": <string or null>,',
+    '  "location": <string or null>,',
+    '  "careerContext": <string or null>,',
+    '  "communicationStyle": <string or null>,',
+    '  "learningStyle": <string or null>,',
+    '  "projects": [{ "name": string, "description": string, "status": string }],',
+    '  "skills": [string],',
+    '  "values": [string],',
+    '  "beliefs": [string],',
+    '  "aesthetics": [string],',
+    '  "contradictions": [string],',
+    '  "relationships": [{ "role": string, "name": string or null, "notes": string }],',
+    '  "ideas": [{ "idea": string, "context": string }],',
+    '  "obsessions": [string],',
+    '  "aspirations": [string],',
+    '  "becoming": [string],',
+    '  "fears": [string],',
+    '  "regrets": [string],',
+    '  "proudOf": [string],',
+    '  "energizes": [string],',
+    '  "drains": [string],',
+    '  "resisting": [string]',
+    '}',
+    '',
+    'Definitions:',
+    '- "ideas": something genuinely insightful they articulated — a thought worth preserving, not just a topic',
+    '- "obsessions": returns to with intensity ("I keep thinking about structural analogies between X and Y")',
+    '- "aspirations": future-directed wants ("I want to write something real before I die")',
+    '- "becoming": identity-in-motion ("I am starting to feel like someone who builds things that last")',
+    '- "fears": explicitly named fears only ("I am afraid no one will hire me")',
+    '- "regrets": past-looking loss ("I should have started earlier", "I gave that up too soon")',
+    '- "proudOf": self-expressed pride, not compliments from others',
+    '- "energizes": what they say gives them flow or aliveness',
+    '- "drains": what they say exhausts or deadens them',
+    '- "resisting": what they are clearly avoiding or in friction with',
+    '',
+    'For arrays: only new items not already in known facts.',
+    'If nothing new: null or [].',
+    'Respond ONLY with the JSON object, no explanation.',
+  ];
+  const prompt = msgParts.join('\n');
+
+  try {
+    const response = await client.messages.create({
+      model: MODELS.dream,
+      max_tokens: 1200,
+      messages: [{ role: 'user', content: prompt }],
+    });
+
+    const raw = response.content[0]?.text?.trim();
+    if (!raw) return memory;
+
+    const jsonStr = raw.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '').trim();
+    const extracted = JSON.parse(jsonStr);
+
+    const facts = memory.userFacts;
+
+    // Scalars: only set if currently null
+    for (const key of ['age', 'occupation', 'location', 'careerContext', 'communicationStyle', 'learningStyle']) {
+      if (extracted[key] != null && facts[key] == null) {
+        facts[key] = extracted[key];
+      }
+    }
+
+    // Simple string arrays: append deduplicated
+    const appendUnique = (existing, incoming, keyFn = (x) => (typeof x === 'string' ? x.toLowerCase() : JSON.stringify(x))) => {
+      const existingKeys = new Set((existing || []).map(keyFn));
+      for (const item of (incoming || [])) {
+        const k = keyFn(item);
+        if (!existingKeys.has(k)) {
+          existing.push(item);
+          existingKeys.add(k);
+        }
+      }
+    };
+
+    const simpleArrayKeys = [
+      'skills', 'values', 'beliefs', 'aesthetics', 'contradictions',
+      'obsessions', 'aspirations', 'becoming', 'fears', 'regrets',
+      'proudOf', 'energizes', 'drains', 'resisting',
+    ];
+    for (const key of simpleArrayKeys) {
+      facts[key] = facts[key] || [];
+      appendUnique(facts[key], extracted[key]);
+    }
+
+    facts.projects = facts.projects || [];
+    appendUnique(facts.projects, extracted.projects, (p) => p?.name?.toLowerCase() || JSON.stringify(p));
+
+    facts.relationships = facts.relationships || [];
+    appendUnique(facts.relationships, extracted.relationships, (r) => r?.role?.toLowerCase() || JSON.stringify(r));
+
+    facts.ideas = facts.ideas || [];
+    appendUnique(facts.ideas, extracted.ideas, (i) => i?.idea?.toLowerCase().slice(0, 40) || JSON.stringify(i));
+
+    memory.userFacts = facts;
+    await saveMemory(memory);
+
+    const newKeys = Object.entries(extracted)
+      .filter(([, v]) => (Array.isArray(v) ? v.length > 0 : v != null))
+      .map(([k]) => k);
+    if (newKeys.length > 0) {
+      console.log(`[Memory] LLM extracted new facts: ${newKeys.join(', ')}`);
+    }
+  } catch (err) {
+    console.warn("[Memory] extractFactsWithLLM failed:", err.message);
+  }
+
+
+  return memory;
+}
+
 // ROLE: Applies extracted content to the memory object — updating struggles, interests, topics, moments, and stats
 // INPUT FROM: pneumaRespond() in fusion.js after each exchange
 // OUTPUT TO: pneumaRespond() as the mutated memory object passed to saveMemory()
@@ -248,8 +442,8 @@ export function updateMemory(memory, message, response, intentScores) {
       s.description
         .toLowerCase()
         .includes(
-          extractions.possibleStruggle.description.toLowerCase().slice(0, 30)
-        )
+          extractions.possibleStruggle.description.toLowerCase().slice(0, 30),
+        ),
     );
 
     if (!existing) {
@@ -271,7 +465,7 @@ export function updateMemory(memory, message, response, intentScores) {
   if (extractions.possibleInterest) {
     const topic = extractions.possibleInterest.topic.toLowerCase().slice(0, 50);
     const existing = memory.interests.find((i) =>
-      i.topic.toLowerCase().includes(topic.slice(0, 15))
+      i.topic.toLowerCase().includes(topic.slice(0, 15)),
     );
 
     if (!existing) {
@@ -315,8 +509,8 @@ export function updateMemory(memory, message, response, intentScores) {
         intentScores?.numinous > 0.3
           ? "spiritual"
           : intentScores?.philosophical > 0.3
-          ? "philosophical"
-          : "emotional",
+            ? "philosophical"
+            : "emotional",
     });
     memory.moments = memory.moments.slice(-20);
   }
@@ -353,7 +547,7 @@ export function getRelevantMemories(memory, message, intentScores) {
     const last = new Date(memory.lastInteraction.date);
     const now = new Date();
     relevant.daysSinceLastChat = Math.floor(
-      (now - last) / (1000 * 60 * 60 * 24)
+      (now - last) / (1000 * 60 * 60 * 24),
     );
   }
 
@@ -419,7 +613,7 @@ export function getMemoryAwarePhrases(relevant) {
   // Recurring topic recognition
   if (relevant.recurringTopic && relevant.recurringTopic.count >= 3) {
     phrases.push(
-      `This comes up a lot for you — ${relevant.recurringTopic.topic}.`
+      `This comes up a lot for you — ${relevant.recurringTopic.topic}.`,
     );
   }
 
@@ -561,7 +755,7 @@ export function filterBlacklistedContent(memory, response) {
     // Case-insensitive replacement
     const regex = new RegExp(
       item.phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-      "gi"
+      "gi",
     );
     filtered = filtered.replace(regex, "");
   }
@@ -604,7 +798,7 @@ export function detectBlacklistRequest(message) {
 export function getTopicWeight(topic, memory) {
   // Base weight is the mention count
   const recurring = memory.recurringTopics.find(
-    (t) => t.topic.toLowerCase() === topic.toLowerCase()
+    (t) => t.topic.toLowerCase() === topic.toLowerCase(),
   );
   let weight = recurring?.count || 1;
 
@@ -615,7 +809,7 @@ export function getTopicWeight(topic, memory) {
 
   // Struggle-related topics get boosted
   const relatedStruggle = memory.struggles.some((s) =>
-    s.description.toLowerCase().includes(topic.toLowerCase())
+    s.description.toLowerCase().includes(topic.toLowerCase()),
   );
   if (relatedStruggle) {
     weight *= 1.5;
@@ -685,7 +879,7 @@ export function distillConversation(memory, conversation) {
   // 2. Update recurring topics
   for (const topic of topics) {
     const existing = memory.recurringTopics.find(
-      (t) => t.topic.toLowerCase() === topic.toLowerCase()
+      (t) => t.topic.toLowerCase() === topic.toLowerCase(),
     );
 
     if (existing) {
@@ -717,7 +911,7 @@ export function distillConversation(memory, conversation) {
     addPattern(
       memory,
       "identity-seeking",
-      "You often return to questions of self-definition."
+      "You often return to questions of self-definition.",
     );
   }
 
@@ -729,7 +923,7 @@ export function distillConversation(memory, conversation) {
     addPattern(
       memory,
       "future-uncertainty",
-      "You bring questions about the future, seeking clarity or permission."
+      "You bring questions about the future, seeking clarity or permission.",
     );
   }
 
@@ -738,7 +932,7 @@ export function distillConversation(memory, conversation) {
     addPattern(
       memory,
       "processes-through-dialogue",
-      "You think by talking. The conversation is how you work things out."
+      "You think by talking. The conversation is how you work things out.",
     );
   }
 
@@ -756,7 +950,7 @@ export function distillConversation(memory, conversation) {
   };
 
   console.log(
-    `[Memory] Distilled conversation: ${exchangeCount} exchanges → ${topics.length} topics, mood: ${mood}`
+    `[Memory] Distilled conversation: ${exchangeCount} exchanges → ${topics.length} topics, mood: ${mood}`,
   );
 
   return memory;
@@ -807,65 +1001,131 @@ export function buildUserFrame(memory) {
   if (!memory) return '';
 
   const lines = [];
-
-  // Identity
   const { userFacts, stats } = memory;
   const name = userFacts?.name || 'the user';
+
+  // Stats header
   const since = userFacts?.knownSince
     ? new Date(userFacts.knownSince).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
     : null;
-  const sinceStr = since ? `, known since ${since}` : '';
-  const totalConvs = stats?.totalConversations || 0;
-  const totalMsgs = stats?.totalMessages || 0;
-  lines.push(`Name: ${name}${sinceStr} | ${totalConvs} conversations, ${totalMsgs} messages`);
+  const sinceStr = since ? ', known since ' + since : '';
+  lines.push('Name: ' + name + sinceStr + ' | ' + (stats?.totalConversations || 0) + ' conversations, ' + (stats?.totalMessages || 0) + ' messages');
 
-  // Recurring topics (top 5 by weight)
+  // Identity
+  const identityParts = [];
+  if (userFacts?.age) identityParts.push(userFacts.age + ' years old');
+  if (userFacts?.occupation) identityParts.push(userFacts.occupation);
+  if (userFacts?.location) identityParts.push(userFacts.location);
+  if (identityParts.length > 0) lines.push('Identity: ' + identityParts.join(' — '));
+  if (userFacts?.careerContext) lines.push('Career context: ' + userFacts.careerContext);
+  if (userFacts?.communicationStyle) lines.push('How he communicates: ' + userFacts.communicationStyle);
+  if (userFacts?.learningStyle) lines.push('How he learns: ' + userFacts.learningStyle);
+
+  // Projects
+  const projects = (userFacts?.projects || []).filter(function(p) { return p && p.name; });
+  if (projects.length > 0) {
+    lines.push('Projects:');
+    projects.forEach(function(p) {
+      lines.push('  - ' + p.name + (p.status ? ' [' + p.status + ']' : '') + ': ' + (p.description || ''));
+    });
+  }
+
+  // Skills
+  if ((userFacts?.skills || []).length > 0) lines.push('Skills: ' + userFacts.skills.join(', '));
+
+  // Inner life
+  if ((userFacts?.values || []).length > 0) lines.push('Values: ' + userFacts.values.join(' — '));
+  if ((userFacts?.beliefs || []).length > 0) lines.push('Beliefs: ' + userFacts.beliefs.join(' — '));
+  if ((userFacts?.aesthetics || []).length > 0) lines.push('Aesthetic sensibility: ' + userFacts.aesthetics.join(' — '));
+  if ((userFacts?.contradictions || []).length > 0) {
+    lines.push('Tensions he holds:');
+    userFacts.contradictions.forEach(function(c) { lines.push('  - ' + c); });
+  }
+
+  // Relationships
+  const relationships = (userFacts?.relationships || []).filter(function(r) { return r && r.role; });
+  if (relationships.length > 0) {
+    lines.push('Relationships:');
+    relationships.forEach(function(r) {
+      lines.push('  - ' + (r.name ? r.role + ' (' + r.name + ')' : r.role) + ': ' + (r.notes || ''));
+    });
+  }
+
+  // Ideas & intellectual life
+  const ideas = (userFacts?.ideas || []).slice(-5);
+  if (ideas.length > 0) {
+    lines.push('Ideas worth remembering:');
+    ideas.forEach(function(i) { lines.push('  - ' + i.idea + (i.context ? ' [' + i.context + ']' : '')); });
+  }
+  if ((userFacts?.obsessions || []).length > 0) lines.push('Obsessions: ' + userFacts.obsessions.join(' — '));
+
+  // Where he is headed
+  if ((userFacts?.aspirations || []).length > 0) {
+    lines.push('Aspirations:');
+    userFacts.aspirations.forEach(function(a) { lines.push('  - ' + a); });
+  }
+  if ((userFacts?.becoming || []).length > 0) lines.push('Becoming: ' + userFacts.becoming.join(' — '));
+
+  // What he carries
+  if ((userFacts?.fears || []).length > 0) {
+    lines.push('Fears:');
+    userFacts.fears.forEach(function(f) { lines.push('  - ' + f); });
+  }
+  if ((userFacts?.regrets || []).length > 0) {
+    lines.push('Regrets:');
+    userFacts.regrets.forEach(function(r) { lines.push('  - ' + r); });
+  }
+  if ((userFacts?.proudOf || []).length > 0) lines.push('Proud of: ' + userFacts.proudOf.join(' — '));
+
+  // Energy map
+  if ((userFacts?.energizes || []).length > 0) lines.push('Energized by: ' + userFacts.energizes.join(' — '));
+  if ((userFacts?.drains || []).length > 0) lines.push('Drained by: ' + userFacts.drains.join(' — '));
+  if ((userFacts?.resisting || []).length > 0) lines.push('Resisting: ' + userFacts.resisting.join(' — '));
+
+  // Recurring themes (top 5)
   const topics = (memory.recurringTopics || [])
-    .sort((a, b) => (b.weight || b.count || 0) - (a.weight || a.count || 0))
+    .sort(function(a, b) { return (b.weight || b.count || 0) - (a.weight || a.count || 0); })
     .slice(0, 5);
   if (topics.length > 0) {
-    const topicStr = topics
-      .map(t => `${t.topic} (${t.count}x${t.sentiment ? ', ' + t.sentiment : ''})`)
-      .join(' — ');
-    lines.push(`Recurring themes: ${topicStr}`);
+    lines.push('Recurring themes: ' + topics.map(function(t) {
+      return t.topic + ' (' + t.count + 'x' + (t.sentiment ? ', ' + t.sentiment : '') + ')';
+    }).join(' — '));
   }
 
   // Behavioral patterns (confidence >= 0.5)
-  const patterns = (memory.patterns || []).filter(p => (p.confidence || 0) >= 0.5).slice(0, 3);
+  const patterns = (memory.patterns || []).filter(function(p) { return (p.confidence || 0) >= 0.5; }).slice(0, 3);
   if (patterns.length > 0) {
     lines.push('Observed patterns:');
-    patterns.forEach(p => lines.push(`  - ${p.observation} (confidence: ${p.confidence})`));
+    patterns.forEach(function(p) { lines.push('  - ' + p.observation + ' (confidence: ' + p.confidence + ')'); });
   }
 
   // Unresolved struggles
-  const struggles = (memory.struggles || []).filter(s => !s.resolved).slice(0, 3);
+  const struggles = (memory.struggles || []).filter(function(s) { return !s.resolved; }).slice(0, 3);
   if (struggles.length > 0) {
     lines.push('Unresolved struggles:');
-    struggles.forEach(s => lines.push(`  - "${s.description}" (${s.mentions || 1}x)`));
+    struggles.forEach(function(s) { lines.push('  - "' + s.description + '" (' + (s.mentions || 1) + 'x)'); });
   }
 
-  // High-weight emotional moments (last 2)
+  // Significant moments (high emotional weight, last 2)
   const moments = (memory.moments || [])
-    .filter(m => (m.emotionalWeight || m.emotional_weight || 0) >= 0.7)
+    .filter(function(m) { return (m.emotionalWeight || m.emotional_weight || 0) >= 0.7; })
     .slice(-2);
   if (moments.length > 0) {
     lines.push('Significant moments:');
-    moments.forEach(m => {
-      const date = m.date
-        ? new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        : '';
-      lines.push(`  - "${m.summary}"${date ? ' [' + date + ']' : ''}`);
+    moments.forEach(function(m) {
+      const date = m.date ? new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
+      lines.push('  - "' + m.summary + '"' + (date ? ' [' + date + ']' : ''));
     });
   }
 
   // Last session handoff
   const lastSession = memory.sessionEmotionalState;
-  if (lastSession?.lastMood || lastSession?.lastTopic) {
+  if (lastSession && (lastSession.lastMood || lastSession.lastTopic)) {
     const parts = [];
-    if (lastSession.lastMood) parts.push(`mood: ${lastSession.lastMood}`);
-    if (lastSession.lastTopic) parts.push(`topic: ${lastSession.lastTopic}`);
-    if (lastSession.unresolvedThread) parts.push(`unresolved: "${lastSession.unresolvedThread}"`);
-    lines.push(`Last session: ${parts.join(', ')}`);
+    if (lastSession.lastMood) parts.push('mood: ' + lastSession.lastMood);
+    if (lastSession.lastTopic) parts.push('topic: ' + lastSession.lastTopic);
+    if (lastSession.unresolvedThread) parts.push('unresolved: "' + lastSession.unresolvedThread + '"');
+    lines.push('Last session: ' + parts.join(', '));
   }
 
   if (lines.length === 0) return '';

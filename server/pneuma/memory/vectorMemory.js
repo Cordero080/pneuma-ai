@@ -5,7 +5,14 @@ import fs from "fs";
 import { VECTOR_MEMORY_FILE, ensureDataDirectory } from "../../config/paths.js";
 import { getDB } from "../../db.js";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai = null;
+function getOpenAI() {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) return null;
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 const COLLECTION = "vectorMemory";
 
 ensureDataDirectory();

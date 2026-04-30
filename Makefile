@@ -8,7 +8,7 @@ kill:
 server s:
 	@lsof -ti:3001 | xargs kill -9 2>/dev/null || true
 	@sleep 0.3
-	cd server && node index.js
+	cd server && node --env-file=.env index.js
 
 # Start frontend dev server (auto-kills stale process on 5173 first)
 client c:
