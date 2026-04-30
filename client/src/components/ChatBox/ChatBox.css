@@ -61,7 +61,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: color 0.2s, opacity 0.2s;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
   opacity: 0.5;
   padding: 0;
 }
@@ -82,40 +84,62 @@
    ============================================ */
 @keyframes dark-holographic-shimmer {
   0% {
-    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+    background-position:
+      0% 50%,
+      50% 50%,
+      50% 50%,
+      0% 50%;
   }
   50% {
-    background-position: 0% 50%, 100% 100%, 100% 100%, 100% 50%;
+    background-position:
+      0% 50%,
+      100% 100%,
+      100% 100%,
+      100% 50%;
   }
   100% {
-    background-position: 0% 50%, 50% 50%, 50% 50%, 0% 50%;
+    background-position:
+      0% 50%,
+      50% 50%,
+      50% 50%,
+      0% 50%;
   }
 }
 
 /* Aurora wave animation for Pneuma messages */
 @keyframes auroraWave {
   0% {
-    background-position: 0% 50%, 100% 50%, 50% 0%;
+    background-position:
+      0% 50%,
+      100% 50%,
+      50% 0%;
     opacity: 0.15;
   }
   25% {
     opacity: 0.25;
   }
   50% {
-    background-position: 100% 50%, 0% 50%, 50% 100%;
+    background-position:
+      100% 50%,
+      0% 50%,
+      50% 100%;
     opacity: 0.15;
   }
   75% {
     opacity: 0.2;
   }
   100% {
-    background-position: 0% 50%, 100% 50%, 50% 0%;
+    background-position:
+      0% 50%,
+      100% 50%,
+      50% 0%;
     opacity: 0.15;
   }
 }
 
 @keyframes auroraBreath {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1) rotate(0deg);
     filter: blur(8px);
   }
@@ -130,11 +154,16 @@
 }
 
 @keyframes messageGlow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(138, 43, 226, 0.3),
+      inset 0 0 20px rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow:
+      0 0 25px rgba(0, 212, 255, 0.4),
+      inset 0 0 20px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -156,14 +185,15 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 
+  0%,
+  100% {
+    box-shadow:
       0 0 20px rgba(0, 255, 255, 0.3),
       0 0 40px rgba(138, 43, 226, 0.2),
       inset 0 1px 3px rgba(255, 255, 255, 0.1);
   }
   50% {
-    box-shadow: 
+    box-shadow:
       0 0 30px rgba(255, 0, 204, 0.4),
       0 0 60px rgba(0, 212, 255, 0.3),
       inset 0 1px 3px rgba(255, 255, 255, 0.15);
@@ -171,7 +201,8 @@
 }
 
 @keyframes typingPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
   }
   50% {
@@ -181,16 +212,24 @@
 
 @keyframes quantumButtonGlow {
   0% {
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+    box-shadow:
+      0 0 15px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 255, 255, 0.3);
   }
   33% {
-    box-shadow: 0 0 15px rgba(255, 0, 204, 0.6), 0 0 30px rgba(255, 0, 204, 0.3);
+    box-shadow:
+      0 0 15px rgba(255, 0, 204, 0.6),
+      0 0 30px rgba(255, 0, 204, 0.3);
   }
   66% {
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.6), 0 0 30px rgba(138, 43, 226, 0.3);
+    box-shadow:
+      0 0 15px rgba(138, 43, 226, 0.6),
+      0 0 30px rgba(138, 43, 226, 0.3);
   }
   100% {
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+    box-shadow:
+      0 0 15px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 255, 255, 0.3);
   }
 }
 
@@ -207,23 +246,34 @@
   max-height: calc(100vh - 100px); /* Taller - more vertical space */
   position: relative;
   overflow: visible; /* Allow glow to show outside */
-  
+
   /* Cyberpunk cut corners - chamfered clip-path */
-  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
-  
+  clip-path: polygon(
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%,
+    0 16px
+  );
+
   /* Subtle lift */
   transform: translateY(-2px);
 }
 
 /* Floating depth glow - sits BEHIND the wrapper */
 .chat-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 20px;
   left: 5%;
   right: 5%;
   bottom: -30px;
-  background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(0, 213, 255, 0) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse 80% 40% at 50% 100%,
+    rgba(0, 213, 255, 0) 0%,
+    transparent 70%
+  );
   filter: blur(20px);
   z-index: -1;
   pointer-events: none;
@@ -231,7 +281,7 @@
 
 /* Glowing border layer - sits behind everything */
 .chat-wrapper::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -240,7 +290,14 @@
     rgba(138, 43, 226, 0.4) 50%,
     rgba(0, 212, 255, 0.6) 100%
   );
-  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  clip-path: polygon(
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%,
+    0 16px
+  );
   z-index: 0;
   pointer-events: none;
 }
@@ -253,26 +310,37 @@
   inset: 2px;
   display: flex;
   flex-direction: column;
-  
+
   /* Inner clip-path - slightly smaller to show border */
-  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-  
+  clip-path: polygon(
+    14px 0,
+    100% 0,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0 100%,
+    0 14px
+  );
+
   /* Dark cosmic background */
-  background: 
+  background:
     linear-gradient(145deg, rgba(8, 8, 16, 0.99), rgba(4, 4, 10, 1)),
-    radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.08), transparent 50%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(138, 43, 226, 0.08),
+      transparent 50%
+    ),
     radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.05), transparent 50%);
-  
+
   overflow: hidden;
   z-index: 1;
   min-height: 0;
-  
+
   animation: pulseGlow 8s ease-in-out infinite;
 }
 
 /* Subtle scan line effect on messages */
 .messages-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -352,21 +420,21 @@
 }
 
 .color-btn.active.magenta {
-  box-shadow: 
+  box-shadow:
     0 0 6px #ff44dd,
     0 0 12px rgba(255, 68, 221, 0.6),
     0 0 20px rgba(255, 68, 221, 0.3);
 }
 
 .color-btn.active.white {
-  box-shadow: 
+  box-shadow:
     0 0 6px #fff,
     0 0 12px rgba(255, 255, 255, 0.6),
     0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .color-btn.active.blue {
-  box-shadow: 
+  box-shadow:
     0 0 6px #00d4ff,
     0 0 12px rgba(0, 212, 255, 0.6),
     0 0 20px rgba(0, 212, 255, 0.3);
@@ -431,12 +499,14 @@
 
 .timestamp-text {
   font-size: 9px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.5px;
   opacity: 0;
   max-width: 0;
   overflow: hidden;
-  transition: opacity 0.2s ease, max-width 0.3s ease;
+  transition:
+    opacity 0.2s ease,
+    max-width 0.3s ease;
   white-space: nowrap;
 }
 
@@ -474,15 +544,19 @@
   flex-direction: column;
   gap: 28px; /* More space between messages */
   position: relative;
-  
+
   /* Inner glow lighting */
   background:
     /* Subtle top-down light gradient */
     linear-gradient(180deg, rgba(100, 150, 255, 0.02) 0%, transparent 30%),
     linear-gradient(145deg, rgba(8, 8, 16, 0.98), rgba(4, 4, 10, 0.99)),
-    radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.08), transparent 50%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(138, 43, 226, 0.08),
+      transparent 50%
+    ),
     radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.05), transparent 50%);
-  
+
   /* Custom scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
@@ -498,7 +572,11 @@
 }
 
 .messages-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(0, 212, 255, 0.5), rgba(138, 43, 226, 0.5));
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 255, 0.5),
+    rgba(138, 43, 226, 0.5)
+  );
   border-radius: 3px;
 }
 
@@ -511,7 +589,7 @@
   padding: 16px 20px;
   font-size: 0.92rem;
   line-height: 1.7; /* More breathing room in text */
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-family: "JetBrains Mono", "SF Mono", monospace;
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -526,14 +604,21 @@
   color: var(--user-text-color, #ff44dd);
 
   /* Clip-path: cut top-right and bottom-left corners (mirrored) */
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
 
   text-shadow: 0 0 10px var(--user-glow-color, rgba(255, 68, 221, 0.4));
 }
 
 /* User message - glowing border layer */
 .message-bubble.user::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -1px;
   background: linear-gradient(
@@ -542,20 +627,34 @@
     rgba(255, 255, 255, 0.15) 50%,
     var(--user-border-color, rgba(255, 68, 221, 0.6)) 100%
   );
-  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 11px) 0,
+    100% 11px,
+    100% 100%,
+    11px 100%,
+    0 calc(100% - 11px)
+  );
   z-index: -2;
   pointer-events: none;
 }
 
 /* User message - inner background layer */
 .message-bubble.user::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 1px;
   background:
     linear-gradient(145deg, rgba(1, 10, 12, 0.95), rgba(0, 12, 17, 0.98)),
     radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15), transparent 50%);
-  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 9px) 0,
+    100% 9px,
+    100% 100%,
+    9px 100%,
+    0 calc(100% - 9px)
+  );
   z-index: -1;
   pointer-events: none;
 }
@@ -566,9 +665,18 @@
   color: #7aff9a;
 
   /* Clip-path: cut top-left and bottom-right corners */
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
 
-  text-shadow: 0 0 8px rgba(122, 255, 154, 0.3), 0 0 16px rgba(122, 255, 154, 0.15);
+  text-shadow:
+    0 0 8px rgba(122, 255, 154, 0.3),
+    0 0 16px rgba(122, 255, 154, 0.15);
 
   animation: messageGlow 6s ease-in-out infinite;
 
@@ -579,7 +687,7 @@
 
 /* AI message - glowing border layer */
 .message-bubble.ai::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -1px;
   background: linear-gradient(
@@ -588,31 +696,54 @@
     rgba(0, 180, 120, 0.3) 50%,
     rgba(0, 255, 65, 0.5) 100%
   );
-  clip-path: polygon(11px 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%, 0 11px);
+  clip-path: polygon(
+    11px 0,
+    100% 0,
+    100% calc(100% - 11px),
+    calc(100% - 11px) 100%,
+    0 100%,
+    0 11px
+  );
   z-index: -3;
   pointer-events: none;
 }
 
 /* AI message - inner background layer */
 .message-bubble.ai::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 1px;
 
   /* Cosmic Black Holographic */
   background:
     linear-gradient(145deg, #0a0a0a, #000000),
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 50%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.1),
+      transparent 50%
+    ),
     radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.5), transparent 50%),
-    linear-gradient(45deg,
+    linear-gradient(
+      45deg,
       rgba(0, 255, 65, 0.06),
       rgba(0, 212, 255, 0.04),
       rgba(0, 255, 65, 0.06)
     );
-  background-size: 100% 100%, 150% 150%, 150% 150%, 200% 200%;
+  background-size:
+    100% 100%,
+    150% 150%,
+    150% 150%,
+    200% 200%;
   background-blend-mode: normal, overlay, multiply, overlay;
 
-  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  clip-path: polygon(
+    9px 0,
+    100% 0,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    0 100%,
+    0 9px
+  );
   z-index: -2;
   pointer-events: none;
 
@@ -628,18 +759,40 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  clip-path: polygon(
+    9px 0,
+    100% 0,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    0 100%,
+    0 9px
+  );
 }
 
 .message-bubble.ai .aurora-shader::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -50%;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 50%, rgba(138, 43, 226, 0.6), transparent 50%),
-    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(255, 0, 204, 0.5), transparent 50%),
-    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(0, 212, 255, 0.4), transparent 50%);
-  background-size: 200% 200%, 200% 200%, 200% 200%;
+    radial-gradient(
+      ellipse 80% 50% at 20% 50%,
+      rgba(138, 43, 226, 0.6),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 80% at 80% 30%,
+      rgba(255, 0, 204, 0.5),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 50% 80%,
+      rgba(0, 212, 255, 0.4),
+      transparent 50%
+    );
+  background-size:
+    200% 200%,
+    200% 200%,
+    200% 200%;
   animation:
     auroraWave 8s ease-in-out infinite,
     auroraBreath 12s ease-in-out infinite;
@@ -652,17 +805,28 @@
 .input-container {
   display: flex;
   border-top: 1px solid rgba(0, 212, 255, 0.2);
-  background: linear-gradient(180deg, rgba(10, 10, 20, 0.95), rgba(5, 5, 15, 0.98));
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 20, 0.95),
+    rgba(5, 5, 15, 0.98)
+  );
   position: relative;
   overflow: visible;
-  
+
   /* Clip-path: cut bottom corners to match container */
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
 }
 
 /* Beam scan effect on input container */
 .input-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -20%;
@@ -688,39 +852,48 @@
   flex: 1;
   padding: 18px 22px;
   font-size: 1rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   border: none;
   outline: none;
   resize: none;
-  
+
   /* Auto-height settings */
   min-height: 56px;
   max-height: 150px;
   overflow-y: auto;
-  
+
   /* Word wrap fix */
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;
-  
+
   /* Layered cosmic black background */
   background:
     linear-gradient(145deg, #0a0a0a, #000000),
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), transparent 50%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.03),
+      transparent 50%
+    ),
     linear-gradient(45deg, rgba(138, 43, 226, 0.03), rgba(0, 212, 255, 0.03));
-  background-size: 100% 100%, 150% 150%, 200% 200%;
-  
+  background-size:
+    100% 100%,
+    150% 150%,
+    200% 200%;
+
   color: #ffffff;
   line-height: 1.4;
-  
+
   /* Glowing text effect */
   text-shadow:
     0 0 5px rgba(138, 43, 226, 0.3),
     0 0 10px rgba(0, 212, 255, 0.2);
-  
-  transition: all 0.3s ease, height 0.1s ease;
+
+  transition:
+    all 0.3s ease,
+    height 0.1s ease;
   animation: dark-holographic-shimmer 4s ease infinite;
-  
+
   /* Scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
@@ -749,9 +922,13 @@
 .chat-input:focus {
   background:
     linear-gradient(145deg, #0c0c0c, #050505),
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 50%),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.05),
+      transparent 50%
+    ),
     linear-gradient(45deg, rgba(138, 43, 226, 0.05), rgba(0, 212, 255, 0.05));
-  
+
   text-shadow:
     0 0 8px rgba(138, 43, 226, 0.4),
     0 0 15px rgba(0, 212, 255, 0.3);
@@ -788,12 +965,14 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent, 
+  background: linear-gradient(
+    90deg,
+    transparent,
     rgba(180, 100, 255, 0.6) 30%,
     rgba(220, 150, 255, 0.8) 50%,
     rgba(180, 100, 255, 0.6) 70%,
-    transparent);
+    transparent
+  );
   opacity: 0;
 }
 
@@ -803,10 +982,20 @@
 }
 
 @keyframes scanDown {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 /* ============================================
@@ -830,7 +1019,7 @@
     background: #0a0a0a !important;
     z-index: 100;
   }
-  
+
   .chat-wrapper.fullscreen .chat-container {
     position: absolute;
     top: 0;
@@ -841,14 +1030,14 @@
     flex-direction: column;
     background: #0a0a0a;
   }
-  
+
   .chat-wrapper.fullscreen .messages-container {
     flex: 1;
     overflow-y: auto;
     padding: 60px 16px 16px 16px;
     max-height: none;
   }
-  
+
   .chat-wrapper.fullscreen .input-container {
     flex-shrink: 0;
     background: #0a0a0a;
@@ -856,64 +1045,92 @@
     padding-bottom: max(env(safe-area-inset-bottom, 0px), 20px);
     border-top: 1px solid rgba(168, 85, 247, 0.2);
   }
-  
+
   .chat-wrapper {
     max-height: calc(100vh - 80px);
     /* Thinner chamfer on mobile */
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
   }
-  
+
   .chat-wrapper::before {
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
   }
-  
+
   .chat-container {
     inset: 1px; /* Thinner border */
-    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+    clip-path: polygon(
+      9px 0,
+      100% 0,
+      100% calc(100% - 9px),
+      calc(100% - 9px) 100%,
+      0 100%,
+      0 9px
+    );
   }
-  
+
   .messages-container {
     padding: 24px 16px;
     gap: 20px;
   }
-  
+
   .message-bubble {
     max-width: 88%;
     font-size: 0.9rem;
     padding: 14px 16px;
   }
-  
+
   .message-bubble.user,
   .message-bubble.ai {
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    clip-path: polygon(
+      6px 0,
+      100% 0,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      0 100%,
+      0 6px
+    );
   }
-  
+
   .chat-input {
     padding: 14px 16px;
     font-size: 0.95rem;
     min-height: 48px;
   }
-  
+
   .send-button {
     padding: 0 16px;
     font-size: 0.75rem;
   }
-  
+
   .color-picker {
     top: 6px;
     right: 6px;
     gap: 6px;
   }
-  
+
   .color-btn {
     width: 12px;
     height: 12px;
   }
-  
+
   .timestamp-node {
     padding-top: 8px;
   }
-  
+
   .timestamp-dot {
     width: 5px;
     height: 5px;
@@ -936,91 +1153,126 @@
     padding: 0 !important;
     background: #0a0a0a !important;
   }
-  
+
   .chat-wrapper.fullscreen .messages-container {
     padding: 50px 12px 12px 12px;
     gap: 16px;
   }
-  
+
   .chat-wrapper.fullscreen .input-container {
     padding: 10px;
     padding-bottom: max(env(safe-area-inset-bottom, 0px), 20px);
     background: #0a0a0a;
   }
-  
+
   .chat-wrapper {
     max-height: calc(100vh - 60px);
     max-height: calc(100dvh - 60px); /* Dynamic viewport for mobile browsers */
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    clip-path: polygon(
+      6px 0,
+      100% 0,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      0 100%,
+      0 6px
+    );
   }
-  
+
   .chat-wrapper::before {
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    clip-path: polygon(
+      6px 0,
+      100% 0,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      0 100%,
+      0 6px
+    );
   }
-  
+
   .chat-container {
     inset: 1px;
-    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+    clip-path: polygon(
+      5px 0,
+      100% 0,
+      100% calc(100% - 5px),
+      calc(100% - 5px) 100%,
+      0 100%,
+      0 5px
+    );
   }
-  
+
   .messages-container {
     padding: 16px 12px;
     gap: 16px;
   }
-  
+
   .message-bubble {
     max-width: 92%;
     font-size: 0.85rem;
     padding: 12px 14px;
   }
-  
+
   .message-bubble.user,
   .message-bubble.ai {
-    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+    clip-path: polygon(
+      4px 0,
+      100% 0,
+      100% calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      0 100%,
+      0 4px
+    );
   }
-  
+
   .input-container {
     padding: 10px;
     gap: 8px;
   }
-  
+
   .chat-input {
     padding: 12px 14px;
     font-size: 0.9rem;
     min-height: 44px;
   }
-  
+
   .send-button {
     padding: 0 14px;
     font-size: 0.7rem;
-    clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+    clip-path: polygon(
+      4px 0,
+      100% 0,
+      100% calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      0 100%,
+      0 4px
+    );
   }
-  
+
   .color-picker {
     top: 4px;
     right: 4px;
     gap: 5px;
   }
-  
+
   .color-btn {
     width: 10px;
     height: 10px;
   }
-  
+
   .timestamp-node {
     padding-top: 6px;
     gap: 3px;
   }
-  
+
   .timestamp-dot {
     width: 4px;
     height: 4px;
   }
-  
+
   .timestamp-text {
     font-size: 8px;
   }
-  
+
   .message-row {
     gap: 4px;
   }
@@ -1068,7 +1320,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(0, 255, 179, 0.3);
   }
   50% {
@@ -1081,7 +1334,8 @@
 }
 
 @keyframes sound-wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -1125,21 +1379,22 @@
 }
 
 .message-bubble.ai.speaking .aurora-shader::before {
-  animation: 
+  animation:
     auroraWave 4s ease-in-out infinite,
     auroraBreath 6s ease-in-out infinite;
   opacity: 0.35;
 }
 
 @keyframes speakingGlow {
-  0%, 100% {
-    box-shadow: 
+  0%,
+  100% {
+    box-shadow:
       0 0 20px rgba(0, 255, 179, 0.3),
       0 0 40px rgba(0, 212, 255, 0.2),
       inset 0 0 20px rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 
+    box-shadow:
       0 0 30px rgba(0, 255, 179, 0.5),
       0 0 60px rgba(138, 43, 226, 0.3),
       inset 0 0 20px rgba(0, 0, 0, 0.3);
@@ -1175,18 +1430,19 @@
   color: rgba(0, 212, 255, 0.9);
 }
 
-/* Image preview strip above the textarea */
+.input-area-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image preview strip above the input bar */
 .image-preview-strip {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  right: 0;
-  padding: 6px 12px;
-  background: rgba(5, 5, 15, 0.97);
-  border-top: 1px solid rgba(0, 212, 255, 0.2);
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 6px 12px;
+  background: rgba(5, 5, 15, 0.97);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
 }
 .image-preview-thumb {
   height: 56px;
@@ -1219,5 +1475,3 @@
   margin-bottom: 6px;
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
-
-

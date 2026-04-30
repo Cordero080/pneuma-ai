@@ -698,9 +698,9 @@ function ChatBox({
           <div ref={messagesEndRef} />
         </div>
 
-        {/* INPUT + SEND BUTTON */}
+        {/* INPUT AREA WRAPPER — drag handlers live here so drop works on both strip and input */}
         <div
-          className={`input-container${isDragOver ? " drag-over" : ""}`}
+          className="input-area-wrapper"
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -713,7 +713,7 @@ function ChatBox({
             style={{ display: "none" }}
             onChange={handleImageInputChange}
           />
-          {/* Image preview strip */}
+          {/* Image preview strip — sits above input-container, outside clip-path */}
           {attachedImage && (
             <div className="image-preview-strip">
               <img
@@ -730,6 +730,10 @@ function ChatBox({
               </button>
             </div>
           )}
+        {/* INPUT + SEND BUTTON */}
+        <div
+          className={`input-container${isDragOver ? " drag-over" : ""}`}
+        >
           {/* Attach image button */}
           <button
             className="attach-btn"
@@ -784,6 +788,7 @@ function ChatBox({
             <span className="btn-scan"></span>
           </button>
         </div>
+        </div>{/* end input-area-wrapper */}
       </div>
     </div>
   );
