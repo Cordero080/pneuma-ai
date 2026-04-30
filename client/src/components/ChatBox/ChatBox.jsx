@@ -198,6 +198,13 @@ function ChatBox({
   const [userColor, setUserColor] = useState("magenta");
 
   /*
+    attachedImage: { file, previewUrl } — image staged for the next send
+  */
+  const [attachedImage, setAttachedImage] = useState(null);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const imageInputRef = useRef(null);
+
+  /*
     messagesEndRef: reference to scroll to bottom of messages
   */
   const messagesEndRef = useRef(null);

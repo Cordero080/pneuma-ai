@@ -1146,3 +1146,78 @@
   }
 }
 
+/* ============================================
+   IMAGE ATTACH
+   ============================================ */
+
+/* Drag-over highlight on input container */
+.input-container.drag-over {
+  background: rgba(0, 212, 255, 0.06);
+  border-top-color: rgba(0, 212, 255, 0.6);
+  outline: 2px dashed rgba(0, 212, 255, 0.5);
+  outline-offset: -3px;
+}
+
+/* Attach button */
+.attach-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  color: rgba(0, 212, 255, 0.45);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.attach-btn:hover {
+  color: rgba(0, 212, 255, 0.9);
+}
+
+/* Image preview strip above the textarea */
+.image-preview-strip {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  padding: 6px 12px;
+  background: rgba(5, 5, 15, 0.97);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.image-preview-thumb {
+  height: 56px;
+  width: auto;
+  max-width: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+.image-preview-remove {
+  background: transparent;
+  border: none;
+  color: rgba(255, 80, 80, 0.7);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: color 0.2s;
+}
+.image-preview-remove:hover {
+  color: rgba(255, 80, 80, 1);
+}
+
+/* Image in sent user message bubble */
+.message-image-preview {
+  display: block;
+  max-width: 240px;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+

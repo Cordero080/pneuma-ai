@@ -60,7 +60,7 @@ export async function transcribeAudio(audioInput) {
     });
 
     console.log(
-      `[Whisper] Transcribed: "${response.text.substring(0, 50)}..."`
+      `[Whisper] Transcribed: "${response.text.substring(0, 50)}..."`,
     );
 
     return {
@@ -94,7 +94,7 @@ export async function analyzeVoiceEmotion(audioBuffer) {
   try {
     // Hume AI API call with Basic auth (API Key + Secret Key)
     const authToken = Buffer.from(
-      `${HUME_API_KEY}:${HUME_SECRET_KEY}`
+      `${HUME_API_KEY}:${HUME_SECRET_KEY}`,
     ).toString("base64");
 
     const formData = new FormData();
@@ -231,7 +231,7 @@ export function analyzeTextEmotion(text) {
   // Joy signals
   if (
     /\b(happy|joy|excited|great|amazing|wonderful|love|fantastic|awesome)\b/i.test(
-      lower
+      lower,
     )
   ) {
     emotions.joy += 0.4;
@@ -242,7 +242,7 @@ export function analyzeTextEmotion(text) {
   // Sadness signals
   if (
     /\b(sad|depressed|down|low|hurt|crying|tears|miss|lonely|alone)\b/i.test(
-      lower
+      lower,
     )
   ) {
     emotions.sadness += 0.5;
@@ -285,7 +285,7 @@ export function analyzeTextEmotion(text) {
   // Vulnerability signals
   if (
     /\b(vulnerable|scared to say|admit|confess|never told|secret|ashamed)\b/i.test(
-      lower
+      lower,
     )
   ) {
     emotions.vulnerability += 0.5;
@@ -296,7 +296,7 @@ export function analyzeTextEmotion(text) {
   // Frustration signals
   if (
     /\b(ugh|argh|frustrated|stuck|can't|won't work|doesn't make sense)\b/i.test(
-      lower
+      lower,
     )
   ) {
     emotions.frustration += 0.4;
@@ -418,7 +418,7 @@ export function combineEmotionSignals(text, voiceEmotions = null) {
     if (key === "confidence") {
       combined.confidence = Math.max(
         textEmotions.confidence,
-        voiceEmotions.confidence || 0
+        voiceEmotions.confidence || 0,
       );
     } else {
       combined[key] =
