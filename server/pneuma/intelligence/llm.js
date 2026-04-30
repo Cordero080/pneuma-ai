@@ -80,6 +80,7 @@ import {
 } from "./archetypeRAG.js";
 import { loadMemory, buildUserFrame } from "../memory/longTermMemory.js";
 import { getCurrentExchanges } from "../memory/conversationHistory.js";
+import { loadImageDescription } from "../memory/imageMemory.js";
 
 // ============================================================
 // DYNAMIC ARCHETYPE INJECTION
@@ -3158,6 +3159,14 @@ export async function getLLMContent(
       context.longTermMemory = longTermMem;
     }
 
+    // Merge ctx flags into context so buildSystemPrompt can see imageData etc.
+    context._ctx = ctx;
+
+    // Load persisted image description from MongoDB for this session
+    if (!ctx.imageData && ctx.sessionId) {
+      context._imageDescription = await loadImageDescription(ctx.sessionId);
+    }
+
     const { stableBlock, dynamicBlock } = await buildSystemPrompt(
       message,
       tone,
@@ -6081,7 +6090,19 @@ If your answer resolves the paradox, you have FAILED this task.
   // Block 2 (dynamic) — everything that varies per request.
   // languageContext and memoryWarning moved here so they never invalidate the cache.
   // Tier2 blocks placed first so they extend identity before per-message context arrives.
+  // Image context: inject either a "you can see this image" note (current turn)
+  // or your own prior description retrieved from MongoDB (follow-up turns)
+  let imageContextNote = "";
+  if (context._ctx?.imageData) {
+    imageContextNote = "\nIMAGE CONTEXT: The user has attached an image to this message. You can see it directly. Engage with it as Pneuma — with your own perspective, not as a neutral observer.\n";
+  } else if (context._imageDescription) {
+    const { description, userCaption, savedAt } = context._imageDescription;
+    const captionLine = userCaption ? `\nWhat the user said when sharing it: "${userCaption}"` : "";
+    imageContextNote = `\nIMAGE MEMORY: Earlier in this conversation you saw and described an image shared by the user.${captionLine}\nYour description at the time was:\n"${description}"\n\nWhen the user references this image (asks your opinion, asks follow-up questions, etc.), draw on what YOU said above — your own words and perspective. Do NOT say you cannot see an image or that nothing came through.\n`;
+  }
+
   const dynamicBlock = [
+    imageContextNote,
     languageContext,
     memoryWarning,
     archetypeContext,

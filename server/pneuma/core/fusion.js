@@ -69,6 +69,7 @@ import {
 // ^ logs the conversation to conversations.json
 
 import { getFusionStats } from "../archetypes/archetypeFusion.js";
+import { saveImageDescription, loadImageDescription } from "../memory/imageMemory.js";
 
 // WHAT THIS IS: Guard functions — bouncers at the door
 // WHY IT EXISTS: Checks if the user wants a special mode BEFORE running the full pipeline
@@ -605,6 +606,13 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     },
     ctx.sessionId,
   );
+
+  // Persist Pneuma's image description to MongoDB so it survives beyond the 6-turn window
+  if (ctx.imageData && ctx.sessionId) {
+    saveImageDescription(ctx.sessionId, String(finalReply), userMessage || "").catch((err) =>
+      console.error("[ImageMemory] Save failed:", err.message),
+    );
+  }
 
   console.log(
     `[Pneuma V2] Response generated | Tone: ${tone} | Rhythm: ${rhythm.rhythmState} | Memory: ${longTermMem.stats.totalMessages} msgs`,
