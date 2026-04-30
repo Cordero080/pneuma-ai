@@ -592,8 +592,12 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   saveState(state);
 
   // Record exchange to conversation history
+  // If an image was attached, prepend a note so future turns know it existed
+  const storedUserMessage = ctx.imageData
+    ? `[shared an image]${userMessage ? " " + userMessage : ""}`
+    : userMessage;
   recordExchange(
-    userMessage,
+    storedUserMessage,
     String(finalReply),
     {
       mode: tone,
