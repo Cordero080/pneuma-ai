@@ -39,7 +39,11 @@ function writeFallback(data) {
  * @param {string} description     - Pneuma's full response text for that image turn
  * @param {string} userCaption     - the user's text accompanying the image (may be "")
  */
-export async function saveImageDescription(conversationId, description, userCaption = "") {
+export async function saveImageDescription(
+  conversationId,
+  description,
+  userCaption = "",
+) {
   const record = {
     conversationId,
     description,
@@ -50,15 +54,16 @@ export async function saveImageDescription(conversationId, description, userCapt
   try {
     const db = await getDB();
     if (db) {
-      await db.collection(COLLECTION).replaceOne(
-        { conversationId },
-        record,
-        { upsert: true },
-      );
+      await db
+        .collection(COLLECTION)
+        .replaceOne({ conversationId }, record, { upsert: true });
       return;
     }
   } catch (err) {
-    console.warn("[ImageMemory] MongoDB save failed, using file fallback:", err.message);
+    console.warn(
+      "[ImageMemory] MongoDB save failed, using file fallback:",
+      err.message,
+    );
   }
 
   // JSON fallback
@@ -87,7 +92,10 @@ export async function loadImageDescription(conversationId) {
       return null;
     }
   } catch (err) {
-    console.warn("[ImageMemory] MongoDB load failed, falling back to file:", err.message);
+    console.warn(
+      "[ImageMemory] MongoDB load failed, falling back to file:",
+      err.message,
+    );
   }
 
   // JSON fallback
