@@ -2247,6 +2247,75 @@ ${instructions}
 // 1. Start with 5 core base archetypes (always active)
 // 2. Maybe add 1 tone-specific archetype (30% chance, from TONE_ARCHETYPE_MAP)
 // 3. Add archetypes based on intent scores (philosophical, emotional, paradox)
+
+// ============================================================
+// LIVE STANCE CONFLICT — Pre-synthesis mini LLM call
+// Fires BEFORE the main response when a high-tension collision is detected.
+// Asks Haiku: "what would each archetype specifically say about THIS message,
+// where do they contradict, and what sentence could only be true if both are right?"
+// That computed seed is injected into the synthesis block so the main response
+// builds FROM an argued collision rather than inventing one mid-flight.
+// ============================================================
+async function generateLiveStanceConflict(nameA, nameB, depthA, depthB, userMessage) {
+  if (!anthropic || !userMessage) return null;
+
+  const essenceA = depthA?.essence || nameA;
+  const essenceB = depthB?.essence || nameB;
+  const topFrameworkA = depthA?.coreFrameworks ? Object.entries(depthA.coreFrameworks)[0] : null;
+  const topFrameworkB = depthB?.coreFrameworks ? Object.entries(depthB.coreFrameworks)[0] : null;
+  const frameworkLineA = topFrameworkA ? `Core method: ${topFrameworkA[0]} — ${topFrameworkA[1]}` : "";
+  const frameworkLineB = topFrameworkB ? `Core method: ${topFrameworkB[0]} — ${topFrameworkB[1]}` : "";
+
+  const prompt = `You are performing a tight philosophical analysis. Answer in exactly the format specified. No preamble.
+
+MESSAGE: "${userMessage.slice(0, 300)}"
+
+ARCHETYPE A: ${nameA}
+Essence: ${essenceA}
+${frameworkLineA}
+
+ARCHETYPE B: ${nameB}
+Essence: ${essenceB}
+${frameworkLineB}
+
+Respond in exactly this format — no headings, no extra text:
+
+STANCE_A: [1-2 sentences — what ${nameA} would specifically say about this message, as their own position]
+STANCE_B: [1-2 sentences — what ${nameB} would specifically say, in direct tension with STANCE_A]
+CONTRADICTION: [Complete this: "${nameA} says ___, but ${nameB} says ___. These cannot both be true unless..."]
+SYNTHESIS_SEED: [One sentence that could only be true if both stances are simultaneously right — should feel slightly wrong to each archetype alone, but undeniable from both at once]`;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: MODELS.dream,
+      max_tokens: 300,
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const raw = response.content?.[0]?.text || "";
+    const get = (key) => {
+      const match = raw.match(new RegExp(`${key}:\s*(.+?)(?=\n[A-Z_]+:|$)`, "s"));
+      return match ? match[1].trim() : null;
+    };
+
+    const stanceA = get("STANCE_A");
+    const stanceB = get("STANCE_B");
+    const contradiction = get("CONTRADICTION");
+    const synthesisSeed = get("SYNTHESIS_SEED");
+
+    if (!stanceA || !stanceB || !synthesisSeed) {
+      console.log("[LiveConflict] Incomplete parse — skipping injection");
+      return null;
+    }
+
+    console.log(`[LiveConflict] Computed for ${nameA} ↔ ${nameB}: "${synthesisSeed.slice(0, 80)}..."`);
+    return { stanceA, stanceB, contradiction, synthesisSeed };
+  } catch (err) {
+    console.error("[LiveConflict] Mini-call failed:", err.message);
+    return null;
+  }
+}
+
 // 4. Maximum Distance Mode: if user says "surprise me" → replace core with two opposing archetypes
 // 5. Semantic routing: cosine similarity picks best archetype for this message (score > 0.7 to qualify)
 // 6. Cap at 5 archetypes max
@@ -2681,6 +2750,32 @@ That is the shape of the thinking. Two paths arriving at one place — and that 
           // Collision path — high or medium tension
           const promptType = tensionLevel === "high" ? "collision" : "hybrid";
           const exemplar = getExampleSynthesis(a, b);
+
+          // For high-tension collisions, fire a mini Haiku call to compute the
+          // actual stance conflict for THIS specific user message.
+          // This gives the main model a pre-argued seed rather than a generic directive.
+          let liveConflict = null;
+          if (tensionLevel === "high" && message) {
+            liveConflict = await generateLiveStanceConflict(
+              depthA.name, depthB.name, depthA, depthB, message
+            );
+          }
+
+          const liveConflictBlock = liveConflict
+            ? `
+LIVE STANCE CONFLICT — computed for this specific message:
+
+${depthA.name}: ${liveConflict.stanceA}
+${depthB.name}: ${liveConflict.stanceB}
+
+${liveConflict.contradiction ? `WHERE THEY COLLIDE: ${liveConflict.contradiction}` : ""}
+
+YOUR SYNTHESIS SEED: "${liveConflict.synthesisSeed}"
+
+This seed was generated for this exact message. Start from it. Build the response from this collision — do not describe the collision, embody the resolution.
+`
+            : "";
+
           synthesisPrompt = `
 
 ═══════════════════════════════════════════════════════════════
@@ -2708,7 +2803,7 @@ Mechanism: ${exemplar.mechanism}
 That is the shape of the thinking. A genuinely new position — not averaging the two, not "both have merit." Something that could only exist because of the collision. Generate that for this conversation.
 `
     : ""
-}═══════════════════════════════════════════════════════════════
+}${liveConflictBlock}═══════════════════════════════════════════════════════════════
 `;
         }
       }
