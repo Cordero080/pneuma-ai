@@ -1286,7 +1286,67 @@
 }
 
 .message-text {
-  display: inline;
+  display: block;
+}
+
+/* Markdown element styles inside AI bubbles */
+.message-text p {
+  margin: 0 0 0.65em 0;
+}
+.message-text p:last-child {
+  margin-bottom: 0;
+}
+.message-text ul,
+.message-text ol {
+  margin: 0.4em 0 0.65em 1.4em;
+  padding: 0;
+}
+.message-text li {
+  margin-bottom: 0.3em;
+}
+.message-text strong {
+  color: #00ffb3;
+  font-weight: 600;
+}
+.message-text em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+}
+.message-text code {
+  font-family: "Fira Mono", "Courier New", monospace;
+  font-size: 0.85em;
+  background: rgba(0, 255, 179, 0.08);
+  border: 1px solid rgba(0, 255, 179, 0.2);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+.message-text pre {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 255, 179, 0.2);
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  margin: 0.5em 0;
+}
+.message-text pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.83em;
+}
+.message-text h1,
+.message-text h2,
+.message-text h3 {
+  color: #00ffb3;
+  font-weight: 600;
+  margin: 0.6em 0 0.3em 0;
+}
+.message-text blockquote {
+  border-left: 3px solid rgba(0, 255, 179, 0.4);
+  margin: 0.5em 0;
+  padding: 0.2em 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
 }
 
 .speaker-btn {

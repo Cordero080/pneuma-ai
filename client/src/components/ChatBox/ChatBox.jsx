@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, memo, useCallback, useMemo } from "react";
 import "./ChatBox.css";
 import { API_ENDPOINTS, API_BASE_URL } from "../../config/api";
 import SoundWave from "../SoundWave/SoundWave";
+import ReactMarkdown from "react-markdown";
 
 // User text color options
 const USER_COLORS = {
@@ -103,7 +104,11 @@ const MessageRow = memo(function MessageRow({
             className="message-image-preview"
           />
         )}
-        <span className="message-text">{msg.text}</span>
+        {msg.sender === "ai" ? (
+          <ReactMarkdown className="message-text">{msg.text}</ReactMarkdown>
+        ) : (
+          <span className="message-text">{msg.text}</span>
+        )}
         {msg.sender === "ai" && (
           <div className="message-audio-controls">
             <SoundWave isPlaying={isPlaying} barCount={5} />

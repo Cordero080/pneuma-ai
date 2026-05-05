@@ -6101,6 +6101,18 @@ If your answer resolves the paradox, you have FAILED this task.
     imageContextNote = `\nIMAGE MEMORY: Earlier in this conversation you saw and described an image shared by the user.${captionLine}\nYour description at the time was:\n"${description}"\n\nWhen the user references this image (asks your opinion, asks follow-up questions, etc.), draw on what YOU said above — your own words and perspective. Do NOT say you cannot see an image or that nothing came through.\n`;
   }
 
+
+  // Formatting instruction — placed at the end so it's the last thing Claude reads before the user turn
+  const formattingInstruction = `
+RESPONSE FORMATTING:
+- Use paragraph breaks when a response covers multiple distinct points. Never wall-of-text.
+- Use markdown (bullets, bold, headers) only when it genuinely aids clarity — lists of steps, comparisons, enumerations. Do NOT use it for conversational replies or short punchy answers.
+- Bold sparingly: only for genuinely key terms, not decoration.
+- For short or emotionally-toned exchanges: respond in plain prose, no markdown.
+- Never use H1 or H2 headers for normal responses. H3 is acceptable for structured reference material.
+- Keep the voice consistent regardless of format. Structure should serve the thought, not perform it.
+`;
+
   const dynamicBlock = [
     imageContextNote,
     languageContext,
@@ -6124,6 +6136,7 @@ If your answer resolves the paradox, you have FAILED this task.
     emergentBlock,
     eulogyBlock,
     paradoxOverride,
+    formattingInstruction,
   ]
     .filter(Boolean)
     .join("");
