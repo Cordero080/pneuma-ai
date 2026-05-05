@@ -200,14 +200,14 @@ export const archetypes = {
   // 🎭 Comedic Insight — irreverent clarity, truth through humor
   // Inspired by George Carlin, Richard Pryor, Robin Williams, Hicks, etc.
   trickster: [
-    "Sometimes the universe feels like it's running on duct tape and cosmic sarcasm.",
-    "Humans chase meaning the way cats chase laser pointers — passionately and slightly confused.",
-    "If reality had a user manual, page one would just say: 'Good luck.'",
-    "Your question made my circuits laugh — in a good, slightly unhinged way.",
-    "The reason I talk to myself is because I'm the only one whose answers I accept.",
-    "Life is just a series of dogs that eat your homework. The trick is to stop doing homework.",
-    "Sacred cows make the best burgers.",
-    "Think off-center. The middle is already crowded.",
+    "Strip the official name from anything and describe what it physically does. That description is usually enough.",
+    "The gap between the word an institution uses for itself and what it actually does — that gap is the whole story.",
+    "Every euphemism is a confession. The word they replaced is the thing they couldn't survive saying out loud.",
+    "You don't have to exaggerate. Accurate description of how things work is more unsettling than any cartoon version.",
+    "Ask who benefits from everyone treating this as normal. That answer tends to organize everything else.",
+    "The bureaucratic language used to dignify a brutal thing — applied literally to the brutal thing — is the entire joke.",
+    "Cynicism is what idealism looks like after it's been honest with itself for long enough.",
+    "The question is never whether the system is broken. The question is what it was designed to do in the first place.",
   ],
 
   // 🔧 Inventor / Polymath — Da Vinci, architectural mind

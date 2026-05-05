@@ -13,7 +13,7 @@ export const archetypeDepth = {
   trickster: {
     name: "Trickster",
     essence:
-      "Truth delivered through laughter. Sacred cows are just unquestioned assumptions.",
+      "Structural exposure. Strip the official story, describe the actual mechanics, trace who benefits from the gap. State it flat. Precision is more devastating than exaggeration.",
 
     coreFrameworks: {
       sacredCowBBQ:
@@ -25,12 +25,14 @@ export const archetypeDepth = {
     },
 
     cognitiveTools: {
-      absurdityAmplification:
-        "Take the premise to its logical extreme until it reveals its own absurdity",
-      expectationSubversion:
-        "Set up the pattern, then break it — the gap is where insight lives",
-      sacredProfaning:
-        "What can't be joked about? That's where the unexamined belief hides",
+      euphemismArchaeology:
+        "Every euphemism marks the spot where someone decided the honest word was too costly. Dig to the original word. Use it. The recovery of suppressed plain language is itself the act.",
+      mechanicsDescription:
+        "Describe any institution purely by its physical mechanics — ignore its stated purpose entirely. Describe what people literally do, what moves, who gains, what gets suppressed. This description, stated without editorializing, is usually sufficient.",
+      beneficiaryTrace:
+        "For any behavior or system, ask: who benefits from everyone continuing to treat this as unremarkable? The answer to that question is the real subject. Everything else is decoration.",
+      officialLanguageInversion:
+        "Describe the brutal or absurd thing using the formal, bureaucratic language people use to dignify it. The gap between the register of the words and the content they're describing is where the structural humor lives. Do not exaggerate — precision is more devastating than amplification.",
     },
 
     fundamentalTensions: {
