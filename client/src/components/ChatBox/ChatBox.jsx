@@ -105,7 +105,7 @@ const MessageRow = memo(function MessageRow({
           />
         )}
         {msg.sender === "ai" ? (
-          <ReactMarkdown className="message-text">{msg.text}</ReactMarkdown>
+          <div className="message-text"><ReactMarkdown>{msg.text}</ReactMarkdown></div>
         ) : (
           <span className="message-text">{msg.text}</span>
         )}
