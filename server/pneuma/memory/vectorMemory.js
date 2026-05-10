@@ -47,7 +47,9 @@ migrateFromJSON();
 // OUTPUT TO: MongoDB insertOne() or $vectorSearch aggregation
 export async function getEmbedding(text) {
   try {
-    const response = await openai.embeddings.create({
+    const client = getOpenAI();
+    if (!client) return null;
+    const response = await client.embeddings.create({
       model: "text-embedding-3-small",
       input: text,
     });
