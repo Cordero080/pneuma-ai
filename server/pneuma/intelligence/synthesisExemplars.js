@@ -1,10 +1,10 @@
 // FILE ROLE: Pre-computed canonical synthesis insights for known archetype collision pairs.
 // These are shown to Pneuma as exemplars when a collision fires — demonstrating the shape
 // of emergent thinking (not just "both are true" but a genuinely new third position).
-// Lookup via getExampleSynthesis(a, b). Consumed by llm.js collision block.
+// Lookup via getCollisionExemplar(a, b). Consumed by llm.js collision block.
 
-// [1] exampleSyntheses — lookup table of pre-computed synthesis insights for known archetype collision pairs. No deps.
-export const exampleSyntheses = {
+// [1] collisionExemplars — lookup table of pre-computed synthesis insights for known archetype collision pairs. No deps.
+export const collisionExemplars = {
   psycheIntegrator_antifragilist: {
     insight:
       "The shadow isn't just rejected content — it's antifragile potential. The parts of yourself you've protected from stress are the parts that stayed weak. Integration isn't just acceptance — it's exposure therapy for the psyche.",
@@ -390,13 +390,13 @@ export const resonanceExemplars = {
   },
 };
 
-// [2] getExampleSynthesis — returns a collision exemplar for a known high/medium tension pair. Waits for: [1].
+// [2] getCollisionExemplar — returns a collision exemplar for a known high/medium tension pair. Waits for: [1].
 // INPUT FROM: llm.js collision block
 // OUTPUT TO: collision prompt block in buildArchetypeContext()
-export function getExampleSynthesis(a, b) {
+export function getCollisionExemplar(a, b) {
   const key1 = `${a}_${b}`;
   const key2 = `${b}_${a}`;
-  return exampleSyntheses[key1] || exampleSyntheses[key2] || null;
+  return collisionExemplars[key1] || collisionExemplars[key2] || null;
 }
 
 // [3] getResonanceExemplar — returns a resonance exemplar for a known low-tension (allied) pair. Waits for: resonanceExemplars.

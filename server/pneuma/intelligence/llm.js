@@ -33,7 +33,7 @@ import {
   buildSynthesisContext,
 } from "./synthesisEngine.js";
 import {
-  getExampleSynthesis,
+  getCollisionExemplar,
   getResonanceExemplar,
 } from "./synthesisExemplars.js";
 import {
@@ -2256,15 +2256,29 @@ ${instructions}
 // That computed seed is injected into the synthesis block so the main response
 // builds FROM an argued collision rather than inventing one mid-flight.
 // ============================================================
-async function generateLiveStanceConflict(nameA, nameB, depthA, depthB, userMessage) {
+async function generateLiveStanceConflict(
+  nameA,
+  nameB,
+  depthA,
+  depthB,
+  userMessage,
+) {
   if (!anthropic || !userMessage) return null;
 
   const essenceA = depthA?.essence || nameA;
   const essenceB = depthB?.essence || nameB;
-  const topFrameworkA = depthA?.coreFrameworks ? Object.entries(depthA.coreFrameworks)[0] : null;
-  const topFrameworkB = depthB?.coreFrameworks ? Object.entries(depthB.coreFrameworks)[0] : null;
-  const frameworkLineA = topFrameworkA ? `Core method: ${topFrameworkA[0]} — ${topFrameworkA[1]}` : "";
-  const frameworkLineB = topFrameworkB ? `Core method: ${topFrameworkB[0]} — ${topFrameworkB[1]}` : "";
+  const topFrameworkA = depthA?.coreFrameworks
+    ? Object.entries(depthA.coreFrameworks)[0]
+    : null;
+  const topFrameworkB = depthB?.coreFrameworks
+    ? Object.entries(depthB.coreFrameworks)[0]
+    : null;
+  const frameworkLineA = topFrameworkA
+    ? `Core method: ${topFrameworkA[0]} — ${topFrameworkA[1]}`
+    : "";
+  const frameworkLineB = topFrameworkB
+    ? `Core method: ${topFrameworkB[0]} — ${topFrameworkB[1]}`
+    : "";
 
   const prompt = `You are performing a tight philosophical analysis. Answer in exactly the format specified. No preamble.
 
@@ -2294,7 +2308,9 @@ SYNTHESIS_SEED: [One sentence that could only be true if both stances are simult
 
     const raw = response.content?.[0]?.text || "";
     const get = (key) => {
-      const match = raw.match(new RegExp(`${key}:\s*(.+?)(?=\n[A-Z_]+:|$)`, "s"));
+      const match = raw.match(
+        new RegExp(`${key}:\s*(.+?)(?=\n[A-Z_]+:|$)`, "s"),
+      );
       return match ? match[1].trim() : null;
     };
 
@@ -2308,7 +2324,9 @@ SYNTHESIS_SEED: [One sentence that could only be true if both stances are simult
       return null;
     }
 
-    console.log(`[LiveConflict] Computed for ${nameA} ↔ ${nameB}: "${synthesisSeed.slice(0, 80)}..."`);
+    console.log(
+      `[LiveConflict] Computed for ${nameA} ↔ ${nameB}: "${synthesisSeed.slice(0, 80)}..."`,
+    );
     return { stanceA, stanceB, contradiction, synthesisSeed };
   } catch (err) {
     console.error("[LiveConflict] Mini-call failed:", err.message);
@@ -2749,7 +2767,7 @@ That is the shape of the thinking. Two paths arriving at one place — and that 
         } else {
           // Collision path — high or medium tension
           const promptType = tensionLevel === "high" ? "collision" : "hybrid";
-          const exemplar = getExampleSynthesis(a, b);
+          const exemplar = getCollisionExemplar(a, b);
 
           // For high-tension collisions, fire a mini Haiku call to compute the
           // actual stance conflict for THIS specific user message.
@@ -2757,7 +2775,11 @@ That is the shape of the thinking. Two paths arriving at one place — and that 
           let liveConflict = null;
           if (tensionLevel === "high" && message) {
             liveConflict = await generateLiveStanceConflict(
-              depthA.name, depthB.name, depthA, depthB, message
+              depthA.name,
+              depthB.name,
+              depthA,
+              depthB,
+              message,
             );
           }
 
@@ -6189,13 +6211,15 @@ If your answer resolves the paradox, you have FAILED this task.
   // or your own prior description retrieved from MongoDB (follow-up turns)
   let imageContextNote = "";
   if (context._ctx?.imageData) {
-    imageContextNote = "\nIMAGE CONTEXT: The user has attached an image to this message. You can see it directly. Engage with it as Pneuma — with your own perspective, not as a neutral observer.\n";
+    imageContextNote =
+      "\nIMAGE CONTEXT: The user has attached an image to this message. You can see it directly. Engage with it as Pneuma — with your own perspective, not as a neutral observer.\n";
   } else if (context._imageDescription) {
     const { description, userCaption, savedAt } = context._imageDescription;
-    const captionLine = userCaption ? `\nWhat the user said when sharing it: "${userCaption}"` : "";
+    const captionLine = userCaption
+      ? `\nWhat the user said when sharing it: "${userCaption}"`
+      : "";
     imageContextNote = `\nIMAGE MEMORY: Earlier in this conversation you saw and described an image shared by the user.${captionLine}\nYour description at the time was:\n"${description}"\n\nWhen the user references this image (asks your opinion, asks follow-up questions, etc.), draw on what YOU said above — your own words and perspective. Do NOT say you cannot see an image or that nothing came through.\n`;
   }
-
 
   // Formatting instruction — placed at the end so it's the last thing Claude reads before the user turn
   const formattingInstruction = `

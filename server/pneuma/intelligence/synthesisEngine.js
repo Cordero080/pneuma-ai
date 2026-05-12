@@ -293,7 +293,7 @@ export function buildCompactSynthesisContext(minimalData) {
   return context;
 }
 
-// exampleSyntheses and getExampleSynthesis live in synthesisExemplars.js
+// collisionExemplars and getCollisionExemplar live in synthesisExemplars.js
 
 export default {
   detectCollisions,
