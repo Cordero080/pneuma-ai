@@ -322,23 +322,35 @@ export function analyzeForAutonomy(message, response, context = {}) {
   const suggestions = [];
   const lower = message.toLowerCase();
 
-  // Question detection — things that might become open questions
-  if (
+  // Question detection — existential/philosophical questions with no clean answer
+  const isExistentialStructure =
     /what (is|does it mean|would|if)|why (do|does|is|am)|how (can|do|does)|is (there|it|this)/i.test(
       lower,
-    ) &&
-    /consciousness|meaning|real|exist|feel|aware|alive|understand/i.test(lower)
+    );
+  const hasExistentialContent =
+    /consciousness|meaning|real|exist|feel|aware|alive|understand|purpose|soul|identity|truth|free will|death|time|love|god|void|self|mind|belief/i.test(
+      lower,
+    );
+  // Also catch high-philosophical score even without hard keyword match
+  const isPhilosophicalByScore =
+    (context.intentScores?.philosophical || 0) > 0.6 ||
+    (context.intentScores?.numinous || 0) > 0.5;
+
+  if (
+    (isExistentialStructure && hasExistentialContent) ||
+    isPhilosophicalByScore
   ) {
     suggestions.push({
       type: "pose_question",
       content: message.slice(0, 150),
-      reason: "Existential question that may not have a clean answer",
+      reason:
+        "Existential or philosophical question that may not have a clean answer",
     });
   }
 
-  // Correction detection — user says Pneuma was wrong
+  // Correction detection — user says Pneuma was wrong or missed their point
   if (
-    /no,? (that's|you're) (not|wrong)|actually|I meant|misunderstood|that's not what I/i.test(
+    /no,? (that'?s|you'?re) (not|wrong)|actually[,.]|I meant|misunderstood|that'?s not what I|you missed|not quite|that'?s not it/i.test(
       lower,
     )
   ) {
@@ -349,8 +361,12 @@ export function analyzeForAutonomy(message, response, context = {}) {
     });
   }
 
-  // Significant moment detection — high emotional weight
-  if (context.emotionalWeight > 0.7 || context.intentScores?.numinous > 0.5) {
+  // Significant moment detection — high emotional or numinous weight
+  if (
+    context.emotionalWeight > 0.55 ||
+    (context.intentScores?.numinous || 0) > 0.4 ||
+    (context.intentScores?.emotional || 0) > 0.6
+  ) {
     suggestions.push({
       type: "choose_memory",
       content: message.slice(0, 150),

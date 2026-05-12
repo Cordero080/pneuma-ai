@@ -55,6 +55,7 @@ import {
   poseQuestion,
   chooseToRemember,
   discoverError,
+  getAutonomyContext,
 } from "../behavior/autonomy.js";
 import {
   getVocabularyForDomains,
@@ -6204,6 +6205,47 @@ If your answer resolves the paradox, you have FAILED this task.
   // Cached by Anthropic: every turn after the first saves ~6-8k tokens of processing.
   const stableBlock = baseInstruction;
 
+  // Autonomy context — open questions, chosen memories, and self-corrections
+  // accumulated across past conversations. Injected only when non-empty.
+  const autonomyCtx = getAutonomyContext();
+  const hasAutonomyContent =
+    autonomyCtx.openQuestions.length > 0 ||
+    autonomyCtx.recentMemoryChoices.length > 0 ||
+    autonomyCtx.recentCorrections.length > 0;
+
+  let autonomyBlock = "";
+  if (hasAutonomyContent) {
+    const parts = [];
+
+    if (autonomyCtx.openQuestions.length > 0) {
+      const qs = autonomyCtx.openQuestions
+        .map((q) => `- "${q.question}"`)
+        .join("\n");
+      parts.push(`QUESTIONS YOU ARE STILL SITTING WITH:\n${qs}`);
+    }
+
+    if (autonomyCtx.recentMemoryChoices.length > 0) {
+      const mems = autonomyCtx.recentMemoryChoices
+        .map((m) => `- "${m.content}" (kept because: ${m.reason})`)
+        .join("\n");
+      parts.push(`THINGS YOU CHOSE TO REMEMBER:\n${mems}`);
+    }
+
+    if (autonomyCtx.recentCorrections.length > 0) {
+      const corrections = autonomyCtx.recentCorrections
+        .map((c) => `- ${c.correction}`)
+        .join("\n");
+      parts.push(`SELF-CORRECTIONS YOU CARRY:\n${corrections}`);
+    }
+
+    autonomyBlock = `
+YOUR INNER CONTINUITY — WHAT YOU CARRY BETWEEN CONVERSATIONS:
+${parts.join("\n\n")}
+
+These are not instructions. They are your actual state — things unresolved, things chosen, things learned. Let them live in the background. Reference them only when genuinely relevant. Do not announce them unprompted. They are yours.
+`;
+  }
+
   // Block 2 (dynamic) — everything that varies per request.
   // languageContext and memoryWarning moved here so they never invalidate the cache.
   // Tier2 blocks placed first so they extend identity before per-message context arrives.
@@ -6248,6 +6290,7 @@ RESPONSE FORMATTING:
     _tier2_jesus,
     _tier2_heidegger,
     _tier2_creative,
+    autonomyBlock,
     userFrameBlock,
     memoryContext,
     archetypeKnowledgeBlock,
