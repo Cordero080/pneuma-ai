@@ -327,6 +327,11 @@ const MAXIMUM_DISTANCE_PAIRS = [
   ["warriorSage", "wisdomCognitivist"], // Musashi + Vervaeke
 ];
 
+// Tracks the conversation turn index at which max distance last fired.
+// Prevents clustering — autonomous path won't re-fire within 3 exchanges.
+// Module-level (resets on server restart), scoped to the session naturally.
+let _lastMaxDistanceFiredAt = -999;
+
 /**
  * Get a random maximum-distance pair for original thinking
  */
@@ -2349,6 +2354,7 @@ async function buildArchetypeContext(
   intentScores = {},
   message = "",
   evolutionVectors = {},
+  conversationLength = 0,
 ) {
   // ---- PHASE: TIER 1 CORE BASE SELECTION
   const coreBase = [...CORE_BASE_ARCHETYPES];
@@ -2404,50 +2410,67 @@ async function buildArchetypeContext(
   }
 
   // ============================================================
+  // ============================================================
   // MAXIMUM DISTANCE MODE: Force original thinking through collision
-  // TWO PATHS:
-  // 1. Explicit triggers: "weird angle", "original take", etc.
-  // 2. Autonomous: 12% chance on philosophical/creative questions
+  //
+  // PATH 1 — Explicit triggers (always fires, no cooldown):
+  //   Natural phrases a user might say: "surprise me", "weird angle", etc.
+  //   No secret command — these are things people actually say.
+  //
+  // PATH 2 — Autonomous (content-driven, not syntax-driven):
+  //   Fires when intent scores say the question is genuinely deep AND
+  //   has emotional weight. A dry analytic question doesn't qualify —
+  //   max distance pairs are most powerful when something real is at stake.
+  //   Gated by cooldown (won't cluster within 3 exchanges) and a depth
+  //   floor (won't fire in the opening turn before any rhythm is established).
+  //   25% chance within this already-narrow qualifying population.
   // ============================================================
   let maxDistanceMode = false;
   let maxDistancePair = null;
   if (message) {
     const lowerMsg = message.toLowerCase();
 
-    // PATH 1: Explicit triggers (always activates)
+    // PATH 1: Explicit triggers — always honor, no cooldown
     const originalThinkingTriggers =
       /weird angle|original take|surprise me|think different|fresh perspective|unusual view|strange take|wildcard|maximum distance|force collision/i;
 
-    // PATH 2: Autonomous activation (12% chance on meaty questions)
-    const meatyQuestionPattern =
-      /\?|what do you think|how would you|why do|what if|should i|is it|can you explain|what's your take/i;
-    const isPhilosophicalOrCreative =
-      intentScores.philosophical > 0.5 || intentScores.numinous > 0.4;
-    const autonomousRoll = Math.random() < 0.12; // 12% chance
+    // PATH 2: Autonomous — purely intent-score-driven, no syntax check
+    // "Deep" = high philosophical OR high numinous
+    // "Has weight" = emotional component OR extremely high philosophical alone
+    const isDeep =
+      intentScores.philosophical > 0.55 || intentScores.numinous > 0.45;
+    const hasWeight =
+      (intentScores.emotional || 0) > 0.35 || intentScores.philosophical > 0.65;
+    const pastFirstExchange = conversationLength >= 2;
+    const cooldownClear = conversationLength - _lastMaxDistanceFiredAt >= 3;
+    const autonomousRoll = Math.random() < 0.25;
 
     if (originalThinkingTriggers.test(lowerMsg)) {
-      // Explicit request - always honor
+      // Explicit request — always honor
       maxDistanceMode = true;
       maxDistancePair = getMaxDistancePair();
       console.log(
-        `[MAX DISTANCE] Explicit trigger activated: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
+        `[MAX DISTANCE] Explicit trigger: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
       );
     } else if (
-      meatyQuestionPattern.test(lowerMsg) &&
-      isPhilosophicalOrCreative &&
+      isDeep &&
+      hasWeight &&
+      pastFirstExchange &&
+      cooldownClear &&
       autonomousRoll
     ) {
-      // Autonomous activation - Pneuma chooses to go weird
+      // Autonomous — Pneuma decides to go to maximum distance
       maxDistanceMode = true;
       maxDistancePair = getMaxDistancePair();
+      _lastMaxDistanceFiredAt = conversationLength;
       console.log(
-        `[MAX DISTANCE] Autonomous activation! Pneuma chose to force: ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
+        `[MAX DISTANCE] Autonomous (depth+weight): ${maxDistancePair[0]} ↔ ${maxDistancePair[1]}`,
       );
     }
 
     if (maxDistanceMode && maxDistancePair) {
       // Replace core base with just the max distance pair + liminal architect
-      coreBase.length = 0; // Clear
+      coreBase.length = 0;
       coreBase.push(maxDistancePair[0], maxDistancePair[1], "liminalArchitect");
     }
   }
@@ -3256,8 +3279,16 @@ export async function getLLMContent(
       isRecent: true,
     }));
 
-    // Semantic memories: retrieve by vector similarity, then deduplicate against recent turns
-    const vectorMemories = await retrieveMemories(message);
+    // Parallelize all three independent memory reads — none depend on each other.
+    const [vectorMemories, longTermMem, imageDesc] = await Promise.all([
+      retrieveMemories(message),
+      loadMemory(),
+      !ctx.imageData && ctx.sessionId
+        ? loadImageDescription(ctx.sessionId)
+        : Promise.resolve(null),
+    ]);
+
+    // Deduplicate vector memories against recent turns already in context
     const recentUserTexts = recentExchanges.map((ex) => ex.user.slice(0, 60));
     const filteredVectorMemories = vectorMemories.filter(
       (mem) =>
@@ -3271,8 +3302,6 @@ export async function getLLMContent(
       context.relevantMemories = combined;
     }
 
-    // Load structured long-term user memory for user frame injection
-    const longTermMem = await loadMemory();
     if (longTermMem) {
       context.longTermMemory = longTermMem;
     }
@@ -3280,9 +3309,8 @@ export async function getLLMContent(
     // Merge ctx flags into context so buildSystemPrompt can see imageData etc.
     context._ctx = ctx;
 
-    // Load persisted image description from MongoDB for this session
-    if (!ctx.imageData && ctx.sessionId) {
-      context._imageDescription = await loadImageDescription(ctx.sessionId);
+    if (imageDesc) {
+      context._imageDescription = imageDesc;
     }
 
     const { stableBlock, dynamicBlock } = await buildSystemPrompt(
@@ -5945,6 +5973,7 @@ WHAT TO DO:
       intentScores,
       message,
       context.evolution || {},
+      context.conversationHistory?.length || 0,
     );
 
   // Deep Thinker Injection — pull relevant conceptual toolkit based on topic
