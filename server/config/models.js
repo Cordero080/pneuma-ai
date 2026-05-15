@@ -10,9 +10,12 @@
 // ============================================================
 
 export const MODELS = {
-  // Main response generation and intent classification
+  // Main response generation
   main: "claude-sonnet-4-6",
 
-  // Background tasks: dreams, dialectic synthesis (cheap + fast)
+  // Classification tasks: intent scoring, topic detection (fast, structured output only)
+  classify: "claude-haiku-4-5-20251001",
+
+  // Background tasks: dreams, dialectic synthesis, pre-thinking
   dream: "claude-haiku-4-5-20251001",
 };

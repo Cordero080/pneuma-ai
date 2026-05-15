@@ -3280,6 +3280,7 @@ export async function getLLMContent(
     }));
 
     // Parallelize all three independent memory reads — none depend on each other.
+    const _tMem = Date.now();
     const [vectorMemories, longTermMem, imageDesc] = await Promise.all([
       retrieveMemories(message),
       loadMemory(),
@@ -3287,6 +3288,7 @@ export async function getLLMContent(
         ? loadImageDescription(ctx.sessionId)
         : Promise.resolve(null),
     ]);
+    console.log(`[TIMING] memory reads (parallel): ${Date.now() - _tMem}ms`);
 
     // Deduplicate vector memories against recent turns already in context
     const recentUserTexts = recentExchanges.map((ex) => ex.user.slice(0, 60));
@@ -3611,7 +3613,7 @@ export async function getLLMIntent(message) {
 
   try {
     const response = await anthropic.messages.create({
-      model: MODELS.main,
+      model: MODELS.classify,
       max_tokens: 200,
       temperature: 0.3, // Low temp for classification
       system: `You are an intent classifier. Analyze the user's message and score these intents from 0.0 to 1.0:
@@ -6041,6 +6043,7 @@ WHAT TO DO:
     ? context.conversationHistory.slice(-2)
     : [];
 
+  const _tRagPre = Date.now();
   const [ragResult, preThinkingResult] = await Promise.all([
     getArchetypeContext(message, {
       topK: 8,
@@ -6057,6 +6060,9 @@ WHAT TO DO:
       },
     ),
   ]);
+  console.log(
+    `[TIMING] RAG + pre-thinking (parallel): ${Date.now() - _tRagPre}ms`,
+  );
 
   let archetypeKnowledgeBlock = "";
   if (ragResult && ragResult.passages.length > 0) {

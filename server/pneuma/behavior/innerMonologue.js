@@ -154,7 +154,7 @@ UNDERNEATH: [What the user actually needs — not the surface question but the r
 
     const response = await anthropic.messages.create({
       model: MODELS.dream, // Haiku — fast and cheap
-      max_tokens: 600,
+      max_tokens: 350,
       temperature: 0.8, // Higher creativity — we want surprising collisions
       system: systemPrompt,
       messages,
