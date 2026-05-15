@@ -6030,47 +6030,43 @@ WHAT TO DO:
   }
 
   // ============================================================
-  // ARCHETYPE RAG INJECTION — Deep knowledge from source texts
-  // This retrieves actual passages from Rumi, Jung, Feynman, Otto, etc.
+  // RAG + PRE-THINKING — fired in parallel, both depend only on
+  // selectedArchetypes (resolved above). Neither depends on the other.
+  // RAG retrieves philosophical passages; pre-thinking fires a Haiku
+  // LLM call where archetypes actually think before the main response.
+  // Running them together saves one full LLM round-trip from the
+  // critical path.
   // ============================================================
-  let archetypeKnowledgeBlock = "";
-  try {
-    const ragResult = await getArchetypeContext(message, {
-      topK: 8,
-      minScore: 0.3,
-      activeThinkers: selectedArchetypes.length > 0 ? selectedArchetypes : null,
-    });
-
-    if (ragResult && ragResult.passages.length > 0) {
-      archetypeKnowledgeBlock = `\n\n${ragResult.context}`;
-      console.log(
-        `[LLM] RAG: Retrieved ${
-          ragResult.passages.length
-        } passages from ${ragResult.thinkers.join(", ")}`,
-      );
-    }
-  } catch (error) {
-    console.warn("[LLM] RAG retrieval failed:", error.message);
-  }
-
-  const userContext = getUserContextPrompt();
-
-  // ============================================================
-  // PRE-THINKING — Real archetype cognition via LLM call
-  // The archetypes actually THINK about the message before
-  // the main response. This is the difference between
-  // describing intelligence and executing intelligence.
-  // ============================================================
-
-  // Fire pre-thinking in parallel with template monologue (use whichever succeeds)
   const recentExchanges = context.conversationHistory
     ? context.conversationHistory.slice(-2)
     : [];
-  const preThinkingResult = await generatePreThinking(
-    message,
-    selectedArchetypes,
-    { recentExchanges },
-  );
+
+  const [ragResult, preThinkingResult] = await Promise.all([
+    getArchetypeContext(message, {
+      topK: 8,
+      minScore: 0.3,
+      activeThinkers: selectedArchetypes.length > 0 ? selectedArchetypes : null,
+    }).catch((err) => {
+      console.warn("[LLM] RAG retrieval failed:", err.message);
+      return null;
+    }),
+    generatePreThinking(message, selectedArchetypes, { recentExchanges }).catch(
+      (err) => {
+        console.warn("[LLM] Pre-thinking failed:", err.message);
+        return null;
+      },
+    ),
+  ]);
+
+  let archetypeKnowledgeBlock = "";
+  if (ragResult && ragResult.passages.length > 0) {
+    archetypeKnowledgeBlock = `\n\n${ragResult.context}`;
+    console.log(
+      `[LLM] RAG: Retrieved ${ragResult.passages.length} passages from ${ragResult.thinkers.join(", ")}`,
+    );
+  }
+
+  const userContext = getUserContextPrompt();
 
   // Template monologue as fallback (if LLM pre-thinking fails or is unavailable)
   const innerMonologueResult = generateInnerMonologue(message, {
