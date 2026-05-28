@@ -355,7 +355,9 @@ export async function generate(
   let intentScores;
   if (isLLMAvailable()) {
     // Claude online?
+    const t0 = Date.now();
     const llmIntent = await getLLMIntent(message); // ask Claude to score intent
+    console.log(`[TIMING] getLLMIntent: ${Date.now() - t0}ms`);
     if (llmIntent) intentScores = normalizeIntentScores(llmIntent); // clean it up
   }
   if (!intentScores) {
@@ -453,6 +455,7 @@ export async function generate(
       emergentShift, // flag: tells Claude to be more self-reflective
       eulogyLens, // flag: tells Claude to add mortality/finality flavor
     };
+    const t1 = Date.now();
     llmContent = await getLLMContent(
       message,
       tone,
@@ -461,6 +464,7 @@ export async function generate(
       typeof extraContext.onChunk === "function" ? extraContext.onChunk : null,
       ctx,
     ); // ask Claude to write
+    console.log(`[TIMING] getLLMContent (full pipeline): ${Date.now() - t1}ms`);
   }
 
   // ── STEP 3: LAYER 3 — Personality Profile ────────────────

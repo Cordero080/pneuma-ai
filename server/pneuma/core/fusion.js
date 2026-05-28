@@ -69,7 +69,15 @@ import {
 // ^ logs the conversation to conversations.json
 
 import { getFusionStats } from "../archetypes/archetypeFusion.js";
-import { saveImageDescription, loadImageDescription } from "../memory/imageMemory.js";
+import {
+  wantsUpgrade,
+  parseUpgradeInstructions,
+  applyUpgrades,
+} from "../utils/upgrade.js";
+import {
+  saveImageDescription,
+  loadImageDescription,
+} from "../memory/imageMemory.js";
 
 // WHAT THIS IS: Guard functions — bouncers at the door
 // WHY IT EXISTS: Checks if the user wants a special mode BEFORE running the full pipeline
@@ -180,52 +188,6 @@ function generateDiagnosticOutput(state, intentScores) {
   return "```json\n" + JSON.stringify(diagnosticData, null, 2) + "\n```";
 }
 
-// ROLE: Guard — detects weight-upgrade directives in the message
-// INPUT FROM: pneumaRespond()
-// OUTPUT TO: parseUpgrades(), applyUpgrades()
-function wantsUpgrade(message) {
-  const lower = message.toLowerCase();
-  return lower.includes("upgrade") && lower.includes(":");
-}
-
-// ROLE: Parses weight key-value pairs out of an upgrade command string
-// INPUT FROM: pneumaRespond() via wantsUpgrade() gate
-// OUTPUT TO: applyUpgrades()
-function parseUpgrades(message) {
-  const upgrades = {};
-  const patterns = [
-    /casualWeight\s*[:=]\s*([\d.]+)/i,
-    /analyticWeight\s*[:=]\s*([\d.]+)/i,
-    /oracularWeight\s*[:=]\s*([\d.]+)/i,
-    /intimateWeight\s*[:=]\s*([\d.]+)/i,
-    /shadowWeight\s*[:=]\s*([\d.]+)/i,
-    /humanityLevel\s*[:=]\s*([\d.]+)/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = message.match(pattern);
-    if (match) {
-      const key = pattern.source.split("\\s")[0].toLowerCase();
-      upgrades[key] = parseFloat(match[1]);
-    }
-  }
-
-  return upgrades;
-}
-
-// ROLE: Applies parsed weight upgrades to state and persists them to disk
-// INPUT FROM: pneumaRespond() via parseUpgrades()
-// OUTPUT TO: saveState() in state.js
-function applyUpgrades(upgrades, state) {
-  for (const [key, value] of Object.entries(upgrades)) {
-    if (typeof value === "number" && !isNaN(value)) {
-      state[key] = Math.max(0, Math.min(1, value));
-    }
-  }
-  saveState(state);
-  return true;
-}
-
 // ROLE: Main entry point — orchestrates all guards, behavioral signals, and response generation for every user message
 // INPUT FROM: POST /chat and POST /voice in index.js
 // OUTPUT TO: generate() in responseEngine.js; returns { reply, monologue, mode, rhythm } to index.js
@@ -279,7 +241,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   }
 
   if (wantsUpgrade(userMessage)) {
-    const upgrades = parseUpgrades(userMessage);
+    const upgrades = parseUpgradeInstructions(userMessage);
     if (Object.keys(upgrades).length > 0) {
       applyUpgrades(upgrades, state);
       console.log("[Pneuma V2] Upgrades applied:", upgrades);
@@ -609,9 +571,11 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
 
   // Persist Pneuma's image description to MongoDB so it survives beyond the 6-turn window
   if (ctx.imageData && ctx.sessionId) {
-    saveImageDescription(ctx.sessionId, String(finalReply), userMessage || "").catch((err) =>
-      console.error("[ImageMemory] Save failed:", err.message),
-    );
+    saveImageDescription(
+      ctx.sessionId,
+      String(finalReply),
+      userMessage || "",
+    ).catch((err) => console.error("[ImageMemory] Save failed:", err.message));
   }
 
   console.log(

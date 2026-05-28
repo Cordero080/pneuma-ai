@@ -223,7 +223,24 @@ Requires `planningEngine.js` + cross-turn state persistence.
 
 ---
 
-## Tier 5 — Cost & Infrastructure
+## Tier 5 — Authentication & Multi-User
+
+### User-Scoped Memory (depends on auth)
+
+**Status:** Not started | **File:** `server/pneuma/memory/vectorMemory.js`
+
+Right now all conversations are stored in the same MongoDB collection with no user separation. Vector search retrieves from everyone's history — fine for a single user, a real problem for public deployment.
+
+Two steps, in order:
+
+1. **Wire in authentication** — any auth system that gives you a user ID on every request
+2. **Filter memory by user ID** — pass the user ID into `retrieveMemories()` and add it to the MongoDB `$vectorSearch` query. Also tag every `saveEmbedding()` call with the user ID at write time.
+
+Step 2 is ~10 lines in `vectorMemory.js`. It does not happen automatically from adding auth — it requires an explicit code change after auth is in place.
+
+---
+
+## Tier 6 — Cost & Infrastructure
 
 ### Extended Thinking
 
@@ -291,6 +308,28 @@ Pure refactor. No behavior changes. Do during or after Phase 2.
 `getLLMIntent()` in `llm.js` and `selectMode()` in `innerMonologue.js` both
 ask "what kind of message is this?" for different consumers. One shared intent
 result, or at minimum cross-referencing comments in both files.
+
+---
+
+---
+
+## Tier 7 — Expressive UI
+
+### Response Text Color by Emotional/Philosophical Weight
+
+Two versions, build in order:
+
+**Version 1 — Intent-mapped color with hover reveal**
+The dominant intent score from each response maps to a subtle text color shift on the message bubble. Stays near white normally — pulls warm amber on emotional, cool cyan on philosophical, deep violet on numinous. On hover, a small tooltip reveals the intent name ("emotional weight", "philosophical", "numinous") — not a definition, just the name of what Pneuma was feeling. The color draws attention; the hover explains it.
+
+Intent scores already come back from the pipeline. This is a frontend-only change — read the top intent from the API response, apply it as a CSS variable on the message container.
+
+**Files:** `client/src/components/ChatBox/ChatBox.jsx`, API response already contains intent scores.
+
+**Version 2 — Archetype attribution (harder, more interesting)**
+Instead of intent names, the hover reveals which archetype was dominant in that passage — *"Rumi"*, *"Feynman"*, *"Jung"*. Color becomes attribution, not just mood. Requires tracking which archetype influenced which part of the response at generation time — the current pipeline doesn't do this yet. Design the attribution tracking in the backend before building the frontend.
+
+**Status:** Not started | **Dependency for V2:** backend archetype-per-sentence attribution
 
 ---
 
