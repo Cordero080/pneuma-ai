@@ -60,6 +60,10 @@ app.use(express.raw({ type: "audio/*", limit: "25mb" })); // for audio uploads
 // Start session (archetype momentum decay)
 startSession();
 
+// Throttle for regular dream generation — once per 2 hours of conversation activity
+let lastRegularDreamTime = 0;
+const REGULAR_DREAM_INTERVAL = 2 * 60 * 60 * 1000;
+
 // -------------------------- TEST ROUTE ------------------------------
 // Quick test to confirm the backend is alive
 app.get("/", (req, res) => {
@@ -200,7 +204,10 @@ app.post("/chat", imageUpload.single("image"), async (req, res) => {
   // requestContext = the "backpack" — created fresh each request, carries all
   // per-request state so nothing has to live in module-level variables.
   const imageData = req.file
-    ? { base64: req.file.buffer.toString("base64"), mediaType: req.file.mimetype }
+    ? {
+        base64: req.file.buffer.toString("base64"),
+        mediaType: req.file.mimetype,
+      }
     : null;
 
   const requestContext = {
@@ -275,6 +282,14 @@ app.post("/chat", imageUpload.single("image"), async (req, res) => {
     triggerDialecticDream().catch((err) =>
       console.error("[Dream] Background dialectic failed:", err.message),
     );
+
+    // Fire-and-forget: regular creative dreams (throttled to 2h)
+    if (Date.now() - lastRegularDreamTime > REGULAR_DREAM_INTERVAL) {
+      lastRegularDreamTime = Date.now();
+      triggerDreaming(1).catch((err) =>
+        console.error("[Dream] Background dream failed:", err.message),
+      );
+    }
 
     // Fire-and-forget: weekly baseline evolution from vector memory patterns
     triggerBaselineEvolution().catch((err) =>

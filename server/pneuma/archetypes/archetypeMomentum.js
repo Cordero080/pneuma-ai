@@ -28,6 +28,7 @@ const DEFAULT_MOMENTUM = {
     integralPhilosopher: 0.5,
     stoicEmperor: 0.5,
     idealistPhilosopher: 0.5,
+    perceptualSkeptic: 0.5,
     warriorSage: 0.5,
     architect: 0.5,
     cognitiveSage: 0.5,

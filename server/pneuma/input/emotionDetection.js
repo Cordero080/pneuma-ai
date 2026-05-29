@@ -370,6 +370,7 @@ export function emotionToArchetypeBoost(emotions) {
       (boosts.curiousPhysicist || 0) + emotions.curiosity * 0.7;
     boosts.psychedelicBard = emotions.curiosity * 0.4;
     boosts.idealistPhilosopher = emotions.curiosity * 0.5;
+    boosts.perceptualSkeptic = emotions.curiosity * 0.5;
   }
 
   // Vulnerability → gentle witnessing

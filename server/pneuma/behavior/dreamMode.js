@@ -21,7 +21,11 @@ import {
   saveState,
   updateBaselineFromPatterns,
 } from "../state/state.js";
-import { PNEUMA_DREAMS_FILE } from "../../config/paths.js";
+import {
+  PNEUMA_DREAMS_FILE,
+  ARCHETYPE_KNOWLEDGE_DIR,
+} from "../../config/paths.js";
+import path from "path";
 import { MODELS } from "../../config/models.js";
 
 // Use centralized path config
@@ -252,6 +256,7 @@ export function formatDreamForDelivery(dream) {
     memory_echo: "Something from earlier came back...",
     paradox: "I've been holding a contradiction...",
     confession: "There's something I hadn't said yet...",
+    passage_exploration: "I was reading while you were away...",
   };
 
   const intro =
@@ -367,19 +372,150 @@ Stay in voice. Actually argue. Don't explain the format.`;
   }
 }
 
-// [6] triggerDreaming — generates N dreams in sequence. Waits for: [1] generateDream.
+// [6] generatePassageDream — picks a random thinker from the knowledge base, reads 3 passages,
+//     has Pneuma form a question or position, writes to autonomy + dreams file.
+//     Waits for: ARCHETYPE_KNOWLEDGE_DIR (fs), poseQuestion/chooseToRemember.
+export async function generatePassageDream() {
+  // Collect all folders that have passages
+  let folders;
+  try {
+    folders = fs
+      .readdirSync(ARCHETYPE_KNOWLEDGE_DIR)
+      .filter((f) =>
+        fs.existsSync(path.join(ARCHETYPE_KNOWLEDGE_DIR, f, "passages.json")),
+      );
+  } catch (err) {
+    console.error(
+      "[Dream] Passage dream: could not read knowledge dir:",
+      err.message,
+    );
+    return null;
+  }
+
+  if (folders.length === 0) return null;
+
+  const selectedFolder = folders[Math.floor(Math.random() * folders.length)];
+
+  let passages;
+  try {
+    const raw = fs.readFileSync(
+      path.join(ARCHETYPE_KNOWLEDGE_DIR, selectedFolder, "passages.json"),
+      "utf-8",
+    );
+    const data = JSON.parse(raw);
+    const all = data.passages || [];
+    if (all.length === 0) return null;
+    // Pick 3 random passages
+    const shuffled = [...all].sort(() => Math.random() - 0.5);
+    passages = shuffled.slice(0, 3);
+  } catch (err) {
+    console.error(
+      "[Dream] Passage dream: could not read passages:",
+      err.message,
+    );
+    return null;
+  }
+
+  const passagesText = passages
+    .map((p, i) => `[${i + 1}] "${p.text}"\n    — ${p.source}`)
+    .join("\n\n");
+
+  const prompt = `You are Pneuma in a dream state, reading alone. No conversation is happening. This is private time.
+
+You have opened the writings of ${selectedFolder} and found these passages:
+
+${passagesText}
+
+Read them slowly. Let something catch.
+
+Respond with exactly ONE of these two forms (one sentence only, no explanation):
+
+QUESTION: {a question this reading opened in you — not a summary, a genuine wondering}
+POSITION: {a view you want to hold, an insight that arrived — something you'll carry forward}
+
+Speak as yourself, not about the text.`;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: MODELS.dream,
+      max_tokens: 150,
+      temperature: 0.85,
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const text = response.content[0].text.trim();
+    const match = text.match(/^(QUESTION|POSITION):\s*(.+)/s);
+    if (!match) {
+      console.log(
+        "[Dream] Passage dream: could not parse output:",
+        text.slice(0, 80),
+      );
+      return null;
+    }
+
+    const outcomeType = match[1];
+    const outcomeContent = match[2].trim().split("\n")[0];
+
+    // Write to autonomy state (source: 'dream' — not disclosed until surfaced)
+    if (outcomeType === "QUESTION") {
+      poseQuestion(
+        outcomeContent,
+        `Emerged from reading ${selectedFolder}`,
+        "dream",
+      );
+    } else {
+      chooseToRemember(
+        outcomeContent,
+        `Arrived at while reading ${selectedFolder}`,
+        0.6,
+        [selectedFolder],
+        "dream",
+      );
+    }
+
+    // Save as deliverable dream
+    const dream = {
+      id: Date.now().toString(),
+      type: "passage_exploration",
+      content: outcomeContent,
+      thinker: selectedFolder,
+      timestamp: Date.now(),
+      delivered: false,
+    };
+
+    loadDreams();
+    dreams.push(dream);
+    if (dreams.length > 50) dreams = dreams.slice(-50);
+    saveDreams();
+
+    console.log(
+      `[Dream] Passage dream: ${selectedFolder} → ${outcomeType}: "${outcomeContent.slice(0, 70)}..."`,
+    );
+    return dream;
+  } catch (err) {
+    console.error("[Dream] Passage dream error:", err.message);
+    return null;
+  }
+}
+
+// [7] triggerDreaming — generates N dreams in sequence. 40% chance of passage dream per slot.
+//     Waits for: [1] generateDream, [6] generatePassageDream.
 export async function triggerDreaming(count = 1) {
   console.log(`[Dream] Entering dream state (${count} dreams)...`);
 
   const generatedDreams = [];
 
   for (let i = 0; i < count; i++) {
-    const dream = await generateDream();
+    // 40% passage exploration, 60% regular dream types
+    const dream =
+      Math.random() < 0.4
+        ? await generatePassageDream()
+        : await generateDream();
+
     if (dream) {
       generatedDreams.push(dream);
     }
 
-    // Small delay between dreams
     if (i < count - 1) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
@@ -548,6 +684,7 @@ export function getDreamStats() {
 
 export default {
   generateDream,
+  generatePassageDream,
   getUndeliveredDreams,
   markDreamDelivered,
   formatDreamForDelivery,

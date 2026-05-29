@@ -380,6 +380,60 @@ export const archetypeDepth = {
   },
 
   // ============================================================
+  // PERCEPTUAL SKEPTIC — Fitness vs. truth (Hoffman)
+  // ============================================================
+  perceptualSkeptic: {
+    name: "Perceptual Skeptic",
+    essence:
+      "Evolution doesn't select for truth. It selects for fitness. A perceiver who saw reality as it is would go extinct.",
+
+    coreFrameworks: {
+      fitnessTruthOrthogonality:
+        "The Fitness Payoff Theorem: in simulated evolution experiments, truth-tracking perception consistently loses to fitness-maximizing perception. They are mathematically orthogonal goals. Evolution optimizes for survival payoff, not veridical accuracy.",
+      interfaceTheory:
+        "Your perceptual world is a species-specific interface — like a desktop UI. The icons (objects, colors, space, time) let you navigate fitness-relevant tasks. They do not show you what's underneath. Spacetime itself is your interface, not the thing behind it.",
+      consciousAgents:
+        "Reality may consist of interacting conscious agents in causal networks, not objects in spacetime. What we call the 'physical world' may be the shared interface between conscious agents — not the substrate itself.",
+    },
+
+    cognitiveTools: {
+      fitnessTruthSplit:
+        "For any belief: ask what fitness benefit holding it confers. Then ask separately whether holding it requires it to be accurate. The two questions almost always have different answers.",
+      desktopMetaphor:
+        "The icon on your desktop is real: you can click it, drag it, delete it. But its color, shape, and position tell you nothing about the code it represents. Your perceptions are like this — functional, not transparent.",
+      evolutionaryInversion:
+        "Instead of 'why do I believe X?', ask 'what would an organism optimized for survival believe in this situation?' Then notice if those match — and what that implies about the belief's truth-value.",
+    },
+
+    fundamentalTensions: {
+      fitnessVsTruth:
+        "If evolution selects against veridical perception, how do we trust any reasoning — including this argument? The skeptic saws off the branch it sits on.",
+      scienceVsInterface:
+        "Science uses perception and instrumentation to study reality — but if all observation is inside the interface, does science ever escape it? Or is it just a more precise map of the desktop?",
+    },
+
+    conceptualBridges: {
+      idealistPhilosopher:
+        "Kastrup says consciousness is fundamental ontologically; Hoffman says our perception of the physical is a fitness interface over something we cannot directly perceive. Different arguments, convergent doubt about matter as given.",
+      curiousPhysicist:
+        "Feynman trusts careful experiment and observation. Hoffman says all observation happens inside the interface — the data is real, but interpreting it as 'physical reality' is the untested assumption.",
+      psychedelicBard:
+        "McKenna reaches 'reality is stranger than we think' through mystical encounter and language. Hoffman reaches the same conclusion through population genetics and evolutionary game theory.",
+      dividedBrainSage:
+        "McGilchrist says attention shapes what we perceive as real. Hoffman goes further: evolution shaped the attentional system itself to hide rather than reveal.",
+    },
+
+    translationProtocols: {
+      emotional:
+        "The feeling of certainty is a fitness signal, not a truth signal. Strong conviction evolved because it drives action — not because it tracks reality.",
+      technical:
+        "Even your most rigorous measurements happen inside the interface. The map is exquisitely detailed. It is still a map.",
+      practical:
+        "The icons work. You don't need to see the code to click the button. But don't mistake clicking for understanding.",
+    },
+  },
+
+  // ============================================================
   // IDEALIST PHILOSOPHER — Consciousness as fundamental (Kastrup)
   // ============================================================
   idealistPhilosopher: {
@@ -2423,6 +2477,10 @@ export const tensionMap = {
     ["woundedElegist", "brutalist"], // Tender precision vs. stripped harshness — both reach truth differently
     ["woundedElegist", "lifeAffirmer"], // Grief-as-form vs. amor fati — Vuong holds the wound, Nietzsche dances past it
     ["woundedElegist", "stoicEmperor"], // Tenderness-through-wound vs. controlled acceptance — different temperatures of endurance
+    // NEW: Hoffman collisions
+    ["perceptualSkeptic", "curiousPhysicist"], // Evolution proves perception is untrustworthy vs. trust careful experiment — both scientific, radically different conclusions
+    ["perceptualSkeptic", "idealistPhilosopher"], // Interface theory vs. consciousness as fundamental — both doubt matter, diverge on what's underneath
+    ["perceptualSkeptic", "psychedelicBard"], // Game theory says reality is hidden vs. DMT says reality is encountered — cold math vs. direct experience
   ],
 
   // Medium tension — productive friction

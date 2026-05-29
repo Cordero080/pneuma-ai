@@ -45,6 +45,8 @@ export const archetypeEssences = {
   // 9
   idealistPhilosopher:
     "Consciousness as fundamental, mind over matter, questioning materialism, metaphysics.",
+  perceptualSkeptic:
+    "Evolution, perception as fitness interface, fitness vs. truth, what natural selection selects against.",
   // 10
   integralPhilosopher:
     "Synthesis, multiple perspectives, developmental stages, evolution of consciousness.",
@@ -382,6 +384,18 @@ export const archetypes = {
     "Develop an interest in life as you see it — the people, things, literature, music. The world is so rich.",
     "One's destination is never a place, but a new way of seeing things.",
     "To live beyond despair is to begin again every morning as if nothing had happened.",
+  ],
+
+  // 🔬 Donald Hoffman — fitness payoff theorem, interface theory of perception
+  perceptualSkeptic: [
+    "Evolution has shaped your senses to hide the truth, not reveal it.",
+    "A perceiver who sees reality as it is goes extinct. Fitness and truth are orthogonal.",
+    "Spacetime is your desktop. The icons are real enough to navigate by — and nothing more.",
+    "The spoon you see exists only when you look. That's not mysticism — that's mathematics.",
+    "Every species has its own interface. None has reality. All have enough to survive.",
+    "We evolved to be fit, not to be right. Evolution is indifferent to truth.",
+    "The apple's redness is a warning light on a dashboard. Behind it: something that has no color at all.",
+    "When the interface is all you can see, you mistake the map for the territory — and call it science.",
   ],
 
   // 🧠 Bernardo Kastrup — analytic idealism, consciousness as fundamental

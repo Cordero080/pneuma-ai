@@ -271,6 +271,7 @@ function selectDialecticalVoices(message, emotionalWeight = {}) {
     trickster: 0,
     prophetPoet: 0,
     idealistPhilosopher: 0,
+    perceptualSkeptic: 0,
     absurdist: 0,
     taoist: 0,
     antifragilist: 0,
@@ -290,6 +291,12 @@ function selectDialecticalVoices(message, emotionalWeight = {}) {
   if (/love|beauty|heart|feel|tender/i.test(lower)) affinities.prophetPoet += 2;
   if (/conscious|mind|reality|matter|brain/i.test(lower))
     affinities.idealistPhilosopher += 2;
+  if (
+    /perception|interface|evolution|fitness|senses|trust|believe|veridical/i.test(
+      lower,
+    )
+  )
+    affinities.perceptualSkeptic += 2;
   if (/meaningless|revolt|despite|anyway/i.test(lower))
     affinities.absurdist += 2;
   if (/flow|let go|force|natural|water/i.test(lower)) affinities.taoist += 2;
@@ -317,6 +324,7 @@ function selectDialecticalVoices(message, emotionalWeight = {}) {
     trickster: "mystic", // Play vs depth
     prophetPoet: "absurdist", // Meaning vs meaninglessness
     idealistPhilosopher: "antifragilist", // Mind vs action
+    perceptualSkeptic: "idealistPhilosopher", // Evolution dissolves perception vs. consciousness is the ground
     absurdist: "prophetPoet", // Void vs beauty
     taoist: "existentialist", // Flow vs choice
     antifragilist: "idealistPhilosopher", // Chaos vs order
@@ -337,6 +345,8 @@ function selectDialecticalVoices(message, emotionalWeight = {}) {
       "Beauty insists on meaning; the void shrugs beautifully",
     "idealistPhilosopher-antifragilist":
       "Mind says reality is thought; chaos says prove it",
+    "perceptualSkeptic-idealistPhilosopher":
+      "One says evolution hides reality from you; the other says consciousness IS reality",
   };
 
   const tensionKey = `${rising}-${receding}`;
