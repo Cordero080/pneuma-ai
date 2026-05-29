@@ -9,6 +9,7 @@
 // ============================================================
 
 import fs from "fs";
+import path from "path";
 import { getEmbedding, cosineSimilarity } from "../memory/vectorMemory.js";
 import { ARCHETYPE_FUSIONS_FILE } from "../../config/paths.js";
 
@@ -66,7 +67,7 @@ function loadFusionData() {
   } catch (err) {
     console.warn(
       "[ArchetypeFusion] Failed to load, using default:",
-      err.message
+      err.message,
     );
   }
   return { ...defaultFusionData };
@@ -131,7 +132,7 @@ export async function reinforceBlend(archetypes) {
 
   // Find or create crystallized blend
   let blend = data.crystallizedBlends.find(
-    (b) => b.archetypes.sort().join("+") === key
+    (b) => b.archetypes.sort().join("+") === key,
   );
 
   if (!blend) {
@@ -152,7 +153,7 @@ export async function reinforceBlend(archetypes) {
 
   // Update recent fusion feedback
   const recent = data.recentFusions.find(
-    (f) => f.archetypes.sort().join("+") === key && f.feedback === "neutral"
+    (f) => f.archetypes.sort().join("+") === key && f.feedback === "neutral",
   );
   if (recent) {
     recent.feedback = "positive";
@@ -170,8 +171,8 @@ export async function reinforceBlend(archetypes) {
 
   console.log(
     `[ArchetypeFusion] Reinforced: ${archetypes.join(
-      " + "
-    )} (weight: ${blend.weight.toFixed(2)})`
+      " + ",
+    )} (weight: ${blend.weight.toFixed(2)})`,
   );
 }
 
@@ -188,7 +189,7 @@ export function penalizeBlend(archetypes) {
 
   // Find crystallized blend
   const blend = data.crystallizedBlends.find(
-    (b) => b.archetypes.sort().join("+") === key
+    (b) => b.archetypes.sort().join("+") === key,
   );
 
   if (blend) {
@@ -197,7 +198,7 @@ export function penalizeBlend(archetypes) {
 
   // Update recent fusion feedback
   const recent = data.recentFusions.find(
-    (f) => f.archetypes.sort().join("+") === key && f.feedback === "neutral"
+    (f) => f.archetypes.sort().join("+") === key && f.feedback === "neutral",
   );
   if (recent) {
     recent.feedback = "negative";
@@ -208,7 +209,7 @@ export function penalizeBlend(archetypes) {
     if (data.defaultVoice.weights[arch]) {
       data.defaultVoice.weights[arch] = Math.max(
         0,
-        data.defaultVoice.weights[arch] - 0.03
+        data.defaultVoice.weights[arch] - 0.03,
       );
     }
   }
@@ -241,8 +242,8 @@ export function getRecommendedBlend(primaryArchetype, topic) {
     const best = relevantBlends[0];
     console.log(
       `[ArchetypeFusion] Using crystallized blend: ${best.archetypes.join(
-        " + "
-      )} (weight: ${best.weight.toFixed(2)})`
+        " + ",
+      )} (weight: ${best.weight.toFixed(2)})`,
     );
     return {
       archetypes: best.archetypes,
@@ -262,7 +263,7 @@ export function getRecommendedBlend(primaryArchetype, topic) {
   if (topArchetypes.length > 0) {
     const blend = [primaryArchetype, ...topArchetypes];
     console.log(
-      `[ArchetypeFusion] Using default voice blend: ${blend.join(" + ")}`
+      `[ArchetypeFusion] Using default voice blend: ${blend.join(" + ")}`,
     );
     return {
       archetypes: blend,

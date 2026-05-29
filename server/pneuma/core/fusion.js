@@ -68,7 +68,15 @@ import {
 } from "../memory/conversationHistory.js";
 // ^ logs the conversation to conversations.json
 
-import { getFusionStats } from "../archetypes/archetypeFusion.js";
+import {
+  getFusionStats,
+  recordFusion,
+  processFeedback,
+} from "../archetypes/archetypeFusion.js";
+
+// Per-session archetype tracking — maps sessionId → archetypes used in last response.
+// Used to evaluate implicit feedback: did the user's next message signal approval or pushback?
+const _sessionArchetypes = new Map();
 import {
   wantsUpgrade,
   parseUpgradeInstructions,
@@ -451,8 +459,16 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     };
   }
 
+  // ---- PHASE: FUSION FEEDBACK
+  // Evaluate the user's message as implicit feedback on the PREVIOUS response.
+  // If they said "yes exactly" or "that's wrong", the previous blend gets reinforced or penalized.
+  const _prevArchetypes = _sessionArchetypes.get(ctx.sessionId) || [];
+  if (_prevArchetypes.length >= 2) {
+    processFeedback(userMessage, _prevArchetypes);
+  }
+
   // ---- PHASE: RESPONSE GENERATION
-  const { reply, tone, stateUpdate, _meta } = await generate(
+  const { reply, tone, stateUpdate, _meta, archetypes } = await generate(
     userMessage,
     state,
     threadMemory,
@@ -471,6 +487,19 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   // Apply state update from tone flip (emergent awareness boost)
   if (stateUpdate) {
     state = { ...state, vectors: stateUpdate.vectors };
+  }
+
+  // ---- PHASE: FUSION RECORDING
+  // Record which archetypes were blended for this response.
+  // After enough turns, crystallizedBlends accumulates — Pneuma develops a learned voice.
+  if (archetypes && archetypes.length >= 2) {
+    const topIntent = Object.entries(intentScores).sort(
+      ([, a], [, b]) => b - a,
+    )[0]?.[0];
+    recordFusion(archetypes, topIntent || "general", userMessage).catch(
+      () => {},
+    );
+    _sessionArchetypes.set(ctx.sessionId, archetypes);
   }
 
   // ---- PHASE: REPLY ASSEMBLY

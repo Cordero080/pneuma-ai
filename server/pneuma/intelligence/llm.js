@@ -3355,12 +3355,8 @@ export async function getLLMContent(
       context._imageDescription = imageDesc;
     }
 
-    const { stableBlock, dynamicBlock } = await buildSystemPrompt(
-      message,
-      tone,
-      intentScores,
-      context,
-    );
+    const { stableBlock, dynamicBlock, selectedArchetypes } =
+      await buildSystemPrompt(message, tone, intentScores, context);
     // Two-block system prompt: Block 1 cached (stable identity), Block 2 uncached (per-request).
     // Anthropic reuses the cached prefix on every turn — saves 6-8k tokens of processing per message.
     const systemBlocks = [
@@ -3596,6 +3592,7 @@ export async function getLLMContent(
       }
     }
 
+    parsed.selectedArchetypes = selectedArchetypes || [];
     return parsed;
   } catch (error) {
     const status = error.status || error.statusCode || "unknown";
@@ -6385,7 +6382,7 @@ RESPONSE FORMATTING:
     .filter(Boolean)
     .join("");
 
-  return { stableBlock, dynamicBlock };
+  return { stableBlock, dynamicBlock, selectedArchetypes };
 }
 
 // ============================================================

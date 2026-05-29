@@ -514,6 +514,7 @@ export async function generate(
     reply: response,
     tone,
     stateUpdate: toneFlipped ? updatedState : null,
+    archetypes: llmContent?.selectedArchetypes || [],
     // _meta = breadcrumbs for NEXT round's mismatch detection.
     // fusion.js stores this in threadMemory so NEXT time generate() runs,
     // it can compare "what we said last time" vs. "is the user correcting us?"
