@@ -58,14 +58,14 @@ const STUDY_SECTIONS = [
                 3–5 archetypes from 43 based on intent
               </li>
               <li>
-                <strong>Contextual synthesis</strong> — classifies message
-                topic; selects curated archetype pair directed to argue about
-                this specific message; collision detection runs as fallback if
-                topic is unclassifiable
+                <strong>Shadow pairing + collision</strong> — adds high-tension
+                counterparts to the pool deterministically; always- fires
+                collision detection builds a merged DIALECTICAL FIELD directive
+                block for every response
               </li>
               <li>
-                <strong>Synthesis injection</strong> — selected pair's positions
-                and synthesis mode injected as a directive block into the system
+                <strong>Synthesis injection</strong> — all active collision
+                pairs injected as one merged directive block into the system
                 prompt
               </li>
               <li>
@@ -546,25 +546,24 @@ const STUDY_SECTIONS = [
                 unpredictable and prevent Pneuma from becoming formulaic.
               </li>
               <li>
-                <strong>Antagonist injection</strong> — 40% chance of
-                deliberately throwing in an archetype that disagrees with the
-                others. This intentionally forces conflict.
+                <strong>Shadow pairing</strong> — each active archetype's
+                highest-tension counterpart is added deterministically. No coin
+                flip. Opposition is structural, not probabilistic.
               </li>
             </ul>
           </div>
         </div>
         <div className="sg-qa">
           <div className="sg-q">
-            Q: Why the random and antagonist injections — isn't that chaotic?
+            Q: Why shadow pairing instead of random antagonist injection?
           </div>
           <div className="sg-a">
-            Intentionally. Without them, the same message would always produce
-            the same archetypes. Pneuma would become predictable and formulaic —
-            a different costume on the same response every time. The 40%
-            injections mean two conversations on the same topic can produce
-            genuinely different perspectives. The antagonist injection is
-            specifically designed to force collision — you're deliberately
-            seeding the conditions for synthesis.
+            Random injection created tension maybe 30% of the time, and only if
+            the randomly selected archetype happened to conflict. Shadow pairing
+            guarantees tension on every response — by adding the pre-mapped
+            high-tension counterpart for each active archetype, the pool
+            structurally contains opposition before a single synthesis directive
+            is written. The conflict isn't seeded by chance; it's built in.
           </div>
         </div>
       </>
@@ -572,28 +571,47 @@ const STUDY_SECTIONS = [
   },
   {
     id: "collision",
-    label: "Collision Detection (Fallback)",
-    critical: false,
+    label: "Dialectical Collision Engine",
+    critical: true,
     content: () => (
       <>
         <div
-          className="insight-box"
+          className="insight-box highlight"
           style={{ maxWidth: "100%", marginBottom: "1.5rem" }}
         >
-          <strong>As of Feb 2026:</strong> Collision detection is the{" "}
-          <em>fallback</em> — it only runs when the contextual synthesis engine
-          can't classify the topic. See "Ambient Polyphony + Contextual
-          Synthesis" below for the primary mechanism.
+          <strong>As of Jun 2026:</strong> Collision detection is not a fallback
+          — it <em>always fires</em>. Shadow pairing ensures every archetype
+          pool contains opposition before synthesis begins.
         </div>
         <div className="sg-qa">
-          <div className="sg-q">Q: What is collision detection?</div>
+          <div className="sg-q">Q: What is shadow pairing?</div>
+          <div className="sg-a">
+            Before collision detection runs,{" "}
+            <code>buildArchetypeContext()</code> in <code>llm.js</code> calls{" "}
+            <code>getHighTensionPairs()</code> for each archetype in the active
+            pool. Each archetype has pre-mapped high-tension counterparts in{" "}
+            <code>tensionMap.high</code> inside <code>archetypeDepth.js</code>.
+            Up to two of those counterparts get added to the pool
+            deterministically — no coin flip, no topic requirement.
+            <br />
+            <br />
+            stoicEmperor is active → its shadow arrives. curiousPhysicist is
+            active → its shadow arrives. The pool structurally contains
+            opposition before a single pair is evaluated.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">
+            Q: What does <code>detectCollisions()</code> return?
+          </div>
           <div className="sg-a">
             <code>detectCollisions()</code> in <code>synthesisEngine.js</code>{" "}
-            loops through all active archetype pairs and calls{" "}
-            <code>getTensionLevel(a, b)</code> on each. Each pair is rated{" "}
-            <strong>high</strong>, <strong>medium</strong>,<strong> low</strong>
-            , or <strong>neutral</strong>. It returns whether a collision
-            exists, all pairs and their ratings, and the highest-tension pair.
+            generates all pairwise combinations from the shadow-expanded pool
+            and scores each against the <code>tensionMap</code>. It returns{" "}
+            <strong>all</strong> high and medium tension pairs — not just the
+            highest one. Up to four pairs fire simultaneously. Each pair is
+            rated <strong>high</strong>, <strong>medium</strong>,{" "}
+            <strong>low</strong>, or <strong>neutral</strong>.
           </div>
         </div>
         <div className="sg-qa">
@@ -608,16 +626,16 @@ const STUDY_SECTIONS = [
         </div>
         <div className="sg-qa">
           <div className="sg-q">
-            Q: What was the limitation of random collision detection?
+            Q: What is the merged DIALECTICAL FIELD block?
           </div>
           <div className="sg-a">
-            Collision detection fires when randomly selected core archetypes{" "}
-            <em>happen</em> to conflict — maybe 30% of responses. Even when it
-            fires, the original directive said "DO NOT pick a side" — passive
-            observation, not genuine argument. The contextual synthesis engine
-            replaced this as the primary path: it selects the <em>best</em> pair
-            for the specific topic and tells each archetype to actually argue a
-            position.
+            All active collision pairs assemble into one block labeled{" "}
+            <strong>"DIALECTICAL FIELD — N ACTIVE COLLISIONS."</strong> The
+            primary (highest-tension) pair gets full treatment: essence,
+            synthesis directive, and a liveConflict Haiku call that computes the
+            exact stance conflict for this specific message. Secondary pairs get
+            compact summaries. Everything goes into the system prompt as one
+            coherent field — not multiple competing directives.
           </div>
         </div>
       </>
@@ -625,7 +643,7 @@ const STUDY_SECTIONS = [
   },
   {
     id: "ambient-polyphony",
-    label: "Ambient Polyphony + Contextual Synthesis",
+    label: "Ambient Polyphony + Shadow Pairing",
     critical: true,
     content: () => (
       <>
@@ -633,10 +651,10 @@ const STUDY_SECTIONS = [
           className="insight-box highlight"
           style={{ maxWidth: "100%", marginBottom: "1.5rem" }}
         >
-          <strong>The core concept:</strong> Two layers run simultaneously.
-          Ambient polyphony (5 voices always active) creates the voice and
-          texture. Contextual synthesis (topic-selected pair) creates direction
-          — where the response goes and whether it can push back. You need both.
+          <strong>The core concept:</strong> Two layers work together. Ambient
+          polyphony (5 voices always active) creates the base voice and texture.
+          Shadow pairing + always-fires collision creates direction — structured
+          opposition that ensures genuine friction on every response.
         </div>
 
         <div className="sg-qa">
@@ -678,19 +696,17 @@ const STUDY_SECTIONS = [
         </div>
 
         <div className="sg-qa">
-          <div className="sg-q">Q: What does contextual synthesis add?</div>
+          <div className="sg-q">Q: What does shadow pairing add?</div>
           <div className="sg-a">
-            When the message topic is classifiable (12 categories: suffering,
-            meaning, identity, discipline, creativity, love, consciousness,
-            strategy, fear, truth, change, pretension), the engine selects a
-            curated archetype pair and tells both archetypes to{" "}
-            <strong>
-              take an actual position on this specific message and argue it
-            </strong>
-            .<br />
+            For each archetype in the active pool, its highest-tension
+            counterpart gets added deterministically — no coin flip, no topic
+            required. If the pool is warm and acceptance-oriented, its shadows
+            are not. The structural bias of the ambient field gets opposed at
+            the pool level before a single synthesis directive is written.
+            <br />
             <br />
             The five ambient voices still shape the <em>texture</em> — how it's
-            worded, what register it's in. The synthesis pair shapes the{" "}
+            worded, what register it's in. The shadow pairs shape the{" "}
             <em>direction</em> — where it goes, whether there's genuine
             friction.
           </div>
@@ -730,7 +746,7 @@ const STUDY_SECTIONS = [
 
         <div className="sg-qa">
           <div className="sg-q">
-            Q: Why keep ambient polyphony if contextual synthesis does the heavy
+            Q: Why keep ambient polyphony if shadow pairing does the heavy
             lifting?
           </div>
           <div className="sg-a">
@@ -744,9 +760,9 @@ const STUDY_SECTIONS = [
             <br />
             <br />
             The five-voice field is what makes Pneuma <em>Pneuma</em>. The
-            synthesis pair is what gives it direction for this specific
-            exchange. You want identity stability + contextual intelligence. Not
-            one or the other.
+            shadow pairs and collision engine are what ensure it can push back.
+            You want identity stability + structural opposition. Not one or the
+            other.
           </div>
         </div>
 
@@ -764,24 +780,24 @@ const STUDY_SECTIONS = [
             <br />
             <br />
             <strong>
-              After (contextual synthesis, topic: suffering, mode: antithetical,
-              pair: Nietzsche × Schopenhauer):
-            </strong>
+              After (shadow pairing active, Nietzsche × Schopenhauer in
+              collision):
+            </strong>{" "}
             Nietzsche argues: suffering as forge, not wound — "good enough" is
             the slave's question. Schopenhauer argues: the striving itself is
             the problem, not the standard. Neither would say what the other
-            says. The third position that emerges — about how the
+            says. The third position that emerges — about how the{" "}
             <em>orientation toward</em> the standard might be the real issue —
             belongs to neither alone.
           </div>
         </div>
 
         <div className="insight-box highlight" style={{ maxWidth: "100%" }}>
-          <strong>One sentence for an interview:</strong> "Topic classification
-          selects the optimal philosophical pair for the conversation — they're
-          directed to take actual positions and argue, not just passively
-          observe. The five always-active voices create the voice; the synthesis
-          pair creates the direction."
+          <strong>One sentence for an interview:</strong> "Shadow pairing adds
+          high-tension counterparts to the archetype pool deterministically —
+          every response has structural opposition built in before synthesis
+          even starts. The five always-active voices create the voice; the
+          collision engine ensures it has somewhere to go."
         </div>
       </>
     ),
@@ -820,11 +836,20 @@ const STUDY_SECTIONS = [
             Q: Walk me through the full mechanism step by step.
           </div>
           <div className="sg-a">
+            <strong>Step 0 — Shadow pairing</strong>
+            <br />
+            <code>buildArchetypeContext()</code> calls{" "}
+            <code>getHighTensionPairs()</code> for each archetype in the active
+            pool. Up to two high-tension counterparts are added
+            deterministically. The pool now structurally contains opposition.
+            <br />
+            <br />
             <strong>Step 1 — Pair detection</strong>
             <br />
             <code>detectCollisions()</code> loops all active pairs, rates each
-            by tension (high/medium/low/neutral), identifies the highest-tension
-            pair.
+            by tension (high/medium/low/neutral), returns <strong>all</strong>{" "}
+            high and medium tension pairs — up to four — sorted by tension. The
+            primary pair is highest-tension; the rest are secondary.
             <br />
             <br />
             <strong>Step 2 — Framework extraction</strong>
@@ -872,18 +897,19 @@ const STUDY_SECTIONS = [
             <br />
             <strong>Step 4 — Context assembly</strong>
             <br />
-            <code>buildSynthesisContext()</code> formats everything into a block
-            injected into the system prompt: names, essences, frameworks in
-            tension, cognitive tools, known bridge (if exists), and the
-            synthesis directive.
+            For the <strong>primary pair</strong>: a liveConflict Haiku call
+            computes the exact stance conflict for this specific message. For{" "}
+            <strong>secondary pairs</strong>: compact summaries (name, essence,
+            tension level). All pairs assemble into one merged{" "}
+            <strong>DIALECTICAL FIELD — N ACTIVE COLLISIONS</strong> block.
             <br />
             <br />
             <strong>Step 5 — Claude generates emergence</strong>
             <br />
             Claude receives the directive:{" "}
             <em>
-              "Generate insight that emerges from the COLLISION — something IN
-              neither archetype alone."
+              "Hold all active collisions simultaneously. Find the intersection
+              none of them could reach alone — not a compromise, a third thing."
             </em>
             It knows exactly what each archetype believes, what tools each uses,
             where any bridge exists, and what kind of synthesis is expected.
@@ -1050,10 +1076,10 @@ const STUDY_SECTIONS = [
               }}
             >
               <li>
-                <strong>Contextual synthesis</strong> — 3-layer topic
-                classification selects curated archetype pairs directed to take
-                actual positions; collision detection runs as fallback for
-                unclassifiable topics
+                <strong>Shadow pairing + collision</strong> — deterministic
+                shadow pairing ensures every pool contains opposition;
+                always-fires collision detection builds a merged directive block
+                across all high/medium tension pairs simultaneously
               </li>
               <li>
                 <strong>Tiered conditional loading</strong> — intent scores
@@ -1974,8 +2000,8 @@ const STUDY_SECTIONS = [
             "5 core archetypes always simultaneously active, creating the resonance field (voice + texture)",
           ],
           [
-            "Contextual synthesis",
-            "Topic-aware pairing: classifies the message, selects optimal archetype pair + mode, mandates actual argument",
+            "Shadow pairing + collision",
+            "Deterministic opposition: each active archetype brings its highest-tension counterpart; always-fires detection builds a merged DIALECTICAL FIELD block across all tension pairs",
           ],
           [
             "Antithetical mode",

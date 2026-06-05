@@ -174,7 +174,7 @@ export const FILE_REGISTRY = {
     mainFunction:
       "detectCollisions(archetypes) / buildSynthesisContext(synthesis)",
     whatItDoes:
-      "Runs collision detection across all active archetype pairs using a pre-mapped tension table. Generates synthesis directives telling Claude to dwell in the tension rather than resolve it. Also handles contextual synthesis (topic-based pair selection) as the primary path before falling back to raw collision detection.",
+      "Runs collision detection across all active archetype pairs (after shadow pairing has expanded the pool) using a pre-mapped tension table. Returns all high and medium tension pairs — up to four. Generates synthesis directives for each pair. Primary pair gets full treatment + a liveConflict Haiku call; secondary pairs get compact summaries. All pairs assemble into one merged DIALECTICAL FIELD block. Always fires — not a fallback.",
     flowChain:
       "llm.js buildArchetypeContext() → detectCollisions() → getExampleSynthesis() from synthesisExemplars.js → full synthesis block injected into system prompt",
     direction: "REQUEST",

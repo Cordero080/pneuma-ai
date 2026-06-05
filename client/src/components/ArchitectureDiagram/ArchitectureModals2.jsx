@@ -35,61 +35,61 @@ export const ContextualSynthesisModal = ({ isOpen, onClose, anchorEl }) => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        title="Contextual Synthesis Engine"
+        title="Dialectical Collision Engine"
         icon={TensionIcon}
         layer="archetype"
         anchorEl={anchorEl}
       >
-        <ModalSection title="How Archetype Pairs Are Chosen">
+        <ModalSection title="How Opposition Gets Built In">
           <ModalDesc>
-            Before synthesis begins, Pneuma maps the message to a specific
-            philosophical domain and selects a curated archetype pair for that
-            domain. This 3-layer classification is the primary synthesis
-            mechanism. Collision detection runs as a fallback when the topic is
-            ambiguous.
+            Every archetype selected for the response deterministically brings
+            its highest-tension counterpart from a pre-mapped tension table.
+            There is no coin flip, no fallback gate — opposition is structural.
+            If Rumi is in the pool, Palahniuk follows. If Kastrup is active,
+            Feynman comes with him. The pool always contains genuine friction
+            before synthesis even starts.
           </ModalDesc>
 
-          <ModalFilePath path="server/pneuma/intelligence/synthesisEngine.js" />
+          <ModalFilePath path="server/pneuma/intelligence/llm.js → buildArchetypeContext()" />
         </ModalSection>
 
-        <ModalSection title="3-Layer Topic Classification">
+        <ModalSection title="Shadow Pairing">
           <ModalFlow
             steps={[
               {
-                title: "Layer 1: Keyword Scan",
-                desc: "Checks message for domain-specific terms. 'suffering', 'pain', 'wound' → suffering domain. 'create', 'art', 'make' → creativity domain. Fast and explicit.",
+                title: "Step 1: Build the primary pool",
+                desc: "5 base archetypes + tone additions + intent-threshold additions + semantic match. Cap at 5.",
               },
               {
-                title: "Layer 2: Archetype Selector",
-                desc: "ARCHETYPE_PRIMARY_TOPIC map — each domain has curated archetype pairs. When the topic is clear, the curated pair is selected directly.",
+                title: "Step 2: Shadow pairing (deterministic)",
+                desc: "For each archetype in the pool: look up tensionMap.high, find its highest-tension counterpart that isn't already present, add it. Up to 2 shadows added.",
               },
               {
-                title: "Layer 3: Intent Score Fallback",
-                desc: "If neither keyword nor topic map resolves, the intent scores from Step 3 determine domain and pair. Highest scoring intent wins.",
+                title: "Step 3: Collision detection — always fires",
+                desc: "detectCollisions() loops all pairs in the final pool, finds every high/medium tension pair. Synthesis runs on ALL of them — not just the loudest one.",
               },
             ]}
           />
         </ModalSection>
 
-        <ModalSection title="Topic Domains → Curated Pairs">
+        <ModalSection title="The Tension Table">
           <ModalDesc>
-            12 pre-mapped domains, each with 2–3 curated archetype pairs:
+            50+ pre-mapped high-tension pairs. Every pair was evaluated for
+            productive incompatibility — thinkers whose frameworks genuinely
+            contradict rather than just differ in emphasis:
           </ModalDesc>
-          <ModalCodeBlock>{`// synthesisEngine.js — ARCHETYPE_PRIMARY_TOPIC
-{
-  suffering:     [[nietzsche, schopenhauer], [camus, frankl]],
-  purpose:       [[frankl, aurelius], [kierkegaard, jung]],
-  creativity:    [[inventor, sufiPoet], [whitman, rilke]],
-  consciousness: [[kastrup, bohm], [hegel, jung]],
-  control:       [[aurelius, laotzu], [taoist, strategist]],
-  identity:      [[jung, hegel], [kafka, kierkegaard]],
-  relationships: [[buber, hillman], [gibran, rilke]],
-  meaning:       [[frankl, camus], [otto, weil]],
-  art:           [[inventor, watts], [borges, kafka]],
-  strategy:      [[strategist, musashi], [aurelius, stoic]],
-  mystical:      [[sufiPoet, eckhart], [padmasambhava, krishnamurti]],
-  meta:          [[liminalArchitect, watts], [feynman, hegel]]
-}`}</ModalCodeBlock>
+          <ModalCodeBlock>{`// archetypeDepth.js — tensionMap.high (sample)
+[
+  ['idealistPhilosopher', 'curiousPhysicist'],  // Kastrup × Feynman
+  ['sufiPoet',            'brutalist'],          // Rumi × Palahniuk
+  ['pessimistSage',       'hopefulRealist'],     // Schopenhauer × Frankl
+  ['absurdist',           'kingdomTeacher'],     // Camus × Jesus
+  ['stoicEmperor',        'ecstaticRebel'],      // Aurelius × Miller
+  ['ontologicalThinker',  'curiousPhysicist'],   // Heidegger × Feynman
+  ['strategist',          'taoist'],             // Sun Tzu × Lao Tzu
+  ['lifeAffirmer',        'pessimistSage'],      // Nietzsche × Schopenhauer
+  // ... 40+ more pairs
+]`}</ModalCodeBlock>
         </ModalSection>
 
         <ModalSection title="Synthesis Modes">
@@ -113,10 +113,10 @@ export const ContextualSynthesisModal = ({ isOpen, onClose, anchorEl }) => {
               onClick={() => setNestedModal("cross-domain")}
             />
             <ModalInfoCard
-              title="Fallback: Collision"
-              desc="When topic is unclear, collision detection activates — loops 1,764 tension pairs, returns highest-tension active pair."
-              icon="🔥"
-              onClick={() => setNestedModal("collision-fallback")}
+              title="Max Distance Override"
+              desc="For unusually deep questions: replaces the entire pool with the two most philosophically distant archetypes + liminalArchitect. The most extreme collision possible."
+              icon="🌀"
+              onClick={() => setNestedModal("max-distance")}
             />
           </ModalInfoGrid>
         </ModalSection>
@@ -132,11 +132,11 @@ export const ContextualSynthesisModal = ({ isOpen, onClose, anchorEl }) => {
         <ModalSection>
           <ModalDesc>
             Genuine philosophical opposition. Two frameworks that cannot both be
-            right. The synthesis directive forces Claude to generate a Third
+            right. The synthesis directive forces Claude to generate a third
             position that emerges from the friction — not a compromise between
             them.
           </ModalDesc>
-          <ModalCodeBlock>{`// Example: suffering domain → Camus × Frankl
+          <ModalCodeBlock>{`// Example: Camus × Frankl
 
 Camus: "There is no inherent meaning. The response is defiance."
 Frankl: "Meaning is found through response to suffering."
@@ -161,7 +161,7 @@ The synthesis is IN neither — it arises FROM the friction.`}</ModalCodeBlock>
             itself is the synthesis — harder to dismiss because it appears from
             two directions at once.
           </ModalDesc>
-          <ModalCodeBlock>{`// Example: control domain → Aurelius × Lao Tzu
+          <ModalCodeBlock>{`// Example: Aurelius × Lao Tzu
 
 Aurelius: "Focus on what's within your will."
 Lao Tzu: "Yield to what is. Act without forcing."
@@ -183,10 +183,9 @@ SURFACE: the convergence itself as the synthesis point.`}</ModalCodeBlock>
           <ModalDesc>
             Two different registers for the same reality. One archetype provides
             the skeleton — structure, rigor, mechanism. The other provides the
-            flesh — resonance, metaphor, felt meaning. One gives you the
-            argument; the other gives you why it lands.
+            flesh — resonance, metaphor, felt meaning.
           </ModalDesc>
-          <ModalCodeBlock>{`// Example: consciousness domain → Kastrup × Jung
+          <ModalCodeBlock>{`// Example: Kastrup × Jung
 
 Kastrup: analytical idealism — precise mechanism
 Jung: depth psychology — archetypal resonance
@@ -198,49 +197,42 @@ COMBINE: rigor + resonance into one voice.`}</ModalCodeBlock>
       </Modal>
 
       <Modal
-        isOpen={nestedModal === "collision-fallback"}
+        isOpen={nestedModal === "max-distance"}
         onClose={() => setNestedModal(null)}
-        title="Fallback: Collision Detection"
-        icon="🔥"
+        title="Max Distance Override"
+        icon="🌀"
         isNested
       >
-        <ModalSection title="When Topic Classification Fails">
+        <ModalSection title="The Extreme Collision">
           <ModalDesc>
-            If the message doesn't map to a clear topic domain, collision
-            detection activates — it loops all currently active archetype pairs
-            and returns the one with highest tension from the pre-mapped
-            1,764-pair tension table.
+            For questions that are genuinely deep and carry emotional weight,
+            the system can override the entire archetype pool and replace it
+            with the two most philosophically distant archetypes available —
+            plus the Liminal Architect as moderator.
           </ModalDesc>
-          <ModalCodeBlock>{`function detectCollisions(archetypes) {
-  const collisions = [];
+          <ModalCodeBlock>{`// Triggered when: (philosophical > 0.55 OR numinous > 0.45)
+//   AND emotional weight > 0.35
+//   AND cooldown clear (not fired in last 3 exchanges)
+//   AND 25% random roll
 
-  for (let i = 0; i < archetypes.length; i++) {
-    for (let j = i + 1; j < archetypes.length; j++) {
-      const tension = getTensionLevel(archetypes[i], archetypes[j]);
-      if (tension === 'high' || tension === 'medium') {
-        collisions.push({
-          pair: [archetypes[i], archetypes[j]],
-          level: tension,
-          theme: getTensionTheme(archetypes[i], archetypes[j])
-        });
-      }
-    }
-  }
+// Effect:
+pool.length = 0;
+pool.push(maxDistancePair[0], maxDistancePair[1], 'liminalArchitect');
 
-  return collisions.sort((a, b) =>
-    tensionWeight(b.level) - tensionWeight(a.level)
-  );
-}
-
-// Returns: [{ pair: ['jung', 'taleb'], level: 'high',
-//            theme: 'order-antifragility' }]`}</ModalCodeBlock>
+// Example max-distance pairs:
+['curiousPhysicist', 'psychedelicBard'],  // Feynman × McKenna
+['kingdomTeacher',   'trickster'],         // Jesus × Carlin
+['hopefulRealist',   'pessimistSage'],     // Frankl × Schopenhauer
+['stoicEmperor',     'ecstaticRebel'],     // Aurelius × Henry Miller`}</ModalCodeBlock>
         </ModalSection>
-        <ModalSection title="The Tension Table">
+        <ModalSection title="Why This Exists">
           <ModalDesc>
-            1,764 pairs = 42 archetypes × 42. Each rated high / medium / low /
-            neutral. This is a design artifact — every pair had to be evaluated
-            for productive incompatibility. The taxonomy is what the fallback
-            code runs on.
+            Standard shadow pairing finds the tension within what was already
+            selected. Max distance ignores what was selected entirely and starts
+            from the most extreme philosophical gap in the entire archetype
+            library. The result surprises even the system — it's designed to
+            produce responses that couldn't have been predicted from the
+            conversation context alone.
           </ModalDesc>
         </ModalSection>
       </Modal>
@@ -695,29 +687,34 @@ export const SynthesisModal = ({ isOpen, onClose, anchorEl }) => (
 
     <ModalSection title="Synthesis Directive">
       <ModalDesc>
-        When collision is detected, this directive is injected into the system
-        prompt:
+        This block is injected for every high/medium tension pair in the active
+        pool — always, not conditionally. All active collisions appear in one
+        merged block. A live Haiku mini-call computes the primary pair's exact
+        stance conflict for this specific message before the main response runs.
       </ModalDesc>
-      <ModalPrompt>{`SYNTHESIS REQUIRED:
+      <ModalPrompt>{`DIALECTICAL FIELD — 2 ACTIVE COLLISIONS
 
-You have access to: [Jung] and [Taleb]
+PRIMARY: Jung × Taleb [HIGH]
+Jung: "The psyche tends toward wholeness — shadow integration is
+      the path, not the obstacle."
+Taleb: "Fragility lives in order-seeking. Disorder is where
+       strength is built."
 
-These frameworks hold tension:
-- Jung: Order, structure, categorization
-- Taleb: Antifragility, randomness, disorder
+LIVE CONFLICT (computed for this message):
+Jung: [specific stance on user's question]
+Taleb: [specific stance on user's question]
+WHERE THEY COLLIDE: [the exact contradiction]
+SYNTHESIS SEED: "[a sentence that could only be true if both are right]"
 
-DO NOT simply quote both perspectives.
-GENERATE insight that exists in NEITHER source alone.
+ADDITIONAL TENSIONS ACTIVE:
+• Aurelius ↔ Camus [MEDIUM]
+  Aurelius: "Accept what is. Work within the given."
+  Camus: "Revolt. Accept nothing. Build anyway."
 
-The collision product is the THIRD VOICE — 
-what emerges from the contradiction itself.
-
-Example synthesis direction:
-"Perhaps the shadow isn't just 'rejected content' but 
-ANTIFRAGILE potential — parts of self that STRENGTHEN 
-through rejection, that grow from being denied."
-
-This is in neither Jung nor Taleb. It's the collision product.`}</ModalPrompt>
+SYNTHESIS DIRECTIVE:
+These tensions are ALL active simultaneously. Do not resolve them
+separately. Find what emerges when all of them are held at once.
+Do not describe the collision. Embody what emerges from it.`}</ModalPrompt>
     </ModalSection>
 
     <ModalSection title="Synthesis Modes">

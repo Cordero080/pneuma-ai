@@ -162,17 +162,18 @@ const FILE_REGISTRY = {
   },
   "synthesisEngine.js": {
     path: "server/pneuma/intelligence/synthesisEngine.js",
-    role: "Detects archetype incompatibility and injects synthesis directives.",
-    mainFunction: "detectSynthesisOpportunity(archetypes, intentScores, topic)",
+    role: "Detects tension across all active archetype pairs and generates an always-fires merged collision block.",
+    mainFunction:
+      "detectCollisions(archetypes) / generateSynthesis(archetypeA, archetypeB)",
     whatItDoes:
-      "Runs 3-layer topic classification (keyword patterns → semantic router → intent scores) across 13 categories. Selects the optimal archetype pair for the topic and generates synthesis directives telling both to take positions and argue. Falls back to tension-pair collision detection when topic classification doesn't fire.",
+      "Takes the active archetype pool (after shadow pairing has added high-tension counterparts), generates all pairwise combinations, and scores each pair against the tension map in archetypeDepth.js. Returns all high and medium tension pairs — up to 4. For each pair: pulls the philosophical frameworks of both archetypes, identifies primary tension, generates a synthesis directive. The primary pair also fires a liveConflict Haiku call for message-specific stance conflict. All pairs assemble into one merged DIALECTICAL FIELD block.",
     flowChain:
-      "fusion.js → detectSynthesisOpportunity() → synthesis directive injected into llm.js system prompt",
+      "llm.js:buildArchetypeContext() → shadow pairing → detectCollisions() → generateSynthesis() per pair → merged block injected into system prompt",
     direction: "REQUEST",
     directionNote:
-      "Runs in parallel with archetypeRAG and archetypeSelector. Its output is a directive block, not a passage.",
+      "Always fires for every message (unless max distance mode). Output is a merged directive block naming all active collisions simultaneously.",
     keyInsight:
-      "This is the engine behind the most distinctive Pneuma outputs. Camus × Frankl on meaning. Jung × Taleb on growth through stress. The synthesis directive tells Claude the collision is mandatory — not optional.",
+      "Collision is not a fallback — it is the default. Shadow pairing ensures every archetype pool contains tension. The synthesis directive tells Claude to hold all collisions at once and find the intersection none of them could reach alone.",
   },
   "archetypeMomentum.js": {
     path: "server/pneuma/archetypes/archetypeMomentum.js",
@@ -373,7 +374,7 @@ The third is long-term memory in longTermMemory.js. This is structured JSON that
 These archetypes get injected into the system prompt as an "ACTIVE CONCEPTUAL LENSES" section. Claude is told these are the thinking styles available for this response. It doesn't switch between them mechanically — the idea is that the voices shape the texture of Claude's reasoning from the inside. When two archetypes are in tension — say idealistPhilosopher and stoicEmperor — synthesisEngine.js detects the collision via detectCollisions() and adds a synthesis directive to the prompt: "generate emergent insight from this collision, not just 'both are true.'"`,
     keyPhrases: [
       "A thinking style, not a character — the archetype shapes the texture of reasoning from inside the prompt.",
-      "Collision detection gates whether a synthesis directive gets added.",
+      "Shadow pairing ensures every pool contains tension — collision detection always fires, synthesis is never conditional.",
     ],
     files: ["archetypeSelector.js", "synthesisEngine.js", "llm.js"],
   },
@@ -473,14 +474,20 @@ I also built a second tool, read_pneuma_file, which lets Claude navigate its own
     concept: "Prompt Engineering",
     question:
       "How does the synthesisEngine detect archetype collisions and what happens when one fires?",
-    answer: `detectCollisions() in synthesisEngine.js takes the list of currently active archetypes, generates all pairwise combinations, and looks up the tension level for each pair from a pre-defined tension map in archetypeDepth.js. Tension levels are categorical: HIGH, MEDIUM, or LOW. The function returns the highest-tension pair found, or null if no collision is detected.
+    answer: `Two mechanisms work together: shadow pairing and always-fires collision detection.
 
-When a collision fires, the prompt assembly in buildArchetypeContext() inside llm.js calls generateSynthesis() from synthesisEngine.js. That function pulls the philosophical framework and cognitive tools from both archetypes, identifies their primary points of tension, generates a synthesis directive like "The mind wants to solve consciousness; the sage accepts the question itself is the answer. Generate emergent insight from this collision — not just 'both are true' but a new synthesis." This goes into the system prompt as an "ACTIVE CONCEPTUAL LENSES" section alongside the individual archetype injections.
+Shadow pairing runs first, inside buildArchetypeContext() in llm.js. For each archetype in the active pool, getHighTensionPairs() looks up its pre-mapped high-tension counterparts from tensionMap.high in archetypeDepth.js. Up to two of those counterparts get added to the pool deterministically — no coin flip. If stoicEmperor is active, its shadow arrives. The pool structurally contains tension before synthesis even begins.
 
-The key design decision was to pre-compute example syntheses for common pairs rather than always generating them on the fly. For well-known collisions — psycheIntegrator and stoicEmperor, idealistPhilosopher and curiousPhysicist — I have example insights stored in synthesisExemplars.js that demonstrate the kind of collision output I want. These serve as few-shot examples inside the synthesis directive — shown to Pneuma when a known pair fires so it understands the shape of emergent thinking being asked for. Not "both perspectives have merit" but a genuinely new third position that could only exist because of the collision.`,
+Then detectCollisions() in synthesisEngine.js takes that expanded pool, generates all pairwise combinations, and scores each pair's tension level. It returns all HIGH and MEDIUM tension pairs — up to four — sorted by tension. Not the highest-tension winner. All of them.
+
+For each pair, generateSynthesis() pulls the philosophical framework and core tension from both archetypes. The primary (highest-tension) pair gets full treatment: essence, synthesis directive, and a liveConflict Haiku call that computes the exact stance conflict for the specific message. Secondary pairs get compact summaries. Everything assembles into one merged block: "DIALECTICAL FIELD — N ACTIVE COLLISIONS."
+
+The synthesis directive is not "consider both perspectives." It's a specific instruction derived from the actual philosophical incompatibility between those two archetypes — and a demand to produce a third position that could only exist because of the collision. Pre-computed exemplars in synthesisExemplars.js show Claude the shape of emergent thinking for well-known pairs.
+
+The key design decision: synthesis is not conditional on detecting the right topic. It always fires. Shadow pairing is what makes that reliable.`,
     keyPhrases: [
-      "All pairs checked, highest tension wins — collision detection is exhaustive, not heuristic.",
-      "Pre-computed example syntheses act as few-shot examples inside the synthesis directive.",
+      "Shadow pairing adds high-tension counterparts deterministically — the pool always contains opposition before synthesis runs.",
+      "All high/medium tension pairs fire simultaneously — one merged block, up to four collisions held at once.",
     ],
     files: ["synthesisEngine.js", "llm.js"],
   },

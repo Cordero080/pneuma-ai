@@ -299,8 +299,10 @@ function ArchitectureDiagram({ onBack }) {
               <span className="arch-tag">2. Intent-based</span>
               <span className="arch-tag">3. Keyword triggers</span>
               <span className="arch-tag">4. Semantic matching</span>
-              <span className="arch-tag">5. Random depth injection</span>
-              <span className="arch-tag">6. Antagonist injection (40%)</span>
+              <span className="arch-tag">5. Max distance override</span>
+              <span className="arch-tag">
+                6. Shadow pairing (deterministic)
+              </span>
             </div>
             <div
               className="arch-node-desc"
@@ -318,31 +320,31 @@ function ArchitectureDiagram({ onBack }) {
             }}
           />
 
-          {/* STEP 6: CONTEXTUAL SYNTHESIS ENGINE */}
+          {/* STEP 6: DIALECTICAL COLLISION ENGINE */}
           <div
             className="arch-node archetype"
             data-layer="Archetype"
             onClick={(e) =>
-              handleNodeClick("step6", "Contextual Synthesis Engine", e)
+              handleNodeClick("step6", "Dialectical Collision Engine", e)
             }
           >
             <div className="arch-node-title">
               <span className="arch-step-number">6</span>
-              CONTEXTUAL SYNTHESIS ENGINE
+              DIALECTICAL COLLISION ENGINE
             </div>
             <div className="arch-node-file">
-              intelligence/synthesisEngine.js
+              intelligence/llm.js → buildArchetypeContext()
             </div>
             <div className="arch-node-desc">
-              3-layer topic classification selects a curated archetype pair for
-              the domain. Collision detection runs as fallback when topic is
-              ambiguous.
+              Every archetype in the pool deterministically brings its
+              highest-tension counterpart. No coin flips — opposition is
+              structural. Synthesis always fires on every active collision.
             </div>
             <div className="arch-node-tags">
-              <span className="arch-tag">Keyword scan → topic</span>
-              <span className="arch-tag">ARCHETYPE_PRIMARY_TOPIC map</span>
-              <span className="arch-tag">Intent score fallback</span>
-              <span className="arch-tag">12 domains, 3 synthesis modes</span>
+              <span className="arch-tag">Shadow pairing (tensionMap.high)</span>
+              <span className="arch-tag">All high/medium pairs detected</span>
+              <span className="arch-tag">One merged collision block</span>
+              <span className="arch-tag">Max distance override</span>
             </div>
           </div>
 
@@ -437,9 +439,10 @@ function ArchitectureDiagram({ onBack }) {
               intelligence/synthesisEngine.js
             </div>
             <div className="arch-node-desc">
-              If collision detected → inject dialectical directive: "These
-              frameworks contradict. Generate insight from the collision —
-              something in neither archetype alone."
+              Always fires — for each high/medium tension pair in the active
+              pool. One merged block names all collisions simultaneously. Live
+              Haiku call computes the primary pair's specific stance conflict
+              for this exact message.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">generateSynthesis()</span>

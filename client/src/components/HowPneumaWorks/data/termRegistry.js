@@ -117,7 +117,12 @@ export const TERM_REGISTRY = {
   "collision detection": {
     what: "The process of identifying when two active archetypes hold fundamentally incompatible positions — creating productive tension rather than averaging them together.",
     inPneuma:
-      "synthesisEngine.js runs detectCollisions() across active archetype pairs using a pre-mapped tension table. When a collision fires, Claude is told to dwell in the tension rather than resolve it. An exemplar from synthesisExemplars.js shows what emergent output looks like for that specific pair — not 'both have good points' but a genuinely new position neither could reach alone.",
+      "synthesisEngine.js runs detectCollisions() across all active archetype pairs using a pre-mapped tension table. It returns every high and medium tension pair — not just the highest one. All of them fire simultaneously inside one merged DIALECTICAL FIELD block. Shadow pairing (which runs first) ensures the pool always contains opposition before detection even starts. An exemplar from synthesisExemplars.js shows what emergent output looks like for each pair.",
+  },
+  liveConflict: {
+    what: "A small, fast LLM call (Claude Haiku) that computes the exact stance conflict between two archetypes for the specific message being processed — not a generic description of their tension, but how that tension lands on this particular question.",
+    inPneuma:
+      "Fires only for the primary (highest-tension) collision pair inside buildArchetypeContext() in llm.js. The result gets injected into the merged DIALECTICAL FIELD block alongside the synthesis directive, giving Claude a message-specific conflict to navigate rather than a static description of the archetype relationship.",
   },
   "intention scoring": {
     what: "Using an LLM to classify what the user actually needs from their message — scored across multiple dimensions like emotional, philosophical, practical, creative — rather than matching keywords.",

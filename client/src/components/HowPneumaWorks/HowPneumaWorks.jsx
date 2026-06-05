@@ -1291,15 +1291,15 @@ function FeaturesTab() {
         <div className="cs-number">02</div>
         <div className="cs-content">
           <div className="cs-title">
-            Contextual Synthesis Engine — <FileRef name="synthesisEngine.js" />
+            Shadow Pairing (deterministic) — <FileRef name="llm.js" />
           </div>
           <div className="cs-body">
-            3-layer topic classifier (keyword patterns → semantic router →
-            intent scores) across 13 categories. Identifies what a message is
-            really about, selects the optimal archetype pair for that topic, and
-            forces both to take a position and argue. Camus × Frankl on meaning.
-            Jung × Taleb on growth through stress. Key function:{" "}
-            <code>detectSynthesisOpportunity()</code>.
+            For each archetype in the active pool,{" "}
+            <code>getHighTensionPairs()</code> looks up its pre-mapped
+            high-tension counterparts. Up to two shadows are added
+            deterministically — no coin flip. stoicEmperor activates, its shadow
+            arrives. The pool structurally contains opposition before synthesis
+            runs. Key function: <code>buildArchetypeContext()</code>.
           </div>
         </div>
       </div>
@@ -1308,19 +1308,18 @@ function FeaturesTab() {
         <div className="cs-number">03</div>
         <div className="cs-content">
           <div className="cs-title">
-            Dialectical Collision (1,764 Tension Pairs) —{" "}
+            Dialectical Collision Engine (always fires) —{" "}
             <FileRef name="synthesisEngine.js" />
           </div>
           <div className="cs-body">
-            Pre-mapped incompatibility across all archetype combinations. When
-            topic classification doesn&apos;t fire, collision detection runs as
-            fallback — each pair scored against a 1,764-entry tension table.
-            High/medium tension: collision directive (dwell in the friction,
-            generate what neither thinker alone could reach). Low tension:
-            resonance directive (find the view only available from both
-            positions simultaneously). Each path pulls a pre-written exemplar
-            from <FileRef name="synthesisExemplars.js" /> — showing Claude the
-            shape of emergent thinking, not just the instruction.
+            <code>detectCollisions()</code> scores all high and medium tension
+            pairs — up to four — and assembles them into one merged block:
+            &ldquo;DIALECTICAL FIELD — N ACTIVE COLLISIONS.&rdquo; The primary
+            pair gets full treatment: essence, synthesis directive, and a{" "}
+            <TermRef name="liveConflict" /> Haiku call for the specific message.
+            Secondary pairs get compact summaries. Pre-written exemplars from{" "}
+            <FileRef name="synthesisExemplars.js" /> show Claude the shape of
+            emergent thinking. Synthesis is not conditional — it always fires.
           </div>
         </div>
       </div>

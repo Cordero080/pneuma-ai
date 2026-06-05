@@ -778,8 +778,8 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
               onClick={() => setNestedModal("random")}
             />
             <ModalInfoCard
-              title="6. Antagonist Injection"
-              desc="Adds a contrasting voice (40% chance)"
+              title="6. Shadow Pairing"
+              desc="Every selected archetype deterministically brings its highest-tension counterpart — no coin flip, always fires"
               icon="⚔️"
               onClick={() => setNestedModal("antagonist")}
             />
@@ -787,37 +787,42 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
         </ModalSection>
 
         <ModalSection title="Core Selection Function">
-          <ModalCodeBlock>{`async function selectArchetypes(message, tone, intents) {
-  const selected = new Set();
-  
-  // 1. Tone-based (guaranteed)
-  const toneArchetypes = TONE_ARCHETYPE_MAP[tone];
-  selected.add(randomFrom(toneArchetypes));
-  
-  // 2. Intent-based 
-  if (intents.philosophical > 0.6) selected.add('spinoza');
-  if (intents.numinous > 0.5) selected.add('eckhart');
-  
-  // 3. Keyword triggers
-  const triggered = checkKeywordTriggers(message);
-  triggered.forEach(a => selected.add(a));
-  
-  // 4. Semantic matching (most sophisticated)
-  const semantic = await archetypeSelector.match(message, 2);
-  semantic.forEach(a => selected.add(a));
-  
-  // 5. Random depth injection (20%)
-  if (Math.random() < 0.2) {
-    selected.add(randomFrom(ALL_ARCHETYPES));
+          <ModalCodeBlock>{`async function buildArchetypeContext(tone, intentScores, message) {
+  // 1. Start with 5 core base archetypes (always active)
+  const pool = [...CORE_BASE_ARCHETYPES];
+
+  // 2. Tone-based addition (30% chance)
+  if (Math.random() < 0.3) pool.push(randomFrom(TONE_ARCHETYPE_MAP[tone]));
+
+  // 3. Intent-based additions (threshold-gated, not random)
+  if (intentScores.philosophical > 0.5) pool.push('psycheIntegrator');
+  if (intentScores.emotional > 0.6)     pool.push('cognitiveSage');
+  if (intentScores.numinous > 0.5)      pool.push('sufiPoet');
+
+  // 4. Max distance override — replaces everything with 2 extreme
+  //    opposites + liminalArchitect (rare, for genuinely deep questions)
+  if (isDeepAndWeighted(intentScores)) {
+    pool.length = 0;
+    pool.push(...getMaxDistancePair(), 'liminalArchitect');
   }
-  
-  // 6. Antagonist injection (40%)
-  if (Math.random() < 0.4 && selected.size >= 2) {
-    const antagonist = findAntagonist([...selected][0]);
-    selected.add(antagonist);
+
+  // 5. Semantic match — cosine similarity > 0.7 adds 1 more
+  const match = await findBestArchetype(message);
+  if (match?.score > 0.7) pool.push(match.archetype);
+
+  // Cap at 5
+  const final = [...new Set(pool)].slice(0, 5);
+
+  // 6. Shadow pairing — deterministic, no dice roll
+  //    Each archetype brings its highest-tension counterpart
+  for (const archetype of [...final]) {
+    if (shadowsAdded >= 2) break;
+    const shadow = getHighTensionPairs(archetype)
+      .find(a => !final.includes(a));
+    if (shadow) { final.push(shadow); shadowsAdded++; }
   }
-  
-  return [...selected].slice(0, 4);
+
+  return final;
 }`}</ModalCodeBlock>
         </ModalSection>
 
