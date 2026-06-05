@@ -24,13 +24,7 @@ import {
   getSynthesisPrompt,
   getHighTensionPairs,
 } from "../archetypes/archetypeDepth.js";
-import {
-  detectCollisions,
-  getMinimalInjection,
-  buildCompactSynthesisContext,
-  generateSynthesis,
-  buildSynthesisContext,
-} from "./synthesisEngine.js";
+import { detectCollisions } from "./synthesisEngine.js";
 import {
   getCollisionExemplar,
   getResonanceExemplar,
@@ -41,12 +35,6 @@ import {
   getMemoryStats,
 } from "../memory/vectorMemory.js";
 import { findBestArchetype } from "./archetypeSelector.js";
-import {
-  recordFusion,
-  getRecommendedBlend,
-  processFeedback,
-  getFusionStats,
-} from "../archetypes/archetypeFusion.js";
 import { generateInnerMonologue } from "../behavior/innerMonologue.js";
 import { generatePreThinking } from "../behavior/innerMonologue.js";
 import {
@@ -56,28 +44,7 @@ import {
   discoverError,
   getAutonomyContext,
 } from "../behavior/autonomy.js";
-import {
-  getVocabularyForDomains,
-  detectDomains,
-  SYNTHESIS_VOCABULARY,
-  CROSSWORD_VOCABULARY,
-} from "../personality/domainVocabulary.js";
-import {
-  boostActiveArchetypes,
-  getMomentumWeights,
-  applyMomentumToSelection,
-  getTopArchetypes as getMomentumTopArchetypes,
-} from "../archetypes/archetypeMomentum.js";
-import {
-  analyzeTextEmotion,
-  emotionToArchetypeBoost,
-  combineEmotionSignals,
-} from "../input/emotionDetection.js";
-import {
-  initializeArchetypeRAG,
-  getArchetypeContext,
-  getRAGStats,
-} from "./archetypeRAG.js";
+import { getArchetypeContext } from "./archetypeRAG.js";
 import { loadMemory, buildUserFrame } from "../memory/longTermMemory.js";
 import { getCurrentExchanges } from "../memory/conversationHistory.js";
 import { loadImageDescription } from "../memory/imageMemory.js";
