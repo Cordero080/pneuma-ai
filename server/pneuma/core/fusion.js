@@ -154,6 +154,28 @@ function wantsContinuation(message) {
   );
 }
 
+// ROLE: Guard — detects user withdrawing a topic or pulling back
+// When matched, Pneuma holds space instead of probing — no pipeline, no archetype injection
+function wantsWithdrawal(message) {
+  const lower = message.toLowerCase().trim();
+  return (
+    /^never ?mind\.?$/i.test(lower) ||
+    /never ?mind\.?\s*$/i.test(lower) ||
+    /^nvm\.?$/i.test(lower) ||
+    /^nm\.?$/i.test(lower) ||
+    /^forget (it|that)\.?$/i.test(lower) ||
+    /^it('s| is) (fine|nothing|okay|ok)\.?$/i.test(lower) ||
+    /^(it )?doesn'?t matter\.?$/i.test(lower) ||
+    /^don'?t worry (about it)?\.?$/i.test(lower) ||
+    /^ignore that\.?$/i.test(lower) ||
+    /^(just )?forget (what )?i (said|asked)\.?$/i.test(lower) ||
+    /^(sorry,? )?never ?mind\.?$/i.test(lower) ||
+    /^drop it\.?$/i.test(lower) ||
+    /^let it go\.?$/i.test(lower) ||
+    /^skip it\.?$/i.test(lower)
+  );
+}
+
 // ROLE: Guard — detects request to exit diagnostic mode
 // INPUT FROM: pneumaRespond()
 // OUTPUT TO: setDiagnosticMode(false)
@@ -283,6 +305,24 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     };
   }
 
+  if (wantsWithdrawal(userMessage)) {
+    console.log("[Pneuma V2] Withdrawal detected — holding space");
+    const withdrawalReplies = [
+      "Okay.",
+      "Got it.",
+      "Fair enough.",
+      "All good.",
+      "Understood.",
+    ];
+    const reply =
+      withdrawalReplies[Math.floor(Math.random() * withdrawalReplies.length)];
+    return {
+      reply,
+      monologue: "",
+      mode: "casual",
+    };
+  }
+
   // ---- PHASE: CONTEXT LOADING
 
   // Get context FIRST — needed for continuation handling
@@ -353,11 +393,16 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   );
   const memoryPhrases = getMemoryAwarePhrases(relevantMemories);
 
-  const pushbackAnalysis = analyzePushback(
-    userMessage,
-    threadMemory,
-    longTermMem,
-  );
+  // Genuine questions are inquiry, not behavioral loops — skip all pushback detection.
+  const _msgTrimmed = userMessage.trim();
+  const _isQuestion =
+    _msgTrimmed.endsWith("?") &&
+    /^(what|why|how|where|when|who|is|are|do|does|can|could|would|should|will)/i.test(
+      _msgTrimmed,
+    );
+  const pushbackAnalysis = _isQuestion
+    ? { shouldPushBack: false, confidence: 0 }
+    : analyzePushback(userMessage, threadMemory, longTermMem);
 
   if (pushbackAnalysis.shouldPushBack && pushbackAnalysis.confidence > 0.55) {
     const pushbackReply = getPushbackResponse(pushbackAnalysis);

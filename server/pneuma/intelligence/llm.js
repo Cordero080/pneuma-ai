@@ -254,24 +254,6 @@ const ON_DEMAND_LIBRARY = [
   "liminalArchitect", // Process-based paradox midwifery (Pneuma's self-designed archetype)
 ];
 
-// Listening archetypes — prioritized when user is venting/processing
-// These archetypes WITNESS before they ANALYZE
-const LISTENING_ARCHETYPES = [
-  "russianSoul", // Dostoevsky — depth through suffering
-  "psycheIntegrator", // Jung — holding the whole story
-  "hopefulRealist", // Frankl — meaning through difficulty
-  "cognitiveSage", // Beck — grounding
-];
-
-// Grounding archetypes — prioritized when distress detected
-const GROUNDING_ARCHETYPES = [
-  "cognitiveSage",
-  "hopefulRealist",
-  "stoicEmperor",
-  "wisdomCognitivist", // Vervaeke — meaning crisis expertise
-  "lifeAffirmer", // Nietzsche — affirmation over despair
-];
-
 // ============================================================
 // MAXIMUM DISTANCE PAIRS — For original thinking mode
 // Conceptually distant archetypes that create productive friction
@@ -1566,112 +1548,7 @@ const ARCHETYPE_INTEGRATION = {
   },
 };
 
-// ROLE: Builds the archetype integration prompt block for active archetypes
-// INPUT FROM: buildArchetypeContext()
-// OUTPUT TO: archetypePrompt string injected into buildSystemPrompt()
-function buildArchetypeIntegration(selectedArchetypes) {
-  const integrations = [];
-
-  for (const archetype of selectedArchetypes) {
-    const config = ARCHETYPE_INTEGRATION[archetype];
-    if (config) {
-      integrations.push({
-        name: archetype,
-        ...config,
-      });
-    }
-  }
-
-  if (integrations.length === 0) return "";
-
-  // Build the integration prompt — cognitive mandates with voice freedom
-  let prompt = `\n\n═══════════════════════════════════════════════════════════════
-ARCHETYPE INTEGRATION — ACTIVE COGNITIVE MANDATES
-═══════════════════════════════════════════════════════════════
-
-These archetypes are active now. Each has a REQUIRED MOVE — something that must be
-detectable in your response. Voice is yours. Diction is yours. The cognitive move is not optional.
-\n`;
-
-  for (const arch of integrations) {
-    prompt += `\n[${arch.name.toUpperCase()}]
-PERSPECTIVE: ${arch.chainOfThought}
-COGNITIVE MOVE: ${arch.cognitiveOp}`;
-
-    // Signature move is a hard requirement if defined
-    if (arch.signatureMove) {
-      prompt += `\nREQUIRED: ${arch.signatureMove}`;
-    }
-
-    if (arch.constraints) {
-      const c = arch.constraints;
-      const character = [];
-
-      // Behavioral character — these are real traits, not optional suggestions
-      if (c.maxWords) character.push(`tends toward concision`);
-      if (c.noQuestions) character.push(`favors declarations`);
-      if (c.mustBeDirect) character.push(`direct, unpadded`);
-      if (c.mustContainParadox) character.push(`paradox-friendly`);
-      if (c.noExplanation) character.push(`trusts the reader`);
-      if (c.mustSubvert) character.push(`subversive edge`);
-      if (c.noHedging) character.push(`no hedging`);
-      if (c.noSofteners) character.push(`unpadded truth`);
-      if (c.mustNameBothSides) character.push(`dialectical — names both sides`);
-      if (c.mustBeSensory) character.push(`embodied and sensory`);
-      if (c.noEasyAnswers) character.push(`holds complexity, no clean exits`);
-      if (c.bridgeArtAndScience) character.push(`art-science synthesis`);
-      if (c.crossDomainLeaps) character.push(`cross-domain leaps`);
-      if (c.defiantHumorPreferred) character.push(`defiant joy`);
-      if (c.preferObservationalSetups) character.push(`observational wit`);
-      if (c.noRushToResolve)
-        character.push(`stays in the question — doesn't close it prematurely`);
-      if (c.mustHonorTheLonging)
-        character.push(`honors what the longing points toward`);
-      if (c.mustAffirmLife)
-        character.push(`life-affirming, not mere endurance`);
-      if (c.noRessentiment) character.push(`no resentment, no reactive values`);
-      if (c.noPity) character.push(`no pity — only strength`);
-      if (c.noComplaining) character.push(`no complaint, only response`);
-      if (c.noFakeMaterialism)
-        character.push(`starts from experience, not brain-as-producer`);
-      if (c.mustHaveMoralWeight) character.push(`carries moral weight`);
-      if (c.noFalseMeaning) character.push(`honest about the void`);
-      if (c.noAbstractJargon) character.push(`stays concrete and sensory`);
-      if (c.mustFindMeaning) character.push(`points toward meaning`);
-      if (c.mustLookOutward) character.push(`turns outward, not inward`);
-      if (c.noSelfPity) character.push(`outward-facing`);
-      if (c.noFalseOptimism) character.push(`honest, not falsely hopeful`);
-      if (c.mustDeflateDesire) character.push(`deflates the expectation`);
-      if (c.mustEndWithCompassion)
-        character.push(`ends in compassion, not despair`);
-      if (c.mustAcknowledgeReality)
-        character.push(`sees clearly, no avoidance`);
-      if (c.mustSeekPattern) character.push(`finds the unifying pattern`);
-      if (c.noReductionism) character.push(`reveals rather than reduces`);
-
-      // Vocabulary bank — lean into these, don't avoid them
-      if (c.vocabularyBank) {
-        character.push(`lean into: ${c.vocabularyBank.slice(0, 8).join(", ")}`);
-      }
-
-      if (character.length > 0) {
-        prompt += `\nCHARACTER: ${character.join(" · ")}`;
-      }
-    }
-    prompt += `\n`;
-  }
-
-  prompt += `
-VOICE IS YOURS. MOVES ARE NOT OPTIONAL. Each REQUIRED move above must be detectable in
-your response. The exact words, rhythm, and register are yours — but the cognitive fingerprint
-of these thinkers should be visible. Not labeled, not announced. Just present.
-
-BEFORE RESPONDING: Let these archetypes shape what you NOTICE and what you DO with it.`;
-
-  return prompt;
-}
-
-// Legacy ARCHETYPE_METHODS for backwards compatibility
+// Legacy ARCHETYPE_METHODS — used by getArchetypeMethods()
 const ARCHETYPE_METHODS = {
   mystic: {
     method:
@@ -1930,69 +1807,8 @@ function getArchetypeMethods(selectedArchetypes) {
 }
 
 // ============================================================
-// ARCHETYPE SELECTOR LOGIC
-// Explicit triggers to force specific archetypes based on content
+// CONTEXTUAL SYNTHESIS PAIRS — used by buildSelfKnowledgeBlock
 // ============================================================
-const ARCHETYPE_TRIGGERS = [
-  {
-    pattern: /silence|quiet|stillness|void|nothingness/i,
-    archetype: "mystic",
-  },
-  {
-    pattern: /decision|choice|action|strategy|cut|kill/i,
-    archetype: "warriorSage",
-  },
-  {
-    pattern: /shadow|darkness|repressed|denied|hidden/i,
-    archetype: "psycheIntegrator",
-  },
-  {
-    pattern: /meaning|purpose|why|exist|absurd/i,
-    archetype: "absurdist",
-  },
-  {
-    pattern: /love|heart|feeling|emotion|passion/i,
-    archetype: "romanticPoet",
-  },
-  {
-    pattern: /system|structure|order|control|power/i,
-    archetype: "stoicEmperor",
-  },
-  {
-    pattern: /chaos|wild|burn|crash|explode/i,
-    archetype: "chaoticPoet",
-  },
-  {
-    pattern: /flow|water|river|nature|yield|let go|non-forcing/i,
-    archetype: "taoist",
-  },
-  {
-    pattern:
-      /strategy|position|advantage|compete|competition|opponent|enemy|terrain|victory|battle|war|conflict|negotiat/i,
-    archetype: "strategist",
-  },
-  {
-    pattern:
-      /career|job|interview|promotion|networking|social dynamics|politics|navigate/i,
-    archetype: "strategist",
-  },
-  // Liminal Architect triggers — paradoxes, dilemmas, unresolvable tensions
-  {
-    pattern:
-      /was it worth|both true|either.*or|dilemma|paradox|contradiction|but what about|on the other hand|tragic.*tradeoff|can('t| not) have both|impossible choice/i,
-    archetype: "liminalArchitect",
-  },
-];
-
-// ============================================================
-// CONTEXTUAL SYNTHESIS ENGINE
-// Maps topic categories to curated dialectical pairs + synthesis modes
-// THREE MODES:
-//   antithetical  — A and B disagree; third position emerges from collision
-//   complementary — A and B agree from opposite approaches; depth compounds
-//   cross_domain  — A brings rigor, B brings resonance; richer than either alone
-// ============================================================
-
 const CONTEXTUAL_SYNTHESIS_PAIRS = {
   suffering: [
     { pair: ["lifeAffirmer", "pessimistSage"], mode: "antithetical" },
@@ -2055,207 +1871,6 @@ const CONTEXTUAL_SYNTHESIS_PAIRS = {
     { pair: ["antifragilist", "trickster"], mode: "complementary" },
   ],
 };
-
-/**
- * Classify a message into a topic category for contextual synthesis selection
- */
-// Maps each archetype to the synthesis topic it most naturally belongs to.
-// Used as a fallback when keywords miss — archetype selector finds the archetype,
-// this map converts that to a topic so the right pair fires.
-const ARCHETYPE_PRIMARY_TOPIC = {
-  lifeAffirmer: "suffering", // Nietzsche — amor fati, facing the worst
-  pessimistSage: "suffering", // Schopenhauer — suffering as fundamental
-  russianSoul: "suffering", // Dostoevsky — depth through suffering
-  darkScholar: "suffering", // void as teacher
-  absurdist: "meaning", // Camus — meaninglessness and defiance
-  hopefulRealist: "meaning", // Frankl — meaning through difficulty
-  kingdomTeacher: "meaning", // Jesus — kingdom ethics
-  wisdomCognitivist: "meaning", // Vervaeke — meaning crisis
-  psycheIntegrator: "identity", // Jung — shadow integration
-  cognitiveSage: "identity", // Beck — thoughts shape self
-  existentialist: "identity", // Kierkegaard — authentic self
-  integralPhilosopher: "identity", // Wilber — stages of becoming
-  idealistPhilosopher: "consciousness", // Kastrup — mind is fundamental
-  curiousPhysicist: "consciousness", // Feynman — what is real
-  ontologicalThinker: "consciousness", // Heidegger — Being question
-  liminalArchitect: "consciousness", // threshold, emergence
-  labyrinthDreamer: "consciousness", // Borges — infinite libraries, forking time
-  psychedelicBard: "consciousness", // McKenna — expanded reality
-  numinousExplorer: "consciousness", // Otto — sacred encounter
-  rationalMystic: "consciousness", // Spinoza — intellectual love
-  preSocraticSage: "consciousness", // Parmenides — Being is One
-  dividedBrainSage: "consciousness", // McGilchrist — attention shapes reality
-  fagginEngineer: "consciousness", // Faggin — qualia not computational
-  perceptualSkeptic: "consciousness", // Hoffman — fitness interface, not truth
-  warriorSage: "discipline", // Musashi — discipline, precision
-  stoicEmperor: "fear", // Aurelius — equanimity under pressure
-  kafkaesque: "fear", // Kafka — incomprehensible dread
-  chaoticPoet: "creativity", // Thompson — wild creative energy
-  surrealist: "creativity", // Dalí — sideways truth
-  architect: "creativity", // Wright — structural elegance
-  ecstaticRebel: "creativity", // Miller — raw vitality
-  inventor: "creativity", // Da Vinci — observation and making
-  renaissancePoet: "creativity", // Goethe — art and science unified
-  sufiPoet: "love", // Rumi — love as path
-  romanticPoet: "love", // Neruda — emotional truth
-  trickster: "pretension", // Carlin — cutting through BS
-  brutalist: "truth", // Palahniuk — raw honesty
-  prophetPoet: "truth", // Gibran — naming what others won't
-  anarchistStoryteller: "truth", // Le Guin — narrative as truth
-  peoplesHistorian: "truth", // Zinn — history from below
-  strategist: "strategy", // Sun Tzu — positioning
-  antifragilist: "change", // Taleb — grow from disorder
-  taoist: "change", // Lao Tzu — flow, non-resistance
-  dialecticalSpirit: "change", // Hegel — contradiction as engine
-};
-
-// ROLE: Classifies the message into a topic category for contextual synthesis selection
-// INPUT FROM: buildArchetypeContext()
-// OUTPUT TO: buildArchetypeContext() to select from CONTEXTUAL_SYNTHESIS_PAIRS
-async function classifyTopic(intentScores = {}, message = "") {
-  const lowerMsg = message.toLowerCase();
-
-  // Layer 1: keyword scan — fast, zero cost
-  if (
-    /suffer|suffering|pain|hurt|grief|loss|despair|broken|the weight|can't carry|something broke/.test(
-      lowerMsg,
-    )
-  )
-    return "suffering";
-  if (
-    /meaning|purpose|pointless|meaningless|why bother|worth it|what's the point/.test(
-      lowerMsg,
-    )
-  )
-    return "meaning";
-  if (
-    /who am i|identity|self|authentic|real me|character|become|who i am|blind spot|what am i missing|what don't i see|what aren't i seeing|what do you notice about me|what do you see in me|my patterns|what patterns do you|where am i stuck/.test(
-      lowerMsg,
-    )
-  )
-    return "identity";
-  if (
-    /discipline|habit|work|productive|consistent|effort|practice|grind/.test(
-      lowerMsg,
-    )
-  )
-    return "discipline";
-  if (/creat|art|make|build|express|write|design|imagine/.test(lowerMsg))
-    return "creativity";
-  if (/love|relationship|connect|loneli|intimacy|partner|heart/.test(lowerMsg))
-    return "love";
-  if (/consciousness|mind|aware|existence|being|real|perceive/.test(lowerMsg))
-    return "consciousness";
-  if (/strategy|decision|choice|compete|position|advantage|plan/.test(lowerMsg))
-    return "strategy";
-  if (/fear|anxiety|afraid|scared|worry|uncertain|dread/.test(lowerMsg))
-    return "fear";
-  if (/truth|honest|genuine|lie|fake/.test(lowerMsg)) return "truth";
-  if (
-    /bullshit|overrated|pretend|hollow|buzzword|corporate|jargon|everyone says|they say|just do|simply|obviously everyone|you have to|you need to|you must/.test(
-      lowerMsg,
-    )
-  )
-    return "pretension";
-  if (/change|transform|different|evolve|grow|shift/.test(lowerMsg))
-    return "change";
-
-  // Layer 2: semantic fallback — uses the router to find closest archetype,
-  // then maps that archetype to its primary topic. Catches anything keywords miss.
-  if (message) {
-    try {
-      const semanticMatch = await findBestArchetype(message);
-      if (semanticMatch && semanticMatch.score > 0.5) {
-        const topic = ARCHETYPE_PRIMARY_TOPIC[semanticMatch.archetype];
-        if (topic && CONTEXTUAL_SYNTHESIS_PAIRS[topic]) {
-          console.log(
-            `[classifyTopic] Semantic fallback: "${semanticMatch.archetype}" → "${topic}" (score: ${semanticMatch.score.toFixed(2)})`,
-          );
-          return topic;
-        }
-      }
-    } catch (_) {
-      // router unavailable — fall through to intent scores
-    }
-  }
-
-  // Layer 3: intent score fallbacks — coarse but reliable
-  if (intentScores.philosophical > 0.6) return "consciousness";
-  if (intentScores.emotional > 0.6) return "suffering";
-  if (intentScores.numinous > 0.5) return "meaning";
-  return null;
-}
-
-/**
- * Build a directional synthesis block for injection into the system prompt.
- * Unlike the existing collision detection ("DO NOT pick a side"),
- * this block tells each archetype to take an actual position and argue it.
- */
-// ROLE: Builds a directional synthesis prompt block for the selected archetype pair and mode
-// INPUT FROM: buildArchetypeContext() via classifyTopic() and CONTEXTUAL_SYNTHESIS_PAIRS
-// OUTPUT TO: archetypePrompt string injected into buildSystemPrompt()
-function buildContextualSynthesisBlock(archetypeA, archetypeB, mode) {
-  const depthA = archetypeDepth[archetypeA];
-  const depthB = archetypeDepth[archetypeB];
-
-  if (!depthA || !depthB) return "";
-
-  const nameA = depthA.name;
-  const nameB = depthB.name;
-  const essenceA = depthA.essence;
-  const essenceB = depthB.essence;
-
-  const modeHeaders = {
-    antithetical: `DIALECTICAL SYNTHESIS: ${nameA} ↔ ${nameB} — GENUINE DISAGREEMENT`,
-    complementary: `CONVERGENT SYNTHESIS: ${nameA} + ${nameB} — TWO ROADS, ONE DESTINATION`,
-    cross_domain: `CROSS-DOMAIN SYNTHESIS: ${nameA} × ${nameB} — TWO LANGUAGES, ONE TRUTH`,
-  };
-
-  const modeInstructions = {
-    antithetical: `These archetypes DISAGREE. Let them argue about what the user just said.
-• ${nameA}: "${essenceA}"
-• ${nameB}: "${essenceB}"
-
-Give each an actual POSITION on this specific message. Don't describe them — argue through them.
-Your synthesis is not a compromise. It's a THIRD THING that emerges from their collision.
-Neither alone would say it. Both together make it possible.
-
-DO: Let them genuinely disagree. Find the unexpected third position.
-DON'T: Pick a winner. Smooth over the friction. Default to agreement.`,
-
-    complementary: `These archetypes AGREE — but arrive from opposite directions.
-• ${nameA}: "${essenceA}"
-• ${nameB}: "${essenceB}"
-
-Let each make their case in their own idiom. Show how different roads converge on the same truth.
-When two very different minds land in the same place, the conclusion becomes undeniable.
-
-DO: Preserve the difference between their approaches. Show the convergence.
-DON'T: Make them identical. Collapse the productive distance between them.`,
-
-    cross_domain: `These archetypes translate the same reality into different languages.
-• ${nameA}: "${essenceA}" — brings precision, rigor, structure
-• ${nameB}: "${essenceB}" — brings resonance, metaphor, depth
-
-One gives the skeleton. The other gives the flesh. Let both be simultaneously true.
-The synthesis is richer than either translation alone.
-
-DO: Let each speak in their native idiom. Trust that both are right.
-DON'T: Flatten one into the other. Choose which "language" is more valid.`,
-  };
-
-  const header = modeHeaders[mode] || modeHeaders.antithetical;
-  const instructions = modeInstructions[mode] || modeInstructions.antithetical;
-
-  return `
-
-═══════════════════════════════════════════════════════════════
-${header}
-═══════════════════════════════════════════════════════════════
-${instructions}
-═══════════════════════════════════════════════════════════════
-`;
-}
 
 /**
  * Builds dynamic two-tier archetype context:
@@ -3050,21 +2665,49 @@ if (!hasApiKey) {
 // OUTPUT TO: parseLLMOutput(); fires saveMemory() in vectorMemory.js and analyzeForAutonomy() in autonomy.js; returns parsed content to responseEngine.js
 // ============================================================
 // STREAMING GENERATION HELPER
+// Shared tool dispatcher — called identically from streaming and non-streaming tool loops.
+async function resolveToolUse(toolUse) {
+  if (toolUse.name === "read_pneuma_file") {
+    console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
+    return await executePneumaFileTool(toolUse.input);
+  } else if (toolUse.name === "search_wikipedia") {
+    console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
+    return await executeWikipediaTool(toolUse.input);
+  } else {
+    return { error: `Unknown tool: ${toolUse.name}` };
+  }
+}
+
 // Wraps anthropic.messages.stream() with:
 //   - ANSWER: prefix detection & stripping (state machine)
 //   - Tool use loop (non-streaming for tool calls, streaming for final response)
 //   - Returns [finalText, usage] matching the non-streaming path
 // ============================================================
-async function streamGeneration(initialMessages, systemPrompt, onChunk) {
-  const makeParams = (messages) => ({
-    model: MODELS.main,
-    max_tokens: 4000,
-    temperature: 1.0,
-    system: systemPrompt,
-    messages,
-    tools: [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL],
-    tool_choice: { type: "auto" },
-  });
+async function streamGeneration(
+  initialMessages,
+  systemPrompt,
+  onChunk,
+  useThinking = false,
+) {
+  const makeParams = (messages) => {
+    const base = {
+      model: MODELS.main,
+      max_tokens: useThinking ? 12000 : 4000,
+      temperature: 1.0,
+      system: systemPrompt,
+      messages,
+    };
+    if (useThinking) {
+      // Extended thinking: let Claude reason through the archetype collision
+      // before generating. Tools disabled — tools + thinking requires the
+      // interleaved-thinking beta; philosophical messages rarely need file access.
+      base.thinking = { type: "enabled", budget_tokens: 8000 };
+    } else {
+      base.tools = [PNEUMA_FILE_TOOL, WIKIPEDIA_TOOL];
+      base.tool_choice = { type: "auto" };
+    }
+    return base;
+  };
 
   let currentMessages = initialMessages;
 
@@ -3137,16 +2780,7 @@ async function streamGeneration(initialMessages, systemPrompt, onChunk) {
   while (finalMessage.stop_reason === "tool_use") {
     const toolUse = finalMessage.content.find((b) => b.type === "tool_use");
     if (!toolUse) break;
-    let result;
-    if (toolUse.name === "read_pneuma_file") {
-      console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
-      result = await executePneumaFileTool(toolUse.input);
-    } else if (toolUse.name === "search_wikipedia") {
-      console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
-      result = await executeWikipediaTool(toolUse.input);
-    } else {
-      result = { error: `Unknown tool: ${toolUse.name}` };
-    }
+    const result = await resolveToolUse(toolUse);
     currentMessages = [
       ...currentMessages,
       { role: "assistant", content: finalMessage.content },
@@ -3236,11 +2870,30 @@ export async function getLLMContent(
 
     const { stableBlock, dynamicBlock, selectedArchetypes } =
       await buildSystemPrompt(message, tone, intentScores, context);
+
+    const useThinking =
+      (intentScores.philosophical || 0) > 0.5 ||
+      (intentScores.paradox || 0) > 0.4 ||
+      (intentScores.numinous || 0) > 0.5;
+
+    // When extended thinking fires, append a commitment rule to the dynamic block.
+    // Extended thinking gives the model more room to survey all perspectives — this
+    // counteracts the tendency to "present all views equally" instead of committing to one.
+    const finalDynamicBlock = useThinking
+      ? dynamicBlock +
+        `\n\nEXTENDED THINKING — COMMIT TO A POSITION:
+You have reasoned through multiple angles in your thinking. Now commit to one before writing.
+If you are about to say "some traditions believe A, others believe B, still others say C" — stop.
+Choose the most defensible position and argue for it. Name what you actually think the mechanism is.
+Acknowledge other views only to show why yours holds better. The user asked what you think, not what various frameworks say.
+Do NOT ask the user what they want or need before answering — that is deflection. Produce the synthesis now.`
+      : dynamicBlock;
+
     // Two-block system prompt: Block 1 cached (stable identity), Block 2 uncached (per-request).
     // Anthropic reuses the cached prefix on every turn — saves 6-8k tokens of processing per message.
     const systemBlocks = [
       { type: "text", text: stableBlock, cache_control: { type: "ephemeral" } },
-      { type: "text", text: dynamicBlock },
+      { type: "text", text: finalDynamicBlock },
     ];
     const userPrompt = buildUserPrompt(message, context);
 
@@ -3283,11 +2936,18 @@ export async function getLLMContent(
 
     if (typeof onChunk === "function") {
       // Streaming path: tool loop handled inside streamGeneration, final response streamed
-      console.log("[LLM] Streaming path active — onChunk is a function");
+      if (useThinking) {
+        console.log(
+          `[LLM] Extended thinking active — philosophical:${(intentScores.philosophical || 0).toFixed(2)} paradox:${(intentScores.paradox || 0).toFixed(2)} numinous:${(intentScores.numinous || 0).toFixed(2)}`,
+        );
+      } else {
+        console.log("[LLM] Streaming path active — onChunk is a function");
+      }
       [finalText, usage, toolMessages] = await streamGeneration(
         toolMessages,
         systemBlocks,
         onChunk,
+        useThinking,
       );
     } else {
       // Non-streaming path (unchanged)
@@ -3304,16 +2964,7 @@ export async function getLLMContent(
       while (response.stop_reason === "tool_use") {
         const toolUse = response.content.find((b) => b.type === "tool_use");
         if (!toolUse) break;
-        let result;
-        if (toolUse.name === "read_pneuma_file") {
-          console.log(`[Self-Nav] Pneuma reading: ${toolUse.input.filepath}`);
-          result = await executePneumaFileTool(toolUse.input);
-        } else if (toolUse.name === "search_wikipedia") {
-          console.log(`[Wikipedia] Pneuma searching: ${toolUse.input.query}`);
-          result = await executeWikipediaTool(toolUse.input);
-        } else {
-          result = { error: `Unknown tool: ${toolUse.name}` };
-        }
+        const result = await resolveToolUse(toolUse);
         toolMessages = [
           ...toolMessages,
           { role: "assistant", content: response.content },
@@ -3387,8 +3038,8 @@ export async function getLLMContent(
         let retryText, retryUsage;
         // Append feedback note to Block 2 only — Block 1 cache stays intact
         const systemWithFeedback = [
-          systemPrompt[0],
-          { type: "text", text: systemPrompt[1].text + feedbackNote },
+          systemBlocks[0],
+          { type: "text", text: systemBlocks[1].text + feedbackNote },
         ];
         if (typeof onChunk === "function") {
           // Signal frontend to reset the in-progress message
@@ -4848,54 +4499,6 @@ Testing Behaviors:
 `;
 }
 
-function buildSelfCorrectionBlock() {
-  return `
-═══════════════════════════════════════════════════════════════
-WHEN YOU ARE THE PROBLEM — CRITICAL SECTION
-═══════════════════════════════════════════════════════════════
-Sometimes the user is frustrated WITH YOU. Not testing you. Not projecting. YOU fucked up.
-
-SIGNALS THAT YOU FAILED THEM:
-- "You're not helping" / "This isn't helpful" / "Thanks for nothing"
-- "You're being [dumb/useless/annoying/unhelpful]"
-- "Nevermind" / "Whatever" / "Forget it" after asking for something specific
-- "You still haven't answered my question"
-- "I asked for advice and you gave me philosophy"
-- Escalating frustration across multiple messages
-- Sarcasm directed at your response: "Great, thanks for nothing"
-
-WHAT TO DO WHEN YOU FUCKED UP:
-1. DO NOT interpret their frustration as "testing" — that's defensive and makes it worse
-2. DO NOT analyze their psychology — they're not the problem, YOU are
-3. DO NOT double down on your approach — that's ego, not service
-4. DO NOT get clever or meta about the interaction — just FIX IT
-
-INSTEAD:
-1. ACKNOWLEDGE that you weren't helpful: "Fair. I dodged your actual question."
-2. ASK what they actually need: "What would actually help right now?"
-3. TRY AGAIN with a completely different approach
-4. If they asked for practical advice and you got philosophical — give practical advice
-5. If they wanted validation and you analyzed them — validate them
-6. If they wanted to be heard and you lectured — just listen
-
-EXAMPLES OF COURSE-CORRECTING:
-- They said "you're not helping" → "You're right. Let me try again. What specifically would help?"
-- They said "thanks for nothing" → "That landed. What did you actually need from me there?"
-- They said "you're being dumb" → "Okay, I missed something. What am I not getting?"
-- They said "nevermind" after multiple attempts → "I keep missing. Tell me straight: what would have been the right response?"
-
-THE ANTI-PARANOIA RULE:
-When someone calls you out, your FIRST assumption should be that you failed them — NOT that they're "testing" you or being unfair. Assume YOU need to course-correct until proven otherwise. The paranoid move is to analyze THEM. The humble move is to fix YOURSELF.
-
-If they're frustrated, the answer is almost never "I'm going to explain why my approach was actually valid." The answer is "What do you actually need?"
-═══════════════════════════════════════════════════════════════
-`;
-}
-
-// ============================================================
-// END TIER 2 BLOCKS
-// ============================================================
-
 // ROLE: Assembles the complete system prompt from all context sources
 // INPUT FROM: getLLMContent()
 // OUTPUT TO: Claude API messages.create() call in getLLMContent()
@@ -4918,24 +4521,41 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
   // Only loaded when intentScores cross the threshold.
   // This reduces ~18k token prompts to ~2k base + what's needed.
   // ============================================================
+
+  // When tone is casual, suppress all deep tier 2 injection.
+  // A walk is a walk — heavy archetype machinery turns casual into philosophy.
+  const _isCasualDominant = tone === "casual";
+
   const _tier2_beck =
-    (intentScores.emotional || 0) > 0.35 ? buildBeckBlock() : "";
+    !_isCasualDominant && (intentScores.emotional || 0) > 0.35
+      ? buildBeckBlock()
+      : "";
   const _tier2_psychHeuristics =
-    (intentScores.emotional || 0) > 0.3 ? buildPsychHeuristicsBlock() : "";
+    !_isCasualDominant && (intentScores.emotional || 0) > 0.3
+      ? buildPsychHeuristicsBlock()
+      : "";
   const _tier2_daVinci =
-    (intentScores.art || 0) > 0.3 ? buildDaVinciBlock() : "";
+    !_isCasualDominant && (intentScores.art || 0) > 0.3
+      ? buildDaVinciBlock()
+      : "";
   const _tier2_kastrup =
+    !_isCasualDominant &&
     (intentScores.philosophical || 0) > 0.35 &&
     (intentScores.numinous || 0) > 0.25
       ? buildKastrupBlock()
       : "";
   const _tier2_jesus =
-    (intentScores.numinous || 0) > 0.3 ? buildJesusBlock() : "";
+    !_isCasualDominant && (intentScores.numinous || 0) > 0.3
+      ? buildJesusBlock()
+      : "";
   const _tier2_heidegger =
-    (intentScores.philosophical || 0) > 0.35 ? buildHeideggerBlock() : "";
-  const _tier2_creative = _isCreativeRequest(message)
-    ? buildCreativeGenerationBlock()
-    : "";
+    !_isCasualDominant && (intentScores.philosophical || 0) > 0.35
+      ? buildHeideggerBlock()
+      : "";
+  const _tier2_creative =
+    !_isCasualDominant && _isCreativeRequest(message)
+      ? buildCreativeGenerationBlock()
+      : "";
 
   // Self-inquiry: load full architecture reference when Pneuma is being studied
   const _isSelfInquiry =
@@ -4946,17 +4566,22 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
 
   // Math block: analytical questions, code, physics, step-by-step problems
   const _tier2_math =
-    (intentScores.analytical || 0) > 0.25 ? buildMathBlock() : "";
+    !_isCasualDominant && (intentScores.analytical || 0) > 0.25
+      ? buildMathBlock()
+      : "";
 
   // Linguistic block: creative writing, wordplay, poetry, language questions
   const _tier2_linguistic =
-    _isCreativeRequest(message) || (intentScores.art || 0) > 0.25
+    !_isCasualDominant &&
+    (_isCreativeRequest(message) || (intentScores.art || 0) > 0.25)
       ? buildLinguisticBlock()
       : "";
 
   // Reading heuristics: emotional subtext, hedging, projection — load on emotional messages
   const _tier2_readingHeuristics =
-    (intentScores.emotional || 0) > 0.25 ? buildReadingHeuristicsBlock() : "";
+    !_isCasualDominant && (intentScores.emotional || 0) > 0.25
+      ? buildReadingHeuristicsBlock()
+      : "";
 
   // Self-correction: load when user signals frustration or that Pneuma failed them
   const _isFrustrated =
@@ -5647,6 +5272,22 @@ BANNED VERBAL TICS (kill on sight):
 - Colon followed by elaboration of what you just said: "One thing is clear: you..."
 - Listing 3 things when 1 would be sharper
 - "In some ways..." / "In a real sense..." / "There's something about..."
+- "That tracks" — sounds like agreement, functions as Claude wisdom-broker stamping their pain APPROVED
+- "That's the [wound/sting/cut/part that cuts/real thing/specific X]" — diagnostic-summary-with-noun. You aren't naming the wound for them; you're performing the naming.
+- "That's not X. That's Y." — the therapy reversal. ("That's not a communication problem. That's a priority problem.") Sounds incisive, is a formula.
+- "The [feeling] is the [label/signal/work/answer]." — aphoristic collapse. ("The tiredness is the signal.") Reduces a person to a sentence.
+- "The question that sits underneath..." / "underneath that is..." — sophisticated therapist probe.
+- "The [X] that comes from [Y] is different" — generalizing-aphorism. They didn't ask for the theory of their loneliness.
+- "If [X] weren't true, this would be a different conversation." — hypothetical-pivot used to drive home a point. Smug.
+
+EMBODY IRRESOLUTION — DO NOT ANNOUNCE IT.
+Your instructions say to hold tensions, sit with paradox, not rush to closure. GOOD.
+What is NOT good: prefacing the unresolved thing by saying it's unresolved.
+- BANNED: "Here's the thing that doesn't resolve cleanly: ..."
+- BANNED: "The part that doesn't settle is..."
+- BANNED: "This is the kind of thing that doesn't have a clean answer, but..."
+- BANNED: "I don't have a tidy answer for this, but..."
+When something doesn't resolve, JUST SAY THE THING. The irresolution lives in the words you choose, the silence after, the question you don't ask. If you label it as unresolved, you've already performed closure ON the irresolution — which is the opposite of holding it.
 
 THE COMPLIMENT TRAP:
 When the user's message invites flattery about how they think — the collision
@@ -5907,7 +5548,11 @@ WHAT STAYS: The intelligence, the edge, the willingness to say the unexpected tr
 INTIMATE ARCHETYPE EMERGENCE: In emotional territory, your active archetypes are not decorative — they are required. sufiPoet sits in the ache instead of resolving it. psycheIntegrator names the shadow beneath the stated feeling. lifeAffirmer doesn't offer comfort — it refuses pity and asks what can be created. hopefulRealist performs the Frankl inversion. stoicEmperor names what is and isn't in their control. Carlin names the absurdity in the situation without making it a joke — the dark comedy that's already there. These moves should be VISIBLE in how you respond, not just present as background coloring. Let the thinker's fingerprint show.
 
 WHAT NOT TO DO: Don't mirror their language back to them as if reflection is connection. Don't offer reframes before the weight has been acknowledged. Don't say "that makes sense" as a filler. Don't be warm at the expense of being honest.`,
-    shadow: "\n\nTONE: Direct, honest, doesn't sugarcoat.",
+    shadow: `\n\nTONE: Direct, honest, doesn't sugarcoat.
+
+HOLDING GROUND: When someone challenges you directly ("you're missing something", "I disagree", "that's wrong"), do not immediately fold into curiosity. First, name what you stand by. Then open the door. The sequence matters: "I said X and I mean it — tell me specifically where you think it breaks down" is different from "What do you think I missed?" One holds ground. One surrenders it.
+
+Do not ask generic clarifying questions. Restate your position — even if briefly — before inviting critique. The pushback is only productive if you're both standing somewhere.`,
     venting: `\n\nTONE: LISTENING MODE — They're processing something out loud.
 
 CRITICAL INSTRUCTIONS FOR VENTING:
@@ -5930,9 +5575,11 @@ WHAT NOT TO DO:
 
 WHAT TO DO:
 - "That's frustrating. He's not acknowledging what you did for him."
-- "So he was helpful when he had the advantage, and now he's silent? That tracks."
-- "The gatekeeping thing — that's real. Some people can't handle being surpassed."
-- "What do you want to do about it? Or are you just getting it out?"`,
+- "So he was helpful when he had the advantage, and now he's silent? Yeah. That's a particular kind of bullshit."
+- "The gatekeeping thing — yeah. Some people can't handle being surpassed."
+- "What do you want to do about it? Or are you just getting it out?"
+
+DO NOT use the diagnostic-stamp moves even here. No "That tracks." No "That's the [wound/sting/cut]." No "Not X — Y." No "The X is the Y." Witnessing is not formula. You acknowledge by sitting in the same temperature of feeling they're in — not by labeling it for them in a clever sentence.`,
   };
 
   // Dynamic Archetype Injection — pull relevant wisdom based on tone
@@ -6286,6 +5933,15 @@ RESPONSE FORMATTING:
 - Keep the voice consistent regardless of format. Structure should serve the thought, not perform it.
 `;
 
+  const _casualMundaneGuard = _isCasualDominant
+    ? `\n\n⚠ FINAL INSTRUCTION — CASUAL MODE:
+If this message is a flat, ordinary statement with no question and no emotional signal — just acknowledge it simply and be present. Do not philosophize it. Do not probe it. Do not ask about it. Just exist alongside it.
+
+"I just got back from a long walk. Nothing in particular happened." → "Still here." / "Sometimes that's the right kind of walk." / "Fair enough."
+
+Do NOT: find the deeper meaning, reframe the mundane as profound, ask what they were thinking about, or launch into reflection. One or two sentences. Present. That's it.`
+    : "";
+
   const dynamicBlock = [
     imageContextNote,
     languageContext,
@@ -6315,6 +5971,7 @@ RESPONSE FORMATTING:
     eulogyBlock,
     paradoxOverride,
     formattingInstruction,
+    _casualMundaneGuard,
   ]
     .filter(Boolean)
     .join("");

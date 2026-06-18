@@ -41,6 +41,15 @@ function detectTraumaDisclosure(msg) {
 
 // detectLoop — detects when the user is repeating themselves without new content. No deps.
 function detectLoop(message, history) {
+  // Questions are inquiry, not circular reasoning — never treat as emotional loops.
+  const trimmed = message.trim();
+  const isQuestion =
+    trimmed.endsWith("?") &&
+    /^(what|why|how|where|when|who|is|are|do|does|can|could|would|should|will)/i.test(
+      trimmed,
+    );
+  if (isQuestion) return { detected: false, confidence: 0, suggestion: null };
+
   // CRITICAL FIX: If user is repeating a REQUEST or COMMAND, that means we FAILED.
   // Don't treat repeated requests as "loops" to call out.
   const requestPatterns = [
@@ -341,6 +350,16 @@ export function analyzePushback(message, threadMemory, longTermMemory = {}) {
     confidence: 0,
     suggestion: null,
   };
+
+  // Questions are inquiry, not behavioral loops — never pushback on genuine questions.
+  // Repeated philosophical questions look like loops to pattern detectors but aren't.
+  const trimmed = message.trim();
+  const isGenuineQuestion =
+    trimmed.endsWith("?") &&
+    /^(what|why|how|where|when|who|is|are|do|does|can|could|would|should|will)/i.test(
+      trimmed,
+    );
+  if (isGenuineQuestion) return analysis;
 
   // FIRST: Check if user is processing trauma/vulnerability
   // If so, SKIP pushback entirely
