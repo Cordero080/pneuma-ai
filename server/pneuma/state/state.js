@@ -459,6 +459,7 @@ export function updateThreadMemory(
   tone,
   intentScores,
   pneumaReply = null,
+  sessionId = null,
 ) {
   const tm = state.threadMemory || {
     lastTones: [],
@@ -476,11 +477,12 @@ export function updateThreadMemory(
     tm.conversationHistory = [
       ...(tm.conversationHistory || []),
       {
-        user: message.slice(0, 2000), // Increased from 600 - long pastes (bios, code, text) need full preservation
-        pneuma: pneumaReply.slice(0, 400), // Increased from 200
+        user: message.slice(0, 2000),
+        pneuma: pneumaReply.slice(0, 400),
         timestamp: Date.now(),
+        sessionId: sessionId || null,
       },
-    ].slice(-8); // Keep last 8 exchanges (was 5)
+    ].slice(-8);
   }
 
   state.threadMemory = tm;
@@ -493,12 +495,20 @@ export function updateThreadMemory(
 // [8] getThreadMemory — returns thread memory; hydrates from restored session if empty.
 //     Waits for: [7] updateThreadMemory (to have data) or conversationHistory.js restore.
 export function getThreadMemory(state, ctx = {}) {
-  const tm = state.threadMemory || {
+  let tm = state.threadMemory || {
     lastTones: [],
     lastIntents: [],
     recentMessages: [],
     conversationHistory: [],
   };
+
+  // Scope conversationHistory to the current session — prevents cross-session loop detection
+  if (ctx.sessionId && tm.conversationHistory?.length > 0) {
+    const scoped = tm.conversationHistory.filter(
+      (e) => !e.sessionId || e.sessionId === ctx.sessionId,
+    );
+    tm = { ...tm, conversationHistory: scoped };
+  }
 
   // If thread memory is empty but we have restored conversation history, populate it
   if (
@@ -507,7 +517,7 @@ export function getThreadMemory(state, ctx = {}) {
   ) {
     const restoredExchanges = getCurrentExchanges(5, ctx.sessionId);
     if (restoredExchanges.length > 0) {
-      tm.conversationHistory = restoredExchanges;
+      tm = { ...tm, conversationHistory: restoredExchanges };
       console.log(
         `[State] Populated thread memory from restored session (${restoredExchanges.length} exchanges)`,
       );

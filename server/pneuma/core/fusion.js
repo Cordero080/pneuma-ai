@@ -428,6 +428,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       "shadow",
       intentScores,
       pushbackReply,
+      ctx.sessionId,
     );
     saveState(state);
 
@@ -469,6 +470,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       "intimate",
       intentScores,
       quietReply,
+      ctx.sessionId,
     );
     saveState(state);
 
@@ -493,6 +495,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       "oracular",
       intentScores,
       uncertainReply,
+      ctx.sessionId,
     );
     saveState(state);
 
@@ -606,6 +609,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     tone,
     intentScores,
     finalReply,
+    ctx.sessionId,
   );
 
   // Update long-term memory
