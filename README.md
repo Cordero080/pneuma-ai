@@ -2,10 +2,10 @@
 
 **A personality architecture for LLMs.**
 
-> Compound AI System — three model calls, vector retrieval, deterministic pre/post-processing, and three memory layers per response, organized around a cognitive architecture rather than a prompt template.
+> Multi-LLM Compound AI System — LLMs calling other LLMs as tools: intent classification (Claude), semantic routing (OpenAI embeddings), emotion detection (Hume AI), and generation (Claude) run as separate model calls within a single agentic pipeline.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Category-Compound_AI_System-8B5CF6?style=for-the-badge" alt="Compound AI System" />
+  <img src="https://img.shields.io/badge/Category-Multi--LLM_Compound_AI_System-8B5CF6?style=for-the-badge" alt="Multi-LLM Compound AI System" />
 </p>
 
 <p align="center">
@@ -25,12 +25,12 @@
 
 ## What It Is
 
-**Interview framing:** *"Pneuma is a compound AI system with agentic control logic — the LLM decides which philosophical archetype handles a query rather than following a hardcoded path, combining reasoning, tool use for RAG retrieval, and persistent vector memory."*
+**Interview framing:** *"Pneuma is a multi-LLM compound AI system — LLMs call other LLMs as tools. Intent classification, semantic routing, emotion detection, and generation each run as separate model calls within a single agentic pipeline. The orchestration layer decides which philosophical archetype handles a query; the archetype selection itself is driven by a language model, not a lookup table."*
 
 | Layer | What Pneuma Does |
 |---|---|
 | **Reason** | Semantic routing (cosine similarity over 43 archetype embeddings) selects which thinkers respond; dialectical synthesis engine plans the collision before generation |
-| **Act** | RAG retrieval across 1,385 passages; Hume AI emotion detection; dual-API calls — OpenAI embeddings + Anthropic generation |
+| **Act** | Four model calls per response: intent scoring (Claude), archetype routing (OpenAI embeddings), emotion analysis (Hume AI), generation (Claude) — LLMs used as tools by the orchestration layer |
 | **Memory** | Vector memory (semantic recall), long-term pattern memory (cross-session), conversation history (last 6 turns as native API turns) |
 
 Archetype routing sits on the sliding scale of autonomy — not fully autonomous (deterministic collision pairing for high-tension pairs), not rigidly programmatic (semantic routing picks the path). Dream mode and the inner monologue pre-thinking layer are the system's "think slow" mechanisms — they plan, break down, and iterate before generation.
