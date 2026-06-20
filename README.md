@@ -30,7 +30,7 @@
 | Layer | What Pneuma Does |
 |---|---|
 | **Reason** | Semantic routing (cosine similarity over 43 archetype embeddings) selects which thinkers respond; dialectical synthesis engine plans the collision before generation |
-| **Act** | Four model calls per response: intent scoring (Claude), archetype routing (OpenAI embeddings), emotion analysis (Hume AI), generation (Claude) — LLMs used as tools by the orchestration layer |
+| **Act** | Agentic RAG — semantic routing decides which of 43 archetype knowledge bases to query and whether to query at all, with fallback handling for out-of-scope inputs; four model calls: intent scoring (Claude), archetype routing (OpenAI embeddings), emotion analysis (Hume AI), generation (Claude) |
 | **Memory** | Vector memory (semantic recall), long-term pattern memory (cross-session), conversation history (last 6 turns as native API turns) |
 
 Archetype routing sits on the sliding scale of autonomy — not fully autonomous (deterministic collision pairing for high-tension pairs), not rigidly programmatic (semantic routing picks the path). Dream mode and the inner monologue pre-thinking layer are the system's "think slow" mechanisms — they plan, break down, and iterate before generation.
