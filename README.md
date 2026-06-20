@@ -2,6 +2,8 @@
 
 **A personality architecture for LLMs.**
 
+> Technically: a Compound AI System — three model calls, vector retrieval, deterministic pre/post-processing, and three memory layers per response, organized around a cognitive architecture rather than a prompt template.
+
 > Not an AI model. Not a chatbot. Not a persona.
 > A cognitive framework that shapes how language models think.
 
