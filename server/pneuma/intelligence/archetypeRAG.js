@@ -448,8 +448,23 @@ export async function retrieveArchetypeKnowledge(message, options = {}) {
   // ── Evaluation pipeline ──────────────────────────────────────
   const evaluated = _evaluatePassages(candidatePool);
 
+  // ── Orphan noise filter ───────────────────────────────────────
+  // Drop passages that are both weakly relevant AND not part of a collision.
+  // Low-relevance passages that ARE in a collision pair survive — that's the
+  // Frankenstein intent. Only lone, weak, non-colliding passages get cut.
+  const filtered = evaluated.filter(
+    (p) => p.relevanceScore >= 0.45 || p.collisionBonus > 0,
+  );
+  const pool = filtered.length >= 2 ? filtered : evaluated;
+  const dropped = evaluated.length - pool.length;
+  if (dropped > 0) {
+    console.log(
+      `[ArchetypeRAG] Orphan filter: dropped ${dropped} noise passage(s)`,
+    );
+  }
+
   // ── Select best diverse set ──────────────────────────────────
-  const selected = _selectBestPassages(evaluated, topK);
+  const selected = _selectBestPassages(pool, topK);
 
   console.log(
     `[ArchetypeRAG] Multi-query: ${selected.length} collision-ready passages from ${[...new Set(selected.map((p) => p.thinker))].join(", ")}`,
