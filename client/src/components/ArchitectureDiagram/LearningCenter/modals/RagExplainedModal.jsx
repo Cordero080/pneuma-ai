@@ -84,6 +84,10 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
               desc: "Relevance (50%) + how different it is from the others (30%) + collision bonus if thinkers disagree (20%)",
             },
             {
+              title: "Orphan Filter",
+              desc: "Weak passages with no collision relationship get dropped. A low-relevance Sun Tzu passage stays if Lao Tzu is also in the pool — known tension pair. It gets cut if it wandered in alone.",
+            },
+            {
               title: "Deduplicate & Select",
               desc: "Near-identical passages removed, max 2 per thinker, best 8 kept",
             },
