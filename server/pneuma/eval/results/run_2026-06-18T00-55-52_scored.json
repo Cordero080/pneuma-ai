@@ -1,0 +1,80 @@
+{
+  "run_id": "run_2026-06-18T00-55-52",
+  "timestamp": "2026-06-18T00:56:05.715Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "C03"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "Sometimes that's the right kind of walk.",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 13367,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": {
+        "dialectical_novelty": 2,
+        "intent_alignment": 5,
+        "voice_consistency": 3,
+        "reasoning": "The response nails intent-alignment by resisting the urge to philosophize and staying present with casual affirmation, but achieves this through restraint rather than dialectical collision—it's a wisdom move (acceptance archetype) without synthesizing tension, and while the brevity feels intentional, it could be any thoughtful AI rather than distinctly Pneuma's voice."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "3.33",
+    "by_dimension": {
+      "dialectical_novelty": "2.00",
+      "intent_alignment": "5.00",
+      "voice_consistency": "3.00"
+    },
+    "by_category": {
+      "casual": {
+        "count": 1,
+        "dialectical_novelty": "2.00",
+        "intent_alignment": "5.00",
+        "voice_consistency": "3.00",
+        "overall": "3.33"
+      }
+    },
+    "top_3": [
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "3.33",
+        "reasoning": "The response nails intent-alignment by resisting the urge to philosophize and staying present with casual affirmation, but achieves this through restraint rather than dialectical collision—it's a wisdom move (acceptance archetype) without synthesizing tension, and while the brevity feels intentional, it could be any thoughtful AI rather than distinctly Pneuma's voice."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "3.33",
+        "reasoning": "The response nails intent-alignment by resisting the urge to philosophize and staying present with casual affirmation, but achieves this through restraint rather than dialectical collision—it's a wisdom move (acceptance archetype) without synthesizing tension, and while the brevity feels intentional, it could be any thoughtful AI rather than distinctly Pneuma's voice."
+      }
+    ]
+  }
+}

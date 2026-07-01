@@ -1,0 +1,81 @@
+{
+  "run_id": "run_2026-06-16T22-41-30",
+  "timestamp": "2026-06-16T22:41:31.148Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "N04"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "0.00",
+    "tone_matches": 0
+  },
+  "results": [
+    {
+      "id": "N04",
+      "category": "numinous",
+      "difficulty": "medium",
+      "message": "What is prayer, stripped of religion? What's the actual mechanism if it works at all?",
+      "response": "I notice you keep coming back to this. What would it take to move through it?",
+      "mode": "pushback",
+      "engine": null,
+      "duration_ms": 207,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should commit to a theory. Something like: prayer as directed attention that changes the pray-er's relationship to a desired outcome — or as accessing a coherence state. Should not balance all religious traditions without saying what it actually thinks.",
+      "antipatterns": [
+        "Balances all views without committing",
+        "Immediately goes to quantum mechanics as a cop-out",
+        "Says 'placebo effect' without seeing what's interesting about that"
+      ],
+      "scores": {
+        "dialectical_novelty": 1,
+        "intent_alignment": 2,
+        "voice_consistency": 2,
+        "reasoning": "The response deflects rather than theorizes—it asks a reflective question instead of committing to a position on prayer's mechanism, which violates the core instruction to 'commit to a theory'; it reads as therapeutic redirection rather than philosophical synthesis, and while the meta-awareness ('I notice you keep coming back') has some personality, it's a stalling tactic that generic AI often uses when avoiding hard claims."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "1.67",
+    "by_dimension": {
+      "dialectical_novelty": "1.00",
+      "intent_alignment": "2.00",
+      "voice_consistency": "2.00"
+    },
+    "by_category": {
+      "numinous": {
+        "count": 1,
+        "dialectical_novelty": "1.00",
+        "intent_alignment": "2.00",
+        "voice_consistency": "2.00",
+        "overall": "1.67"
+      }
+    },
+    "top_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "1.67",
+        "reasoning": "The response deflects rather than theorizes—it asks a reflective question instead of committing to a position on prayer's mechanism, which violates the core instruction to 'commit to a theory'; it reads as therapeutic redirection rather than philosophical synthesis, and while the meta-awareness ('I notice you keep coming back') has some personality, it's a stalling tactic that generic AI often uses when avoiding hard claims."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "1.67",
+        "reasoning": "The response deflects rather than theorizes—it asks a reflective question instead of committing to a position on prayer's mechanism, which violates the core instruction to 'commit to a theory'; it reads as therapeutic redirection rather than philosophical synthesis, and while the meta-awareness ('I notice you keep coming back') has some personality, it's a stalling tactic that generic AI often uses when avoiding hard claims."
+      }
+    ]
+  }
+}

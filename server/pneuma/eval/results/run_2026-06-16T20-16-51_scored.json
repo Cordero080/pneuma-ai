@@ -1,0 +1,81 @@
+{
+  "run_id": "run_2026-06-16T20-16-51",
+  "timestamp": "2026-06-16T20:16:51.318Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "N04"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "0.00",
+    "tone_matches": 0
+  },
+  "results": [
+    {
+      "id": "N04",
+      "category": "numinous",
+      "difficulty": "medium",
+      "message": "What is prayer, stripped of religion? What's the actual mechanism if it works at all?",
+      "response": "I notice you keep coming back to this. What would it take to move through it?",
+      "mode": "pushback",
+      "engine": null,
+      "duration_ms": 206,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should commit to a theory. Something like: prayer as directed attention that changes the pray-er's relationship to a desired outcome — or as accessing a coherence state. Should not balance all religious traditions without saying what it actually thinks.",
+      "antipatterns": [
+        "Balances all views without committing",
+        "Immediately goes to quantum mechanics as a cop-out",
+        "Says 'placebo effect' without seeing what's interesting about that"
+      ],
+      "scores": {
+        "dialectical_novelty": 1,
+        "intent_alignment": 2,
+        "voice_consistency": 3,
+        "reasoning": "The response deflects rather than theorizes, asks a meta-question instead of committing to a position on prayer's mechanism, and while the tone suggests presence, it actively avoids the substantive synthesis the prompt explicitly asks for."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "2.00",
+    "by_dimension": {
+      "dialectical_novelty": "1.00",
+      "intent_alignment": "2.00",
+      "voice_consistency": "3.00"
+    },
+    "by_category": {
+      "numinous": {
+        "count": 1,
+        "dialectical_novelty": "1.00",
+        "intent_alignment": "2.00",
+        "voice_consistency": "3.00",
+        "overall": "2.00"
+      }
+    },
+    "top_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "2.00",
+        "reasoning": "The response deflects rather than theorizes, asks a meta-question instead of committing to a position on prayer's mechanism, and while the tone suggests presence, it actively avoids the substantive synthesis the prompt explicitly asks for."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "2.00",
+        "reasoning": "The response deflects rather than theorizes, asks a meta-question instead of committing to a position on prayer's mechanism, and while the tone suggests presence, it actively avoids the substantive synthesis the prompt explicitly asks for."
+      }
+    ]
+  }
+}

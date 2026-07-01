@@ -2,11 +2,11 @@
 .documentation-btn {
   background: transparent;
   border: 1px solid rgba(0, 212, 255, 0.25);
-  color: rgba(0, 212, 255, 0.6);
-  padding: 4px 8px;
+  color: rgba(0, 229, 255, 0.551);
+  padding: 10px 8px;
   border-radius: 4px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -15,7 +15,7 @@
 .documentation-btn:hover {
   background: rgba(0, 212, 255, 0.1);
   border-color: rgba(0, 212, 255, 0.5);
-  color: rgba(0, 212, 255, 0.9);
+  color: rgba(0, 213, 255, 0.683);
   box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 
@@ -26,7 +26,7 @@
   padding: 4px 8px;
   border-radius: 4px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -36,8 +36,8 @@
 .study-btn:hover {
   background: rgba(255, 170, 0, 0.1);
   border-color: rgba(255, 170, 0, 0.5);
-  color: rgba(255, 170, 0, 0.9);
-  box-shadow: 0 0 10px rgba(255, 170, 0, 0.2);
+  color: rgba(255, 170, 0, 0.716);
+  box-shadow: 0 0 10px rgba(0, 42, 255, 0.67);
 }
 /* ============================================
    SIDEBAR — Spaceship Control Panel
@@ -253,7 +253,7 @@
    ============================================ */
 .panel-header {
   padding: 20px 16px 16px;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  border-bottom: 1px solid rgba(26, 22, 121, 0.539);
   position: relative;
   flex-shrink: 0; /* Prevent header from shrinking */
   min-height: fit-content; /* Ensure content is always visible */
@@ -289,20 +289,20 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: rgba(0, 255, 229, 0.913);
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  color: rgba(0, 255, 229, 0.659);
+  text-shadow: 0 0 2px rgba(255, 0, 21, 0.3);
   white-space: nowrap;
 }
 
 /* New chat button - Magenta family: warm border, cool text */
 .new-chat-btn {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 12px;
   margin-top: 8px;
 
-  background: rgba(200, 80, 180, 0.06);
+  background: rgba(114, 80, 200, 0.058);
   /* Warmer magenta border (more red) */
-  border: 1px solid rgba(255, 100, 150, 0.3);
+  border: 1px solid rgba(40, 11, 129, 0.783);
   border-radius: 4px;
 
   /* Cooler magenta text (more blue) */
@@ -328,7 +328,7 @@
   background: rgba(200, 80, 180, 0.15);
   border-color: rgba(255, 120, 170, 0.5);
   box-shadow:
-    0 0 15px rgba(220, 100, 180, 0.25),
+    0 0 7px rgba(4, 26, 148, 0.884),
     inset 0 0 15px rgba(220, 100, 180, 0.05);
   color: #d88fff;
 }
@@ -366,7 +366,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   /* Amber family - cooler/greener for text */
-  color: rgba(220, 190, 80, 0.6);
+  color: rgba(220, 190, 80, 0.5);
   font-family: "JetBrains Mono", monospace;
 
   display: flex;
@@ -399,7 +399,7 @@
 /* Conversation item - Clean minimal style with dividers */
 .conversation-item {
   width: 100%;
-  padding: 12px 12px;
+  padding: 7px 12px;
 
   /* No background - clean look */
   background: transparent;
@@ -409,7 +409,7 @@
   border-radius: 0;
 
   /* Cooler violet text (more blue) */
-  color: rgba(180, 170, 220, 0.55);
+  color: rgba(180, 170, 220, 0.568);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
   text-align: left;
@@ -437,12 +437,12 @@
 .conversation-item:hover {
   background: transparent;
   border-bottom-color: rgba(200, 100, 240, 0.3);
-  color: rgba(200, 190, 255, 0.483);
+  color: rgba(200, 190, 255, 0.886);
 }
 
 .conversation-item:hover .conv-title {
   transform: scale(1.02);
-  text-shadow: 0 0 8px rgba(108, 7, 215, 0.4);
+  text-shadow: 0 0 8px rgba(33, 4, 65, 0.4);
 }
 
 .conversation-item:hover::before {
@@ -456,12 +456,12 @@
   border-color: rgba(0, 230, 200, 0.3);
   border-left-color: #00e6c8;
   /* Cooler cyan text (more blue) */
-  color: #60d0ff;
+  color: #a6def6d0;
 }
 
 .conversation-item.active::before {
   /* Warm teal glow */
-  background: #00e6c8;
+  background: #369de1;
   box-shadow: 0 0 8px rgba(0, 230, 200, 0.6);
 }
 

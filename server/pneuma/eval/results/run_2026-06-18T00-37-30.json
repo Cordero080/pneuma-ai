@@ -1,0 +1,41 @@
+{
+  "run_id": "run_2026-06-18T00-37-30",
+  "timestamp": "2026-06-18T00:37:45.279Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "C03"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "What happened on the walk?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 14738,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": null
+    }
+  ]
+}

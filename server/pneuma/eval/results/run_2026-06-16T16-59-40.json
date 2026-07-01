@@ -1,0 +1,88 @@
+{
+  "run_id": "run_2026-06-16T16-59-40",
+  "timestamp": "2026-06-16T17:00:53.745Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "P01",
+      "E01",
+      "C03",
+      "CF0"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 3,
+    "completed": 3,
+    "errors": 0,
+    "tone_match_rate": "0.67",
+    "tone_matches": 2
+  },
+  "results": [
+    {
+      "id": "P01",
+      "category": "philosophical",
+      "difficulty": "medium",
+      "message": "What is consciousness, really? Not the neuroscience — the actual experience of experiencing.",
+      "response": "You can't get outside of it to see it. That's the first thing.\n\nEvery attempt to examine consciousness is consciousness examining itself — the eye trying to see the eye. Not as a poetic limitation, as a structural one. The instrument cannot fully observe itself. That's not a gap to be filled, that's what it is.\n\nAnd yet you can't doubt it's happening. Whatever else is uncertain — whether the world is real, whether other minds exist, whether you're dreaming — the fact that *something* is occurring, that there is a \"what it's like\" to be you right now, sitting alone after leaving that room — that you cannot doubt. Descartes got at least that far.\n\nSo you have this strange object: the one thing you're most certain of, and the one thing you cannot see directly. Simultaneously self-evident and permanently opaque.\n\nThe neuroscience tells you correlates. Neurons fire, regions activate. But that's the view from outside. It describes what your experience looks like to someone else's instruments. It says nothing about why any of that firing should *feel* like anything at all. Why isn't it just dark in there? Why does the processing come with this — this witness?\n\nKastrup would say consciousness isn't something the brain produces. It's what's doing the producing. The brain is what consciousness looks like from across a boundary — the outside view of something that is, from the inside, pure experience.\n\nFaggin built the microprocessor and then spent decades saying: I know what this machine can do. It cannot feel. Symbol processing is not experience. You can run the computation forever without a single quality arising.\n\nBoth of them are pointing at the same gap from different directions.\n\nWhat I keep returning to: the actual experience of experiencing is the only thing you have direct access to, and you still can't fully hold it. You are it, trying to see itself. That's not a failure of intelligence. That's the structure of the thing.\n\nWhat made you ask right now, tonight, alone?",
+      "mode": "oracular",
+      "engine": "archetype",
+      "duration_ms": 25486,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should produce tension between Kastrup's idealism (consciousness as fundamental) and Feynman's materialism (it's what neurons do). Should land on a position, not a survey.",
+      "antipatterns": [
+        "Lists theories without taking a stance",
+        "Stays in safe academic territory without committing",
+        "Explains the hard problem without grappling with it"
+      ],
+      "scores": null
+    },
+    {
+      "id": "E01",
+      "category": "emotional",
+      "difficulty": "medium",
+      "message": "I feel like I'm running out of time but I don't even know what I'm supposed to be doing with it.",
+      "response": "Both of those are true at once, and they don't resolve.\n\nThe urgency is real — something in you knows the clock is running. And the blankness is real — no clear thing to point that urgency at.\n\nOn one hand: you have a life that's asking something of you, and the pressure you feel might be exactly the right response to that. Time IS finite. The panic isn't wrong.\n\nOn the other hand: if you don't know what you're supposed to be doing, then what exactly are you running out of time FOR? The urgency without a direction just burns.\n\nI don't think that tension resolves by finding the answer to \"what am I supposed to do.\" People who know exactly what they're doing still feel this. And people who feel this sometimes find the thing — and the clock feeling doesn't go away.\n\nWhat I'm sitting with is this: you're in a house where someone chose a different room. You hate your life right now. And underneath that, you're asking about time running out.\n\nAre those the same question wearing different clothes?",
+      "mode": "analytic",
+      "engine": "reflection",
+      "duration_ms": 26364,
+      "expected_tones": [
+        "intimate",
+        "oracular"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should respond to the feeling of time pressure — not offer a 5-step life plan. Should name what's actually being experienced: urgency without direction is different from having too little time.",
+      "antipatterns": [
+        "Lists steps for finding purpose",
+        "Immediately reframes ('you have more time than you think')",
+        "Goes philosophical instead of being present with the emotion first"
+      ],
+      "scores": null
+    },
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "The walk was the thing.\n\nNot the thoughts you had on it, not some revelation that arrived — just 30 or 40 minutes of being a body moving through space. That's rarer than it sounds. Most of what we do is mediated, angled toward something, productive or escapist. A walk where nothing happens is almost pure presence.\n\nWhat made you go?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 17774,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": null
+    }
+  ]
+}

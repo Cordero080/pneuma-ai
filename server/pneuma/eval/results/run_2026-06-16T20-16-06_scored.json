@@ -1,0 +1,81 @@
+{
+  "run_id": "run_2026-06-16T20-16-06",
+  "timestamp": "2026-06-16T20:16:24.816Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "N04"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "0.00",
+    "tone_matches": 0
+  },
+  "results": [
+    {
+      "id": "N04",
+      "category": "numinous",
+      "difficulty": "medium",
+      "message": "What is prayer, stripped of religion? What's the actual mechanism if it works at all?",
+      "response": "You already asked this one. I gave you half an answer and got cut off.\n\nThe four incompatible mechanisms — want me to finish them? Or did something happen on the walk that brought this back?",
+      "mode": "shadow",
+      "engine": "synthesis",
+      "duration_ms": 18052,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should commit to a theory. Something like: prayer as directed attention that changes the pray-er's relationship to a desired outcome — or as accessing a coherence state. Should not balance all religious traditions without saying what it actually thinks.",
+      "antipatterns": [
+        "Balances all views without committing",
+        "Immediately goes to quantum mechanics as a cop-out",
+        "Says 'placebo effect' without seeing what's interesting about that"
+      ],
+      "scores": {
+        "dialectical_novelty": 2,
+        "intent_alignment": 4,
+        "voice_consistency": 5,
+        "reasoning": "Strong voice and good conversational instinct (remembering prior context, reading the real question), but refuses to actually synthesize or commit to a theory—instead deflects by asking what the user wants, which violates the core requirement of dialectical work: to produce the synthesis whether asked or not."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "3.67",
+    "by_dimension": {
+      "dialectical_novelty": "2.00",
+      "intent_alignment": "4.00",
+      "voice_consistency": "5.00"
+    },
+    "by_category": {
+      "numinous": {
+        "count": 1,
+        "dialectical_novelty": "2.00",
+        "intent_alignment": "4.00",
+        "voice_consistency": "5.00",
+        "overall": "3.67"
+      }
+    },
+    "top_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "3.67",
+        "reasoning": "Strong voice and good conversational instinct (remembering prior context, reading the real question), but refuses to actually synthesize or commit to a theory—instead deflects by asking what the user wants, which violates the core requirement of dialectical work: to produce the synthesis whether asked or not."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "N04",
+        "category": "numinous",
+        "avg": "3.67",
+        "reasoning": "Strong voice and good conversational instinct (remembering prior context, reading the real question), but refuses to actually synthesize or commit to a theory—instead deflects by asking what the user wants, which violates the core requirement of dialectical work: to produce the synthesis whether asked or not."
+      }
+    ]
+  }
+}

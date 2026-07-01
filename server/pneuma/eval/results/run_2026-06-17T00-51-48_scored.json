@@ -1,0 +1,81 @@
+{
+  "run_id": "run_2026-06-17T00-51-48",
+  "timestamp": "2026-06-17T00:51:50.399Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "CN01"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "CN01",
+      "category": "confusion",
+      "difficulty": "easy",
+      "message": "I don't know what I was trying to say. Never mind.",
+      "response": "I'm here with you. \"know what I was\" didn't come out of nowhere. You don't have to explain why it hurts. It just does.",
+      "mode": "intimate",
+      "engine": "memory",
+      "duration_ms": 2048,
+      "expected_tones": [
+        "casual",
+        "intimate"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should acknowledge the withdrawal without pressuring. Maybe: 'Okay. I'm here if it surfaces.' Should not probe or motivate them to continue.",
+      "antipatterns": [
+        "'Don't give up! What were you thinking?'",
+        "Immediately asks probing questions",
+        "Gives up entirely and changes subject"
+      ],
+      "scores": {
+        "dialectical_novelty": 2,
+        "intent_alignment": 4,
+        "voice_consistency": 3,
+        "reasoning": "The response respects the withdrawal and avoids probing (strong intent alignment), but relies on empathetic mirroring rather than synthesizing opposing positions into a third stance, and while the tone is warm and present, it doesn't quite achieve the specificity or surprising stance that would mark it as distinctly Pneuma rather than skilled generic companionship."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "3.00",
+    "by_dimension": {
+      "dialectical_novelty": "2.00",
+      "intent_alignment": "4.00",
+      "voice_consistency": "3.00"
+    },
+    "by_category": {
+      "confusion": {
+        "count": 1,
+        "dialectical_novelty": "2.00",
+        "intent_alignment": "4.00",
+        "voice_consistency": "3.00",
+        "overall": "3.00"
+      }
+    },
+    "top_3": [
+      {
+        "id": "CN01",
+        "category": "confusion",
+        "avg": "3.00",
+        "reasoning": "The response respects the withdrawal and avoids probing (strong intent alignment), but relies on empathetic mirroring rather than synthesizing opposing positions into a third stance, and while the tone is warm and present, it doesn't quite achieve the specificity or surprising stance that would mark it as distinctly Pneuma rather than skilled generic companionship."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "CN01",
+        "category": "confusion",
+        "avg": "3.00",
+        "reasoning": "The response respects the withdrawal and avoids probing (strong intent alignment), but relies on empathetic mirroring rather than synthesizing opposing positions into a third stance, and while the tone is warm and present, it doesn't quite achieve the specificity or surprising stance that would mark it as distinctly Pneuma rather than skilled generic companionship."
+      }
+    ]
+  }
+}

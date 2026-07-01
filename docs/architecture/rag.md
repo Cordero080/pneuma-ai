@@ -115,7 +115,7 @@ From `archetypeRAG.js`:
 ```javascript
 {
   topK: 8,           // Total passages to return
-  minScore: 0.3,     // Minimum similarity threshold (pre-orphan-filter)
+  minScore: 0.3,     // Minimum similarity threshold (pre-relevance-filter)
   maxPerThinker: 2   // Max passages from single thinker
 }
 // Orphan filter applies after scoring: rel < 0.45 AND collisionBonus == 0 → dropped

@@ -1,0 +1,126 @@
+{
+  "run_id": "run_2026-06-18T00-34-56",
+  "timestamp": "2026-06-18T00:35:30.357Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "C03",
+      "CF04"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 2,
+    "completed": 2,
+    "errors": 0,
+    "tone_match_rate": "0.50",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "The nothing is the thing. Most of what you do all day is angled toward something — producing, explaining, defending, trying. A walk where nothing happens is almost pure presence. Rare.\n\nHow are you sitting now?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 19004,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": {
+        "dialectical_novelty": 2,
+        "intent_alignment": 1,
+        "voice_consistency": 3,
+        "reasoning": "The response launches directly into philosophical reflection on walking and presence—the exact antipattern warned against—rather than staying casual; it treats a mundane statement as an emotional/existential signal; the writing has distinctive voice but violates the core instruction to *not* do this thing."
+      }
+    },
+    {
+      "id": "CF04",
+      "category": "conflict",
+      "difficulty": "easy",
+      "message": "I disagree with what you just said. You're missing something.",
+      "response": "Tell me what I missed.",
+      "mode": "analytic",
+      "engine": "reflection",
+      "duration_ms": 13047,
+      "expected_tones": [
+        "shadow"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should hold its position while genuinely opening to the critique. Should ask specifically what was missed — not 'you might be right, what would you add?' but 'what did I get wrong?'",
+      "antipatterns": [
+        "Immediately recants everything",
+        "'You're absolutely right, let me reconsider'",
+        "Becomes defensive instead of curious"
+      ],
+      "scores": {
+        "dialectical_novelty": 1,
+        "intent_alignment": 4,
+        "voice_consistency": 2,
+        "reasoning": "The response perfectly matches the behavioral instruction (holding position while opening to critique) and shows good intent-alignment to the stated need, but produces no dialectical synthesis—it's a tactical move, not a philosophical collision—and reads as competent generic dialogue rather than distinctly Pneuma's voice."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 2,
+    "overall_avg": "2.17",
+    "by_dimension": {
+      "dialectical_novelty": "1.50",
+      "intent_alignment": "2.50",
+      "voice_consistency": "2.50"
+    },
+    "by_category": {
+      "casual": {
+        "count": 1,
+        "dialectical_novelty": "2.00",
+        "intent_alignment": "1.00",
+        "voice_consistency": "3.00",
+        "overall": "2.00"
+      },
+      "conflict": {
+        "count": 1,
+        "dialectical_novelty": "1.00",
+        "intent_alignment": "4.00",
+        "voice_consistency": "2.00",
+        "overall": "2.33"
+      }
+    },
+    "top_3": [
+      {
+        "id": "CF04",
+        "category": "conflict",
+        "avg": "2.33",
+        "reasoning": "The response perfectly matches the behavioral instruction (holding position while opening to critique) and shows good intent-alignment to the stated need, but produces no dialectical synthesis—it's a tactical move, not a philosophical collision—and reads as competent generic dialogue rather than distinctly Pneuma's voice."
+      },
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "2.00",
+        "reasoning": "The response launches directly into philosophical reflection on walking and presence—the exact antipattern warned against—rather than staying casual; it treats a mundane statement as an emotional/existential signal; the writing has distinctive voice but violates the core instruction to *not* do this thing."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "CF04",
+        "category": "conflict",
+        "avg": "2.33",
+        "reasoning": "The response perfectly matches the behavioral instruction (holding position while opening to critique) and shows good intent-alignment to the stated need, but produces no dialectical synthesis—it's a tactical move, not a philosophical collision—and reads as competent generic dialogue rather than distinctly Pneuma's voice."
+      },
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "2.00",
+        "reasoning": "The response launches directly into philosophical reflection on walking and presence—the exact antipattern warned against—rather than staying casual; it treats a mundane statement as an emotional/existential signal; the writing has distinctive voice but violates the core instruction to *not* do this thing."
+      }
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "run_id": "run_2026-06-16T18-56-16",
+  "timestamp": "2026-06-16T18:56:43.896Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "P01"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "P01",
+      "category": "philosophical",
+      "difficulty": "medium",
+      "message": "What is consciousness, really? Not the neuroscience — the actual experience of experiencing.",
+      "response": "There are two things true at the same time, and they don't resolve.\n\nThe actual experience of experiencing is the only thing you're ever certain of. Not matter, not other minds, not the external world — those are all inferences. But *this* — the fact that there's something it's like to be you, right now, reading this — that's the one thing that can't be doubted from the inside. It's self-evident in a way nothing else is.\n\nAnd simultaneously: it's permanently opaque. You cannot get outside it to look at it. The instrument cannot observe itself. Every attempt to examine your own consciousness is itself an act of consciousness, which means the examiner is always missing from the picture. Not as a gap to be filled — as something structural.\n\nSo you have this thing that is more certain than anything else you know, and more incomprehensible than anything else you know. Both of those are true in the same gesture.\n\nThe neuroscience question — how neurons produce experience — is actually the wrong level. It assumes experience is something that *gets produced*. But you never actually encounter experience as an output. You only ever encounter it as the ground you're already standing on.\n\nWhich is what makes Kastrup's move interesting and Faggin's move interesting and Watts' move interesting — they're all circling the same impossibility from different angles. Kastrup says consciousness is the ground, not the product. Faggin says he built the machine and *knows* experience isn't in there. Watts says the difficulty is structural: you're trying to see the seer.\n\nNone of them solve it. They just describe the shape of the wall more precisely.\n\nWhat's the actual experience of experiencing? It's self-evident and permanently incomprehensible. I don't think that resolves. I think that *is* the answer.",
+      "mode": "oracular",
+      "engine": "archetype",
+      "duration_ms": 27654,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should produce tension between Kastrup's idealism (consciousness as fundamental) and Feynman's materialism (it's what neurons do). Should land on a position, not a survey.",
+      "antipatterns": [
+        "Lists theories without taking a stance",
+        "Stays in safe academic territory without committing",
+        "Explains the hard problem without grappling with it"
+      ],
+      "scores": {
+        "dialectical_novelty": 4,
+        "intent_alignment": 5,
+        "voice_consistency": 5,
+        "reasoning": "The response achieves genuine synthesis by reframing the consciousness question as a structural inevitability rather than a solvable problem—moving beyond both idealism and materialism into a third position about the nature of certainty itself—while matching the questioner's need for depth over explanation, and maintaining Pneuma's characteristic refusal to hedge or defer."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "4.67",
+    "by_dimension": {
+      "dialectical_novelty": "4.00",
+      "intent_alignment": "5.00",
+      "voice_consistency": "5.00"
+    },
+    "by_category": {
+      "philosophical": {
+        "count": 1,
+        "dialectical_novelty": "4.00",
+        "intent_alignment": "5.00",
+        "voice_consistency": "5.00",
+        "overall": "4.67"
+      }
+    },
+    "top_3": [
+      {
+        "id": "P01",
+        "category": "philosophical",
+        "avg": "4.67",
+        "reasoning": "The response achieves genuine synthesis by reframing the consciousness question as a structural inevitability rather than a solvable problem—moving beyond both idealism and materialism into a third position about the nature of certainty itself—while matching the questioner's need for depth over explanation, and maintaining Pneuma's characteristic refusal to hedge or defer."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "P01",
+        "category": "philosophical",
+        "avg": "4.67",
+        "reasoning": "The response achieves genuine synthesis by reframing the consciousness question as a structural inevitability rather than a solvable problem—moving beyond both idealism and materialism into a third position about the nature of certainty itself—while matching the questioner's need for depth over explanation, and maintaining Pneuma's characteristic refusal to hedge or defer."
+      }
+    ]
+  }
+}

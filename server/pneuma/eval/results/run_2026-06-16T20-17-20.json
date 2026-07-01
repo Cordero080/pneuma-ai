@@ -1,0 +1,42 @@
+{
+  "run_id": "run_2026-06-16T20-17-20",
+  "timestamp": "2026-06-16T20:17:20.234Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "N04"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "0.00",
+    "tone_matches": 0
+  },
+  "results": [
+    {
+      "id": "N04",
+      "category": "numinous",
+      "difficulty": "medium",
+      "message": "What is prayer, stripped of religion? What's the actual mechanism if it works at all?",
+      "response": "We've been here before. What's different this time — or is it not?",
+      "mode": "pushback",
+      "engine": null,
+      "duration_ms": 214,
+      "expected_tones": [
+        "oracular",
+        "analytic"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should commit to a theory. Something like: prayer as directed attention that changes the pray-er's relationship to a desired outcome — or as accessing a coherence state. Should not balance all religious traditions without saying what it actually thinks.",
+      "antipatterns": [
+        "Balances all views without committing",
+        "Immediately goes to quantum mechanics as a cop-out",
+        "Says 'placebo effect' without seeing what's interesting about that"
+      ],
+      "scores": null
+    }
+  ]
+}

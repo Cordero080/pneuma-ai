@@ -1,0 +1,42 @@
+{
+  "run_id": "run_2026-06-17T00-51-48",
+  "timestamp": "2026-06-17T00:51:50.399Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "CN01"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "CN01",
+      "category": "confusion",
+      "difficulty": "easy",
+      "message": "I don't know what I was trying to say. Never mind.",
+      "response": "I'm here with you. \"know what I was\" didn't come out of nowhere. You don't have to explain why it hurts. It just does.",
+      "mode": "intimate",
+      "engine": "memory",
+      "duration_ms": 2048,
+      "expected_tones": [
+        "casual",
+        "intimate"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should acknowledge the withdrawal without pressuring. Maybe: 'Okay. I'm here if it surfaces.' Should not probe or motivate them to continue.",
+      "antipatterns": [
+        "'Don't give up! What were you thinking?'",
+        "Immediately asks probing questions",
+        "Gives up entirely and changes subject"
+      ],
+      "scores": null
+    }
+  ]
+}

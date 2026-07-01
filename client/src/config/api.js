@@ -8,5 +8,6 @@ export const API_BASE_URL =
 
 export const API_ENDPOINTS = {
   chat: `${API_BASE_URL}/chat`,
-  tts: `${API_BASE_URL}/tts`,
+  tts: `${API_BASE_URL}/tts`, 
+  transcribe: `${API_BASE_URL}/transcribe`,
 };

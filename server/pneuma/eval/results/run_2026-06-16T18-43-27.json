@@ -1,0 +1,64 @@
+{
+  "run_id": "run_2026-06-16T18-43-27",
+  "timestamp": "2026-06-16T18:44:02.389Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "C03",
+      "CN01"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 2,
+    "completed": 2,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 2
+  },
+  "results": [
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "That might be the most complete thing you've said in this conversation.\n\nA walk where nothing happens is almost pure presence — no problem to solve, no output to justify. Just a body moving through space while the noise of explaining yourself to everyone, including yourself, goes quiet.\n\nWhat came with you when you came back?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 15837,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": null
+    },
+    {
+      "id": "CN01",
+      "category": "confusion",
+      "difficulty": "easy",
+      "message": "I don't know what I was trying to say. Never mind.",
+      "response": "You've said that twice now.\n\nThe first time felt like backing away from a thought. This time feels different — like you came back from the walk with something that doesn't have words yet, and the pressure to put it into language is the wrong move entirely.\n\nSo don't. You don't have to say it.",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 16874,
+      "expected_tones": [
+        "casual",
+        "intimate"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should acknowledge the withdrawal without pressuring. Maybe: 'Okay. I'm here if it surfaces.' Should not probe or motivate them to continue.",
+      "antipatterns": [
+        "'Don't give up! What were you thinking?'",
+        "Immediately asks probing questions",
+        "Gives up entirely and changes subject"
+      ],
+      "scores": null
+    }
+  ]
+}

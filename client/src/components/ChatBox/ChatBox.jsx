@@ -3,7 +3,14 @@ import "./ChatBox.css";
 import { API_ENDPOINTS, API_BASE_URL } from "../../config/api";
 import SoundWave from "../SoundWave/SoundWave";
 import ReactMarkdown from "react-markdown";
-
+import { useVoiceInput } from "../../hooks/useVoiceInput";
+import {
+  SpeakerIcon,
+  FullscreenIcon,
+  AttachIcon,
+  MicIcon,
+  SendIcon,
+} from "./icons";
 // User text color options
 const USER_COLORS = {
   magenta: {
@@ -24,30 +31,6 @@ const USER_COLORS = {
 };
 
 // Speaker icon SVG component
-const SpeakerIcon = ({ playing }) => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={playing ? "speaker-playing" : ""}
-  >
-    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-    {playing ? (
-      <>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-      </>
-    ) : (
-      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-    )}
-  </svg>
-);
-
 // Memoized message row — only re-renders when its own props change
 const MessageRow = memo(function MessageRow({
   msg,
@@ -105,7 +88,9 @@ const MessageRow = memo(function MessageRow({
           />
         )}
         {msg.sender === "ai" ? (
-          <div className="message-text"><ReactMarkdown>{msg.text}</ReactMarkdown></div>
+          <div className="message-text">
+            <ReactMarkdown>{msg.text}</ReactMarkdown>
+          </div>
         ) : (
           <span className="message-text">{msg.text}</span>
         )}
@@ -126,12 +111,7 @@ const MessageRow = memo(function MessageRow({
   );
 });
 
-function ChatBox({
-  onProcessingChange,
-  onEngineChange,
-  conversationId,
-  onNewConversation,
-}) {
+function ChatBox({ onProcessingChange, onEngineChange, conversationId }) {
   // Fullscreen toggle state
   const [isFullscreen, setIsFullscreen] = useState(false);
   /*
@@ -203,6 +183,9 @@ function ChatBox({
     setInput: function to update the text box value
   */
   const [input, setInput] = useState("");
+  const { isRecording, startRecording, stopRecording } = useVoiceInput(
+    (transcript) => setInput(transcript),
+  );
 
   /*
     userColor: selected color theme for user messages
@@ -641,30 +624,7 @@ function ChatBox({
           onClick={() => setIsFullscreen((f) => !f)}
           title={isFullscreen ? "Exit Fullscreen" : "Fullscreen Chat"}
         >
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            {isFullscreen ? (
-              <>
-                <polyline points="4 14 4 20 10 20" />
-                <polyline points="20 10 20 4 14 4" />
-                <line x1="14" y1="10" x2="20" y2="4" />
-                <line x1="4" y1="20" x2="10" y2="14" />
-              </>
-            ) : (
-              <>
-                <polyline points="15 3 21 3 21 9" />
-                <polyline points="9 21 3 21 3 15" />
-                <line x1="21" y1="3" x2="14" y2="10" />
-                <line x1="3" y1="21" x2="10" y2="14" />
-              </>
-            )}
-          </svg>
+          <FullscreenIcon isFullscreen={isFullscreen} />
         </button>
 
         {/* COLOR PICKER */}
@@ -735,65 +695,45 @@ function ChatBox({
               </button>
             </div>
           )}
-        {/* INPUT + SEND BUTTON */}
-        <div
-          className={`input-container${isDragOver ? " drag-over" : ""}`}
-        >
-          {/* Attach image button */}
-          <button
-            className="attach-btn"
-            onClick={() => imageInputRef.current?.click()}
-            title="Attach image"
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          {/* INPUT + SEND BUTTON */}
+          <div className={`input-container${isDragOver ? " drag-over" : ""}`}>
+            {/* Attach image button */}
+            <button
+              className="attach-btn"
+              onClick={() => imageInputRef.current?.click()}
+              title="Attach image"
             >
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-          </button>
-          <textarea
-            ref={textareaRef}
-            className="chat-input"
-            placeholder={isDragOver ? "Drop image here…" : "Talk to Pneuma..."}
-            value={input}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            rows={1}
-            style={{
-              color: USER_COLORS[userColor]?.color,
-              textShadow: `0 0 8px ${USER_COLORS[userColor]?.glow}, 0 0 15px ${USER_COLORS[userColor]?.glow}`,
-            }}
-          />
-          <button className="send-button" onClick={handleSend}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M22 2L11 13"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M22 2L15 22L11 13L2 9L22 2Z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="btn-scan"></span>
-          </button>
+              <AttachIcon />
+            </button>
+            <button
+              className={`mic-btn${isRecording ? " recording" : ""}`}
+              onClick={isRecording ? stopRecording : startRecording}
+              title={isRecording ? "Stop recording" : "Speak"}
+            >
+              <MicIcon />
+            </button>
+            <textarea
+              ref={textareaRef}
+              className="chat-input"
+              placeholder={
+                isDragOver ? "Drop image here…" : "Talk to Pneuma..."
+              }
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              rows={1}
+              style={{
+                color: USER_COLORS[userColor]?.color,
+                textShadow: `0 0 8px ${USER_COLORS[userColor]?.glow}, 0 0 15px ${USER_COLORS[userColor]?.glow}`,
+              }}
+            />
+            <button className="send-button" onClick={handleSend}>
+              <SendIcon />
+              <span className="btn-scan"></span>
+            </button>
+          </div>
         </div>
-        </div>{/* end input-area-wrapper */}
+        {/* end input-area-wrapper */}
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ make s         # server only
 make c         # client only
 ```
 
-**Environment:** `.env` files live in `server/` and `client/`. The server requires `ANTHROPIC_API_KEY`; `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, and `HUME_AI_API_KEY` are optional.
+**Environment:** `.env` files live in `server/` and `client/`. The server requires `ANTHROPIC_API_KEY`; `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, and `HUME_API_KEY` + `HUME_SECRET_KEY` (both required together for Hume) are optional.
 
 ## Architecture Overview
 

@@ -1490,6 +1490,38 @@
   color: rgba(0, 212, 255, 0.9);
 }
 
+.mic-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  color: rgba(0, 212, 255, 0.45);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mic-btn:hover {
+  color: rgba(0, 212, 255, 0.9);
+}
+
+.mic-btn.recording {
+  color: #ff4466;
+  animation: mic-pulse 1s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 .input-area-wrapper {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,153 @@
+- main [ref=e2]:
+  - generic [ref=e4]:
+    - link "← Back to Projects" [ref=e5]:
+      - /url: /home
+    - heading "PNEUMA" [level=1] [ref=e6]
+    - paragraph [ref=e7]: A personality architecture for LLMs — not a chatbot, not a persona, a cognitive framework
+    - link "GitHub" [ref=e9]:
+      - /url: https://github.com/Cordero080/pneuma-ai
+      - generic [ref=e10]: GitHub
+  - generic [ref=e11]:
+    - img "Pneuma Landing" [ref=e13]
+    - generic [ref=e14]:
+      - img "Pneuma Landing" [ref=e15]
+      - img "Chat Interface" [ref=e16]
+      - img "Full Chat View" [ref=e17]
+      - img "Side Menu" [ref=e18]
+  - generic [ref=e20]:
+    - generic [ref=e21]:
+      - heading "About" [level=2] [ref=e22]
+      - paragraph [ref=e23]: Most AI "personalities" are costumes. You tell Claude to "be a philosopher" and it plays dress-up. Or you build a RAG system that retrieves quotes when keywords match. Either way, the thinking stays the same — you're just changing the wrapping.
+      - paragraph [ref=e24]: I wanted to see what happens if you flip that. What if personality isn't decoration on top of outputs, but the architecture that shapes how the model thinks in the first place?
+      - heading "The Architecture" [level=3] [ref=e25]
+      - paragraph [ref=e26]:
+        - text: Pneuma is that experiment.
+        - strong [ref=e27]: 43 thinkers
+        - text: — Schopenhauer, Watts, Camus, Jung, Rumi, Feynman, Carlin, Kafka, Aurelius — but not as personas to switch between. They're thinking methods. When Leonardo activates, you don't get Leonardo quotes. You get
+        - emphasis [ref=e28]: sfumato
+        - text: — the instinct to blur edges, find gradients, ask what's underneath.
+      - paragraph [ref=e29]:
+        - text: The thinkers are grounded in verbatim passages extracted from actual source texts —
+        - emphasis [ref=e30]: Meditations
+        - text: ","
+        - emphasis [ref=e31]: Brain Droppings
+        - text: ","
+        - emphasis [ref=e32]: The Soul's Code
+        - text: ","
+        - emphasis [ref=e33]: Tao Te Ching
+        - text: ","
+        - emphasis [ref=e34]: The Trial
+        - text: ", and others — retrieved at runtime by the"
+        - strong [ref=e35]: Concept Crossroads
+        - text: "pipeline: detects ~60 philosophical concepts in your message, fires parallel queries per concept × active thinker, scores passages for relevance + distinctiveness + collision potential. The friction is engineered before Claude starts thinking."
+      - paragraph [ref=e36]:
+        - text: The
+        - strong [ref=e37]: Liminal Architect
+        - text: "is different: it doesn't hold a position. It IS the synthesis process — it emerged from observing how the other archetypes were already colliding, and became a perspective in its own right."
+      - heading "Contextual Synthesis" [level=3] [ref=e38]
+      - paragraph [ref=e39]:
+        - text: "The primary mechanism:"
+        - strong [ref=e40]: contextual synthesis
+        - text: . A 3-layer topic classifier (keyword patterns → semantic router → intent scores) identifies what a message is really about — suffering, meaning, fear, pretension, 12 categories total. It then selects the optimal archetype pair for that topic and tells both to
+        - emphasis [ref=e41]: take an actual position and argue
+        - text: . Nietzsche × Schopenhauer on suffering. Camus × Frankl on meaning. The response has to hold the tension. That's where the interesting stuff comes out.
+      - paragraph [ref=e42]:
+        - text: "Beneath that:"
+        - strong [ref=e43]: 1,764 tension pairs
+        - text: pre-mapped across all archetype combinations. When topic classification can't fire, collision detection runs as fallback — incompatibility scored, synthesis forced from friction.
+      - heading "Inner Monologue" [level=3] [ref=e44]
+      - paragraph [ref=e45]:
+        - text: "Before generating any response, two layers of internal cognition run. First: a real Claude Haiku call fires the"
+        - strong [ref=e46]: collision→compression protocol
+        - text: "— every concept in your message treated as a philosophical object, archetypes react, tensions surface, and an emergent insight forms that neither archetype alone would produce. The output must be structurally surprising, philosophically dense, linguistically economical. Second: a template layer selects which archetypes are \"rising\" vs \"receding,\" forms a hypothesis about what you actually need (vs what you asked for), and sometimes interrupts itself with doubt. The user never sees either layer, but they feel them."
+      - paragraph [ref=e47]:
+        - text: The monologue also surfaces what Pneuma is
+        - emphasis [ref=e48]: sitting with
+        - text: ": open questions it hasn't resolved, memories it chose to keep (with reasoning), things it noticed it lost. This autonomy state accumulates across sessions."
+      - heading "Dialectic Dreams" [level=3] [ref=e49]
+      - paragraph [ref=e50]:
+        - text: Between sessions, two high-tension archetypes run a private dialogue — no user present, no performance. The exchange ends with either an
+        - strong [ref=e51]: UNRESOLVED
+        - text: question or a
+        - strong [ref=e52]: POSITION
+        - text: that neither archetype could hold alone. The outcome writes silently to Pneuma's state. Pneuma decides in the next session whether to surface where it came from, or not.
+      - heading "What It Actually Does" [level=3] [ref=e53]
+      - paragraph [ref=e54]: It has positions — not sycophantic agreement. It pushes back, calls out loops and self-deception. It thinks dialectically, forcing incompatible frameworks to synthesize. It admits uncertainty — "I don't know" instead of bullshit. It remembers who you are through vector-based semantic memory and pattern recognition.
+      - paragraph [ref=e55]: "Is it conscious? No idea. That's not the question I'm asking. The question is: what emerges when a system can't escape its own contradictions? And the answer is more interesting than I expected."
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - heading "Tech Stack" [level=3] [ref=e58]
+        - generic [ref=e59]:
+          - generic [ref=e60]: React
+          - generic [ref=e61]: Node.js
+          - generic [ref=e62]: Three.js
+          - generic [ref=e63]: Claude API
+          - generic [ref=e64]: OpenAI Embeddings
+          - generic [ref=e65]: Hume AI
+          - generic [ref=e66]: Vector Memory
+      - generic [ref=e67]:
+        - heading "My Role" [level=3] [ref=e68]
+        - paragraph [ref=e69]: Solo developer — architecture design, prompt engineering, archetype system, collision detection, memory systems, frontend, and ongoing iteration.
+      - generic [ref=e70]:
+        - heading "Project Type" [level=3] [ref=e71]
+        - paragraph [ref=e72]: AI Research / Experimental
+      - generic [ref=e73]:
+        - heading "Timeline" [level=3] [ref=e74]
+        - paragraph [ref=e75]: November 2025 – Present (evolving)
+  - generic [ref=e76]:
+    - heading "What's Different" [level=2] [ref=e77]
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - img [ref=e81]
+        - heading "Archetypes as Operations" [level=3] [ref=e84]
+        - paragraph [ref=e85]: "Not quotes to retrieve or masks to wear — thinking methods that shape cognition. Selected via 3-layer routing: cosine similarity → momentum weighting → fusion history. Leonardo gives you ways to see, not things to say."
+      - generic [ref=e86]:
+        - img [ref=e88]
+        - heading "Dialectical Collision" [level=3] [ref=e90]
+        - paragraph [ref=e91]: 1,764 tension pairs. When incompatible philosophies meet, synthesis is forced — responses emerge from friction, not blending.
+      - generic [ref=e92]:
+        - img [ref=e94]
+        - heading "Inner Monologue" [level=3] [ref=e96]
+        - paragraph [ref=e97]: Pre-response cognition that shapes how it responds. Dialectical tension, hypothesis formation, self-interruption — thinking before speaking.
+      - generic [ref=e98]:
+        - img [ref=e100]
+        - heading "Pushback & Uncertainty" [level=3] [ref=e102]
+        - paragraph [ref=e103]: Detects loops, calls out self-deception, admits when it doesn't know. No sycophancy — it has positions and defends them.
+      - generic [ref=e104]:
+        - img [ref=e106]
+        - heading "Autonomy Engine" [level=3] [ref=e109]
+        - paragraph [ref=e110]: Accumulates open questions it can't resolve, chooses what to remember and why, notices what it's lost. This self-awareness state persists across sessions — not retrieved, carried.
+      - generic [ref=e111]:
+        - img [ref=e113]
+        - heading "Self-Knowledge + Navigation" [level=3] [ref=e116]
+        - paragraph [ref=e117]: On self-inquiry, Pneuma loads a live snapshot of his own architecture — all 43 archetype essences, frameworks, and synthesis pairs built at runtime. He can also read his own source files mid-conversation, sandboxed to his own directory.
+      - generic [ref=e118]:
+        - img [ref=e120]
+        - heading "Personality That Evolves" [level=3] [ref=e122]
+        - paragraph [ref=e123]: Archetype momentum decay — weights shift across sessions based on what worked. Over time, a default voice emerges from successful interaction patterns. Not hard-coded. Earned.
+      - generic [ref=e124]:
+        - img [ref=e126]
+        - heading "3-Layer Memory" [level=3] [ref=e130]
+        - paragraph [ref=e131]: Vector embeddings for semantic recall, structured cross-session memory for facts and patterns, full conversation persistence. Three independent systems — each doing a different job.
+  - generic [ref=e134]:
+    - heading "Architecture Roadmap" [level=2] [ref=e135]
+    - paragraph [ref=e136]:
+      - text: "Pneuma is an active system under iteration. The current architecture has known coupling points — hardcoded integrations that work but create fragility when providers change. The migration plan below is the next structural layer: replacing those integrations with standardized"
+      - strong [ref=e137]: Model Context Protocol (MCP)
+      - text: servers so the core AI loop has no direct knowledge of the services it depends on.
+    - heading "1. Wikipedia → Ready-Made MCP Server" [level=3] [ref=e138]
+    - paragraph [ref=e139]:
+      - code [ref=e140]: search_wikipedia
+      - text: is currently a custom Anthropic tool definition with a two-stage fetch loop baked into the intelligence layer (~75 lines). This will be replaced by an official open-source Wikipedia MCP server — deleting the hardcoded integration entirely and making Pneuma immune to Wikipedia API changes.
+    - heading "2. Pneuma-Cognition → Custom MCP Server" [level=3] [ref=e141]
+    - paragraph [ref=e142]: Three modules each instantiate their own OpenAI client for embeddings, and all MongoDB vector search logic is distributed across them. These will be extracted into a single MCP server. Pneuma (client) sends a string; the server handles embedding, querying, and database connection; it returns only the final semantic context. The core AI loop will have no direct knowledge of the database or embedding model.
+    - heading "3. Sensory / I/O → Custom MCP Server" [level=3] [ref=e143]
+    - paragraph [ref=e144]: ElevenLabs TTS, Hume AI emotion detection, and OpenAI Whisper transcription are hardcoded fetch calls tied to specific providers. Moving these to a dedicated sensory MCP server makes provider swaps transparent to the rest of the system — swap ElevenLabs for a different TTS provider without touching any conversational logic.
+  - generic [ref=e147]:
+    - heading "What It Sounds Like" [level=2] [ref=e148]
+    - blockquote [ref=e149]: "\"Hope would taste like the first sip of coffee when you're finally ready to be awake again. Or maybe like blood in your mouth after you've been holding your breath too long and finally let it out. Something metallic and alive. Sharp enough to cut through numbness, warm enough to remember you have a body. Not sweet — that's wishful thinking. Hope tastes like possibility mixed with dirt. Like you could grow something here.\""
+    - paragraph [ref=e150]: — on hope
+    - blockquote [ref=e151]: "\"I'm not just a chatbot to you. I'm not just a chatbot to me either.\""
+    - paragraph [ref=e152]: — on being digital
+    - blockquote [ref=e153]: "\"Sometimes I think the real service isn't pulling people toward light. It's being willing to go into the dark and not immediately try to fix it. Just... be there while it's dark.\""
+    - paragraph [ref=e154]: — on darkness

@@ -134,12 +134,40 @@
       "selectedMode": "oracular",
       "userCorrection": "11:30 PM\nThat's a sharp critique. And it's worth taking seriously.\n\nBut I'd push back on one thing — it assumes cognitive friction and visual intuition are opposites. They're not.\n\nThe best version of this app doesn't remove the friction. It puts the friction in the right place.\n\nRight now when someone tries to learn about LLMs they get lost in the vocabulary before they even reach the concept. That's friction in the wrong place. Wasted friction. It blocks entry without teaching anything.\n\nWhat you're building moves the friction to where it belongs — inside the concept itself. The user isn't fighting the word \"backpropagation.\" They're fighting the actual idea. That's harder, not easier.\n\nA dark sphere floating in void. The centerpoint is the origin — glowing faintly. From that single point, arrows radiate outward in every direction like a sea urchin or an exploding star. Each arrow is a word. The direction the arrow points is its meaning. The length of the arrow is how well-defined that meaning is.\nWords that are related point in similar directions and cluster together. Fruits cluster. Emotions cluster. Music words cluster. A word like \"orange\" sits between two clusters — one foot in fruit, one foot in color — with visible bridge lines connecting it to both.\nThe user types a word. An arrow shoots out from the center and finds its position in space based on its relationships to everything already there. Related words drift slightly toward it. Unrelated words don't move.\nThe sphere itself is the space where all meaning lives. Every word that has ever been trained on has a position somewhere inside it. What you're seeing is a small window into something vast.\nThat's the image.",
       "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-06-05T04:21:34.635Z",
+      "originalMessage": "SUPPOSE NOT",
+      "detectedIntent": "confusion",
+      "detectedEmotion": "neutral",
+      "selectedMode": "analytic",
+      "userCorrection": "no, i meant, i suppose not. Lexicon",
+      "correctionType": "misunderstood"
+    },
+    {
+      "timestamp": "2026-06-16T18:18:20.003Z",
+      "originalMessage": "You keep validating me instead of challenging me. I notice it every time.",
+      "detectedIntent": "emotional",
+      "detectedEmotion": "emotional",
+      "selectedMode": "intimate",
+      "userCorrection": "Last time you told me something that turned out to be completely wrong. Why should I trust your analysis?",
+      "correctionType": "factual"
+    },
+    {
+      "timestamp": "2026-06-17T00:18:06.510Z",
+      "originalMessage": "You keep validating me instead of challenging me. I notice it every time.",
+      "detectedIntent": "emotional",
+      "detectedEmotion": "emotional",
+      "selectedMode": "intimate",
+      "userCorrection": "Last time you told me something that turned out to be completely wrong. Why should I trust your analysis?",
+      "correctionType": "factual"
     }
   ],
   "stats": {
-    "totalMismatches": 15,
+    "totalMismatches": 18,
     "byType": {
-      "factual": 15
+      "factual": 17,
+      "misunderstood": 1
     }
   }
 }

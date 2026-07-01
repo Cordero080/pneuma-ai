@@ -160,7 +160,7 @@ Then **50/30/20 scoring** scores the candidate pool:
 
 Surviving passages go through deduplication (near-identical content, cosine > 0.95, removed) and a max-2-per-thinker cap. Best 8 kept.
 
-**If no philosophical concepts detected:** one broad semantic search runs instead — message embedded once, scored against all passages directly. The orphan filter does not apply to this fallback path.
+**If no philosophical concepts detected:** one broad semantic search runs instead — message embedded once, scored against all passages directly. The relevance filter does not apply to this fallback path.
 
 **Files:**
 - `server/pneuma/intelligence/archetypeRAG.js` — `retrieveArchetypeKnowledge()`, `extractConcepts()`, `_multiQueryRetrieval()`, `_evaluatePassages()`, `_selectBestPassages()`, `_singleQueryFallback()`

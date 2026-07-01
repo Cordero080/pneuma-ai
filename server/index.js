@@ -336,6 +336,31 @@ app.post("/tts", async (req, res) => {
   }
 });
 
+// -------------------------- TRANSCRIBE ROUTE ------------------------
+// ROLE: Converts raw audio buffer to text via Whisper — no AI response, just transcription
+// INPUT FROM: POST /transcribe request from frontend with raw audio/webm buffer
+// OUTPUT TO: transcribeAudio() in emotionDetection.js; returns { text, language } to frontend
+app.post("/transcribe", async (req, res) => {
+  try {
+    const audioBuffer = req.body;
+
+    if (!audioBuffer || audioBuffer.length === 0) {
+      return res.status(400).json({ error: "No audio provided" });
+    }
+
+    const result = await transcribeAudio(audioBuffer);
+
+    if (!result.text) {
+      return res.status(400).json({ error: "Could not transcribe audio" });
+    }
+
+    res.json({ text: result.text, language: result.language });
+  } catch (error) {
+    console.error("[Transcribe] Error:", error.message);
+    res.status(500).json({ error: "Transcription failed" });
+  }
+});
+
 // -------------------------- VOICE INPUT ROUTE -----------------------
 // NOTE: Voice route is fully implemented but not yet active in production.
 // Requires Whisper (OpenAI) + Hume AI API keys to enable.

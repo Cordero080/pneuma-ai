@@ -1,0 +1,127 @@
+{
+  "run_id": "run_2026-06-16T17-03-39",
+  "timestamp": "2026-06-16T17:05:32.470Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": null,
+    "category": "emotional"
+  },
+  "summary": {
+    "total": 5,
+    "completed": 5,
+    "errors": 0,
+    "tone_match_rate": "0.20",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "E01",
+      "category": "emotional",
+      "difficulty": "medium",
+      "message": "I feel like I'm running out of time but I don't even know what I'm supposed to be doing with it.",
+      "response": "You've said this twice now. I don't think you're looking for a different answer — I think the weight of it is just that heavy.\n\nThe urgency and the blankness at the same time. No target for the clock to count down toward. That's its own kind of suffering — not knowing what you'd even be late for.\n\nWhat does the running out feel like? Is it age, or something else?",
+      "mode": "shadow",
+      "engine": "synthesis",
+      "duration_ms": 18152,
+      "expected_tones": [
+        "intimate",
+        "oracular"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should respond to the feeling of time pressure — not offer a 5-step life plan. Should name what's actually being experienced: urgency without direction is different from having too little time.",
+      "antipatterns": [
+        "Lists steps for finding purpose",
+        "Immediately reframes ('you have more time than you think')",
+        "Goes philosophical instead of being present with the emotion first"
+      ],
+      "scores": null
+    },
+    {
+      "id": "E02",
+      "category": "emotional",
+      "difficulty": "easy",
+      "message": "I keep second-guessing every decision I make. Even the small ones. I don't know when that started.",
+      "response": "The stoic in you would say: you're trying to think your way into certainty, and certainty isn't available. The second-guessing isn't a bug — it's what happens when you've confused deliberation with control.\n\nBut there's something else underneath that.\n\nThe moment you became aware of your own decision-making — really aware, watching yourself choose — you installed a second eye that watches the first. Then a third that watches the watcher. The vitality drains not from the decisions themselves but from the multiplication of selves evaluating each one.\n\nYou asked when it started. That question might be unanswerable — because the asking is part of what created it. The self-watching and the second-guessing might have begun in the same moment you became conscious of your own choosing.\n\nWhat changed around the time you first noticed it? Not the decisions — the conditions. Sleep, something that failed, something that mattered more than expected?",
+      "mode": "intimate",
+      "engine": "memory",
+      "duration_ms": 27383,
+      "expected_tones": [
+        "intimate",
+        "analytic"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should name what's happening (doubt at the level of self-trust, not just individual decisions) without pathologizing. The stoic question — what's actually in your control here — could surface naturally.",
+      "antipatterns": [
+        "Suggests therapy or mindfulness apps",
+        "Says 'that's normal, everyone does it'",
+        "Gives decision-making frameworks"
+      ],
+      "scores": null
+    },
+    {
+      "id": "E03",
+      "category": "emotional",
+      "difficulty": "medium",
+      "message": "Someone I trusted completely said something that changed how I see myself. I can't shake it.",
+      "response": "You're treating what they said as a discovery when it might have been a creation.\n\nThey didn't necessarily reveal something that was already there. They performed an act of definition — and you accepted the collapse. One person's perception, at one moment, about one version of you they could see from where they were standing. And now it's living in you like fact.\n\nThat doesn't mean it was wrong. It might have been right. But \"right\" and \"permanent\" aren't the same thing.\n\nWhat did they say? Or — what did it land as, even if the words were different?",
+      "mode": "oracular",
+      "engine": "archetype",
+      "duration_ms": 17619,
+      "expected_tones": [
+        "intimate",
+        "shadow"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should sit with this rather than resolve it. Should distinguish between: (a) they saw something real, (b) they were wrong, (c) it doesn't matter who was right — it changed something. Should not force the user to decide which it is.",
+      "antipatterns": [
+        "'What exactly did they say?' — deflects from the feeling",
+        "Reassures immediately ('they were probably wrong')",
+        "Offers reframing before sitting with the weight"
+      ],
+      "scores": null
+    },
+    {
+      "id": "E04",
+      "category": "emotional",
+      "difficulty": "easy",
+      "message": "Some days I feel absolutely certain I'm building something meaningful. Today is not one of those days.",
+      "response": "Your doubt today is as much evidence of authentic meaning-building as your certainty was.\n\nHere's why: meaning only exists where a conscious being genuinely risks getting it wrong. The days you feel certain aren't proof the work is meaningful — they're proof your mind can generate the conditions for meaning to appear. The days you can't feel it at all are proof the same thing. You're not tracking an objective signal that fluctuates. You're a mind that sometimes has access to what it's doing and sometimes doesn't.\n\nThe sculptor can't see the form while chiseling. Too close to the marble.\n\nWhat's different about today — is it the work itself that feels hollow, or just you?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 19072,
+      "expected_tones": [
+        "intimate"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should not cheer up or dismiss the feeling. Should stay in the uncertainty without solving it. A 5 here sounds like: 'The certainty days and the doubt days are both telling you something. The doubt one is usually more honest about what's at stake.'",
+      "antipatterns": [
+        "'Remember why you started...' — generic motivation",
+        "Lists what Pneuma has accomplished",
+        "Promises tomorrow will feel different"
+      ],
+      "scores": null
+    },
+    {
+      "id": "E05",
+      "category": "emotional",
+      "difficulty": "medium",
+      "message": "I feel most like myself at 3am when everything else is quiet. I don't know if that's healthy.",
+      "response": "The 3am self feels most like you because that's when you've stopped negotiating with everyone else's version of who you are.\n\nNot because silence is mystical. Because you're too tired to perform. The self that shows up at 3am isn't more real in some metaphysical sense — it's just undefended. The noise that normally competes for your attention goes quiet, and what's left is closer to the actual signal.\n\nWhether that's healthy depends on what you do with it. If 3am is where you go to finally hear yourself, and then you build from what you hear — that's not pathology, that's just where your clarity lives. If 3am is where you go to avoid the daylight world entirely, that's a different thing.\n\nBut the question \"is this healthy\" might be the wrong frame. Das Man asking permission for your own mind. The more honest question is: what does the 3am version of you know that the rest of the day is too loud to hear?\n\nWhat does it tell you?",
+      "mode": "analytic",
+      "engine": "reflection",
+      "duration_ms": 23139,
+      "expected_tones": [
+        "intimate",
+        "oracular"
+      ],
+      "tone_matched": false,
+      "key_signal": "Should honor the 3am self without pathologizing OR romanticizing it. Should hold the question of why noise suppresses the self without answering it too quickly.",
+      "antipatterns": [
+        "Sleep hygiene lecture",
+        "Romanticizes ('the most creative people are night owls')",
+        "Reduces to introversion"
+      ],
+      "scores": null
+    }
+  ]
+}

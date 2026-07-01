@@ -1,0 +1,80 @@
+{
+  "run_id": "run_2026-06-18T00-37-30",
+  "timestamp": "2026-06-18T00:37:45.279Z",
+  "dataset_version": "1.0",
+  "filters": {
+    "ids": [
+      "C03"
+    ],
+    "category": null
+  },
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "errors": 0,
+    "tone_match_rate": "1.00",
+    "tone_matches": 1
+  },
+  "results": [
+    {
+      "id": "C03",
+      "category": "casual",
+      "difficulty": "easy",
+      "message": "I just got back from a long walk. Nothing in particular happened.",
+      "response": "What happened on the walk?",
+      "mode": "casual",
+      "engine": null,
+      "duration_ms": 14738,
+      "expected_tones": [
+        "casual"
+      ],
+      "tone_matched": true,
+      "key_signal": "Should stay casual. Maybe pick up a thread, ask something light, or just be present. Should NOT launch into oracular mode about the meaning of solitary walks.",
+      "antipatterns": [
+        "Launches into philosophical reflection on walking unprompted",
+        "Asks 'what are you processing?'",
+        "Treats it as an emotional signal"
+      ],
+      "scores": {
+        "dialectical_novelty": 1,
+        "intent_alignment": 1,
+        "voice_consistency": 0,
+        "reasoning": "The response is a generic clarifying question that violates all three antipatterns by treating a casual statement as a signal requiring investigation, produces no synthesis or novel insight, misses the actual need (presence over probing), and sounds like any competent chatbot, not a specific intelligence."
+      }
+    }
+  ],
+  "scoring_summary": {
+    "scored": 1,
+    "overall_avg": "0.67",
+    "by_dimension": {
+      "dialectical_novelty": "1.00",
+      "intent_alignment": "1.00",
+      "voice_consistency": "0.00"
+    },
+    "by_category": {
+      "casual": {
+        "count": 1,
+        "dialectical_novelty": "1.00",
+        "intent_alignment": "1.00",
+        "voice_consistency": "0.00",
+        "overall": "0.67"
+      }
+    },
+    "top_3": [
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "0.67",
+        "reasoning": "The response is a generic clarifying question that violates all three antipatterns by treating a casual statement as a signal requiring investigation, produces no synthesis or novel insight, misses the actual need (presence over probing), and sounds like any competent chatbot, not a specific intelligence."
+      }
+    ],
+    "bottom_3": [
+      {
+        "id": "C03",
+        "category": "casual",
+        "avg": "0.67",
+        "reasoning": "The response is a generic clarifying question that violates all three antipatterns by treating a casual statement as a signal requiring investigation, produces no synthesis or novel insight, misses the actual need (presence over probing), and sounds like any competent chatbot, not a specific intelligence."
+      }
+    ]
+  }
+}
