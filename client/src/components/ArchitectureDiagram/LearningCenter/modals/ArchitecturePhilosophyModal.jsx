@@ -22,7 +22,7 @@ export default function ArchitecturePhilosophyModal() {
         <ModalFlow
           steps={[
             {
-              title: "Which 43 thinkers",
+              title: "Which 44 thinkers",
               desc: "Not arbitrary. Each archetype covers a distinct cognitive territory. The selection creates a field with genuine tension — dark pole, light pole, grounding, ontological, strategic, meta.",
             },
             {

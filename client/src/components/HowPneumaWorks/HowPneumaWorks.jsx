@@ -267,7 +267,7 @@ const SYSTEM_SECTIONS = [
             <strong>which archetype should Pneuma be right now?</strong>
             <br />
             <br />
-            At startup, each of the 43 archetypes has an essence description — a
+            At startup, each of the 44 archetypes has an essence description — a
             short philosophical summary of who that thinker is. Each essence
             gets converted into a vector. When you send a message, your message
             becomes a vector too, and <FileRef name="archetypeSelector.js" />{" "}
@@ -328,12 +328,12 @@ const SYSTEM_SECTIONS = [
             </strong>
             <br />
             <br />
-            At startup, Pneuma reads every passage from 46 thinker folders in{" "}
+            At startup, Pneuma reads every passage from 48 thinker folders in{" "}
             <code>data/archetype_knowledge/</code>. Each passage gets converted
             to a <TermRef name="vector" /> and cached in{" "}
             <code>archetype_embeddings.json</code> (51MB — thousands of
             passages, computed once). When you send a message, Pneuma first
-            checks whether it contains any of ~60 philosophical concepts. If it
+            checks whether it contains any of ~80 philosophical concepts. If it
             does, the Concept Crossroads pipeline fires — querying in parallel
             on each concept × active thinker and scoring passages for tension,
             not just relevance. If not, a single-query cosine search runs as
@@ -422,7 +422,7 @@ const SYSTEM_SECTIONS = [
               <FileRef name="archetypeRAG.js" /> — Philosophical Knowledge RAG
             </strong>
             <br />
-            Searches passages from 46 thinker folders in{" "}
+            Searches passages from 48 thinker folders in{" "}
             <code>data/archetype_knowledge/</code> using the Concept Crossroads
             pipeline — concept detection, parallel queries, collision-optimized
             scoring, topK=8. Static and pre-computed — the 51MB embeddings cache
@@ -603,7 +603,7 @@ function KnowledgeBaseTab() {
           — always present, identical every time:
           <ul style={{ marginTop: "0.5rem", lineHeight: "1.9" }}>
             <li>
-              The 43 archetype definitions — their philosophies, voices,
+              The 44 archetype definitions — their philosophies, voices,
               cognitive methods
             </li>
             <li>
@@ -1227,7 +1227,7 @@ function CheatSheetTab() {
             Casual mode doesn't silence the archetypes
           </div>
           <div className="cs-body">
-            <TermRef name="casual emergence" />: any of the 43 thinkers can
+            <TermRef name="casual emergence" />: any of the 44 thinkers can
             notice something in an ordinary moment and name it briefly — without
             turning the conversation philosophical. Kafka on the bureaucracy
             inside a routine. Feynman on the physics of a habit. One sentence,
@@ -1365,7 +1365,7 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             On self-inquiry, Pneuma loads a live architectural snapshot of
-            itself: all 43 archetype essences, conceptual frameworks, and active
+            itself: all 44 archetype essences, conceptual frameworks, and active
             synthesis pairs — built from in-memory data at runtime, not
             hardcoded. Pneuma describes its actual state, not a static
             description.

@@ -257,7 +257,7 @@ function ArchitectureDiagram({ onBack }) {
             <div className="arch-node-desc">
               Weighted selection based on intent + state + anti-monotony. Picks
               ONE tone for the response. Casual mode doesn't suppress the
-              archetype library — any of the 43 thinkers can still surface a
+              archetype library — any of the 44 thinkers can still surface a
               brief observation in ordinary conversation (casual emergence).
             </div>
             <div className="arch-node-tags">
@@ -491,7 +491,7 @@ function ArchitectureDiagram({ onBack }) {
               intelligence/archetypeRAG.js → getArchetypeContext()
             </div>
             <div className="arch-node-desc">
-              Embeds user message, searches 43 archetype knowledge bases for
+              Embeds user message, searches 44 archetype knowledge bases for
               relevant passages. Retrieves actual quotes from Rumi, Jung,
               Feynman, Otto, etc.
             </div>

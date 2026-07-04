@@ -483,7 +483,7 @@ export default defineConfig({
       >
         <ModalSection title="Purpose">
           <ModalDesc>
-            Manages the 43 archetypes—selecting which perspectives to invoke,
+            Manages the 44 archetypes—selecting which perspectives to invoke,
             extracting their 5-layer depth, and detecting productive tensions
             between them.
           </ModalDesc>

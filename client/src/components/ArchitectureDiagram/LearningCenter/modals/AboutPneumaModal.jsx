@@ -33,7 +33,7 @@ export default function AboutPneumaModal() {
             },
             {
               title: "Archetypes are selected",
-              desc: "From 43 thinkers (Rumi, Heidegger, Beck, Feynman...), the most relevant 3-5 are chosen. They don't speak — they inform how Pneuma sees your message.",
+              desc: "From 44 thinkers (Rumi, Heidegger, Beck, Feynman...), the most relevant 3-5 are chosen. They don't speak — they inform how Pneuma sees your message.",
             },
             {
               title: "Collisions are detected",

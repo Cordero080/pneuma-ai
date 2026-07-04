@@ -2895,8 +2895,6 @@ Do NOT ask the user what they want or need before answering — that is deflecti
       { type: "text", text: stableBlock, cache_control: { type: "ephemeral" } },
       { type: "text", text: finalDynamicBlock },
     ];
-    const userPrompt = buildUserPrompt(message, context);
-
     // Build messages array: last 6 exchanges as alternating turns, then current message
     const historyMessages = [];
     if (context.conversationHistory && context.conversationHistory.length > 0) {
@@ -5985,28 +5983,6 @@ Do NOT: find the deeper meaning, reframe the mundane as profound, ask what they 
 // ============================================================
 
 // ROLE: Formats the user message and evolution hints into the user-turn prompt string
-// INPUT FROM: getLLMContent()
-// OUTPUT TO: Claude API messages array in getLLMContent()
-function buildUserPrompt(message, context) {
-  // Conversation history is now sent as alternating messages in the API call,
-  // not injected into this string. This prompt is only used as a fallback
-  // reference inside the system prompt (via userPrompt variable); the actual
-  // current message is sent as the final user turn directly.
-  let prompt = `"${message}"`;
-
-  // Add evolution hints if relevant (compact)
-  if (context.evolution) {
-    const dominant = Object.entries(context.evolution)
-      .filter(([_, v]) => v > 0.5)
-      .map(([k]) => k);
-    if (dominant.length > 0) {
-      prompt += `\nTendency:${dominant.join(",")}`;
-    }
-  }
-
-  return prompt;
-}
-
 // ============================================================
 // OUTPUT PARSER
 // Extracts structured components from LLM response

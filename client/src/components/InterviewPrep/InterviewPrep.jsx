@@ -45,7 +45,7 @@ const FILE_REGISTRY = {
     directionNote:
       "The actual Claude API call happens here. This is where the three systems' outputs physically collide into one prompt.",
     keyInsight:
-      "Uses a tiered prompt system: Tier 1 always loads (~2k tokens), Tier 2 loads based on intent scores, Tier 3 is the RAG passages. A deep philosophical question can load up to 18k tokens. Even in casual mode, any of the 43 archetypes can surface a brief observation — casual emergence is configured here and applies across the full library, not just the active core.",
+      "Uses a tiered prompt system: Tier 1 always loads (~2k tokens), Tier 2 loads based on intent scores, Tier 3 is the RAG passages. A deep philosophical question can load up to 18k tokens. Even in casual mode, any of the 44 archetypes can surface a brief observation — casual emergence is configured here and applies across the full library, not just the active core.",
   },
   "archetypeSelector.js": {
     path: "server/pneuma/intelligence/archetypeSelector.js",
@@ -66,7 +66,7 @@ const FILE_REGISTRY = {
     role: "Concept Crossroads multi-query RAG — detects philosophical concepts and retrieves passages optimized for dialectical tension.",
     mainFunction: "retrieveArchetypeKnowledge(message, options)",
     whatItDoes:
-      "Concept Crossroads pipeline: detects which of ~60 philosophical concepts are in the message (time, suffering, death, consciousness, etc.), fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical passages (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine search for non-philosophical messages.",
+      "Concept Crossroads pipeline: detects which of ~80 philosophical concepts are in the message (time, suffering, death, consciousness, etc.), fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical passages (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine search for non-philosophical messages.",
     flowChain:
       "llm.js → retrieveArchetypeKnowledge() → extractConcepts() → _multiQueryRetrieval() [parallel] → _evaluatePassages() → _selectBestPassages() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
     direction: "REQUEST",
@@ -273,7 +273,7 @@ const HIGHLIGHTS = [
     id: 3,
     title: "You Know What's Missing and Why",
     when: "What would you improve? or What's next for this project?",
-    body: "Concept Crossroads shipped (Apr 2026) — multi-query RAG with ~60 concept detection, collision-optimized passage scoring, topK raised to 8 for philosophical queries. Internal Tensions: the data exists in archetypeDepth.js, the injection point is identified in buildSystemPrompt(). MCP migration: three servers planned — Wikipedia is a 75-line delete, Cognition consolidates three OpenAI clients into one.",
+    body: "Concept Crossroads shipped (Apr 2026) — multi-query RAG with ~80 concept detection, collision-optimized passage scoring, topK raised to 8 for philosophical queries. Internal Tensions: the data exists in archetypeDepth.js, the injection point is identified in buildSystemPrompt(). MCP migration: three servers planned — Wikipedia is a 75-line delete, Cognition consolidates three OpenAI clients into one.",
     keyLine:
       "I didn't just build it — I know the architectural gaps and exactly where the fixes go.",
   },
@@ -311,7 +311,7 @@ I built it around 43 philosophical archetypes — Rumi, Heidegger, Jung, Schopen
 The architecture is intentionally not a chatbot wrapper. Every response is the output of a multi-layer pipeline: intent detection, tone selection, archetype selection, RAG retrieval, inner monologue generation, and then a single call to Claude with all that structured context in the system prompt.`,
     keyPhrases: [
       "Not a chatbot wrapper — a cognitive orchestration layer.",
-      "43 archetypes as thinking lenses, not personas to switch between.",
+      "44 archetypes as thinking lenses, not personas to switch between.",
     ],
     files: ["fusion.js", "archetypeSelector.js", "archetypeRAG.js"],
   },
@@ -322,7 +322,7 @@ The architecture is intentionally not a chatbot wrapper. Every response is the o
     question: "Walk me through what happens when a user sends a message.",
     answer: `The entry point is pneumaRespond() in fusion.js. The first thing it does is run cheap regex guard checks — functions like wantsDirectMode() and wantsEnterDiagnostics() — to intercept special commands before anything expensive runs. If none of those match, it loads state, then calls generate() in responseEngine.js.
 
-Inside responseEngine.js, there are four sequential layers. First, intent detection — either via a Claude call through getLLMIntent() in llm.js, or falling back to regex scoring across nine categories like casual, philosophical, emotional, and numinous. Second, tone selection — a weighted lottery across six tones that includes an anti-monotony mechanism. Third, personality application. Fourth, cinematic continuity — deduplication, identity boundary enforcement, and variation injection.
+Inside responseEngine.js, there are four sequential layers. First, intent detection — either via a Claude call through getLLMIntent() in llm.js (10 dimensions: casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion, paradox, art), or falling back to regex scoring across nine categories (same minus paradox) when the LLM is unavailable. Second, tone selection — a weighted lottery across five tones (casual, analytic, oracular, intimate, shadow) that includes an anti-monotony mechanism. Third, personality application. Fourth, cinematic continuity — deduplication, identity boundary enforcement, and variation injection.
 
 If the message passes the behavioral signal checks (pushback, uncertainty, quiet mode), the system calls getLLMContent() in llm.js, which builds the full system prompt and makes the Claude API call. After the response comes back, fusion.js saves memories, updates state, and returns the reply.`,
     keyPhrases: [
@@ -336,13 +336,13 @@ If the message passes the behavioral signal checks (pushback, uncertainty, quiet
     tier: "junior",
     concept: "Advanced RAG",
     question: "What is the knowledge base and how does it get used?",
-    answer: `The knowledge base lives in data/archetype_knowledge/, organized as one folder per thinker — aurelius, feynman, kastrup, rumi, and so on, for 46 folders total. Each folder contains a passages.json file with structured text passages: the passage text, its source, thematic tags, and contextual notes.
+    answer: `The knowledge base lives in data/archetype_knowledge/, organized as one folder per thinker — aurelius, feynman, kastrup, rumi, and so on, for 48 folders total. Each folder contains a passages.json file with structured text passages: the passage text, its source, thematic tags, and contextual notes.
 
 The retrieval system is in archetypeRAG.js. At startup, initializeArchetypeRAG() loads all passages and generates embeddings using OpenAI's text-embedding-3-small model, caching them to data/archetype_embeddings.json — a 51MB file — so recomputation is avoided on subsequent runs.
 
-When a message comes in, the Concept Crossroads pipeline runs: it detects philosophical concepts in the message (~60 tracked concepts like suffering, consciousness, time), fires parallel embedding queries as "{concept} {thinker}" pairs for each concept × active thinker, scores passages on relevance + distinctiveness + collision potential, deduplicates near-identical results, and returns the top eight. For non-philosophical messages, it falls back to single-query cosine retrieval. All selected passages get injected into the system prompt under a "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE" section.`,
+When a message comes in, the Concept Crossroads pipeline runs: it detects philosophical concepts in the message (~80 tracked concepts like suffering, consciousness, time), fires parallel embedding queries as "{concept} {thinker}" pairs for each concept × active thinker, scores passages on relevance + distinctiveness + collision potential, deduplicates near-identical results, and returns the top eight. For non-philosophical messages, it falls back to single-query cosine retrieval. All selected passages get injected into the system prompt under a "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE" section.`,
     keyPhrases: [
-      "46 thinker folders, pre-embedded and cached to avoid recomputation.",
+      "48 thinker folders, 1,385+ passages — never say '48 archetypes.' Thinker folders ≠ archetype codenames (44 of those, in archetypes.js).",
       "topK=8, minScore=0.3, max 2 per thinker — passages selected for dialectical tension, not just relevance.",
     ],
     files: ["archetypeRAG.js"],
@@ -442,7 +442,7 @@ This means the right tone usually wins — intent boosts ensure alignment with w
 
 Initialization loads all passage files and generates OpenAI text-embedding-3-small embeddings, caching them in archetype_embeddings.json so we only pay that cost once.
 
-For philosophical messages, the Concept Crossroads path runs: extractConcepts() detects which of ~60 tracked philosophical concepts are present in the message — time, death, suffering, consciousness, freedom, love, paradox, and others. For each detected concept, it fires a parallel embedding query formatted as "{concept} {thinker}" for each active thinker via Promise.all(). _evaluatePassages() then scores every result on three dimensions: relevance to the message (50%), distinctiveness from the other selected passages (30%), and a collision bonus if the thinker pair is known to disagree (20%). _selectBestPassages() deduplicates near-identical results (cosine > 0.95), caps at two passages per thinker, and fills to topK=8.
+For philosophical messages, the Concept Crossroads path runs: extractConcepts() detects which of ~80 tracked philosophical concepts are present in the message — time, death, suffering, consciousness, freedom, love, paradox, and others. For each detected concept, it fires a parallel embedding query formatted as "{concept} {thinker}" for each active thinker via Promise.all(). _evaluatePassages() then scores every result on three dimensions: relevance to the message (50%), distinctiveness from the other selected passages (30%), and a collision bonus if the thinker pair is known to disagree (20%). _selectBestPassages() deduplicates near-identical results (cosine > 0.95), caps at two passages per thinker, and fills to topK=8.
 
 The key design decision was scoring for distinctiveness and collision, not just relevance. Without it, you'd get the most relevant passages — which for a question about suffering might all be Rumi, saying essentially the same thing. Scoring passages on how different they are from each other, and whether they come from thinkers in known tension, produces a set optimized for productive friction. The CONTRAST_MAP still exists as a secondary tiebreaker but is no longer the primary contrast mechanism.`,
     keyPhrases: [
@@ -620,9 +620,9 @@ Second weakness: behavioral early exits return template-based responses. Pushbac
     concept: "Prompt Engineering",
     question:
       "How does the tiered prompt loading work and what does it actually cost in tokens?",
-    answer: `The tiered system is in buildSystemPrompt() inside llm.js, and it was necessary because if I included all 43 archetypes with their full frameworks and cognitive tools every time, that alone would be over 8,600 tokens — before user frame, inner monologue, RAG, or tone instructions. That would leave almost no room for the conversation or the actual response.
+    answer: `The tiered system is in buildSystemPrompt() inside llm.js, and it was necessary because if I included all 44 archetypes with their full frameworks and cognitive tools every time, that alone would be over 8,600 tokens — before user frame, inner monologue, RAG, or tone instructions. That would leave almost no room for the conversation or the actual response.
 
-Tier 1 is always loaded: core identity, the five always-active archetypes (renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor), user frame from buildUserFrame(), and inner monologue. This is around 2,000 tokens in a casual conversation. Tier 2 loads conditionally: the tone-specific archetype pool (6-15 archetypes, selected by tone mapping), their depth data (frameworks and cognitive tools), and the synthesis directive if a collision is detected. This adds roughly 800 tokens in a deep conversation. Tier 3 is the RAG context from archetypeRAG.js — the five retrieved passages plus a contrast voice — around 250-300 tokens.
+Tier 1 is always loaded: core identity, the five always-active archetypes (renaissancePoet, idealistPhilosopher, curiousPhysicist, sufiPoet, stoicEmperor), user frame from buildUserFrame(), and inner monologue. This is around 2,000 tokens in a casual conversation. Tier 2 loads conditionally: the tone-specific archetype pool (6-15 archetypes, selected by tone mapping), their depth data (frameworks and cognitive tools), and the synthesis directive if a collision is detected. This adds roughly 800 tokens in a deep conversation. Tier 3 is the RAG context from archetypeRAG.js — the eight retrieved passages (topK=8 since Concept Crossroads) — around 500-600 tokens.
 
 In deep synthesis mode with oracular tone, the full prompt can reach 18,000 tokens. But for a casual message, it stays around 2,000. The getMemoryStats() call from vectorMemory.js checks if the system is overloaded — if so, Tier 3 is dropped entirely and Tier 2 falls back to compact one-liner archetype summaries via getMinimalInjection() instead of full depth blocks. The token tracker in tokenTracker.js records usage per message and can inject a budget warning if the session is approaching limits.`,
     keyPhrases: [
@@ -940,7 +940,7 @@ The whole system is built around the conviction that philosophical AI assistants
     concept: "Advanced RAG",
     question:
       "Walk me through the Concept Crossroads RAG pipeline and why you chose to score for collision rather than just relevance.",
-    answer: `The Concept Crossroads pipeline starts with concept detection. I maintain a list of ~60 philosophical concepts — suffering, consciousness, time, death, freedom, love, paradox, identity, and others. extractConcepts() scans the user's message for these terms using keyword matching plus position scoring (terms in the first or last third of a message score higher, as they tend to frame or conclude the question). The function returns up to 5 concepts per message.
+    answer: `The Concept Crossroads pipeline starts with concept detection. I maintain a list of ~80 philosophical concepts — suffering, consciousness, time, death, freedom, love, paradox, identity, and others. extractConcepts() scans the user's message for these terms using keyword matching plus position scoring (terms in the first or last third of a message score higher, as they tend to frame or conclude the question). The function returns up to 5 concepts per message.
 
 For each detected concept, the system fires parallel embedding queries via Promise.all() — one per "{concept} {thinker}" combination for each active thinker. So if the message surfaces "suffering" and "change" with Rumi and Frankl active, you get four parallel queries: "suffering Rumi", "suffering Frankl", "change Rumi", "change Frankl". Each query returns candidate passages from the embedding cache.
 

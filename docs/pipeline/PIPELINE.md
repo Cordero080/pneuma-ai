@@ -57,7 +57,7 @@ Returns a one-word acknowledgment ("Okay.", "Got it.") and exits — does NOT pr
 ---
 
 **Mechanism 1 — Semantic match:**
-Message gets converted to a vector — 1,536 numbers representing its meaning. Every one of the 43 archetypes has a pre-computed vector built from a short description of what that archetype is about. The system compares your message vector against all 43 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 gets added. At most 1. Possibly zero.
+Message gets converted to a vector — 1,536 numbers representing its meaning. Every one of the 44 archetypes has a pre-computed vector built from a short description of what that archetype is about. The system compares your message vector against all 43 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 gets added. At most 1. Possibly zero.
 
 **Files:**
 - `server/pneuma/intelligence/archetypeSelector.js` — `findBestArchetype()`, `initializeArchetypeEmbeddings()`
@@ -164,7 +164,7 @@ Surviving passages go through deduplication (near-identical content, cosine > 0.
 
 **Files:**
 - `server/pneuma/intelligence/archetypeRAG.js` — `retrieveArchetypeKnowledge()`, `extractConcepts()`, `_multiQueryRetrieval()`, `_evaluatePassages()`, `_selectBestPassages()`, `_singleQueryFallback()`
-- `data/archetype_knowledge/` — 46 thinker folders, each with `passages.json`
+- `data/archetype_knowledge/` — 48 thinker folders, each with `passages.json`
 - `data/archetype_embeddings.json` — pre-computed embeddings cache (~51MB)
 
 **Archetypes added: ZERO. Top 8 passages only.**

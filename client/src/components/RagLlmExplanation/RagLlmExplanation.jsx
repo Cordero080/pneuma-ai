@@ -469,10 +469,10 @@ const STUDY_SECTIONS = [
         <div className="sg-qa">
           <div className="sg-q">Q: What is RAG and how does Pneuma use it?</div>
           <div className="sg-a">
-            RAG = Retrieval-Augmented Generation. Pneuma has 46 vector knowledge
+            RAG = Retrieval-Augmented Generation. Pneuma has 48 vector knowledge
             bases — one per thinker folder. The Concept Crossroads pipeline
             (shipped Apr 2026) replaced single-query cosine retrieval with
-            concept-targeted multi-query retrieval: it detects which of ~60
+            concept-targeted multi-query retrieval: it detects which of ~80
             philosophical concepts are in your message, fires parallel embedding
             queries formatted as "{"{concept} {thinker}"}" for each concept ×
             active thinker, scores passages on relevance (50%) + distinctiveness
@@ -1117,7 +1117,7 @@ const STUDY_SECTIONS = [
                 wrong read = wrong archetypes downstream
               </li>
               <li>
-                RAG quality depends on the knowledge bases — 46 thinker folders
+                RAG quality depends on the knowledge bases — 48 thinker folders
                 to maintain; passage quality varies
               </li>
               <li>
@@ -1792,7 +1792,7 @@ const STUDY_SECTIONS = [
             about Pneuma's architecture, who lives in him, why he thinks a
             certain way. The block is built at runtime from live in-memory data
             by <code>buildSelfKnowledgeBlock()</code>:<br />
-            <br />— All 43 archetype essences, coreFrameworks, cognitiveTools
+            <br />— All 44 archetype essences, coreFrameworks, cognitiveTools
             (from <code>archetypeDepth</code>)<br />— All active synthesis pairs
             from <code>CONTEXTUAL_SYNTHESIS_PAIRS</code>
             <br />
@@ -1901,7 +1901,7 @@ const STUDY_SECTIONS = [
             >
               <li>
                 <strong>archetypeRAG.js</strong> — converts text into vectors
-                for semantic search across 43 archetype knowledge bases
+                for semantic search across 44 archetype knowledge bases
               </li>
               <li>
                 <strong>vectorMemory.js</strong> — embeds user messages and
@@ -2017,7 +2017,7 @@ const STUDY_SECTIONS = [
           ],
           [
             "Topic classification",
-            "3-layer: keyword patterns → archetype selector (ARCHETYPE_PRIMARY_TOPIC map, 43 archetypes mapped to synthesis topics) → intent score fallbacks; identifies what a message is fundamentally about",
+            "3-layer: keyword patterns → archetype selector (ARCHETYPE_PRIMARY_TOPIC map, 44 archetypes mapped to synthesis topics) → intent score fallbacks; identifies what a message is fundamentally about",
           ],
           [
             "Synthesis mandate",
@@ -2266,7 +2266,7 @@ for transformation. Taleb extends this: you become antifragile..."`;
                   sophisticated RAG should do:
                   <ul>
                     <li>
-                      Curated philosophical lens (43 archetypes) =
+                      Curated philosophical lens (44 archetypes) =
                       direction/voice
                     </li>
                     <li>

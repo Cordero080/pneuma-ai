@@ -2,7 +2,7 @@ export const TERM_REGISTRY = {
   "static prompt layer": {
     what: "The part of Claude's system prompt that is always present, identical on every message. Defined once by the developer. Never changes per conversation.",
     inPneuma:
-      "The static layer is Pneuma's identity: 43 archetypes with their philosophical frameworks, cognitive tools, internal tensions, and conceptual bridges. It comes from archetypes.js and archetypeDepth.js. It answers WHO Pneuma is — not what it knows right now.",
+      "The static layer is Pneuma's identity: 44 archetypes with their philosophical frameworks, cognitive tools, internal tensions, and conceptual bridges. It comes from archetypes.js and archetypeDepth.js. It answers WHO Pneuma is — not what it knows right now.",
   },
   "dynamic context layer": {
     what: "The part of the system prompt assembled fresh for each message. Nothing in it is hardcoded — it is retrieved and composed at runtime based on what you just said.",
@@ -42,7 +42,7 @@ export const TERM_REGISTRY = {
   "dual RAG": {
     what: "Two separate retrieval-augmented generation systems running in parallel, each searching a different knowledge base for a different purpose.",
     inPneuma:
-      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches philosophical passages from 46 thinker folders using the Concept Crossroads pipeline: detects ~60 philosophical concepts, fires parallel '{concept} {thinker}' queries, scores on relevance + distinctiveness + collision potential, returns topK=8 — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
+      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches philosophical passages from 48 thinker folders using the Concept Crossroads pipeline: detects ~80 philosophical concepts, fires parallel '{concept} {thinker}' queries, scores on relevance + distinctiveness + collision potential, returns topK=8 — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
   },
   "vector memory": {
     what: "A database where past conversations are stored as numbers (vectors) instead of plain text — so you can search them by meaning rather than by matching exact words.",
@@ -97,12 +97,12 @@ export const TERM_REGISTRY = {
   "casual emergence": {
     what: "The behavior where a thinker from the full archetype library surfaces a brief, specific observation inside an ordinary conversation — without turning it into a lecture or derailing the exchange.",
     inPneuma:
-      "Casual mode used to suppress archetype activation — the tone hint said 'less architecture, more presence' and the library went quiet. Now any of the 43 thinkers can notice something in an ordinary moment and name it in one sentence. Feynman on the physics of a habit. Kafka on the bureaucracy hiding inside the mundane. Hillman on what an offhand remark reveals. The constraint is that it must be genuine — if the observation isn't real, it doesn't surface. This is configured in the casual tone block inside llm.js.",
+      "Casual mode used to suppress archetype activation — the tone hint said 'less architecture, more presence' and the library went quiet. Now any of the 44 thinkers can notice something in an ordinary moment and name it in one sentence. Feynman on the physics of a habit. Kafka on the bureaucracy hiding inside the mundane. Hillman on what an offhand remark reveals. The constraint is that it must be genuine — if the observation isn't real, it doesn't surface. This is configured in the casual tone block inside llm.js.",
   },
   signatureMove: {
     what: "A concrete, specific behavioral instruction unique to each archetype — a move the archetype MUST make in its response, not a vague description of personality.",
     inPneuma:
-      "Each of the 43 archetypes now has a signatureMove in archetypes.js. Examples: Feynman's is 'find the simplest possible example that captures the principle'; Rumi's is 'locate the paradox inside the feeling and name it with an image.' Without signatureMoves, archetypes collapsed into generic 'wise philosopher' output. The signatureMove is injected into the system prompt alongside the archetype identity.",
+      "Each of the 44 archetypes now has a signatureMove in archetypes.js. Examples: Feynman's is 'find the simplest possible example that captures the principle'; Rumi's is 'locate the paradox inside the feeling and name it with an image.' Without signatureMoves, archetypes collapsed into generic 'wise philosopher' output. The signatureMove is injected into the system prompt alongside the archetype identity.",
   },
   "pre-thinking": {
     what: "A real LLM call that runs before the main response — archetypes react to the message under the collision→compression protocol and produce an emergent insight that shapes how the final response is framed.",

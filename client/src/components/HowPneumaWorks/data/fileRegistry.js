@@ -39,7 +39,7 @@ export const FILE_REGISTRY = {
     directionNote:
       "The actual Claude API call happens here. This is where the three systems' outputs physically collide into one prompt.",
     keyInsight:
-      "Uses a tiered prompt system: Tier 1 always loads (~2k tokens), Tier 2 loads based on intent scores, Tier 3 is the RAG passages. A deep philosophical question can load up to 18k tokens. Even in casual mode, any of the 43 archetypes can surface a brief observation — casual emergence is configured here and applies across the full library, not just the active core.",
+      "Uses a tiered prompt system: Tier 1 always loads (~2k tokens), Tier 2 loads based on intent scores, Tier 3 is the RAG passages. A deep philosophical question can load up to 18k tokens. Even in casual mode, any of the 44 archetypes can surface a brief observation — casual emergence is configured here and applies across the full library, not just the active core.",
   },
   "archetypeSelector.js": {
     path: "server/pneuma/intelligence/archetypeSelector.js",
@@ -60,7 +60,7 @@ export const FILE_REGISTRY = {
     role: "Concept Crossroads multi-query RAG — detects philosophical concepts and retrieves passages optimized for dialectical tension.",
     mainFunction: "retrieveArchetypeKnowledge(message, options)",
     whatItDoes:
-      "Concept Crossroads pipeline: detects which of ~60 philosophical concepts are in the message, fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness from other selected passages (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical results (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine retrieval for non-philosophical messages.",
+      "Concept Crossroads pipeline: detects which of ~80 philosophical concepts are in the message, fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness from other selected passages (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical results (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine retrieval for non-philosophical messages.",
     flowChain:
       "llm.js → retrieveArchetypeKnowledge() → extractConcepts() → _multiQueryRetrieval() [parallel] → _evaluatePassages() → _selectBestPassages() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
     direction: "REQUEST",
@@ -256,7 +256,7 @@ export const FILE_REGISTRY = {
   },
   "archetypes.js": {
     path: "server/pneuma/archetypes/archetypes.js",
-    role: "Defines all 43 archetypes — the full identity library Pneuma draws from.",
+    role: "Defines all 44 archetypes — the full identity library Pneuma draws from.",
     mainFunction: "archetypes (exported object)",
     whatItDoes:
       "Each archetype has an essence (one-line identity), coreFrameworks (philosophical toolkit), signatureMove (concrete behavioral instruction), and tags for matching. This is the WHO of Pneuma — the set of thinking styles it can embody.",

@@ -73,7 +73,7 @@ export default function WhatSetsApartModal() {
         <ModalDesc>
           Each of these decisions is an architectural choice, not a code trick.
           You can't copy the mechanism and get the same result — the value is in
-          the design decisions encoded into the mechanism: which 43 thinkers,
+          the design decisions encoded into the mechanism: which 44 thinkers,
           what their thinking methods actually are, how 1,764 pairs were mapped
           for tension, what to do when memory has a "why" attached, and what
           counts as a response that actually served the moment.
@@ -244,7 +244,7 @@ if (message contains creative keywords) → load creative rules block
             steps={[
               {
                 title: "Tension Map",
-                desc: "A pre-computed lookup table of archetype pairs, each rated high / medium / low / neutral tension. Every combination of 43 archetypes is accounted for. This is a design artifact — someone had to decide what makes each pair incompatible.",
+                desc: "A pre-computed lookup table of archetype pairs, each rated high / medium / low / neutral tension. Every combination of 44 archetypes is accounted for. This is a design artifact — someone had to decide what makes each pair incompatible.",
               },
               {
                 title: "Collision Detection",
@@ -419,7 +419,7 @@ something IN neither archetype alone but arising from their friction.`}</ModalCo
               },
               {
                 title: "5-Layer Depth",
-                desc: "Each archetype in archetypeDepth.js has: (1) coreFrameworks, (2) cognitiveTools, (3) fundamentalTensions, (4) conceptualBridges, (5) translationProtocols. That's 2,619 lines for 43 thinkers.",
+                desc: "Each archetype in archetypeDepth.js has: (1) coreFrameworks, (2) cognitiveTools, (3) fundamentalTensions, (4) conceptualBridges, (5) translationProtocols. That's 2,619 lines for 44 thinkers.",
               },
             ]}
           />
@@ -478,7 +478,7 @@ INVENTOR: SAPER VEDERE — knowing how to see
             steps={[
               {
                 title: "archetypeDepth.js (2,619 lines)",
-                desc: "All 43 archetypes with full 5-layer depth. Not auto-generated — each archetype was read and its methodology encoded by hand.",
+                desc: "All 44 archetypes with full 5-layer depth. Not auto-generated — each archetype was read and its methodology encoded by hand.",
               },
               {
                 title: "llm.js → ARCHETYPE_METHODS",

@@ -76,7 +76,7 @@ POST /chat (index.js)
 - `archetypeRAG.js` — Vector-based passage retrieval from `data/archetype_knowledge/`
 - `thinkerDeep.js` — Loads conditional deep knowledge blocks
 
-**`server/pneuma/archetypes/`** — The 43 archetypes:
+**`server/pneuma/archetypes/`** — The 44 archetypes:
 - `archetypes.js` — Full archetype definitions
 - `archetypeDepth.js` — Conceptual frameworks & cognitive methods per archetype
 - `archetypeMomentum.js` — Time-decaying activation weights; recent usage boosts an archetype
@@ -101,7 +101,7 @@ All persistent state lives in `data/` (git-ignored, local-first):
 - `long_term_memory.json` — User patterns
 - `pneuma_state.json` — Evolution vectors, mood, identity weights
 - `archetype_embeddings.json` — Pre-computed embeddings (~51MB)
-- `archetype_knowledge/` — 46 thinker folders, each with `passages.json`
+- `archetype_knowledge/` — 48 thinker folders, each with `passages.json`
 
 MongoDB and ChromaDB are optional integrations; the system runs fully on local JSON.
 

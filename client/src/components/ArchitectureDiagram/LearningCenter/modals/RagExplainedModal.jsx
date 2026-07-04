@@ -60,7 +60,7 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
           Pneuma doesn&apos;t just search for passages similar to your message.
           It first asks:{" "}
           <strong>what philosophical concepts are in this message?</strong> It
-          tracks ~60 concepts — time, death, consciousness, change, freedom,
+          tracks ~80 concepts — time, death, consciousness, change, freedom,
           love, paradox, suffering, and others. If it finds any, it runs a
           separate search for <em>each concept × each active thinker</em> in
           parallel.

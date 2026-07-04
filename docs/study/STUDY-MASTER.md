@@ -147,12 +147,12 @@ Each group fills in something Phase 1 referenced but didn't explain.
 
 | #   | File                                            | Role       | What it does                                                                     |
 | --- | ----------------------------------------------- | ---------- | -------------------------------------------------------------------------------- |
-| 10  | `server/pneuma/archetypes/archetypes.js`        | 🔵 Utility | 43 archetypes — essences, coreFrameworks, signatureMoves + semantic tags         |
+| 10  | `server/pneuma/archetypes/archetypes.js`        | 🔵 Utility | 44 archetypes — essences, coreFrameworks, signatureMoves + semantic tags         |
 | 11  | `server/pneuma/archetypes/archetypeDepth.js`    | 🟢 Worker  | Deep frameworks, tension maps, conceptual bridges per archetype                  |
 | 12  | `server/pneuma/archetypes/archetypeMomentum.js` | 🟢 Worker  | Archetypes gain/lose weight across sessions — personality that actually evolves  |
 | 13  | `server/pneuma/archetypes/archetypeFusion.js`   | 🟢 Worker  | Tracks successful archetype combos — crystallizes into a default voice over time |
 
-> **Note:** `ARCHETYPE_INTEGRATION` in `llm.js` (~line 439) is the third layer of the archetype system — it's not a separate file, it lives in llm.js. **43 archetypes with full cognitive definitions.** Each has: chainOfThought (reasoning process), cognitiveOp (the specific move), signatureMove (a REQUIRED behavioral instruction — e.g. Feynman must simplify, Rumi must find the paradox inside the feeling), and constraints (what it enforces or forbids). `buildArchetypeIntegration()` was rewritten to mark signatureMoves as mandatory — Claude must make the move detectable in the response. Study this alongside Group C. The companion study doc is `docs/study/ARCHETYPE_STUDY_MASTER.md`.
+> **Note:** `ARCHETYPE_INTEGRATION` in `llm.js` (~line 439) is the third layer of the archetype system — it's not a separate file, it lives in llm.js. **44 archetypes with full cognitive definitions.** Each has: chainOfThought (reasoning process), cognitiveOp (the specific move), signatureMove (a REQUIRED behavioral instruction — e.g. Feynman must simplify, Rumi must find the paradox inside the feeling), and constraints (what it enforces or forbids). `buildArchetypeIntegration()` was rewritten to mark signatureMoves as mandatory — Claude must make the move detectable in the response. Study this alongside Group C. The companion study doc is `docs/study/ARCHETYPE_STUDY_MASTER.md`.
 
 #### Group D — Intelligence routing _(called inside llm.js to select and enrich context)_
 
@@ -161,7 +161,7 @@ Each group fills in something Phase 1 referenced but didn't explain.
 | #   | File                                              | Role      | What it does                                                                                                                                                                                                                                                                                                                     |
 | --- | ------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 14  | `server/pneuma/intelligence/archetypeSelector.js` | 🟢 Worker | Cosine similarity — finds best archetype match for the user message                                                                                                                                                                                                                                                              |
-| 15  | `server/pneuma/intelligence/archetypeRAG.js`      | 🟢 Worker | Concept Crossroads multi-query RAG — detects ~60 philosophical concepts, fires parallel concept×active-thinker embedding queries, scores passages for relevance + distinctiveness + collision potential, deduplicates into topK=8 passages optimized for dialectic tension; single-query fallback for non-philosophical messages |
+| 15  | `server/pneuma/intelligence/archetypeRAG.js`      | 🟢 Worker | Concept Crossroads multi-query RAG — detects ~80 philosophical concepts, fires parallel concept×active-thinker embedding queries, scores passages for relevance + distinctiveness + collision potential, deduplicates into topK=8 passages optimized for dialectic tension; single-query fallback for non-philosophical messages |
 | 16  | `server/pneuma/intelligence/synthesisEngine.js`   | 🟢 Worker | Collision detection — finds when two archetypes create productive tension                                                                                                                                                                                                                                                        |
 
 #### Group E — Memory layer 2 _(the two memory systems Phase 1 didn't cover)_
@@ -293,7 +293,7 @@ On next /dreams GET:
 User message arrives at llm.js
   → Layer 1: archetypeSelector.js findBestArchetype()
     → getEmbedding(userMessage) via OpenAI
-    → cosineSimilarity() against 43 archetype embeddings
+    → cosineSimilarity() against 44 archetype embeddings
     → Returns highest-scoring archetype
   → Layer 2: archetypeMomentum.js getMomentumWeights()
     → Which archetypes have been "winning" → applies boost
@@ -340,7 +340,7 @@ pneuma-ai/
 │       │   ├── thinkerDeep.js       🔵 Deep thinker content
 │       │   └── thinking.js          🔵 Thought patterns
 │       ├── archetypes/
-│       │   ├── archetypes.js        🔵 43 archetypes (essences + signatureMoves)
+│       │   ├── archetypes.js        🔵 44 archetypes (essences + signatureMoves)
 │       │   ├── archetypeDepth.js    🟢 Frameworks + tension maps
 │       │   ├── archetypeFusion.js   🟢 Blend crystallization
 │       │   └── archetypeMomentum.js 🟢 Weight decay/boost
@@ -493,7 +493,7 @@ When Claude (the tutor) shows you a chunk of `innerMonologue.js`, the right answ
 | RAG (Concept Crossroads)        | archetypeRAG.js                       | Detect philosophical concepts in message → parallel concept×thinker queries → evaluate relevance + distinctiveness + collision bonus → deduplicate into topK=8 passages scoped to active thinkers only                   |
 | System prompt engineering       | llm.js                                | 5400+ lines shaping Claude's identity — the craft of telling an LLM WHO it is                                                                                                                                            |
 | Dynamic injection               | llm.js                                | Adding archetype phrases + thinker content to the prompt ONLY when relevant                                                                                                                                              |
-| ARCHETYPE_INTEGRATION           | llm.js (~line 439)                    | 43 archetypes: chainOfThought + cognitiveOp + signatureMove (REQUIRED) + constraints. signatureMove is key — it's the concrete behavioral instruction that prevents generic output. Companion: ARCHETYPE_STUDY_MASTER.md |
+| ARCHETYPE_INTEGRATION           | llm.js (~line 439)                    | 44 archetypes: chainOfThought + cognitiveOp + signatureMove (REQUIRED) + constraints. signatureMove is key — it's the concrete behavioral instruction that prevents generic output. Companion: ARCHETYPE_STUDY_MASTER.md |
 | Eval loop                       | llm.js `evalResponse()`               | After generating, a Haiku call scores output 0–1; if < 0.6 it regenerates once with feedback injected. Skips on casual or short responses                                                                                |
 | Archetype collision / synthesis | synthesisEngine.js                    | Two opposing archetypes both active → force them to produce something new                                                                                                                                                |
 | Archetype momentum              | archetypeMomentum.js                  | Weight decay — personality that actually changes over time                                                                                                                                                               |
@@ -516,7 +516,7 @@ Most AI applications call an API and display the result. Pneuma is architectural
 ### U1 — Archetypes Are Cognitive Methods, Not Personas
 
 **Where you'll see it:** Group C, Group D, llm.js chunks 2-3
-Every other AI personality system uses "personas" — tone-of-voice templates. Pneuma's 43 archetypes are cognitive operations: each has a `signatureMove` (a REQUIRED behavioral instruction the model must execute), a `chainOfThought` (how to reason), and `cognitiveOp` (what mental move to apply). Feynman doesn't "sound like Feynman" — he applies hypothetical simplification. Rumi doesn't quote poetry — he locates the paradox inside the feeling. This is the difference between a costume and a lens.
+Every other AI personality system uses "personas" — tone-of-voice templates. Pneuma's 44 archetypes are cognitive operations: each has a `signatureMove` (a REQUIRED behavioral instruction the model must execute), a `chainOfThought` (how to reason), and `cognitiveOp` (what mental move to apply). Feynman doesn't "sound like Feynman" — he applies hypothetical simplification. Rumi doesn't quote poetry — he locates the paradox inside the feeling. This is the difference between a costume and a lens.
 
 ### U2 — Pre-Thinking Is a Real LLM Call, Not Templates
 
@@ -541,12 +541,12 @@ Nine evolution vectors (mythicDepth, casualGrounding, emotionalResonance, etc.) 
 ### U6 — RAG Is Concept-Targeted and Evaluates for Collision Potential
 
 **Where you'll see it:** Group D (archetypeRAG.js), CONTRAST_MAP, PHILOSOPHICAL_CONCEPTS list
-Standard RAG runs one embedding query per message and returns the most similar passages. Pneuma's Concept Crossroads architecture does three distinct things instead: (1) detects ~60 philosophical concepts in the message (time, death, consciousness, change, freedom, love, paradox, and others) and runs parallel embedding queries per concept × active thinker — so a message about time gets queried as "time Feynman", "time Rumi", "time Schopenhauer", etc.; (2) scores every candidate passage on relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2 — passages from thinkers known to contradict each other get a bonus; (3) deduplicates near-identical passages and fills to topK=8. The CONTRAST_MAP still applies as a tiebreaker for edge cases, but the primary mechanism is now concept-level targeting, not post-hoc opposition injection.
+Standard RAG runs one embedding query per message and returns the most similar passages. Pneuma's Concept Crossroads architecture does three distinct things instead: (1) detects ~80 philosophical concepts in the message (time, death, consciousness, change, freedom, love, paradox, and others) and runs parallel embedding queries per concept × active thinker — so a message about time gets queried as "time Feynman", "time Rumi", "time Schopenhauer", etc.; (2) scores every candidate passage on relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2 — passages from thinkers known to contradict each other get a bonus; (3) deduplicates near-identical passages and fills to topK=8. The CONTRAST_MAP still applies as a tiebreaker for edge cases, but the primary mechanism is now concept-level targeting, not post-hoc opposition injection.
 
 ### U7 — signatureMoves Prevent Archetype Collapse
 
 **Where you'll see it:** Group C, llm.js chunk 2 (ARCHETYPE_INTEGRATION + buildArchetypeIntegration)
-Before signatureMoves, all 43 archetypes collapsed into "wise philosopher who agrees with you" because the model treated archetype names as flavor text. signatureMoves are concrete, testable behavioral instructions: "find the simplest possible example that captures the principle" (Feynman), "compress until paradox emerges — let contradiction stand without resolution" (mystic), "name what everyone is politely ignoring" (trickster). buildArchetypeIntegration() marks these as REQUIRED — the move must be detectable in the response.
+Before signatureMoves, all 44 archetypes collapsed into "wise philosopher who agrees with you" because the model treated archetype names as flavor text. signatureMoves are concrete, testable behavioral instructions: "find the simplest possible example that captures the principle" (Feynman), "compress until paradox emerges — let contradiction stand without resolution" (mystic), "name what everyone is politely ignoring" (trickster). buildArchetypeIntegration() marks these as REQUIRED — the move must be detectable in the response.
 
 ### U8 — Constraint Injection Forces Real Behavioral Boundaries
 
@@ -732,7 +732,7 @@ When I say "gap drill", use the Gap section immediately below.
 
 #### ✅ Gap 1 — Concept Crossroads (SHIPPED — Apr 2026)
 
-**What shipped:** `archetypeRAG.js` now detects ~60 philosophical concepts and runs parallel concept×active-thinker embedding queries. Passages scored for relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2. topK raised 5→8, minScore lowered 0.35→0.3. Single-query fallback retained for non-philosophical messages.
+**What shipped:** `archetypeRAG.js` now detects ~80 philosophical concepts and runs parallel concept×active-thinker embedding queries. Passages scored for relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2. topK raised 5→8, minScore lowered 0.35→0.3. Single-query fallback retained for non-philosophical messages.
 
 **Interview framing:**
 

@@ -224,7 +224,7 @@ The `context` field carries **thinking operations**, not just information.
 | Camus             | ~20      | Absurd, revolt, lucid confrontation                         |
 | ...               | ...      | ...                                                         |
 
-Total: 43 thinkers, 1,385 passages
+Total: 48 thinker folders, 1,385+ passages
 
 ---
 

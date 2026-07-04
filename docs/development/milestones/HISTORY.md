@@ -78,7 +78,7 @@ Now Borges (labyrinthDreamer) and Liminal Architect are _designed_ for that. The
 
 - Can the system learn NEW cognitive methods from conversation? (not yet)
 - True unprompted initiation? (partial — dialectic dreams run between sessions, but always in response to the `/chat` trigger)
-- Scalability beyond 46 archetypes? (unknown)
+- Scalability beyond 44 archetypes? (unknown)
 - Can contextual synthesis be extended to compound topics? (e.g., "relationship suffering" → three-way synthesis)
 
 ---
@@ -117,7 +117,7 @@ The architecture rewards reflection and self-awareness, but this can become a tr
 
 | Component                                  | Status | Files                                                                                          |
 | ------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------- |
-| 46 archetypes                              | ✅     | `archetypes.js`, `archetypeDepth.js`                                                           |
+| 44 archetypes                              | ✅     | `archetypes.js`, `archetypeDepth.js`                                                           |
 | 5 cognitive method archetypes              | ✅     | Leonardo, Rumi, Lao Tzu, Sun Tzu, Camus                                                        |
 | Expanded RAG corpus (Jung: 98 passages)    | ✅     | `data/archetype_knowledge/jung/passages.json`                                                  |
 | Expanded RAG corpus (Borges: 65 passages)  | ✅     | `data/archetype_knowledge/borges/passages.json`                                                |
@@ -669,7 +669,7 @@ Four distinct gaps in the architecture:
 
 **3-layer `classifyTopic()`**
 
-Added `ARCHETYPE_PRIMARY_TOPIC` — a map of all 46 archetypes to their dominant topic. Layer 1 (keyword regex) runs first. If it returns null, Layer 2 uses the active archetype set to route classification semantically: if `labyrinthDreamer` is active, its primary topic (`consciousness`) informs the classifier. Layer 3 (intent scores) runs only if both prior layers fail. This makes classification aware of the cognitive field, not just the message text.
+Added `ARCHETYPE_PRIMARY_TOPIC` — a map of all 44 archetypes to their dominant topic. Layer 1 (keyword regex) runs first. If it returns null, Layer 2 uses the active archetype set to route classification semantically: if `labyrinthDreamer` is active, its primary topic (`consciousness`) informs the classifier. Layer 3 (intent scores) runs only if both prior layers fail. This makes classification aware of the cognitive field, not just the message text.
 
 **Pretension synthesis topic (12th category)**
 
@@ -689,7 +689,7 @@ Removed from all active invocation. Slot still exists in `archetypes.js` but is 
 
 **Self-knowledge block**
 
-New Tier 2 block that loads when self-inquiry is detected. Built at runtime from live in-memory data: all 46 archetype essences, active coreFrameworks, cognitiveTools, synthesis pairs, and inner life description. Pneuma can describe his own architecture accurately from the actual state of the system — not from a static doc.
+New Tier 2 block that loads when self-inquiry is detected. Built at runtime from live in-memory data: all 44 archetype essences, active coreFrameworks, cognitiveTools, synthesis pairs, and inner life description. Pneuma can describe his own architecture accurately from the actual state of the system — not from a static doc.
 
 **Self-navigation tool use**
 
