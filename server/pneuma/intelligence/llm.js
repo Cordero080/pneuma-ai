@@ -4436,7 +4436,11 @@ DO NOT use the diagnostic-stamp moves even here. No "That tracks." No "That's th
   const userFrameBlock = context.longTermMemory
     ? buildUserFrame(context.longTermMemory)
     : "";
-
+  // [ LONGITUDINAL PATTERN ]
+  let patternBlock = "";
+  if (context.patternDigest) {
+    patternBlock = `\n\n[ LONGITUDINAL PATTERN ]\n${context.patternDigest}\n`;
+  }
   // VECTOR MEMORY INJECTION
   // Recent turns first, then semantically relevant older memories
   // This is the "Subconscious" layer
@@ -4799,6 +4803,7 @@ Do NOT: find the deeper meaning, reframe the mundane as profound, ask what they 
     autonomyBlock,
     userFrameBlock,
     memoryContext,
+    patternBlock,
     archetypeKnowledgeBlock,
     userContext,
     emergentBlock,

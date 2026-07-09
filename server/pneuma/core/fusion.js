@@ -87,6 +87,9 @@ import {
   loadImageDescription,
 } from "../memory/imageMemory.js";
 
+import { getPatternDigest, generateUserPatternDigest } from "../memory/patternDigest.js";
+
+
 // WHAT THIS IS: Guard functions — bouncers at the door
 // WHY IT EXISTS: Checks if the user wants a special mode BEFORE running the full pipeline
 // HOW IT WORKS: Each guard pattern-matches the user's message with regex.
@@ -393,6 +396,9 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   );
   const memoryPhrases = getMemoryAwarePhrases(relevantMemories);
 
+  const patternDigest = await getPatternDigest();
+  generateUserPatternDigest();
+
   // Genuine questions are inquiry, not behavioral loops — skip all pushback detection.
   const _msgTrimmed = userMessage.trim();
   const _isQuestion =
@@ -521,7 +527,7 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty, relevantMemories, onChunk, ctx },
+    { rhythm, rhythmModifiers, uncertainty, relevantMemories, patternDigest, onChunk, ctx },
   );
 
   // Store metadata for mismatch logging on next message

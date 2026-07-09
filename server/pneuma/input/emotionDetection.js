@@ -52,7 +52,9 @@ export async function transcribeAudio(audioInput) {
       throw new Error("Invalid audio input — expected Buffer or file path");
     }
 
-    const response = await openai.audio.transcriptions.create({
+    const client = getOpenAI();
+    if (!client) throw new Error("OpenAI key not configured");
+    const response = await client.audio.transcriptions.create({
       file: audioFile,
       model: "whisper-1",
       response_format: "verbose_json",
