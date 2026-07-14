@@ -1270,7 +1270,7 @@ function FeaturesTab() {
         <div className="cs-number">01</div>
         <div className="cs-content">
           <div className="cs-title">
-            43 Archetypes as Cognitive Operations —{" "}
+            44 Archetypes as Cognitive Operations —{" "}
             <FileRef name="archetypeSelector.js" />
           </div>
           <div className="cs-body">

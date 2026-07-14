@@ -42,7 +42,27 @@ export const TERM_REGISTRY = {
   "dual RAG": {
     what: "Two separate retrieval-augmented generation systems running in parallel, each searching a different knowledge base for a different purpose.",
     inPneuma:
-      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches philosophical passages from 48 thinker folders using the Concept Crossroads pipeline: detects ~80 philosophical concepts, fires parallel '{concept} {thinker}' queries, scores on relevance + distinctiveness + collision potential, returns topK=8 — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt.",
+      "Pneuma runs two RAG systems on every message. archetypeRAG.js searches philosophical passages from 48 thinker folders using the Concept Crossroads pipeline: detects ~80 philosophical concepts, fires parallel '{concept} {thinker}' queries, scores on relevance + distinctiveness + collision potential, returns topK=8 — it grounds how Pneuma thinks about your message. vectorMemory.js searches your past conversations stored in MongoDB — it grounds who you are. One is static and pre-computed (51MB cached embeddings). The other is live and personal (grows with every exchange). Both inject into the same system prompt. Note: Pneuma has four memory sources total — archetypeRAG, vectorMemory, patternDigest (longitudinal patterns), and longTermMemory (structured user facts). 'Dual RAG' refers specifically to the two retrieval systems, not the full memory architecture.",
+  },
+  stigmergy: {
+    what: "A coordination mechanism where agents don't communicate directly — instead each leaves marks on a shared environment, and later agents respond to those marks. No central controller; the environment carries the signal.",
+    inPneuma:
+      "The inner monologue uses stigmergy. Each archetype reacts to the user's message and leaves its trace in the shared pre-thinking block — a rising voice, a tension, an emerging synthesis seed. The archetypes never 'talk to each other.' The environment (the inner monologue text) carries the signal forward to the next layer. Like ants laying pheromones: individual reactions accumulate into collective intelligence without any direct coordination.",
+  },
+  patternDigest: {
+    what: "A cross-session synthesis layer that distills recurring patterns from a user's conversation history into a structured longitudinal summary.",
+    inPneuma:
+      "patternDigest.js runs after each response and analyzes patterns across sessions — recurring themes, emotional registers, how the user tends to frame problems. The output is injected into the system prompt as a [ LONGITUDINAL PATTERN ] block on subsequent messages, giving Claude a distilled picture of who the user is over time rather than just what they said recently.",
+  },
+  "longitudinal pattern": {
+    what: "A pattern that emerges across time — not from a single exchange, but from the accumulated shape of many conversations.",
+    inPneuma:
+      "The [ LONGITUDINAL PATTERN ] block in Pneuma's system prompt is built by patternDigest.js from the user's full conversation history. It captures tendencies that only become visible across sessions: recurring framings, emotional signatures, unresolved tensions the user keeps returning to. This is qualitatively different from recent memory — it's what the arc reveals, not what the last message said.",
+  },
+  "cross-temporal synthesis": {
+    what: "Synthesis that operates across different points in time — integrating patterns from earlier conversations with present context to produce insight unavailable from any single moment.",
+    inPneuma:
+      "patternDigest.js performs cross-temporal synthesis by distilling multiple past sessions into a unified longitudinal pattern. When that pattern is injected into the current prompt, the response can draw on insights that span weeks of conversation — recognizing when a user is revisiting a theme they've circled before, or when a present question echoes an old one in a new key.",
   },
   "vector memory": {
     what: "A database where past conversations are stored as numbers (vectors) instead of plain text — so you can search them by meaning rather than by matching exact words.",

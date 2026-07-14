@@ -54,8 +54,9 @@ const STUDY_SECTIONS = [
                 philosophical, numinous, art, creative dimensions (0–1)
               </li>
               <li>
-                <strong>Archetype selection</strong> — picks the most relevant
-                3–5 archetypes from 43 based on intent
+                <strong>Archetype selection</strong> — picks archetypes (up to 7
+                max: 5 base cap + 2 shadows) from 44 based on intent, tone,
+                semantic match, and shadow pairing
               </li>
               <li>
                 <strong>Shadow pairing + collision</strong> — adds high-tension
@@ -232,9 +233,10 @@ const STUDY_SECTIONS = [
             (casual, emotional, philosophical, numinous, conflict, intimacy,
             humor, confusion, paradox, art) from 0–1.{" "}
             <code>responseEngine.js</code> takes those scores and runs a{" "}
-            <strong>weighted lottery</strong> to pick a mode: casual, oracular,
-            analytic, intimate, shadow, or diagnostic. That mode determines
-            which pipeline runs. This is the Switchboard.
+            <strong>weighted lottery</strong> to pick a tone: casual, oracular,
+            analytic, intimate, or shadow. That tone determines which pipeline
+            runs. This is the Switchboard. Note: diagnostic is a mode, not a
+            tone — it never enters the lottery.
             <br />
             <br />
             <em>
@@ -541,14 +543,14 @@ const STUDY_SECTIONS = [
                 closest in meaning to the message.
               </li>
               <li>
-                <strong>Random depth injection</strong> — 40% chance of
-                injecting a deep thinker archetype to keep responses
-                unpredictable and prevent Pneuma from becoming formulaic.
+                <strong>Tone bonus</strong> — 30% chance of adding one archetype
+                from the active tone's pool (TONE_ARCHETYPE_MAP) to keep
+                responses varied within a tone.
               </li>
               <li>
-                <strong>Shadow pairing</strong> — each active archetype's
-                highest-tension counterpart is added deterministically. No coin
-                flip. Opposition is structural, not probabilistic.
+                <strong>Shadow pairing</strong> — up to 2 shadows total added
+                deterministically from tensionMap.high. No coin flip. Opposition
+                is structural. Cap is pool-wide (not one per archetype).
               </li>
             </ul>
           </div>
@@ -1930,7 +1932,7 @@ const STUDY_SECTIONS = [
             Embeddings are what power RAG — they convert text to vectors so you
             can do similarity search. Without them, you can't retrieve the right
             archetype passages for a given message. OpenAI's{" "}
-            <code>text-embedding-ada-002</code> handles that one job, then the
+            <code>text-embedding-3-small</code> handles that one job, then the
             result is handed to Claude for generation. This is a standard
             pattern in production AI systems — best tool for each job.
           </div>
@@ -2033,7 +2035,7 @@ const STUDY_SECTIONS = [
           ],
           [
             "Self-knowledge block",
-            "Tier 2 block built at runtime from live in-memory data (all 43 essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes actual current state",
+            "Tier 2 block built at runtime from live in-memory data (all 44 essences, frameworks, synthesis pairs); loads on self-inquiry so Pneuma describes actual current state",
           ],
           [
             "Self-navigation",
@@ -2073,7 +2075,7 @@ Remember that healing takes time..."`;
 ↓
 [Dialectical Collision: Jung × Taleb]
 ↓
-[RAG Retrieval: Searches 46 knowledge bases]
+[RAG Retrieval: Searches 48 knowledge bases]
 ↓
 [Context Injection: Pastes quotes into prompt]
 ↓

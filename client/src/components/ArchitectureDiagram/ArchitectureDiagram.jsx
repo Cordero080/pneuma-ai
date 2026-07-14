@@ -96,7 +96,7 @@ function ArchitectureDiagram({ onBack }) {
             <div className="highlight-item">
               <span className="highlight-label">RAG = Literal Injection</span>
               <p>
-                Searches 46 knowledge bases, finds relevant quotes + context,
+                Searches 48 knowledge bases, finds relevant quotes + context,
                 and LITERALLY pastes them into the prompt. Claude sees exact
                 text: "The wound is where Light enters..." Not hints—data.
               </p>
@@ -119,7 +119,7 @@ function ArchitectureDiagram({ onBack }) {
               </p>
             </div>
             <div className="highlight-item">
-              <span className="highlight-label">43 Archetypes</span>
+              <span className="highlight-label">44 Archetypes</span>
               <p>
                 Jung, Rumi, Feynman, Frankl, Nietzsche, etc. Each has depth
                 tiers (SURFACE → CORE → DEEP), cognitive methods, and curated
@@ -249,16 +249,16 @@ function ArchitectureDiagram({ onBack }) {
           >
             <div className="arch-node-title">
               <span className="arch-step-number">4</span>
-              TONE SELECTION (6-WAY)
+              TONE SELECTION (5-WAY)
             </div>
             <div className="arch-node-file">
               core/responseEngine.js → selectTone()
             </div>
             <div className="arch-node-desc">
-              Weighted selection based on intent + state + anti-monotony. Picks
-              ONE tone for the response. Casual mode doesn't suppress the
-              archetype library — any of the 44 thinkers can still surface a
-              brief observation in ordinary conversation (casual emergence).
+              Intent scores feed a weighted lottery — one tone wins. Casual mode
+              doesn't suppress the archetype library — any of the 44 thinkers
+              can still surface a brief observation in ordinary conversation
+              (casual emergence). diagnostic is a mode, NOT a selectable tone.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">CASUAL</span>
@@ -266,7 +266,6 @@ function ArchitectureDiagram({ onBack }) {
               <span className="arch-tag">ORACULAR</span>
               <span className="arch-tag">INTIMATE</span>
               <span className="arch-tag">SHADOW</span>
-              <span className="arch-tag">STRATEGIC</span>
             </div>
           </div>
 
@@ -679,16 +678,20 @@ function ArchitectureDiagram({ onBack }) {
               BACKGROUND SYSTEMS (post-response)
             </div>
             <div className="arch-node-file">
-              vectorMemory.js + autonomy.js + dreamMode.js
+              vectorMemory.js + longTermMemory.js + patternDigest.js +
+              archetypeMomentum.js + dreamMode.js
             </div>
             <div className="arch-node-desc">
-              Three async processes fire after every response — without blocking
-              it. Memory is embedded. Autonomy state may update. Dialectic dream
-              may trigger.
+              Five async processes fire after every response — without blocking
+              it. Memory is embedded. Long-term patterns update. Pattern digest
+              synthesizes cross-session trends. Momentum weights shift.
+              Dialectic dream may trigger.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Vector embedding stored</span>
-              <span className="arch-tag">Autonomy annotation</span>
+              <span className="arch-tag">Long-term memory update</span>
+              <span className="arch-tag">Pattern digest (longitudinal)</span>
+              <span className="arch-tag">Momentum weights</span>
               <span className="arch-tag">Dialectic dream (30min throttle)</span>
             </div>
           </div>
@@ -708,7 +711,7 @@ function ArchitectureDiagram({ onBack }) {
                 <span className="process-label">① ARCHETYPE RAG</span>
                 <span className="process-file">archetypeRAG.js</span>
                 <p>
-                  <strong>RETRIEVAL</strong> — Searches 46 knowledge bases.
+                  <strong>RETRIEVAL</strong> — Searches 48 knowledge bases.
                   Finds quotes + context that match your message. Literally
                   pastes them into the prompt. The quotes are DATA, not hints.
                 </p>
@@ -774,6 +777,16 @@ function ArchitectureDiagram({ onBack }) {
                 </p>
               </div>
               <div className="process-item">
+                <span className="process-label">③ PATTERN DIGEST</span>
+                <span className="process-file">patternDigest.js</span>
+                <p>
+                  Cross-temporal synthesis of user patterns. Distills recurring
+                  themes across sessions into a structured longitudinal pattern
+                  block — injected as <em>[ LONGITUDINAL PATTERN ]</em> in the
+                  system prompt.
+                </p>
+              </div>
+              <div className="process-item">
                 <span className="process-label">④ DIALECTIC DREAMS</span>
                 <span className="process-file">dreamMode.js</span>
                 <p>
@@ -789,7 +802,7 @@ function ArchitectureDiagram({ onBack }) {
               <span className="panel-icon">
                 <EyeIcon />
               </span>{" "}
-              46 ARCHETYPES (Sample)
+              44 ARCHETYPES (Sample)
             </h3>
             <ul>
               <li>Jung</li>

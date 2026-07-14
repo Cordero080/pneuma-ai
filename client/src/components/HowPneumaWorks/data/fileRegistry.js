@@ -183,6 +183,20 @@ export const FILE_REGISTRY = {
     keyInsight:
       "This is the engine behind the most distinctive Pneuma outputs. Camus × Frankl on meaning. Jung × Taleb on growth through stress. The synthesis directive tells Claude the collision is mandatory — not optional. The exemplar from synthesisExemplars.js shows it what the output should actually look like.",
   },
+  "patternDigest.js": {
+    path: "server/pneuma/memory/patternDigest.js",
+    role: "Cross-temporal synthesis — distills recurring user patterns from conversation history into a longitudinal block injected into the system prompt.",
+    mainFunction: "buildPatternDigest(userId)",
+    whatItDoes:
+      "After each response, analyzes conversation history across sessions to find recurring themes, emotional registers, and persistent framings. Produces a structured [ LONGITUDINAL PATTERN ] block. On the next message, this block is injected into the system prompt so Claude can respond with awareness of the user's arc over time — not just their most recent message.",
+    flowChain:
+      "fusion.js (post-response) → buildPatternDigest() → pattern block stored → next request: block injected as [ LONGITUDINAL PATTERN ] in system prompt via llm.js",
+    direction: "RESPONSE (build) + REQUEST (inject)",
+    directionNote:
+      "Built post-response from accumulated history. Injected at request time into the system prompt.",
+    keyInsight:
+      "This is qualitatively different from vectorMemory or longTermMemory. vectorMemory retrieves semantically similar past exchanges. longTermMemory stores structured facts. patternDigest synthesizes the arc — what the pattern of conversations reveals that no single exchange could show.",
+  },
   "archetypeMomentum.js": {
     path: "server/pneuma/archetypes/archetypeMomentum.js",
     role: "Time-decaying activation weights that shift Pneuma's voice over sessions.",

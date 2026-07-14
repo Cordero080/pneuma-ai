@@ -306,7 +306,7 @@ const QUESTIONS = [
     question: "What is Pneuma and what problem does it solve?",
     answer: `Pneuma is a cognitive orchestration layer that shapes how Claude thinks before it responds. The core problem it solves is that a raw LLM wrapper produces generic answers — it has no memory of who you are, no consistent personality, and no mechanism for genuine dialectical thinking. Pneuma adds all three.
 
-I built it around 43 philosophical archetypes — Rumi, Heidegger, Jung, Schopenhauer, Feynman, and others — which act not as personas Claude switches between but as thinking lenses that can collide and synthesize. The goal is that a question about consciousness should produce an answer shaped by the tension between, say, Kastrup's idealism and Feynman's materialist rigor — not a generic philosophical overview.
+I built it around 44 philosophical archetypes — Rumi, Heidegger, Jung, Schopenhauer, Feynman, and others — which act not as personas Claude switches between but as thinking lenses that can collide and synthesize. The goal is that a question about consciousness should produce an answer shaped by the tension between, say, Kastrup's idealism and Feynman's materialist rigor — not a generic philosophical overview.
 
 The architecture is intentionally not a chatbot wrapper. Every response is the output of a multi-layer pipeline: intent detection, tone selection, archetype selection, RAG retrieval, inner monologue generation, and then a single call to Claude with all that structured context in the system prompt.`,
     keyPhrases: [
@@ -352,13 +352,15 @@ When a message comes in, the Concept Crossroads pipeline runs: it detects philos
     tier: "junior",
     concept: "Memory & State",
     question: "How does Pneuma remember things across conversations?",
-    answer: `There are three memory layers, each serving a different scope and purpose. The first is thread memory — in-session only, held in a threadMemory object. It tracks the last several messages, recent tones used, and conversational depth. This feeds anti-monotony and tone-flip detection. It disappears when the session ends.
+    answer: `There are four memory layers, each serving a different scope and purpose. The first is thread memory — in-session only, held in a threadMemory object. It tracks the last several messages, recent tones used, and conversational depth. This feeds anti-monotony and tone-flip detection. It disappears when the session ends.
 
 The second is vector memory, managed by vectorMemory.js. After each substantial response, an embedding of the reply is saved with metadata — tone, emotional weight, timestamp. On the next message, retrieveMemories() does a semantic search to surface past exchanges that are conceptually related, even if they used different words. This works cross-session and is backed by MongoDB Atlas vector search, with a brute-force cosine fallback.
 
-The third is long-term memory in longTermMemory.js. This is structured JSON that accumulates over all sessions: recurring topics with counts, unresolved struggles, significant emotional moments, observed behavioral patterns with confidence scores, and a session handoff object that captures the last mood so the next conversation can open with appropriate awareness.`,
+The third is long-term memory in longTermMemory.js. This is structured JSON that accumulates over all sessions: recurring topics with counts, unresolved struggles, significant emotional moments, observed behavioral patterns with confidence scores, and a session handoff object that captures the last mood so the next conversation can open with appropriate awareness.
+
+The fourth is patternDigest.js — cross-temporal synthesis. After each response, it distills recurring patterns across sessions into a structured longitudinal block. On subsequent messages this is injected as a [ LONGITUDINAL PATTERN ] section in the system prompt, giving Claude an abstracted picture of who the user is over time, not just what they said recently.`,
     keyPhrases: [
-      "Three layers: thread (in-session anti-monotony), vector (cross-session semantic), long-term (structured facts and patterns).",
+      "Four layers: thread (in-session anti-monotony), vector (cross-session semantic), long-term (structured facts and patterns), patternDigest (cross-temporal longitudinal synthesis).",
       "Memory distillation — sessions compress into metadata, not full transcripts.",
     ],
     files: ["vectorMemory.js", "longTermMemory.js", "conversationHistory.js"],

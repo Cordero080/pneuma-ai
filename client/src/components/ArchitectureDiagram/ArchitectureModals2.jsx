@@ -621,7 +621,7 @@ export const InnerMonologueModal = ({ isOpen, onClose, anchorEl }) => (
           },
           {
             title: "Mode Selection",
-            desc: "Which of the 6 response modes (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW, STRATEGIC) is active for this response, and why.",
+            desc: "Which of the 5 response tones (CASUAL, ANALYTIC, ORACULAR, INTIMATE, SHADOW) won the weighted lottery for this response, and why. Note: diagnostic is a mode, not a tone — it never enters the lottery.",
           },
         ]}
       />
@@ -1286,14 +1286,14 @@ export const PostResponseModal = ({ isOpen, onClose, anchorEl }) => (
   >
     <ModalSection title="What Happens After the Response">
       <ModalDesc>
-        Three background processes fire after every response — without blocking
+        Five background processes fire after every response — without blocking
         the reply. The conversation doesn't wait for them. They run
         independently and write to persistent state. Together they shape what
         Pneuma becomes in the next conversation.
       </ModalDesc>
     </ModalSection>
 
-    <ModalSection title="The Three Background Processes">
+    <ModalSection title="The Five Background Processes">
       <ModalFlow
         steps={[
           {
@@ -1301,12 +1301,20 @@ export const PostResponseModal = ({ isOpen, onClose, anchorEl }) => (
             desc: "The conversation turn is embedded via OpenAI and stored as a vector. On future messages, llm.js builds a hybrid memory context: the last 4 turns are always included first (guaranteed recency), then semantically similar older exchanges are appended and deduplicated — combining chronological continuity with topical depth.",
           },
           {
-            title: "Autonomy Update (autonomy.js)",
-            desc: "If something in the exchange was significant — an unresolved question, a correction, a moment of emergence — the autonomy layer logs it with an explicit reason annotation. These accumulate across sessions and influence the inner monologue.",
+            title: "Long-Term Memory Update (longTermMemory.js)",
+            desc: "Analyzes the exchange for recurring patterns, emotional register, and relationship dynamics. Updates the user's structured long-term profile — topics with sentiment, unresolved struggles, session handoff state. Loaded at the start of every future request.",
+          },
+          {
+            title: "Pattern Digest (patternDigest.js)",
+            desc: "Cross-temporal synthesis of user patterns across sessions. Distills recurring themes into a structured longitudinal block injected as [ LONGITUDINAL PATTERN ] in the system prompt on subsequent messages.",
+          },
+          {
+            title: "Archetype Momentum Update (archetypeMomentum.js)",
+            desc: "Boosts activation weights for archetypes that fired in this exchange. All weights decay over time. Over many sessions, a default voice emerges from what resonated — not hardcoded, earned through use.",
           },
           {
             title: "Dialectic Dream (dreamMode.js)",
-            desc: "Fires as a no-await background async process, throttled to once every 30 minutes. Two high-tension archetypes run an autonomous dialogue. The outcome writes to autonomy state with isDreamSourced: true. Pneuma may bring this into the next conversation, or not.",
+            desc: "Fires as a no-await background async process, throttled to once every 30 minutes. Two high-tension archetypes run an autonomous dialogue — topic pulled from recent memories, not the user message itself. The outcome writes to autonomy state with isDreamSourced: true. Pneuma may surface this in a future conversation, or not.",
           },
         ]}
       />

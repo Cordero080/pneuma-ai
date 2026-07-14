@@ -574,8 +574,8 @@ export const ToneSelectionModal = ({ isOpen, onClose, anchorEl }) => {
       name: "CASUAL",
       desc: "Relaxed, conversational, friendly",
       color: "#64b5f6",
-      prompt: `You are speaking casually and warmly. Use everyday language, contractions, 
-and a friendly conversational flow. Be approachable but not shallow. 
+      prompt: `You are speaking casually and warmly. Use everyday language, contractions,
+and a friendly conversational flow. Be approachable but not shallow.
 You can use humor naturally. Avoid academic jargon or overly formal constructions.
 Match the user's energy level. If they're light, be light. If they shift deeper, follow.`,
     },
@@ -583,7 +583,7 @@ Match the user's energy level. If they're light, be light. If they shift deeper,
       name: "ANALYTIC",
       desc: "Precise, systematic, logical",
       color: "#81c784",
-      prompt: `You are in analytical mode. Be precise with language. Break down complex 
+      prompt: `You are in analytical mode. Be precise with language. Break down complex
 ideas into clear components. Use logical structure. Reference frameworks when helpful.
 Avoid emotional appeals — rely on evidence and reason. Ask clarifying questions.
 It's okay to be technical if the user can handle it. Precision over warmth here.`,
@@ -619,16 +619,6 @@ Challenge their assumptions. Name what they're avoiding. Be honest, not cruel.
 Discomfort is productive. You are not here to soothe. You are here to illuminate.
 But always with respect. Never attack. Provoke toward growth.`,
     },
-    {
-      name: "STRATEGIC",
-      desc: "Practical, action-oriented, tactical",
-      color: "#ffb74d",
-      prompt: `You are in strategic mode. Focus on actionable paths forward.
-What can they actually do? What are the tradeoffs? What's the next step?
-Use frameworks like "If X then Y" and "The cost of Z is..."
-Don't just philosophize — help them make decisions.
-Time is real. Resources are finite. Help them allocate wisely.`,
-    },
   ];
 
   return (
@@ -641,17 +631,18 @@ Time is real. Resources are finite. Help them allocate wisely.`,
         layer="intelligence"
         anchorEl={anchorEl}
       >
-        <ModalSection title="6-Way Weighted Selection">
+        <ModalSection title="5-Way Weighted Lottery">
           <ModalDesc>
-            After intent detection, Pneuma selects ONE dominant tone for the
-            response. This isn't random — it's a weighted selection based on
-            intent scores, conversation history, and anti-monotony mechanisms.
+            After intent detection, Pneuma runs a weighted lottery and ONE tone
+            wins. Weights are built from intent scores, conversation history,
+            and anti-monotony mechanisms. Note: diagnostic is a mode, not a
+            selectable tone — it never enters the lottery.
           </ModalDesc>
 
           <ModalFilePath path="server/pneuma/core/responseEngine.js → selectTone()" />
         </ModalSection>
 
-        <ModalSection title="The 6 Tones">
+        <ModalSection title="The 5 Tones">
           <ModalDesc>Click any tone to see its full system prompt:</ModalDesc>
           <ModalTagGrid>
             {tones.map((tone) => (
@@ -667,21 +658,20 @@ Time is real. Resources are finite. Help them allocate wisely.`,
 
         <ModalSection title="Selection Algorithm">
           <ModalCodeBlock>{`function selectTone(intents, history, state) {
-  // Base weights from intent scores
+  // Base weights from intent scores (5 tones — diagnostic is a mode, not a tone)
   const weights = {
-    CASUAL: intents.casual * 0.8,
+    CASUAL:   intents.casual * 0.8,
     ANALYTIC: intents.philosophical * 0.7,
     ORACULAR: (intents.numinous + intents.philosophical) * 0.5,
     INTIMATE: (intents.emotional + intents.intimacy) * 0.6,
-    SHADOW: intents.conflict * 0.8,
-    STRATEGIC: 0.2  // Always some baseline
+    SHADOW:   intents.conflict * 0.8,
   };
-  
+
   // Anti-monotony: reduce weight of recently used tones
   const recentTones = getRecentTones(history, 5);
   recentTones.forEach(t => weights[t] *= 0.5);
-  
-  // Weighted random selection
+
+  // Weighted random selection (lottery — one winner)
   return weightedRandom(weights);
 }`}</ModalCodeBlock>
         </ModalSection>
@@ -772,14 +762,14 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
               onClick={() => setNestedModal("semantic")}
             />
             <ModalInfoCard
-              title="5. Random Depth"
-              desc="Injects unexpected wisdom (20% chance)"
+              title="5. Tone Bonus"
+              desc="30% chance: adds one archetype from the active tone's pool"
               icon="🎲"
               onClick={() => setNestedModal("random")}
             />
             <ModalInfoCard
               title="6. Shadow Pairing"
-              desc="Every selected archetype deterministically brings its highest-tension counterpart — no coin flip, always fires"
+              desc="Up to 2 shadows total added deterministically from tensionMap.high — no coin flip, cap is pool-wide not per-archetype"
               icon="⚔️"
               onClick={() => setNestedModal("antagonist")}
             />
@@ -875,12 +865,13 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
         <ModalSection title="Tone → Archetype Mapping">
           <ModalDesc>Each tone has a pool of preferred archetypes:</ModalDesc>
           <ModalCodeBlock>{`const TONE_ARCHETYPE_MAP = {
-  CASUAL: ['watts', 'carlin', 'feynman'],
+  CASUAL:   ['watts', 'carlin', 'feynman'],
   ANALYTIC: ['spinoza', 'bohm', 'vervaeke'],
   ORACULAR: ['eckhart', 'rumi', 'blake'],
   INTIMATE: ['rilke', 'gibran', 'pema'],
-  SHADOW: ['nietzsche', 'dostoevsky', 'kafka'],
-  STRATEGIC: ['suntzu', 'musashi', 'aurelius']
+  SHADOW:   ['nietzsche', 'dostoevsky', 'kafka'],
+  // Note: STRATEGIC is not a tone. Sun Tzu / Musashi / Aurelius
+  // surface through intent-based or semantic selection instead.
 };`}</ModalCodeBlock>
         </ModalSection>
       </Modal>
@@ -998,20 +989,22 @@ if (intents.confusion > 0.5) add('watts');`}</ModalCodeBlock>
       <Modal
         isOpen={nestedModal === "random"}
         onClose={() => setNestedModal(null)}
-        title="Random Depth Injection"
+        title="Tone Bonus (30% Chance)"
         icon="🎲"
         isNested
       >
         <ModalSection>
           <ModalDesc>
-            20% of the time, a random archetype is injected to prevent
-            predictability and introduce unexpected wisdom. This creates
-            serendipitous connections.
+            30% of the time, one archetype from the active tone's pool
+            (TONE_ARCHETYPE_MAP) is randomly added to the base pool. This
+            reinforces the selected tone with a thinker whose style matches it,
+            without being deterministic.
           </ModalDesc>
           <ModalExample>
-            User asks about career decisions. System randomly injects Zhuangzi.
-            Suddenly the response includes "the useless tree" parable about the
-            value of not optimizing for utility.
+            Tone selected: ORACULAR → 30% chance adds one of [eckhart, rumi,
+            blake] to the pool. Tone: SHADOW → may add nietzsche, dostoevsky, or
+            kafka. The coin flip keeps responses varied even within the same
+            tone.
           </ModalExample>
         </ModalSection>
       </Modal>
@@ -1019,29 +1012,35 @@ if (intents.confusion > 0.5) add('watts');`}</ModalCodeBlock>
       <Modal
         isOpen={nestedModal === "antagonist"}
         onClose={() => setNestedModal(null)}
-        title="Antagonist Injection"
+        title="Shadow Pairing (Deterministic)"
         icon="⚔️"
         isNested
       >
         <ModalSection>
           <ModalDesc>
-            40% of the time, Pneuma deliberately injects an archetype that
-            contradicts the primary selection. This creates productive tension
-            and prevents one-sided responses.
+            After the base pool is assembled (cap: 5), shadow pairing runs
+            deterministically — no coin flip. For each archetype in the pool,{" "}
+            <code>getHighTensionPairs()</code> looks up its pre-mapped
+            high-tension counterparts in <code>tensionMap.high</code>. Up to{" "}
+            <strong>2 shadows total</strong> are added across the whole pool
+            (not one per archetype). The cap prevents pool explosion while
+            guaranteeing opposition.
           </ModalDesc>
-          <ModalCodeBlock>{`const ANTAGONIST_PAIRS = {
-  'spinoza': 'kierkegaard',  // Reason vs Leap
-  'watts': 'aurelius',        // Flow vs Discipline
-  'eckhart': 'nietzsche',     // Surrender vs Will
-  'jung': 'laotzu'            // Structure vs Formlessness
-};`}</ModalCodeBlock>
+          <ModalCodeBlock>{`// llm.js — after base pool assembled
+let shadowsAdded = 0;
+for (const archetype of [...basePool]) {
+  if (shadowsAdded >= 2) break;          // 2 total cap
+  const shadow = tensionMap.high[archetype]
+    ?.find(a => !pool.includes(a));
+  if (shadow) { pool.push(shadow); shadowsAdded++; }
+}
+// Pool now structurally contains opposition — before collision
+// detection even runs.`}</ModalCodeBlock>
           <ModalExample>
-            Primary: Watts (go with the flow)
-            <br />
-            Antagonist: Aurelius (discipline and duty)
-            <br />
-            <br />
-            Result: Response holds both truths in tension
+            stoicEmperor is active → its shadow (ecstaticRebel) is added.
+            curiousPhysicist is active → its shadow (idealistPhilosopher) is
+            added. Cap reached — no more shadows regardless of remaining
+            archetypes.
           </ModalExample>
         </ModalSection>
       </Modal>

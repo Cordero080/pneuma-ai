@@ -4,9 +4,53 @@ How a user message becomes a Pneuma response. Every step tracks archetype additi
 
 ---
 
+## Instructions for Claude (read this first)
+
+This document is being used to study a real codebase. Every number, threshold, function name, and design decision written here has been verified against the actual source code by Claude Code.
+
+**Do not fabricate answers.** If you are asked something about this system that is not covered in this document — a function name, a threshold, a behavior, an architectural detail — do not guess, infer, or construct a plausible-sounding answer. Say clearly: *"I don't have that detail in the pipeline doc. Ask Claude Code for the exact answer."*
+
+**Why this matters:** the person studying this built the system. They will know immediately if you invent something. A confident wrong answer is worse than admitting you don't have the data.
+
+**What you can do:** explain, rephrase, connect concepts, and help reason through design decisions — as long as you are working from what is written here, not filling gaps with assumptions.
+
+**When in doubt, say:** *"That specific detail isn't in this doc — you'd need to check the code directly or ask Claude Code."*
+
+---
+
+## Quick Reference — Settled Facts (verified against actual code)
+
+| Question | Answer |
+|---|---|
+| Tool use protocol | **Native Anthropic** — `anthropic.messages.create()` with `tools:` array. Not MCP. |
+| Tools available | `search_wikipedia`, `read_pneuma_file` — disabled when extended thinking is active |
+| Dream functions fired post-response | **2** — `triggerDialecticDream()` (30min throttle) + `triggerDreaming(1)` (2h throttle) |
+| Tones in lottery | **5** — casual, analytic, oracular, intimate, shadow. `diagnostic` is a mode, NOT a tone. |
+| Max archetype pool size | **7** — 5 (hard cap before shadows) + 2 (shadows). Never more. |
+| Shadow selection method | Per-archetype lookup in static `tensionMap.high`, **first-found**, cap 2 total |
+| Self-evaluation | **Yes** — Haiku scores 0–1 after every non-casual response. Below 0.6 → regenerate |
+| Extended thinking budget | 8,000 tokens thinking budget, 12,000 max_tokens total |
+| Extended thinking trigger | `philosophical > 0.5` OR `paradox > 0.4` OR `numinous > 0.5` |
+| Regex intent pass | Runs in `fusion.js` for behavioral guards only. LLM intent runs separately inside `generate()` |
+
+---
+
+---
+
 ## Step 1 — Message arrives
 
 Nothing happens yet.
+
+After the full response is sent, two dream functions fire **fire-and-forget** in the background:
+- `triggerDialecticDream()` — throttled to once per 30 min
+- `triggerDreaming(1)` — throttled to once per 2 hours
+
+**What the dream is — and what it isn't:**
+The response to the user is not a debate. The archetypes fuse into one unified reply — collision in service of answering. The dream is what happens after that obligation is gone.
+
+`dreamMode.js` receives the archetype names that just fired — not the user's message, not the response. The archetypes argue based on their own nature and tensions, not the original question. The topic bleeds in indirectly (which archetypes were active depends on what you said), but no premise is passed. Rumi and Aurelius argue because of who they are, not because of what you asked.
+
+Output is stored in MongoDB and delivered the next time the app opens. This is how Pneuma accumulates internal dialogue between sessions — not reacting to the user, just running.
 
 **Archetypes added: none.**
 
@@ -44,6 +88,16 @@ Returns a one-word acknowledgment ("Okay.", "Got it.") and exits — does NOT pr
 
 ## Step 3 — Archetype selection
 
+**Archetypes have two completely separate functions — this is easy to miss:**
+
+**Function 1 (synchronous):** Selected archetypes are injected into the system prompt. They fuse into one unified response delivered to the user. This is collision and synthesis in service of answering — it has a destination.
+
+**Function 2 (async, post-response):** The same archetype names that just fired are handed to `dreamMode.js` after the response is sent. They now argue with no user present, no question to answer, no obligation to resolve. The topic bleeds in indirectly — which archetypes were active depends on what the user said — but the user's message and the response are NOT passed to the dream. The archetypes argue based on their own nature and tensions. Output is stored and delivered next session.
+
+These two functions are independent. The dream is not a continuation of the response — it's what happens when the same voices are freed from the obligation of being useful.
+
+---
+
 **Base 5 — always active, always in the room:**
 
 - Renaissance Poet — Whitman/Goethe — poetic foundation, bold vitality
@@ -57,11 +111,11 @@ Returns a one-word acknowledgment ("Okay.", "Got it.") and exits — does NOT pr
 ---
 
 **Mechanism 1 — Semantic match:**
-Message gets converted to a vector — 1,536 numbers representing its meaning. Every one of the 44 archetypes has a pre-computed vector built from a short description of what that archetype is about. The system compares your message vector against all 43 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 gets added. At most 1. Possibly zero.
+Message gets converted to a vector — 1,536 numbers representing its meaning. 39 of the 44 archetypes have a pre-computed vector built from a short description of what that archetype is about (not all 44 have essences defined). The system compares your message vector against those 39 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 gets added. At most 1. Possibly zero.
 
 **Files:**
 - `server/pneuma/intelligence/archetypeSelector.js` — `findBestArchetype()`, `initializeArchetypeEmbeddings()`
-- `server/pneuma/archetypes/archetypes.js` — `archetypeEssences` (the 43 description vectors)
+- `server/pneuma/archetypes/archetypes.js` — `archetypeEssences` (39 description vectors)
 
 **Archetypes added: 0 or 1.**
 
@@ -74,17 +128,26 @@ casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion
 
 These scores do two completely separate jobs:
 
-**Job 1 — Archetype additions:** High scores on certain dimensions add specific archetypes.
-- High philosophical → adds Jung (psycheIntegrator)
-- High paradox → adds Liminal Architect
-- High emotional → adds Beck (cognitiveSage)
-- High numinous → adds Rumi (sufiPoet, if not already present)
-Could add several.
+**Job 1 — Archetype additions:** High scores on certain dimensions add specific archetypes. Exact thresholds from code:
+- `philosophical > 0.5` → adds Jung (`psycheIntegrator`)
+- `emotional > 0.6` → adds Beck (`cognitiveSage`)
+- `numinous > 0.3` → adds Rumi (`sufiPoet`, if not already present)
+- `paradox > 0.4` → adds Liminal Architect (`liminalArchitect`)
+- `(philosophical > 0.4 OR analytical > 0.4 OR numinous > 0.35) AND 12% random roll` → adds Trickster (`trickster`) — Carlin/Hicks/Pryor, sardonic precision
 
-**Archetypes added: 1 or more.**
+Could add several. All additions happen to `coreBase` before the pool is capped.
 
-**Job 2 — Tone selection + bonus archetype:** Same dimension scores select 1 of 6 tones:
-casual, analytic, oracular, intimate, shadow, diagnostic.
+**Archetypes added: 1 or more (before cap — see Running Total below).**
+
+**Job 2 — Tone selection + bonus archetype:**
+
+**Intent scores → weighted lottery → one tone wins.**
+
+The same 10 dimension scores feed into a weighted lottery. Higher scores boost certain tones — high numinous pushes oracular, high emotional pushes intimate, high philosophical pushes analytic. All scores apply pressure simultaneously, but only one tone wins. Many different input qualities can call for the same output register — that's why there are 10 dimensions but only 5 tones. Tone sets the register for the entire response. Archetypes supply the content and perspective within that register.
+
+The 5 tones: casual, analytic, oracular, intimate, shadow.
+
+(`diagnostic` exists as a mode but is NOT in the tone lottery — it is not a selectable tone.)
 
 Tone selection also has a **30% chance** to add one bonus archetype from `TONE_ARCHETYPE_MAP`. Each tone has a pool of archetypes that fit that mood. The gate is `ON_DEMAND_LIBRARY` — the archetype must be in the tone pool AND in `ON_DEMAND_LIBRARY` AND not already in the core base. If candidates pass all three filters, one is picked at random and added.
 
@@ -100,41 +163,58 @@ Plain version: tone pool says "these archetypes fit this mood." `ON_DEMAND_LIBRA
 
 ---
 
-**Mechanism 3 — Hardcoded tension pairs:**
-Every archetype added in Mechanisms 1 and 2 Job 1 gets its philosophical opponent added automatically. Pre-written rule in the code. Nothing to do with your message.
+**Mechanism 3 — Shadow pairing (deterministic tension injection):**
+After the pool is capped at 5, the code iterates the pool and adds high-tension counterparts — called "shadows" in the code. This is NOT one-per-archetype. The hard cap is **2 shadows total**, regardless of pool size.
 
-Example: Stoic Emperor activates → Taoist gets pulled in as counterpoint. There is also a 30% random chance an antagonist gets injected for forced synthesis.
+How shadows are chosen: `getHighTensionPairs(archetype)` looks up each archetype in a static `tensionMap.high` table and returns all archetypes that have a declared high-tension relationship with it. The shadow is selected from the first archetype in the pool that has a high-tension partner not already present. First-found, not highest-scoring.
+
+**Why 2 and not one shadow per archetype:** deliberate noise control. A pool of 5 with 5 individual shadows would be 10 archetypes — too many voices for Claude to synthesize into anything coherent.
+
+**The imbalance is intentional.** Most archetypes in the pool have no direct counterpart. The 2 shadows don't compete with each other — they pull against the whole room. If 5 archetypes are naturally aligned (poetic, philosophical, mystical), the 2 shadows are thrown in to disrupt that harmony. Their job is to prevent the 5 from simply agreeing. The slight asymmetry — majority pulling one way, minority pulling back — forces synthesis. A perfectly balanced room produces deadlock. This doesn't.
 
 **Files:**
-- `server/pneuma/intelligence/llm.js` — `buildArchetypeContext()`, `getRandomAntagonist()`
+- `server/pneuma/archetypes/archetypeDepth.js` — `getHighTensionPairs()`, `tensionMap`
+- `server/pneuma/intelligence/llm.js` — `buildArchetypeContext()` (shadow injection loop, line ~2197)
 
-**Archetypes added: 1 opponent per selected archetype.**
+**Archetypes added: 0, 1, or 2 (capped at 2 total — NOT 1 per archetype).**
 
 ---
 
 **Mechanism 4 — Maximum distance mode:**
 
-Normally Pneuma has 5 thinkers always in the room. This mode throws all of them out and replaces them with exactly 3: two thinkers who fundamentally disagree with each other on the question you asked, plus a third whose only job is to hold the tension between them and not let either one win.
+Normally Pneuma has 5 thinkers always in the room. This mode throws all of them out and replaces them with exactly 3: two thinkers who fundamentally disagree with each other, plus Liminal Architect whose only job is to hold the tension between them and not let either one win.
 
-The point is forced collision. When the two thinkers have nothing in common, the response can't settle into a comfortable position — it has to synthesize something neither would say alone.
+**Why it throws the base 5 out:**
+The 5 base archetypes are stable and somewhat harmonious by design. If you kept them alongside a maximum distance pair, they would dilute the collision — the harmonious voices soften what the two incompatible ones would produce. The entire point of this mode is forced collision with nothing to cushion it. So the base 5 are replaced, not added to. The 3 that replace them ARE the whole pool.
 
-Two ways it activates:
+**The two archetypes are not the highest scorers.** They are pulled from `MAXIMUM_DISTANCE_PAIRS` — a hand-written list of pairs selected specifically because their worldviews are maximally incompatible. Heidegger and Feynman, for example. The selection is random from that list, not based on intent scores.
 
-**You trigger it** — if you naturally say something like "surprise me" or "give me a weird angle", it always fires. You don't need to know this. It just responds to how people actually talk.
+**Liminal Architect** holds the tension between the two incompatible voices. It does not take a side. Its only role is to prevent either voice from winning — keeping the collision productive rather than letting it collapse into one position. Liminal Architect also appears in normal mode when `paradox > 0.4`, but maximum distance mode is the only place it has this specific structural role.
 
-**Pneuma decides** — 25% chance, but only when your message scores high on depth *and* has emotional weight. A dry intellectual question doesn't qualify. The collision is most interesting when something real is at stake for you — the pair that gets pulled is matched to a question that matters, not one that's just philosophically abstract. Won't fire on your first message in a conversation. Once it fires, waits at least 3 exchanges before it can fire again — keeps it feeling like a discovery, not a pattern.
+**Two triggers:**
+
+**You trigger it** — say something like "surprise me", "weird angle", "give me a fresh perspective." Always fires on these phrases, no conditions, no cooldown.
+
+**Pneuma decides** — 25% chance, but only when your message is both philosophically deep AND has emotional weight. Dry intellectual question doesn't qualify. Won't fire on the first message. Once it fires, waits at least 3 exchanges before it can fire again — keeps it feeling like a discovery, not a pattern.
 
 **Files:**
 - `server/pneuma/intelligence/llm.js` — `MAXIMUM_DISTANCE_PAIRS`, `getMaxDistancePair()`, `buildArchetypeContext()`
 
-**Archetypes added: 3 (replaces the base 5). Two paths. Neither is obvious to the user.**
+**Archetypes added: exactly 3, replaces everything. No shadows added on top.**
 
 ---
 
 **Running total after Step 3:**
-5 base + 0 or 1 from semantic match + 1 or more from intent scoring Job 1 + 1 opponent per selected archetype = could be 8, 10, 12 or more total archetypes in the room.
 
-**OR** — if maximum distance mode fired: exactly 3 archetypes, no exceptions. The entire base is replaced.
+**IMPORTANT — there is a hard pool cap at 5 before shadow injection.**
+
+All additions (tone boost, intent-driven, semantic match) happen to the same `coreBase` array. Before shadow injection, the pool is sliced to 5: `[...new Set([...coreBase, ...suggestedArchetypes])].slice(0, 5)`. Earlier additions can be crowded out by the cap.
+
+After the cap, shadow injection adds up to 2 more. So the **maximum pool size is 7** (5 capped + 2 shadows), not 8, 10, or 12. The running total stated in earlier versions of this doc was wrong.
+
+**Typical philosophical message:** 5 (base) → tone boost may add 1 → intent adds Jung + Beck → semantic match adds 1 → all of these compete for 5 slots → cap trims to 5 → shadows add 2 → **7 total**.
+
+**OR** — if maximum distance mode fired: exactly 3 archetypes, no exceptions. The entire base is replaced. No shadows added (the 3 ARE the collision).
 
 Each archetype is a written prompt — not just a name. Contains: a signature move, cognitive frameworks, and behavioral instructions. None of them respond individually. All go into the final prompt together as thinking methods.
 
@@ -142,7 +222,22 @@ Each archetype is a written prompt — not just a name. Contains: a signature mo
 
 ---
 
-## Step 4 — Pipeline 1: archetypeRAG.js
+## Steps 4 + 5 — Four memory sources, all independent, all converge in Step 7
+
+There are four distinct retrieval pipelines. Each uses a different source, a different mechanism, and retrieves different things. None depend on each other. All land in the same prompt.
+
+| Source | What it retrieves | Matched to |
+|---|---|---|
+| `archetypeRAG` | Philosophical passages from thinker source texts | Your message topic |
+| `vectorMemory` | Your own past exchanges | Your message (semantic similarity) |
+| `patternDigest` | Cross-temporal synthesis of who you've been | Not matched — always injected |
+| `longTermMemory` | Key-value facts about you | Not matched — always injected |
+
+The naming in this doc ("Pipeline 1", "Pipeline 2") undersells it. There are four sources. Keep them distinct.
+
+---
+
+## Step 4 — archetypeRAG.js
 
 Completely independent from archetype selection. Adds passages only — never archetypes.
 
@@ -179,11 +274,14 @@ Personal memory — nothing to do with philosophical passages or archetypes.
 
 **Execution note:** vectorMemory runs earlier in the code than archetypeRAG — it fires inside the memory fetch block alongside `loadMemory()` and `loadImageDescription()`. All three are independent and now run simultaneously via `Promise.all` (previously sequential).
 
+**patternDigest:** Also retrieved here — a periodically-generated cross-temporal synthesis of recurring themes across the user's conversation history. Written by Pneuma in its own voice (Jung/Heidegger/Rumi lenses). Injected into the system prompt as a `[ LONGITUDINAL PATTERN ]` block. Regenerates in the background (fire-and-forget) when >24h old OR >50 new vector memory entries since last generation.
+
 **Files:**
 - `server/pneuma/memory/vectorMemory.js` — `retrieveMemories()`, `saveEmbedding()`, `getEmbedding()`
-- MongoDB Atlas — `vectorMemory` collection
+- `server/pneuma/memory/patternDigest.js` — `getPatternDigest()`, `generateUserPatternDigest()`
+- MongoDB Atlas — `vectorMemory` collection, `patternDigest` collection
 
-**Archetypes added: ZERO. Past exchanges only.**
+**Archetypes added: ZERO. Past exchanges + longitudinal pattern only.**
 
 ---
 
@@ -215,7 +313,7 @@ Everything combines into one prompt. Claude reads it and responds via SSE stream
 
 **What Claude receives:**
 - Archetype written prompts — one per active archetype (signature move, cognitive frameworks, behavioral instructions)
-- Tone (1 of 6)
+- Tone (1 of 5)
 - Top 8 philosophical passages from Pipeline 1
 - Relevant past exchanges from Pipeline 2
 - EMERGENT block from Layer 1
@@ -234,6 +332,29 @@ Prompt size scales automatically: ~2k tokens for a casual message, up to ~18k fo
 - `server/pneuma/core/responseEngine.js` — `generate()`
 
 **Archetypes added: ZERO. Assembly only.**
+
+---
+
+## Step 7.5 — Self-evaluation + conditional regeneration
+
+Runs immediately after the response is generated, before post-processing. Completely invisible to the user.
+
+**Haiku scores the response 0.0–1.0** across tone fit and intent alignment. The prompt includes: the selected tone, the top intent dimension and its score, whether emergent shift was active. Haiku returns `{ score, issue }` as JSON.
+
+**Gate conditions — eval only runs when:**
+- Response is longer than 80 characters
+- The dominant intent is NOT casual with score > 0.7 (casual messages skip eval entirely)
+
+**If score < 0.6:** the stream is reset (`\x00RESET` signal to frontend), feedback is appended to Block 2 of the system prompt only (Block 1 cache stays intact), and the full generation reruns. One retry only.
+
+**If score ≥ 0.6:** ship it.
+
+**Why Haiku and not Sonnet for this:** cheap, fast classification task. Doesn't need depth — just needs to know "did the tone match?"
+
+**Files:**
+- `server/pneuma/intelligence/llm.js` — `evalResponse()` (line ~3261), called inside `getLLMContent()` after response is parsed
+
+**Archetypes added: ZERO.**
 
 ---
 
@@ -276,16 +397,20 @@ All three write to `data/pneuma_autonomy.json`. On the next request, `getAutonom
 | Step 1 | Message arrives | 0 |
 | Step 2 | Behavioral guards | 0 |
 | Step 3 — Base 5 | Always active | 5 |
-| Step 3 — Mechanism 1 | Semantic match | 0 or 1 |
-| Step 3 — Mechanism 2 Job 1 | Intent scoring | 1 or more |
-| Step 3 — Mechanism 2 Job 2 | Tone selection + bonus | 0 or 1 (30% chance) |
-| Step 3 — Mechanism 3 | Tension pairs | 1 per selected |
-| Step 3 — Mechanism 4 | Maximum distance mode | replaces all: 3 total (or 0 if didn't fire) |
+| Step 3 — Mechanism 2 Job 2 | Tone boost (30% chance) | 0 or 1 |
+| Step 3 — Mechanism 2 Job 1 | Intent scoring (Jung/Beck/Rumi/Liminal/Trickster) | 0–5 |
+| Step 3 — Mechanism 1 | Semantic match (cosine > 0.7) | 0 or 1 |
+| **POOL CAP** | `slice(0, 5)` — hard limit before shadows | **max 5** |
+| Step 3 — Mechanism 3 | Shadow pairing (up to 2 total) | 0, 1, or 2 |
+| Step 3 — Mechanism 4 | Maximum distance mode (if fired) | **replaces all: exactly 3** |
 | Step 4 | archetypeRAG.js | 0 (passages only) |
-| Step 5 | vectorMemory.js | 0 (exchanges only) |
+| Step 5 | vectorMemory.js + patternDigest | 0 (exchanges + digest only) |
 | Step 6 | Inner monologue | 0 |
 | Step 7 | Final assembly | 0 |
+| Step 7.5 | Self-evaluation + conditional regeneration | 0 |
 | Post-response | Autonomy write-back | 0 (state only) |
+
+**Maximum pool size: 7 (5 capped + 2 shadows). Not 8, 10, or 12.**
 
 ---
 
