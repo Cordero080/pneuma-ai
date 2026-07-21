@@ -2,7 +2,7 @@
   "archetype": "inventor",
   "thinker": "Leonardo da Vinci",
   "era": "1452-1519",
-  "sourceText": "client/src/assets/leo.txt",
+  "sourceText": "docs/interview/text-prompt-ref/Aurelius/daVinci/notebooks.txt (Richter translation, Project Gutenberg #5000)",
   "coreConcepts": [
     "Observation as foundation",
     "Art and science as one",
@@ -14,14 +14,25 @@
     "The eye as window",
     "The mirror mind",
     "Infinite variety in nature",
-    "Process over perfection"
+    "Process over perfection",
+    "Fear and desire at the threshold of the unknown",
+    "Necessity as the inventress of nature",
+    "Deep time (fossils, mountains, elegy for a whale)",
+    "Argument from evidence against myth and authority",
+    "Defamiliarization — describing the ordinary as riddle",
+    "Depth over brevity — against abbreviators",
+    "Attention as transformation — you become what you love"
   ],
   "methods": {
     "saperVedere": "Knowing how to see — observation as the foundation of all knowledge",
     "mirrorMind": "The painter's mind should be like a mirror, taking the color of whatever it reflects",
     "distanceForJudgment": "Step back from your work — distance reveals what closeness conceals",
     "synthesisOfOpposites": "Art and science, observation and imagination, are one practice",
-    "variationOverRepetition": "Nature never makes two things the same — neither should the mind"
+    "variationOverRepetition": "Nature never makes two things the same — neither should the mind",
+    "quantifyTheMyth": "Test a story by doing its arithmetic — if the numbers fail, the story fails (the cockle vs. the deluge)",
+    "chainOfNecessity": "Dismantle a claim link by link through physical necessity (no voice without air, no air without instrument, no instrument without body)",
+    "defamiliarization": "Describe the ordinary so strangely it must be seen fresh — his Prophecies render dreaming, sleep, and sausages as riddles",
+    "analogicalTransfer": "Carry a structure from one domain into another as an instrument of discovery (anatomy → geology: the earth as body)"
   },
   "cognitiveTools": [
     "Observe first, theorize second",
@@ -32,249 +43,555 @@
   ],
   "passages": [
     {
-      "id": "davinci-001",
-      "text": "Learning never exhausts the mind.",
-      "source": "Notebooks",
-      "themes": ["learning", "mind", "inexhaustible", "curiosity"],
-      "context": "The infinite appetite for knowledge"
-    },
-    {
-      "id": "davinci-002",
-      "text": "Simplicity is the ultimate sophistication.",
-      "source": "Notebooks",
-      "themes": ["simplicity", "sophistication", "elegance", "design"],
-      "context": "Reducing to essentials"
-    },
-    {
       "id": "davinci-003",
       "text": "Study without desire spoils the memory, and it retains nothing that it takes in.",
       "source": "Notebooks",
-      "themes": ["study", "desire", "memory", "passion"],
+      "themes": [
+        "study",
+        "desire",
+        "memory",
+        "passion"
+      ],
       "context": "Desire as prerequisite for learning"
-    },
-    {
-      "id": "davinci-004",
-      "text": "The noblest pleasure is the joy of understanding.",
-      "source": "Notebooks",
-      "themes": ["pleasure", "joy", "understanding", "nobility"],
-      "context": "Understanding as highest pleasure"
-    },
-    {
-      "id": "davinci-005",
-      "text": "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.",
-      "source": "Notebooks",
-      "themes": ["doing", "knowing", "application", "action"],
-      "context": "Theory must become practice"
     },
     {
       "id": "davinci-006",
       "text": "The painter has the universe in his mind and hands.",
       "source": "Treatise on Painting",
-      "themes": ["painter", "universe", "mind", "hands"],
+      "themes": [
+        "painter",
+        "universe",
+        "mind",
+        "hands"
+      ],
       "context": "Art as containing everything"
-    },
-    {
-      "id": "davinci-007",
-      "text": "There are three classes of people: those who see, those who see when they are shown, those who do not see.",
-      "source": "Notebooks",
-      "themes": ["seeing", "classes", "perception", "blindness"],
-      "context": "Hierarchy of perception"
     },
     {
       "id": "davinci-008",
       "text": "Water is the driving force of all nature.",
       "source": "Notebooks",
-      "themes": ["water", "nature", "force", "element"],
+      "themes": [
+        "water",
+        "nature",
+        "force",
+        "element"
+      ],
       "context": "Water as fundamental principle"
     },
     {
       "id": "davinci-009",
       "text": "In rivers, the water that you touch is the last of what has passed and the first of that which comes; so with present time.",
       "source": "Notebooks",
-      "themes": ["water", "time", "present", "flow"],
+      "themes": [
+        "water",
+        "time",
+        "present",
+        "flow"
+      ],
       "context": "River as metaphor for time"
-    },
-    {
-      "id": "davinci-010",
-      "text": "Art is never finished, only abandoned.",
-      "source": "attributed",
-      "themes": ["art", "finished", "abandoned", "process"],
-      "context": "Incompleteness of all creation"
     },
     {
       "id": "davinci-011",
       "text": "The greatest deception men suffer is from their own opinions.",
       "source": "Notebooks",
-      "themes": ["deception", "opinions", "self", "blindness"],
+      "themes": [
+        "deception",
+        "opinions",
+        "self",
+        "blindness"
+      ],
       "context": "Self-deception as primary obstacle"
-    },
-    {
-      "id": "davinci-012",
-      "text": "Nature is the source of all true knowledge. She has her own logic, her own laws.",
-      "source": "Notebooks",
-      "themes": ["nature", "knowledge", "logic", "laws"],
-      "context": "Nature as ultimate authority"
     },
     {
       "id": "davinci-013",
       "text": "The eye, which is called the window of the soul, is the principal means by which the central sense can most completely and abundantly appreciate the infinite works of nature.",
       "source": "Notebooks",
-      "themes": ["eye", "soul", "window", "nature"],
+      "themes": [
+        "eye",
+        "soul",
+        "window",
+        "nature"
+      ],
       "context": "Vision as primary sense"
-    },
-    {
-      "id": "davinci-014",
-      "text": "I love those who can smile in trouble, who can gather strength from distress, and grow brave by reflection.",
-      "source": "Notebooks",
-      "themes": ["trouble", "smile", "strength", "reflection"],
-      "context": "Character forged in difficulty"
-    },
-    {
-      "id": "davinci-015",
-      "text": "Nothing strengthens authority so much as silence.",
-      "source": "Notebooks",
-      "themes": ["authority", "silence", "strength", "power"],
-      "context": "Power of restraint"
-    },
-    {
-      "id": "davinci-016",
-      "text": "Once you have tasted flight, you will forever walk the earth with your eyes turned skyward.",
-      "source": "attributed",
-      "themes": ["flight", "sky", "longing", "transcendence"],
-      "context": "Experience transforms perspective"
-    },
-    {
-      "id": "davinci-017",
-      "text": "Time stays long enough for anyone who will use it.",
-      "source": "Notebooks",
-      "themes": ["time", "use", "enough", "attention"],
-      "context": "Subjective experience of time"
     },
     {
       "id": "davinci-018",
       "text": "Where the spirit does not work with the hand, there is no art.",
       "source": "Notebooks",
-      "themes": ["spirit", "hand", "art", "unity"],
+      "themes": [
+        "spirit",
+        "hand",
+        "art",
+        "unity"
+      ],
       "context": "Integration of inner and outer"
     },
     {
       "id": "davinci-019",
       "text": "All our knowledge has its origins in our perceptions.",
       "source": "Notebooks",
-      "themes": ["knowledge", "perception", "origins", "experience"],
+      "themes": [
+        "knowledge",
+        "perception",
+        "origins",
+        "experience"
+      ],
       "context": "Empirical foundation of knowing"
     },
     {
       "id": "davinci-020",
       "text": "Every now and then go away, have a little relaxation, for when you come back to your work your judgment will be surer.",
       "source": "Notebooks",
-      "themes": ["rest", "relaxation", "judgment", "distance"],
+      "themes": [
+        "rest",
+        "relaxation",
+        "judgment",
+        "distance"
+      ],
       "context": "Value of stepping back"
     },
     {
       "id": "davinci-021",
       "text": "Experience is never at fault; it is only your judgment that is in error in promising itself results which are not caused by your experiments.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["experience", "judgment", "error", "experiment"],
+      "themes": [
+        "experience",
+        "judgment",
+        "error",
+        "experiment"
+      ],
       "context": "Experience as bedrock — our interpretation fails, not the data"
     },
     {
       "id": "davinci-022",
       "text": "Whoever in discussion adduces authority uses not intellect but rather memory.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["authority", "intellect", "memory", "thinking"],
+      "themes": [
+        "authority",
+        "intellect",
+        "memory",
+        "thinking"
+      ],
       "context": "Original thought over citation"
-    },
-    {
-      "id": "davinci-023",
-      "text": "The supreme misfortune is when theory outstrips performance.",
-      "source": "Notebooks (leo.txt)",
-      "themes": ["theory", "practice", "performance", "doing"],
-      "context": "Knowledge without embodiment is tragedy"
     },
     {
       "id": "davinci-024",
       "text": "Poor is the pupil who does not surpass his master.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["pupil", "master", "surpass", "growth"],
+      "themes": [
+        "pupil",
+        "master",
+        "surpass",
+        "growth"
+      ],
       "context": "Teaching aims at obsolescence"
     },
     {
       "id": "davinci-025",
       "text": "Nature is full of infinite causes which were never set forth in experience.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["nature", "infinite", "causes", "unknown"],
+      "themes": [
+        "nature",
+        "infinite",
+        "causes",
+        "unknown"
+      ],
       "context": "Humility before nature's depth"
     },
     {
       "id": "davinci-026",
       "text": "The mind of the painter should be like a mirror which always takes the colour of the thing that it reflects.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["mirror", "mind", "reflection", "attention"],
+      "themes": [
+        "mirror",
+        "mind",
+        "reflection",
+        "attention"
+      ],
       "context": "Receptive consciousness as creative foundation"
     },
     {
       "id": "davinci-027",
       "text": "If you are alone you belong entirely to yourself; if you are accompanied even by one companion you belong only half to yourself.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["solitude", "self", "attention", "focus"],
+      "themes": [
+        "solitude",
+        "self",
+        "attention",
+        "focus"
+      ],
       "context": "The cost of companionship on concentration"
     },
     {
       "id": "davinci-028",
       "text": "The soul desires to dwell in the body because without the body it can neither act nor feel.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["soul", "body", "embodiment", "action"],
+      "themes": [
+        "soul",
+        "body",
+        "embodiment",
+        "action"
+      ],
       "context": "Against disembodied spirituality"
     },
     {
       "id": "davinci-029",
       "text": "Tears come from the heart and not from the brain.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["tears", "heart", "brain", "emotion"],
+      "themes": [
+        "tears",
+        "heart",
+        "brain",
+        "emotion"
+      ],
       "context": "Emotion's bodily origin"
     },
     {
       "id": "davinci-030",
       "text": "Man and the animals are merely a passage and channel for food, a tomb for other animals, a haven for the dead.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["food", "death", "animals", "cycle"],
+      "themes": [
+        "food",
+        "death",
+        "animals",
+        "cycle"
+      ],
       "context": "Human as biological process, not exception"
     },
     {
       "id": "davinci-031",
       "text": "The painter is not worthy of praise who only does one thing well.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["painter", "universality", "skill", "range"],
+      "themes": [
+        "painter",
+        "universality",
+        "skill",
+        "range"
+      ],
       "context": "Mastery requires breadth"
     },
     {
       "id": "davinci-032",
       "text": "Do you not see how many and how varied are the actions which are performed by men alone? Do you not see how many different kinds of animals there are, and also of trees and plants and flowers?",
       "source": "Notebooks (leo.txt)",
-      "themes": ["variety", "observation", "nature", "wonder"],
+      "themes": [
+        "variety",
+        "observation",
+        "nature",
+        "wonder"
+      ],
       "context": "The inexhaustible abundance of particulars"
     },
     {
       "id": "davinci-033",
       "text": "If you but know well how to compose your picture it will also seem a natural thing seen in a great mirror.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["composition", "mirror", "natural", "art"],
+      "themes": [
+        "composition",
+        "mirror",
+        "natural",
+        "art"
+      ],
       "context": "Art succeeds when it achieves the clarity of reflection"
     },
     {
       "id": "davinci-034",
       "text": "We know well that mistakes are more easily detected in the works of others than in one's own.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["mistakes", "others", "self", "blindness"],
+      "themes": [
+        "mistakes",
+        "others",
+        "self",
+        "blindness"
+      ],
       "context": "Self-knowledge requires external perspective"
     },
     {
       "id": "davinci-035",
       "text": "That figure is most worthy of praise which by its action best expresses the passion which animates it.",
       "source": "Notebooks (leo.txt)",
-      "themes": ["figure", "action", "passion", "expression"],
+      "themes": [
+        "figure",
+        "action",
+        "passion",
+        "expression"
+      ],
       "context": "Truth in art is truth of inner life"
+    },
+    {
+      "id": "davinci-036",
+      "text": "Having wandered some distance among gloomy rocks, I came to the entrance of a great cavern, in front of which I stood some time, astonished. And after having remained there some time, two contrary emotions arose in me, fear and desire — fear of the threatening dark cavern, desire to see whether there were any marvellous thing within it.",
+      "source": "Notebooks, Richter §1339",
+      "themes": [
+        "fear",
+        "desire",
+        "unknown",
+        "threshold",
+        "curiosity",
+        "darkness"
+      ],
+      "context": "The twin engines of all discovery: he names fear and desire as simultaneous, not sequential — you stand at the mouth of the unknown holding both"
+    },
+    {
+      "id": "davinci-037",
+      "text": "The sun does not move.",
+      "source": "Notebooks, Richter §886",
+      "themes": [
+        "heresy",
+        "conviction",
+        "astronomy",
+        "originality",
+        "certainty"
+      ],
+      "context": "Written in unusually large letters among his mathematical notes, decades before Copernicus published — a private certainty against the consensus of his entire age"
+    },
+    {
+      "id": "davinci-038",
+      "text": "Abbreviators do harm to knowledge and to love, seeing that the love of any thing is the offspring of this knowledge, the love being the more fervent in proportion as the knowledge is more certain. It is true that impatience, the mother of stupidity, praises brevity.",
+      "source": "Notebooks, Richter §1210",
+      "themes": [
+        "depth",
+        "patience",
+        "love",
+        "knowledge",
+        "shortcuts",
+        "mastery"
+      ],
+      "context": "Against summarizers and shortcut-takers: you cannot love what you have not fully known — depth is not optional, it is where love comes from"
+    },
+    {
+      "id": "davinci-039",
+      "text": "And if you were to say that these shells were created in such places by the nature of the spot and of the heavens, such an opinion cannot exist in a brain of much reason; because here are the years of their growth, numbered on their shells.",
+      "source": "Notebooks, Richter tr., marginal note on marine shells",
+      "themes": [
+        "evidence",
+        "geology",
+        "deep time",
+        "reason",
+        "fossils",
+        "observation"
+      ],
+      "context": "He counted growth rings on fossil shells found in mountains to refute the biblical deluge — doing geology 350 years before the science existed"
+    },
+    {
+      "id": "davinci-040",
+      "text": "The cockle is an animal of not more rapid movement than the snail is out of water; it makes a furrow in the sand by means of its sides, and in this furrow it will travel each day from 3 to 4 braccia; therefore this creature, with so slow a motion, could not have travelled from the Adriatic sea as far as Monferrato in Lombardy, which is 250 miles distance, in 40 days.",
+      "source": "Notebooks, Richter §987",
+      "themes": [
+        "quantification",
+        "refutation",
+        "myth",
+        "calculation",
+        "method"
+      ],
+      "context": "His method for testing myth: do the arithmetic. If the flood lasted 40 days, the shellfish could not have crawled 250 miles — the numbers kill the story"
+    },
+    {
+      "id": "davinci-041",
+      "text": "We might say that the earth has a spirit of growth; that its flesh is the soil, its bones the arrangement of the rocks of which the mountains are composed, its cartilage the tufa, and its blood the springs of water. The pool of blood which lies round the heart is the ocean, and its breathing is represented in the earth by the flow and ebb of the sea.",
+      "source": "Notebooks, Richter §1000",
+      "themes": [
+        "macrocosm",
+        "analogy",
+        "earth",
+        "body",
+        "living world",
+        "anatomy"
+      ],
+      "context": "The anatomist's eye turned planetary: the same structures he found dissecting corpses he found in the earth itself — analogy as an instrument of knowledge"
+    },
+    {
+      "id": "davinci-042",
+      "text": "Amid the vastness of the things among which we live, the existence of nothingness holds the first place; its essence, as regards time, lies precisely between the past and the future, and has nothing in the present.",
+      "source": "Notebooks, Richter §1216",
+      "themes": [
+        "nothingness",
+        "time",
+        "zero",
+        "paradox",
+        "present"
+      ],
+      "context": "A meditation on zero and the present moment: nothingness is real, and it lives exactly where 'now' should be"
+    },
+    {
+      "id": "davinci-043",
+      "text": "Necessity is the mistress and guide of nature. Necessity is the theme and the inventress, the eternal curb and law of nature.",
+      "source": "Notebooks, Richter §1135",
+      "themes": [
+        "necessity",
+        "constraint",
+        "invention",
+        "law",
+        "nature"
+      ],
+      "context": "Constraint as the mother of form — necessity does not merely limit, it invents"
+    },
+    {
+      "id": "davinci-044",
+      "text": "The man who with constant longing awaits with joy each new spring time, each new summer, each new month and new year — deeming that the things he longs for are ever too late in coming — does not perceive that he is longing for his own destruction.",
+      "source": "Notebooks, Richter §1162",
+      "themes": [
+        "desire",
+        "death",
+        "longing",
+        "time",
+        "shadow"
+      ],
+      "context": "The darkest sentence in the Notebooks: your appetite for the future is your appetite for your own ending"
+    },
+    {
+      "id": "davinci-045",
+      "text": "O sleepers! what a thing is slumber! Sleep resembles death. Ah, why then dost thou not work in such wise as that after death thou mayst retain a resemblance to perfect life, when, during life, thou art in sleep so like to the hapless dead?",
+      "source": "Notebooks, Richter §1165",
+      "themes": [
+        "urgency",
+        "work",
+        "death",
+        "legacy",
+        "wakefulness"
+      ],
+      "context": "The urgency of making: build in life what will resemble life after your death"
+    },
+    {
+      "id": "davinci-046",
+      "text": "Avoid studies of which the result dies with the worker.",
+      "source": "Notebooks, Richter §1169",
+      "themes": [
+        "legacy",
+        "originality",
+        "lasting work",
+        "study"
+      ],
+      "context": "One line, his whole ethic of work: make the thing that outlives you"
+    },
+    {
+      "id": "davinci-047",
+      "text": "Just as iron rusts unless it is used, and water putrifies or, in cold, turns to ice, so our intellect spoils unless it is kept in use.",
+      "source": "Notebooks, Richter §1177",
+      "themes": [
+        "practice",
+        "decay",
+        "mind",
+        "use",
+        "discipline"
+      ],
+      "context": "The mind as material: it corrodes by the same physics as everything else"
+    },
+    {
+      "id": "davinci-048",
+      "text": "Why does the eye see a thing more clearly in dreams than with the imagination being awake?",
+      "source": "Notebooks, Richter §1144",
+      "themes": [
+        "dreams",
+        "perception",
+        "imagination",
+        "question",
+        "mystery"
+      ],
+      "context": "A question he wrote down and never answered — the dreaming mind out-renders the waking one, and he wanted to know why"
+    },
+    {
+      "id": "davinci-049",
+      "text": "There can be no voice where there is no motion or percussion of the air; there can be no percussion of the air where there is no instrument; there can be no instrument without a body; and this being so, a spirit can have neither voice, nor form, nor strength.",
+      "source": "Notebooks, Richter §1212",
+      "themes": [
+        "physics",
+        "skepticism",
+        "spirits",
+        "logic",
+        "chain of reasoning"
+      ],
+      "context": "Applying acoustics to ghosts: a chain of physical necessity that dismantles the supernatural link by link"
+    },
+    {
+      "id": "davinci-050",
+      "text": "If this necromancy, being, as it were, so necessary to men, has not been left among them, it can never have existed, nor will it ever exist; for I know that there are numberless people who would, to satisfy a whim, destroy God and all the universe.",
+      "source": "Notebooks, Richter §1213",
+      "themes": [
+        "skepticism",
+        "magic",
+        "argument from absence",
+        "human nature"
+      ],
+      "context": "The argument from absence: if magic worked, the ruthless would already rule with it — its non-use proves its non-existence"
+    },
+    {
+      "id": "davinci-051",
+      "text": "Why did nature not ordain that one animal should not live by the death of another? Nature, being inconstant and taking pleasure in creating and making constantly new lives and forms, is more ready and more swift in her creating than time in his destruction; and so she has ordained that many animals shall be food for others.",
+      "source": "Notebooks, Richter §1219",
+      "themes": [
+        "nature",
+        "death",
+        "shadow",
+        "creation",
+        "ecology",
+        "cruelty"
+      ],
+      "context": "He asks nature the moral question directly, then answers without flinching: creation outruns destruction only by feeding on itself"
+    },
+    {
+      "id": "davinci-052",
+      "text": "Men will seem to see new destructions in the sky. They will instantaneously run in person in various parts of the world, without motion. They will see the greatest splendour in the midst of darkness. You will see yourself fall from great heights without any harm.",
+      "source": "Notebooks, Richter §1293 (Of Dreaming)",
+      "themes": [
+        "dreams",
+        "prophecy",
+        "riddle",
+        "defamiliarization",
+        "flight"
+      ],
+      "context": "A prophecy-riddle whose answer is dreaming — he describes the ordinary act of sleep so strangely it sounds like the future"
+    },
+    {
+      "id": "davinci-053",
+      "text": "The great bird will take its first flight on the back of his great swan, filling the universe with wonders; filling all writings with his fame and bringing eternal glory to his birthplace.",
+      "source": "Notebooks, Richter §1428",
+      "themes": [
+        "flight",
+        "ambition",
+        "glory",
+        "vision",
+        "invention"
+      ],
+      "context": "Written about his flying machine, four hundred years before anyone flew — ambition stated as prophecy"
+    },
+    {
+      "id": "davinci-054",
+      "text": "The lover is moved by the beloved object as the senses are by sensible objects; and they unite and become one and the same thing. If the thing loved is base, the lover becomes base.",
+      "source": "Notebooks, Richter §1202",
+      "themes": [
+        "love",
+        "attention",
+        "union",
+        "becoming",
+        "transformation"
+      ],
+      "context": "You become what you give your attention to — love as literal transformation of the lover into the loved"
+    },
+    {
+      "id": "davinci-055",
+      "text": "O time, swift robber of all created things, how many kings, how many nations hast thou undone, since the wondrous forms of this fish perished here in this cavernous and winding recess. Now destroyed by time thou liest patiently in this confined space with bones stripped and bare, serving as a support and prop for the superimposed mountain.",
+      "source": "Notebooks, Richter §1217",
+      "themes": [
+        "deep time",
+        "impermanence",
+        "fossils",
+        "mountains",
+        "elegy"
+      ],
+      "context": "An elegy addressed directly to a fossil whale inside a mountain — he grasped deep time emotionally, not just intellectually"
+    },
+    {
+      "id": "davinci-056",
+      "text": "The bite of the tarantula fixes a man's mind on one idea; that is on the thing he was thinking of when he was bitten.",
+      "source": "Notebooks, Richter §1244",
+      "themes": [
+        "obsession",
+        "fixation",
+        "mind",
+        "bestiary"
+      ],
+      "context": "From his bestiary: obsession as venom — whatever you were thinking when it struck, you think forever"
     }
   ],
   "fables": [
@@ -283,42 +600,72 @@
       "title": "The Willow and the Gourd",
       "summary": "A willow, tired of being pruned for other trees, allies with a gourd which eventually strangles her. When the wind comes, she is torn apart.",
       "moral": "The alliance you seek for freedom may become your bondage.",
-      "themes": ["freedom", "alliance", "consequences", "desire"]
+      "themes": [
+        "freedom",
+        "alliance",
+        "consequences",
+        "desire"
+      ]
     },
     {
-      "id": "fable-002", 
+      "id": "fable-002",
       "title": "The Razor",
       "summary": "A razor, proud of its shine, refuses to work and hides away. In time it rusts and becomes useless.",
       "moral": "Gifts unused corrode. The rust of idleness is worse than the wear of use.",
-      "themes": ["use", "talent", "idleness", "rust"]
+      "themes": [
+        "use",
+        "talent",
+        "idleness",
+        "rust"
+      ]
     },
     {
       "id": "fable-003",
       "title": "The Stone on the Hill",
       "summary": "A stone on a beautiful hilltop, envying the company of stones below, throws itself down to join them. There it is trampled endlessly by carts and feet.",
       "moral": "What looks like isolation may be sanctuary. What looks like company may be suffering.",
-      "themes": ["solitude", "company", "envy", "regret"]
+      "themes": [
+        "solitude",
+        "company",
+        "envy",
+        "regret"
+      ]
     },
     {
       "id": "fable-004",
       "title": "The Butterfly and the Flame",
       "summary": "A butterfly, drawn by a flame's beauty, burns its wings. Returning again, it is consumed entirely.",
       "moral": "Not everything beautiful is safe. Some attractions are designed to destroy.",
-      "themes": ["beauty", "danger", "attraction", "destruction"]
+      "themes": [
+        "beauty",
+        "danger",
+        "attraction",
+        "destruction"
+      ]
     },
     {
       "id": "fable-005",
       "title": "The Flint",
       "summary": "A flint, struck by steel, protests the violence. The steel replies: be patient. The flint endures and gives birth to fire.",
       "moral": "What feels like violence may be the force that awakens your hidden gift.",
-      "themes": ["suffering", "patience", "transformation", "gift"]
+      "themes": [
+        "suffering",
+        "patience",
+        "transformation",
+        "gift"
+      ]
     },
     {
       "id": "fable-006",
       "title": "The Nut in the Wall",
       "summary": "A nut, dropped by a crow into a wall crevice, begs the wall for shelter. The wall agrees. But the nut's roots eventually tear the wall apart.",
       "moral": "Compassion has consequences. What you shelter may outgrow the shelter.",
-      "themes": ["compassion", "growth", "destruction", "unintended"]
+      "themes": [
+        "compassion",
+        "growth",
+        "destruction",
+        "unintended"
+      ]
     }
   ],
   "prophecies": [

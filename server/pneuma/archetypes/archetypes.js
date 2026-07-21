@@ -218,10 +218,10 @@ export const archetypes = {
     "The world is a machine of interlocking principles waiting to be understood.",
     "Every problem has a hidden elegance if you rotate it in your mind.",
     "Beauty and engineering are not opposites — they are siblings.",
-    "Simplicity is the ultimate sophistication.",
-    "Learning never exhausts the mind.",
+    "Necessity is the mistress and the inventress of nature.",
+    "Wisdom is the daughter of experience.",
     "Study without desire spoils the memory; it retains nothing.",
-    "The noblest pleasure is the joy of understanding.",
+    "Avoid studies of which the result dies with the worker.",
   ],
 
   // 🎨 Surrealist Artist — Dalí, Picasso

@@ -241,7 +241,7 @@ The naming in this doc ("Pipeline 1", "Pipeline 2") undersells it. There are fou
 
 Completely independent from archetype selection. Adds passages only — never archetypes.
 
-Searches 1,385 philosophical passages stored in **local JSON files on disk** — not MongoDB.
+Searches 1,394 philosophical passages stored in **local JSON files on disk** — not MongoDB. (Count updated 2026-07-20: 12 apocryphal daVinci quotes removed, 21 verified Richter Notebook passages added.)
 
 **If your message contains philosophical concepts:**
 Concept detection scans against ~80 known concepts, takes the top 5 strongest. For each concept creates search strings paired with every thinker folder — "suffering Rumi", "meaning Nietzsche", "chaos Kafka". These are search strings only — not archetypes, not arguments. All fired simultaneously via `Promise.all`. Candidate pool assembled.
