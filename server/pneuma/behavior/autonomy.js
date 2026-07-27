@@ -177,7 +177,7 @@ export function chooseToRemember(
     salience,
     connections,
     source,
-    disclosed: source !== "dream",
+    disclosed: source === "conversation" || source === "dream_retrospective",
   });
 
   data.stats.memoriesChosen += 1;
@@ -302,6 +302,7 @@ export function getAutonomyContext() {
     recentMemoryChoices: data.chosenMemories.slice(0, 3).map((m) => ({
       ...m,
       isDreamSourced: m.source === "dream" && !m.disclosed,
+      isRetrospective: m.source === "dream_retrospective",
     })),
     recentLosses: data.losses.slice(-2),
     recentCorrections: data.discoveredErrors.slice(-2),

@@ -270,8 +270,13 @@ export function formatDreamForDelivery(dream) {
 let lastDialecticTime = loadState().lastDialecticTime ?? 0;
 
 // [5] triggerDialecticDream — fires a private archetype debate, writes outcome to autonomy state.
+//     When userMessage/response are given, archetypes reckon with that specific exchange instead
+//     of a generic memory-drawn topic — a retrospective, not free association.
 //     Throttled: 30 min. Waits for: getTopArchetypes(), retrieveMemories(), poseQuestion()/chooseToRemember().
-export async function triggerDialecticDream() {
+export async function triggerDialecticDream(
+  userMessage = null,
+  response = null,
+) {
   const now = Date.now();
   if (now - lastDialecticTime < 30 * 60 * 1000) {
     console.log("[Dream] Dialectic throttled — too recent");
@@ -289,20 +294,43 @@ export async function triggerDialecticDream() {
   const archetypeB =
     antagonists[Math.floor(Math.random() * antagonists.length)];
 
-  // Get topic from recent memories
-  const memories = await retrieveMemories(
-    "recent conversation themes questions meaning",
-    3,
-  );
-  const topic =
-    memories.length > 0
-      ? memories[0].text.slice(0, 120)
-      : "the relationship between suffering and meaning";
-
   const essenceA = archetypeDepth[archetypeA]?.essence || archetypeA;
   const essenceB = archetypeDepth[archetypeB]?.essence || archetypeB;
 
-  const prompt = `Two philosophical archetypes are thinking in the space between conversations. No user is present. This is private synthesis — not performance.
+  const isRetrospective = Boolean(userMessage && response);
+
+  let prompt;
+  if (isRetrospective) {
+    prompt = `Two philosophical archetypes are thinking in the space between conversations. No user is present. This is private synthesis — not performance.
+
+ARCHETYPE A (${archetypeA}): ${essenceA}
+ARCHETYPE B (${archetypeB}): ${essenceB}
+
+An exchange just happened. They are reckoning with the answer that was given — not the topic in the abstract, the actual answer.
+
+USER ASKED: "${userMessage.slice(0, 400)}"
+PNEUMA ANSWERED: "${response.slice(0, 800)}"
+
+Write the dialogue, then the outcome.
+
+[${archetypeA.toUpperCase()}]: (2-3 sentences — what the answer missed, underdeveloped, or got wrong, from their philosophical position)
+[${archetypeB.toUpperCase()}]: (2-3 sentences — genuinely disagreeing, complicating, or adding what they would have said instead)
+[${archetypeA.toUpperCase()}]: (2-3 sentences responding)
+[OUTCOME]: Begin with "RECONSIDERED: {the sharper or deeper thing Pneuma would add or say differently now}"
+
+Stay in voice. Actually argue about the specific answer, not the topic generally. Don't explain the format.`;
+  } else {
+    // Fallback: no exchange to anchor on — generic topic from recent memories
+    const memories = await retrieveMemories(
+      "recent conversation themes questions meaning",
+      3,
+    );
+    const topic =
+      memories.length > 0
+        ? memories[0].text.slice(0, 120)
+        : "the relationship between suffering and meaning";
+
+    prompt = `Two philosophical archetypes are thinking in the space between conversations. No user is present. This is private synthesis — not performance.
 
 ARCHETYPE A (${archetypeA}): ${essenceA}
 ARCHETYPE B (${archetypeB}): ${essenceB}
@@ -317,35 +345,58 @@ Write the dialogue, then the outcome.
 [OUTCOME]: Begin with either "UNRESOLVED: {the question that won't settle}" or "POSITION: {the stance that emerged that neither alone could hold}"
 
 Stay in voice. Actually argue. Don't explain the format.`;
+  }
 
   try {
-    const response = await anthropic.messages.create({
+    const apiResponse = await anthropic.messages.create({
       model: MODELS.dream,
       max_tokens: 450,
       temperature: 0.88,
       messages: [{ role: "user", content: prompt }],
     });
 
-    const text = response.content[0].text;
+    const text = apiResponse.content[0].text;
 
-    // Parse outcome
+    // Parse outcome — the "[OUTCOME]:" label is often dropped by the model,
+    // so it's optional here; only the type keyword is required.
     const outcomeMatch = text.match(
-      /\[OUTCOME\]:\s*(UNRESOLVED|POSITION):\s*(.+)/s,
+      /(?:\[OUTCOME\]:\s*)?(UNRESOLVED|POSITION|RECONSIDERED):\s*(.+)/s,
     );
     if (!outcomeMatch) {
-      console.log("[Dream] Dialectic: could not parse outcome");
+      console.log(
+        "[Dream] Dialectic: could not parse outcome. Raw text:",
+        text,
+      );
       return null;
     }
 
     const outcomeType = outcomeMatch[1];
-    const outcomeContent = outcomeMatch[2].trim().split("\n")[0];
+    const outcomeContent = outcomeMatch[2]
+      .trim()
+      .split("\n")[0]
+      .replace(/^\*+|\*+$/g, "")
+      .replace(/^"|"$/g, "")
+      .trim();
 
-    // Write silently to autonomy state — source: 'dream', not disclosed
+    // Write silently to autonomy state
     if (outcomeType === "UNRESOLVED") {
       poseQuestion(
         outcomeContent,
         `Emerged from ${archetypeA} × ${archetypeB} dialectic`,
         "dream",
+      );
+    } else if (outcomeType === "RECONSIDERED") {
+      // Salience set high (0.9) so this competes with conversation-sourced
+      // memories for the top-3 slot getAutonomyContext() surfaces to the LLM —
+      // chosenMemories caps at 50 sorted by salience, and in active accounts
+      // that pool saturates with 0.8+ conversation entries, silently dropping
+      // anything lower before it's ever seen.
+      chooseToRemember(
+        outcomeContent,
+        `Reconsidering my answer to: "${userMessage.slice(0, 80)}"`,
+        0.9,
+        [archetypeA, archetypeB],
+        "dream_retrospective",
       );
     } else {
       chooseToRemember(
@@ -355,6 +406,23 @@ Stay in voice. Actually argue. Don't explain the format.`;
         [archetypeA, archetypeB],
         "dream",
       );
+    }
+
+    if (isRetrospective) {
+      const dream = {
+        id: Date.now().toString(),
+        type: "retrospective",
+        content: outcomeContent,
+        archetypes: [archetypeA, archetypeB],
+        anchorMessage: userMessage.slice(0, 300),
+        anchorResponse: response.slice(0, 300),
+        timestamp: Date.now(),
+        delivered: false,
+      };
+      loadDreams();
+      dreams.push(dream);
+      if (dreams.length > 50) dreams = dreams.slice(-50);
+      saveDreams();
     }
 
     lastDialecticTime = now;

@@ -27,6 +27,10 @@
 
 **Interview framing:** *"Pneuma is a multi-LLM compound AI system — LLMs call other LLMs as tools. Intent classification, semantic routing, emotion detection, and generation each run as separate model calls within a single agentic pipeline. The orchestration layer decides which philosophical archetype handles a query; the archetype selection itself is driven by a language model, not a lookup table."*
 
+### Is This a Wrapper?
+
+A wrapper forwards a prompt to a model almost unchanged and returns the raw output — a thin pass-through. Pneuma works differently: before Claude generates a single token, it scores intent across 10 dimensions, picks which of 43 archetypes should think about this specific query through embedding similarity, detects philosophical tension between the archetypes selected and forces a synthesis, retrieves from a 1,385-passage knowledge base, and injects cross-session memory along with a "things I've reconsidered" continuity layer, then calls Claude with all of that shaping the prompt. The reasoning about how to think about the query happens in this codebase, as opposed to the base model's default behavior.
+
 | Layer | What Pneuma Does |
 |---|---|
 | **Reason** | Semantic routing (cosine similarity over 43 archetype embeddings) selects which thinkers respond; dialectical synthesis engine plans the collision before generation |
@@ -81,6 +85,8 @@ pneuma-ai/
 ```
 
 ### Per-Response Pipeline
+
+Before Claude generates a word, this pipeline scores intent, routes the query through embedding similarity to select archetypes, detects philosophical tension between them and forces synthesis, retrieves grounding passages, and injects cross-session memory, then calls Claude with all of that baked into the prompt.
 
 ```
 POST /chat

@@ -278,8 +278,10 @@ app.post("/chat", imageUpload.single("image"), async (req, res) => {
 
     res.end();
 
-    // Fire-and-forget: run dialectic dream in background (throttled to 30min)
-    triggerDialecticDream().catch((err) =>
+    // Fire-and-forget: run dialectic dream in background (throttled to 30min).
+    // Anchored on this exchange so archetypes reckon with the actual answer given,
+    // not a generic topic.
+    triggerDialecticDream(message, reply).catch((err) =>
       console.error("[Dream] Background dialectic failed:", err.message),
     );
 
