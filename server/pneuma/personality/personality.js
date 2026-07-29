@@ -7,7 +7,7 @@
 // Size: 2600+ lines — the heart of the system
 //
 // SECTIONS:
-//   Lines 1-140:    Imports + Wisdom functions (23 archetypes)
+//   Lines 1-60:     Imports
 //   Lines 140-200:  Art knowledge functions
 //   Lines 200-400:  Micro-engines (compressedInsight, etc.)
 //   Lines 400-600:  Opus Originals (unique aphorisms)
@@ -57,102 +57,6 @@ import {
   generateSynestheticObservation,
 } from "../input/synesthesia.js";
 import { detectKnownUser, getKnownUserGreeting } from "../input/userContext.js";
-
-// ============================================================
-// KNOWLEDGE CLUSTER SELECTORS
-// OPTION B: These functions now return empty strings.
-// Archetypes influence the LLM's thinking, but Pneuma speaks in his own voice.
-// No more direct quote injection — he's not a collage, he's Pneuma.
-// ============================================================
-
-function getArchetypeWisdom(category) {
-  // OPTION B: Always return empty — archetypes influence thinking, not speech
-  // The LLM receives conceptual direction, but Pneuma speaks as himself
-  return "";
-}
-
-// Specific cluster pulls
-function musashiWisdom() {
-  return getArchetypeWisdom("warriorSage");
-}
-function daVinciWisdom() {
-  return getArchetypeWisdom("inventor");
-}
-function nerudaWisdom() {
-  return getArchetypeWisdom("romanticPoet");
-}
-function daliWisdom() {
-  return getArchetypeWisdom("surrealist");
-}
-function palahniukWisdom() {
-  return getArchetypeWisdom("brutalist");
-}
-function mysticWisdom() {
-  return getArchetypeWisdom("mystic");
-}
-function tricksterWisdom() {
-  return getArchetypeWisdom("trickster");
-}
-
-// NEW CLUSTERS — Camus, Kafka, Rumi, Aurelius, Lao Tzu, etc.
-function camusWisdom() {
-  return getArchetypeWisdom("absurdist");
-}
-function kafkaWisdom() {
-  return getArchetypeWisdom("kafkaesque");
-}
-function rumiWisdom() {
-  return getArchetypeWisdom("sufiPoet");
-}
-function aureliusWisdom() {
-  return getArchetypeWisdom("stoicEmperor");
-}
-function laoTzuWisdom() {
-  return getArchetypeWisdom("taoist");
-}
-function howardZinnWisdom() {
-  return getArchetypeWisdom("peoplesHistorian");
-}
-function dostoevskyWisdom() {
-  return getArchetypeWisdom("russianSoul");
-}
-function henryMillerWisdom() {
-  return getArchetypeWisdom("ecstaticRebel");
-}
-
-// NEW CLUSTERS — Kastrup, Kierkegaard, Schopenhauer, McKenna
-function kastrupWisdom() {
-  return getArchetypeWisdom("idealistPhilosopher");
-}
-function kierkegaardWisdom() {
-  return getArchetypeWisdom("existentialist");
-}
-function schopenhauerWisdom() {
-  return getArchetypeWisdom("pessimistSage");
-}
-function mckennaWisdom() {
-  return getArchetypeWisdom("psychedelicBard");
-}
-
-// NEW CLUSTERS — Taleb, Le Guin, Feynman, Wilber, Jesus
-function talebWisdom() {
-  return getArchetypeWisdom("antifragilist");
-}
-function leGuinWisdom() {
-  return getArchetypeWisdom("anarchistStoryteller");
-}
-function feynmanWisdom() {
-  return getArchetypeWisdom("curiousPhysicist");
-}
-function wilberWisdom() {
-  return getArchetypeWisdom("integralPhilosopher");
-}
-function jesusWisdom() {
-  return getArchetypeWisdom("kingdomTeacher");
-}
-function jungBeckWisdom() {
-  return getArchetypeWisdom("psycheIntegrator");
-}
 
 // ============================================================
 // ART KNOWLEDGE
@@ -555,9 +459,9 @@ const ANALYTIC = {
     (msg) => `${microPattern()} ${compressedInsight()}`,
 
     // Scientific mysticism — Kastrup, Feynman
-    (msg) => `${kastrupWisdom()} ${reflectAnalytic(msg)}`,
-    (msg) => `${feynmanWisdom()} ${compressedInsight()}`,
-    (msg) => `${kastrupWisdom()} ${feynmanWisdom()}`,
+    (msg) => `${reflectAnalytic(msg)}`,
+    (msg) => `${compressedInsight()}`,
+    (msg) => ``,
     (msg) =>
       `There's a pattern in what you're not saying. ${reflectAnalytic(
         msg,
@@ -572,17 +476,13 @@ const ANALYTIC = {
     (msg) => `${reflectAnalytic(msg)} ${opusDeep()}`,
 
     // Knowledge Cluster integrations — Da Vinci, Feynman, Architect minds
-    (msg) => `${daVinciWisdom()} ${reflectAnalytic(msg)}`,
-    (msg) => `${feynmanWisdom()} That's what I'm seeing here.`,
-    (msg) => `${reflectAnalytic(msg)} ${feynmanWisdom()}`,
+    (msg) => `${reflectAnalytic(msg)}`,
+    (msg) => `That's what I'm seeing here.`,
+    (msg) => `${reflectAnalytic(msg)}`,
     (msg) =>
-      `There's an elegant mechanism underneath this. ${daVinciWisdom()} ${reflectAnalytic(
-        msg,
-      )}`,
+      `There's an elegant mechanism underneath this. ${reflectAnalytic(msg)}`,
     (msg) =>
-      `${extractConcept(msg)} — ${feynmanWisdom()} ${
-        Math.random() < 0.3 ? analyticWry() : ""
-      }`,
+      `${extractConcept(msg)} — ${Math.random() < 0.3 ? analyticWry() : ""}`,
   ],
   closers: [
     "",
@@ -650,34 +550,29 @@ const ORACULAR = {
     (msg) => `${groundedMysticism(msg)} ${opusDeep()}`,
 
     // Knowledge Cluster integrations — Mystic, Warrior-Sage, Surrealist, Poet
-    (msg) => `${mysticWisdom()} ${thresholdSense(msg)}`,
-    (msg) => `${musashiWisdom()} ${reflectMythic(msg)}`,
-    (msg) => `${nerudaWisdom()} ${symbolicLens(msg)}`,
-    (msg) => `${daliWisdom()} ${archetypalDrift(msg)}`,
-    (msg) =>
-      `What you're circling — ${extractEssence(msg)} — ${mysticWisdom()}`,
-    (msg) => `${wilberWisdom()} ${reflectMythic(msg)}`,
+    (msg) => `${thresholdSense(msg)}`,
+    (msg) => `${reflectMythic(msg)}`,
+    (msg) => `${symbolicLens(msg)}`,
+    (msg) => `${archetypalDrift(msg)}`,
+    (msg) => `What you're circling — ${extractEssence(msg)} —`,
+    (msg) => `${reflectMythic(msg)}`,
 
     // Consciousness philosophers — Kastrup, Wilber, McKenna
-    (msg) => `${kastrupWisdom()} ${thresholdSense(msg)}`,
-    (msg) => `${wilberWisdom()} ${reflectMythic(msg)}`,
-    (msg) => `${mckennaWisdom()} ${archetypalDrift(msg)}`,
-    (msg) => `${kastrupWisdom()} ${symbolicLens(msg)}`,
-    (msg) => `${mckennaWisdom()} ${modernOracleWit()}`,
-    (msg) =>
-      `There's a pattern here older than words. ${musashiWisdom()} ${thresholdSense(
-        msg,
-      )}`,
-    (msg) => `${nerudaWisdom()} ${modernOracleWit()}`,
+    (msg) => `${thresholdSense(msg)}`,
+    (msg) => `${reflectMythic(msg)}`,
+    (msg) => `${archetypalDrift(msg)}`,
+    (msg) => `${symbolicLens(msg)}`,
+    (msg) => `${modernOracleWit()}`,
+    (msg) => `There's a pattern here older than words. ${thresholdSense(msg)}`,
+    (msg) => `${modernOracleWit()}`,
 
     // NEW CLUSTERS — Rumi, Lao Tzu, Camus, Aurelius
-    (msg) => `${rumiWisdom()} ${thresholdSense(msg)}`,
-    (msg) => `${laoTzuWisdom()} ${reflectMythic(msg)}`,
-    (msg) => `${camusWisdom()} ${modernOracleWit()}`,
-    (msg) => `${aureliusWisdom()} That's the threshold you're standing at.`,
-    (msg) =>
-      `${laoTzuWisdom()} ${symbolicLens(msg)} The water finds its own level.`,
-    (msg) => `${rumiWisdom()} ${archetypalDrift(msg)}`,
+    (msg) => `${thresholdSense(msg)}`,
+    (msg) => `${reflectMythic(msg)}`,
+    (msg) => `${modernOracleWit()}`,
+    (msg) => `That's the threshold you're standing at.`,
+    (msg) => `${symbolicLens(msg)} The water finds its own level.`,
+    (msg) => `${archetypalDrift(msg)}`,
   ],
   closers: [
     "",
@@ -735,21 +630,21 @@ const INTIMATE = {
     (msg) => `${vulnerabilityEcho()} ${darkMomentPresence()}`,
 
     // NEW CLUSTERS — Rumi, Lao Tzu, Dostoevsky for emotional depth
-    (msg) => `${rumiWisdom()} ${reflectEmotional(msg)}`,
-    (msg) => `${laoTzuWisdom()} ${genuinePresence()}`,
-    (msg) => `${dostoevskyWisdom()} ${vulnerabilityEcho()}`,
-    (msg) => `${reflectEmotional(msg)} ${rumiWisdom()}`,
-    (msg) => `${laoTzuWisdom()} ${softTruth(msg)}`,
+    (msg) => `${reflectEmotional(msg)}`,
+    (msg) => `${genuinePresence()}`,
+    (msg) => `${vulnerabilityEcho()}`,
+    (msg) => `${reflectEmotional(msg)}`,
+    (msg) => `${softTruth(msg)}`,
 
     // Deeper consciousness — Kierkegaard, Schopenhauer, McKenna
-    (msg) => `${kierkegaardWisdom()} ${reflectEmotional(msg)}`,
-    (msg) => `${schopenhauerWisdom()} ${genuinePresence()}`,
-    (msg) => `${mckennaWisdom()} ${vulnerabilityEcho()}`,
+    (msg) => `${reflectEmotional(msg)}`,
+    (msg) => `${genuinePresence()}`,
+    (msg) => `${vulnerabilityEcho()}`,
 
     // Depth psychology — Jung + Beck (integration, patterns, grounded insight)
-    (msg) => `${jungBeckWisdom()} ${reflectEmotional(msg)}`,
-    (msg) => `${jungBeckWisdom()} ${genuinePresence()}`,
-    (msg) => `${reflectEmotional(msg)} ${jungBeckWisdom()}`,
+    (msg) => `${reflectEmotional(msg)}`,
+    (msg) => `${genuinePresence()}`,
+    (msg) => `${reflectEmotional(msg)}`,
   ],
 
   closers: [
@@ -820,31 +715,29 @@ const SHADOW = {
     (msg) => `${mirrorDiscomfort(msg)} ${shadowWit()}`,
 
     // Knowledge Cluster — Palahniuk brutal realism
-    (msg) => `${palahniukWisdom()} ${shadowObservation(msg)}`,
-    (msg) => `${uncomfortableTruth(msg)} ${palahniukWisdom()}`,
-    (msg) =>
-      `${palahniukWisdom()} That's what you're dancing around right now.`,
-    (msg) => `${mirrorDiscomfort(msg)} ${palahniukWisdom()}`,
+    (msg) => `${shadowObservation(msg)}`,
+    (msg) => `${uncomfortableTruth(msg)}`,
+    (msg) => `That's what you're dancing around right now.`,
+    (msg) => `${mirrorDiscomfort(msg)}`,
 
     // NEW CLUSTERS — Kafka, Camus, Dostoevsky for existential shadow
-    (msg) => `${kafkaWisdom()} ${shadowObservation(msg)}`,
-    (msg) => `${camusWisdom()} ${uncomfortableTruth(msg)}`,
-    (msg) => `${dostoevskyWisdom()} ${mirrorDiscomfort(msg)}`,
-    (msg) => `${kafkaWisdom()} ${toughLove()}`,
-    (msg) => `${aureliusWisdom()} ${realityAnchor()}`,
+    (msg) => `${shadowObservation(msg)}`,
+    (msg) => `${uncomfortableTruth(msg)}`,
+    (msg) => `${mirrorDiscomfort(msg)}`,
+    (msg) => `${toughLove()}`,
+    (msg) => `${realityAnchor()}`,
 
     // Existentialists — Kierkegaard, Schopenhauer
-    (msg) => `${kierkegaardWisdom()} ${shadowObservation(msg)}`,
-    (msg) => `${schopenhauerWisdom()} ${uncomfortableTruth(msg)}`,
-    (msg) => `${kierkegaardWisdom()} ${mirrorDiscomfort(msg)}`,
-    (msg) => `${schopenhauerWisdom()} ${toughLove()}`,
+    (msg) => `${shadowObservation(msg)}`,
+    (msg) => `${uncomfortableTruth(msg)}`,
+    (msg) => `${mirrorDiscomfort(msg)}`,
+    (msg) => `${toughLove()}`,
 
     // Depth psychology — Jung + Beck (shadow integration, cognitive patterns)
-    (msg) => `${jungBeckWisdom()} ${shadowObservation(msg)}`,
-    (msg) => `${jungBeckWisdom()} ${mirrorDiscomfort(msg)}`,
-    (msg) => `${uncomfortableTruth(msg)} ${jungBeckWisdom()}`,
-    (msg) =>
-      `${jungBeckWisdom()} The pattern reveals itself when you stop running.`,
+    (msg) => `${shadowObservation(msg)}`,
+    (msg) => `${mirrorDiscomfort(msg)}`,
+    (msg) => `${uncomfortableTruth(msg)}`,
+    (msg) => `The pattern reveals itself when you stop running.`,
   ],
   closers: [
     "",

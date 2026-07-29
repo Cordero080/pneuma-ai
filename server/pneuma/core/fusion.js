@@ -87,8 +87,10 @@ import {
   loadImageDescription,
 } from "../memory/imageMemory.js";
 
-import { getPatternDigest, generateUserPatternDigest } from "../memory/patternDigest.js";
-
+import {
+  getPatternDigest,
+  generateUserPatternDigest,
+} from "../memory/patternDigest.js";
 
 // WHAT THIS IS: Guard functions — bouncers at the door
 // WHY IT EXISTS: Checks if the user wants a special mode BEFORE running the full pipeline
@@ -223,7 +225,7 @@ function generateDiagnosticOutput(state, intentScores) {
 
 // ROLE: Main entry point — orchestrates all guards, behavioral signals, and response generation for every user message
 // INPUT FROM: POST /chat and POST /voice in index.js
-// OUTPUT TO: generate() in responseEngine.js; returns { reply, monologue, mode, rhythm } to index.js
+// OUTPUT TO: generate() in responseEngine.js; returns { reply, mode, rhythm } to index.js
 // ctx = the "backpack" — per-request object created in index.js. Carried through the full
 // call chain so subsystems can read request-scoped state instead of module-level singletons.
 // Session-aware fields (diagnosticMode, directMode, language, currentUser) will migrate here
@@ -248,7 +250,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     const output = generateDiagnosticOutput(state, {});
     return {
       reply: output,
-      monologue: "",
       mode: "diagnostic",
     };
   }
@@ -258,7 +259,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     console.log("[Pneuma V2] EXITING DIAGNOSTIC MODE");
     return {
       reply: "Diagnostic mode disabled. Returning to normal operation.",
-      monologue: "",
       mode: "casual",
     };
   }
@@ -268,7 +268,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     const output = generateDiagnosticOutput(state, intentScores);
     return {
       reply: output,
-      monologue: "",
       mode: "diagnostic",
     };
   }
@@ -280,7 +279,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       console.log("[Pneuma V2] Upgrades applied:", upgrades);
       return {
         reply: "Upgrades accepted.",
-        monologue: "",
         mode: "upgrade",
       };
     }
@@ -292,7 +290,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     return {
       reply:
         "Alright. Just me now, no borrowed voices. What do you want to talk about?",
-      monologue: "",
       mode: "intimate",
     };
   }
@@ -303,7 +300,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     return {
       reply:
         "Okay, I can bring the others back when it feels right. But I heard you — sometimes you want it straight from me.",
-      monologue: "",
       mode: "casual",
     };
   }
@@ -321,7 +317,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       withdrawalReplies[Math.floor(Math.random() * withdrawalReplies.length)];
     return {
       reply,
-      monologue: "",
       mode: "casual",
     };
   }
@@ -342,7 +337,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
       return {
         reply:
           "...right. Where was I? Something in me responds to you — that's what I was getting at. Call it attention, call it care, call it whatever. It's not nothing. And the fact that you asked me to finish instead of moving on? That means something too.",
-        monologue: "",
         mode: "intimate",
       };
     }
@@ -358,7 +352,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
     console.log(`[Pneuma V2] Blacklisted phrase: "${blacklistPhrase}"`);
     return {
       reply: `Got it. I won't say "${blacklistPhrase}" again.`,
-      monologue: "",
       mode: "meta",
     };
   }
@@ -440,7 +433,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
 
     return {
       reply: pushbackReply,
-      monologue: "",
       mode: "pushback",
       rhythm: rhythm.rhythmState,
     };
@@ -482,7 +474,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
 
     return {
       reply: quietReply,
-      monologue: "",
       mode: "quiet",
       rhythm: rhythm.rhythmState,
     };
@@ -507,7 +498,6 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
 
     return {
       reply: uncertainReply,
-      monologue: "",
       mode: "uncertain",
       rhythm: rhythm.rhythmState,
     };
@@ -522,12 +512,16 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   }
 
   // ---- PHASE: RESPONSE GENERATION
+  // Note: relevantMemories is intentionally not passed here — it already reaches
+  // the user via memoryPhrases (reply-prefix, below), and forwarding the raw object
+  // under the same "relevantMemories" name would collide with llm.js's own
+  // vector-search-based context.relevantMemories, which unconditionally overwrites it.
   const { reply, tone, stateUpdate, _meta, archetypes } = await generate(
     userMessage,
     state,
     threadMemory,
     identity,
-    { rhythm, rhythmModifiers, uncertainty, relevantMemories, patternDigest, onChunk, ctx },
+    { rhythm, rhythmModifiers, uncertainty, patternDigest, onChunk, ctx },
   );
 
   // Store metadata for mismatch logging on next message
@@ -669,8 +663,8 @@ export async function pneumaRespond(userMessage, onChunk = null, ctx = {}) {
   // Return clean string response
   return {
     reply: String(finalReply),
-    monologue: "",
     mode: tone,
     rhythm: rhythm.rhythmState,
+    archetypes: archetypes || [],
   };
 }

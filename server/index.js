@@ -256,11 +256,17 @@ app.post("/chat", imageUpload.single("image"), async (req, res) => {
       }
     };
 
-    const { reply, mode } = await pneumaRespond(
+    const { reply, mode, archetypes } = await pneumaRespond(
       message,
       onChunk,
       requestContext,
     );
+
+    // Momentum: recently-used archetypes trend upward, decay if unused.
+    // Was imported but never called — momentum never moved after a real exchange.
+    if (archetypes && archetypes.length > 0) {
+      boostActiveArchetypes(archetypes);
+    }
 
     // If nothing was streamed (LLM down, guard response, fallback), send the reply as a single chunk
     if (!chunked && reply) {
@@ -380,6 +386,10 @@ app.post("/voice", async (req, res) => {
     diagnosticMode: false,
     directMode: false,
     lastUsedArchetypes: [],
+    // voiceEmotions/archetypeBoosts get filled in below once transcription/emotion
+    // analysis runs — not consumed downstream yet, but no longer silently discarded.
+    voiceEmotions: null,
+    archetypeBoosts: null,
   };
   try {
     const audioBuffer = req.body;
@@ -417,17 +427,23 @@ app.post("/voice", async (req, res) => {
         .join(", ") || "neutral",
     );
 
-    // 4. Send to Pneuma with emotion context
-    const { reply, monologue, mode } = await pneumaRespond(
+    // 4. Send to Pneuma. onChunk is null (this route returns one JSON response,
+    // not a stream) — emotion data goes on requestContext (ctx), not the onChunk
+    // slot, which is what pneumaRespond's second parameter actually is.
+    requestContext.voiceEmotions = combinedEmotions;
+    requestContext.archetypeBoosts = archetypeBoosts;
+    requestContext.inputType = "voice";
+    requestContext.currentLanguage = transcription.language || "en";
+
+    const { reply, mode, archetypes } = await pneumaRespond(
       transcription.text,
-      {
-        emotions: combinedEmotions,
-        archetypeBoosts,
-        inputType: "voice",
-        language: transcription.language,
-      },
+      null,
       requestContext,
     );
+
+    if (archetypes && archetypes.length > 0) {
+      boostActiveArchetypes(archetypes);
+    }
 
     // Map mode to engine for frontend visualization
     const modeToEngine = {

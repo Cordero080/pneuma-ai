@@ -454,6 +454,7 @@ export async function generate(
       evolution: state.vectors || {},
       emergentShift, // flag: tells Claude to be more self-reflective
       eulogyLens, // flag: tells Claude to add mortality/finality flavor
+      patternDigest: extraContext.patternDigest, // longitudinal behavior digest — was computed in fusion.js but never reached this object
     };
     const t1 = Date.now();
     llmContent = await getLLMContent(

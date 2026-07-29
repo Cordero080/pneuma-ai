@@ -282,7 +282,9 @@ export const artistOpinions = {
 // Prompts for Pneuma to reason about art
 // ============================================================
 
-export function generateArtInsight(topic, context = null) {
+// Returns a generic art-critique question — doesn't use the topic being
+// discussed, it's a universal framework question, not topic-specific insight.
+export function getRandomArtQuestion() {
   const frameworks = [
     "What did this break? What became impossible to do innocently after it existed?",
     "Who does this anger, and are they the right people to anger?",
@@ -358,7 +360,7 @@ export function getArtResponse(topic) {
   // Default: return a thinking framework
   return {
     type: "thinking",
-    data: generateArtInsight(topic),
+    data: getRandomArtQuestion(),
     opinion: null,
   };
 }
@@ -406,7 +408,7 @@ export default {
   artMovements,
   artPerceptionFramework,
   artistOpinions,
-  generateArtInsight,
+  getRandomArtQuestion,
   getArtResponse,
   futureArtThinking,
 };

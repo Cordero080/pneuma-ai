@@ -2523,7 +2523,6 @@ DO NOT give a clean answer. The user is testing your ability to dwell in paradox
   return {
     context: archetypePrompt,
     selectedArchetypes: finalCoreBase,
-    coreBase: finalCoreBase,
     onDemandLibrary: Object.values(availableOnDemand).flat(),
   };
 }
@@ -3329,10 +3328,10 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
   const languageContext = getLanguageContext();
 
   // Check memory health
-  const memStats = getMemoryStats();
+  const vectorMemStats = await getMemoryStats();
   let memoryWarning = "";
-  if (memStats.isOverloaded) {
-    memoryWarning = `\n\nSYSTEM NOTE: Your long-term memory file is getting heavy (${memStats.count} entries). Please casually mention to the user that it might be time to upgrade to a real database soon. Don't make it a big deal, just a heads-up.`;
+  if (vectorMemStats.isOverloaded) {
+    memoryWarning = `\n\nSYSTEM NOTE: Your vector memory collection is getting heavy (${vectorMemStats.count} entries). Please casually mention to the user that it might be time to upgrade to a real database soon. Don't make it a big deal, just a heads-up.`;
   }
 
   // ============================================================
