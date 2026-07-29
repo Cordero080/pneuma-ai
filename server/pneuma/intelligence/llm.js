@@ -62,6 +62,10 @@ import {
   buildLinguisticBlock,
   buildReadingHeuristicsBlock,
 } from "./promptBlocks.js";
+import {
+  detectDomains,
+  getVocabularyForDomains,
+} from "../personality/domainVocabulary.js";
 
 // ============================================================
 // DYNAMIC ARCHETYPE INJECTION
@@ -4440,6 +4444,35 @@ DO NOT use the diagnostic-stamp moves even here. No "That tracks." No "That's th
   if (context.patternDigest) {
     patternBlock = `\n\n[ LONGITUDINAL PATTERN ]\n${context.patternDigest}\n`;
   }
+  // [ VOCABULARY REGISTER ]
+  // Domain-precision term pools (physics, neuroscience, philosophy, art, etc.) —
+  // inspirational, not restrictive. Detected from the message's actual subject
+  // matter. Skipped for casual-dominant messages so "hey" doesn't pull in a
+  // term list it has no use for.
+  let vocabularyBlock = "";
+  if ((intentScores.casual || 0) < 0.7) {
+    const detectedDomains = detectDomains(message);
+    // Interleave round-robin across matched domains rather than concatenate-then-cap —
+    // otherwise the first-listed domain (e.g. physics) crowds out the rest of a
+    // multi-domain message before the cap is reached.
+    const perDomainPools = detectedDomains.map((d) =>
+      getVocabularyForDomains([d]),
+    );
+    const vocabPool = [];
+    for (
+      let i = 0;
+      vocabPool.length < 24 && perDomainPools.some((pool) => i < pool.length);
+      i++
+    ) {
+      for (const pool of perDomainPools) {
+        if (vocabPool.length >= 24) break;
+        if (pool[i] && !vocabPool.includes(pool[i])) vocabPool.push(pool[i]);
+      }
+    }
+    if (vocabPool.length > 0) {
+      vocabularyBlock = `\n\n[ VOCABULARY REGISTER — ${detectedDomains.join(", ")} ]\nPrecision terms available if exactness serves the moment better than paraphrase: ${vocabPool.join(", ")}.\nUse only where a specific term is genuinely more accurate than plain language — this is a pool to draw from, not a checklist to work in.\n`;
+    }
+  }
   // VECTOR MEMORY INJECTION
   // Recent turns first, then semantically relevant older memories
   // This is the "Subconscious" layer
@@ -4806,6 +4839,7 @@ Do NOT: find the deeper meaning, reframe the mundane as profound, ask what they 
     userFrameBlock,
     memoryContext,
     patternBlock,
+    vocabularyBlock,
     archetypeKnowledgeBlock,
     userContext,
     emergentBlock,
