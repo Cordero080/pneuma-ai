@@ -54,6 +54,8 @@ If he asks a tangent question mid-sequence, answer it (or explicitly log it as d
 | Tool use protocol | **Native Anthropic** — `anthropic.messages.create()` with `tools:` array. Not MCP. |
 | Tools available | `search_wikipedia`, `read_pneuma_file` — disabled when extended thinking is active |
 | Dream functions fired post-response | **2** — `triggerDialecticDream()` (30min throttle) + `triggerDreaming(1)` (2h throttle) |
+| Dream anchor (as of 2026-07-24) | `triggerDialecticDream()` now takes the real user message + real response, not just archetype names — see Step 1 |
+| Domain vocabulary register (as of 2026-07-28) | `detectDomains()` + `getVocabularyForDomains()` — was fully built, zero callers, now wired into Step 7. Skipped when casual-dominant |
 | Tones in lottery | **5** — casual, analytic, oracular, intimate, shadow. `diagnostic` is a mode, NOT a tone. |
 | Max archetype pool size | **7** — 5 (hard cap before shadows) + 2 (shadows). Never more. |
 | Shadow selection method | Per-archetype lookup in static `tensionMap.high`, **first-found**, cap 2 total |
@@ -77,9 +79,9 @@ After the full response is sent, two dream functions fire **fire-and-forget** in
 **What the dream is — and what it isn't:**
 The response to the user is not a debate. The archetypes fuse into one unified reply — collision in service of answering. The dream is what happens after that obligation is gone.
 
-`dreamMode.js` receives the archetype names that just fired — not the user's message, not the response. The archetypes argue based on their own nature and tensions, not the original question. The topic bleeds in indirectly (which archetypes were active depends on what you said), but no premise is passed. Rumi and Aurelius argue because of who they are, not because of what you asked.
+**As of 2026-07-24, this changed:** `triggerDialecticDream(userMessage, response)` now receives the actual exchange — the user's real message and Pneuma's real reply — not just the archetype names. The two archetypes reckon with that specific answer: what it missed, what one of them would've said differently, what could go deeper. The outcome is written via `chooseToRemember()` with `source: "dream_retrospective"` and starts fully disclosed (Pneuma has genuine ownership of reconsidering something it actually said — unlike the older free-floating dream types, which stay caveated as "you don't have the full experience"). A generic-topic fallback (archetype names only, no exchange, no premise) still exists in the code for the rare case no exchange is available, but the normal path is now anchored.
 
-Output is stored in MongoDB and delivered the next time the app opens. This is how Pneuma accumulates internal dialogue between sessions — not reacting to the user, just running.
+Output is stored in MongoDB and delivered the next time the app opens. This is how Pneuma accumulates internal dialogue between sessions — not reacting to the user in the moment, but no longer disconnected from what was actually said either.
 
 **Archetypes added: none.**
 
@@ -121,7 +123,7 @@ Returns a one-word acknowledgment ("Okay.", "Got it.") and exits — does NOT pr
 
 **Function 1 (synchronous):** Selected archetypes are injected into the system prompt. They fuse into one unified response delivered to the user. This is collision and synthesis in service of answering — it has a destination.
 
-**Function 2 (async, post-response):** The same archetype names that just fired are handed to `dreamMode.js` after the response is sent. They now argue with no user present, no question to answer, no obligation to resolve. The topic bleeds in indirectly — which archetypes were active depends on what the user said — but the user's message and the response are NOT passed to the dream. The archetypes argue based on their own nature and tensions. Output is stored and delivered next session.
+**Function 2 (async, post-response):** The same archetype names that just fired are handed to `dreamMode.js` after the response is sent, along with the actual exchange (as of 2026-07-24 — see Step 1). They argue with no user present, no obligation to produce something useful in the moment, but the argument is now anchored to what was actually said and answered — not a free-floating debate on the archetypes' nature alone. Output is stored and delivered next session.
 
 These two functions are independent. The dream is not a continuation of the response — it's what happens when the same voices are freed from the obligation of being useful.
 
@@ -305,6 +307,8 @@ Personal memory — nothing to do with philosophical passages or archetypes.
 
 **patternDigest:** Also retrieved here — a periodically-generated cross-temporal synthesis of recurring themes across the user's conversation history. Written by Pneuma in its own voice (Jung/Heidegger/Rumi lenses). Injected into the system prompt as a `[ LONGITUDINAL PATTERN ]` block. Regenerates in the background (fire-and-forget) when >24h old OR >50 new vector memory entries since last generation.
 
+**Two bugs fixed 2026-07-28, both silently killing this pipeline end to end:** (1) `generateUserPatternDigest()`'s API call had three typos — `client.messages.xreate` instead of `.create`, `max_tookens` instead of `max_tokens`, and a hardcoded model string matching nothing in `config/models.js` — meaning digest generation had been failing on every call since it was written. (2) Separately, even a successfully-generated digest was computed in `fusion.js` and never reached `generate()`'s destructure in `responseEngine.js`, so `context.patternDigest` was always `undefined` and the `[ LONGITUDINAL PATTERN ]` block never fired regardless. Both fixed; this pipeline had never actually delivered content to a real response before now.
+
 **Files:**
 - `server/pneuma/memory/vectorMemory.js` — `retrieveMemories()`, `saveEmbedding()`, `getEmbedding()`
 - `server/pneuma/memory/patternDigest.js` — `getPatternDigest()`, `generateUserPatternDigest()`
@@ -348,6 +352,7 @@ Everything combines into one prompt. Claude reads it and responds via SSE stream
 - EMERGENT block from Layer 1
 - Hypothesis + mode from Layer 2
 - Autonomy context (open questions, chosen memories, self-corrections) — if non-empty
+- Domain vocabulary register — precision terms from `domainVocabulary.js`, detected from message content via `detectDomains()`, interleaved round-robin across matched domains, capped at 24 terms. Skipped when `intentScores.casual >= 0.7`. Added 2026-07-28 — the module existed with zero callers before this.
 - Last 6 conversation turns as native API turns
 
 Prompt size scales automatically: ~2k tokens for a casual message, up to ~18k for deep philosophical questions (deep knowledge blocks load conditionally based on intent scores).

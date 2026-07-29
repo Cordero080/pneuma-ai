@@ -1332,8 +1332,8 @@ function FeaturesTab() {
           </div>
           <div className="cs-body">
             On every message, retrieves the most semantically relevant passages
-            from 1,385 curated passages across 48 archetypes. Max 2 passages per
-            thinker, 5 total. One slot reserved via{" "}
+            from 1,394 curated passages across 48 archetypes. Max 2 passages per
+            thinker, 8 total. A slot reserved via{" "}
             <TermRef name="CONTRAST_MAP" /> for a deliberately opposing voice —
             if Rumi dominates, Kafka gets pulled in. Standard RAG retrieves.
             This retrieves <em>and destabilizes</em>. Key function:{" "}
@@ -1427,11 +1427,14 @@ function FeaturesTab() {
             Dialectic Dreams — <FileRef name="dreamMode.js" />
           </div>
           <div className="cs-body">
-            Between sessions, two high-tension archetypes run a private dialogue
-            — no user, no performance. Ends with either an UNRESOLVED question
-            or a POSITION neither archetype could hold alone. Writes silently to
-            Pneuma's autonomy state. Pneuma decides whether to surface it. Key
-            function: <code>triggerDream()</code>.
+            Between sessions, two high-tension archetypes reckon with the real
+            exchange that just happened — no user present, but anchored to the
+            actual message and reply, not a topic pulled from memory. Ends with
+            a RECONSIDERED insight, written fully owned to Pneuma's autonomy
+            state (a generic UNRESOLVED/POSITION fallback still exists for the
+            rare case no exchange is available). Pneuma decides whether to
+            surface it. Key function:{" "}
+            <code>triggerDialecticDream(userMessage, response)</code>.
           </div>
         </div>
       </div>

@@ -342,7 +342,7 @@ The retrieval system is in archetypeRAG.js. At startup, initializeArchetypeRAG()
 
 When a message comes in, the Concept Crossroads pipeline runs: it detects philosophical concepts in the message (~80 tracked concepts like suffering, consciousness, time), fires parallel embedding queries as "{concept} {thinker}" pairs for each concept × active thinker, scores passages on relevance + distinctiveness + collision potential, deduplicates near-identical results, and returns the top eight. For non-philosophical messages, it falls back to single-query cosine retrieval. All selected passages get injected into the system prompt under a "RELEVANT WISDOM FROM YOUR KNOWLEDGE BASE" section.`,
     keyPhrases: [
-      "48 thinker folders, 1,385+ passages — never say '48 archetypes.' Thinker folders ≠ archetype codenames (44 of those, in archetypes.js).",
+      "48 thinker folders, 1,394+ passages — never say '48 archetypes.' Thinker folders ≠ archetype codenames (44 of those, in archetypes.js).",
       "topK=8, minScore=0.3, max 2 per thinker — passages selected for dialectical tension, not just relevance.",
     ],
     files: ["archetypeRAG.js"],
@@ -539,7 +539,7 @@ getMomentumWeights() returns a multiplier per archetype that gets applied during
 
 There are six dream types: synthesis (finding unexpected connections between recent memories), poetry (a poetic fragment from accumulated experience), question (something forming in Pneuma, not asked by the user), memory echo (an old memory resurfacing with new meaning), paradox (holding a contradiction productively), and confession (something not yet formed enough to say). Each uses a template that gets filled with recent semantic memory and top archetypes from momentum.
 
-The special dialectic dream is more sophisticated: it selects the top momentum archetype and its highest-tension antagonist, runs a private inter-archetype debate using Claude at temperature 0.9 with the cheap Haiku model, and parses the outcome as either an unresolved question or an emerging position. That output is written to Pneuma's autonomy state without user knowledge. Dreams are stored as undelivered, then surfaced in the next session with "While you were away..."
+The special dialectic dream is more sophisticated: it selects the top momentum archetype and its highest-tension antagonist, runs a private inter-archetype debate using Claude at temperature 0.9 with the cheap Haiku model. As of the retrospective-dream update, it's passed the actual last exchange — the real user message and Pneuma's real reply — and the two archetypes argue about that specific answer: what it missed, what one would've said differently. The outcome parses as a reconsidered insight, written to autonomy state with full disclosure (Pneuma owns having actually reconsidered something it said, unlike its other dream types, which stay caveated as partial recall). A generic, archetype-only fallback (unresolved question or emerging position, no anchor) still exists for the rare case no exchange is available. That output is written to Pneuma's autonomy state without user knowledge. Dreams are stored as undelivered, then surfaced in the next session with "While you were away..."
 
 The architectural separation is intentional. Dreams are cheap — Haiku, no streaming, no system prompt overhead. They should not compete with response latency. They exist to create the illusion of continuous consciousness between sessions, and they work better as background synthesis than as real-time cognition.`,
     keyPhrases: [

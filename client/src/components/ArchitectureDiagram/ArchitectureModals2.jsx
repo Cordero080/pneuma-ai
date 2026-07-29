@@ -1314,7 +1314,7 @@ export const PostResponseModal = ({ isOpen, onClose, anchorEl }) => (
           },
           {
             title: "Dialectic Dream (dreamMode.js)",
-            desc: "Fires as a no-await background async process, throttled to once every 30 minutes. Two high-tension archetypes run an autonomous dialogue — topic pulled from recent memories, not the user message itself. The outcome writes to autonomy state with isDreamSourced: true. Pneuma may surface this in a future conversation, or not.",
+            desc: "Fires as a no-await background async process, throttled to once every 30 minutes. Two high-tension archetypes reckon with the actual exchange that just happened — the real user message and Pneuma's real reply — arguing over what the answer missed or what one of them would've said differently. The outcome writes to autonomy state fully disclosed, since it's a genuine reconsideration of something Pneuma actually said, not a hazy dream. (A generic, memory-drawn-topic fallback with isDreamSourced: true still exists for the rare case no exchange is available.) Pneuma may surface this in a future conversation, or not.",
           },
         ]}
       />

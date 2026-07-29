@@ -112,7 +112,7 @@ export const TERM_REGISTRY = {
   "dream mode": {
     what: "A background process that runs between sessions — Pneuma 'thinks' while you're away. Two behaviors: creative dream generation (synthesis, poetry, questions) and private dialectic dialogue between archetypes.",
     inPneuma:
-      "triggerDreaming() generates one dream after each chat. triggerDialecticDream() picks two archetypes in high tension and runs a private debate — the outcome is written silently to autonomy state. A third behavior now: triggerBaselineEvolution() scans vector memories weekly and drifts the resting state.",
+      "triggerDreaming() generates one dream after each chat. triggerDialecticDream() picks two archetypes in high tension and has them reckon with the actual exchange that just happened — not a topic pulled from memory — the outcome is written to autonomy state, fully owned since it's a real reconsideration of something Pneuma actually said. A third behavior now: triggerBaselineEvolution() scans vector memories weekly and drifts the resting state.",
   },
   "casual emergence": {
     what: "The behavior where a thinker from the full archetype library surfaces a brief, specific observation inside an ordinary conversation — without turning it into a lecture or derailing the exchange.",

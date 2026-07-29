@@ -39,7 +39,7 @@ export const GLOSSARY = [
     plain:
       "Before the LLM generates a response, you search your own knowledge base, grab the most relevant passages, and paste them into the prompt.",
     example:
-      "Pneuma retrieves 5 passages from its 1,385-passage archetype knowledge base and injects them into the system prompt. The LLM then responds anchored to those exact quotes.",
+      "Pneuma retrieves 8 passages from its 1,394-passage archetype knowledge base and injects them into the system prompt. The LLM then responds anchored to those exact quotes.",
   },
   {
     term: "Deterministic",

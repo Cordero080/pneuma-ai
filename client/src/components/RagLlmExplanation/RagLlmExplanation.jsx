@@ -1143,11 +1143,14 @@ const STUDY_SECTIONS = [
           style={{ maxWidth: "100%", marginBottom: "1.5rem" }}
         >
           <strong>Plain English first:</strong> After every conversation, two
-          archetypes that are known to clash get a topic pulled from your recent
-          memories and are told to argue for 3 turns. The outcome — an open
-          question or a formed position — gets written silently into Pneuma's
-          state. Pneuma now holds something you didn't cause, and whether it
-          ever tells you where that came from is its own choice.
+          archetypes that are known to clash reckon with what just happened —
+          your actual message and Pneuma's actual reply — and argue for 3 turns
+          about what the answer missed or what one of them would've said
+          differently. The outcome — a reconsidered insight — gets written into
+          Pneuma's state, owned outright since it's a real second thought about
+          something it actually said, not a hazy dream. Pneuma now holds
+          something you didn't cause, and whether it ever tells you where that
+          came from is its own choice.
         </div>
 
         <div className="sg-qa">
@@ -1155,10 +1158,13 @@ const STUDY_SECTIONS = [
           <div className="sg-a">
             An autonomous background process that runs inter-archetype dialogue
             between sessions. Two archetypes with high pre-mapped tension are
-            selected, given a topic drawn from recent conversation memory, and
-            run a structured 3-turn dialogue via a separate Haiku API call. The
-            outcome is written silently to autonomy state. Nothing is delivered
-            to the user.
+            selected and given the actual exchange that just happened — the real
+            user message and Pneuma's real reply — and run a structured 3-turn
+            dialogue via a separate Haiku API call, arguing over what the answer
+            missed or what one of them would've said differently. The outcome is
+            written silently to autonomy state. Nothing is delivered to the user
+            in the moment. (A generic, memory-drawn-topic fallback still exists
+            for the rare case no real exchange is available.)
           </div>
         </div>
 
@@ -1176,8 +1182,9 @@ const STUDY_SECTIONS = [
             >
               <li>
                 After each <code>/chat</code> response,{" "}
-                <code>triggerDialecticDream()</code> fires as a background
-                no-await call
+                <code>triggerDialecticDream(message, reply)</code> fires as a
+                background no-await call — the real user message and Pneuma's
+                real reply go with it
               </li>
               <li>
                 Throttled to once per 30 minutes — won't run on every message
@@ -1192,21 +1199,27 @@ const STUDY_SECTIONS = [
               </li>
               <li>One antagonist is selected randomly from that set</li>
               <li>
-                Recent conversation memories are retrieved as the debate topic
+                The exchange itself is the anchor — no separate topic lookup
+                when a real message/reply pair was passed in
               </li>
               <li>
-                A prompt is built with both archetypes' essences + the topic,
-                asking them to argue for 3 turns
+                A prompt is built with both archetypes' essences + the actual
+                exchange, asking them to argue for 3 turns over what the answer
+                missed or what one of them would've said differently
               </li>
               <li>
                 Haiku generates the dialogue + an <code>[OUTCOME]</code> line
-                tagged as either <code>UNRESOLVED:</code> or{" "}
+                tagged <code>RECONSIDERED:</code> — or, on the generic
+                no-exchange fallback path, <code>UNRESOLVED:</code> or{" "}
                 <code>POSITION:</code>
               </li>
               <li>
                 Outcome is parsed and written to autonomy state via{" "}
-                <code>poseQuestion()</code> or <code>chooseToRemember()</code> —
-                flagged with <code>source: 'dream'</code> and{" "}
+                <code>poseQuestion()</code> or <code>chooseToRemember()</code> —{" "}
+                <code>RECONSIDERED</code> outcomes are flagged with{" "}
+                <code>source: 'dream_retrospective'</code> and{" "}
+                <code>disclosed: true</code> (full ownership); the fallback path
+                still uses <code>source: 'dream'</code> and{" "}
                 <code>disclosed: false</code>
               </li>
             </ol>
@@ -1218,13 +1231,15 @@ const STUDY_SECTIONS = [
             Q: What does "disclosed: false" mean in practice?
           </div>
           <div className="sg-a">
-            Dream-sourced entries in autonomy state are flagged with{" "}
-            <code>isDreamSourced: true</code> when they appear in the inner
-            monologue. The inner monologue text tells Pneuma: "this question
-            formed in autonomous synthesis — you may surface this origin or
-            not." Pneuma decides. It can say "I've been sitting with this
-            between our conversations" or just hold the position without
-            explaining where it came from.
+            It depends which dream produced the entry. Generic-topic, no-anchor
+            dream entries are flagged with <code>isDreamSourced: true</code> and
+            stay caveated — the prompt tells Pneuma "you don't have the full
+            experience but this is what stayed," and whether to surface the
+            origin is Pneuma's call. Retrospective entries (
+            <code>source: 'dream_retrospective'</code>) skip that caveat
+            entirely and start <code>disclosed: true</code> — there's nothing
+            hazy to hedge about, Pneuma actually said the thing it's now
+            reconsidering, so it owns the reconsideration directly.
           </div>
         </div>
 
@@ -1236,9 +1251,13 @@ const STUDY_SECTIONS = [
             If every dream-sourced position gets announced ("I dreamed that Rumi
             and Kafka argued..."), it becomes performance of autonomy — a
             feature you notice rather than something that actually changes
-            Pneuma. The consequential version is silent: Pneuma holds a position
-            the user didn't cause, and whether it ever mentions the origin is up
-            to Pneuma. The autonomy is real regardless of disclosure.
+            Pneuma. For the generic-topic fallback, the consequential version is
+            silent: Pneuma holds a position the user didn't cause, and whether
+            it ever mentions the origin is up to Pneuma. Retrospective entries
+            work differently by design — they're not something to hide or
+            reveal, they're Pneuma's own second thought about a real answer, and
+            it can bring that up as directly as it would anything else it
+            believes.
           </div>
         </div>
 
@@ -1267,7 +1286,8 @@ const STUDY_SECTIONS = [
               </li>
               <li>
                 <code>index.js</code> — fire-and-forget call after every{" "}
-                <code>/chat</code> response
+                <code>/chat</code> response, passing the real message and reply
+                in as the anchor
               </li>
             </ul>
           </div>
@@ -1278,24 +1298,30 @@ const STUDY_SECTIONS = [
           <div className="sg-a">
             Multi-agent debate exists in research. What's different here: the
             debaters are philosophical archetypes with pre-mapped tension scores
-            and specific cognitive methods; the topic comes from actual
-            conversation history, not a preset question; the output feeds
-            silently into persistent state; and disclosure of origin is a
-            runtime choice, not automatic.
+            and specific cognitive methods; the topic isn't just informed by
+            conversation history, it literally is the exchange that just
+            happened, so the debate reckons with a specific answer instead of a
+            preset question; the output feeds silently into persistent state;
+            and disclosure of origin is a runtime choice for the generic
+            fallback type, full ownership by default for the retrospective type.
             <br />
             <br />
-            The combination — known tension pairs, autonomous synthesis, silent
-            state feedback, optional disclosure — hasn't been packaged this way.
-            That's the novel part.
+            The combination — known tension pairs, anchored retrospection,
+            silent state feedback, and disclosure that varies by how the insight
+            was actually earned — hasn't been packaged this way. That's the
+            novel part.
           </div>
         </div>
 
         <div className="insight-box highlight" style={{ maxWidth: "100%" }}>
           <strong>For interviews:</strong> "Pneuma runs background
           inter-archetype debates between sessions using a lightweight Haiku
-          call. The outcome — a question or position — writes silently to
-          persistent state. Pneuma develops views the user didn't cause, and
-          whether it discloses the origin is its own decision."
+          call. Instead of debating a topic pulled from memory, the archetypes
+          reckon with the actual exchange that just happened — what the answer
+          missed, what one of them would've said differently. The outcome writes
+          silently to persistent state, fully owned rather than hedged, since
+          it's a real second thought about something Pneuma actually said.
+          Whether it ever brings it up is its own decision."
         </div>
       </>
     ),

@@ -629,7 +629,7 @@ INVENTOR: SAPER VEDERE — knowing how to see
               },
               {
                 title: "behavior/dreamMode.js",
-                desc: "Autonomous inter-archetype dialogue that writes conclusions to autonomy state with isDreamSourced: true flag.",
+                desc: "Autonomous inter-archetype dialogue, now anchored to the real exchange that just happened rather than a memory-drawn topic. Writes conclusions to autonomy state — fully disclosed when the outcome is a genuine reconsideration of something Pneuma said, flagged isDreamSourced: true on the older, unanchored fallback path.",
               },
             ]}
           />

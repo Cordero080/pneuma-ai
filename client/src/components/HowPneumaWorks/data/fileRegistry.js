@@ -129,11 +129,11 @@ export const FILE_REGISTRY = {
   "dreamMode.js": {
     path: "server/pneuma/behavior/dreamMode.js",
     role: "Runs autonomous inter-archetype dialogue between sessions.",
-    mainFunction: "triggerDream(archetypes, autonomyState)",
+    mainFunction: "triggerDialecticDream(userMessage, response)",
     whatItDoes:
-      "Selects two high-tension archetypes and runs a private dialogue between them — no user present. The exchange ends with either an UNRESOLVED question or a POSITION neither archetype could hold alone. Writes the outcome silently to Pneuma's autonomy state.",
+      "Selects two high-tension archetypes and has them reckon with the actual exchange that just happened — no user present, but the real message and reply are the anchor. The exchange ends with a RECONSIDERED insight, written fully owned to Pneuma's autonomy state. A generic fallback (UNRESOLVED question or POSITION, no anchor) still exists for the rare case no exchange is available.",
     flowChain:
-      "POST /chat response complete → fire-and-forget triggerDream() → dialogue runs async → result written to autonomy state → available next session",
+      "POST /chat response complete → fire-and-forget triggerDialecticDream(message, reply) → dialogue runs async → result written to autonomy state → available next session",
     direction: "RESPONSE (fire-and-forget)",
     directionNote:
       "Fires after a response is sent, runs in the background. User never sees it unless Pneuma chooses to surface it.",
