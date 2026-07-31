@@ -2054,9 +2054,11 @@ async function buildArchetypeContext(
   // Trickster (Carlin/Hicks/Pryor) punches at IDEAS not people — sardonic precision,
   // not flattery. Fires independently of tone so it reaches serious conversations.
   if (!coreBase.includes("trickster") && message) {
+    // intentScores.analytical was checked here too — same dead key as the
+    // old _tier2_math bug. Fixed 2026-07-30: reuse _isMathRequest(message).
     const isPhilosophicalOrAnalytic =
       intentScores.philosophical > 0.4 ||
-      intentScores.analytical > 0.4 ||
+      _isMathRequest(message) ||
       intentScores.numinous > 0.35;
     if (isPhilosophicalOrAnalytic && Math.random() < 0.12) {
       coreBase.push("trickster");

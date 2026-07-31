@@ -370,13 +370,13 @@ Prompt size scales automatically: ~2k tokens for a casual message, up to ~18k fo
 | `_tier2_jesus` | Kingdom ethics, Sermon on the Mount | `numinous > 0.3` |
 | `_tier2_heidegger` | Existentialism, authenticity | `philosophical > 0.35` |
 | `_tier2_creative` | Brainstorm/naming/creative-mode instructions | `_isCreativeRequest(message)` — regex, not an intent score |
-| `_tier2_math` | Technical/math capabilities | `intentScores.analytical > 0.25` — **dead code, see below** |
+| `_tier2_math` | Technical/math capabilities | `_isMathRequest(message)` — regex/keyword, not an intent score (fixed 2026-07-30, see below) |
 | `_tier2_linguistic` | Etymology, wordplay, register | `_isCreativeRequest(message) OR art > 0.25` |
 | `_tier2_readingHeuristics` | Reading emotional subtext | `emotional > 0.25` |
 | `_tier2_selfKnowledge` | Pneuma's own architecture, self-referentially | Regex match on "your architecture," "how do you work," etc. Fires regardless of tone. |
 | `_tier2_selfCorrection` | Self-correction instructions | Regex match on user frustration ("you're wrong," "wtf," etc). Fires regardless of tone. |
 
-**`_tier2_math` is broken — verified 2026-07-30.** Its trigger checks `intentScores.analytical`. No scoring function in the codebase produces an `analytical` key — not the 10-dimension LLM scorer (`casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion, paradox, art`), not the regex fallback (`detectIntent()` in `responseEngine.js`, same 9 minus paradox). The field is always `undefined`, `(undefined || 0) > 0.25` is always false. This block cannot fire. Not yet fixed — flagging only.
+**`_tier2_math` was broken — found and fixed 2026-07-30.** Its trigger checked `intentScores.analytical`. No scoring function in the codebase produces an `analytical` key — not the 10-dimension LLM scorer (`casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion, paradox, art`), not the regex fallback (`detectIntent()` in `responseEngine.js`, same 9 minus paradox). The field was always `undefined`, `(undefined || 0) > 0.25` was always false — this block could never fire, permanently. Fixed by adding `_isMathRequest(message)` to `promptBlocks.js` — a keyword/regex trigger (calculate, derivative, equation, solve for, physics problem, a bare numeric expression like `47 * 89`, etc.), the same pattern already used for `_isCreativeRequest`. No intent dimension maps cleanly to "math," so a message-level check made more sense than inventing an 11th scored dimension. Verified live: `[LLM] Tier 2 blocks loaded: math` now actually appears in the server log on a real math question.
 
 **The "Beck" trap — same name, two unrelated mechanisms, different thresholds:**
 - **Archetype addition** (Step 3, Mechanism 2 Job 1): `emotional > 0.6` adds the Beck archetype (`cognitiveSage`) to the active roster — a voice in the room.

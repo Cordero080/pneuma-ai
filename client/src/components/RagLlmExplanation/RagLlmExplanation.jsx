@@ -1764,12 +1764,15 @@ const STUDY_SECTIONS = [
             Fix: 12% random chance fires <em>independently</em> of tone
             detection when
             <code>
-              intentScores.philosophical &gt; 0.4 || intentScores.analytical
-              &gt; 0.4 || intentScores.numinous &gt; 0.35
+              intentScores.philosophical &gt; 0.4 || _isMathRequest(message) ||
+              intentScores.numinous &gt; 0.35
             </code>
-            . The trickster punches at ideas, not people. If the synthesis pair
-            is already making a point, the trickster is the voice that asks
-            whether the point needed to be made at all.
+            . (The middle condition used to check{" "}
+            <code>intentScores.analytical</code> — a key nothing ever set, so
+            that branch was dead. Fixed 2026-07-30, same regex trigger built for
+            the tier-2 math block.) The trickster punches at ideas, not people.
+            If the synthesis pair is already making a point, the trickster is
+            the voice that asks whether the point needed to be made at all.
           </div>
         </div>
         <div className="sg-qa">
