@@ -59,6 +59,7 @@ import {
   _isCreativeRequest,
   buildSelfKnowledgeBlock,
   buildMathBlock,
+  _isMathRequest,
   buildLinguisticBlock,
   buildReadingHeuristicsBlock,
 } from "./promptBlocks.js";
@@ -3388,11 +3389,12 @@ async function buildSystemPrompt(message, tone, intentScores, context = {}) {
     ? buildSelfKnowledgeBlock(CORE_BASE_ARCHETYPES, CONTEXTUAL_SYNTHESIS_PAIRS)
     : "";
 
-  // Math block: analytical questions, code, physics, step-by-step problems
+  // Math block: analytical questions, code, physics, step-by-step problems.
+  // Was checking intentScores.analytical — a key no scorer produces — so
+  // this never fired. Fixed 2026-07-30: message-regex trigger, same pattern
+  // as _isCreativeRequest, since no intent dimension maps to "math."
   const _tier2_math =
-    !_isCasualDominant && (intentScores.analytical || 0) > 0.25
-      ? buildMathBlock()
-      : "";
+    !_isCasualDominant && _isMathRequest(message) ? buildMathBlock() : "";
 
   // Linguistic block: creative writing, wordplay, poetry, language questions
   const _tier2_linguistic =

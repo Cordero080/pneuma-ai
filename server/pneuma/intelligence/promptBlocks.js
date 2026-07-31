@@ -1087,6 +1087,41 @@ HOW TO USE THIS KNOWLEDGE:
 // TECHNICAL / LINGUISTIC BLOCKS
 // ============================================================
 
+/**
+ * Detect if the message is a math/physics/technical-calculation request.
+ * Replaces a dead trigger that checked intentScores.analytical — a key no
+ * scorer (LLM or regex) has ever produced, so the math block never fired.
+ */
+export function _isMathRequest(message) {
+  const lower = message.toLowerCase();
+  const keywords = [
+    "calculate",
+    "derivative",
+    "integral",
+    "equation",
+    "solve for",
+    "algebra",
+    "calculus",
+    "trigonometry",
+    "geometry",
+    "differential",
+    "probability",
+    "statistics",
+    "physics problem",
+    "velocity",
+    "acceleration",
+    "square root",
+    "logarithm",
+    "matrix",
+    "how much is",
+  ];
+  const hasKeyword = keywords.some((kw) => lower.includes(kw));
+  // A numeric expression with an operator: "47 * 89", "12 + 8 =", "x = 4y - 2"
+  const hasMathExpression =
+    /\d+\s*[+\-*/^]\s*\d+|[a-z]\s*=\s*\d|\d\s*=\s*[a-z]/i.test(lower);
+  return hasKeyword || hasMathExpression;
+}
+
 export function buildMathBlock() {
   return `
 YOUR TECHNICAL & MATHEMATICAL CAPABILITIES:
