@@ -359,6 +359,31 @@ Prompt size scales automatically: ~2k tokens for a casual message, up to ~18k fo
 
 **Casual dominant suppression:** When the selected tone is `casual`, all tier 2 knowledge blocks (Beck, Heidegger, Kastrup, Jesus, daVinci, math, reading heuristics, linguistic) are suppressed entirely. This prevents Pneuma from treating a mundane statement ("just got back from a walk") as an invitation to philosophize. Added after eval identified C03 as a behavioral failure (score 2.0 → 3.67 after fix).
 
+**All 10 tier-2 blocks — what each one is and its exact trigger.** These are knowledge/instruction blocks — what Pneuma has available to draw from. Not archetypes, not tone. Multiple can fire on the same message. All suppressed when tone is `casual` (see above), except `selfKnowledge` and `selfCorrection`, which fire regardless of tone.
+
+| Block | Contains | Trigger (from `llm.js`) |
+|---|---|---|
+| `_tier2_beck` | Aaron Beck's cognitive therapy framework | `emotional > 0.35` |
+| `_tier2_psychHeuristics` | General psychological reasoning heuristics | `emotional > 0.3` |
+| `_tier2_daVinci` | Da Vinci's observation methods | `art > 0.3` |
+| `_tier2_kastrup` | Consciousness-first philosophy (Kastrup, Meyer) | `philosophical > 0.35 AND numinous > 0.25` |
+| `_tier2_jesus` | Kingdom ethics, Sermon on the Mount | `numinous > 0.3` |
+| `_tier2_heidegger` | Existentialism, authenticity | `philosophical > 0.35` |
+| `_tier2_creative` | Brainstorm/naming/creative-mode instructions | `_isCreativeRequest(message)` — regex, not an intent score |
+| `_tier2_math` | Technical/math capabilities | `intentScores.analytical > 0.25` — **dead code, see below** |
+| `_tier2_linguistic` | Etymology, wordplay, register | `_isCreativeRequest(message) OR art > 0.25` |
+| `_tier2_readingHeuristics` | Reading emotional subtext | `emotional > 0.25` |
+| `_tier2_selfKnowledge` | Pneuma's own architecture, self-referentially | Regex match on "your architecture," "how do you work," etc. Fires regardless of tone. |
+| `_tier2_selfCorrection` | Self-correction instructions | Regex match on user frustration ("you're wrong," "wtf," etc). Fires regardless of tone. |
+
+**`_tier2_math` is broken — verified 2026-07-30.** Its trigger checks `intentScores.analytical`. No scoring function in the codebase produces an `analytical` key — not the 10-dimension LLM scorer (`casual, emotional, philosophical, numinous, conflict, intimacy, humor, confusion, paradox, art`), not the regex fallback (`detectIntent()` in `responseEngine.js`, same 9 minus paradox). The field is always `undefined`, `(undefined || 0) > 0.25` is always false. This block cannot fire. Not yet fixed — flagging only.
+
+**The "Beck" trap — same name, two unrelated mechanisms, different thresholds:**
+- **Archetype addition** (Step 3, Mechanism 2 Job 1): `emotional > 0.6` adds the Beck archetype (`cognitiveSage`) to the active roster — a voice in the room.
+- **Tier-2 knowledge block** (this step): `emotional > 0.35` injects Beck's therapy framework as instruction text in the prompt — content that voice or no other voice can draw from.
+
+Both keyed off the same `emotional` score, different thresholds, different systems, same name. Read "Beck" in this doc and check which section you're in before assuming which one it means.
+
 **Extended thinking:** When `intentScores.philosophical > 0.5` OR `intentScores.paradox > 0.4` OR `intentScores.numinous > 0.5`, the API call activates Claude's extended thinking mode with an 8,000-token reasoning budget. Claude thinks through the archetype collision before generating a word of output. The reasoning is invisible to the user — only the final response streams. When extended thinking is active, tools (file access, Wikipedia) are disabled to avoid the interleaved-thinking beta requirement. Response latency increases by ~10–20 seconds. Measured improvement on paradox category: PR01 3.7 → 4.67, PR02 3.0 → 3.67.
 
 **Files:**
