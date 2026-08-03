@@ -814,6 +814,22 @@ export const ArchetypeSelectionModal = ({ isOpen, onClose, anchorEl }) => {
 
   return final;
 }`}</ModalCodeBlock>
+          <ModalDesc style={{ marginTop: "12px" }}>
+            <strong>
+              Read the "Cap at 5" line carefully — traced end-to-end 2026-08-03.
+            </strong>{" "}
+            <code>pool</code> starts as the 5 base archetypes, then steps 2-5
+            all <code>.push()</code> onto that same array — landing at index 5
+            and beyond. <code>.slice(0, 5)</code> keeps only the first 5 entries
+            of the deduped list, and those are always the base 5, since they're
+            inserted first and nothing ever removes them. Steps 2 through 5 —
+            tone boost, every intent-driven addition, and the semantic match —
+            compute a real candidate and then lose to the cap, unconditionally,
+            on every message. Only step 6 (shadow pairing) runs after the cap
+            and actually reaches the final pool. This isn't a rare edge case;
+            it's the only outcome this code can produce, verified by running it
+            standalone with every optional addition firing at once.
+          </ModalDesc>
         </ModalSection>
 
         <ModalSection title="Cognitive Methods Architecture (Jan 2026)">

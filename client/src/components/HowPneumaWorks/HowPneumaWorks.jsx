@@ -1276,13 +1276,23 @@ function FeaturesTab() {
           <div className="cs-body">
             Not personas. Not quotes. Thinking methods — ways of seeing.
             Leonardo gives you <code>sfumato</code> (blur the edges, find the
-            gradient) as an operation, not a Leonardo quote. Selected per
-            message via embedding similarity against archetype essence
-            descriptions. Evolution vectors bias the score: if mythicDepth has
-            drifted above baseline, mystic/sufiPoet get a small additive boost
-            on top of cosine similarity — what Pneuma has become shapes who it
-            reaches for. Key function:{" "}
+            gradient) as an operation, not a Leonardo quote. A candidate is
+            computed per message via embedding similarity against archetype
+            essence descriptions, with evolution vectors biasing the score (if
+            mythicDepth has drifted above baseline, mystic/sufiPoet get a small
+            additive boost on top of cosine similarity). Key function:{" "}
             <code>findBestArchetype(message, evolutionVectors)</code>.
+            <br />
+            <br />
+            <strong>Traced end-to-end 2026-08-03:</strong> this candidate is
+            appended last into the pool-building array, after the 5 always-on
+            base archetypes and any intent-driven additions — and the pool gets
+            hard-capped to 5 right after, keeping only the first 5 entries. The
+            base 5 are always inserted first and never removed, so they always
+            occupy all 5 slots. This candidate — and every other conditional
+            addition below — is computed, logged, and then crowded out, on every
+            message, unconditionally. "What Pneuma has become shapes who it
+            reaches for" is the design intent; it isn't what currently happens.
           </div>
         </div>
       </div>

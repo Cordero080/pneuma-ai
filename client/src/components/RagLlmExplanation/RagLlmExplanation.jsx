@@ -54,9 +54,12 @@ const STUDY_SECTIONS = [
                 philosophical, numinous, art, creative dimensions (0–1)
               </li>
               <li>
-                <strong>Archetype selection</strong> — picks archetypes (up to 7
-                max: 5 base cap + 2 shadows) from 44 based on intent, tone,
-                semantic match, and shadow pairing
+                <strong>Archetype selection</strong> — up to 7 max: the same 5
+                base archetypes every time, plus up to 2 shadows. Intent, tone,
+                and semantic match all compute candidate additions, but a pool
+                cap bug (found 2026-08-03, still open) crowds all of them out
+                before the prompt is built — only shadow pairing survives the
+                cap
               </li>
               <li>
                 <strong>Shadow pairing + collision</strong> — adds high-tension
@@ -1703,53 +1706,55 @@ const STUDY_SECTIONS = [
   },
   {
     id: "topic-trickster",
-    label: "3-Layer Topic Classification + Trickster Injection",
+    label: "Deterministic Shadow Pairing + Trickster Injection",
     critical: false,
     content: () => (
       <>
         <div className="sg-qa">
           <div className="sg-q">
-            Q: What's wrong with keyword-only topic classification?
+            Q: How does Pneuma decide which archetypes collide?
           </div>
           <div className="sg-a">
-            A user says "the weight I carry" — that describes suffering, but has
-            zero matching keywords. Keyword-only classification returns null. No
-            synthesis pair fires. The contextual synthesis engine goes dark on
-            exactly the kind of message it should handle best.
-          </div>
-        </div>
-        <div className="sg-qa">
-          <div className="sg-q">Q: What is the 3-layer system?</div>
-          <div className="sg-a">
-            <strong>Layer 1 — Keywords:</strong> Fast regex scan. If "death",
-            "grief", "loss" → suffering. If "bullshit", "jargon", "overrated" →
-            pretension. Covers most cases.
-            <br />
-            <br />
-            <strong>Layer 2 — Archetype selector:</strong> If keywords miss,{" "}
-            <code>findBestArchetype()</code> embeds the message and finds the
-            closest archetype by vector similarity. The result maps through
-            <code>ARCHETYPE_PRIMARY_TOPIC</code> — a 46-entry map from archetype
-            name to synthesis topic. "The weight I carry" → closest archetype:{" "}
-            <code>russianSoul</code> → topic: <code>"suffering"</code>.<br />
-            <br />
-            <strong>Layer 3 — Intent score fallbacks:</strong> If archetype
-            selector scores below threshold, fall back to intent scores.{" "}
-            <code>philosophical &gt; 0.6</code> → consciousness.
-            <code>emotional &gt; 0.6</code> → suffering.{" "}
-            <code>numinous &gt; 0.5</code> → meaning.
+            It doesn't classify the message's topic and pick a pair to match —
+            that was the old design. Current design (since the 2026-06-04
+            "Collision Redesign"): tension is structural, not selected.
+            Whichever archetypes are already in the active pool automatically
+            get their pre-mapped high-tension counterparts pulled in as
+            "shadows," and collision detection then always fires across every
+            high/medium tension pair present — up to 4 at once. There's no
+            topic-matching step to get wrong.
           </div>
         </div>
         <div className="sg-qa">
-          <div className="sg-q">Q: What is ARCHETYPE_PRIMARY_TOPIC?</div>
+          <div className="sg-q">Q: How does shadow pairing actually work?</div>
           <div className="sg-a">
-            A hand-coded map that assigns every archetype to its primary
-            synthesis topic. It converts the archetype selector's archetype
-            result into a topic the synthesis engine can use. Without it,
-            knowing that the closest archetype is <code>russianSoul</code> tells
-            you nothing about which synthesis pairs to fire. With it:{" "}
-            <code>russianSoul</code> → <code>"suffering"</code>→ Nietzsche ×
-            Schopenhauer pair activates.
+            <code>getHighTensionPairs(archetype)</code> looks up each active
+            archetype in a static <code>tensionMap.high</code> table
+            (`archetypeDepth.js`) and returns its known high-tension
+            counterparts. Up to 2 shadows get added deterministically — first
+            found, not highest-scoring, no coin flip. If stoicEmperor is active,
+            its shadow arrives every time. This runs in{" "}
+            <code>buildArchetypeContext()</code> (`llm.js`), after the base pool
+            is assembled.
+          </div>
+        </div>
+        <div className="sg-qa">
+          <div className="sg-q">
+            Q: What replaced the old topic-classification approach?
+          </div>
+          <div className="sg-a">
+            <code>detectCollisions()</code> in <code>synthesisEngine.js</code>{" "}
+            scores every pair in the active pool (base 5 + shadows) against the
+            tension map and returns all high/medium tension pairs found — up to
+            4 — assembled into one merged "DIALECTICAL FIELD — N ACTIVE
+            COLLISIONS" block. The primary pair gets full treatment (essence,
+            synthesis directive, a live Haiku call for message-specific stance
+            conflict); secondary pairs get compact summaries. This always fires
+            — it isn't conditional on classifying the message into a topic
+            bucket first, which is what made the old 3-layer keyword →
+            archetype-embedding → intent-score fallback system (and its{" "}
+            <code>ARCHETYPE_PRIMARY_TOPIC</code> map) unnecessary. Both were
+            removed; searching the codebase for either today returns nothing.
           </div>
         </div>
         <div className="sg-qa">

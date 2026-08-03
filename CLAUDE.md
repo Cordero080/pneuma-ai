@@ -21,12 +21,14 @@ Active stretch goals live in `STRETCH_GOALS.md`.
 
 ## Pipeline Doc Sync Rule (non-negotiable)
 
-Any time `docs/pipeline/PIPELINE.md` is updated, also update these four client components in the same pass, not as an afterthought:
+Any addition or removal of anything in this project — a function, a trigger condition, a threshold, a whole feature — requires revising `docs/pipeline/PIPELINE.md` **and** these four client components, in the same pass, not as an afterthought:
 
 - `client/src/components/ArchitectureDiagram/` (including `LearningCenter/` modals)
 - `client/src/components/HowPneumaWorks/`
 - `client/src/components/InterviewPrep/`
 - `client/src/components/RagLlmExplanation/`
+
+This is not a spot-fix pass. These five things are entangled — the same mechanism gets described from multiple angles across all of them (a study reference, a plain-English explainer, interview soundbites, a Q&A deep-dive), and a change in one place has a way of making a claim in a completely different section quietly wrong. Treat every change as grounds for a full revision/audit of all five, not a search-and-replace for the one fact that obviously changed.
 
 Before editing any of them, read the file's existing structure — its sections, its Q&A format, its registries — and place the update where it actually belongs. Do not bolt content on wherever it fits mechanically. `HowPneumaWorks.jsx` in particular has its own annotation convention (see below) that must be followed, not skipped. Match each file's established format and tone; don't jumble unrelated content together.
 

@@ -203,8 +203,23 @@ export default function EvolutionVectorsModal() {
           The bias is influential but never overrides a strong semantic match —
           if a message clearly belongs to Schopenhauer, Schopenhauer wins
           regardless of drift. But when cosine scores are close, what Pneuma has
-          become determines who it reaches for. The loop is now closed: identity
-          shapes attention; attention shapes who speaks.
+          become determines who it reaches for. The loop is designed to close:
+          identity shapes attention; attention shapes who speaks.
+        </ModalDesc>
+        <ModalDesc style={{ marginTop: "12px" }}>
+          <strong>
+            Traced end-to-end 2026-08-03 — this loop doesn't actually close
+            right now.
+          </strong>{" "}
+          "Who it reaches for" is the semantic-match result from Mechanism 1,
+          and that result is appended last into
+          <code>buildArchetypeContext()</code>'s candidate list, after the 5
+          always-on base archetypes. The pool is then hard-capped to the first 5
+          entries — which are always the base 5, since they're inserted first
+          and never removed. The evolution-biased semantic match never survives
+          that cap, on any message. The bias computation itself is real and
+          correct; it just currently has no path to affect the final prompt.
+          Design intent, not current behavior.
         </ModalDesc>
         <ModalFlow
           steps={[

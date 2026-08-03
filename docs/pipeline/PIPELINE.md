@@ -53,11 +53,12 @@ If he asks a tangent question mid-sequence, answer it (or explicitly log it as d
 |---|---|
 | Tool use protocol | **Native Anthropic** — `anthropic.messages.create()` with `tools:` array. Not MCP. |
 | Tools available | `search_wikipedia`, `read_pneuma_file` — disabled when extended thinking is active |
-| Dream functions fired post-response | **2** — `triggerDialecticDream()` (30min throttle) + `triggerDreaming(1)` (2h throttle) |
+| Fire-and-forget functions post-response | **3** — `triggerDialecticDream()` (30min throttle), `triggerDreaming(1)` (2h throttle), `triggerBaselineEvolution()` (weekly throttle). Corrected 2026-08-03 — this said 2 before; `triggerBaselineEvolution()` was missing. |
 | Dream anchor (as of 2026-07-24) | `triggerDialecticDream()` now takes the real user message + real response, not just archetype names — see Step 1 |
 | Domain vocabulary register (as of 2026-07-28) | `detectDomains()` + `getVocabularyForDomains()` — was fully built, zero callers, now wired into Step 7. Skipped when casual-dominant |
 | Tones in lottery | **5** — casual, analytic, oracular, intimate, shadow. `diagnostic` is a mode, NOT a tone. |
-| Max archetype pool size | **7** — 5 (hard cap before shadows) + 2 (shadows). Never more. |
+| Max archetype pool size | **7** — but corrected 2026-08-03: it's not "5 hard cap before shadows" as a competitive slot, it's **always the same base 5** + up to 2 shadows. Tone boost, intent-driven additions, and semantic match all get crowded out of the base 5 unconditionally — see Step 3 Running Total. |
+| `_tier2_math` / Trickster `analytical` bug | Fixed 2026-07-30 — `intentScores.analytical` was checked in two places, was always `undefined` in both, both replaced with `_isMathRequest(message)` |
 | Shadow selection method | Per-archetype lookup in static `tensionMap.high`, **first-found**, cap 2 total |
 | Self-evaluation | **Yes** — Haiku scores 0–1 after every non-casual response. Below 0.6 → regenerate |
 | Extended thinking budget | 8,000 tokens thinking budget, 12,000 max_tokens total |
@@ -72,9 +73,10 @@ If he asks a tangent question mid-sequence, answer it (or explicitly log it as d
 
 Nothing happens yet.
 
-After the full response is sent, two dream functions fire **fire-and-forget** in the background:
+After the full response is sent, three functions fire **fire-and-forget** in the background (corrected 2026-08-03 — this said two before, missing the third):
 - `triggerDialecticDream()` — throttled to once per 30 min
 - `triggerDreaming(1)` — throttled to once per 2 hours
+- `triggerBaselineEvolution()` — throttled to once per week; scans vector memories and slowly drifts Pneuma's resting-state targets (see Post-response section below)
 
 **What the dream is — and what it isn't:**
 The response to the user is not a debate. The archetypes fuse into one unified reply — collision in service of answering. The dream is what happens after that obligation is gone.
@@ -142,13 +144,15 @@ These two functions are independent. The dream is not a continuation of the resp
 ---
 
 **Mechanism 1 — Semantic match:**
-Message gets converted to a vector — 1,536 numbers representing its meaning. 39 of the 44 archetypes have a pre-computed vector built from a short description of what that archetype is about (not all 44 have essences defined). The system compares your message vector against those 39 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 gets added. At most 1. Possibly zero.
+Message gets converted to a vector — 1,536 numbers representing its meaning. 39 of the 44 archetypes have a pre-computed vector built from a short description of what that archetype is about (not all 44 have essences defined). The system compares your message vector against those 39 using cosine similarity — returns a number between 0 and 1. The single highest scoring archetype above 0.7 qualifies to be added.
+
+**⚠ It computes, it qualifies, it never actually reaches the pool — confirmed 2026-08-03, see Running Total below.** The result is appended last, after everything else, into a list that gets hard-capped at 5 before anything from this mechanism is ever counted. This has been true since the pool cap was written. Nothing about this mechanism itself is broken — the crowding-out happens one step later.
 
 **Files:**
 - `server/pneuma/intelligence/archetypeSelector.js` — `findBestArchetype()`, `initializeArchetypeEmbeddings()`
 - `server/pneuma/archetypes/archetypes.js` — `archetypeEssences` (39 description vectors)
 
-**Archetypes added: 0 or 1.**
+**Archetypes added to the final pool: 0. Always 0.** (Qualifies 0 or 1 candidates before the cap discards it.)
 
 ---
 
@@ -164,11 +168,13 @@ These scores do two completely separate jobs:
 - `emotional > 0.6` → adds Beck (`cognitiveSage`)
 - `numinous > 0.3` → adds Rumi (`sufiPoet`, if not already present)
 - `paradox > 0.4` → adds Liminal Architect (`liminalArchitect`)
-- `(philosophical > 0.4 OR analytical > 0.4 OR numinous > 0.35) AND 12% random roll` → adds Trickster (`trickster`) — Carlin/Hicks/Pryor, sardonic precision
+- `(philosophical > 0.4 OR _isMathRequest(message) OR numinous > 0.35) AND 12% random roll` → adds Trickster (`trickster`) — Carlin/Hicks/Pryor, sardonic precision. (This used to check `intentScores.analytical`, a key nothing ever set — fixed 2026-07-30, replaced with a message-regex check, same pattern as the math tier-2 block below.)
 
-Could add several. All additions happen to `coreBase` before the pool is capped.
+Could add several. All additions get `.push()`ed onto the same `coreBase` array the base 5 already occupy.
 
-**Archetypes added: 1 or more (before cap — see Running Total below).**
+**⚠ None of these survive the cap either — confirmed 2026-08-03, see Running Total below.** Same mechanism as Mechanism 1: appended after the base 5, discarded by `.slice(0, 5)` before the function returns. This is true for all five bullets above, unconditionally, whether one fires or all five fire at once.
+
+**Archetypes added to the final pool: 0. Always 0.** (Pushes 1+ candidates onto `coreBase` before the cap discards them.)
 
 **Job 2 — Tone selection + bonus archetype:**
 
@@ -184,7 +190,9 @@ Tone selection also has a **30% chance** to add one bonus archetype from `TONE_A
 
 Plain version: tone pool says "these archetypes fit this mood." `ON_DEMAND_LIBRARY` says "these are available to add." You can only add something that's in both — and only 30% of the time.
 
-**Archetypes added: 0 or 1 (30% chance).**
+**⚠ This one doesn't survive the cap either.** The tone-boost archetype is the very first thing pushed onto `coreBase`, right after the base 5 — still index 5, still discarded by `.slice(0, 5)`.
+
+**Archetypes added to the final pool: 0. Always 0.** (Pushes 0 or 1 candidates onto `coreBase`, 30% chance, before the cap discards it.)
 
 *Note: the autonomous path in Mechanism 4 previously used a syntax gate (checking for `?` and question phrases) before rolling the 12% chance. Both were removed — the syntax gate was replaced by intent score thresholds only, and the chance was raised to 25%. Mechanism 4 documents the current behavior.*
 
@@ -237,15 +245,25 @@ The 5 base archetypes are stable and somewhat harmonious by design. If you kept 
 
 **Running total after Step 3:**
 
-**IMPORTANT — there is a hard pool cap at 5 before shadow injection.**
+**⚠ MAJOR CORRECTION — 2026-08-03. Earlier versions of this doc (including the previous revision of this exact section) described the cap as "additions compete for 5 slots" and gave a worked example where Jung, Beck, and a semantic match all made it into a 7-archetype final pool. That is wrong. Traced against source and confirmed by running the actual logic standalone — there is no competition. The base 5 win, unconditionally, every time.**
 
-All additions (tone boost, intent-driven, semantic match) happen to the same `coreBase` array. Before shadow injection, the pool is sliced to 5: `[...new Set([...coreBase, ...suggestedArchetypes])].slice(0, 5)`. Earlier additions can be crowded out by the cap.
+Here's why. `coreBase` is declared once as the base 5 (`const coreBase = [...CORE_BASE_ARCHETYPES]`) and every later addition — tone boost, Jung, Beck, Rumi-redundant, Liminal Architect, Trickster — gets `.push()`ed onto that *same array*, landing at index 5 or later. The semantic match result is appended last of all, after everything else. Then:
 
-After the cap, shadow injection adds up to 2 more. So the **maximum pool size is 7** (5 capped + 2 shadows), not 8, 10, or 12. The running total stated in earlier versions of this doc was wrong.
+```js
+const finalCoreBase = [
+  ...new Set([...coreBase, ...suggestedArchetypes.slice(0, 1)]),
+].slice(0, 5);
+```
 
-**Typical philosophical message:** 5 (base) → tone boost may add 1 → intent adds Jung + Beck → semantic match adds 1 → all of these compete for 5 slots → cap trims to 5 → shadows add 2 → **7 total**.
+`.slice(0, 5)` keeps the first 5 elements of that combined, order-preserving list. The first 5 elements are always the base 5 — nothing removes them, nothing reorders them. So indices 5+ (every single addition, no matter how many fired) are cut, unconditionally. Verified by running this exact logic with every optional addition firing simultaneously: output was the unmodified base 5.
 
-**OR** — if maximum distance mode fired: exactly 3 archetypes, no exceptions. The entire base is replaced. No shadows added (the 3 ARE the collision).
+**What this means for Mechanisms 1 and 2 Job 1: they compute, they log, they never reach the prompt.** Not sometimes crowded out — never once make it through, on any message, under any combination of scores, outside of max-distance mode. This is not a new bug introduced recently; it's how the cap has always worked. It just hadn't been traced end-to-end until now.
+
+**What actually determines the final pool, every time (non-max-distance messages):** the 5 base archetypes, plus whatever Mechanism 3 (shadow pairing) adds on top — shadows run *after* this cap, so they're unaffected. **Maximum pool size is 7** (5 base + 2 shadows) — that part of the old running total was right, just for the wrong reason. It was never "5 winners out of a competitive field," it was always "the same 5, plus up to 2 shadows."
+
+**Any message, philosophical or not, that doesn't trigger max-distance mode:** 5 base → shadows add 0, 1, or 2 → **5 to 7 total, always some subset of {base 5} ∪ {shadows}.** Tone boost, Jung, Beck, Rumi-redundant, Liminal Architect, Trickster, and the semantic match candidate can all fire, log, and still contribute exactly nothing to who's actually in the room.
+
+**OR** — if maximum distance mode fired: exactly 3 archetypes, no exceptions. The entire base is replaced (`coreBase.length = 0`) before any of the above logic runs, so this is the one path where the cap issue doesn't apply — there's nothing competing, the pair + Liminal Architect just are the pool. No shadows added (the 3 ARE the collision).
 
 Each archetype is a written prompt — not just a name. Contains: a signature move, cognitive frameworks, and behavioral instructions. None of them respond individually. All go into the final prompt together as thinking methods.
 
@@ -456,12 +474,12 @@ All three write to `data/pneuma_autonomy.json`. On the next request, `getAutonom
 | Step 1 | Message arrives | 0 |
 | Step 2 | Behavioral guards | 0 |
 | Step 3 — Base 5 | Always active | 5 |
-| Step 3 — Mechanism 2 Job 2 | Tone boost (30% chance) | 0 or 1 |
-| Step 3 — Mechanism 2 Job 1 | Intent scoring (Jung/Beck/Rumi/Liminal/Trickster) | 0–5 |
-| Step 3 — Mechanism 1 | Semantic match (cosine > 0.7) | 0 or 1 |
-| **POOL CAP** | `slice(0, 5)` — hard limit before shadows | **max 5** |
-| Step 3 — Mechanism 3 | Shadow pairing (up to 2 total) | 0, 1, or 2 |
-| Step 3 — Mechanism 4 | Maximum distance mode (if fired) | **replaces all: exactly 3** |
+| Step 3 — Mechanism 2 Job 2 | Tone boost (30% chance) | pushes 0 or 1 onto `coreBase` — **0 reach final pool, always crowded out** |
+| Step 3 — Mechanism 2 Job 1 | Intent scoring (Jung/Beck/Rumi/Liminal/Trickster) | pushes 0–5 onto `coreBase` — **0 reach final pool, always crowded out** |
+| Step 3 — Mechanism 1 | Semantic match (cosine > 0.7) | qualifies 0 or 1 — **0 reach final pool, always crowded out** |
+| **POOL CAP** | `slice(0, 5)` — keeps the first 5 elements, which are always the base 5 | **max 5, and it's always the same 5** |
+| Step 3 — Mechanism 3 | Shadow pairing (up to 2 total) — runs after the cap, unaffected by it | 0, 1, or 2 |
+| Step 3 — Mechanism 4 | Maximum distance mode (if fired) — bypasses the cap entirely by wiping `coreBase` first | **replaces all: exactly 3** |
 | Step 4 | archetypeRAG.js | 0 (passages only) |
 | Step 5 | vectorMemory.js + patternDigest | 0 (exchanges + digest only) |
 | Step 6 | Inner monologue | 0 |
@@ -469,7 +487,7 @@ All three write to `data/pneuma_autonomy.json`. On the next request, `getAutonom
 | Step 7.5 | Self-evaluation + conditional regeneration | 0 |
 | Post-response | Autonomy write-back | 0 (state only) |
 
-**Maximum pool size: 7 (5 capped + 2 shadows). Not 8, 10, or 12.**
+**Maximum pool size: 7 (base 5 + 2 shadows). Not 8, 10, or 12 — and, corrected 2026-08-03, not "5 competitively-won slots + 2 shadows" either. The 5 are always the same 5 base archetypes; only the 2 shadow slots vary.**
 
 ---
 

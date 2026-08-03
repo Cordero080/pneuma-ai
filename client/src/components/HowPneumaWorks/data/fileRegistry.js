@@ -43,17 +43,17 @@ export const FILE_REGISTRY = {
   },
   "archetypeSelector.js": {
     path: "server/pneuma/intelligence/archetypeSelector.js",
-    role: "Decides which archetype Pneuma becomes for this response.",
+    role: "Computes a semantic-match archetype candidate — see keyInsight, its output never actually reaches the pool.",
     mainFunction: "findBestArchetype(message)",
     whatItDoes:
-      "Embeds the user's message. Compares it via cosine similarity against pre-computed embeddings of each archetype's essence description. Returns the closest match above 0.25, or null.",
+      "Embeds the user's message. Compares it via cosine similarity against pre-computed embeddings of each archetype's essence description. Returns the closest match above 0.25, or null. buildArchetypeContext() then requires the score to also clear 0.7 before treating it as a real candidate.",
     flowChain:
-      "llm.js → findBestArchetype(message) → getEmbedding() from vectorMemory.js → cosine similarity vs. archetypeEssences → archetype name returned → injected into system prompt as 'You are [archetype]'",
+      "llm.js → findBestArchetype(message) → getEmbedding() from vectorMemory.js → cosine similarity vs. archetypeEssences → archetype name returned → appended to a candidate list that gets capped before the system prompt is built (see keyInsight)",
     direction: "REQUEST",
     directionNote:
-      "Runs before the Claude call. Its output shapes who Claude thinks it is.",
+      "Runs before the Claude call. Computes a candidate; does not currently shape who Claude thinks it is (see keyInsight).",
     keyInsight:
-      "It compares against essence descriptions (short summaries), not passages. That's different from archetypeRAG which searches actual philosophical texts. Router = who to be. RAG = what to think with.",
+      "Traced end-to-end 2026-08-03: this result is appended last into buildArchetypeContext()'s candidate list, after the 5 base archetypes and any intent-driven additions. The pool then gets hard-capped with .slice(0, 5) — and since the base 5 are always inserted first and never removed, they always occupy all 5 slots. The semantic match candidate this function computes never survives that cap, on any message, ever. It compares against essence descriptions (short summaries), not passages — that's still the real distinction from archetypeRAG, which searches actual philosophical texts — but 'Router = who to be' is not currently true in practice. RAG = what to think with still holds.",
   },
   "archetypeRAG.js": {
     path: "server/pneuma/intelligence/archetypeRAG.js",
