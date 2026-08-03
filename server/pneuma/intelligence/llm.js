@@ -2155,10 +2155,17 @@ async function buildArchetypeContext(
     }
   }
 
-  // Final core base: 3-5 archetypes
-  const finalCoreBase = [
-    ...new Set([...coreBase, ...suggestedArchetypes.slice(0, 1)]),
-  ].slice(0, 5);
+  // Final core base: base 5 always kept, additions stack on top, capped at 7
+  // Using .length instead of hardcoding 5, so if that list ever changes size
+  // this doesn't silently break.
+  const additions = coreBase.slice(CORE_BASE_ARCHETYPES.length);
+
+  const finalCoreBase = maxDistanceMode
+    ? coreBase
+    : [
+        ...CORE_BASE_ARCHETYPES,
+        ...new Set([...additions, ...suggestedArchetypes.slice(0, 1)]),
+      ].slice(0, 7);
 
   console.log(
     `[Archetype] Core Base (${finalCoreBase.length}): ${finalCoreBase.join(
