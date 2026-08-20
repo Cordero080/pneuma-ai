@@ -732,7 +732,7 @@ When I say "gap drill", use the Gap section immediately below.
 
 #### ✅ Gap 1 — Concept Crossroads (SHIPPED — Apr 2026)
 
-**What shipped:** `archetypeRAG.js` now detects ~80 philosophical concepts and runs parallel concept×active-thinker embedding queries. Passages scored for relevance × 0.5 + distinctiveness × 0.3 + collision bonus × 0.2. topK raised 5→8, minScore lowered 0.35→0.3. Single-query fallback retained for non-philosophical messages.
+**What shipped:** `archetypeRAG.js` now detects ~80 philosophical concepts and runs parallel concept×active-thinker embedding queries. Passages scored for relevance × 0.5 + distinctiveness × 0.3 + a flat 0.2 collision bonus (added, not a 0.2 weight). topK raised 5→8, minScore lowered 0.35→0.3. Single-query fallback retained for non-philosophical messages.
 
 **Interview framing:**
 

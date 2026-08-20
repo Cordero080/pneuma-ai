@@ -36,10 +36,10 @@ A semantic retrieval system that dynamically injects relevant thinker passages i
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                    50/30/20 Scoring                              │
+│              Re-rank: 0.5·rel + 0.3·distinct + 0.2 flat          │
 │         50% relevance (cosine similarity to query)               │
 │         30% distinctiveness (different from other candidates)    │
-│         20% collision bonus (thinker in known tension pair)      │
+│    +0.2 flat collision bonus (thinker in known tension pair)     │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -224,7 +224,7 @@ The `context` field carries **thinking operations**, not just information.
 | Camus             | ~20      | Absurd, revolt, lucid confrontation                         |
 | ...               | ...      | ...                                                         |
 
-Total: 48 thinker folders, 1,385+ passages
+Total: 48 thinker folders, 1,394 passages
 
 ---
 

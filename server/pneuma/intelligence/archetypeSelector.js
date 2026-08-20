@@ -186,7 +186,7 @@ export async function initializeArchetypeEmbeddings() {
 // with an optional additive evolution bias applied on top. Waits for: [1].
 // evolutionVectors: state.vectors from responseEngine — biases selection toward
 // archetypes that match Pneuma's evolved identity without overriding cosine similarity.
-export async function findBestArchetype(message, evolutionVectors = {}) {
+export async function findBestArchetype(message, evolutionVectors = {}, minScore = 0.7) {
   if (!isInitialized) {
     console.warn(
       "[Archetype Selector] Warning: Router not initialized. Initializing now...",
@@ -214,7 +214,7 @@ export async function findBestArchetype(message, evolutionVectors = {}) {
     }
   }
 
-  if (highestScore < 0.25) {
+  if (highestScore < minScore) {
     return null;
   }
 

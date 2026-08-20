@@ -480,10 +480,12 @@ const STUDY_SECTIONS = [
             concept-targeted multi-query retrieval: it detects which of ~80
             philosophical concepts are in your message, fires parallel embedding
             queries formatted as "{"{concept} {thinker}"}" for each concept ×
-            active thinker, scores passages on relevance (50%) + distinctiveness
-            (30%) + collision bonus if thinkers disagree (20%), deduplicates,
-            and injects the top 8 as Tier 3 context. For non-philosophical
-            messages, single-query cosine fallback still runs.
+            active thinker, scores passages as relevance &times; 0.5 +
+            distinctiveness &times; 0.3 + a flat 0.2 collision bonus (added, not
+            a 20% weight) if thinkers disagree, deduplicates, and injects the
+            top 8 as Tier 3 context. For non-philosophical messages, a
+            single-query fallback ranked by raw cosine only (no re-rank) still
+            runs.
           </div>
         </div>
         <div className="sg-qa">

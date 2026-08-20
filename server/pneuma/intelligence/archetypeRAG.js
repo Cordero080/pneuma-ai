@@ -572,7 +572,10 @@ function _selectBestPassages(scoredPassages, maxPassages) {
     (a, b) => b.totalScore - a.totalScore,
   );
 
-  // Deduplicate near-identical passages
+  // Deduplicate near-identical passages.
+  // Relies on `sorted` (highest totalScore first): keep-first means the
+  // higher-scoring passage of each near-duplicate pair survives. Don't feed
+  // this loop an unsorted list — it has no score check of its own.
   const deduped = [];
   for (const p of sorted) {
     const isDup = deduped.some(

@@ -60,7 +60,7 @@ export const FILE_REGISTRY = {
     role: "Concept Crossroads multi-query RAG — detects philosophical concepts and retrieves passages optimized for dialectical tension.",
     mainFunction: "retrieveArchetypeKnowledge(message, options)",
     whatItDoes:
-      "Concept Crossroads pipeline: detects which of ~80 philosophical concepts are in the message, fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages on relevance (50%) + distinctiveness from other selected passages (30%) + collision bonus if thinkers disagree (20%). Deduplicates near-identical results (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query cosine retrieval for non-philosophical messages.",
+      "Concept Crossroads pipeline: detects which of ~80 philosophical concepts are in the message, fires parallel embedding queries formatted as '{concept} {thinker}' for each concept × active thinker, scores passages: relevance × 0.5 + distinctiveness from the other pool candidates × 0.3 + a flat 0.2 collision bonus (added, not a 20% weight) if thinkers disagree. Deduplicates near-identical results (cosine > 0.95), caps at 2 per thinker, returns topK=8. Falls back to single-query retrieval ranked by raw cosine only (no re-rank, no collision bonus) for non-philosophical messages.",
     flowChain:
       "llm.js → retrieveArchetypeKnowledge() → extractConcepts() → _multiQueryRetrieval() [parallel] → _evaluatePassages() → _selectBestPassages() → getArchetypeContext() formats results → injected as 'RELEVANT WISDOM' block in system prompt",
     direction: "REQUEST",

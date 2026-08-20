@@ -81,7 +81,7 @@ Don't just quote — TRANSFORM through your own synthesis.`}</ModalCodeBlock>
             },
             {
               title: "Score Each Passage",
-              desc: "Relevance (50%) + how different it is from the others (30%) + collision bonus if thinkers disagree (20%)",
+              desc: "relevance × 0.5 + how different it is from the other pool candidates × 0.3 + a flat 0.2 bonus (added, not a 20% weight) if thinkers disagree. Not a 50/30/20 split.",
             },
             {
               title: "Orphan Filter",

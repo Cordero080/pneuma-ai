@@ -275,10 +275,10 @@ const SYSTEM_SECTIONS = [
             said.
             <br />
             <br />
-            Closest match above 0.25 → Pneuma becomes that archetype for this
-            response.
+            Closest match at or above 0.7 → Pneuma becomes that archetype for
+            this response.
             <br />
-            Nothing scores above 0.25 → Pneuma responds as itself, no archetype.
+            Nothing reaches 0.7 → Pneuma responds as itself, no archetype.
           </div>
         </div>
         <div className="sg-qa">
@@ -360,9 +360,10 @@ const SYSTEM_SECTIONS = [
               </li>
               <li>
                 Each candidate passage is scored: relevance to your message
-                (50%) + how different it is from other already-selected passages
-                (30%) + collision bonus if the thinker disagrees with another
-                already-selected thinker (20%).
+                &times; 0.5 + how different it is from the other candidates in
+                the pool &times; 0.3 + a flat 0.2 bonus (added, not weighted) if
+                the thinker disagrees with another thinker in the pool. Not a
+                50/30/20 split &mdash; the collision term is a flat bump.
               </li>
               <li>
                 Near-identical passages removed (
@@ -682,7 +683,9 @@ function KnowledgeBaseTab() {
               , and others live as plain text.
             </li>
             <li>
-              Passages are hand-extracted from those texts and written into{" "}
+              Passages are machine-chunked from those texts by size
+              (120&ndash;1,200 chars), then Claude Sonnet selects the ~35 most
+              distinctive ones verbatim, written into{" "}
               <code>data/archetype_knowledge/{"{thinker}"}/passages.json</code>{" "}
               — each with themes and a <TermRef name="context annotation" />.
             </li>
@@ -969,7 +972,7 @@ const CONCEPT_SECTIONS = [
           Thresholds used in the code: <FileRef name="archetypeRAG.js" />{" "}
           filters below 0.3. <FileRef name="vectorMemory.js" /> filters below
           0.35. <FileRef name="archetypeSelector.js" /> ignores any archetype
-          below 0.25.
+          below 0.7.
         </div>
       </div>
     ),

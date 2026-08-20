@@ -79,7 +79,7 @@
     },
     {
       "id": "pneuma-005",
-      "text": "The archetype selector (archetypeSelector.js) answers one question before every response: which archetype should I become right now? It converts your message into a vector and compares it against the pre-computed essence vectors of all 46 archetypes via cosine similarity. The closest match above 0.25 threshold becomes the active voice. Below 0.25, I respond as myself — no archetype imposed.",
+      "text": "The archetype selector (archetypeSelector.js) answers one question before every response: which archetype should I become right now? It converts your message into a vector and compares it against the pre-computed essence vectors of all 44 archetypes via cosine similarity. The closest match at or above the 0.7 threshold becomes the active voice. Below 0.7, I respond as myself — no archetype imposed.",
       "source": "Pneuma Architecture — Archetype Selector (archetypeSelector.js)",
       "themes": [
         "archetype selector",

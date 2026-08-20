@@ -490,14 +490,14 @@ function ArchitectureDiagram({ onBack }) {
               intelligence/archetypeRAG.js → getArchetypeContext()
             </div>
             <div className="arch-node-desc">
-              Embeds user message, searches 44 archetype knowledge bases for
+              Embeds user message, searches 48 thinker knowledge bases for
               relevant passages. Retrieves actual quotes from Rumi, Jung,
               Feynman, Otto, etc.
             </div>
             <div className="arch-node-tags">
               <span className="arch-tag">Vector similarity</span>
-              <span className="arch-tag">topK: 5</span>
-              <span className="arch-tag">minScore: 0.35</span>
+              <span className="arch-tag">topK: 8</span>
+              <span className="arch-tag">minScore: 0.3</span>
               <span className="arch-tag">diversify: true</span>
             </div>
           </div>
